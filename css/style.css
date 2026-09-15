@@ -292,7 +292,7 @@ section { position: relative; }
 }
 .ring-outer { border: 1px solid var(--line); }
 .ring-inner {
-  inset: 20.5%;
+  inset: 8%;
   border: 1px solid var(--accent-red);
   opacity: 0.55;
 }
@@ -311,7 +311,7 @@ section { position: relative; }
   font-weight: 500;
   color: var(--cream-dim);
   font-size: 15px;
-  transform: rotate(calc(360deg / var(--n) * var(--i))) translateY(calc(-1 * var(--r)));
+  transform: rotate(calc(360deg / var(--n) * var(--i))) translateY(calc(-1 * var(--r))) rotate(calc(-360deg / var(--n) * var(--i)));
 }
 .ring-inner .ring-letter { font-size: 12.5px; color: rgba(244,239,226,0.5); }
 
@@ -321,7 +321,7 @@ section { position: relative; }
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 78%;
+  width: 70%;
 }
 .hero-center .eyebrow { justify-content: center; display: block; margin-bottom: 10px; font-size: 10.5px; }
 .hero-center .ring-title {
