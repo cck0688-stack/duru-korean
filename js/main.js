@@ -97,6 +97,26 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 
+  /* Re-align an in-page anchor target after web fonts finish loading,
+     since font swap can reflow the page and leave the initial
+     browser-driven anchor jump misaligned (showing a sliver of the
+     section above the target, under the sticky header). */
+  if (location.hash) {
+    const alignToHash = () => {
+      const target = document.querySelector(location.hash);
+      const headerEl = document.querySelector('.site-header');
+      if (!target || !headerEl) return;
+      const offset = headerEl.offsetHeight + 20;
+      const y = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: Math.max(y, 0), behavior: 'instant' });
+    };
+    alignToHash();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(alignToHash);
+    }
+    window.addEventListener('load', alignToHash);
+  }
+
   /* Newsletter form (static demo) */
   document.querySelectorAll('.newsletter-form, .resource-signup-form').forEach((form) => {
     form.addEventListener('submit', (e) => {
