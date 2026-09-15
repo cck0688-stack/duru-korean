@@ -102,9 +102,10 @@ section { position: relative; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 38, 32, 0.92);
+  background: rgba(23, 20, 16, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(244, 239, 226, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .site-header .wrap {
@@ -278,7 +279,7 @@ section { position: relative; }
 
 .hangul-ring {
   position: relative;
-  width: min(420px, 85%);
+  width: min(540px, 92%);
   aspect-ratio: 1 / 1;
   margin: 0 auto;
 }
@@ -300,19 +301,19 @@ section { position: relative; }
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 26px;
-  height: 26px;
-  margin: -13px 0 0 -13px;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 500;
   color: var(--cream-dim);
-  font-size: 13px;
+  font-size: 15px;
   transform: rotate(calc(360deg / var(--n) * var(--i))) translateY(calc(-1 * var(--r)));
 }
-.ring-inner .ring-letter { font-size: 11px; color: rgba(244,239,226,0.5); }
+.ring-inner .ring-letter { font-size: 12.5px; color: rgba(244,239,226,0.5); }
 
 .hero-center {
   position: absolute;
@@ -322,22 +323,22 @@ section { position: relative; }
   text-align: center;
   width: 78%;
 }
-.hero-center .eyebrow { justify-content: center; display: block; margin-bottom: 8px; font-size: 9.5px; }
+.hero-center .eyebrow { justify-content: center; display: block; margin-bottom: 10px; font-size: 10.5px; }
 .hero-center .ring-title {
-  font-size: clamp(19px, 2.6vw, 27px);
+  font-size: clamp(23px, 3vw, 32px);
   font-weight: 800;
-  margin: 0 0 5px;
+  margin: 0 0 6px;
   letter-spacing: 0.01em;
 }
 .hero-center .kr-sub {
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--cream-dim);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .hero-center .tagline {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--cream-dim);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .hero-divider {
   width: 40px;
@@ -348,12 +349,12 @@ section { position: relative; }
 .combo-row {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--cream-dim);
 }
-.combo-row .eq { color: var(--accent-red); font-weight: 700; font-size: 15px; }
+.combo-row .eq { color: var(--accent-red); font-weight: 700; font-size: 16px; }
 
 .hero-cta {
   display: flex;
@@ -806,7 +807,7 @@ section { position: relative; }
     top: 76px;
     left: 0;
     right: 0;
-    background: var(--bg-deep);
+    background: rgb(23, 20, 16);
     padding: 20px 28px 30px;
     gap: 18px;
     border-bottom: 1px solid var(--line);
