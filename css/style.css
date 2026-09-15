@@ -120,14 +120,14 @@ section { position: relative; }
   display: flex;
   flex-direction: column;
   line-height: 1.1;
-  color: var(--cream);
+  color: #ffffff;
 }
 .logo .logo-en {
   font-weight: 800;
   font-size: 18px;
   letter-spacing: 0.02em;
 }
-.logo .logo-en span { color: var(--accent-red); }
+.logo .logo-en span { color: #ff7a4d; }
 .logo .logo-kr {
   font-size: 10.5px;
   letter-spacing: 0.14em;

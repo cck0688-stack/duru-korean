@@ -17,14 +17,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Active nav link */
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-main a').forEach((a) => {
-    const href = a.getAttribute('href');
-    if (href === path || (path === '' && href === 'index.html')) {
-      a.classList.add('active');
-    }
-  });
+  /* Active nav link (matches path first, then prefers a link whose hash also matches) */
+  const setActiveNavLink = () => {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    const links = document.querySelectorAll('.nav-main a');
+    links.forEach((a) => a.classList.remove('active'));
+
+    const pathMatches = Array.from(links).filter((a) => {
+      const [hrefPath] = a.getAttribute('href').split('#');
+      return hrefPath === path || (path === 'index.html' && hrefPath === '');
+    });
+    if (!pathMatches.length) return;
+
+    const withHash = location.hash
+      ? pathMatches.find((a) => a.getAttribute('href').split('#')[1] === location.hash.slice(1))
+      : null;
+    const noHash = pathMatches.find((a) => !a.getAttribute('href').includes('#'));
+    (withHash || noHash || pathMatches[0]).classList.add('active');
+  };
+  setActiveNavLink();
+  window.addEventListener('hashchange', setActiveNavLink);
 
   /* Hangul ring radius (keeps letters on the circle at any size) */
   document.querySelectorAll('[data-ring]').forEach((ring) => {
