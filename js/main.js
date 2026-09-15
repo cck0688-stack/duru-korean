@@ -1,6 +1,16 @@
 // DURU KOREAN — shared behaviors
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+if (!location.hash) {
+  window.scrollTo(0, 0);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  if (!location.hash) {
+    window.scrollTo(0, 0);
+  }
   /* Mobile nav toggle */
   const toggle = document.querySelector('.nav-toggle');
   const header = document.querySelector('.site-header');

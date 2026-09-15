@@ -120,7 +120,7 @@ section { position: relative; }
   display: flex;
   flex-direction: column;
   line-height: 1.1;
-  color: #ffffff;
+  color: #ffd23f;
 }
 .logo .logo-en {
   font-weight: 800;
@@ -378,10 +378,18 @@ section { position: relative; }
 }
 .page-hero .eyebrow { margin-bottom: 14px; }
 .page-hero h1 {
-  font-size: clamp(30px, 5vw, 46px);
+  font-size: clamp(42px, 7vw, 72px);
   font-weight: 800;
+  margin: 0 0 12px;
+  max-width: 800px;
+  line-height: 1.05;
+}
+.page-hero-tagline {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--cream);
   margin: 0 0 16px;
-  max-width: 760px;
+  max-width: 620px;
 }
 .page-hero p {
   color: var(--cream-dim);
