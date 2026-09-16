@@ -3,6 +3,12 @@
 A static marketing site for Duru Korean, live at https://www.durukorean.com
 and deployed on Vercel. Plain HTML/CSS/JS — no build step.
 
+This file is the technical reference. `PROJECT-NOTES.ko.md` is the
+handover document in Korean: what the site owner can do without a
+developer, the accounts and addresses involved, the traps this project
+has already hit, and what is still outstanding. Read both before
+picking the work up.
+
 ## Structure
 
 ```
