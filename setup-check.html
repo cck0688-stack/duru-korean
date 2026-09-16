@@ -236,73 +236,111 @@
       states.push(row('warn', '4. anon key', '확인하지 못했습니다: ' + e.message));
     }
 
-    // 5. resources table
+    // 5. auth settings — the project's own answer about whether sign-up is
+    //    even allowed, and whether it will demand an emailed confirmation.
+    //    Guessing at this from a failed sign-up is hopeless; the gateway
+    //    publishes it, so ask it directly.
+    try {
+      const res = await fetch(CONFIG.url.replace(/\/$/, '') + '/auth/v1/settings', {
+        headers: { apikey: CONFIG.anonKey },
+      });
+      const cfg = res.ok ? await res.json() : null;
+      if (!cfg) {
+        states.push(row('warn', '5. 회원가입 설정', 'HTTP ' + res.status + ' — 설정을 읽지 못했습니다.'));
+      } else if (cfg.disable_signup) {
+        states.push(row('fail', '5. 회원가입 설정', '회원가입이 꺼져 있습니다. 그래서 가입 버튼을 눌러도 계정이 만들어지지 않습니다.',
+          '<b>해결:</b> 대시보드 → <b>Authentication</b> → <b>Sign In / Providers</b> → <b>Email</b> 에서 ' +
+          '<b>Allow new users to sign up</b> 을 켜세요.'));
+      } else if (cfg.mailer_autoconfirm) {
+        states.push(row('pass', '5. 회원가입 설정', '회원가입 켜짐 · 이메일 확인 없이 바로 로그인됩니다.'));
+      } else {
+        states.push(row('warn', '5. 회원가입 설정', '회원가입은 켜져 있지만 이메일 확인이 필요합니다. 확인 메일이 오지 않으면 가입이 끝나지 않습니다.',
+          '<b>확인 메일이 안 오거나 링크가 깨질 때:</b><ol>' +
+          '<li>대시보드 → <b>Authentication</b> → <b>URL Configuration</b> 에서 ' +
+          '<b>Site URL</b> 을 <code>' + location.origin + location.pathname.replace(/[^/]*$/, '') + '</code> 로 바꾸세요. ' +
+          '기본값은 <code>http://localhost:3000</code> 이라 메일 링크가 깨집니다.</li>' +
+          '<li>같은 화면 <b>Redirect URLs</b> 에 <code>' + location.origin + location.pathname.replace(/[^/]*$/, '') + '**</code> 를 추가하세요.</li>' +
+          '<li>무료 플랜의 기본 메일 발송은 시간당 몇 통으로 제한되고, 프로젝트 소유자 주소 외에는 도착하지 않는 경우가 많습니다. ' +
+          '가장 확실한 방법은 <b>Authentication → Sign In / Providers → Email</b> 에서 ' +
+          '<b>Confirm email</b> 을 끄는 것입니다. 그러면 가입 즉시 로그인됩니다.</li></ol>'));
+      }
+      const google = cfg && cfg.external && cfg.external.google;
+      states.push(google
+        ? row('pass', '5-1. 구글 로그인', '켜져 있습니다.')
+        : row('warn', '5-1. 구글 로그인', '꺼져 있습니다. “Continue with Google” 버튼은 아직 동작하지 않습니다.',
+            '<b>쓰시려면:</b> 대시보드 → <b>Authentication</b> → <b>Sign In / Providers</b> → <b>Google</b> 을 켜고 ' +
+            'Google Cloud Console에서 받은 Client ID와 Secret을 넣으세요. 쓰지 않으실 거면 그대로 두셔도 됩니다.'));
+    } catch (e) {
+      states.push(row('warn', '5. 회원가입 설정', '확인하지 못했습니다: ' + e.message));
+    }
+
+    // 6. resources table
     {
       const { error } = await client.from('resources').select('id').limit(1);
       states.push(!error
-        ? row('pass', '5. resources 테이블', '존재하며 읽을 수 있습니다.')
+        ? row('pass', '6. resources 테이블', '존재하며 읽을 수 있습니다.')
         : isMissingTable(error)
-          ? row('fail', '5. resources 테이블', '아직 만들어지지 않았습니다.',
+          ? row('fail', '6. resources 테이블', '아직 만들어지지 않았습니다.',
               '<b>해결:</b><ol><li>대시보드 → <b>SQL Editor</b> → New query</li>' +
               '<li>저장소의 <code>supabase/schema.sql</code> 내용을 전부 붙여넣기</li>' +
               '<li><b>Run</b> 실행</li></ol>')
-          : row('warn', '5. resources 테이블', '오류: ' + error.message));
+          : row('warn', '6. resources 테이블', '오류: ' + error.message));
     }
 
-    // 6. admin_users table
+    // 7. admin_users table
     {
       const { error } = await client.from('admin_users').select('user_id').limit(1);
       states.push(!error
-        ? row('pass', '6. admin_users 테이블', '존재합니다.')
+        ? row('pass', '7. admin_users 테이블', '존재합니다.')
         : isMissingTable(error)
-          ? row('fail', '6. admin_users 테이블', '아직 만들어지지 않았습니다.',
-              '<b>해결:</b> 5번과 동일하게 <code>supabase/schema.sql</code> 을 SQL Editor에서 실행하세요.')
-          : row('warn', '6. admin_users 테이블', '오류: ' + error.message));
+          ? row('fail', '7. admin_users 테이블', '아직 만들어지지 않았습니다.',
+              '<b>해결:</b> 6번과 동일하게 <code>supabase/schema.sql</code> 을 SQL Editor에서 실행하세요.')
+          : row('warn', '7. admin_users 테이블', '오류: ' + error.message));
     }
 
-    // 7. storage bucket
+    // 8. storage bucket
     {
       const { error } = await client.storage.from('resources').list('', { limit: 1 });
       states.push(!error
-        ? row('pass', '7. resources 저장소 버킷', '존재하며 접근할 수 있습니다.')
+        ? row('pass', '8. resources 저장소 버킷', '존재하며 접근할 수 있습니다.')
         : /not found|does not exist/i.test(error.message)
-          ? row('fail', '7. resources 저장소 버킷', '버킷이 없습니다.',
+          ? row('fail', '8. resources 저장소 버킷', '버킷이 없습니다.',
               '<b>해결:</b><ol><li>대시보드 → <b>Storage</b> → New bucket</li>' +
               '<li>이름을 정확히 <code>resources</code> 로 입력</li>' +
               '<li><b>Public bucket</b> 켜기 → 생성</li></ol>')
-          : row('warn', '7. resources 저장소 버킷', '오류: ' + error.message));
+          : row('warn', '8. resources 저장소 버킷', '오류: ' + error.message));
     }
 
-    // 8. keep_alive — the scheduled workflow curls this with -f, so a
+    // 9. keep_alive — the scheduled workflow curls this with -f, so a
     //    missing table turns into a failing GitHub Action, not a silent no-op.
     {
       const { error } = await client.from('keep_alive').select('id').limit(1);
       states.push(!error
-        ? row('pass', '8. keep_alive 테이블', '존재합니다. 자동 일시정지 방지 워크플로가 정상 동작합니다.')
+        ? row('pass', '9. keep_alive 테이블', '존재합니다. 자동 일시정지 방지 워크플로가 정상 동작합니다.')
         : isMissingTable(error)
-          ? row('fail', '8. keep_alive 테이블', '없습니다. GitHub Actions의 keep-alive 워크플로가 실패합니다.',
+          ? row('fail', '9. keep_alive 테이블', '없습니다. GitHub Actions의 keep-alive 워크플로가 실패합니다.',
               '<b>해결:</b> <code>supabase/schema.sql</code> 을 SQL Editor에서 실행하면 함께 만들어집니다. ' +
               '<br>GitHub 저장소 → Settings → Secrets → Actions 에 <code>SUPABASE_URL</code> 과 ' +
               '<code>SUPABASE_ANON_KEY</code> 도 등록되어 있어야 합니다.')
-          : row('warn', '8. keep_alive 테이블', '오류: ' + error.message));
+          : row('warn', '9. keep_alive 테이블', '오류: ' + error.message));
     }
 
-    // 9. session / admin
+    // 10. session / admin
     {
       const { data } = await client.auth.getSession();
       const user = data && data.session && data.session.user;
       document.getElementById('logoutBtn').hidden = !user;
       if (!user) {
-        states.push(row('skip', '9. 로그인 상태', '로그인되어 있지 않습니다. 위의 “로그인 테스트”로 확인해 보세요.'));
+        states.push(row('skip', '10. 로그인 상태', '로그인되어 있지 않습니다. 위의 “로그인 테스트”로 확인해 보세요.'));
       } else {
         const { data: admin, error } = await client
           .from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
         if (error && isMissingTable(error)) {
-          states.push(row('warn', '9. 로그인 상태', user.email + ' 로 로그인됨 (admin_users 테이블이 아직 없어 관리자 여부는 확인 불가)'));
+          states.push(row('warn', '10. 로그인 상태', user.email + ' 로 로그인됨 (admin_users 테이블이 아직 없어 관리자 여부는 확인 불가)'));
         } else if (admin) {
-          states.push(row('pass', '9. 로그인 · 관리자', user.email + ' — 관리자입니다. “+ 자료 첨부” 버튼이 보입니다.'));
+          states.push(row('pass', '10. 로그인 · 관리자', user.email + ' — 관리자입니다. “+ 자료 첨부” 버튼이 보입니다.'));
         } else {
-          states.push(row('warn', '9. 로그인 · 관리자', user.email + ' 로 로그인됨 — 아직 관리자가 아닙니다.',
+          states.push(row('warn', '10. 로그인 · 관리자', user.email + ' 로 로그인됨 — 아직 관리자가 아닙니다.',
             '<b>관리자로 지정하려면:</b><ol>' +
             '<li>대시보드 → <b>SQL Editor</b> 에서 아래를 실행하세요.</li></ol>' +
             '<div class="copy-row"><code id="adminSql">insert into public.admin_users (user_id) values (\'' + user.id + '\');</code>' +
