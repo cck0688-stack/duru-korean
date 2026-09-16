@@ -30,79 +30,79 @@
       <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
         <button type="button" class="auth-close" id="authCloseBtn" aria-label="Close">&times;</button>
 
-        <div id="authConfigNotice" class="auth-config-notice" ${isConfigured ? 'hidden' : ''}>
+        <div id="authConfigNotice" class="auth-config-notice" ${isConfigured ? 'hidden' : ''} data-i18n-html="auth.configNotice">
           Sign-in isn't connected yet. This site is wired for Supabase Auth —
           add your project's URL and anon key in <code>js/supabase-config.js</code>
           to turn it on. See <code>README.md</code> for the full setup.
         </div>
 
         <div class="auth-tabs" id="authTabs">
-          <button type="button" class="auth-tab active" data-tab="login">Log in</button>
-          <button type="button" class="auth-tab" data-tab="signup">Create account</button>
+          <button type="button" class="auth-tab active" data-tab="login" data-i18n="auth.tabLogin">Log in</button>
+          <button type="button" class="auth-tab" data-tab="signup" data-i18n="auth.tabSignup">Create account</button>
         </div>
 
         <!-- Log in panel -->
         <div class="auth-panel" data-panel="login">
-          <h2 id="authModalTitle">Welcome back</h2>
-          <p class="auth-sub">Log in to Duru Korean.</p>
+          <h2 id="authModalTitle" data-i18n="auth.loginTitle">Welcome back</h2>
+          <p class="auth-sub" data-i18n="auth.loginSub">Log in to Duru Korean.</p>
           <div class="auth-message" data-msg="login" hidden></div>
           <form id="loginForm" novalidate>
             <div class="auth-field">
-              <label for="loginEmail">Email</label>
+              <label for="loginEmail" data-i18n="auth.email">Email</label>
               <input type="email" id="loginEmail" autocomplete="email" required>
             </div>
             <div class="auth-field">
-              <label for="loginPassword">Password</label>
+              <label for="loginPassword" data-i18n="auth.password">Password</label>
               <input type="password" id="loginPassword" autocomplete="current-password" required minlength="6">
             </div>
             <div class="auth-row-between">
               <span></span>
-              <button type="button" class="auth-link-btn" data-tab="reset">Forgot password?</button>
+              <button type="button" class="auth-link-btn" data-tab="reset" data-i18n="auth.forgotPassword">Forgot password?</button>
             </div>
-            <button type="submit" class="btn btn-primary auth-submit" id="loginSubmit">Log in</button>
+            <button type="submit" class="btn btn-primary auth-submit" id="loginSubmit" data-i18n="auth.loginSubmit">Log in</button>
           </form>
-          <div class="auth-divider">or</div>
-          <button type="button" class="btn auth-google" id="googleLoginBtn">Continue with Google</button>
+          <div class="auth-divider" data-i18n="auth.or">or</div>
+          <button type="button" class="btn auth-google" id="googleLoginBtn" data-i18n="auth.continueGoogle">Continue with Google</button>
         </div>
 
         <!-- Create account panel -->
         <div class="auth-panel" data-panel="signup" hidden>
-          <h2>Create your account</h2>
-          <p class="auth-sub">Start with a free Duru Korean account.</p>
+          <h2 data-i18n="auth.signupTitle">Create your account</h2>
+          <p class="auth-sub" data-i18n="auth.signupSub">Start with a free Duru Korean account.</p>
           <div class="auth-message" data-msg="signup" hidden></div>
           <form id="signupForm" novalidate>
             <div class="auth-field">
-              <label for="signupEmail">Email</label>
+              <label for="signupEmail" data-i18n="auth.email">Email</label>
               <input type="email" id="signupEmail" autocomplete="email" required>
             </div>
             <div class="auth-field">
-              <label for="signupPassword">Password</label>
+              <label for="signupPassword" data-i18n="auth.password">Password</label>
               <input type="password" id="signupPassword" autocomplete="new-password" required minlength="6">
             </div>
             <div class="auth-field">
-              <label for="signupPasswordConfirm">Confirm password</label>
+              <label for="signupPasswordConfirm" data-i18n="auth.confirmPassword">Confirm password</label>
               <input type="password" id="signupPasswordConfirm" autocomplete="new-password" required minlength="6">
             </div>
-            <button type="submit" class="btn btn-primary auth-submit" id="signupSubmit">Create account</button>
+            <button type="submit" class="btn btn-primary auth-submit" id="signupSubmit" data-i18n="auth.signupSubmit">Create account</button>
           </form>
-          <div class="auth-divider">or</div>
-          <button type="button" class="btn auth-google" id="googleSignupBtn">Continue with Google</button>
+          <div class="auth-divider" data-i18n="auth.or">or</div>
+          <button type="button" class="btn auth-google" id="googleSignupBtn" data-i18n="auth.continueGoogle">Continue with Google</button>
         </div>
 
         <!-- Reset password panel -->
         <div class="auth-panel" data-panel="reset" hidden>
-          <h2>Reset your password</h2>
-          <p class="auth-sub">We'll email you a link to set a new password.</p>
+          <h2 data-i18n="auth.resetTitle">Reset your password</h2>
+          <p class="auth-sub" data-i18n="auth.resetSub">We'll email you a link to set a new password.</p>
           <div class="auth-message" data-msg="reset" hidden></div>
           <form id="resetForm" novalidate>
             <div class="auth-field">
-              <label for="resetEmail">Email</label>
+              <label for="resetEmail" data-i18n="auth.email">Email</label>
               <input type="email" id="resetEmail" autocomplete="email" required>
             </div>
-            <button type="submit" class="btn btn-primary auth-submit" id="resetSubmit">Send reset link</button>
+            <button type="submit" class="btn btn-primary auth-submit" id="resetSubmit" data-i18n="auth.resetSubmit">Send reset link</button>
           </form>
           <div class="auth-row-between" style="margin-top:4px;">
-            <button type="button" class="auth-link-btn" data-tab="login">Back to log in</button>
+            <button type="button" class="auth-link-btn" data-tab="login" data-i18n="auth.backToLogin">Back to log in</button>
             <span></span>
           </div>
         </div>
@@ -154,6 +154,10 @@
     const trigger = document.getElementById('authTrigger');
     if (trigger) trigger.addEventListener('click', () => openModal('login'));
 
+    function t(key, fallback) {
+      return window.DURU_I18N ? window.DURU_I18N.t(key) : fallback;
+    }
+
     function setMessage(panel, type, text) {
       const el = overlay.querySelector(`[data-msg="${panel}"]`);
       if (!el) return;
@@ -166,21 +170,21 @@
       if (el) el.hidden = true;
     }
     function friendlyError(err) {
-      const msg = (err && err.message) || 'Something went wrong. Please try again.';
-      if (/invalid login credentials/i.test(msg)) return 'That email and password don’t match our records.';
-      if (/email not confirmed/i.test(msg)) return 'Please verify your email first — check your inbox for the confirmation link.';
-      if (/user already registered/i.test(msg)) return 'An account with this email already exists — try logging in instead.';
-      if (/rate limit/i.test(msg)) return 'Too many attempts. Please wait a moment and try again.';
+      const msg = (err && err.message) || t('auth.errors.generic', 'Something went wrong. Please try again.');
+      if (/invalid login credentials/i.test(msg)) return t('auth.errors.invalidCredentials', 'That email and password don’t match our records.');
+      if (/email not confirmed/i.test(msg)) return t('auth.errors.emailNotConfirmed', 'Please verify your email first — check your inbox for the confirmation link.');
+      if (/user already registered/i.test(msg)) return t('auth.errors.userExists', 'An account with this email already exists — try logging in instead.');
+      if (/rate limit/i.test(msg)) return t('auth.errors.rateLimit', 'Too many attempts. Please wait a moment and try again.');
       return msg;
     }
-    function setLoading(btn, loading, label) {
+    function setLoading(btn, loading, labelKey, labelFallback) {
       btn.disabled = loading;
-      btn.textContent = loading ? 'Please wait…' : label;
+      btn.textContent = loading ? t('auth.pleaseWait', 'Please wait…') : t(labelKey, labelFallback);
     }
 
     function requireClient(panel) {
       if (!client) {
-        setMessage(panel, 'error', 'Sign-in isn’t connected yet. See the notice above for setup steps.');
+        setMessage(panel, 'error', t('auth.errors.notConnected', 'Sign-in isn’t connected yet. See the notice above for setup steps.'));
         return false;
       }
       return true;
@@ -194,9 +198,9 @@
       const email = document.getElementById('loginEmail').value.trim();
       const password = document.getElementById('loginPassword').value;
       const btn = document.getElementById('loginSubmit');
-      setLoading(btn, true, 'Log in');
+      setLoading(btn, true, 'auth.loginSubmit', 'Log in');
       const { error } = await client.auth.signInWithPassword({ email, password });
-      setLoading(btn, false, 'Log in');
+      setLoading(btn, false, 'auth.loginSubmit', 'Log in');
       if (error) { setMessage('login', 'error', friendlyError(error)); return; }
       closeModal();
     });
@@ -209,23 +213,22 @@
       const email = document.getElementById('signupEmail').value.trim();
       const password = document.getElementById('signupPassword').value;
       const confirm = document.getElementById('signupPasswordConfirm').value;
-      if (password !== confirm) { setMessage('signup', 'error', 'Passwords don’t match.'); return; }
-      if (password.length < 6) { setMessage('signup', 'error', 'Password must be at least 6 characters.'); return; }
+      if (password !== confirm) { setMessage('signup', 'error', t('auth.errors.passwordMismatch', 'Passwords don’t match.')); return; }
+      if (password.length < 6) { setMessage('signup', 'error', t('auth.errors.passwordTooShort', 'Password must be at least 6 characters.')); return; }
       const btn = document.getElementById('signupSubmit');
-      setLoading(btn, true, 'Create account');
+      setLoading(btn, true, 'auth.signupSubmit', 'Create account');
       const { data, error } = await client.auth.signUp({
         email, password,
         options: { emailRedirectTo: REDIRECT_URL },
       });
-      setLoading(btn, false, 'Create account');
+      setLoading(btn, false, 'auth.signupSubmit', 'Create account');
       if (error) { setMessage('signup', 'error', friendlyError(error)); return; }
       if (data && data.user && data.user.identities && data.user.identities.length === 0) {
-        setMessage('signup', 'error', 'An account with this email already exists — try logging in instead.');
+        setMessage('signup', 'error', t('auth.errors.userExists', 'An account with this email already exists — try logging in instead.'));
         return;
       }
       setMessage('signup', 'success',
-        `We’ve sent a verification link to ${email}. Confirm your email, then log in. ` +
-        `Didn’t get it? Use "Forgot password?" from the log in tab to resend, or check your spam folder.`);
+        t('auth.signupSuccess', 'We’ve sent a verification link to {email}. Confirm your email, then log in. Didn’t get it? Use "Forgot password?" from the log in tab to resend, or check your spam folder.').replace('{email}', email));
       document.getElementById('signupForm').reset();
     });
 
@@ -236,11 +239,11 @@
       if (!requireClient('reset')) return;
       const email = document.getElementById('resetEmail').value.trim();
       const btn = document.getElementById('resetSubmit');
-      setLoading(btn, true, 'Send reset link');
+      setLoading(btn, true, 'auth.resetSubmit', 'Send reset link');
       const { error } = await client.auth.resetPasswordForEmail(email, { redirectTo: REDIRECT_URL });
-      setLoading(btn, false, 'Send reset link');
+      setLoading(btn, false, 'auth.resetSubmit', 'Send reset link');
       if (error) { setMessage('reset', 'error', friendlyError(error)); return; }
-      setMessage('reset', 'success', `If an account exists for ${email}, a reset link is on its way.`);
+      setMessage('reset', 'success', t('auth.resetSuccess', 'If an account exists for {email}, a reset link is on its way.').replace('{email}', email));
       document.getElementById('resetForm').reset();
     });
 
@@ -273,11 +276,12 @@
           <span class="email">${user.email}</span>
         </button>
         <div class="account-dropdown" id="accountDropdown" hidden>
-          <a href="${REDIRECT_URL.endsWith('/my-learning.html') ? 'my-learning.html' : REDIRECT_URL}">My Learning</a>
-          <button type="button" id="logoutBtn">Log out</button>
+          <a href="${REDIRECT_URL.endsWith('/my-learning.html') ? 'my-learning.html' : REDIRECT_URL}" data-i18n="auth.myLearning">My Learning</a>
+          <button type="button" id="logoutBtn" data-i18n="auth.logout">Log out</button>
         </div>
       `;
       trigger.replaceWith(wrap);
+      if (window.DURU_I18N) window.DURU_I18N.apply(wrap);
       const accBtn = wrap.querySelector('#accountTriggerBtn');
       const dropdown = wrap.querySelector('#accountDropdown');
       accBtn.addEventListener('click', () => {
@@ -301,7 +305,8 @@
             if (!data) return;
             const link = document.createElement('a');
             link.href = 'free-resources.html#adminResources';
-            link.textContent = 'Manage Resources';
+            link.setAttribute('data-i18n', 'auth.manageResources');
+            link.textContent = t('auth.manageResources', 'Manage Resources');
             dropdown.insertBefore(link, dropdown.querySelector('#logoutBtn'));
           });
       }

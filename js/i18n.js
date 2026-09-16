@@ -1,9 +1,18 @@
-// DURU KOREAN — lightweight i18n engine (homepage scope for now)
+// DURU KOREAN — site-wide i18n engine (English / Vietnamese / Korean)
 //
 // Elements are translated via data-i18n="key" (textContent) or
 // data-i18n-html="key" (innerHTML, for the rare string with inline markup).
 // Anything marked class="kr" is Korean example text and is never touched —
-// same for the logo and, on pages that have them, real personal names.
+// same for the logo, author personal names, and the blog category glyphs
+// (앎/말/삶/길), which are marked aria-hidden and never carry data-i18n.
+//
+// Load this script AFTER js/auth.js and js/resources.js on every page: both
+// inject markup with data-i18n attributes synchronously on DOMContentLoaded,
+// and this engine's own DOMContentLoaded listener (registered later, so it
+// runs later) does the first translation pass — by then that markup already
+// exists. Later language switches re-scan the live DOM, so anything added
+// after that (e.g. a lazily-built modal) just needs to call
+// window.DURU_I18N.apply() once right after inserting itself.
 (function () {
   'use strict';
 
@@ -14,15 +23,32 @@
     { code: 'vi', label: 'Tiếng Việt' },
     { code: 'ko', label: '한국어' }
   ];
+  var VALID_CODES = LANGS.map(function (l) { return l.code; });
 
   var dictCache = {};
+  var currentLang = DEFAULT_LANG;
+  var currentDict = {};
+
+  function isValidLang(code) {
+    return VALID_CODES.indexOf(code) !== -1;
+  }
+
+  function getUrlLang() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var v = params.get('lang');
+      return isValidLang(v) ? v : null;
+    } catch (e) {
+      return null;
+    }
+  }
 
   function getStoredLang() {
     try {
       var v = localStorage.getItem(STORAGE_KEY);
-      if (v && LANGS.some(function (l) { return l.code === v; })) return v;
+      if (isValidLang(v)) return v;
     } catch (e) {}
-    return DEFAULT_LANG;
+    return null;
   }
 
   function setStoredLang(code) {
@@ -31,6 +57,8 @@
 
   function loadDict(code) {
     if (dictCache[code]) return Promise.resolve(dictCache[code]);
+    // Relative path — works under a GitHub Pages project subpath too,
+    // since every page here already lives at the site root.
     return fetch('js/i18n/' + code + '.json')
       .then(function (r) {
         if (!r.ok) throw new Error('i18n fetch failed: ' + code);
@@ -45,24 +73,46 @@
       });
   }
 
-  function applyDict(dict) {
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+  function applyDict(dict, root) {
+    var scope = root || document;
+    scope.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (dict[key] != null) el.textContent = dict[key];
     });
-    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+    scope.querySelectorAll('[data-i18n-html]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-html');
       if (dict[key] != null) el.innerHTML = dict[key];
     });
+    scope.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] != null) el.setAttribute('placeholder', dict[key]);
+    });
+    scope.querySelectorAll('[data-i18n-aria-label]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria-label');
+      if (dict[key] != null) el.setAttribute('aria-label', dict[key]);
+    });
+    if (scope === document && window.DURU_PAGE_TITLE_KEY && dict[window.DURU_PAGE_TITLE_KEY]) {
+      document.title = dict[window.DURU_PAGE_TITLE_KEY];
+    }
+  }
+
+  function t(key) {
+    if (currentDict[key] != null) return currentDict[key];
+    if (dictCache[DEFAULT_LANG] && dictCache[DEFAULT_LANG][key] != null) return dictCache[DEFAULT_LANG][key];
+    return key;
   }
 
   function setLang(code, opts) {
     opts = opts || {};
     document.documentElement.setAttribute('lang', code);
     return loadDict(code).then(function (dict) {
-      applyDict(dict);
+      currentLang = code;
+      currentDict = dict;
+      applyDict(dict, document);
       if (opts.persist !== false) setStoredLang(code);
       updateSwitcherUI(code);
+      window.DURU_I18N.lang = code;
+      document.dispatchEvent(new CustomEvent('duru:langchange', { detail: { lang: code } }));
     });
   }
 
@@ -141,10 +191,20 @@
   }
 
   function init() {
-    var lang = getStoredLang();
+    // Priority: explicit ?lang= link (shareable), then a returning
+    // visitor's saved choice, then English. A country/IP guess is
+    // deliberately never part of this chain.
+    var lang = getUrlLang() || getStoredLang() || DEFAULT_LANG;
     buildSwitcher(lang);
-    setLang(lang, { persist: false });
+    setLang(lang, { persist: !!getUrlLang() || !!getStoredLang() });
   }
+
+  window.DURU_I18N = {
+    lang: currentLang,
+    t: t,
+    apply: function (root) { applyDict(currentDict, root); },
+    setLang: setLang,
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

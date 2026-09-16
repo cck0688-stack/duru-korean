@@ -46,6 +46,20 @@
     ));
   }
 
+  function t(key, fallback) {
+    return window.DURU_I18N ? window.DURU_I18N.t(key) : fallback;
+  }
+
+  function levelLabel(level) {
+    const map = {
+      'Any level': t('resources.levelAny', 'Any level'),
+      'Beginner': t('resources.levelBeginner', 'Beginner'),
+      'Intermediate': t('resources.levelIntermediate', 'Intermediate'),
+      'Advanced': t('resources.levelAdvanced', 'Advanced'),
+    };
+    return map[level] || level;
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const listEl = document.getElementById('resourceList');
     const emptyEl = document.getElementById('resourceListEmpty');
@@ -70,14 +84,18 @@
         const url = publicUrl(r.storage_key);
         const card = document.createElement('div');
         card.className = 'resource-card resource-card--file';
+        const descLangLabel = (LANGS.find(l => l.code === r.description_language) || {}).label || r.description_language;
+        const metaText = t('resources.descIn', '{size} · description in {lang}')
+          .replace('{size}', formatSize(r.file_size)).replace('{lang}', descLangLabel) +
+          (r.linked_unit ? ' · ' + escapeHTML(r.linked_unit) : '');
         card.innerHTML = `
-          <span class="resource-tag">${escapeHTML(r.file_type.toUpperCase())}${r.learning_level && r.learning_level !== 'Any level' ? ' · ' + escapeHTML(r.learning_level) : ''}</span>
+          <span class="resource-tag">${escapeHTML(r.file_type.toUpperCase())}${r.learning_level && r.learning_level !== 'Any level' ? ' · ' + escapeHTML(levelLabel(r.learning_level)) : ''}</span>
           <h3>${escapeHTML(r.title)}</h3>
           ${r.description ? `<p>${escapeHTML(r.description)}</p>` : ''}
-          <p class="resource-meta">${formatSize(r.file_size)} · description in ${escapeHTML((LANGS.find(l => l.code === r.description_language) || {}).label || r.description_language)}${r.linked_unit ? ' · ' + escapeHTML(r.linked_unit) : ''}</p>
+          <p class="resource-meta">${metaText}</p>
           <div class="resource-card-actions">
-            ${url ? `<a href="${url}" class="btn btn-ghost" target="_blank" rel="noopener">Download →</a>` : `<span class="resource-unavailable">No longer available</span>`}
-            ${isAdmin ? `<button type="button" class="resource-delete-btn" data-id="${r.id}" data-title="${escapeHTML(r.title)}" data-key="${escapeHTML(r.storage_key)}" aria-label="Delete ${escapeHTML(r.title)}">Delete</button>` : ''}
+            ${url ? `<a href="${url}" class="btn btn-ghost" target="_blank" rel="noopener">${escapeHTML(t('resources.download', 'Download →'))}</a>` : `<span class="resource-unavailable">${escapeHTML(t('resources.unavailable', 'No longer available'))}</span>`}
+            ${isAdmin ? `<button type="button" class="resource-delete-btn" data-id="${r.id}" data-title="${escapeHTML(r.title)}" data-key="${escapeHTML(r.storage_key)}" aria-label="${escapeHTML(t('resources.deleteAriaLabel', 'Delete {title}').replace('{title}', r.title))}">${escapeHTML(t('resources.deleteBtn', 'Delete'))}</button>` : ''}
           </div>
         `;
         listEl.appendChild(card);
@@ -110,11 +128,11 @@
       confirmOverlay.hidden = true;
       confirmOverlay.innerHTML = `
         <div class="resource-confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="resConfirmTitle">
-          <h3 id="resConfirmTitle">Delete this resource?</h3>
+          <h3 id="resConfirmTitle" data-i18n="resources.confirmTitle">${escapeHTML(t('resources.confirmTitle', 'Delete this resource?'))}</h3>
           <p class="resource-confirm-body"></p>
           <div class="resource-confirm-actions">
-            <button type="button" class="btn btn-outline" data-act="cancel">Cancel</button>
-            <button type="button" class="btn btn-danger" data-act="delete">Delete</button>
+            <button type="button" class="btn btn-outline" data-act="cancel" data-i18n="resources.cancel">${escapeHTML(t('resources.cancel', 'Cancel'))}</button>
+            <button type="button" class="btn btn-danger" data-act="delete" data-i18n="resources.deleteBtn">${escapeHTML(t('resources.deleteBtn', 'Delete'))}</button>
           </div>
         </div>
       `;
@@ -125,7 +143,7 @@
     function confirmDelete(id, title, storageKey) {
       const overlay = ensureConfirmModal();
       overlay.querySelector('.resource-confirm-body').textContent =
-        `"${title}" will be permanently removed for everyone, including its download link. This can't be undone.`;
+        t('resources.confirmBody', '"{title}" will be permanently removed for everyone, including its download link. This can’t be undone.').replace('{title}', title);
       const deleteBtn = overlay.querySelector('[data-act="delete"]');
       const cancelBtn = overlay.querySelector('[data-act="cancel"]');
       overlay.hidden = false;
@@ -135,13 +153,13 @@
       const onDelete = async () => {
         deleteBtn.disabled = true;
         cancelBtn.disabled = true;
-        deleteBtn.textContent = 'Deleting…';
+        deleteBtn.textContent = t('resources.deleting', 'Deleting…');
         const { error: dbErr } = await client.from('resources').delete().eq('id', id);
         if (dbErr) {
           deleteBtn.disabled = false;
           cancelBtn.disabled = false;
-          deleteBtn.textContent = 'Delete';
-          overlay.querySelector('.resource-confirm-body').textContent = 'Could not delete: ' + dbErr.message;
+          deleteBtn.textContent = t('resources.deleteBtn', 'Delete');
+          overlay.querySelector('.resource-confirm-body').textContent = t('resources.deleteError', 'Could not delete: {msg}').replace('{msg}', dbErr.message);
           return;
         }
         await client.storage.from(BUCKET).remove([storageKey]);
@@ -162,40 +180,40 @@
       uploadOverlay.hidden = true;
       uploadOverlay.innerHTML = `
         <div class="resource-confirm-modal resource-upload-modal" role="dialog" aria-modal="true" aria-labelledby="resUploadTitle">
-          <button type="button" class="auth-close" data-act="close" aria-label="Close">&times;</button>
-          <h3 id="resUploadTitle">Attach a resource</h3>
+          <button type="button" class="auth-close" data-act="close" data-i18n-aria-label="resources.closeAria" aria-label="${escapeHTML(t('resources.closeAria', 'Close'))}">&times;</button>
+          <h3 id="resUploadTitle" data-i18n="resources.uploadTitle">${escapeHTML(t('resources.uploadTitle', 'Attach a resource'))}</h3>
           <div class="resource-upload-msg" hidden></div>
           <form id="resourceUploadForm" novalidate>
             <div class="auth-field">
-              <label for="resTitle">Title</label>
+              <label for="resTitle" data-i18n="resources.fieldTitle">${escapeHTML(t('resources.fieldTitle', 'Title'))}</label>
               <input type="text" id="resTitle" required maxlength="120">
             </div>
             <div class="auth-field">
-              <label for="resDesc">Description (optional)</label>
+              <label for="resDesc" data-i18n="resources.fieldDesc">${escapeHTML(t('resources.fieldDesc', 'Description (optional)'))}</label>
               <textarea id="resDesc" rows="3" maxlength="500"></textarea>
             </div>
             <div class="auth-field">
-              <label for="resDescLang">Description written in</label>
+              <label for="resDescLang" data-i18n="resources.fieldDescLang">${escapeHTML(t('resources.fieldDescLang', 'Description written in'))}</label>
               <select id="resDescLang">
                 ${LANGS.map(l => `<option value="${l.code}">${l.label}</option>`).join('')}
               </select>
             </div>
             <div class="auth-field">
-              <label for="resLevel">Learning level</label>
+              <label for="resLevel" data-i18n="resources.fieldLevel">${escapeHTML(t('resources.fieldLevel', 'Learning level'))}</label>
               <select id="resLevel">
-                ${LEVELS.map(l => `<option value="${l}">${l}</option>`).join('')}
+                ${LEVELS.map(l => `<option value="${l}">${escapeHTML(levelLabel(l))}</option>`).join('')}
               </select>
             </div>
             <div class="auth-field">
-              <label for="resUnit">Linked book / unit (optional)</label>
-              <input type="text" id="resUnit" maxlength="80" placeholder="e.g. Unit 3">
+              <label for="resUnit" data-i18n="resources.fieldUnit">${escapeHTML(t('resources.fieldUnit', 'Linked book / unit (optional)'))}</label>
+              <input type="text" id="resUnit" maxlength="80" data-i18n-placeholder="resources.fieldUnitPlaceholder" placeholder="${escapeHTML(t('resources.fieldUnitPlaceholder', 'e.g. Unit 3'))}">
             </div>
             <div class="auth-field">
-              <label for="resFile">File</label>
+              <label for="resFile" data-i18n="resources.fieldFile">${escapeHTML(t('resources.fieldFile', 'File'))}</label>
               <input type="file" id="resFile" required accept=".pdf,.png,.jpg,.jpeg,.mp3,.m4a">
-              <p class="resource-hint">PDF, PNG, JPG, JPEG up to 20MB · MP3, M4A up to 50MB</p>
+              <p class="resource-hint" data-i18n="resources.fileHint">${escapeHTML(t('resources.fileHint', 'PDF, PNG, JPG, JPEG up to 20MB · MP3, M4A up to 50MB'))}</p>
             </div>
-            <button type="submit" class="btn btn-primary auth-submit" id="resUploadSubmit">Upload</button>
+            <button type="submit" class="btn btn-primary auth-submit" id="resUploadSubmit" data-i18n="resources.uploadSubmit">${escapeHTML(t('resources.uploadSubmit', 'Upload'))}</button>
           </form>
         </div>
       `;
@@ -232,23 +250,23 @@
       const fileInput = document.getElementById('resFile');
       const file = fileInput.files[0];
 
-      if (!title) { setUploadMsg('Please enter a title.', 'error'); return; }
-      if (!file) { setUploadMsg('Please choose a file.', 'error'); return; }
+      if (!title) { setUploadMsg(t('resources.errTitleRequired', 'Please enter a title.'), 'error'); return; }
+      if (!file) { setUploadMsg(t('resources.errFileRequired', 'Please choose a file.'), 'error'); return; }
 
       const ext = fileExt(file.name);
       if (!MAX_SIZE[ext]) {
-        setUploadMsg('Unsupported file type. Allowed: PDF, PNG, JPG, JPEG, MP3, M4A.', 'error');
+        setUploadMsg(t('resources.errUnsupportedType', 'Unsupported file type. Allowed: PDF, PNG, JPG, JPEG, MP3, M4A.'), 'error');
         return;
       }
       if (file.size > MAX_SIZE[ext]) {
-        setUploadMsg(`File is too large. Max size for .${ext} is ${formatSize(MAX_SIZE[ext])}.`, 'error');
+        setUploadMsg(t('resources.errTooLarge', 'File is too large. Max size for .{ext} is {size}.').replace('{ext}', ext).replace('{size}', formatSize(MAX_SIZE[ext])), 'error');
         return;
       }
 
       uploading = true;
       const submitBtn = document.getElementById('resUploadSubmit');
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Uploading…';
+      submitBtn.textContent = t('resources.uploading', 'Uploading…');
 
       const storageKey = `${LOCATION}/${crypto.randomUUID()}.${ext}`;
       const { error: uploadErr } = await client.storage.from(BUCKET).upload(storageKey, file, {
@@ -258,8 +276,8 @@
       if (uploadErr) {
         uploading = false;
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Upload';
-        setUploadMsg('Upload failed: ' + uploadErr.message, 'error');
+        submitBtn.textContent = t('resources.uploadSubmit', 'Upload');
+        setUploadMsg(t('resources.errUploadFailed', 'Upload failed: {msg}').replace('{msg}', uploadErr.message), 'error');
         return;
       }
 
@@ -278,16 +296,16 @@
 
       uploading = false;
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Upload';
+      submitBtn.textContent = t('resources.uploadSubmit', 'Upload');
 
       if (insertErr) {
         // Roll back the uploaded file so we don't leave an orphaned object.
         await client.storage.from(BUCKET).remove([storageKey]);
-        setUploadMsg('Could not save resource: ' + insertErr.message, 'error');
+        setUploadMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}').replace('{msg}', insertErr.message), 'error');
         return;
       }
 
-      setUploadMsg('Uploaded successfully.', 'success');
+      setUploadMsg(t('resources.uploadSuccess', 'Uploaded successfully.'), 'success');
       document.getElementById('resourceUploadForm').reset();
       loadList();
       setTimeout(() => { if (uploadOverlay) uploadOverlay.hidden = true; }, 900);
