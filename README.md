@@ -293,6 +293,28 @@ server code to intercept a broken Supabase Storage URL. Links surfaced
 "Download" button is replaced with "No longer available" rather than a
 dead link).
 
+
+### How a change reaches the site
+
+Two branches, on purpose.
+
+- `claude/duru-korean-homepage-raysf6` is the production branch. Vercel
+  serves `www.durukorean.com` from it. Nothing lands here until it has
+  been looked at.
+- `preview` is where changes go first. Vercel builds every non-production
+  branch as a preview deployment, so pushing here produces a working copy
+  of the whole site at a separate address, with its own isolated build
+  but the same Supabase project behind it.
+
+The loop is: push to `preview`, look at the preview URL, and merge into
+the production branch once it is approved.
+
+Worth knowing: the preview shares the live database. Writing a blog post
+or deleting a story from a preview changes the real data, because
+`js/supabase-config.js` names one project and previews get the same file.
+Previews are for looking at the site, not for trying things out on
+throwaway data.
+
 ## Blog posts and learner stories
 
 Two Supabase-backed tables, both written from the site rather than the
