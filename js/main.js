@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const setActiveNavLink = () => {
     const path = location.pathname.split('/').pop() || 'index.html';
     const links = document.querySelectorAll('.nav-main a');
-    links.forEach((a) => a.classList.remove('active'));
+    links.forEach((a) => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
 
     const pathMatches = Array.from(links).filter((a) => {
       const [hrefPath] = a.getAttribute('href').split('#');
@@ -43,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
       ? pathMatches.find((a) => a.getAttribute('href').split('#')[1] === location.hash.slice(1))
       : null;
     const noHash = pathMatches.find((a) => !a.getAttribute('href').includes('#'));
-    (withHash || noHash || pathMatches[0]).classList.add('active');
+    const activeLink = withHash || noHash || pathMatches[0];
+    activeLink.classList.add('active');
+    activeLink.setAttribute('aria-current', 'page');
   };
   setActiveNavLink();
   window.addEventListener('hashchange', setActiveNavLink);
