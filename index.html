@@ -20,15 +20,16 @@
       <span class="logo-kr kr">두루한국어 · KOREAN, ANYWHERE YOU ARE</span>
     </a>
     <nav class="nav-main">
-      <a href="start-here.html">Learning Path</a>
-      <a href="learning-korean.html">Learn Korean</a>
-      <a href="book-audio.html">Book &amp; Audio</a>
-      <a href="free-resources.html">Free Resources</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
+      <a href="start-here.html" data-i18n="nav.learningPath">Learning Path</a>
+      <a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a>
+      <a href="book-audio.html" data-i18n="nav.bookAudio">Book &amp; Audio</a>
+      <a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
     </nav>
     <div class="header-actions">
-      <button id="authTrigger" class="btn-login" type="button">Log in</button>
+      <div class="lang-switcher" id="langSwitcher"></div>
+      <button id="authTrigger" class="btn-login" type="button" data-i18n="nav.login">Log in</button>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     </div>
   </div>
@@ -38,8 +39,8 @@
   <div class="hero-grid">
     <div class="hero-graphic">
       <div class="hero-graphic-top">
-        <span>Korean, Anywhere You Are</span>
-        <span>Est. 2026 · Seoul</span>
+        <span data-i18n="hero.topLabel">Korean, Anywhere You Are</span>
+        <span data-i18n="hero.topEst">Est. 2026 · Seoul</span>
       </div>
 
       <div class="hangul-ring" role="img" aria-label="Circular diagram of the Korean Hangul consonants and vowels around the Duru Korean wordmark">
@@ -75,7 +76,7 @@
           <span class="eyebrow kr">Duru [두루] · Widely, all around</span>
           <div class="ring-title">DURU KOREAN</div>
           <div class="kr-sub kr">두루 한국어</div>
-          <p class="tagline">From your first letter to real Korean.</p>
+          <p class="tagline" data-i18n="hero.tagline">From your first letter to real Korean.</p>
           <div class="hero-divider"></div>
           <div class="combo-row kr">
             <span>ㄷ · ㅜ <span class="eq">→</span> 두</span>
@@ -92,35 +93,35 @@
 
     <div class="hero-text">
       <span class="hero-badge kr">두루 [두루] · Widely, all around</span>
-      <h1>From your first letter to real Korean.</h1>
+      <h1 data-i18n="hero.h1">From your first letter to real Korean.</h1>
       <div class="kr-sub kr">두루 한국어</div>
-      <p class="hero-lead">A calm, structured path for learners anywhere in the world — clear lessons, native audio, and free resources to get you speaking real Korean.</p>
+      <p class="hero-lead" data-i18n="hero.lead">A calm, structured path for learners anywhere in the world — clear lessons, native audio, and free resources to get you speaking real Korean.</p>
 
       <div class="hero-why">
         <div class="hero-why-head">
-          <span class="eyebrow">Why Duru Korean</span>
-          <h2>Korean that actually sticks</h2>
+          <span class="eyebrow" data-i18n="hero.why.eyebrow">Why Duru Korean</span>
+          <h2 data-i18n="hero.why.h2">Korean that actually sticks</h2>
         </div>
         <ul class="hero-why-list">
           <li>
             <span class="hero-why-icon kr">길</span>
             <div>
-              <strong>A Structured Path</strong>
-              <p>Every lesson builds on the last.</p>
+              <strong data-i18n="hero.why.item1.title">A Structured Path</strong>
+              <p data-i18n="hero.why.item1.desc">Every lesson builds on the last.</p>
             </div>
           </li>
           <li>
             <span class="hero-why-icon kr">말</span>
             <div>
-              <strong>Real-life Korean</strong>
-              <p>Natural phrases for daily life.</p>
+              <strong data-i18n="hero.why.item2.title">Real-life Korean</strong>
+              <p data-i18n="hero.why.item2.desc">Natural phrases for daily life.</p>
             </div>
           </li>
           <li>
             <span class="hero-why-icon kr">귀</span>
             <div>
-              <strong>Audio-first Learning</strong>
-              <p>Native audio in every lesson.</p>
+              <strong data-i18n="hero.why.item3.title">Audio-first Learning</strong>
+              <p data-i18n="hero.why.item3.desc">Native audio in every lesson.</p>
             </div>
           </li>
         </ul>
@@ -132,34 +133,34 @@
 <section class="section-alt section">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Your Learning Path</span>
-      <h2>Four stages, one clear direction</h2>
-      <p>Start wherever you are — Duru Korean meets you there and moves you forward, step by step.</p>
+      <span class="eyebrow" data-i18n="stages.eyebrow">Your Learning Path</span>
+      <h2 data-i18n="stages.h2">Four stages, one clear direction</h2>
+      <p data-i18n="stages.p">Start wherever you are — Duru Korean meets you there and moves you forward, step by step.</p>
     </div>
     <div class="grid-4 reveal">
       <div class="card stage-card">
         <span class="stage-badge stage-badge--blue kr">01 · ㄱㄴㄷ</span>
-        <h4>Hangul Foundations</h4>
-        <p>Read and write Korean confidently in a few short lessons.</p>
+        <h4 data-i18n="stages.1.title">Hangul Foundations</h4>
+        <p data-i18n="stages.1.desc">Read and write Korean confidently in a few short lessons.</p>
       </div>
       <div class="card stage-card">
         <span class="stage-badge stage-badge--apricot kr">02 · 초급</span>
-        <h4>Beginner Basics</h4>
-        <p>Greetings, sentence structure, and everyday vocabulary.</p>
+        <h4 data-i18n="stages.2.title">Beginner Basics</h4>
+        <p data-i18n="stages.2.desc">Greetings, sentence structure, and everyday vocabulary.</p>
       </div>
       <div class="card stage-card">
         <span class="stage-badge stage-badge--lavender kr">03 · 중급</span>
-        <h4>Intermediate Fluency</h4>
-        <p>Grammar patterns and conversation for real situations.</p>
+        <h4 data-i18n="stages.3.title">Intermediate Fluency</h4>
+        <p data-i18n="stages.3.desc">Grammar patterns and conversation for real situations.</p>
       </div>
       <div class="card stage-card">
         <span class="stage-badge stage-badge--rose kr">04 · 실전</span>
-        <h4>Real Conversations</h4>
-        <p>Speak naturally with confidence in daily Korean life.</p>
+        <h4 data-i18n="stages.4.title">Real Conversations</h4>
+        <p data-i18n="stages.4.desc">Speak naturally with confidence in daily Korean life.</p>
       </div>
     </div>
     <div class="hero-cta" style="margin-top:40px;">
-      <a href="learning-korean.html" class="btn btn-ghost">See the Full Curriculum →</a>
+      <a href="learning-korean.html" class="btn btn-ghost" data-i18n="stages.cta">See the Full Curriculum →</a>
     </div>
   </div>
 </section>
@@ -173,19 +174,19 @@
             <span class="eyebrow kr">두루 한국어</span>
             <div class="book-title">Duru<br>Korean<br>Book</div>
           </div>
-          <div class="book-foot">Book + Audio Edition</div>
+          <div class="book-foot" data-i18n="bookAudio.bookFoot">Book + Audio Edition</div>
         </div>
       </div>
       <div class="split-body">
-        <span class="eyebrow">Book &amp; Audio</span>
-        <h2>Study on the page, practice with your ears.</h2>
-        <p>The Duru Korean book pairs every lesson with native-speaker audio, so you learn to read, understand, and actually speak — not just memorize.</p>
+        <span class="eyebrow" data-i18n="bookAudio.eyebrow">Book &amp; Audio</span>
+        <h2 data-i18n="bookAudio.h2">Study on the page, practice with your ears.</h2>
+        <p data-i18n="bookAudio.p">The Duru Korean book pairs every lesson with native-speaker audio, so you learn to read, understand, and actually speak — not just memorize.</p>
         <ul class="check-list">
-          <li>Structured chapters from Hangul to real conversation</li>
-          <li>Full native audio for every dialogue and word</li>
-          <li>Practice pages designed for self-study</li>
+          <li data-i18n="bookAudio.check1">Structured chapters from Hangul to real conversation</li>
+          <li data-i18n="bookAudio.check2">Full native audio for every dialogue and word</li>
+          <li data-i18n="bookAudio.check3">Practice pages designed for self-study</li>
         </ul>
-        <a href="book-audio.html" class="btn btn-dark">See Book &amp; Audio →</a>
+        <a href="book-audio.html" class="btn btn-dark" data-i18n="bookAudio.cta">See Book &amp; Audio →</a>
       </div>
     </div>
   </div>
@@ -195,36 +196,36 @@
   <div class="wrap">
     <div class="section-head-row reveal" style="margin-bottom:40px;">
       <div class="section-head" style="margin-bottom:0;">
-        <span class="eyebrow">Free Resources</span>
-        <h2>Start learning today, at no cost</h2>
-        <p>Printable charts, cheat sheets, and vocabulary lists to get you writing and speaking Korean right away.</p>
+        <span class="eyebrow" data-i18n="resources.eyebrow">Free Resources</span>
+        <h2 data-i18n="resources.h2">Start learning today, at no cost</h2>
+        <p data-i18n="resources.p">Printable charts, cheat sheets, and vocabulary lists to get you writing and speaking Korean right away.</p>
       </div>
-      <a href="free-resources.html" class="btn btn-ghost">View All Resources →</a>
+      <a href="free-resources.html" class="btn btn-ghost" data-i18n="resources.cta">View All Resources →</a>
     </div>
     <div class="grid-4">
       <div class="resource-card reveal">
-        <span class="resource-tag">PDF</span>
-        <h3>Hangul Chart</h3>
-        <p>A clean printable chart of all 24 letters with stroke order.</p>
-        <a href="free-resources.html" class="btn btn-ghost">Download</a>
+        <span class="resource-tag" data-i18n="resources.1.tag">PDF</span>
+        <h3 data-i18n="resources.1.title">Hangul Chart</h3>
+        <p data-i18n="resources.1.desc">A clean printable chart of all 24 letters with stroke order.</p>
+        <a href="free-resources.html" class="btn btn-ghost" data-i18n="resources.download">Download</a>
       </div>
       <div class="resource-card reveal">
-        <span class="resource-tag">Guide</span>
-        <h3>Survival Phrases</h3>
-        <p>30 essential phrases for travel and everyday situations.</p>
-        <a href="free-resources.html" class="btn btn-ghost">Download</a>
+        <span class="resource-tag" data-i18n="resources.2.tag">Guide</span>
+        <h3 data-i18n="resources.2.title">Survival Phrases</h3>
+        <p data-i18n="resources.2.desc">30 essential phrases for travel and everyday situations.</p>
+        <a href="free-resources.html" class="btn btn-ghost" data-i18n="resources.download">Download</a>
       </div>
       <div class="resource-card reveal">
-        <span class="resource-tag">Flashcards</span>
-        <h3>Core Vocabulary</h3>
-        <p>200 must-know words, organized by everyday topic.</p>
-        <a href="free-resources.html" class="btn btn-ghost">Download</a>
+        <span class="resource-tag" data-i18n="resources.3.tag">Flashcards</span>
+        <h3 data-i18n="resources.3.title">Core Vocabulary</h3>
+        <p data-i18n="resources.3.desc">200 must-know words, organized by everyday topic.</p>
+        <a href="free-resources.html" class="btn btn-ghost" data-i18n="resources.download">Download</a>
       </div>
       <div class="resource-card reveal">
-        <span class="resource-tag">Cheat Sheet</span>
-        <h3>Grammar Basics</h3>
-        <p>Sentence patterns and particles explained in one page.</p>
-        <a href="free-resources.html" class="btn btn-ghost">Download</a>
+        <span class="resource-tag" data-i18n="resources.4.tag">Cheat Sheet</span>
+        <h3 data-i18n="resources.4.title">Grammar Basics</h3>
+        <p data-i18n="resources.4.desc">Sentence patterns and particles explained in one page.</p>
+        <a href="free-resources.html" class="btn btn-ghost" data-i18n="resources.download">Download</a>
       </div>
     </div>
   </div>
@@ -234,37 +235,37 @@
   <div class="wrap">
     <div class="section-head-row reveal" style="margin-bottom:40px;">
       <div class="section-head" style="margin-bottom:0;">
-        <span class="eyebrow">From the Blog</span>
-        <h2>Notes on Korean, language, and life</h2>
+        <span class="eyebrow" data-i18n="blog.eyebrow">From the Blog</span>
+        <h2 data-i18n="blog.h2">Notes on Korean, language, and life</h2>
       </div>
-      <a href="blog.html" class="btn btn-ghost">Read the Blog →</a>
+      <a href="blog.html" class="btn btn-ghost" data-i18n="blog.cta">Read the Blog →</a>
     </div>
     <div class="grid-3">
       <article class="blog-card reveal">
         <div class="blog-thumb kr">가</div>
         <div class="blog-body">
-          <span class="blog-meta">Study Tips</span>
-          <h3>5 Habits That Make Hangul Click</h3>
-          <p>Small daily habits that help absolute beginners read Korean in a week.</p>
-          <a href="blog.html" class="read-more">Read more</a>
+          <span class="blog-meta" data-i18n="blog.1.meta">Study Tips</span>
+          <h3 data-i18n="blog.1.title">5 Habits That Make Hangul Click</h3>
+          <p data-i18n="blog.1.desc">Small daily habits that help absolute beginners read Korean in a week.</p>
+          <a href="blog.html" class="read-more" data-i18n="blog.readMore">Read more</a>
         </div>
       </article>
       <article class="blog-card reveal">
         <div class="blog-thumb kr">말</div>
         <div class="blog-body">
-          <span class="blog-meta">Grammar</span>
-          <h3>Why Korean Particles Aren't Scary</h3>
-          <p>A simple way to think about 은/는 and 이/가 once and for all.</p>
-          <a href="blog.html" class="read-more">Read more</a>
+          <span class="blog-meta" data-i18n="blog.2.meta">Grammar</span>
+          <h3 data-i18n="blog.2.title">Why Korean Particles Aren't Scary</h3>
+          <p data-i18n="blog.2.desc">A simple way to think about 은/는 and 이/가 once and for all.</p>
+          <a href="blog.html" class="read-more" data-i18n="blog.readMore">Read more</a>
         </div>
       </article>
       <article class="blog-card reveal">
         <div class="blog-thumb kr">여</div>
         <div class="blog-body">
-          <span class="blog-meta">Culture</span>
-          <h3>Ordering Coffee Like a Local in Seoul</h3>
-          <p>The everyday Korean you won't find in a textbook.</p>
-          <a href="blog.html" class="read-more">Read more</a>
+          <span class="blog-meta" data-i18n="blog.3.meta">Culture</span>
+          <h3 data-i18n="blog.3.title">Ordering Coffee Like a Local in Seoul</h3>
+          <p data-i18n="blog.3.desc">The everyday Korean you won't find in a textbook.</p>
+          <a href="blog.html" class="read-more" data-i18n="blog.readMore">Read more</a>
         </div>
       </article>
     </div>
@@ -275,15 +276,15 @@
   <div class="wrap">
     <div class="testi-strip reveal">
       <div class="testi">
-        <p>"I finally understand how Hangul actually works — Duru Korean made it click in days, not months."</p>
+        <p data-i18n="testi.1">"I finally understand how Hangul actually works — Duru Korean made it click in days, not months."</p>
         <span>— Maria, Spain</span>
       </div>
       <div class="testi">
-        <p>"The audio-first approach is what I needed. I can actually understand Koreans speaking at normal speed now."</p>
+        <p data-i18n="testi.2">"The audio-first approach is what I needed. I can actually understand Koreans speaking at normal speed now."</p>
         <span>— Daniel, USA</span>
       </div>
       <div class="testi">
-        <p>"Clear, calm, and genuinely useful. No fluff — just the Korean I need for real life."</p>
+        <p data-i18n="testi.3">"Clear, calm, and genuinely useful. No fluff — just the Korean I need for real life."</p>
         <span>— Aiko, Japan</span>
       </div>
     </div>
@@ -294,12 +295,12 @@
   <div class="wrap">
     <div class="newsletter reveal">
       <div>
-        <h3>Get free lessons in your inbox</h3>
-        <p>One useful Korean tip a week — no spam, unsubscribe anytime.</p>
+        <h3 data-i18n="newsletter.h3">Get free lessons in your inbox</h3>
+        <p data-i18n="newsletter.p">One useful Korean tip a week — no spam, unsubscribe anytime.</p>
       </div>
       <form class="newsletter-form">
         <input type="email" placeholder="you@email.com" required>
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="submit" class="btn btn-primary" data-i18n="newsletter.submit">Subscribe</button>
       </form>
     </div>
   </div>
@@ -312,39 +313,40 @@
         <a href="index.html" class="logo">
           <span class="logo-en">DURU <span>KOREAN</span></span>
         </a>
-        <p>두루 한국어 — practical, audio-first Korean lessons for learners anywhere in the world.</p>
+        <p data-i18n="footer.tagline">두루 한국어 — practical, audio-first Korean lessons for learners anywhere in the world.</p>
       </div>
       <div class="footer-col">
-        <h5>Learn</h5>
+        <h5 data-i18n="footer.learn">Learn</h5>
         <ul>
-          <li><a href="start-here.html">Learning Path</a></li>
-          <li><a href="learning-korean.html">Learn Korean</a></li>
-          <li><a href="book-audio.html">Book &amp; Audio</a></li>
+          <li><a href="start-here.html" data-i18n="nav.learningPath">Learning Path</a></li>
+          <li><a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a></li>
+          <li><a href="book-audio.html" data-i18n="nav.bookAudio">Book &amp; Audio</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Explore</h5>
+        <h5 data-i18n="footer.explore">Explore</h5>
         <ul>
-          <li><a href="free-resources.html">Free Resources</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Support</h5>
+        <h5 data-i18n="footer.support">Support</h5>
         <ul>
-          <li><a href="about.html#contact">Contact</a></li>
-          <li><a href="start-here.html#faq">FAQ</a></li>
+          <li><a href="about.html#contact" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="start-here.html#faq" data-i18n="footer.faq">FAQ</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; <span data-year></span> Duru Korean. All rights reserved.</span>
+      <span>&copy; <span data-year></span> <span data-i18n="footer.rights">Duru Korean. All rights reserved.</span></span>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/supabase-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/auth.js"></script>
