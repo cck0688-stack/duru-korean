@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>연결 진단 — Duru Korean</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Supabase 연결 상태를 점검하는 관리자용 진단 페이지입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .chk-wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+  .chk-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: #fff; border: 1px solid rgba(22,48,43,0.10);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 12px;
+  }
+  .chk-icon { font-size: 20px; line-height: 1.3; flex-shrink: 0; width: 26px; text-align: center; }
+  .chk-body { flex-grow: 1; min-width: 0; }
+  .chk-title { font-weight: 700; color: var(--ink); font-size: 15.5px; margin-bottom: 3px; }
+  .chk-detail { font-size: 14px; color: var(--ink-dim); word-break: break-word; }
+  .chk-fix {
+    margin-top: 12px; padding: 14px 16px; border-radius: 10px;
+    background: #fdf6ee; border: 1px solid #e8d5bf; font-size: 13.5px; color: #6b4a22;
+  }
+  .chk-fix b { color: #5a3c17; }
+  .chk-fix ol { margin: 8px 0 0; padding-left: 20px; }
+  .chk-fix li { margin-bottom: 5px; }
+  .chk-item.pass  { border-color: rgba(47,107,65,0.28); }
+  .chk-item.fail  { border-color: rgba(179,38,30,0.30); }
+  .chk-item.warn  { border-color: rgba(207,138,82,0.40); }
+  .copy-row {
+    display: flex; gap: 8px; align-items: center; margin-top: 8px;
+    background: #fff; border: 1px solid rgba(22,48,43,0.14);
+    border-radius: 8px; padding: 8px 10px;
+  }
+  .copy-row code { font-size: 12.5px; flex-grow: 1; word-break: break-all; color: var(--ink); }
+  .copy-row button {
+    background: var(--accent-red); color: #fff; border: none; border-radius: 6px;
+    padding: 6px 12px; font-size: 12.5px; font-weight: 700; flex-shrink: 0;
+  }
+  .chk-summary {
+    border-radius: 14px; padding: 20px 24px; margin-bottom: 24px;
+    font-size: 15.5px; font-weight: 600;
+  }
+  .chk-summary.ok   { background: rgba(58,122,74,0.12); color: #2f6b41; }
+  .chk-summary.bad  { background: rgba(179,38,30,0.10); color: #b3261e; }
+  .chk-summary.busy { background: var(--paper-alt); color: var(--ink-dim); }
+  .chk-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <span class="logo-en">DURU <span>KOREAN</span></span>
+    </a>
+    <div class="header-actions">
+      <a href="index.html" class="btn-login" style="text-decoration:none;">사이트로 돌아가기</a>
+      <button id="authTrigger" class="btn-login" type="button">로그인</button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>연결 진단</h1>
+    <div class="page-hero-rule"></div>
+    <p class="page-hero-tagline">Supabase가 실제로 연결되었는지 이 페이지가 직접 확인합니다.</p>
+  </div>
+</section>
+
+<section class="section section-after-hero">
+  <div class="chk-wrap">
+    <div id="summary" class="chk-summary busy">확인 중입니다…</div>
+
+    <div class="chk-actions">
+      <button type="button" class="btn btn-primary" id="rerun">다시 검사</button>
+      <button type="button" class="btn btn-ghost" id="loginBtn">로그인 테스트</button>
+      <button type="button" class="btn btn-ghost" id="logoutBtn" hidden>로그아웃</button>
+    </div>
+
+    <div id="results"></div>
+
+    <div style="margin-top:34px;">
+      <h3 style="font-size:17px;margin:0 0 8px;">Supabase 대시보드에 등록해야 하는 주소</h3>
+      <p style="font-size:14px;color:var(--ink-dim);margin:0 0 4px;">
+        Authentication → URL Configuration → <b>Redirect URLs</b> 에 아래 주소를 추가하세요.
+        이 주소가 등록되지 않으면 이메일 인증과 Google 로그인이 실패합니다.
+      </p>
+      <div class="copy-row">
+        <code id="redirectUrl">…</code>
+        <button type="button" data-copy="redirectUrl">복사</button>
+      </div>
+      <p style="font-size:14px;color:var(--ink-dim);margin:14px 0 4px;">
+        <b>Site URL</b> 에는 아래 주소를 넣으세요.
+      </p>
+      <div class="copy-row">
+        <code id="siteUrl">…</code>
+        <button type="button" data-copy="siteUrl">복사</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Duru Korean · 이 페이지는 설정 확인용입니다.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  const CONFIG = window.DURU_SUPABASE_CONFIG || {};
+  const resultsEl = document.getElementById('summary').parentElement.querySelector('#results');
+  const summaryEl = document.getElementById('summary');
+
+  const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+  document.getElementById('redirectUrl').textContent = base + 'my-learning.html';
+  document.getElementById('siteUrl').textContent = base;
+
+  document.querySelectorAll('[data-copy]').forEach((b) => {
+    b.addEventListener('click', () => {
+      const text = document.getElementById(b.dataset.copy).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const old = b.textContent; b.textContent = '복사됨'; setTimeout(() => { b.textContent = old; }, 1500);
+      });
+    });
+  });
+
+  const ICON = { pass: '✅', fail: '❌', warn: '⚠️', skip: '⏭️' };
+
+  function row(state, title, detail, fix) {
+    const el = document.createElement('div');
+    el.className = 'chk-item ' + state;
+    el.innerHTML =
+      '<div class="chk-icon">' + ICON[state] + '</div>' +
+      '<div class="chk-body">' +
+        '<div class="chk-title"></div>' +
+        '<div class="chk-detail"></div>' +
+        (fix ? '<div class="chk-fix">' + fix + '</div>' : '') +
+      '</div>';
+    el.querySelector('.chk-title').textContent = title;
+    el.querySelector('.chk-detail').textContent = detail;
+    resultsEl.appendChild(el);
+    return state;
+  }
+
+  // A missing table surfaces as a PostgREST schema-cache miss, which is a
+  // different problem from RLS returning zero rows — those must not be
+  // reported the same way.
+  function isMissingTable(err) {
+    if (!err) return false;
+    const code = String(err.code || '');
+    const msg = String(err.message || '') + ' ' + String(err.hint || '');
+    return code === 'PGRST205' || code === '42P01' ||
+           /does not exist|could not find the table|schema cache/i.test(msg);
+  }
+
+  async function run() {
+    resultsEl.innerHTML = '';
+    summaryEl.className = 'chk-summary busy';
+    summaryEl.textContent = '확인 중입니다…';
+    const states = [];
+
+    // 1. config
+    const configured = CONFIG.url && CONFIG.anonKey &&
+      !String(CONFIG.url).includes('YOUR_SUPABASE') && !String(CONFIG.anonKey).includes('YOUR_SUPABASE');
+    states.push(configured
+      ? row('pass', '1. 설정값', 'URL: ' + CONFIG.url)
+      : row('fail', '1. 설정값', '아직 채워지지 않았습니다.',
+          '<b>해결:</b> <code>js/supabase-config.js</code> 에 프로젝트 URL과 anon key를 넣으세요.'));
+    if (!configured) return finish(states);
+
+    // 2. SDK
+    const sdkOk = !!(window.supabase && window.supabase.createClient);
+    states.push(sdkOk
+      ? row('pass', '2. Supabase 라이브러리', '정상적으로 불러왔습니다.')
+      : row('fail', '2. Supabase 라이브러리', '불러오지 못했습니다.',
+          '<b>해결:</b> 광고 차단기를 끄거나, 네트워크가 <code>cdn.jsdelivr.net</code> 접속을 허용하는지 확인하세요.'));
+    if (!sdkOk) return finish(states);
+
+    // Reuse the client auth.js already made, so a session started from the
+    // login button here is the same one the rest of the site sees.
+    const client = window.DURU_SUPABASE_CLIENT || window.supabase.createClient(CONFIG.url, CONFIG.anonKey);
+
+    // 3. reachability — proves the project exists and is awake
+    try {
+      const res = await fetch(CONFIG.url.replace(/\/$/, '') + '/auth/v1/health', {
+        headers: { apikey: CONFIG.anonKey },
+      });
+      states.push(res.ok
+        ? row('pass', '3. 프로젝트 접속', 'HTTP ' + res.status + ' — 프로젝트에 정상적으로 연결됩니다.')
+        : row('fail', '3. 프로젝트 접속', 'HTTP ' + res.status + ' 응답을 받았습니다.',
+            '<b>해결:</b> URL이 정확한지, 프로젝트가 일시 중지(paused) 상태가 아닌지 대시보드에서 확인하세요.'));
+    } catch (e) {
+      states.push(row('fail', '3. 프로젝트 접속', '접속하지 못했습니다: ' + e.message,
+        '<b>해결:</b> URL 오타이거나 프로젝트가 삭제·중지된 경우입니다. 대시보드 → Project Settings → API 에서 URL을 다시 확인하세요.'));
+      return finish(states);
+    }
+
+    // 4. anon key
+    try {
+      const res = await fetch(CONFIG.url.replace(/\/$/, '') + '/rest/v1/', {
+        headers: { apikey: CONFIG.anonKey, Authorization: 'Bearer ' + CONFIG.anonKey },
+      });
+      if (res.status === 401 || res.status === 403) {
+        states.push(row('fail', '4. anon key', 'HTTP ' + res.status + ' — 키가 거부되었습니다.',
+          '<b>해결:</b> 대시보드 → Project Settings → API 에서 <b>anon / publishable</b> 키를 다시 복사해 ' +
+          '<code>js/supabase-config.js</code> 에 붙여넣으세요. (service_role 키는 절대 사용하지 마세요.)'));
+      } else {
+        states.push(row('pass', '4. anon key', 'HTTP ' + res.status + ' — 키가 유효합니다.'));
+      }
+    } catch (e) {
+      states.push(row('warn', '4. anon key', '확인하지 못했습니다: ' + e.message));
+    }
+
+    // 5. resources table
+    {
+      const { error } = await client.from('resources').select('id').limit(1);
+      states.push(!error
+        ? row('pass', '5. resources 테이블', '존재하며 읽을 수 있습니다.')
+        : isMissingTable(error)
+          ? row('fail', '5. resources 테이블', '아직 만들어지지 않았습니다.',
+              '<b>해결:</b><ol><li>대시보드 → <b>SQL Editor</b> → New query</li>' +
+              '<li>저장소의 <code>supabase/schema.sql</code> 내용을 전부 붙여넣기</li>' +
+              '<li><b>Run</b> 실행</li></ol>')
+          : row('warn', '5. resources 테이블', '오류: ' + error.message));
+    }
+
+    // 6. admin_users table
+    {
+      const { error } = await client.from('admin_users').select('user_id').limit(1);
+      states.push(!error
+        ? row('pass', '6. admin_users 테이블', '존재합니다.')
+        : isMissingTable(error)
+          ? row('fail', '6. admin_users 테이블', '아직 만들어지지 않았습니다.',
+              '<b>해결:</b> 5번과 동일하게 <code>supabase/schema.sql</code> 을 SQL Editor에서 실행하세요.')
+          : row('warn', '6. admin_users 테이블', '오류: ' + error.message));
+    }
+
+    // 7. storage bucket
+    {
+      const { error } = await client.storage.from('resources').list('', { limit: 1 });
+      states.push(!error
+        ? row('pass', '7. resources 저장소 버킷', '존재하며 접근할 수 있습니다.')
+        : /not found|does not exist/i.test(error.message)
+          ? row('fail', '7. resources 저장소 버킷', '버킷이 없습니다.',
+              '<b>해결:</b><ol><li>대시보드 → <b>Storage</b> → New bucket</li>' +
+              '<li>이름을 정확히 <code>resources</code> 로 입력</li>' +
+              '<li><b>Public bucket</b> 켜기 → 생성</li></ol>')
+          : row('warn', '7. resources 저장소 버킷', '오류: ' + error.message));
+    }
+
+    // 8. session / admin
+    {
+      const { data } = await client.auth.getSession();
+      const user = data && data.session && data.session.user;
+      document.getElementById('logoutBtn').hidden = !user;
+      if (!user) {
+        states.push(row('skip', '8. 로그인 상태', '로그인되어 있지 않습니다. 위의 “로그인 테스트”로 확인해 보세요.'));
+      } else {
+        const { data: admin, error } = await client
+          .from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
+        if (error && isMissingTable(error)) {
+          states.push(row('warn', '8. 로그인 상태', user.email + ' 로 로그인됨 (admin_users 테이블이 아직 없어 관리자 여부는 확인 불가)'));
+        } else if (admin) {
+          states.push(row('pass', '8. 로그인 · 관리자', user.email + ' — 관리자입니다. “+ 자료 첨부” 버튼이 보입니다.'));
+        } else {
+          states.push(row('warn', '8. 로그인 · 관리자', user.email + ' 로 로그인됨 — 아직 관리자가 아닙니다.',
+            '<b>관리자로 지정하려면:</b><ol>' +
+            '<li>대시보드 → <b>SQL Editor</b> 에서 아래를 실행하세요.</li></ol>' +
+            '<div class="copy-row"><code id="adminSql">insert into public.admin_users (user_id) values (\'' + user.id + '\');</code>' +
+            '<button type="button" data-copy="adminSql">복사</button></div>'));
+          const b = resultsEl.querySelector('[data-copy="adminSql"]');
+          if (b) b.addEventListener('click', () => {
+            navigator.clipboard.writeText(document.getElementById('adminSql').textContent).then(() => {
+              b.textContent = '복사됨'; setTimeout(() => { b.textContent = '복사'; }, 1500);
+            });
+          });
+        }
+      }
+    }
+
+    finish(states);
+  }
+
+  function finish(states) {
+    const fails = states.filter((s) => s === 'fail').length;
+    const warns = states.filter((s) => s === 'warn').length;
+    if (fails) {
+      summaryEl.className = 'chk-summary bad';
+      summaryEl.textContent = '문제 ' + fails + '건을 찾았습니다. 아래 ❌ 항목의 해결 방법을 따라 하신 뒤 “다시 검사”를 눌러주세요.';
+    } else if (warns) {
+      summaryEl.className = 'chk-summary busy';
+      summaryEl.textContent = '치명적인 문제는 없지만 확인이 필요한 항목이 ' + warns + '건 있습니다.';
+    } else {
+      summaryEl.className = 'chk-summary ok';
+      summaryEl.textContent = '모두 정상입니다. 로그인과 관리자 자료 기능을 사용할 수 있습니다.';
+    }
+  }
+
+  document.getElementById('rerun').addEventListener('click', run);
+  document.getElementById('loginBtn').addEventListener('click', () => {
+    const t = document.getElementById('authTrigger');
+    if (t) t.click();
+  });
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    if (window.DURU_SUPABASE_CLIENT) await window.DURU_SUPABASE_CLIENT.auth.signOut();
+    window.location.reload();
+  });
+
+  document.addEventListener('DOMContentLoaded', run);
+  if (document.readyState !== 'loading') run();
+})();
+</script>
+<script src="js/auth.js"></script>
+</body>
+</html>
