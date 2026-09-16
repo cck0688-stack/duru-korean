@@ -1,6 +1,7 @@
 # Duru Korean
 
-A static marketing site for Duru Korean, deployed on Vercel. Plain HTML/CSS/JS — no build step.
+A static marketing site for Duru Korean, live at https://www.durukorean.com
+and deployed on Vercel. Plain HTML/CSS/JS — no build step.
 
 ## Structure
 
@@ -62,19 +63,31 @@ this static site has no server, so it should never hold that key at all.
 
 In the Supabase dashboard, under **Authentication → URL Configuration**:
 
-- Set **Site URL** to your deployed site URL, e.g.
-  `https://<your-username>.github.io/<repo-name>/`
-- Add the same URL (and `.../my-learning.html`) to **Redirect URLs**.
+- Set **Site URL** to the site's canonical address. In production that
+  is `https://www.durukorean.com`.
+- Add a wildcard for it to **Redirect URLs**:
+  `https://www.durukorean.com/**`. Add the apex form
+  (`https://durukorean.com/**`) too — the apex 308-redirects to `www`,
+  but a browser that started at the apex can hand back either, and an
+  address that is not on this list makes the sign-in fail.
 
 This site sends users to `my-learning.html` after email confirmation,
 password reset, and Google OAuth — that page reads the Supabase session
 and shows a signed-in view.
 
-### 4. Enable email confirmation (on by default)
+### 4. Email confirmation
 
-Under **Authentication → Providers → Email**, "Confirm email" is on by
-default — new accounts must verify their email before they can log in.
-Leave this on.
+Under **Authentication → Sign In / Providers → Email**, "Confirm email"
+is on by default, and new accounts must click a link before they can
+log in. That link is only as good as the **Site URL** above: a project
+still pointing at the default `http://localhost:3000` sends every new
+account a dead link, and the free tier's built-in mailer is rate
+limited and often only delivers to the project owner. If sign-ups are
+stalling with no error, that is the first thing to check.
+
+Turning "Confirm email" off lets people in immediately, which is what
+this project runs with. Turn it back on once a real SMTP sender is
+configured.
 
 ### 5. (Optional) Enable Google sign-in
 
