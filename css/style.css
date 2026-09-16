@@ -28,7 +28,6 @@
   --header-border: #b9aa97;
   --logo-duru: #123c32;
   --logo-korean: #b8492d;
-  --logo-sub: #4d5954;
   --nav-text: #243831;
   --nav-hover-bg: rgba(243, 214, 200, 0.5);
   --nav-active-bg: #f3d6c8;
@@ -140,27 +139,24 @@ section { position: relative; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   height: 84px;
 }
 
 .logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   line-height: 1.1;
   color: var(--logo-duru);
+  flex-shrink: 0;
 }
 .logo .logo-en {
   font-weight: 800;
   font-size: 27px;
   letter-spacing: 0.005em;
+  white-space: nowrap;
 }
 .logo .logo-en span { color: var(--logo-korean); }
-.logo .logo-kr {
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--logo-sub);
-  margin-top: 3px;
-}
 
 .nav-main {
   display: flex;
@@ -1106,9 +1102,21 @@ section { position: relative; }
   .footer-top { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (max-width: 1180px) {
+/* Between the full-size header and the hamburger there's a band where the
+   longest label set (Vietnamese) no longer fits on one line alongside a
+   non-wrapping wordmark. Tighten spacing there rather than shrinking the
+   menu text, then hand over to the mobile menu below 1300px. */
+@media (max-width: 1570px) {
+  .logo .logo-en { font-size: 24px; }
+  .nav-main { gap: 2px; }
+  .nav-main a { padding: 10px 12px; }
+  .site-header .wrap { gap: 16px; }
+}
+
+@media (max-width: 1310px) {
   .nav-main { display: none; }
   .nav-toggle { display: block; }
+  .logo .logo-en { font-size: 23px; }
   .btn-login { font-size: 13.5px; padding: 8px 14px; }
   .account-trigger .email { max-width: 80px; }
   .lang-trigger { font-size: 12.5px; padding: 7px 10px; }
@@ -1129,7 +1137,32 @@ section { position: relative; }
   .site-header.menu-open .nav-main a { text-align: center; }
 }
 
+/* Vietnamese labels are materially longer than English or Korean, and the
+   header shares the 1180px content column. Rather than shrinking the menu
+   text to force a fit, hand over to the mobile menu a little earlier for
+   that language only. Selector specificity keeps this above the 1310px
+   rules regardless of source order. */
+@media (max-width: 1370px) {
+  html[lang="vi"] .nav-main { display: none; }
+  html[lang="vi"] .nav-toggle { display: block; }
+  html[lang="vi"] .site-header.menu-open .nav-main {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: var(--header-bg);
+    padding: 20px 28px 30px;
+    gap: 10px;
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: 0 12px 24px -12px rgba(16,59,49,0.18);
+  }
+  html[lang="vi"] .site-header.menu-open .nav-main a { text-align: center; }
+}
+
 @media (max-width: 720px) {
+  .logo .logo-en { font-size: 20px; }
   .grid-3, .grid-4, .lesson-grid, .testi-strip, .footer-top { grid-template-columns: 1fr; }
   .newsletter { flex-direction: column; align-items: flex-start; }
   .newsletter-form { width: 100%; }
@@ -1144,6 +1177,18 @@ section { position: relative; }
   .lang-trigger { padding: 8px; }
   .lang-trigger .lang-current { display: none; }
   .lang-menu { left: auto; right: 0; }
+}
+
+/* Very narrow phones. Must stay after the 720px block: the wordmark is
+   one unbroken line now, so the header buys back width from padding and
+   control sizing, and an equal-specificity rule defined later wins. */
+@media (max-width: 380px) {
+  .site-header .wrap { padding-left: 14px; padding-right: 14px; gap: 8px; }
+  .logo .logo-en { font-size: 16px; }
+  .header-actions { gap: 6px; }
+  .btn-login { font-size: 12px; padding: 6px 10px; }
+  .lang-trigger { padding: 6px; }
+  .nav-toggle { width: 28px; }
 }
 
 /* ============================================================
