@@ -100,3 +100,24 @@ create policy "resources bucket: admin delete"
     bucket_id = 'resources'
     and exists (select 1 from public.admin_users a where a.user_id = auth.uid())
   );
+
+-- ------------------------------------------------------------------
+-- 4. keep_alive — supports .github/workflows/keep-alive.yml
+-- ------------------------------------------------------------------
+-- A free-tier Supabase project pauses after a stretch of inactivity.
+-- The scheduled workflow pings this table every three days to keep it
+-- awake. The table exists only to be selected from; it never needs a
+-- row, because PostgREST answers an empty table with 200 and [], and
+-- the workflow's `curl -f` only fails on an error status. Without the
+-- table that same request 404s and the workflow reports failure.
+
+create table if not exists public.keep_alive (
+  id bigserial primary key,
+  pinged_at timestamptz not null default now()
+);
+
+alter table public.keep_alive enable row level security;
+
+create policy "keep_alive: public read"
+  on public.keep_alive for select
+  using (true);
