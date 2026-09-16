@@ -12,6 +12,6 @@
 // See README.md ("Authentication setup") for step-by-step instructions.
 
 window.DURU_SUPABASE_CONFIG = {
-  url: 'YOUR_SUPABASE_PROJECT_URL', // e.g. https://xxxxxxxxxxxx.supabase.co — still needed
+  url: 'https://ejiwgvlinlffkyycuyym.supabase.co',
   anonKey: 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2',
 };

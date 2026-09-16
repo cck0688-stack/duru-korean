@@ -25,15 +25,26 @@
 
   /* ---------------- Modal markup ---------------- */
 
+  // The notice tracks whether a client actually exists, not merely whether
+  // the config strings are filled in. With valid config but a CDN that
+  // failed to load, the form would otherwise look usable while every
+  // submit failed with an error pointing at a hidden notice.
+  const noticeKey = isConfigured ? 'auth.sdkNotice' : 'auth.configNotice';
+  const noticeText = isConfigured
+    ? `Sign-in couldn't start: the authentication library didn't load. That's usually a
+       blocked CDN or a dropped connection, not your account. Reload the page, and if it
+       keeps happening check whether your network allows <code>cdn.jsdelivr.net</code>.`
+    : `Sign-in isn't connected yet. This site is wired for Supabase Auth —
+       add your project's URL and anon key in <code>js/supabase-config.js</code>
+       to turn it on. See <code>README.md</code> for the full setup.`;
+
   const modalHTML = `
     <div class="auth-overlay" id="authOverlay" hidden>
       <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
         <button type="button" class="auth-close" id="authCloseBtn" aria-label="Close">&times;</button>
 
-        <div id="authConfigNotice" class="auth-config-notice" ${isConfigured ? 'hidden' : ''} data-i18n-html="auth.configNotice">
-          Sign-in isn't connected yet. This site is wired for Supabase Auth —
-          add your project's URL and anon key in <code>js/supabase-config.js</code>
-          to turn it on. See <code>README.md</code> for the full setup.
+        <div id="authConfigNotice" class="auth-config-notice" ${client ? 'hidden' : ''} data-i18n-html="${noticeKey}">
+          ${noticeText}
         </div>
 
         <div class="auth-tabs" id="authTabs">

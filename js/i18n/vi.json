@@ -46,6 +46,7 @@
   "auth.resetSubmit": "Gửi liên kết đặt lại",
   "auth.resetSuccess": "Nếu tồn tại tài khoản với email {email}, liên kết đặt lại đang được gửi tới.",
   "auth.resetTitle": "Đặt lại mật khẩu",
+  "auth.sdkNotice": "Không thể bắt đầu đăng nhập: thư viện xác thực chưa tải được. Nguyên nhân thường là CDN bị chặn hoặc mất kết nối, không phải do tài khoản của bạn. Hãy tải lại trang, và nếu vẫn lỗi, kiểm tra xem mạng của bạn có cho phép <code>cdn.jsdelivr.net</code> hay không.",
   "auth.signupSub": "Bắt đầu với tài khoản Duru Korean miễn phí.",
   "auth.signupSubmit": "Tạo tài khoản",
   "auth.signupSuccess": "Chúng tôi đã gửi liên kết xác minh đến {email}. Hãy xác nhận email rồi đăng nhập. Chưa nhận được? Dùng \"Quên mật khẩu?\" ở tab đăng nhập để gửi lại, hoặc kiểm tra thư mục spam.",

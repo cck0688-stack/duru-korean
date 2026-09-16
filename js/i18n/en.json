@@ -46,6 +46,7 @@
   "auth.resetSubmit": "Send reset link",
   "auth.resetSuccess": "If an account exists for {email}, a reset link is on its way.",
   "auth.resetTitle": "Reset your password",
+  "auth.sdkNotice": "Sign-in couldn't start: the authentication library didn't load. That's usually a blocked CDN or a dropped connection, not your account. Reload the page, and if it keeps happening check whether your network allows <code>cdn.jsdelivr.net</code>.",
   "auth.signupSub": "Start with a free Duru Korean account.",
   "auth.signupSubmit": "Create account",
   "auth.signupSuccess": "We’ve sent a verification link to {email}. Confirm your email, then log in. Didn’t get it? Use \"Forgot password?\" from the log in tab to resend, or check your spam folder.",

@@ -46,6 +46,7 @@
   "auth.resetSubmit": "发送重设链接",
   "auth.resetSuccess": "如果 {email} 对应的账户存在，重设链接即将送达。",
   "auth.resetTitle": "重设密码",
+  "auth.sdkNotice": "无法开始登录：认证库未能加载。这通常是 CDN 被拦截或网络中断所致，与您的账户无关。请刷新页面；如果问题持续，请检查您的网络是否允许访问 <code>cdn.jsdelivr.net</code>。",
   "auth.signupSub": "从免费的 Duru Korean 账户开始。",
   "auth.signupSubmit": "创建账户",
   "auth.signupSuccess": "我们已向 {email} 发送验证链接。请确认邮箱后登录。没有收到？可在登录页使用“忘记密码？”重新发送，或检查垃圾邮件文件夹。",
