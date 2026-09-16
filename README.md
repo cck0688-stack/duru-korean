@@ -259,6 +259,53 @@ server code to intercept a broken Supabase Storage URL. Links surfaced
 "Download" button is replaced with "No longer available" rather than a
 dead link).
 
+## Blog posts and learner stories
+
+Two Supabase-backed tables, both written from the site rather than the
+dashboard.
+
+**`posts`** are articles by the Duru team. An admin gets a "Write a
+post" button on `blog.html`; everyone else does not, and more to the
+point the RLS policies only accept writes from a user in `admin_users`.
+A post has a `published` flag, and the public select policy filters on
+it, so a draft is genuinely invisible rather than merely unlinked — an
+admin sees drafts because a second select policy grants it.
+
+Single posts live at `blog.html?post=<slug>`. A static host has no
+routing, so the query string is the only option, the same approach the
+language switcher uses. Slugs are generated from the title plus a short
+random suffix; a title with no Latin characters reduces to the suffix
+alone rather than a percent-encoded mess.
+
+**`stories`** are written by learners. Anyone signed in can post; the
+insert policy's `with check (auth.uid() = user_id)` is what stops one
+account posting as another. Authors may edit or delete their own story
+and no one else's, and an admin may delete any. Stories appear
+immediately — there is no approval queue — so removing a bad one is the
+moderation model.
+
+A learner picks a display name per story. The table has no column for
+an email address and `user_id` is only ever compared against
+`auth.uid()`, never rendered, so signing up does not put an address on
+a public page.
+
+Both bodies are stored and rendered as **plain text**: blank lines
+become paragraphs and everything else is escaped. Accepting HTML from
+one visitor would let them run code in another visitor's browser, so it
+is never interpreted. `escapeHTML` in `js/blog.js` and `js/stories.js`
+is the only thing standing between a pasted `<script>` and every reader
+of that page — do not replace it with `innerHTML` of raw input.
+
+### Header width
+
+The nav carries seven items. That does not fit in the 1180px column the
+body uses, so the header bar has its own 1560px measure. Vietnamese
+labels are long enough to need the full width and collapse to the menu
+button below 1532px; the other four languages collapse at 1310px. Those
+numbers are measured, not guessed — adding another nav item means
+measuring again.
+
+
 ## Local development
 
 No build step — just serve the folder statically, e.g.:

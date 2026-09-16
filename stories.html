@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Blog — Duru Korean</title>
-<meta name="description" content="Notes on Korean language, culture, and study tips from Duru Korean.">
+<title>Learner Stories — Duru Korean</title>
+<meta name="description" content="Stories from people learning Korean with Duru Korean — in their own words.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -37,45 +37,28 @@
 
 <section class="page-hero">
   <div class="wrap">
-    <span class="page-hero-mark" aria-hidden="true">글</span>
-    <h1 data-i18n="blogPage.h1">Blog</h1>
+    <span class="page-hero-mark kr" aria-hidden="true">벗</span>
+    <h1 data-i18n="storiesPage.h1">Learner Stories</h1>
     <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline" data-i18n="blogPage.tagline">Notes on Korean, language, and life.</p>
-    <div data-i18n="blogPage.krSub">두루 블로그</div>
+    <p class="page-hero-tagline" data-i18n="storiesPage.tagline">Why people started Korean, and what happened next.</p>
+    <div data-i18n="storiesPage.krSub">배우는 사람들의 이야기</div>
   </div>
 </section>
 
 <section class="section section-after-hero">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="blogPage.leadIn">Study tips, grammar explained simply, and a look at everyday life and culture in Korea.</p>
-    <div class="filter-row reveal" id="blogFilters">
-      <button class="filter-btn active" data-filter="all" data-i18n="blog.filter.all">All</button>
-      <button class="filter-btn" data-filter="study" data-i18n="blog.cat.study">Study Tips</button>
-      <button class="filter-btn" data-filter="grammar" data-i18n="blog.cat.grammar">Grammar</button>
-      <button class="filter-btn" data-filter="culture" data-i18n="blog.cat.culture">Culture</button>
-      <button class="filter-btn" data-filter="travel" data-i18n="blog.cat.travel">Travel Korean</button>
-      <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
-    </div>
+    <p class="section-lead-in" data-i18n="storiesPage.leadIn">Everyone here started somewhere. Share what got you going, what tripped you up, or what finally made it click.</p>
 
-    <div id="blogSingle" class="blog-single" hidden></div>
-
-    <div class="grid-3 reveal" id="blogList"></div>
-    <p class="resource-empty-note" id="blogEmpty" hidden data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>
-  </div>
-</section>
-
-<section class="section-alt section">
-  <div class="wrap">
-    <div class="newsletter reveal">
-      <div>
-        <h3 data-i18n="blogPage.newsletter.h3">Never miss a post</h3>
-        <p data-i18n="blogPage.newsletter.p">New articles on Korean language and culture, sent straight to your inbox.</p>
+    <div class="story-toolbar reveal">
+      <button type="button" class="btn btn-primary" id="writeStoryBtn" hidden data-i18n="stories.writeBtn">+ Share your story</button>
+      <div class="story-signed-out" id="storySignedOutNote" hidden>
+        <span data-i18n="stories.signInPrompt">Log in to add your own story.</span>
+        <button type="button" class="btn btn-ghost" id="storyLoginBtn" data-i18n="stories.signInCta">Log in →</button>
       </div>
-      <form class="newsletter-form">
-        <input type="email" placeholder="you@email.com" required>
-        <button type="submit" class="btn btn-primary" data-i18n="blogPage.newsletter.submit">Subscribe</button>
-      </form>
     </div>
+
+    <div class="story-list" id="storyList"></div>
+    <p class="resource-empty-note" id="storyEmpty" hidden data-i18n="stories.emptyNote">No stories yet — yours could be the first.</p>
   </div>
 </section>
 
@@ -125,8 +108,8 @@
 <script src="js/supabase-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/auth.js"></script>
-<script src="js/blog.js"></script>
-<script>window.DURU_PAGE_TITLE_KEY = 'blogPage.title';</script>
+<script src="js/stories.js"></script>
+<script>window.DURU_PAGE_TITLE_KEY = 'storiesPage.title';</script>
 <script src="js/i18n.js"></script>
 </body>
 </html>

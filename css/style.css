@@ -135,12 +135,17 @@ section { position: relative; }
   border-bottom: 1px solid var(--header-border);
 }
 
+/* The header bar carries seven nav items plus the wordmark, language
+   picker, and account control — more than fits in the 1180px column the
+   body text uses. It gets its own wider measure so a large screen shows
+   the full menu instead of a hamburger; the body stays at 1180. */
 .site-header .wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   height: 84px;
+  max-width: 1560px;
 }
 
 .logo {
@@ -1142,7 +1147,7 @@ section { position: relative; }
    text to force a fit, hand over to the mobile menu a little earlier for
    that language only. Selector specificity keeps this above the 1310px
    rules regardless of source order. */
-@media (max-width: 1370px) {
+@media (max-width: 1532px) {
   html[lang="vi"] .nav-main { display: none; }
   html[lang="vi"] .nav-toggle { display: block; }
   html[lang="vi"] .site-header.menu-open .nav-main {
@@ -1349,3 +1354,84 @@ section { position: relative; }
 }
 .legal-wrap p strong { color: var(--ink); font-weight: 700; }
 .legal-wrap a { color: var(--accent-red); font-weight: 600; }
+
+/* ---- Blog: dynamic cards, drafts, single post ------------------- */
+.blog-card h3 a { color: inherit; text-decoration: none; }
+.blog-card h3 a:hover { color: var(--accent-red); }
+.blog-date { font-size: 13px; color: var(--ink-dim); margin: 6px 0 10px; }
+.blog-draft-tag {
+  display: inline-block; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: #8a5a12; background: #fbeccd; border-radius: 999px; padding: 2px 8px;
+}
+.blog-card-admin { display: flex; gap: 8px; margin-top: 12px; }
+.blog-card-admin button {
+  font-size: 12.5px; font-weight: 700; border-radius: 6px; padding: 5px 10px;
+  border: 1px solid rgba(22, 48, 43, 0.18); background: #fff; color: var(--ink);
+}
+.blog-card-admin .blog-delete-btn { color: #b3261e; border-color: rgba(179, 38, 30, 0.3); }
+
+/* A single post reads as an article, so it gets the narrow measure the
+   legal pages use rather than the three-column card grid's width. */
+.blog-single { max-width: 760px; }
+.blog-single h1 { font-size: clamp(28px, 4vw, 42px); margin: 10px 0 6px; }
+.blog-back {
+  display: inline-block; margin-bottom: 18px;
+  font-size: 14px; font-weight: 700; color: var(--accent-red);
+}
+.post-body { margin-top: 22px; }
+.post-body p { font-size: 16.5px; line-height: 1.8; color: var(--ink-dim); margin: 0 0 16px; }
+
+/* ---- Learner stories -------------------------------------------- */
+.story-toolbar {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.story-signed-out {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  font-size: 15px; color: var(--ink-dim);
+}
+.story-list { display: grid; gap: 16px; max-width: 760px; }
+.story-card {
+  background: #fff; border: 1px solid rgba(22, 48, 43, 0.10);
+  border-radius: 14px; padding: 22px 24px;
+}
+.story-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.story-head h3 { font-size: 16px; margin: 0; color: var(--ink); }
+.story-avatar {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-red); color: #fff; font-weight: 800; font-size: 15px;
+}
+.story-meta { font-size: 13px; color: var(--ink-dim); margin: 2px 0 0; }
+/* Learner text is unpredictable — a pasted URL or a long unbroken run
+   must wrap instead of pushing the card wider than the viewport. */
+.story-body p {
+  font-size: 15.5px; line-height: 1.75; color: var(--ink-dim); margin: 0 0 12px;
+  overflow-wrap: anywhere;
+}
+.story-body p:last-child { margin-bottom: 0; }
+.story-actions { display: flex; gap: 8px; margin-top: 16px; }
+.story-actions button {
+  font-size: 12.5px; font-weight: 700; border-radius: 6px; padding: 5px 10px;
+  border: 1px solid rgba(22, 48, 43, 0.18); background: #fff; color: var(--ink);
+}
+.story-actions .story-delete-btn { color: #b3261e; border-color: rgba(179, 38, 30, 0.3); }
+
+/* ---- Post editor ------------------------------------------------ */
+.post-modal { max-width: 620px; }
+.auth-field textarea {
+  width: 100%; font: inherit; font-size: 15px; line-height: 1.6;
+  padding: 10px 12px; border-radius: 8px; resize: vertical;
+  border: 1px solid rgba(22, 48, 43, 0.18); background: #fff; color: var(--ink);
+}
+.auth-field select {
+  width: 100%; font: inherit; font-size: 15px; padding: 10px 12px;
+  border-radius: 8px; border: 1px solid rgba(22, 48, 43, 0.18);
+  background: #fff; color: var(--ink);
+}
+.field-hint { font-size: 12.5px; color: var(--ink-dim); margin: 6px 0 0; }
+.post-publish-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14.5px; color: var(--ink); margin: 4px 0 16px;
+}

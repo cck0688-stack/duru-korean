@@ -129,3 +129,107 @@ drop policy if exists "keep_alive: public read" on public.keep_alive;
 create policy "keep_alive: public read"
   on public.keep_alive for select
   using (true);
+
+-- ------------------------------------------------------------------
+-- 5. posts — blog articles written by the Duru team
+-- ------------------------------------------------------------------
+-- Written and edited from the site itself, not the dashboard. A post is
+-- invisible to visitors until published, so a half-finished draft can be
+-- saved without anyone seeing it.
+
+create table if not exists public.posts (
+  id uuid primary key default gen_random_uuid(),
+  slug text not null unique,
+  category text not null check (category in ('study', 'grammar', 'culture', 'travel')),
+  title text not null check (char_length(trim(title)) between 1 and 160),
+  excerpt text check (excerpt is null or char_length(excerpt) <= 400),
+  body text not null check (char_length(trim(body)) between 1 and 40000),
+  published boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  created_by uuid references auth.users (id)
+);
+
+alter table public.posts enable row level security;
+
+-- Visitors see published posts only. Two separate select policies are
+-- OR'd together by Postgres, so an admin additionally sees drafts.
+drop policy if exists "posts: public read published" on public.posts;
+create policy "posts: public read published"
+  on public.posts for select
+  using (published);
+
+drop policy if exists "posts: admin read all" on public.posts;
+create policy "posts: admin read all"
+  on public.posts for select
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "posts: admin insert" on public.posts;
+create policy "posts: admin insert"
+  on public.posts for insert
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "posts: admin update" on public.posts;
+create policy "posts: admin update"
+  on public.posts for update
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()))
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "posts: admin delete" on public.posts;
+create policy "posts: admin delete"
+  on public.posts for delete
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+create index if not exists posts_published_idx
+  on public.posts (published, created_at desc);
+
+-- ------------------------------------------------------------------
+-- 6. stories — short pieces written by learners
+-- ------------------------------------------------------------------
+-- Anyone signed in may post. Stories appear immediately; an admin can
+-- remove any of them. A learner picks a display name per story, so the
+-- email address they signed up with is never exposed — the table has no
+-- column for it, and user_id is only ever compared against auth.uid(),
+-- never shown.
+
+create table if not exists public.stories (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users (id) on delete cascade,
+  display_name text not null check (char_length(trim(display_name)) between 1 and 40),
+  body text not null check (char_length(trim(body)) between 1 and 4000),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.stories enable row level security;
+
+drop policy if exists "stories: public read" on public.stories;
+create policy "stories: public read"
+  on public.stories for select
+  using (true);
+
+-- The with check is what stops someone posting under another person's
+-- account: the row's user_id has to be the caller's own id.
+drop policy if exists "stories: author insert" on public.stories;
+create policy "stories: author insert"
+  on public.stories for insert
+  with check (auth.uid() = user_id);
+
+drop policy if exists "stories: author update" on public.stories;
+create policy "stories: author update"
+  on public.stories for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+drop policy if exists "stories: author delete" on public.stories;
+create policy "stories: author delete"
+  on public.stories for delete
+  using (auth.uid() = user_id);
+
+drop policy if exists "stories: admin delete" on public.stories;
+create policy "stories: admin delete"
+  on public.stories for delete
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+create index if not exists stories_created_idx
+  on public.stories (created_at desc);
