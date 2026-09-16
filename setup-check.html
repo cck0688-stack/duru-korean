@@ -211,16 +211,26 @@
     }
 
     // 4. anon key
+    //    Send only the apikey header. A new-style sb_publishable_ key is not
+    //    a JWT, so passing it as `Authorization: Bearer` makes the gateway try
+    //    to parse it as one and answer 401 — which looks exactly like a
+    //    rejected key even when the key is perfectly good.
     try {
       const res = await fetch(CONFIG.url.replace(/\/$/, '') + '/rest/v1/', {
-        headers: { apikey: CONFIG.anonKey, Authorization: 'Bearer ' + CONFIG.anonKey },
+        headers: { apikey: CONFIG.anonKey },
       });
+      let detail = 'HTTP ' + res.status;
+      if (!res.ok) {
+        let body = '';
+        try { body = (await res.text()).slice(0, 180); } catch (e) {}
+        detail += body ? ' — ' + body : '';
+      }
       if (res.status === 401 || res.status === 403) {
-        states.push(row('fail', '4. anon key', 'HTTP ' + res.status + ' — 키가 거부되었습니다.',
+        states.push(row('fail', '4. anon key', detail,
           '<b>해결:</b> 대시보드 → Project Settings → API 에서 <b>anon / publishable</b> 키를 다시 복사해 ' +
           '<code>js/supabase-config.js</code> 에 붙여넣으세요. (service_role 키는 절대 사용하지 마세요.)'));
       } else {
-        states.push(row('pass', '4. anon key', 'HTTP ' + res.status + ' — 키가 유효합니다.'));
+        states.push(row('pass', '4. anon key', detail + ' — 키가 유효합니다.'));
       }
     } catch (e) {
       states.push(row('warn', '4. anon key', '확인하지 못했습니다: ' + e.message));

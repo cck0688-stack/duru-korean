@@ -21,6 +21,7 @@ alter table public.admin_users enable row level security;
 
 -- A signed-in user may check ONLY their own row (so the site can ask
 -- "am I an admin?"), never list who else is an admin.
+drop policy if exists "admin_users: self read only" on public.admin_users;
 create policy "admin_users: self read only"
   on public.admin_users for select
   using (auth.uid() = user_id);
@@ -54,16 +55,19 @@ create table if not exists public.resources (
 alter table public.resources enable row level security;
 
 -- Anyone — including anonymous visitors — can see the resource list.
+drop policy if exists "resources: public read" on public.resources;
 create policy "resources: public read"
   on public.resources for select
   using (true);
 
 -- Only a verified admin (present in admin_users) can add a row.
+drop policy if exists "resources: admin insert" on public.resources;
 create policy "resources: admin insert"
   on public.resources for insert
   with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
 
 -- Only a verified admin can remove a row.
+drop policy if exists "resources: admin delete" on public.resources;
 create policy "resources: admin delete"
   on public.resources for delete
   using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
@@ -83,10 +87,12 @@ create index if not exists resources_publish_location_idx
 -- policies below (Storage → Policies, or straight from SQL Editor —
 -- both write to storage.objects).
 
+drop policy if exists "resources bucket: public read" on storage.objects;
 create policy "resources bucket: public read"
   on storage.objects for select
   using (bucket_id = 'resources');
 
+drop policy if exists "resources bucket: admin upload" on storage.objects;
 create policy "resources bucket: admin upload"
   on storage.objects for insert
   with check (
@@ -94,6 +100,7 @@ create policy "resources bucket: admin upload"
     and exists (select 1 from public.admin_users a where a.user_id = auth.uid())
   );
 
+drop policy if exists "resources bucket: admin delete" on storage.objects;
 create policy "resources bucket: admin delete"
   on storage.objects for delete
   using (
@@ -118,6 +125,7 @@ create table if not exists public.keep_alive (
 
 alter table public.keep_alive enable row level security;
 
+drop policy if exists "keep_alive: public read" on public.keep_alive;
 create policy "keep_alive: public read"
   on public.keep_alive for select
   using (true);
