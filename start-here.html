@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Start Here — Duru Korean</title>
+<title>Learning Path — Duru Korean</title>
 <meta name="description" content="New to Korean? Follow three simple steps to go from zero to your first real conversation with Duru Korean.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,13 +22,13 @@
     <nav class="nav-main">
       <a href="start-here.html">Learning Path</a>
       <a href="learning-korean.html">Learn Korean</a>
-      <a href="book-audio.html">Books</a>
-      <a href="book-audio.html#audio">Book Audio</a>
+      <a href="book-audio.html">Book &amp; Audio</a>
       <a href="free-resources.html">Free Resources</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
     </nav>
     <div class="header-actions">
+      <button id="authTrigger" class="btn-login" type="button">Log in</button>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     </div>
   </div>
@@ -49,30 +49,30 @@
 <section class="section">
   <div class="wrap">
     <div class="steps-col">
-      <div class="step-card reveal">
-        <div class="step-num kr">1</div>
+      <a href="learning-korean.html" class="step-card reveal">
+        <div class="step-num kr">01</div>
         <div class="step-body">
-          <h3>Learn Hangul first</h3>
-          <p>Korean's alphabet is logical and fast to learn — most people read it confidently within a few days. Start with our free Hangul chart and short lessons before moving on to words and sentences.</p>
-          <a href="free-resources.html">Get the free Hangul chart →</a>
+          <h3>Learn Korean</h3>
+          <p class="kr">한글의 첫 글자부터 실제 의사소통까지, 수준에 맞춰 한국어를 배우는 시작점</p>
+          <span class="step-cta">Go to Learn Korean →</span>
         </div>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num kr">2</div>
+      </a>
+      <a href="book-audio.html" class="step-card reveal">
+        <div class="step-num kr">02</div>
         <div class="step-body">
-          <h3>Build your basics</h3>
-          <p>Once you can read Hangul, move into greetings, basic sentence structure, and everyday vocabulary — the foundation every other skill builds on.</p>
-          <a href="learning-korean.html">See the Beginner path →</a>
+          <h3>Choose a Book &amp; Listen</h3>
+          <p class="kr">학습 단계에 맞는 전자책을 고르고, 원어민 음원과 QR 자료를 함께 이용</p>
+          <span class="step-cta">Go to Book &amp; Audio →</span>
         </div>
-      </div>
-      <div class="step-card reveal">
-        <div class="step-num kr">3</div>
+      </a>
+      <a href="free-resources.html" class="step-card reveal">
+        <div class="step-num kr">03</div>
         <div class="step-body">
-          <h3>Practice with the Book &amp; Audio</h3>
-          <p>Reinforce every lesson with native-speaker audio, so pronunciation and listening grow alongside your reading and grammar.</p>
-          <a href="book-audio.html">Explore Book &amp; Audio →</a>
+          <h3>Practice with Free Resources</h3>
+          <p class="kr">워크시트, 복습 자료, 문화 콘텐츠로 배움을 이어가기</p>
+          <span class="step-cta">Go to Free Resources →</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -155,8 +155,8 @@
       <div class="footer-col">
         <h5>Learn</h5>
         <ul>
-          <li><a href="start-here.html">Start Here</a></li>
-          <li><a href="learning-korean.html">Learning Korean</a></li>
+          <li><a href="start-here.html">Learning Path</a></li>
+          <li><a href="learning-korean.html">Learn Korean</a></li>
           <li><a href="book-audio.html">Book &amp; Audio</a></li>
         </ul>
       </div>
@@ -175,22 +175,16 @@
           <li><a href="start-here.html#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h5>Follow</h5>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Newsletter</a></li>
-        </ul>
-      </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year></span> Duru Korean. All rights reserved.</span>
-      <span class="socials"><a href="#">IG</a><a href="#">YT</a><a href="#">TT</a></span>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>

@@ -22,13 +22,13 @@
     <nav class="nav-main">
       <a href="start-here.html">Learning Path</a>
       <a href="learning-korean.html">Learn Korean</a>
-      <a href="book-audio.html">Books</a>
-      <a href="book-audio.html#audio">Book Audio</a>
+      <a href="book-audio.html">Book &amp; Audio</a>
       <a href="free-resources.html">Free Resources</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
     </nav>
     <div class="header-actions">
+      <button id="authTrigger" class="btn-login" type="button">Log in</button>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     </div>
   </div>
@@ -202,8 +202,8 @@
       <div class="footer-col">
         <h5>Learn</h5>
         <ul>
-          <li><a href="start-here.html">Start Here</a></li>
-          <li><a href="learning-korean.html">Learning Korean</a></li>
+          <li><a href="start-here.html">Learning Path</a></li>
+          <li><a href="learning-korean.html">Learn Korean</a></li>
           <li><a href="book-audio.html">Book &amp; Audio</a></li>
         </ul>
       </div>
@@ -222,22 +222,16 @@
           <li><a href="start-here.html#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h5>Follow</h5>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Newsletter</a></li>
-        </ul>
-      </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year></span> Duru Korean. All rights reserved.</span>
-      <span class="socials"><a href="#">IG</a><a href="#">YT</a><a href="#">TT</a></span>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>

@@ -22,13 +22,13 @@
     <nav class="nav-main">
       <a href="start-here.html">Learning Path</a>
       <a href="learning-korean.html">Learn Korean</a>
-      <a href="book-audio.html">Books</a>
-      <a href="book-audio.html#audio">Book Audio</a>
+      <a href="book-audio.html">Book &amp; Audio</a>
       <a href="free-resources.html">Free Resources</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
     </nav>
     <div class="header-actions">
+      <button id="authTrigger" class="btn-login" type="button">Log in</button>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     </div>
   </div>
@@ -52,25 +52,25 @@
         <span class="resource-tag">PDF · Beginner</span>
         <h3>Hangul Chart</h3>
         <p>A clean, printable chart of all 24 letters with stroke order and sounds.</p>
-        <a href="#" class="btn btn-ghost">Download →</a>
+        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Hangul%20Chart" class="btn btn-ghost">Request →</a>
       </div>
       <div class="resource-card">
         <span class="resource-tag">Guide · Beginner</span>
         <h3>Survival Phrases</h3>
         <p>30 essential phrases for travel, cafés, and everyday situations.</p>
-        <a href="#" class="btn btn-ghost">Download →</a>
+        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Survival%20Phrases" class="btn btn-ghost">Request →</a>
       </div>
       <div class="resource-card">
         <span class="resource-tag">Flashcards</span>
         <h3>Core Vocabulary 200</h3>
         <p>200 must-know words, organized by everyday topic and printable as cards.</p>
-        <a href="#" class="btn btn-ghost">Download →</a>
+        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Core%20Vocabulary%20200" class="btn btn-ghost">Request →</a>
       </div>
       <div class="resource-card">
         <span class="resource-tag">Cheat Sheet</span>
         <h3>Grammar Basics</h3>
         <p>Core sentence patterns and particles explained on one page.</p>
-        <a href="#" class="btn btn-ghost">Download →</a>
+        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Grammar%20Basics" class="btn btn-ghost">Request →</a>
       </div>
       <div class="resource-card">
         <span class="resource-tag">Audio Sample</span>
@@ -82,19 +82,19 @@
         <span class="resource-tag">Worksheet</span>
         <h3>Hangul Writing Practice</h3>
         <p>Printable practice sheets for handwriting every consonant and vowel.</p>
-        <a href="#" class="btn btn-ghost">Download →</a>
+        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Hangul%20Writing%20Practice" class="btn btn-ghost">Request →</a>
       </div>
       <div class="resource-card">
         <span class="resource-tag">Cheat Sheet</span>
         <h3>Numbers &amp; Counting</h3>
         <p>Sino-Korean and native Korean numbers, side by side, with usage notes.</p>
-        <a href="#" class="btn btn-ghost">Download →</a>
+        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Numbers%20&amp;%20Counting" class="btn btn-ghost">Request →</a>
       </div>
       <div class="resource-card">
         <span class="resource-tag">Guide</span>
         <h3>Honorifics 101</h3>
         <p>A beginner-friendly introduction to Korean speech levels.</p>
-        <a href="#" class="btn btn-ghost">Download →</a>
+        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Honorifics%20101" class="btn btn-ghost">Request →</a>
       </div>
     </div>
   </div>
@@ -127,8 +127,8 @@
       <div class="footer-col">
         <h5>Learn</h5>
         <ul>
-          <li><a href="start-here.html">Start Here</a></li>
-          <li><a href="learning-korean.html">Learning Korean</a></li>
+          <li><a href="start-here.html">Learning Path</a></li>
+          <li><a href="learning-korean.html">Learn Korean</a></li>
           <li><a href="book-audio.html">Book &amp; Audio</a></li>
         </ul>
       </div>
@@ -147,22 +147,16 @@
           <li><a href="start-here.html#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h5>Follow</h5>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Newsletter</a></li>
-        </ul>
-      </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year></span> Duru Korean. All rights reserved.</span>
-      <span class="socials"><a href="#">IG</a><a href="#">YT</a><a href="#">TT</a></span>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>

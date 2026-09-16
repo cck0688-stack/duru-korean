@@ -22,13 +22,13 @@
     <nav class="nav-main">
       <a href="start-here.html">Learning Path</a>
       <a href="learning-korean.html">Learn Korean</a>
-      <a href="book-audio.html">Books</a>
-      <a href="book-audio.html#audio">Book Audio</a>
+      <a href="book-audio.html">Book &amp; Audio</a>
       <a href="free-resources.html">Free Resources</a>
       <a href="blog.html">Blog</a>
       <a href="about.html">About</a>
     </nav>
     <div class="header-actions">
+      <button id="authTrigger" class="btn-login" type="button">Log in</button>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     </div>
   </div>
@@ -36,24 +36,13 @@
 
 <section class="hero">
   <div class="hero-grid">
-    <div class="hero-left">
-      <span class="hero-badge kr">두루 [두루] · Widely, all around</span>
-      <h1>From your first letter to real Korean.</h1>
-      <div class="kr-sub kr">두루 한국어</div>
-      <p class="hero-lead">A calm, structured path for learners anywhere in the world — clear lessons, native audio, and free resources to get you speaking real Korean.</p>
-      <div class="hero-cta">
-        <a href="start-here.html" class="btn btn-primary">Start Here →</a>
-        <a href="free-resources.html" class="btn btn-outline-dark">Explore Free Resources</a>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="hero-right-top">
+    <div class="hero-graphic">
+      <div class="hero-graphic-top">
         <span>Korean, Anywhere You Are</span>
         <span>Est. 2026 · Seoul</span>
       </div>
 
-      <div class="hangul-ring">
+      <div class="hangul-ring" role="img" aria-label="Circular diagram of the Korean Hangul consonants and vowels around the Duru Korean wordmark">
         <div class="ring-outer" data-ring="0.95" style="--n:14">
           <span class="ring-letter" style="--i:0">ㄱ</span>
           <span class="ring-letter" style="--i:1">ㄴ</span>
@@ -95,36 +84,47 @@
         </div>
       </div>
 
-      <div class="hero-right-bottom">
+      <div class="hero-graphic-bottom">
         <span>Duru Korean</span>
         <span class="kr">두루 쓰이는 한국어</span>
+      </div>
+    </div>
+
+    <div class="hero-text">
+      <span class="hero-badge kr">두루 [두루] · Widely, all around</span>
+      <h1>From your first letter to real Korean.</h1>
+      <div class="kr-sub kr">두루 한국어</div>
+      <p class="hero-lead">A calm, structured path for learners anywhere in the world — clear lessons, native audio, and free resources to get you speaking real Korean.</p>
+      <div class="hero-cta">
+        <a href="start-here.html" class="btn btn-primary">Begin Learning →</a>
+        <a href="free-resources.html" class="btn btn-outline-dark">Explore Free Resources</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section section-compact">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head reveal" style="margin-bottom:32px;">
       <span class="eyebrow">Why Duru Korean</span>
       <h2>Korean that actually sticks</h2>
-      <p>A calm, structured path built for adult learners — clear explanations, real-life examples, and audio you can practice with anywhere.</p>
+      <p>A calm, structured path with clear lessons, real-life phrases, and native audio.</p>
     </div>
     <div class="grid-3">
       <div class="card reveal">
         <div class="card-icon kr">路</div>
         <h3>A Structured Path</h3>
-        <p>From Hangul to everyday conversation, every lesson builds on the last — no guessing what to study next.</p>
+        <p>Every lesson builds on the last — no guessing what to study next.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon kr">話</div>
         <h3>Real-life Korean</h3>
-        <p>Learn the Korean people actually speak — natural phrases for cafés, travel, friends, and daily life.</p>
+        <p>Natural phrases for cafés, travel, friends, and daily life.</p>
       </div>
       <div class="card reveal">
         <div class="card-icon kr">音</div>
         <h3>Audio-first Learning</h3>
-        <p>Every lesson comes with native-speaker audio, so pronunciation and rhythm are built in from day one.</p>
+        <p>Native-speaker audio built into every lesson from day one.</p>
       </div>
     </div>
   </div>
@@ -318,8 +318,8 @@
       <div class="footer-col">
         <h5>Learn</h5>
         <ul>
-          <li><a href="start-here.html">Start Here</a></li>
-          <li><a href="learning-korean.html">Learning Korean</a></li>
+          <li><a href="start-here.html">Learning Path</a></li>
+          <li><a href="learning-korean.html">Learn Korean</a></li>
           <li><a href="book-audio.html">Book &amp; Audio</a></li>
         </ul>
       </div>
@@ -338,22 +338,16 @@
           <li><a href="start-here.html#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h5>Follow</h5>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Newsletter</a></li>
-        </ul>
-      </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year></span> Duru Korean. All rights reserved.</span>
-      <span class="socials"><a href="#">IG</a><a href="#">YT</a><a href="#">TT</a></span>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>

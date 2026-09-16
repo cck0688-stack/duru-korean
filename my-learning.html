@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>About — Duru Korean</title>
-<meta name="description" content="Duru Korean was built to make learning Korean calm, clear, and accessible to learners anywhere in the world.">
+<title>My Learning — Duru Korean</title>
+<meta name="description" content="Your Duru Korean account and learning progress.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,63 +36,30 @@
 
 <section class="page-hero">
   <div class="wrap">
-    <span class="page-hero-mark" aria-hidden="true">心</span>
-    <h1>About</h1>
+    <h1>My Learning</h1>
     <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline">Korean, made to reach you wherever you are.</p>
-    <div class="kr">두루 한국어 이야기</div>
-    <p>Duru (두루) means "widely, all around" — the idea that good Korean lessons shouldn't depend on where you live or how you learn best.</p>
+    <p class="page-hero-tagline" id="myLearningGreeting">Your Duru Korean account.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">About the Authors</span>
-      <h2>Written by teachers who've done the work</h2>
-      <p>Duru Korean is created and written by two experienced Korean-language educators.</p>
-    </div>
-    <div class="author-grid reveal">
-      <div class="author-card">
-        <div class="card-icon kr">師</div>
-        <h3>Calvin, CHOI</h3>
-        <ul class="check-list">
-          <li>PhD in Education</li>
-          <li>19 years of teaching experience</li>
-          <li>Korean Language Teacher Certification, Level 2</li>
-        </ul>
-      </div>
-      <div class="author-card">
-        <div class="card-icon kr">師</div>
-        <h3>Kate, Yoon</h3>
-        <ul class="check-list">
-          <li>PhD in Education</li>
-          <li>25 years of teaching experience</li>
-          <li>Korean Language Teacher Certification, Level 2</li>
-        </ul>
+    <div id="loggedOutView">
+      <div class="card" style="max-width:480px;">
+        <h3>You're not logged in</h3>
+        <p>Log in or create a free account to see your learning space here.</p>
+        <button type="button" class="btn btn-dark" id="openLoginFromPage">Log in →</button>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section-dark section" id="contact">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Get in Touch</span>
-      <h2>Questions, feedback, or partnership ideas?</h2>
-      <p>We'd love to hear from you — whether it's a question about a lesson, feedback on the site, or an idea for what to teach next.</p>
-    </div>
-    <a href="mailto:hello@durukorean.com" class="btn btn-primary">Email Us: hello@durukorean.com →</a>
-  </div>
-</section>
-
-<section class="cta-banner">
-  <div class="wrap">
-    <span class="eyebrow">Join Us</span>
-    <h2>Start learning Korean, widely and anywhere.</h2>
-    <p>No matter where you're starting from, Duru Korean meets you there.</p>
-    <div class="btn-row">
-      <a href="start-here.html" class="btn btn-primary">Begin Learning →</a>
+    <div id="loggedInView" hidden>
+      <div class="card" style="max-width:560px;">
+        <div class="card-icon kr">學</div>
+        <h3>Welcome back</h3>
+        <p id="userEmailLine">You're signed in.</p>
+        <p>Lesson progress, saved resources, and bookmarks will appear here as those features roll out. For now, jump back into the curriculum any time from the menu above.</p>
+        <a href="learning-korean.html" class="btn btn-primary">Go to Learn Korean →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -140,5 +107,47 @@
 <script src="js/supabase-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="js/auth.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const loggedOut = document.getElementById('loggedOutView');
+    const loggedIn = document.getElementById('loggedInView');
+    const greeting = document.getElementById('myLearningGreeting');
+    const emailLine = document.getElementById('userEmailLine');
+    const openLoginBtn = document.getElementById('openLoginFromPage');
+
+    function showSignedIn(user) {
+      loggedOut.hidden = true;
+      loggedIn.hidden = false;
+      greeting.textContent = `Signed in as ${user.email}`;
+      emailLine.textContent = `You're signed in as ${user.email}.`;
+    }
+    function showSignedOut() {
+      loggedOut.hidden = false;
+      loggedIn.hidden = true;
+      greeting.textContent = 'Your Duru Korean account.';
+    }
+
+    if (openLoginBtn) {
+      openLoginBtn.addEventListener('click', () => {
+        const trigger = document.getElementById('authTrigger');
+        if (trigger) trigger.click();
+      });
+    }
+
+    const client = window.DURU_SUPABASE_CLIENT;
+    if (client) {
+      client.auth.getSession().then(({ data }) => {
+        if (data && data.session && data.session.user) showSignedIn(data.session.user);
+        else showSignedOut();
+      });
+      client.auth.onAuthStateChange((_event, session) => {
+        if (session && session.user) showSignedIn(session.user);
+        else showSignedOut();
+      });
+    } else {
+      showSignedOut();
+    }
+  });
+</script>
 </body>
 </html>
