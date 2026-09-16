@@ -13,7 +13,7 @@
   --accent: #cf8a52;
   --accent-red: #b8492f;
   --accent-red-soft: rgba(184, 73, 47, 0.12);
-  --paper: #faf7f0;
+  --paper: #f8f5ed;
   --paper-alt: #f1ece0;
   --ink: #16302b;
   --ink-dim: #4c635c;
@@ -21,18 +21,21 @@
   --shadow: 0 20px 50px -25px rgba(10, 38, 32, 0.35);
   --maxw: 1180px;
 
-  /* Header (light ivory) + banner (dark green) palette */
-  --header-bg: #faf8f2;
-  --header-border: #e5e1d8;
+  /* Header (warm toupe beige) + banner (dark green) palette.
+     The three-band flow is deliberate: toupe menu → dark green page
+     banner → light ivory body, so each area reads as its own region. */
+  --header-bg: #d8ccbc;
+  --header-border: #b9aa97;
   --logo-duru: #123c32;
   --logo-korean: #b8492d;
-  --logo-sub: #59645e;
-  --nav-text: #303a35;
-  --nav-active-bg: #f5e5dc;
-  --nav-active-text: #9c3d25;
-  --login-text: #123c32;
-  --login-bg: #faf8f2;
-  --banner-bg: #103b31;
+  --logo-sub: #4d5954;
+  --nav-text: #243831;
+  --nav-hover-bg: rgba(243, 214, 200, 0.5);
+  --nav-active-bg: #f3d6c8;
+  --nav-active-text: #9f3f27;
+  --login-text: #28483e;
+  --login-bg: transparent;
+  --banner-bg: #103f35;
   --banner-title: #faf8f2;
   --banner-desc: #d7e2db;
 }
@@ -175,8 +178,8 @@ section { position: relative; }
   transition: color 0.18s ease, background 0.18s ease;
 }
 .nav-main a:hover {
-  color: var(--nav-active-text);
-  background: var(--nav-active-bg);
+  color: var(--nav-text);
+  background: var(--nav-hover-bg);
 }
 .nav-main a.active {
   color: var(--nav-active-text);
@@ -198,7 +201,7 @@ section { position: relative; }
   white-space: nowrap;
   transition: background .18s ease, border-color .18s ease;
 }
-.btn-login:hover { background: rgba(18, 60, 50, 0.08); }
+.btn-login:hover { background: rgba(40, 72, 62, 0.1); }
 
 .account-menu { position: relative; }
 .account-trigger {
@@ -229,7 +232,7 @@ section { position: relative; }
   top: calc(100% + 10px);
   right: 0;
   min-width: 200px;
-  background: #fff;
+  background: #fbf8f2;
   border: 1px solid var(--header-border);
   border-radius: 12px;
   padding: 8px;
@@ -268,14 +271,14 @@ section { position: relative; }
   white-space: nowrap;
   transition: background .18s ease, border-color .18s ease, color .18s ease;
 }
-.lang-trigger:hover { background: var(--nav-active-bg); border-color: var(--nav-active-bg); color: var(--nav-active-text); }
+.lang-trigger:hover { background: var(--nav-hover-bg); border-color: var(--nav-active-bg); color: var(--nav-text); }
 .lang-globe { display: flex; line-height: 0; }
 .lang-menu {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
   min-width: 150px;
-  background: #fff;
+  background: #fbf8f2;
   border: 1px solid var(--header-border);
   border-radius: 12px;
   padding: 6px;
