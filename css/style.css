@@ -134,8 +134,8 @@ section { position: relative; }
 }
 .logo .logo-en {
   font-weight: 800;
-  font-size: 23px;
-  letter-spacing: 0.01em;
+  font-size: 27px;
+  letter-spacing: 0.005em;
 }
 .logo .logo-en span { color: #ff7a4d; }
 .logo .logo-kr {
@@ -362,7 +362,7 @@ section { position: relative; }
 
 .hangul-ring {
   position: relative;
-  width: min(620px, 96%);
+  width: min(620px, 96%, calc(100svh - var(--header-h) - 130px));
   max-height: 100%;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
