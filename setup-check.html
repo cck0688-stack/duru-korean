@@ -299,16 +299,36 @@
     }
 
     // 8. storage bucket
+    //    storage.from(...).list() only queries the objects table, so with the
+    //    select policy in place a bucket that does not exist still answers
+    //    "[]" with no error — which this check used to report as a pass while
+    //    every upload failed with "Bucket not found". Ask for an object inside
+    //    the bucket instead: the gateway distinguishes a missing bucket from a
+    //    missing object, and that is the distinction we actually need.
     {
-      const { error } = await client.storage.from('resources').list('', { limit: 1 });
-      states.push(!error
-        ? row('pass', '8. resources 저장소 버킷', '존재하며 접근할 수 있습니다.')
-        : /not found|does not exist/i.test(error.message)
-          ? row('fail', '8. resources 저장소 버킷', '버킷이 없습니다.',
-              '<b>해결:</b><ol><li>대시보드 → <b>Storage</b> → New bucket</li>' +
-              '<li>이름을 정확히 <code>resources</code> 로 입력</li>' +
-              '<li><b>Public bucket</b> 켜기 → 생성</li></ol>')
-          : row('warn', '8. resources 저장소 버킷', '오류: ' + error.message));
+      const bucketFix =
+        '<b>해결:</b><ol><li>대시보드 → <b>Storage</b> → <b>New bucket</b></li>' +
+        '<li>이름을 정확히 <code>resources</code> 로 입력 (대소문자·철자 그대로)</li>' +
+        '<li><b>Public bucket</b> 켜기 → <b>Create</b></li>' +
+        '<li>그다음 <code>supabase/schema.sql</code> 을 SQL Editor에서 한 번 더 실행하세요. ' +
+        '버킷에 붙는 업로드·삭제 권한이 거기에 들어 있습니다.</li></ol>';
+      try {
+        const probe = CONFIG.url.replace(/\/$/, '') +
+          '/storage/v1/object/public/resources/__duru_probe_does_not_exist__';
+        const res = await fetch(probe, { headers: { apikey: CONFIG.anonKey } });
+        let body = '';
+        try { body = await res.text(); } catch (e) {}
+        if (/bucket not found/i.test(body)) {
+          states.push(row('fail', '8. resources 저장소 버킷', '버킷이 없습니다. 파일을 올리면 “Bucket not found” 오류가 납니다.', bucketFix));
+        } else if (res.ok || /not_found|object not found/i.test(body)) {
+          // The bucket answered for a file it does not hold — it exists.
+          states.push(row('pass', '8. resources 저장소 버킷', '존재하며 접근할 수 있습니다.'));
+        } else {
+          states.push(row('warn', '8. resources 저장소 버킷', 'HTTP ' + res.status + ' — ' + body.slice(0, 140)));
+        }
+      } catch (e) {
+        states.push(row('warn', '8. resources 저장소 버킷', '확인하지 못했습니다: ' + e.message));
+      }
     }
 
     // 9. keep_alive — the scheduled workflow curls this with -f, so a

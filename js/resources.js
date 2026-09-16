@@ -60,6 +60,23 @@
     return map[level] || level;
   }
 
+
+  // The storage API answers a missing bucket and a rejected upload with
+  // developer-facing strings. An admin staring at "Bucket not found" has no
+  // way to know that means "go create the bucket", so name the fix instead.
+  function uploadErrorText(err) {
+    const msg = (err && err.message) || '';
+    if (/bucket not found/i.test(msg)) {
+      return t('resources.errBucketMissing',
+        'The storage bucket isn\u2019t set up yet. Create a public bucket named \u201cresources\u201d in the Supabase dashboard under Storage, then try again.');
+    }
+    if (/row-level security|not authorized|unauthorized|permission denied/i.test(msg)) {
+      return t('resources.errNotAllowed',
+        'Your account isn\u2019t allowed to upload. Check that you\u2019re still signed in as an admin.');
+    }
+    return t('resources.errUploadFailed', 'Upload failed: {msg}').replace('{msg}', msg);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const listEl = document.getElementById('resourceList');
     const emptyEl = document.getElementById('resourceListEmpty');
@@ -277,7 +294,7 @@
         uploading = false;
         submitBtn.disabled = false;
         submitBtn.textContent = t('resources.uploadSubmit', 'Upload');
-        setUploadMsg(t('resources.errUploadFailed', 'Upload failed: {msg}').replace('{msg}', uploadErr.message), 'error');
+        setUploadMsg(uploadErrorText(uploadErr), 'error');
         return;
       }
 
