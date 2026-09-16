@@ -30,6 +30,7 @@
   "auth.errors.notConnected": "Sign-in isn’t connected yet. See the notice above for setup steps.",
   "auth.errors.passwordMismatch": "Passwords don’t match.",
   "auth.errors.passwordTooShort": "Password must be at least 6 characters.",
+  "auth.errors.providerDisabled": "Google sign-in isn’t available yet. Please use your email address instead.",
   "auth.errors.rateLimit": "Too many attempts. Please wait a moment and try again.",
   "auth.errors.userExists": "An account with this email already exists — try logging in instead.",
   "auth.forgotPassword": "Forgot password?",

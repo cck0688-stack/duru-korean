@@ -30,6 +30,7 @@
   "auth.errors.notConnected": "Đăng nhập chưa được kết nối. Xem thông báo phía trên để biết cách thiết lập.",
   "auth.errors.passwordMismatch": "Mật khẩu không khớp.",
   "auth.errors.passwordTooShort": "Mật khẩu phải có ít nhất 6 ký tự.",
+  "auth.errors.providerDisabled": "Đăng nhập bằng Google chưa khả dụng. Vui lòng dùng địa chỉ email của bạn.",
   "auth.errors.rateLimit": "Quá nhiều lần thử. Vui lòng đợi một chút rồi thử lại.",
   "auth.errors.userExists": "Đã tồn tại tài khoản với email này — hãy thử đăng nhập.",
   "auth.forgotPassword": "Quên mật khẩu?",

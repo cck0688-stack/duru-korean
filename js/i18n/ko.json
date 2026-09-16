@@ -30,6 +30,7 @@
   "auth.errors.notConnected": "아직 로그인이 연결되지 않았습니다. 위의 안내를 참고해 설정해 주세요.",
   "auth.errors.passwordMismatch": "비밀번호가 일치하지 않습니다.",
   "auth.errors.passwordTooShort": "비밀번호는 6자 이상이어야 합니다.",
+  "auth.errors.providerDisabled": "구글 로그인은 아직 사용할 수 없습니다. 이메일로 가입해 주세요.",
   "auth.errors.rateLimit": "시도 횟수가 너무 많습니다. 잠시 후 다시 시도해 주세요.",
   "auth.errors.userExists": "이미 이 이메일로 가입된 계정이 있습니다 — 로그인을 시도해 보세요.",
   "auth.forgotPassword": "비밀번호를 잊으셨나요?",

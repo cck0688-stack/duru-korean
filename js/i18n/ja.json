@@ -30,6 +30,7 @@
   "auth.errors.notConnected": "ログインはまだ接続されていません。上の案内を参照して設定してください。",
   "auth.errors.passwordMismatch": "パスワードが一致しません。",
   "auth.errors.passwordTooShort": "パスワードは6文字以上で入力してください。",
+  "auth.errors.providerDisabled": "Googleログインはまだご利用いただけません。メールアドレスでご登録ください。",
   "auth.errors.rateLimit": "試行回数が多すぎます。しばらくしてからもう一度お試しください。",
   "auth.errors.userExists": "このメールアドレスはすでに登録されています。ログインをお試しください。",
   "auth.forgotPassword": "パスワードをお忘れですか？",

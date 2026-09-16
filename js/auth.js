@@ -186,6 +186,12 @@
       if (/email not confirmed/i.test(msg)) return t('auth.errors.emailNotConfirmed', 'Please verify your email first — check your inbox for the confirmation link.');
       if (/user already registered/i.test(msg)) return t('auth.errors.userExists', 'An account with this email already exists — try logging in instead.');
       if (/rate limit/i.test(msg)) return t('auth.errors.rateLimit', 'Too many attempts. Please wait a moment and try again.');
+      // A provider that hasn't been configured in the Supabase dashboard
+      // answers with a developer-facing string; the visitor needs to know
+      // to use email instead, not to read "Unsupported provider".
+      if (/unsupported provider|provider is not enabled|validation_failed/i.test(msg)) {
+        return t('auth.errors.providerDisabled', 'Google sign-in isn\u2019t available yet. Please use your email address instead.');
+      }
       return msg;
     }
     function setLoading(btn, loading, labelKey, labelFallback) {

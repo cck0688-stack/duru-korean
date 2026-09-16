@@ -30,6 +30,7 @@
   "auth.errors.notConnected": "登录尚未接入。请参照上方说明完成设置。",
   "auth.errors.passwordMismatch": "两次输入的密码不一致。",
   "auth.errors.passwordTooShort": "密码至少需要 6 个字符。",
+  "auth.errors.providerDisabled": "暂不支持使用 Google 登录，请改用邮箱注册。",
   "auth.errors.rateLimit": "尝试次数过多，请稍后再试。",
   "auth.errors.userExists": "该邮箱已注册，请尝试直接登录。",
   "auth.forgotPassword": "忘记密码？",
