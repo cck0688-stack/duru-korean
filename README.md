@@ -1,6 +1,6 @@
 # Duru Korean
 
-A static marketing site for Duru Korean, deployed on GitHub Pages. Plain HTML/CSS/JS — no build step.
+A static marketing site for Duru Korean, deployed on Vercel. Plain HTML/CSS/JS — no build step.
 
 ## Structure
 
@@ -62,7 +62,7 @@ this static site has no server, so it should never hold that key at all.
 
 In the Supabase dashboard, under **Authentication → URL Configuration**:
 
-- Set **Site URL** to your deployed GitHub Pages URL, e.g.
+- Set **Site URL** to your deployed site URL, e.g.
   `https://<your-username>.github.io/<repo-name>/`
 - Add the same URL (and `.../my-learning.html`) to **Redirect URLs**.
 
@@ -109,9 +109,9 @@ reset by default. For additional bot protection, enable
 the corresponding `captchaToken` option to the `signUp` /
 `signInWithPassword` calls in `js/auth.js` if you turn this on.
 
-### Known limitations on GitHub Pages
+### Known limitations of static hosting
 
-- GitHub Pages serves static files only and does not let this repository
+- The host serves static files only and does not let this repository
   set custom HTTP response headers (like a strict `Content-Security-Policy`).
   The security boundary here is Supabase's own API (RLS + rate limiting +
   hashed passwords), not response headers from this host.
@@ -143,7 +143,7 @@ shorter labels don't break the header.
   never navigates you away from the page you're on.
 - **Shareable links**: a URL with `?lang=vi` (or `en`/`ko`) forces that
   language for that visit and then persists it, without needing
-  per-language paths — deliberately, since GitHub Pages serves static
+  per-language paths — deliberately, since the host serves static
   files with no server-side routing to fall back on for something like
   `/vi/about.html`.
 - **No forced switching**: there's no IP- or browser-locale-based
@@ -240,7 +240,7 @@ Resources" link will appear in your account menu.
 ### Known limitation
 
 If someone had a direct link to a file before it was deleted, that link
-will 404 rather than showing a friendly message — GitHub Pages can't run
+will 404 rather than showing a friendly message — static hosting can't run
 server code to intercept a broken Supabase Storage URL. Links surfaced
 *through the site itself* handle this correctly (a deleted resource's
 "Download" button is replaced with "No longer available" rather than a
@@ -255,3 +255,24 @@ python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000/index.html`.
+
+## Deployment
+
+Vercel serves this repository as-is from the root — there is no build
+step and no framework preset to choose. Pushing to the production
+branch deploys it; every other branch gets its own preview URL.
+
+`vercel.json` sets two things:
+
+- **Security headers** on every response (`nosniff`, a referrer policy,
+  and `SAMEORIGIN` framing), which matter here because the site signs
+  people in.
+- **Revalidation on HTML, CSS, and JS.** None of the asset filenames
+  carry a content hash, so a long cache lifetime would leave visitors
+  on an old `style.css` or `i18n.js` after a deploy, with no way to
+  know. `must-revalidate` costs one conditional request per file and
+  removes the class of bug where a fix is live but nobody sees it.
+
+Files under `assets/` are left on Vercel's defaults, since images and
+the favicon change rarely and are safe to cache.
+
