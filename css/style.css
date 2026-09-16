@@ -1323,3 +1323,29 @@ section { position: relative; }
   line-height: 1.6;
 }
 .auth-config-notice code { background: rgba(22,48,43,0.08); padding: 1px 5px; border-radius: 4px; font-size: 11.5px; }
+
+/* ---- Legal pages (privacy, terms) ------------------------------- */
+/* Long-form prose needs a narrower measure than the 1180px content
+   column; anything wider becomes tiring to read. */
+.legal-wrap { max-width: 760px; }
+.legal-updated {
+  font-size: 14px;
+  color: var(--ink-dim);
+  margin: 0 0 32px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(22, 48, 43, 0.12);
+}
+.legal-wrap h2 {
+  font-size: clamp(20px, 2.2vw, 24px);
+  margin: 40px 0 12px;
+  color: var(--ink);
+}
+.legal-wrap h2:first-of-type { margin-top: 0; }
+.legal-wrap p {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--ink-dim);
+  margin: 0 0 14px;
+}
+.legal-wrap p strong { color: var(--ink); font-weight: 700; }
+.legal-wrap a { color: var(--accent-red); font-weight: 600; }
