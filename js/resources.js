@@ -47,7 +47,13 @@
   }
 
   function t(key, fallback) {
-    return window.DURU_I18N ? window.DURU_I18N.t(key) : fallback;
+    // DURU_I18N.t returns the key itself when the dictionary hasn't
+    // arrived yet (it loads over the network) or the key is missing.
+    // Passing that through puts a raw "some.key" string on screen, so
+    // treat it as "no translation" and use the English fallback.
+    if (!window.DURU_I18N) return fallback;
+    var translated = window.DURU_I18N.t(key);
+    return translated === key ? fallback : translated;
   }
 
   function levelLabel(level) {

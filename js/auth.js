@@ -15,6 +15,25 @@
   const isConfigured = CONFIG.url && CONFIG.anonKey &&
     !CONFIG.url.includes('YOUR_SUPABASE') && !CONFIG.anonKey.includes('YOUR_SUPABASE');
 
+  // Sign-in has to start and finish on the same origin. PKCE stores a
+  // one-time verifier under the origin that began the flow, so a visitor who
+  // starts on the apex and is redirected to www on the way back arrives with
+  // a code the browser can no longer verify — the sign-in fails silently and
+  // the page simply says they are not logged in.
+  //
+  // Only the apex/www pair is corrected, and only when it matches the
+  // configured canonical host. Previews, localhost, and any other host are
+  // left alone, since bouncing those to production would be worse than the
+  // problem being solved.
+  (function canonicalizeHost() {
+    if (!CONFIG.siteUrl || location.protocol === 'file:') return;
+    var canonical;
+    try { canonical = new URL(CONFIG.siteUrl); } catch (e) { return; }
+    if (canonical.hostname === location.hostname) return;
+    if (canonical.hostname !== 'www.' + location.hostname) return;
+    location.replace(canonical.origin + location.pathname + location.search + location.hash);
+  })();
+
   let client = null;
   if (isConfigured && window.supabase && typeof window.supabase.createClient === 'function') {
     client = window.supabase.createClient(CONFIG.url, CONFIG.anonKey);
@@ -166,7 +185,13 @@
     if (trigger) trigger.addEventListener('click', () => openModal('login'));
 
     function t(key, fallback) {
-      return window.DURU_I18N ? window.DURU_I18N.t(key) : fallback;
+      // DURU_I18N.t returns the key itself when the dictionary hasn't
+      // arrived yet (it loads over the network) or the key is missing.
+      // Passing that through puts a raw "some.key" string on screen, so
+      // treat it as "no translation" and use the English fallback.
+      if (!window.DURU_I18N) return fallback;
+      var translated = window.DURU_I18N.t(key);
+      return translated === key ? fallback : translated;
     }
 
     function setMessage(panel, type, text) {

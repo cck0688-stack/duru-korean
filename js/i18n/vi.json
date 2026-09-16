@@ -258,6 +258,8 @@
   "learnKorean.level3.label": "Hội thoại thực tế · Cấp độ 3",
   "learnKorean.tagline": "Con đường rõ ràng từ Hangul đến hội thoại thực tế.",
   "learnKorean.title": "Học Tiếng Hàn — Duru Korean",
+  "myLearning.authExchangeFailed": "Đăng nhập chưa hoàn tất. Vui lòng quay lại địa chỉ chính của trang và thử lại.",
+  "myLearning.authFailed": "Đăng nhập chưa hoàn tất: {reason}",
   "myLearning.comingSoon": "Tiến độ bài học, tài liệu đã lưu, và đánh dấu sẽ xuất hiện ở đây khi các tính năng này ra mắt. Hiện tại, bạn có thể quay lại chương trình học bất cứ lúc nào từ menu phía trên.",
   "myLearning.goToLearn": "Đến Trang Học Tiếng Hàn →",
   "myLearning.greetingDefault": "Tài khoản Duru Korean của bạn.",

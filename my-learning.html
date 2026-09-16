@@ -46,6 +46,7 @@
   <div class="wrap">
     <div id="loggedOutView">
       <div class="card" style="max-width:480px;">
+        <div class="auth-message error" id="myLearningAuthError" hidden></div>
         <h3 data-i18n="myLearning.notLoggedIn">You're not logged in</h3>
         <p data-i18n="myLearning.notLoggedInDesc">Log in or create a free account to see your learning space here.</p>
         <button type="button" class="btn btn-dark" id="openLoginFromPage" data-i18n="myLearning.loginCta">Log in →</button>
@@ -120,7 +121,13 @@
     const openLoginBtn = document.getElementById('openLoginFromPage');
 
     function t(key, fallback) {
-      return window.DURU_I18N ? window.DURU_I18N.t(key) : fallback;
+      // DURU_I18N.t returns the key itself when the dictionary hasn't
+      // arrived yet (it loads over the network) or the key is missing.
+      // Passing that through puts a raw "some.key" string on screen, so
+      // treat it as "no translation" and use the English fallback.
+      if (!window.DURU_I18N) return fallback;
+      var translated = window.DURU_I18N.t(key);
+      return translated === key ? fallback : translated;
     }
     function showSignedIn(user) {
       loggedOut.hidden = true;
@@ -142,17 +149,60 @@
     }
 
     const client = window.DURU_SUPABASE_CLIENT;
+    const errBox = document.getElementById('myLearningAuthError');
     let currentUser = null;
     function renderForUser() {
       if (currentUser) showSignedIn(currentUser); else showSignedOut();
     }
+
+    // This page is where every redirect-based sign-in lands. When one fails
+    // the visitor would otherwise just see "you're not logged in", which
+    // describes the symptom and hides the cause. Read what the provider
+    // actually sent back and say it.
+    function oauthParams() {
+      const out = {};
+      const take = (s) => new URLSearchParams(s).forEach((v, k) => { if (!(k in out)) out[k] = v; });
+      take(location.search.replace(/^\?/, ''));
+      take(location.hash.replace(/^#/, ''));
+      return out;
+    }
+    let authErrorRender = null;
+    function showAuthError(render) {
+      if (!errBox) return;
+      authErrorRender = render;
+      errBox.textContent = render();
+      errBox.hidden = false;
+    }
+    // Once handled, drop the parameters so a reload doesn't replay them.
+    function cleanUrl() {
+      if (location.search || location.hash) {
+        history.replaceState(null, '', location.pathname);
+      }
+    }
+
+    const params = oauthParams();
+    if (params.error || params.error_description) {
+      showAuthError(() => t('myLearning.authFailed', 'Sign-in didn\u2019t complete: {reason}')
+        .replace('{reason}', params.error_description || params.error));
+      cleanUrl();
+    }
+
     if (client) {
       client.auth.getSession().then(({ data }) => {
         currentUser = data && data.session && data.session.user;
         renderForUser();
+        // A code in the URL that produced no session means the exchange
+        // failed — most often because the flow started on a different
+        // address than it returned to.
+        if (!currentUser && params.code && !params.error) {
+          showAuthError(() => t('myLearning.authExchangeFailed',
+            'Sign-in didn\u2019t complete. Please return to the site\u2019s main address and try again.'));
+        }
+        cleanUrl();
       });
       client.auth.onAuthStateChange((_event, session) => {
         currentUser = session && session.user;
+        if (currentUser && errBox) errBox.hidden = true;
         renderForUser();
       });
     } else {
@@ -161,7 +211,10 @@
     // Re-apply the signed-in/out greeting when the language switches,
     // since it's set dynamically and data-i18n's DOM scan only covers
     // the default text present at load, not a later template fill.
-    document.addEventListener('duru:langchange', renderForUser);
+    document.addEventListener('duru:langchange', () => {
+      renderForUser();
+      if (authErrorRender && errBox && !errBox.hidden) errBox.textContent = authErrorRender();
+    });
   });
 </script>
 </body>

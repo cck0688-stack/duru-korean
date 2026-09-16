@@ -258,6 +258,8 @@
   "learnKorean.level3.label": "実践会話・レベル3",
   "learnKorean.tagline": "ハングルから実践会話まで、明確な学習の道。",
   "learnKorean.title": "韓国語を学ぶ｜Duru Korean",
+  "myLearning.authExchangeFailed": "ログインが完了しませんでした。サイトの正規アドレスに戻ってもう一度お試しください。",
+  "myLearning.authFailed": "ログインが完了しませんでした：{reason}",
   "myLearning.comingSoon": "レッスンの進捗、保存した資料、ブックマークは、これらの機能の公開後にこちらに表示されます。今は上のメニューからいつでもカリキュラムに戻れます。",
   "myLearning.goToLearn": "韓国語を学ぶへ移動 →",
   "myLearning.greetingDefault": "Duru Koreanのアカウントページです。",

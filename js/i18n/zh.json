@@ -258,6 +258,8 @@
   "learnKorean.level3.label": "实战会话 · 第 3 级",
   "learnKorean.tagline": "从韩文字母到实战会话的清晰路径。",
   "learnKorean.title": "学习韩语 | Duru Korean",
+  "myLearning.authExchangeFailed": "登录未能完成。请回到本站的主地址后重试。",
+  "myLearning.authFailed": "登录未能完成：{reason}",
   "myLearning.comingSoon": "课程进度、已保存的资料和书签将在这些功能上线后显示在这里。目前您可以随时从上方菜单回到课程。",
   "myLearning.goToLearn": "前往学习韩语 →",
   "myLearning.greetingDefault": "这里是您的 Duru Korean 账户。",

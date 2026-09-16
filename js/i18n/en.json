@@ -258,6 +258,8 @@
   "learnKorean.level3.label": "Real Conversation · Level 3",
   "learnKorean.tagline": "A clear path from Hangul to real conversation.",
   "learnKorean.title": "Learning Korean — Duru Korean",
+  "myLearning.authExchangeFailed": "Sign-in didn’t complete. Please return to the site’s main address and try again.",
+  "myLearning.authFailed": "Sign-in didn’t complete: {reason}",
   "myLearning.comingSoon": "Lesson progress, saved resources, and bookmarks will appear here as those features roll out. For now, jump back into the curriculum any time from the menu above.",
   "myLearning.goToLearn": "Go to Learn Korean →",
   "myLearning.greetingDefault": "Your Duru Korean account.",
