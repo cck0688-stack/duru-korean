@@ -17,6 +17,10 @@ css/style.css            All styles
 js/main.js               Nav, FAQ accordion, blog filters, scroll behavior
 js/supabase-config.js    Supabase project URL + anon key (placeholders — see below)
 js/auth.js                Login/signup modal + auth state handling
+js/resources.js           Admin-managed file attach/delete on Free Resources & Book & Audio
+js/i18n.js                 Homepage language switcher (English / Vietnamese / Korean)
+js/i18n/en.json, vi.json, ko.json   Homepage translation strings
+supabase/schema.sql       SQL to run once in the Supabase dashboard (admin table, resources table, RLS, storage policies)
 ```
 
 ## Authentication setup (Supabase Auth)
@@ -115,6 +119,85 @@ the corresponding `captchaToken` option to the `signUp` /
   no system can promise that. It avoids the common static-site mistakes
   (plaintext passwords, secrets in the repo, custom token logic) by
   delegating all of that to Supabase's audited auth service.
+
+## Language switcher (homepage)
+
+`index.html` has a globe-icon dropdown in the header for English, Tiếng
+Việt, and 한국어. It's scoped to the homepage only for now. The chosen
+language is saved in `localStorage` (`duru_lang`) and re-applied on
+reload; there's no IP- or browser-locale-based auto-switching, so every
+new visitor sees English until they choose otherwise. Hangul/Korean
+example text (anything with `class="kr"`), the logo, and the brand name
+are intentionally never translated. To extend translation to another
+page: add the same `data-i18n="key"` attributes used in `index.html`,
+add matching keys to `js/i18n/en.json`, `vi.json`, and `ko.json`, and
+include `js/i18n.js` (after `js/main.js`) plus a
+`<div class="lang-switcher" id="langSwitcher"></div>` in that page's
+header actions.
+
+## Admin setup (attach/delete files on Free Resources & Book & Audio)
+
+Both the Free Resources and Book & Audio pages have a "Downloadable Files"
+section backed by Supabase Storage + a database table. Everyone — including
+anonymous visitors — can see and download what's there. Only a specific,
+server-verified admin account can attach or delete a file; this is enforced
+by Row Level Security (RLS) policies, never by anything in the browser, so
+no one can grant themselves admin by editing localStorage or the page's
+JavaScript.
+
+### 1. Run the schema
+
+In the Supabase dashboard, go to **SQL Editor → New query**, paste the
+contents of [`supabase/schema.sql`](supabase/schema.sql), and run it. This
+creates:
+
+- `admin_users` — a table listing which signed-in users are admins. RLS
+  lets a user check only their own row; there's no way to write to this
+  table from the website at all — only from the dashboard, acting as you
+  (the project owner).
+- `resources` — one row per attached file (title, description, learning
+  level, linked unit, storage key, size, etc.), with RLS restricting
+  insert/delete to rows in `admin_users` and allowing public read.
+
+### 2. Create the Storage bucket
+
+**Storage → New bucket** → name it exactly `resources` → toggle **Public
+bucket: ON** (so download links work for anonymous visitors without a
+signed URL — the RLS policies from step 1 still gate who can *upload* or
+*delete*, public only affects reads).
+
+### 3. Add yourself as admin
+
+After you've logged into the live site at least once with the account you
+want to be admin (email/password or Google — either works), go to
+**Table Editor → admin_users → Insert row** and add your account's `user_id`.
+You can find your `user_id` in **Authentication → Users** in the dashboard —
+copy the UUID next to your email. This manual step is intentional: no code
+in this repository can grant admin to anyone, on purpose.
+
+Once added, log out and back in on the live site — the "+ Attach Resource"
+button will appear on Free Resources and Book & Audio, and a "Manage
+Resources" link will appear in your account menu.
+
+### What's validated, and where
+
+- **Client-side** (`js/resources.js`): file extension (PDF, PNG, JPG, JPEG,
+  MP3, M4A only) and size (20MB for documents/images, 50MB for audio)
+  before any upload starts, so people get instant feedback.
+- **Server-side**: the `resources` table's `file_type` column has a SQL
+  `check` constraint limited to the same extensions, and the RLS insert
+  policy blocks anyone not in `admin_users` regardless of what the client
+  sends. Consider also setting a bucket-level file size limit in
+  **Storage → resources → Configuration** as defense in depth.
+
+### Known limitation
+
+If someone had a direct link to a file before it was deleted, that link
+will 404 rather than showing a friendly message — GitHub Pages can't run
+server code to intercept a broken Supabase Storage URL. Links surfaced
+*through the site itself* handle this correctly (a deleted resource's
+"Download" button is replaced with "No longer available" rather than a
+dead link).
 
 ## Local development
 

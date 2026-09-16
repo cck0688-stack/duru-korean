@@ -123,6 +123,21 @@
   </div>
 </section>
 
+<section class="section" id="adminResources">
+  <div class="wrap">
+    <div class="section-head-row reveal" style="margin-bottom:28px;">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="eyebrow">Downloadable Files</span>
+        <h2>Sample chapters &amp; audio</h2>
+        <p>Files attached directly by our team — download instantly, no email needed.</p>
+      </div>
+      <button type="button" class="btn btn-ghost" id="attachResourceBtn" hidden>+ Attach Resource</button>
+    </div>
+    <p class="resource-empty-note" id="resourceListEmpty" hidden>No files have been attached yet.</p>
+    <div class="grid-4" id="resourceList"></div>
+  </div>
+</section>
+
 <section class="cta-banner">
   <div class="wrap">
     <span class="eyebrow">Ready to Study?</span>
@@ -178,5 +193,7 @@
 <script src="js/supabase-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/auth.js"></script>
+<script>window.DURU_RESOURCE_LOCATION = 'book-audio';</script>
+<script src="js/resources.js"></script>
 </body>
 </html>

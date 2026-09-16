@@ -292,6 +292,19 @@
         if (client) await client.auth.signOut();
         window.location.reload();
       });
+
+      // Admin-only "Manage Resources" link — verified server-side via the
+      // admin_users table's RLS policy, never inferred from the email string.
+      if (client) {
+        client.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle()
+          .then(({ data }) => {
+            if (!data) return;
+            const link = document.createElement('a');
+            link.href = 'free-resources.html#adminResources';
+            link.textContent = 'Manage Resources';
+            dropdown.insertBefore(link, dropdown.querySelector('#logoutBtn'));
+          });
+      }
     }
 
     if (client) {
