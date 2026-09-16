@@ -89,12 +89,46 @@ Turning "Confirm email" off lets people in immediately, which is what
 this project runs with. Turn it back on once a real SMTP sender is
 configured.
 
-### 5. (Optional) Enable Google sign-in
+### 5. Google sign-in
 
-Under **Authentication → Providers → Google**, follow Supabase's guide to
-add your Google OAuth client ID/secret. The "Continue with Google" buttons
-in the modal will work automatically once this is enabled — no code
-changes needed.
+Enabled in production. The site needs no code change for it; what
+follows is the configuration, written down because several steps fail
+silently if skipped.
+
+In the Google Cloud console, under **Google Auth Platform**:
+
+- **Branding** — app name, support email, homepage, and links to
+  `/privacy.html` and `/terms.html`. The publish button stays disabled
+  until this is complete, and nothing says which field is missing.
+- **Clients** → the web client's **Authorized JavaScript origins** are
+  the site's own addresses (`https://www.durukorean.com` and the apex).
+  The **Authorized redirect URI** is Supabase's callback,
+  `https://<project>.supabase.co/auth/v1/callback` — a Supabase address,
+  not a site one, and it does not change when the domain does.
+- **Audience** → **Publish app**. While the app is in testing only
+  listed test users can sign in; the project owner always can, so
+  testing with your own account proves nothing. Use a second account.
+
+Then paste the client ID and secret into **Authentication → Sign In /
+Providers → Google** in Supabase and press Save. The panel scrolls;
+the Save button is below the fold and closing without it loses
+everything.
+
+Two failure modes worth recognising:
+
+- **"Unable to exchange external code"** on returning from Google means
+  the secret Supabase holds does not match the one Google has. The
+  consent screen appearing proves only that the client ID is right.
+- **A silent return to a logged-out page** used to mean the flow
+  started on one host and came back on another; PKCE keeps its verifier
+  per origin. `siteUrl` in `js/supabase-config.js` now moves visitors to
+  the canonical host before sign-in starts, and `my-learning.html`
+  reports what came back instead of just showing a logged-out view.
+
+Google shows the Supabase project domain rather than the app name on
+the consent screen, because the app is unverified. It is cosmetic;
+removing it needs either Google's verification review or a Supabase
+custom domain.
 
 ### 6. Row Level Security (RLS)
 
