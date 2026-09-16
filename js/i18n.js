@@ -21,7 +21,9 @@
   var LANGS = [
     { code: 'en', label: 'English' },
     { code: 'vi', label: 'Tiếng Việt' },
-    { code: 'ko', label: '한국어' }
+    { code: 'ko', label: '한국어' },
+    { code: 'ja', label: '日本語' },
+    { code: 'zh', label: '中文' }
   ];
   var VALID_CODES = LANGS.map(function (l) { return l.code; });
 

@@ -123,11 +123,18 @@ the corresponding `captchaToken` option to the `signUp` /
 ## Language switcher (site-wide)
 
 Every page has a globe-icon dropdown in the header for English, Tiếng
-Việt, and 한국어 — nav, footer, every page's own content, the login/
-signup modal, and the admin resource-attach/delete UI are all covered
-(`js/i18n/en.json`, `vi.json`, `ko.json`; 370+ keys each, kept in sync
-by construction since all three files are generated from the same key
-set).
+Việt, 한국어, 日本語, and 中文 — nav, footer, every page's own content,
+the login/signup modal, and the admin resource-attach/delete UI are all
+covered (`js/i18n/en.json`, `vi.json`, `ko.json`, `ja.json`, `zh.json`;
+380+ keys each, kept in sync by construction — every file is validated
+against the English key set, so a missing or stray key fails loudly
+rather than silently rendering a raw key on the page).
+
+Adding another language is three steps: copy `en.json` to
+`js/i18n/<code>.json` and translate the values, add
+`{ code: '<code>', label: '<native name>' }` to the `LANGS` array at the
+top of `js/i18n.js`, and re-run the sweep to confirm the longer or
+shorter labels don't break the header.
 
 - **Persistence & scope**: the chosen language is saved in
   `localStorage` (`duru_lang`) and re-applied on every page load,
@@ -142,10 +149,16 @@ set).
 - **No forced switching**: there's no IP- or browser-locale-based
   auto-switching. Every new visitor sees English until they choose
   otherwise, regardless of browser language.
-- **What's intentionally never translated**: Hangul/Korean example
-  text (anything with `class="kr"`), the blog category glyphs (앎/말/
-  삶/길), the logo, the brand name, and the two authors' personal
-  names on the About page.
+- **What's intentionally never translated**: Korean text that is
+  itself the thing being taught or a brand mark — the Hangul jamo in
+  the homepage ring and 두·루 build-up, the blog category glyphs
+  (앎/말/삶/길), the 가/나/다 and 학 card icons, the 두루 한국어
+  wordmark, and the two authors' personal names on the About page.
+  `class="kr"` only selects the Korean webfont; it is **not** a
+  "don't translate" marker. Descriptive copy that happens to be
+  written in Korean — step descriptions, page sub-headings, level
+  labels — carries a `data-i18n` key and switches like everything
+  else.
 - **Admin-uploaded files**: a file's own description carries a
   separate "written in {language}" label (its `description_language`
   column) — the site's UI language and a given file's actual language
@@ -155,19 +168,19 @@ set).
 To extend translation to a new element: add `data-i18n="key"` (or
 `data-i18n-html`/`data-i18n-placeholder`/`data-i18n-aria-label` where
 the target isn't plain text content), then add the same key to all
-three JSON files — the engine (`js/i18n.js`) falls back to the English
+five JSON files — the engine (`js/i18n.js`) falls back to the English
 value for a missing key rather than showing the raw key, but every
-page ships with all three files fully populated. For text assembled at
+page ships with all five files fully populated. For text assembled at
 runtime in JavaScript (`js/auth.js`, `js/resources.js`), call
 `window.DURU_I18N.t('key', 'English fallback')` instead.
 
 **Translation review status**: the English copy is the original source
-text; Vietnamese and Korean were translated directly (not via a raw
-machine-translation pass) with attention to natural phrasing for the
-site's actual UI strings and error messages. A native-speaker review
-pass before wide release is still worth doing for tone, the way any
-new copy would be — nothing here is flagged as placeholder or
-untranslated.
+text; Vietnamese, Korean, Japanese, and Chinese (Simplified) were
+translated directly rather than through a raw machine-translation
+pass, with attention to natural phrasing for the site's actual UI
+strings and error messages. Every file is complete — nothing is a
+placeholder. A native-speaker review before wide release is still
+worth doing for tone, the way it would be for any new copy.
 
 ## Admin setup (attach/delete files on Free Resources & Book & Audio)
 
