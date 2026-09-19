@@ -1745,3 +1745,69 @@ section { position: relative; }
 @media (max-width: 768px) {
   .blog-nav { grid-template-columns: 1fr; gap: 16px; }
 }
+
+/* ---------- Content likes ---------- */
+.like-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(22, 48, 43, 0.2);
+  border-radius: 20px;
+  background: #fff;
+  color: var(--ink-dim);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.like-btn:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+  background: rgba(184, 73, 47, 0.05);
+}
+
+.like-btn.liked {
+  background: rgba(184, 73, 47, 0.1);
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
+.like-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.like-count {
+  font-weight: 600;
+}
+
+/* ---------- Recommendations section ---------- */
+.recommendations-section {
+  margin: 48px 0;
+  padding: 32px;
+  background: rgba(16, 63, 53, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(22, 48, 43, 0.1);
+}
+
+.recommendations-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Blog post actions ---------- */
+.blog-post-actions {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+}

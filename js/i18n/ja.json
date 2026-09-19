@@ -525,5 +525,10 @@
   "profile.errSaveFailed": "保存できません: {msg}",
   "blog.share": "この投稿をシェア",
   "blog.prevPost": "← 前へ",
-  "blog.nextPost": "次へ →"
+  "blog.nextPost": "次へ →",
+  "like.like": "いいね",
+  "like.unlike": "いいねを取消",
+  "like.loginRequired": "いいねするにはサインインしてください",
+  "blog.recommendations": "他の読者が楽しんだ",
+  "story.recommendations": "人気のストーリー"
 }

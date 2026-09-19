@@ -177,6 +177,12 @@
         '</span>' +
         '<h1>' + escapeHTML(post.title) + '</h1>' +
         '<p class="blog-date">' + escapeHTML(formatDate(post.created_at)) + '</p>' +
+        '<div class="blog-post-actions">' +
+          '<button type="button" class="like-btn" id="likePostBtn" data-id="' + post.id + '" data-liked="false">' +
+            '<span class="like-icon">♡</span>' +
+            '<span class="like-count" id="likeCount">0</span>' +
+          '</button>' +
+        '</div>' +
         '<div class="post-body">' + paragraphs(post.body) + '</div>' +
         '<div class="blog-share">' +
           '<span class="blog-share-label">' + escapeHTML(t('blog.share', 'Share this post')) + '</span>' +
@@ -189,6 +195,7 @@
         navHTML;
       document.title = post.title + ' — Duru Korean';
       setupShareButtons();
+      setupLikeButton(post.id);
     }
 
     function setupShareButtons() {
@@ -207,6 +214,48 @@
           }
         });
       }
+    }
+
+    function setupLikeButton(postId) {
+      if (!window.DURU_LIKE) return;
+      var likeBtn = singleEl.querySelector('#likePostBtn');
+      if (!likeBtn) return;
+
+      var likeCount = singleEl.querySelector('#likeCount');
+      var liked = false;
+
+      window.DURU_LIKE.getLikeCount('post', postId).then(function (count) {
+        if (likeCount) likeCount.textContent = String(count);
+      });
+
+      window.DURU_LIKE.hasUserLiked('post', postId).then(function (userLiked) {
+        liked = userLiked;
+        if (liked) {
+          likeBtn.classList.add('liked');
+          likeBtn.querySelector('.like-icon').textContent = '♥';
+        }
+      });
+
+      likeBtn.addEventListener('click', function () {
+        likeBtn.disabled = true;
+        window.DURU_LIKE.toggleLike('post', postId).then(function () {
+          liked = !liked;
+          if (liked) {
+            likeBtn.classList.add('liked');
+            likeBtn.querySelector('.like-icon').textContent = '♥';
+          } else {
+            likeBtn.classList.remove('liked');
+            likeBtn.querySelector('.like-icon').textContent = '♡';
+          }
+          likeBtn.disabled = false;
+          window.DURU_LIKE.getLikeCount('post', postId).then(function (count) {
+            if (likeCount) likeCount.textContent = String(count);
+          });
+        }).catch(function () {
+          likeBtn.disabled = false;
+          window.alert(t('like.loginRequired', 'Sign in to like'));
+        });
+      });
     }
 
     function renderNotFound() {

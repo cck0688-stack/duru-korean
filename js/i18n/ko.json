@@ -525,5 +525,10 @@
   "profile.errSaveFailed": "저장할 수 없습니다: {msg}",
   "blog.share": "이 포스트 공유하기",
   "blog.prevPost": "← 이전",
-  "blog.nextPost": "다음 →"
+  "blog.nextPost": "다음 →",
+  "like.like": "좋아요",
+  "like.unlike": "좋아요 취소",
+  "like.loginRequired": "좋아요를 누르려면 로그인하세요",
+  "blog.recommendations": "다른 독자들이 좋아한 포스트",
+  "story.recommendations": "인기 있는 스토리"
 }

@@ -525,5 +525,10 @@
   "profile.errSaveFailed": "无法保存: {msg}",
   "blog.share": "分享这篇文章",
   "blog.prevPost": "← 上一篇",
-  "blog.nextPost": "下一篇 →"
+  "blog.nextPost": "下一篇 →",
+  "like.like": "点赞",
+  "like.unlike": "取消点赞",
+  "like.loginRequired": "登录以点赞",
+  "blog.recommendations": "读者也喜欢",
+  "story.recommendations": "热门故事"
 }
