@@ -523,5 +523,7 @@
   "profile.draft": "Bản nháp",
   "profile.errNoNickname": "Vui lòng nhập biệt danh.",
   "profile.errSaveFailed": "Không thể lưu: {msg}",
-  "blog.share": "Chia sẻ bài viết này"
+  "blog.share": "Chia sẻ bài viết này",
+  "blog.prevPost": "← Trước",
+  "blog.nextPost": "Tiếp theo →"
 }

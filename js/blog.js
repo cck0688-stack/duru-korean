@@ -147,6 +147,29 @@
       if (filtersEl) filtersEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
       var postUrl = location.origin + location.pathname + '?post=' + encodeURIComponent(post.slug);
+
+      var currentIdx = posts.filter(function (p) { return p.published || isAdmin; }).findIndex(function (p) { return p.id === post.id; });
+      var prevPost = currentIdx > 0 ? posts.filter(function (p) { return p.published || isAdmin; })[currentIdx - 1] : null;
+      var nextPost = currentIdx >= 0 && currentIdx < posts.length - 1 ? posts.filter(function (p) { return p.published || isAdmin; })[currentIdx + 1] : null;
+
+      var navHTML = '';
+      if (prevPost || nextPost) {
+        navHTML = '<div class="blog-nav">';
+        if (prevPost) {
+          navHTML += '<a href="blog.html?post=' + encodeURIComponent(prevPost.slug) + '" class="blog-nav-prev">' +
+            '<span class="blog-nav-label">' + escapeHTML(t('blog.prevPost', '← Previous')) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(prevPost.title) + '</span>' +
+            '</a>';
+        }
+        if (nextPost) {
+          navHTML += '<a href="blog.html?post=' + encodeURIComponent(nextPost.slug) + '" class="blog-nav-next">' +
+            '<span class="blog-nav-label">' + escapeHTML(t('blog.nextPost', 'Next →')) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(nextPost.title) + '</span>' +
+            '</a>';
+        }
+        navHTML += '</div>';
+      }
+
       singleEl.innerHTML =
         '<a class="blog-back" href="blog.html">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
         '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
@@ -162,7 +185,8 @@
             '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn facebook" title="Facebook" aria-label="Share on Facebook">f</a>' +
             '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
           '</div>' +
-        '</div>';
+        '</div>' +
+        navHTML;
       document.title = post.title + ' — Duru Korean';
       setupShareButtons();
     }

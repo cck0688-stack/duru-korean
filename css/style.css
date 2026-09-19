@@ -1698,3 +1698,50 @@ section { position: relative; }
 .blog-share-btn.twitter:hover { background: #1da1f2; color: #fff; border-color: #1da1f2; }
 .blog-share-btn.facebook:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
 .blog-share-btn.copy:hover { background: var(--accent-red); color: #fff; border-color: var(--accent-red); }
+
+/* ---------- Blog navigation ---------- */
+.blog-nav {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(22, 48, 43, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.blog-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid rgba(22, 48, 43, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.18s ease;
+}
+
+.blog-nav a:hover {
+  border-color: var(--accent-red);
+  background: rgba(184, 73, 47, 0.03);
+}
+
+.blog-nav-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-nav-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.blog-nav a:hover .blog-nav-title { color: var(--accent-red); }
+
+@media (max-width: 768px) {
+  .blog-nav { grid-template-columns: 1fr; gap: 16px; }
+}

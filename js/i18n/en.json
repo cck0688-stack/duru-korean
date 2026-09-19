@@ -523,5 +523,7 @@
   "profile.draft": "Draft",
   "profile.errNoNickname": "Please enter a nickname.",
   "profile.errSaveFailed": "Couldn't save: {msg}",
-  "blog.share": "Share this post"
+  "blog.share": "Share this post",
+  "blog.prevPost": "← Previous",
+  "blog.nextPost": "Next →"
 }
