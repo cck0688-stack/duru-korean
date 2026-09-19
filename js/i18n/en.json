@@ -489,5 +489,13 @@
   "termsPage.updated": "Last updated: 16 September 2026",
   "testi.1": "\"I finally understand how Hangul actually works — Duru Korean made it click in days, not months.\"",
   "testi.2": "\"The audio-first approach is what I needed. I can actually understand Koreans speaking at normal speed now.\"",
-  "testi.3": "\"Clear, calm, and genuinely useful. No fluff — just the Korean I need for real life.\""
+  "testi.3": "\"Clear, calm, and genuinely useful. No fluff — just the Korean I need for real life.\"",
+  "search.title": "Search Results",
+  "search.subtitle": "Find blog posts, stories, and resources",
+  "search.placeholder": "Search blog, stories, resources…",
+  "search.filterAll": "All",
+  "search.filterBlog": "Blog",
+  "search.filterStories": "Stories",
+  "search.filterResources": "Resources",
+  "search.noResults": "No results found. Try different keywords."
 }

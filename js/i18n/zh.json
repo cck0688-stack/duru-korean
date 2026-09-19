@@ -489,5 +489,13 @@
   "termsPage.updated": "最后更新：2026年9月16日",
   "testi.1": "“我终于明白了韩文字母到底是怎么运作的。Duru Korean 让我在几天内就想通了，而不是几个月。”",
   "testi.2": "“以音频为主的方式正是我需要的。现在我真的能听懂韩国人以正常语速说话了。”",
-  "testi.3": "“清晰、从容，而且真正实用。没有多余的东西，只有我在真实生活中需要的韩语。”"
+  "testi.3": "“清晰、从容，而且真正实用。没有多余的东西，只有我在真实生活中需要的韩语。”",
+  "search.title": "搜索结果",
+  "search.subtitle": "查找博客、故事和资源",
+  "search.placeholder": "搜索博客、故事、资源…",
+  "search.filterAll": "全部",
+  "search.filterBlog": "博客",
+  "search.filterStories": "故事",
+  "search.filterResources": "资源",
+  "search.noResults": "未找到结果。请尝试其他关键词。"
 }

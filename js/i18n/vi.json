@@ -489,5 +489,13 @@
   "termsPage.updated": "Cập nhật lần cuối: 16 tháng 9 năm 2026",
   "testi.1": "\"Cuối cùng tôi cũng hiểu cách Hangul thực sự hoạt động — Duru Korean giúp tôi hiểu ra chỉ trong vài ngày, không phải vài tháng.\"",
   "testi.2": "\"Cách tiếp cận ưu tiên âm thanh chính là điều tôi cần. Giờ tôi thực sự hiểu người Hàn nói ở tốc độ bình thường.\"",
-  "testi.3": "\"Rõ ràng, nhẹ nhàng và thực sự hữu ích. Không rườm rà — chỉ đúng phần tiếng Hàn tôi cần cho cuộc sống thực tế.\""
+  "testi.3": "\"Rõ ràng, nhẹ nhàng và thực sự hữu ích. Không rườm rà — chỉ đúng phần tiếng Hàn tôi cần cho cuộc sống thực tế.\"",
+  "search.title": "Kết Quả Tìm Kiếm",
+  "search.subtitle": "Tìm bài viết, câu chuyện và tài liệu",
+  "search.placeholder": "Tìm kiếm blog, câu chuyện, tài liệu…",
+  "search.filterAll": "Tất Cả",
+  "search.filterBlog": "Blog",
+  "search.filterStories": "Câu Chuyện",
+  "search.filterResources": "Tài Liệu",
+  "search.noResults": "Không tìm thấy kết quả. Hãy thử các từ khóa khác."
 }
