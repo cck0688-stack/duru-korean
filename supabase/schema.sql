@@ -233,3 +233,41 @@ create policy "stories: admin delete"
 
 create index if not exists stories_created_idx
   on public.stories (created_at desc);
+
+-- ------------------------------------------------------------------
+-- 7. user_profiles — extended profile information for all users
+-- ------------------------------------------------------------------
+-- Stores user's profile data like nickname, birth date, and consent status.
+-- Each user has at most one profile row, created on first signup.
+
+create table if not exists public.user_profiles (
+  user_id uuid primary key references auth.users (id) on delete cascade,
+  nickname text check (nickname is null or char_length(trim(nickname)) between 1 and 40),
+  birth_date date,
+  tos_agreed boolean not null default false,
+  privacy_agreed boolean not null default false,
+  marketing_agreed boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.user_profiles enable row level security;
+
+-- Users can see only their own profile
+drop policy if exists "user_profiles: self read" on public.user_profiles;
+create policy "user_profiles: self read"
+  on public.user_profiles for select
+  using (auth.uid() = user_id);
+
+-- Users can insert their own profile
+drop policy if exists "user_profiles: self insert" on public.user_profiles;
+create policy "user_profiles: self insert"
+  on public.user_profiles for insert
+  with check (auth.uid() = user_id);
+
+-- Users can update their own profile
+drop policy if exists "user_profiles: self update" on public.user_profiles;
+create policy "user_profiles: self update"
+  on public.user_profiles for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
