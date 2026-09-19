@@ -17,6 +17,10 @@
   // Each category's Hangul glyph, matching the static design.
   var GLYPH = { study: '앎', grammar: '말', culture: '삶', travel: '길' };
 
+  function getCategoryCount(cat) {
+    return posts.filter(function (p) { return p.category === cat; }).length;
+  }
+
   function t(key, fallback) {
     if (!window.DURU_I18N) return fallback;
     var translated = window.DURU_I18N.t(key);
@@ -80,12 +84,26 @@
 
     /* ---------------- Rendering ---------------- */
 
+    function renderCategoryHero() {
+      if (activeFilter === 'all' || !listEl.parentElement) return;
+      var heroDiv = listEl.parentElement.querySelector('.blog-category-hero');
+      if (!heroDiv) {
+        heroDiv = document.createElement('div');
+        heroDiv.className = 'blog-category-hero';
+        listEl.parentElement.insertBefore(heroDiv, listEl);
+      }
+      var desc = t('blog.cat.' + activeFilter + '.desc', '');
+      heroDiv.innerHTML = desc ? '<p>' + escapeHTML(desc) + '</p>' : '';
+      heroDiv.hidden = !desc;
+    }
+
     function renderCards() {
       var shown = posts.filter(function (p) {
         return activeFilter === 'all' || p.category === activeFilter;
       });
       listEl.innerHTML = '';
       if (emptyEl) emptyEl.hidden = shown.length > 0;
+      renderCategoryHero();
       shown.forEach(function (p) {
         var card = document.createElement('article');
         card.className = 'blog-card';
@@ -128,6 +146,30 @@
       listEl.hidden = true;
       if (filtersEl) filtersEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
+      var postUrl = location.origin + location.pathname + '?post=' + encodeURIComponent(post.slug);
+
+      var currentIdx = posts.filter(function (p) { return p.published || isAdmin; }).findIndex(function (p) { return p.id === post.id; });
+      var prevPost = currentIdx > 0 ? posts.filter(function (p) { return p.published || isAdmin; })[currentIdx - 1] : null;
+      var nextPost = currentIdx >= 0 && currentIdx < posts.length - 1 ? posts.filter(function (p) { return p.published || isAdmin; })[currentIdx + 1] : null;
+
+      var navHTML = '';
+      if (prevPost || nextPost) {
+        navHTML = '<div class="blog-nav">';
+        if (prevPost) {
+          navHTML += '<a href="blog.html?post=' + encodeURIComponent(prevPost.slug) + '" class="blog-nav-prev">' +
+            '<span class="blog-nav-label">' + escapeHTML(t('blog.prevPost', '← Previous')) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(prevPost.title) + '</span>' +
+            '</a>';
+        }
+        if (nextPost) {
+          navHTML += '<a href="blog.html?post=' + encodeURIComponent(nextPost.slug) + '" class="blog-nav-next">' +
+            '<span class="blog-nav-label">' + escapeHTML(t('blog.nextPost', 'Next →')) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(nextPost.title) + '</span>' +
+            '</a>';
+        }
+        navHTML += '</div>';
+      }
+
       singleEl.innerHTML =
         '<a class="blog-back" href="blog.html">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
         '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
@@ -135,8 +177,85 @@
         '</span>' +
         '<h1>' + escapeHTML(post.title) + '</h1>' +
         '<p class="blog-date">' + escapeHTML(formatDate(post.created_at)) + '</p>' +
-        '<div class="post-body">' + paragraphs(post.body) + '</div>';
+        '<div class="blog-post-actions">' +
+          '<button type="button" class="like-btn" id="likePostBtn" data-id="' + post.id + '" data-liked="false">' +
+            '<span class="like-icon">♡</span>' +
+            '<span class="like-count" id="likeCount">0</span>' +
+          '</button>' +
+        '</div>' +
+        '<div class="post-body">' + paragraphs(post.body) + '</div>' +
+        '<div class="blog-share">' +
+          '<span class="blog-share-label">' + escapeHTML(t('blog.share', 'Share this post')) + '</span>' +
+          '<div class="blog-share-buttons">' +
+            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(post.title + ' — Duru Korean') + '&url=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn twitter" title="Twitter" aria-label="Share on Twitter">𝕏</a>' +
+            '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn facebook" title="Facebook" aria-label="Share on Facebook">f</a>' +
+            '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
+          '</div>' +
+        '</div>' +
+        navHTML;
       document.title = post.title + ' — Duru Korean';
+      setupShareButtons();
+      setupLikeButton(post.id);
+    }
+
+    function setupShareButtons() {
+      var copyBtn = singleEl.querySelector('.blog-share-btn.copy');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+          var url = copyBtn.dataset.url;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function () {
+              var orig = copyBtn.textContent;
+              copyBtn.textContent = '✓';
+              setTimeout(function () { copyBtn.textContent = orig; }, 2000);
+            });
+          } else {
+            window.prompt('Copy this link:', url);
+          }
+        });
+      }
+    }
+
+    function setupLikeButton(postId) {
+      if (!window.DURU_LIKE) return;
+      var likeBtn = singleEl.querySelector('#likePostBtn');
+      if (!likeBtn) return;
+
+      var likeCount = singleEl.querySelector('#likeCount');
+      var liked = false;
+
+      window.DURU_LIKE.getLikeCount('post', postId).then(function (count) {
+        if (likeCount) likeCount.textContent = String(count);
+      });
+
+      window.DURU_LIKE.hasUserLiked('post', postId).then(function (userLiked) {
+        liked = userLiked;
+        if (liked) {
+          likeBtn.classList.add('liked');
+          likeBtn.querySelector('.like-icon').textContent = '♥';
+        }
+      });
+
+      likeBtn.addEventListener('click', function () {
+        likeBtn.disabled = true;
+        window.DURU_LIKE.toggleLike('post', postId).then(function () {
+          liked = !liked;
+          if (liked) {
+            likeBtn.classList.add('liked');
+            likeBtn.querySelector('.like-icon').textContent = '♥';
+          } else {
+            likeBtn.classList.remove('liked');
+            likeBtn.querySelector('.like-icon').textContent = '♡';
+          }
+          likeBtn.disabled = false;
+          window.DURU_LIKE.getLikeCount('post', postId).then(function (count) {
+            if (likeCount) likeCount.textContent = String(count);
+          });
+        }).catch(function () {
+          likeBtn.disabled = false;
+          window.alert(t('like.loginRequired', 'Sign in to like'));
+        });
+      });
     }
 
     function renderNotFound() {
@@ -159,6 +278,7 @@
         .then(function (res) {
           if (res.error) { console.error('Failed to load posts:', res.error.message); return; }
           posts = res.data || [];
+          updateFilterCounts();
           var slug = new URLSearchParams(location.search).get('post');
           if (slug) {
             var match = posts.filter(function (p) { return p.slug === slug; })[0];
@@ -174,6 +294,8 @@
     var overlay = null;
     var editing = null;
     var saving = false;
+    var autoSaveTimer = null;
+    var lastSaveTime = null;
 
     function buildEditor() {
       if (overlay) return overlay;
@@ -181,30 +303,88 @@
       overlay.className = 'auth-overlay';
       overlay.hidden = true;
       overlay.innerHTML =
-        '<div class="auth-modal post-modal" role="dialog" aria-modal="true" aria-labelledby="postEditorTitle">' +
+        '<div class="auth-modal post-modal post-modal-wide" role="dialog" aria-modal="true" aria-labelledby="postEditorTitle">' +
           '<button type="button" class="auth-close" id="postCloseBtn" aria-label="Close">&times;</button>' +
           '<h2 id="postEditorTitle"></h2>' +
+          '<div class="auto-save-status"></div>' +
           '<div class="auth-message" data-msg="post" hidden></div>' +
-          '<form id="postForm" novalidate>' +
-            '<div class="auth-field"><label for="postTitle"></label>' +
-              '<input type="text" id="postTitle" required maxlength="160"></div>' +
-            '<div class="auth-field"><label for="postCategory"></label>' +
-              '<select id="postCategory">' + CATEGORIES.map(function (c) {
-                return '<option value="' + c + '"></option>';
-              }).join('') + '</select></div>' +
-            '<div class="auth-field"><label for="postExcerpt"></label>' +
-              '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
-            '<div class="auth-field"><label for="postBody"></label>' +
-              '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
-            '<label class="post-publish-row"><input type="checkbox" id="postPublished"> <span id="postPublishedLabel"></span></label>' +
-            '<button type="submit" class="btn btn-primary auth-submit" id="postSubmit"></button>' +
-          '</form>' +
+          '<div class="post-editor-container">' +
+            '<form id="postForm" novalidate class="post-editor-form">' +
+              '<div class="auth-field"><label for="postTitle"></label>' +
+                '<input type="text" id="postTitle" required maxlength="160"></div>' +
+              '<div class="auth-field"><label for="postCategory"></label>' +
+                '<select id="postCategory">' + CATEGORIES.map(function (c) {
+                  return '<option value="' + c + '"></option>';
+                }).join('') + '</select></div>' +
+              '<div class="auth-field"><label for="postExcerpt"></label>' +
+                '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
+              '<div class="auth-field"><label for="postBody"></label>' +
+                '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
+              '<label class="post-publish-row"><input type="checkbox" id="postPublished"> <span id="postPublishedLabel"></span></label>' +
+              '<button type="submit" class="btn btn-primary auth-submit" id="postSubmit"></button>' +
+            '</form>' +
+            '<div class="post-preview-pane">' +
+              '<div class="post-preview-title" data-i18n="blog.preview">Preview</div>' +
+              '<div id="postPreview" class="post-preview"></div>' +
+            '</div>' +
+          '</div>' +
         '</div>';
       document.body.appendChild(overlay);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closeEditor(); });
       overlay.querySelector('#postCloseBtn').addEventListener('click', closeEditor);
       overlay.querySelector('#postForm').addEventListener('submit', savePost);
+      var bodyTextarea = overlay.querySelector('#postBody');
+      if (bodyTextarea) {
+        bodyTextarea.addEventListener('input', updatePreview);
+        bodyTextarea.addEventListener('change', updatePreview);
+      }
       return overlay;
+    }
+
+    function updatePreview() {
+      if (!overlay) return;
+      var preview = overlay.querySelector('#postPreview');
+      if (!preview) return;
+      var body = overlay.querySelector('#postBody').value;
+      preview.innerHTML = '<div class="post-body">' + paragraphs(body) + '</div>';
+    }
+
+    function updateAutoSaveStatus() {
+      if (!overlay) return;
+      var statusEl = overlay.querySelector('.auto-save-status');
+      if (!statusEl) return;
+      if (lastSaveTime) {
+        statusEl.textContent = t('blog.lastSaved', 'Saving…').replace('Saving…', 'Saved ' + formatDate(lastSaveTime));
+        statusEl.style.color = 'var(--ink-dim)';
+      } else {
+        statusEl.textContent = '';
+      }
+    }
+
+    function startAutoSave() {
+      if (autoSaveTimer) clearInterval(autoSaveTimer);
+      autoSaveTimer = setInterval(function () {
+        if (overlay && !overlay.hidden && editing && !saving) {
+          var title = overlay.querySelector('#postTitle').value.trim();
+          var body = overlay.querySelector('#postBody').value.trim();
+          if (title && body) {
+            var row = {
+              title: title,
+              category: overlay.querySelector('#postCategory').value,
+              excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
+              body: body,
+              published: overlay.querySelector('#postPublished').checked,
+              updated_at: new Date().toISOString()
+            };
+            client.from('posts').update(row).eq('id', editing.id).then(function (res) {
+              if (!res.error) {
+                lastSaveTime = new Date().toISOString();
+                updateAutoSaveStatus();
+              }
+            });
+          }
+        }
+      }, 30000);
     }
 
     function labelEditor() {
@@ -220,6 +400,7 @@
       CATEGORIES.forEach(function (c, i) {
         o.querySelectorAll('#postCategory option')[i].textContent = categoryLabel(c);
       });
+      updateAutoSaveStatus();
     }
 
     function setMsg(type, text) {
@@ -233,19 +414,25 @@
       editing = post || null;
       var o = buildEditor();
       labelEditor();
+      lastSaveTime = null;
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
       o.querySelector('#postCategory').value = editing ? editing.category : 'study';
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
       o.querySelector('#postBody').value = editing ? editing.body : '';
       o.querySelector('#postPublished').checked = editing ? !!editing.published : false;
+      updatePreview();
       o.hidden = false;
       o.querySelector('#postTitle').focus();
+      if (editing) startAutoSave();
     }
 
     function closeEditor() {
       if (overlay) overlay.hidden = true;
       editing = null;
+      if (autoSaveTimer) clearInterval(autoSaveTimer);
+      autoSaveTimer = null;
+      lastSaveTime = null;
     }
 
     function savePost(e) {
@@ -312,6 +499,21 @@
       });
     }
 
+    function updateFilterCounts() {
+      if (!filtersEl) return;
+      filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (btn) {
+        var filter = btn.dataset.filter;
+        var count = filter === 'all' ? posts.length : getCategoryCount(filter);
+        var countEl = btn.querySelector('.filter-count');
+        if (!countEl && count > 0) {
+          countEl = document.createElement('span');
+          countEl.className = 'filter-count';
+          btn.appendChild(countEl);
+        }
+        if (countEl) countEl.textContent = '(' + count + ')';
+      });
+    }
+
     /* ---------------- Filters, admin state ---------------- */
 
     if (filtersEl) {
@@ -352,6 +554,7 @@
     // Labels inside rendered cards are translated at render time, so a
     // language switch has to re-render rather than rely on the DOM scan.
     document.addEventListener('duru:langchange', function () {
+      updateFilterCounts();
       var slug = new URLSearchParams(location.search).get('post');
       if (slug) {
         var match = posts.filter(function (p) { return p.slug === slug; })[0];

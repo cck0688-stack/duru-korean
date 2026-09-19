@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Terms of Service — Duru Korean</title>
-<meta name="description" content="The terms you agree to when using Duru Korean.">
+<title>Profile — Duru Korean</title>
+<meta name="description" content="Your Duru Korean profile and learning activity.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -35,39 +35,65 @@
   </div>
 </header>
 
-<section class="page-hero">
+<div id="profileNotLoggedIn" class="page-hero" hidden>
   <div class="wrap">
-    <span class="page-hero-mark kr" aria-hidden="true">약속</span>
-    <h1 data-i18n="termsPage.h1">Terms of Service</h1>
-    <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline" data-i18n="termsPage.tagline">The short version of what you and we agree to.</p>
+    <h1 data-i18n="profile.notLoggedIn">Please Log In</h1>
+    <p data-i18n="profile.notLoggedInDesc">You need to be signed in to view your profile.</p>
+    <button id="profileLoginBtn" class="btn btn-primary" data-i18n="nav.login">Log in</button>
   </div>
-</section>
+</div>
 
-<section class="section section-after-hero">
-  <div class="wrap legal-wrap">
-    <p class="legal-updated" data-i18n="termsPage.updated">Last updated: 16 September 2026</p>
-    <h2 data-i18n="termsPage.s1.h">Agreement</h2>
-    <p data-i18n-html="termsPage.s1.p1">By using Duru Korean you agree to what is written here. If you do not agree, please do not use the site. We have tried to keep this short and readable rather than long and defensive.</p>
-    <h2 data-i18n="termsPage.s2.h">Your account</h2>
-    <p data-i18n-html="termsPage.s2.p1">Use a real email address you control, and keep your password to yourself. You are responsible for what happens under your account. Tell us promptly if you think someone else has got into it.</p>
-    <h2 data-i18n="termsPage.s3.h">Using the site</h2>
-    <p data-i18n-html="termsPage.s3.p1">Use Duru Korean for learning and teaching Korean. Please do not attempt to break into other people's accounts, disrupt the service for others, scrape the site wholesale, or upload anything unlawful.</p>
-    <h2 data-i18n="termsPage.s4.h">Our lessons and materials</h2>
-    <p data-i18n-html="termsPage.s4.p1">The lessons, audio, images, and downloadable materials on this site belong to Duru Korean and its authors. You may use them for your own learning, and teachers may use them with their own students.</p>
-    <p data-i18n-html="termsPage.s4.p2">Please do not republish, resell, or redistribute them as your own work, or strip our name from them.</p>
-    <h2 data-i18n="termsPage.s5.h">Free resources</h2>
-    <p data-i18n-html="termsPage.s5.p1">Free materials are offered as they are. We work to keep them accurate and useful, but we cannot promise they are error-free or right for every learner's situation.</p>
-    <h2 data-i18n="termsPage.s6.h">Availability</h2>
-    <p data-i18n-html="termsPage.s6.p1">We aim to keep the site running and up to date, but we cannot guarantee it will always be available or uninterrupted. Features may change as the site grows.</p>
-    <h2 data-i18n="termsPage.s7.h">Ending your use</h2>
-    <p data-i18n-html="termsPage.s7.p1">You can stop using Duru Korean and ask us to delete your account at any time. We may close an account that is being used to harm other learners or the service itself.</p>
-    <h2 data-i18n="termsPage.s8.h">Changes to these terms</h2>
-    <p data-i18n-html="termsPage.s8.p1">If these terms change, we will update this page and the date at the top. Continuing to use the site after a change means you accept the updated terms.</p>
-    <h2 data-i18n="termsPage.s9.h">Contact</h2>
-    <p data-i18n-html="termsPage.s9.p1">Questions about these terms: <a href="mailto:hello@durukorean.com">hello@durukorean.com</a>.</p>
-  </div>
-</section>
+<div id="profileContent" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="page-hero-mark" aria-hidden="true">나</span>
+      <h1 data-i18n="profile.myProfile">My Profile</h1>
+      <div class="page-hero-rule"></div>
+    </div>
+  </section>
+
+  <section class="section section-after-hero">
+    <div class="wrap">
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-info">
+            <h2 id="profileNickname" class="profile-nickname"></h2>
+            <p id="profileEmail" class="profile-email"></p>
+            <p id="profileBirthDate" class="profile-birthdate"></p>
+            <button id="editProfileBtn" type="button" class="btn btn-ghost" data-i18n="profile.editBtn">Edit Profile</button>
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div class="stat">
+            <span class="stat-number" id="storyCount">0</span>
+            <span class="stat-label" data-i18n="profile.storiesWritten">Stories Written</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="postCount">0</span>
+            <span class="stat-label" data-i18n="profile.postsWritten">Posts Written</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="memberSince">0</span>
+            <span class="stat-label" data-i18n="profile.memberSince">Member Since</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="profileUserStories" hidden class="profile-section">
+        <h3 data-i18n="profile.myStories">My Stories</h3>
+        <div id="profileStoriesList" class="grid-2"></div>
+        <p id="profileStoriesEmpty" hidden data-i18n="profile.noStories">You haven't written any stories yet.</p>
+      </div>
+
+      <div id="profileUserPosts" hidden class="profile-section">
+        <h3 data-i18n="profile.myPosts">My Posts (Admin Only)</h3>
+        <div id="profilePostsList" class="grid-2"></div>
+        <p id="profilePostsEmpty" hidden data-i18n="profile.noPosts">You haven't written any posts yet.</p>
+      </div>
+    </div>
+  </section>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">
@@ -116,7 +142,8 @@
 <script src="js/visitor-tracking.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/auth.js"></script>
-<script>window.DURU_PAGE_TITLE_KEY = 'termsPage.title';</script>
+<script src="js/profile.js"></script>
+<script>window.DURU_PAGE_TITLE_KEY = 'profile.title';</script>
 <script src="js/i18n.js"></script>
 </body>
 </html>

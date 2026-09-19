@@ -233,3 +233,178 @@ create policy "stories: admin delete"
 
 create index if not exists stories_created_idx
   on public.stories (created_at desc);
+
+-- ------------------------------------------------------------------
+-- 7. user_profiles — extended profile information for all users
+-- ------------------------------------------------------------------
+-- Stores user's profile data like nickname, birth date, and consent status.
+-- Each user has at most one profile row, created on first signup.
+
+create table if not exists public.user_profiles (
+  user_id uuid primary key references auth.users (id) on delete cascade,
+  nickname text check (nickname is null or char_length(trim(nickname)) between 1 and 40),
+  birth_date date,
+  tos_agreed boolean not null default false,
+  privacy_agreed boolean not null default false,
+  marketing_agreed boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.user_profiles enable row level security;
+
+-- Users can see only their own profile
+drop policy if exists "user_profiles: self read" on public.user_profiles;
+create policy "user_profiles: self read"
+  on public.user_profiles for select
+  using (auth.uid() = user_id);
+
+-- Users can insert their own profile
+drop policy if exists "user_profiles: self insert" on public.user_profiles;
+create policy "user_profiles: self insert"
+  on public.user_profiles for insert
+  with check (auth.uid() = user_id);
+
+-- Users can update their own profile
+drop policy if exists "user_profiles: self update" on public.user_profiles;
+create policy "user_profiles: self update"
+  on public.user_profiles for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+-- ------------------------------------------------------------------
+-- 8. visitor_logs — track daily visitors for analytics
+-- ------------------------------------------------------------------
+-- Records one entry per unique visitor per day. Uses hashed fingerprint
+-- instead of IP addresses to avoid privacy/GDPR issues. Entries auto-delete
+-- after 90 days via a scheduled job (Supabase Functions + pg_cron).
+
+create table if not exists public.visitor_logs (
+  id uuid primary key default gen_random_uuid(),
+  visitor_fingerprint text not null,
+  visited_date date not null,
+  page_path text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.visitor_logs enable row level security;
+
+-- Admin can read visitor stats, everyone else cannot
+drop policy if exists "visitor_logs: admin read" on public.visitor_logs;
+create policy "visitor_logs: admin read"
+  on public.visitor_logs for select
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+-- Anyone can insert a visitor log entry (for anonymous tracking)
+drop policy if exists "visitor_logs: public insert" on public.visitor_logs;
+create policy "visitor_logs: public insert"
+  on public.visitor_logs for insert
+  with check (true);
+
+create index if not exists visitor_logs_date_idx
+  on public.visitor_logs (visited_date desc);
+create index if not exists visitor_logs_fingerprint_date_idx
+  on public.visitor_logs (visitor_fingerprint, visited_date);
+
+-- ------------------------------------------------------------------
+-- 9. content_likes — tracks likes on posts and stories
+-- ------------------------------------------------------------------
+-- Allows signed-in users to like/unlike posts and stories. One row per
+-- user per content item. Likes are soft-deleted (has_liked = false) to
+-- preserve history. Most-liked content can be ranked for recommendations.
+
+create table if not exists public.content_likes (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users (id) on delete cascade,
+  content_type text not null check (content_type in ('post', 'story')),
+  content_id uuid not null,
+  has_liked boolean not null default true,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique(user_id, content_type, content_id)
+);
+
+alter table public.content_likes enable row level security;
+
+-- Users can see all likes (for rendering like counts)
+drop policy if exists "content_likes: public read" on public.content_likes;
+create policy "content_likes: public read"
+  on public.content_likes for select
+  using (has_liked = true);
+
+-- Signed-in users can insert/update their own likes
+drop policy if exists "content_likes: user insert" on public.content_likes;
+create policy "content_likes: user insert"
+  on public.content_likes for insert
+  with check (auth.uid() = user_id);
+
+drop policy if exists "content_likes: user update" on public.content_likes;
+create policy "content_likes: user update"
+  on public.content_likes for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+create index if not exists content_likes_content_idx
+  on public.content_likes (content_type, content_id, has_liked);
+create index if not exists content_likes_user_idx
+  on public.content_likes (user_id, content_type, has_liked);
+
+-- ------------------------------------------------------------------
+-- 10. SQL functions for recommendations
+-- ------------------------------------------------------------------
+-- Stored procedures to fetch most-liked posts and stories.
+
+create or replace function public.get_most_liked_posts(p_limit int default 3)
+returns table (
+  id uuid,
+  slug text,
+  title text,
+  excerpt text,
+  category text,
+  published boolean,
+  created_at timestamptz,
+  like_count bigint
+) as $$
+  select
+    p.id,
+    p.slug,
+    p.title,
+    p.excerpt,
+    p.category,
+    p.published,
+    p.created_at,
+    count(l.id) as like_count
+  from public.posts p
+  left join public.content_likes l on l.content_id = p.id
+    and l.content_type = 'post'
+    and l.has_liked = true
+  where p.published = true
+  group by p.id
+  order by like_count desc, p.created_at desc
+  limit p_limit;
+$$ language sql stable;
+
+create or replace function public.get_most_liked_stories(p_limit int default 3)
+returns table (
+  id uuid,
+  user_id uuid,
+  display_name text,
+  body text,
+  created_at timestamptz,
+  like_count bigint
+) as $$
+  select
+    s.id,
+    s.user_id,
+    s.display_name,
+    s.body,
+    s.created_at,
+    count(l.id) as like_count
+  from public.stories s
+  left join public.content_likes l on l.content_id = s.id
+    and l.content_type = 'story'
+    and l.has_liked = true
+  group by s.id
+  order by like_count desc, s.created_at desc
+  limit p_limit;
+$$ language sql stable;

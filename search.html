@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Results — Duru Korean</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/supabase-config.js"></script>
+  <script src="js/visitor-tracking.js"></script>
+  <script src="js/i18n.js"></script>
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="wrap">
+        <a href="index.html" class="logo">
+          <span class="logo-en">Duru <span>Korean</span></span>
+        </a>
+        <nav class="nav-main">
+          <a href="index.html">Home</a>
+          <a href="start-here.html">Start Here</a>
+          <a href="learning-korean.html">Learn</a>
+          <a href="blog.html">Blog</a>
+          <a href="stories.html">Stories</a>
+          <a href="free-resources.html">Free Resources</a>
+          <a href="book-audio.html">Book & Audio</a>
+        </nav>
+        <div class="header-actions">
+          <div class="lang-picker">
+            <button type="button" id="langBtn" aria-label="Choose language" aria-haspopup="true" aria-expanded="false">
+              <span id="langLabel">English</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div id="langDropdown" hidden>
+              <button type="button" data-lang="en">English</button>
+              <button type="button" data-lang="ko">한국어</button>
+              <button type="button" data-lang="vi">Tiếng Việt</button>
+              <button type="button" data-lang="ja">日本語</button>
+              <button type="button" data-lang="zh">中文</button>
+            </div>
+          </div>
+          <button type="button" id="authTrigger" class="btn btn-login" data-i18n="auth.tabLogin">Log in</button>
+        </div>
+        <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero" style="background: linear-gradient(135deg, #d8ccbc 0%, #e8e0d0 100%);">
+        <div class="wrap">
+          <h1 data-i18n="search.title">Search Results</h1>
+          <p class="subtitle" data-i18n="search.subtitle">Find blog posts, stories, and resources</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="search-container">
+            <div class="search-box">
+              <input type="text" id="searchInput" class="search-input" placeholder="Search..." data-i18n="search.placeholder" aria-label="Search">
+              <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </div>
+            <div id="searchFilters" class="search-filters">
+              <button class="search-filter-btn active" data-filter="all" data-i18n="search.filterAll">All</button>
+              <button class="search-filter-btn" data-filter="blog" data-i18n="search.filterBlog">Blog</button>
+              <button class="search-filter-btn" data-filter="stories" data-i18n="search.filterStories">Stories</button>
+              <button class="search-filter-btn" data-filter="resources" data-i18n="search.filterResources">Resources</button>
+            </div>
+          </div>
+
+          <div id="searchResults" class="search-results"></div>
+          <div id="searchEmpty" class="search-empty" hidden>
+            <p data-i18n="search.noResults">No results found. Try different keywords.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>&copy; <span data-year></span> Duru Korean. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="about.html" data-i18n="footer.about">About</a>
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+          <a href="terms.html" data-i18n="footer.terms">Terms</a>
+          <a href="mailto:hello@durukorean.com" data-i18n="footer.contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>
