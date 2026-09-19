@@ -146,6 +146,7 @@
       listEl.hidden = true;
       if (filtersEl) filtersEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
+      var postUrl = location.origin + location.pathname + '?post=' + encodeURIComponent(post.slug);
       singleEl.innerHTML =
         '<a class="blog-back" href="blog.html">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
         '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
@@ -153,8 +154,35 @@
         '</span>' +
         '<h1>' + escapeHTML(post.title) + '</h1>' +
         '<p class="blog-date">' + escapeHTML(formatDate(post.created_at)) + '</p>' +
-        '<div class="post-body">' + paragraphs(post.body) + '</div>';
+        '<div class="post-body">' + paragraphs(post.body) + '</div>' +
+        '<div class="blog-share">' +
+          '<span class="blog-share-label">' + escapeHTML(t('blog.share', 'Share this post')) + '</span>' +
+          '<div class="blog-share-buttons">' +
+            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(post.title + ' — Duru Korean') + '&url=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn twitter" title="Twitter" aria-label="Share on Twitter">𝕏</a>' +
+            '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn facebook" title="Facebook" aria-label="Share on Facebook">f</a>' +
+            '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
+          '</div>' +
+        '</div>';
       document.title = post.title + ' — Duru Korean';
+      setupShareButtons();
+    }
+
+    function setupShareButtons() {
+      var copyBtn = singleEl.querySelector('.blog-share-btn.copy');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+          var url = copyBtn.dataset.url;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function () {
+              var orig = copyBtn.textContent;
+              copyBtn.textContent = '✓';
+              setTimeout(function () { copyBtn.textContent = orig; }, 2000);
+            });
+          } else {
+            window.prompt('Copy this link:', url);
+          }
+        });
+      }
     }
 
     function renderNotFound() {

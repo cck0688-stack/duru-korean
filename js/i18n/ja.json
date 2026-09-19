@@ -522,5 +522,6 @@
   "profile.published": "公開",
   "profile.draft": "下書き",
   "profile.errNoNickname": "ニックネームを入力してください。",
-  "profile.errSaveFailed": "保存できません: {msg}"
+  "profile.errSaveFailed": "保存できません: {msg}",
+  "blog.share": "この投稿をシェア"
 }

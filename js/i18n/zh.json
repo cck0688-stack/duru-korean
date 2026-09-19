@@ -522,5 +522,6 @@
   "profile.published": "已发布",
   "profile.draft": "草稿",
   "profile.errNoNickname": "请输入昵称。",
-  "profile.errSaveFailed": "无法保存: {msg}"
+  "profile.errSaveFailed": "无法保存: {msg}",
+  "blog.share": "分享这篇文章"
 }

@@ -522,5 +522,6 @@
   "profile.published": "공개됨",
   "profile.draft": "임시저장",
   "profile.errNoNickname": "닉네임을 입력해주세요.",
-  "profile.errSaveFailed": "저장할 수 없습니다: {msg}"
+  "profile.errSaveFailed": "저장할 수 없습니다: {msg}",
+  "blog.share": "이 포스트 공유하기"
 }

@@ -1649,3 +1649,52 @@ section { position: relative; }
   color: var(--ink-dim);
   margin: 0;
 }
+
+/* ---------- Blog sharing ---------- */
+.blog-share {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(22, 48, 43, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.blog-share-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+
+.blog-share-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.blog-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid rgba(22, 48, 43, 0.2);
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.blog-share-btn:hover {
+  background: var(--bg);
+  color: var(--cream);
+  border-color: var(--bg);
+}
+
+.blog-share-btn.twitter:hover { background: #1da1f2; color: #fff; border-color: #1da1f2; }
+.blog-share-btn.facebook:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
+.blog-share-btn.copy:hover { background: var(--accent-red); color: #fff; border-color: var(--accent-red); }

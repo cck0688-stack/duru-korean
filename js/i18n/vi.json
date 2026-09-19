@@ -522,5 +522,6 @@
   "profile.published": "Đã xuất bản",
   "profile.draft": "Bản nháp",
   "profile.errNoNickname": "Vui lòng nhập biệt danh.",
-  "profile.errSaveFailed": "Không thể lưu: {msg}"
+  "profile.errSaveFailed": "Không thể lưu: {msg}",
+  "blog.share": "Chia sẻ bài viết này"
 }

@@ -522,5 +522,6 @@
   "profile.published": "Published",
   "profile.draft": "Draft",
   "profile.errNoNickname": "Please enter a nickname.",
-  "profile.errSaveFailed": "Couldn't save: {msg}"
+  "profile.errSaveFailed": "Couldn't save: {msg}",
+  "blog.share": "Share this post"
 }
