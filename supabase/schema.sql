@@ -271,3 +271,37 @@ create policy "user_profiles: self update"
   on public.user_profiles for update
   using (auth.uid() = user_id)
   with check (auth.uid() = user_id);
+
+-- ------------------------------------------------------------------
+-- 8. visitor_logs — track daily visitors for analytics
+-- ------------------------------------------------------------------
+-- Records one entry per unique visitor per day. Uses hashed fingerprint
+-- instead of IP addresses to avoid privacy/GDPR issues. Entries auto-delete
+-- after 90 days via a scheduled job (Supabase Functions + pg_cron).
+
+create table if not exists public.visitor_logs (
+  id uuid primary key default gen_random_uuid(),
+  visitor_fingerprint text not null,
+  visited_date date not null,
+  page_path text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.visitor_logs enable row level security;
+
+-- Admin can read visitor stats, everyone else cannot
+drop policy if exists "visitor_logs: admin read" on public.visitor_logs;
+create policy "visitor_logs: admin read"
+  on public.visitor_logs for select
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+-- Anyone can insert a visitor log entry (for anonymous tracking)
+drop policy if exists "visitor_logs: public insert" on public.visitor_logs;
+create policy "visitor_logs: public insert"
+  on public.visitor_logs for insert
+  with check (true);
+
+create index if not exists visitor_logs_date_idx
+  on public.visitor_logs (visited_date desc);
+create index if not exists visitor_logs_fingerprint_date_idx
+  on public.visitor_logs (visitor_fingerprint, visited_date);
