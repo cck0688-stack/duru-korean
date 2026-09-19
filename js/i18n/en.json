@@ -533,5 +533,21 @@
   "story.recommendations": "Popular Stories",
   "blog.lastSaved": "Saving…",
   "blog.autoSaveInfo": "Changes are saved automatically every 30 seconds",
-  "blog.preview": "Preview"
+  "blog.preview": "Preview",
+  "admin.title": "Manage Users — Duru Korean Admin",
+  "admin.notAuthorized": "Not Authorized",
+  "admin.notAuthorizedDesc": "You don't have access to this page.",
+  "admin.manageUsers": "Manage Users",
+  "admin.admins": "Admin Users",
+  "admin.emailPlaceholder": "user@example.com",
+  "admin.addAdmin": "Make Admin",
+  "admin.removeAdmin": "Remove",
+  "admin.noAdmins": "No admin users yet.",
+  "admin.invalidEmail": "Please enter a valid email address.",
+  "admin.userNotFound": "User not found. They must sign up first.",
+  "admin.alreadyAdmin": "This user is already an admin.",
+  "admin.confirmRemove": "Remove this admin user?",
+  "admin.adding": "Adding…",
+  "admin.removeFailed": "Could not remove admin: {msg}",
+  "admin.addFailed": "Could not add admin: {msg}"
 }

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Manage Users — Duru Korean Admin</title>
+<meta name="description" content="Admin panel for managing user roles and permissions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <span class="logo-en">DURU <span>KOREAN</span></span>
+    </a>
+    <nav class="nav-main">
+      <a href="start-here.html" data-i18n="nav.learningPath">Learning Path</a>
+      <a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a>
+      <a href="book-audio.html" data-i18n="nav.bookAudio">Book &amp; Audio</a>
+      <a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="stories.html" data-i18n="nav.stories">Stories</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher" id="langSwitcher"></div>
+      <button id="authTrigger" class="btn-login" type="button" data-i18n="nav.login">Log in</button>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div id="adminNotAuthorized" class="page-hero" hidden>
+  <div class="wrap">
+    <h1 data-i18n="admin.notAuthorized">Not Authorized</h1>
+    <p data-i18n="admin.notAuthorizedDesc">You don't have access to this page.</p>
+  </div>
+</div>
+
+<div id="adminContent" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="page-hero-mark" aria-hidden="true">⚙️</span>
+      <h1 data-i18n="admin.manageUsers">Manage Users</h1>
+      <div class="page-hero-rule"></div>
+    </div>
+  </section>
+
+  <section class="section section-after-hero">
+    <div class="wrap">
+      <div class="admin-panel">
+        <div class="admin-section">
+          <h2 data-i18n="admin.admins">Admin Users</h2>
+          <div class="admin-form">
+            <input type="email" id="userEmailInput" placeholder="user@example.com" data-i18n="admin.emailPlaceholder" maxlength="255">
+            <button id="addAdminBtn" type="button" class="btn btn-primary" data-i18n="admin.addAdmin">Make Admin</button>
+          </div>
+          <div id="adminList" class="admin-list"></div>
+          <p id="adminEmpty" hidden data-i18n="admin.noAdmins">No admin users yet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo">
+          <span class="logo-en">DURU <span>KOREAN</span></span>
+        </a>
+        <p data-i18n="footer.tagline">두루 한국어 — practical, audio-first Korean lessons for learners anywhere in the world.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.learn">Learn</h5>
+        <ul>
+          <li><a href="start-here.html" data-i18n="nav.learningPath">Learning Path</a></li>
+          <li><a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a></li>
+          <li><a href="book-audio.html" data-i18n="nav.bookAudio">Book &amp; Audio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.explore">Explore</h5>
+        <ul>
+          <li><a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a></li>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="stories.html" data-i18n="nav.stories">Stories</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.support">Support</h5>
+        <ul>
+          <li><a href="about.html#contact" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="start-here.html#faq" data-i18n="footer.faq">FAQ</a></li>
+          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="terms.html" data-i18n="footer.terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> <span data-i18n="footer.rights">Duru Korean. All rights reserved.</span></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/visitor-tracking.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/admin-roles.js"></script>
+<script>window.DURU_PAGE_TITLE_KEY = 'admin.title';</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

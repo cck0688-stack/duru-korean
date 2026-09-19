@@ -533,5 +533,21 @@
   "story.recommendations": "热门故事",
   "blog.lastSaved": "保存中…",
   "blog.autoSaveInfo": "更改每30秒自动保存一次",
-  "blog.preview": "预览"
+  "blog.preview": "预览",
+  "admin.title": "管理用户 — Duru Korean Admin",
+  "admin.notAuthorized": "没有权限",
+  "admin.notAuthorizedDesc": "您无权访问此页面。",
+  "admin.manageUsers": "管理用户",
+  "admin.admins": "管理员用户",
+  "admin.emailPlaceholder": "user@example.com",
+  "admin.addAdmin": "设为管理员",
+  "admin.removeAdmin": "删除",
+  "admin.noAdmins": "还没有管理员用户。",
+  "admin.invalidEmail": "请输入有效的电子邮件地址。",
+  "admin.userNotFound": "找不到用户。他们必须先注册。",
+  "admin.alreadyAdmin": "此用户已是管理员。",
+  "admin.confirmRemove": "删除此管理员用户?",
+  "admin.adding": "正在添加…",
+  "admin.removeFailed": "无法删除管理员: {msg}",
+  "admin.addFailed": "无法添加管理员: {msg}"
 }

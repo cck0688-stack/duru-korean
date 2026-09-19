@@ -533,5 +533,21 @@
   "story.recommendations": "Câu chuyện Phổ biến",
   "blog.lastSaved": "Đang lưu…",
   "blog.autoSaveInfo": "Thay đổi được lưu tự động mỗi 30 giây",
-  "blog.preview": "Xem trước"
+  "blog.preview": "Xem trước",
+  "admin.title": "Quản lý Người dùng — Duru Korean Admin",
+  "admin.notAuthorized": "Không được phép",
+  "admin.notAuthorizedDesc": "Bạn không có quyền truy cập trang này.",
+  "admin.manageUsers": "Quản lý Người dùng",
+  "admin.admins": "Người dùng Quản trị",
+  "admin.emailPlaceholder": "user@example.com",
+  "admin.addAdmin": "Trở thành Quản trị",
+  "admin.removeAdmin": "Xóa",
+  "admin.noAdmins": "Chưa có người dùng quản trị.",
+  "admin.invalidEmail": "Vui lòng nhập địa chỉ email hợp lệ.",
+  "admin.userNotFound": "Không tìm thấy người dùng. Họ phải đăng ký trước.",
+  "admin.alreadyAdmin": "Người dùng này đã là quản trị viên.",
+  "admin.confirmRemove": "Xóa người dùng quản trị này?",
+  "admin.adding": "Đang thêm…",
+  "admin.removeFailed": "Không thể xóa quản trị viên: {msg}",
+  "admin.addFailed": "Không thể thêm quản trị viên: {msg}"
 }

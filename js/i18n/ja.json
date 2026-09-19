@@ -533,5 +533,21 @@
   "story.recommendations": "人気のストーリー",
   "blog.lastSaved": "保存中…",
   "blog.autoSaveInfo": "変更は30秒ごとに自動保存されます",
-  "blog.preview": "プレビュー"
+  "blog.preview": "プレビュー",
+  "admin.title": "ユーザー管理 — Duru Korean Admin",
+  "admin.notAuthorized": "アクセス拒否",
+  "admin.notAuthorizedDesc": "このページにはアクセスできません。",
+  "admin.manageUsers": "ユーザー管理",
+  "admin.admins": "管理者ユーザー",
+  "admin.emailPlaceholder": "user@example.com",
+  "admin.addAdmin": "管理者にする",
+  "admin.removeAdmin": "削除",
+  "admin.noAdmins": "管理者ユーザーがいません。",
+  "admin.invalidEmail": "有効なメールアドレスを入力してください。",
+  "admin.userNotFound": "ユーザーが見つかりません。最初にサインアップしてください。",
+  "admin.alreadyAdmin": "このユーザーは既に管理者です。",
+  "admin.confirmRemove": "この管理者を削除しますか?",
+  "admin.adding": "追加中…",
+  "admin.removeFailed": "管理者を削除できません: {msg}",
+  "admin.addFailed": "管理者を追加できません: {msg}"
 }
