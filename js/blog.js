@@ -17,6 +17,10 @@
   // Each category's Hangul glyph, matching the static design.
   var GLYPH = { study: '앎', grammar: '말', culture: '삶', travel: '길' };
 
+  function getCategoryCount(cat) {
+    return posts.filter(function (p) { return p.category === cat; }).length;
+  }
+
   function t(key, fallback) {
     if (!window.DURU_I18N) return fallback;
     var translated = window.DURU_I18N.t(key);
@@ -80,12 +84,26 @@
 
     /* ---------------- Rendering ---------------- */
 
+    function renderCategoryHero() {
+      if (activeFilter === 'all' || !listEl.parentElement) return;
+      var heroDiv = listEl.parentElement.querySelector('.blog-category-hero');
+      if (!heroDiv) {
+        heroDiv = document.createElement('div');
+        heroDiv.className = 'blog-category-hero';
+        listEl.parentElement.insertBefore(heroDiv, listEl);
+      }
+      var desc = t('blog.cat.' + activeFilter + '.desc', '');
+      heroDiv.innerHTML = desc ? '<p>' + escapeHTML(desc) + '</p>' : '';
+      heroDiv.hidden = !desc;
+    }
+
     function renderCards() {
       var shown = posts.filter(function (p) {
         return activeFilter === 'all' || p.category === activeFilter;
       });
       listEl.innerHTML = '';
       if (emptyEl) emptyEl.hidden = shown.length > 0;
+      renderCategoryHero();
       shown.forEach(function (p) {
         var card = document.createElement('article');
         card.className = 'blog-card';
@@ -159,6 +177,7 @@
         .then(function (res) {
           if (res.error) { console.error('Failed to load posts:', res.error.message); return; }
           posts = res.data || [];
+          updateFilterCounts();
           var slug = new URLSearchParams(location.search).get('post');
           if (slug) {
             var match = posts.filter(function (p) { return p.slug === slug; })[0];
@@ -312,6 +331,21 @@
       });
     }
 
+    function updateFilterCounts() {
+      if (!filtersEl) return;
+      filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (btn) {
+        var filter = btn.dataset.filter;
+        var count = filter === 'all' ? posts.length : getCategoryCount(filter);
+        var countEl = btn.querySelector('.filter-count');
+        if (!countEl && count > 0) {
+          countEl = document.createElement('span');
+          countEl.className = 'filter-count';
+          btn.appendChild(countEl);
+        }
+        if (countEl) countEl.textContent = '(' + count + ')';
+      });
+    }
+
     /* ---------------- Filters, admin state ---------------- */
 
     if (filtersEl) {
@@ -352,6 +386,7 @@
     // Labels inside rendered cards are translated at render time, so a
     // language switch has to re-render rather than rely on the DOM scan.
     document.addEventListener('duru:langchange', function () {
+      updateFilterCounts();
       var slug = new URLSearchParams(location.search).get('post');
       if (slug) {
         var match = posts.filter(function (p) { return p.slug === slug; })[0];

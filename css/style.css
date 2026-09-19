@@ -913,8 +913,29 @@ section { position: relative; }
   font-size: 13px;
   font-weight: 600;
   color: var(--ink-dim);
+  position: relative;
 }
 .filter-btn.active, .filter-btn:hover { background: var(--bg); color: var(--cream); border-color: var(--bg); }
+.filter-count {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+.blog-category-hero {
+  margin-bottom: 30px;
+  padding: 16px 20px;
+  background: rgba(16, 63, 53, 0.08);
+  border-radius: 8px;
+  border-left: 3px solid var(--bg);
+}
+.blog-category-hero p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+}
 
 /* ---------- FAQ accordion ---------- */
 .faq-item {

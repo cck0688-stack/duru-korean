@@ -497,5 +497,9 @@
   "search.filterBlog": "ブログ",
   "search.filterStories": "ストーリー",
   "search.filterResources": "リソース",
-  "search.noResults": "結果が見つかりません。別のキーワードをお試しください。"
+  "search.noResults": "結果が見つかりません。別のキーワードをお試しください。",
+  "blog.cat.study.desc": "韓国語学習に役立つ方法と日常の習慣をご紹介します。",
+  "blog.cat.grammar.desc": "実際の韓国語で使われる文法を分かりやすく説明します。",
+  "blog.cat.culture.desc": "韓国の物語、伝統、そして日常文化を探索します。",
+  "blog.cat.travel.desc": "韓国への旅行に必要な表現と文化的なヒントをお届けします。"
 }

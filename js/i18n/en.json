@@ -497,5 +497,9 @@
   "search.filterBlog": "Blog",
   "search.filterStories": "Stories",
   "search.filterResources": "Resources",
-  "search.noResults": "No results found. Try different keywords."
+  "search.noResults": "No results found. Try different keywords.",
+  "blog.cat.study.desc": "Proven methods and daily habits to make Korean learning stick.",
+  "blog.cat.grammar.desc": "Practical grammar explanations that make sense in real Korean.",
+  "blog.cat.culture.desc": "Explore the stories, traditions, and everyday culture of Korea.",
+  "blog.cat.travel.desc": "Essential phrases and cultural tips for traveling in Korea."
 }

@@ -497,5 +497,9 @@
   "search.filterBlog": "블로그",
   "search.filterStories": "스토리",
   "search.filterResources": "자료",
-  "search.noResults": "검색 결과가 없습니다. 다른 키워드를 시도해 보세요."
+  "search.noResults": "검색 결과가 없습니다. 다른 키워드를 시도해 보세요.",
+  "blog.cat.study.desc": "한국어 학습에 도움이 되는 방법과 일상적인 습관들을 소개합니다.",
+  "blog.cat.grammar.desc": "실제 한국어에서 쓰이는 문법을 쉽게 설명합니다.",
+  "blog.cat.culture.desc": "한국의 이야기, 전통, 그리고 일상 문화를 살펴봅니다.",
+  "blog.cat.travel.desc": "한국 여행에 필요한 표현과 문화적 팁을 알려드립니다."
 }

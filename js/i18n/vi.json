@@ -497,5 +497,9 @@
   "search.filterBlog": "Blog",
   "search.filterStories": "Câu Chuyện",
   "search.filterResources": "Tài Liệu",
-  "search.noResults": "Không tìm thấy kết quả. Hãy thử các từ khóa khác."
+  "search.noResults": "Không tìm thấy kết quả. Hãy thử các từ khóa khác.",
+  "blog.cat.study.desc": "Các phương pháp và thói quen hàng ngày để học tiếng Hàn hiệu quả.",
+  "blog.cat.grammar.desc": "Giải thích ngữ pháp tiếng Hàn thực tế một cách dễ hiểu.",
+  "blog.cat.culture.desc": "Khám phá các câu chuyện, truyền thống, và văn hóa hàng ngày của Hàn Quốc.",
+  "blog.cat.travel.desc": "Các cụm từ thiết yếu và mẹo văn hóa cho chuyến du lịch Hàn Quốc."
 }

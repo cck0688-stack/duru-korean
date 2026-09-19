@@ -497,5 +497,9 @@
   "search.filterBlog": "博客",
   "search.filterStories": "故事",
   "search.filterResources": "资源",
-  "search.noResults": "未找到结果。请尝试其他关键词。"
+  "search.noResults": "未找到结果。请尝试其他关键词。",
+  "blog.cat.study.desc": "介绍有助于学习韩语的方法和日常习惯。",
+  "blog.cat.grammar.desc": "用简单易懂的方式解释实际韩语中使用的语法。",
+  "blog.cat.culture.desc": "探索韩国的故事、传统和日常文化。",
+  "blog.cat.travel.desc": "为韩国旅行提供必要的表达和文化建议。"
 }
