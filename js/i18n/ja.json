@@ -532,5 +532,6 @@
   "blog.recommendations": "他の読者が楽しんだ",
   "story.recommendations": "人気のストーリー",
   "blog.lastSaved": "保存中…",
-  "blog.autoSaveInfo": "変更は30秒ごとに自動保存されます"
+  "blog.autoSaveInfo": "変更は30秒ごとに自動保存されます",
+  "blog.preview": "プレビュー"
 }

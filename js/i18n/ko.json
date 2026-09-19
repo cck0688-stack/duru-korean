@@ -532,5 +532,6 @@
   "blog.recommendations": "다른 독자들이 좋아한 포스트",
   "story.recommendations": "인기 있는 스토리",
   "blog.lastSaved": "저장 중…",
-  "blog.autoSaveInfo": "변경사항이 30초마다 자동으로 저장됩니다"
+  "blog.autoSaveInfo": "변경사항이 30초마다 자동으로 저장됩니다",
+  "blog.preview": "미리보기"
 }

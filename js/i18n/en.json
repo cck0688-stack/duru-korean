@@ -532,5 +532,6 @@
   "blog.recommendations": "Readers Also Enjoyed",
   "story.recommendations": "Popular Stories",
   "blog.lastSaved": "Saving…",
-  "blog.autoSaveInfo": "Changes are saved automatically every 30 seconds"
+  "blog.autoSaveInfo": "Changes are saved automatically every 30 seconds",
+  "blog.preview": "Preview"
 }

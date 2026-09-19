@@ -303,31 +303,50 @@
       overlay.className = 'auth-overlay';
       overlay.hidden = true;
       overlay.innerHTML =
-        '<div class="auth-modal post-modal" role="dialog" aria-modal="true" aria-labelledby="postEditorTitle">' +
+        '<div class="auth-modal post-modal post-modal-wide" role="dialog" aria-modal="true" aria-labelledby="postEditorTitle">' +
           '<button type="button" class="auth-close" id="postCloseBtn" aria-label="Close">&times;</button>' +
           '<h2 id="postEditorTitle"></h2>' +
           '<div class="auto-save-status"></div>' +
           '<div class="auth-message" data-msg="post" hidden></div>' +
-          '<form id="postForm" novalidate>' +
-            '<div class="auth-field"><label for="postTitle"></label>' +
-              '<input type="text" id="postTitle" required maxlength="160"></div>' +
-            '<div class="auth-field"><label for="postCategory"></label>' +
-              '<select id="postCategory">' + CATEGORIES.map(function (c) {
-                return '<option value="' + c + '"></option>';
-              }).join('') + '</select></div>' +
-            '<div class="auth-field"><label for="postExcerpt"></label>' +
-              '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
-            '<div class="auth-field"><label for="postBody"></label>' +
-              '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
-            '<label class="post-publish-row"><input type="checkbox" id="postPublished"> <span id="postPublishedLabel"></span></label>' +
-            '<button type="submit" class="btn btn-primary auth-submit" id="postSubmit"></button>' +
-          '</form>' +
+          '<div class="post-editor-container">' +
+            '<form id="postForm" novalidate class="post-editor-form">' +
+              '<div class="auth-field"><label for="postTitle"></label>' +
+                '<input type="text" id="postTitle" required maxlength="160"></div>' +
+              '<div class="auth-field"><label for="postCategory"></label>' +
+                '<select id="postCategory">' + CATEGORIES.map(function (c) {
+                  return '<option value="' + c + '"></option>';
+                }).join('') + '</select></div>' +
+              '<div class="auth-field"><label for="postExcerpt"></label>' +
+                '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
+              '<div class="auth-field"><label for="postBody"></label>' +
+                '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
+              '<label class="post-publish-row"><input type="checkbox" id="postPublished"> <span id="postPublishedLabel"></span></label>' +
+              '<button type="submit" class="btn btn-primary auth-submit" id="postSubmit"></button>' +
+            '</form>' +
+            '<div class="post-preview-pane">' +
+              '<div class="post-preview-title" data-i18n="blog.preview">Preview</div>' +
+              '<div id="postPreview" class="post-preview"></div>' +
+            '</div>' +
+          '</div>' +
         '</div>';
       document.body.appendChild(overlay);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closeEditor(); });
       overlay.querySelector('#postCloseBtn').addEventListener('click', closeEditor);
       overlay.querySelector('#postForm').addEventListener('submit', savePost);
+      var bodyTextarea = overlay.querySelector('#postBody');
+      if (bodyTextarea) {
+        bodyTextarea.addEventListener('input', updatePreview);
+        bodyTextarea.addEventListener('change', updatePreview);
+      }
       return overlay;
+    }
+
+    function updatePreview() {
+      if (!overlay) return;
+      var preview = overlay.querySelector('#postPreview');
+      if (!preview) return;
+      var body = overlay.querySelector('#postBody').value;
+      preview.innerHTML = '<div class="post-body">' + paragraphs(body) + '</div>';
     }
 
     function updateAutoSaveStatus() {
@@ -402,6 +421,7 @@
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
       o.querySelector('#postBody').value = editing ? editing.body : '';
       o.querySelector('#postPublished').checked = editing ? !!editing.published : false;
+      updatePreview();
       o.hidden = false;
       o.querySelector('#postTitle').focus();
       if (editing) startAutoSave();

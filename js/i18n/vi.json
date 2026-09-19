@@ -532,5 +532,6 @@
   "blog.recommendations": "Bạn cũng có thể thích",
   "story.recommendations": "Câu chuyện Phổ biến",
   "blog.lastSaved": "Đang lưu…",
-  "blog.autoSaveInfo": "Thay đổi được lưu tự động mỗi 30 giây"
+  "blog.autoSaveInfo": "Thay đổi được lưu tự động mỗi 30 giây",
+  "blog.preview": "Xem trước"
 }
