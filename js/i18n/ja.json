@@ -530,5 +530,7 @@
   "like.unlike": "いいねを取消",
   "like.loginRequired": "いいねするにはサインインしてください",
   "blog.recommendations": "他の読者が楽しんだ",
-  "story.recommendations": "人気のストーリー"
+  "story.recommendations": "人気のストーリー",
+  "blog.lastSaved": "保存中…",
+  "blog.autoSaveInfo": "変更は30秒ごとに自動保存されます"
 }

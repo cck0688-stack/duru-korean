@@ -294,6 +294,8 @@
     var overlay = null;
     var editing = null;
     var saving = false;
+    var autoSaveTimer = null;
+    var lastSaveTime = null;
 
     function buildEditor() {
       if (overlay) return overlay;
@@ -304,6 +306,7 @@
         '<div class="auth-modal post-modal" role="dialog" aria-modal="true" aria-labelledby="postEditorTitle">' +
           '<button type="button" class="auth-close" id="postCloseBtn" aria-label="Close">&times;</button>' +
           '<h2 id="postEditorTitle"></h2>' +
+          '<div class="auto-save-status"></div>' +
           '<div class="auth-message" data-msg="post" hidden></div>' +
           '<form id="postForm" novalidate>' +
             '<div class="auth-field"><label for="postTitle"></label>' +
@@ -327,6 +330,44 @@
       return overlay;
     }
 
+    function updateAutoSaveStatus() {
+      if (!overlay) return;
+      var statusEl = overlay.querySelector('.auto-save-status');
+      if (!statusEl) return;
+      if (lastSaveTime) {
+        statusEl.textContent = t('blog.lastSaved', 'Saving…').replace('Saving…', 'Saved ' + formatDate(lastSaveTime));
+        statusEl.style.color = 'var(--ink-dim)';
+      } else {
+        statusEl.textContent = '';
+      }
+    }
+
+    function startAutoSave() {
+      if (autoSaveTimer) clearInterval(autoSaveTimer);
+      autoSaveTimer = setInterval(function () {
+        if (overlay && !overlay.hidden && editing && !saving) {
+          var title = overlay.querySelector('#postTitle').value.trim();
+          var body = overlay.querySelector('#postBody').value.trim();
+          if (title && body) {
+            var row = {
+              title: title,
+              category: overlay.querySelector('#postCategory').value,
+              excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
+              body: body,
+              published: overlay.querySelector('#postPublished').checked,
+              updated_at: new Date().toISOString()
+            };
+            client.from('posts').update(row).eq('id', editing.id).then(function (res) {
+              if (!res.error) {
+                lastSaveTime = new Date().toISOString();
+                updateAutoSaveStatus();
+              }
+            });
+          }
+        }
+      }, 30000);
+    }
+
     function labelEditor() {
       var o = buildEditor();
       o.querySelector('#postEditorTitle').textContent = editing
@@ -340,6 +381,7 @@
       CATEGORIES.forEach(function (c, i) {
         o.querySelectorAll('#postCategory option')[i].textContent = categoryLabel(c);
       });
+      updateAutoSaveStatus();
     }
 
     function setMsg(type, text) {
@@ -353,6 +395,7 @@
       editing = post || null;
       var o = buildEditor();
       labelEditor();
+      lastSaveTime = null;
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
       o.querySelector('#postCategory').value = editing ? editing.category : 'study';
@@ -361,11 +404,15 @@
       o.querySelector('#postPublished').checked = editing ? !!editing.published : false;
       o.hidden = false;
       o.querySelector('#postTitle').focus();
+      if (editing) startAutoSave();
     }
 
     function closeEditor() {
       if (overlay) overlay.hidden = true;
       editing = null;
+      if (autoSaveTimer) clearInterval(autoSaveTimer);
+      autoSaveTimer = null;
+      lastSaveTime = null;
     }
 
     function savePost(e) {

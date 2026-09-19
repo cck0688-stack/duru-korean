@@ -530,5 +530,7 @@
   "like.unlike": "Bỏ thích",
   "like.loginRequired": "Đăng nhập để thích",
   "blog.recommendations": "Bạn cũng có thể thích",
-  "story.recommendations": "Câu chuyện Phổ biến"
+  "story.recommendations": "Câu chuyện Phổ biến",
+  "blog.lastSaved": "Đang lưu…",
+  "blog.autoSaveInfo": "Thay đổi được lưu tự động mỗi 30 giây"
 }

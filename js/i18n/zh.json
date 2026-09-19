@@ -530,5 +530,7 @@
   "like.unlike": "取消点赞",
   "like.loginRequired": "登录以点赞",
   "blog.recommendations": "读者也喜欢",
-  "story.recommendations": "热门故事"
+  "story.recommendations": "热门故事",
+  "blog.lastSaved": "保存中…",
+  "blog.autoSaveInfo": "更改每30秒自动保存一次"
 }

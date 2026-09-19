@@ -530,5 +530,7 @@
   "like.unlike": "Unlike",
   "like.loginRequired": "Sign in to like",
   "blog.recommendations": "Readers Also Enjoyed",
-  "story.recommendations": "Popular Stories"
+  "story.recommendations": "Popular Stories",
+  "blog.lastSaved": "Saving…",
+  "blog.autoSaveInfo": "Changes are saved automatically every 30 seconds"
 }
