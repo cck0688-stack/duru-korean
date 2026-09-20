@@ -75,6 +75,38 @@ input:focus-visible,
 
 .kr { font-family: 'Noto Sans KR', sans-serif; }
 
+/* ---------- Line breaking ----------
+   Left to itself the browser fills each line to the edge and lets the
+   last one keep whatever is left, which strands a word or splits a
+   phrase across the break. `pretty` asks it to look ahead over the
+   whole block, `balance` to even out a heading or a short lead, so a
+   phrase stays together and no line ends alone.
+
+   Korean, Japanese and Chinese break between any two characters by
+   default, mid-word; `keep-all` holds each word together. A pasted URL
+   or another long unbroken run is the one case that still has to break
+   anywhere, or it would push its card wider than the screen. */
+
+p, li, figcaption, blockquote, dd, .eyebrow, .btn, label {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5,
+.section-lead-in,
+.page-hero p,
+.page-hero-tagline,
+.authors-lede,
+.cta-banner p,
+.newsletter p,
+.entry-body span {
+  text-wrap: balance;
+}
+
+:root:lang(ko), :root:lang(ja), :root:lang(zh) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 .wrap {
   max-width: var(--maxw);
   margin: 0 auto;
