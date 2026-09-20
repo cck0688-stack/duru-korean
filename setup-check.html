@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
+<style>@media (max-width: 480px) { .site-header .header-actions a.btn-login { display: none; } }</style>
 <style>
   .chk-wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; }
   .chk-item {
@@ -57,10 +58,10 @@
 <header class="site-header">
   <div class="wrap">
     <a href="index.html" class="logo">
-      <span class="logo-en">DURU <span>KOREAN</span></span>
+      <img class="logo-img" src="assets/logo.webp" alt="Duru Korean" width="1455" height="268">
     </a>
     <div class="header-actions">
-      <a href="index.html" class="btn-login" style="text-decoration:none;">사이트로 돌아가기</a>
+      <a href="index.html" class="btn-login" style="text-decoration:none;">홈으로</a>
       <button id="authTrigger" class="btn-login" type="button">로그인</button>
     </div>
   </div>

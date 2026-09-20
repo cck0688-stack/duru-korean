@@ -66,8 +66,7 @@ button { font-family: inherit; cursor: pointer; }
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-.card:focus-visible,
-.step-card:focus-visible {
+.card:focus-visible {
   outline: 2px solid var(--accent-red);
   outline-offset: 3px;
   border-radius: 4px;
@@ -209,20 +208,19 @@ section { position: relative; }
 }
 .site-visits b { color: var(--ink); font-weight: 700; margin-left: 3px; }
 
+/* The wordmark is a drawn logo: one file on the ivory header, a light
+   version of the same file on the green footer. Its height is set here
+   and stepped down with the header; width follows from the picture. */
 .logo {
   display: flex;
   align-items: center;
-  line-height: 1.1;
-  color: var(--logo-duru);
   flex-shrink: 0;
 }
-.logo .logo-en {
-  font-weight: 800;
-  font-size: 27px;
-  letter-spacing: 0.005em;
-  white-space: nowrap;
+.logo-img {
+  display: block;
+  height: 46px;
+  width: auto;
 }
-.logo .logo-en span { color: var(--logo-korean); }
 
 .nav-main {
   display: flex;
@@ -942,39 +940,6 @@ section { position: relative; }
 }
 .faq-a p { padding: 0 0 22px; color: var(--ink-dim); font-size: 14.5px; max-width: 640px; }
 
-/* ---------- Steps (start-here) ---------- */
-.steps-col { display: flex; flex-direction: column; gap: 20px; }
-.step-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 22px;
-  background: #fff;
-  border: 1px solid rgba(22,48,43,0.08);
-  border-radius: var(--radius);
-  padding: 26px;
-  box-shadow: var(--shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.step-card:hover { transform: translateY(-3px); box-shadow: 0 26px 55px -25px rgba(10,38,32,0.45); }
-.step-num {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--bg);
-  color: var(--cream);
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  font-family: 'Noto Sans KR', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.step-body h3 { margin: 0 0 6px; font-size: 19px; color: var(--ink); }
-.step-body p { margin: 0 0 14px; color: var(--ink-dim); font-size: 14.5px; }
-.step-cta { font-size: 13px; font-weight: 700; color: var(--accent-red); }
-
 /* ---------- Curriculum (learning-korean) ---------- */
 .level-tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
 .level-block { margin-bottom: 56px; }
@@ -1066,9 +1031,8 @@ section { position: relative; }
   padding-bottom: 40px;
   border-bottom: 1px solid var(--line);
 }
-.footer-top .logo { margin-bottom: 14px; }
-.site-footer .logo .logo-en,
-.site-footer .logo .logo-en span { color: #f2c94c; }
+.footer-top .logo { margin-bottom: 18px; }
+.footer-top .logo-img { height: 42px; }
 .footer-top p { font-size: 13.5px; max-width: 260px; color: var(--cream-faint); }
 .footer-col h5 {
   font-size: 11.5px;
@@ -1100,8 +1064,6 @@ section { position: relative; }
   .hero-grid { min-height: auto; }
   .hero-text { padding: 44px 40px 48px; order: 2; }
   .hero-graphic { order: 1; }
-  .path-row { grid-template-columns: repeat(2, 1fr); row-gap: 26px; }
-  .path-step { border-left: none; padding-left: 0; }
   .footer-top { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -1114,14 +1076,14 @@ section { position: relative; }
    and hand over earlier. The counts stay through all of that and step
    aside only on phones, in the 720px block below. */
 @media (max-width: 1300px) {
-  .logo .logo-en { font-size: 24px; }
+  .logo-img { height: 40px; }
   .nav-main { gap: 2px; }
   .nav-main a { padding: 10px 12px; }
   .site-header .wrap { gap: 16px; }
 }
 
 @media (max-width: 1120px) {
-  .logo .logo-en { font-size: 22px; }
+  .logo-img { height: 36px; }
   .nav-main { gap: 0; }
   .nav-main a { font-size: 14px; padding: 9px 10px; }
   .site-header .wrap { gap: 12px; }
@@ -1174,7 +1136,13 @@ section { position: relative; }
 }
 
 @media (max-width: 720px) {
-  .logo .logo-en { font-size: 20px; }
+  /* The controls on the right cannot get narrower than their labels, so
+     the logo is the part that gives: it scales down to whatever is left
+     beside a signed-in account, instead of sliding underneath it. */
+  .header-brand { flex: 1 1 auto; min-width: 0; }
+  .logo { flex: 1 1 auto; min-width: 0; max-width: min(174px, 40vw); }
+  .logo-img { width: 100%; height: auto; }
+  .footer-top .logo-img { height: 36px; width: auto; }
   .site-visits { display: none; }
   .grid-3, .grid-4, .lesson-grid, .testi-strip, .footer-top { grid-template-columns: 1fr; }
   .newsletter { flex-direction: column; align-items: flex-start; }
@@ -1190,14 +1158,16 @@ section { position: relative; }
   .lang-menu { left: auto; right: 0; }
 }
 
-/* Very narrow phones. Must stay after the 720px block: the wordmark is
-   one unbroken line now, so the header buys back width from padding and
-   control sizing, and an equal-specificity rule defined later wins. */
-@media (max-width: 380px) {
+/* Phones. Must stay after the 720px block: the header buys back width
+   from padding and control sizing so the logo keeps a readable size
+   beside a signed-in account, and an equal-specificity rule defined
+   later wins. The account keeps its avatar and drops the name. */
+@media (max-width: 480px) {
   .site-header .wrap { padding-left: 14px; padding-right: 14px; gap: 8px; }
-  .logo .logo-en { font-size: 16px; }
+  .logo { max-width: min(174px, 40vw); }
   .header-actions { gap: 6px; }
   .btn-login { font-size: 12px; padding: 6px 10px; }
+  .account-trigger .email { display: none; }
   .lang-trigger { padding: 6px; }
   .nav-toggle { width: 28px; }
 }
@@ -1438,7 +1408,7 @@ section { position: relative; }
   overflow-wrap: anywhere;
 }
 .story-body p:last-child { margin-bottom: 0; }
-.story-actions { display: flex; gap: 8px; margin-top: 16px; }
+.story-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .story-actions button {
   font-size: 12.5px; font-weight: 700; border-radius: 6px; padding: 5px 10px;
   border: 1px solid rgba(22, 48, 43, 0.18); background: #fff; color: var(--ink);
@@ -2661,6 +2631,14 @@ section { position: relative; }
   gap: 10px;
 }
 .story-reply .story-reply { background: rgba(255, 255, 255, 0.55); }
+.story-reply > div { min-width: 0; }
+
+/* On a phone each level of indent costs the thread width it does not
+   have, so replies to replies drop the avatar column and its gap. */
+@media (max-width: 480px) {
+  .story-reply .story-reply { grid-template-columns: 1fr; padding: 10px 12px; }
+  .story-reply .story-reply > .story-avatar { display: none; }
+}
 
 /* Every entry shows all three actions; the ones this visitor may not
    use are dimmed and explain themselves when pressed. */

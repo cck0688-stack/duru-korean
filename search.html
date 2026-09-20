@@ -10,42 +10,29 @@
 <body>
   <div class="site-wrapper">
     <header class="site-header">
-      <div class="wrap">
-        <a href="index.html" class="logo">
-          <span class="logo-en">Duru <span>Korean</span></span>
-        </a>
-        <nav class="nav-main">
-          <a href="index.html">Home</a>
-          <a href="learning-korean.html">Learn</a>
-          <a href="blog.html">Blog</a>
-          <a href="stories.html">Stories</a>
-          <a href="free-resources.html">Free Resources</a>
-        </nav>
-        <div class="header-actions">
-          <div class="lang-picker">
-            <button type="button" id="langBtn" aria-label="Choose language" aria-haspopup="true" aria-expanded="false">
-              <span id="langLabel">English</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div id="langDropdown" hidden>
-              <button type="button" data-lang="en">English</button>
-              <button type="button" data-lang="ko">한국어</button>
-              <button type="button" data-lang="vi">Tiếng Việt</button>
-              <button type="button" data-lang="ja">日本語</button>
-              <button type="button" data-lang="zh">中文</button>
-            </div>
-          </div>
-          <button type="button" id="authTrigger" class="btn btn-login" data-i18n="auth.tabLogin">Log in</button>
-        </div>
-        <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </header>
+  <div class="wrap">
+    <div class="header-brand">
+      <a href="index.html" class="logo">
+        <img class="logo-img" src="assets/logo.webp" alt="Duru Korean" width="1455" height="268">
+      </a>
+      <span class="site-visits" hidden>
+        <span><span data-i18n="visits.total" data-visits-total-label>Visits</span> <b data-visits-total>–</b></span>
+        <span><span data-i18n="visits.today" data-visits-today-label>Today</span> <b data-visits-today>–</b></span>
+      </span>
+    </div>
+    <nav class="nav-main">
+      <a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a>
+      <a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="stories.html" data-i18n="nav.stories">Guestbook</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher" id="langSwitcher"></div>
+      <button id="authTrigger" class="btn-login" type="button" data-i18n="nav.login">Log in</button>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
 
     <main>
       <section class="page-hero" style="background: linear-gradient(135deg, #d8ccbc 0%, #e8e0d0 100%);">

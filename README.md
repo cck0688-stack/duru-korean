@@ -13,7 +13,7 @@ picking the work up.
 
 ```
 index.html            Home
-start-here.html        "Learning Path" nav destination
+faq.html               FAQ (linked from the footer)
 learning-korean.html   "Learn Korean" curriculum overview
 book-audio.html        "Book & Audio"
 free-resources.html    Free downloadable resources
