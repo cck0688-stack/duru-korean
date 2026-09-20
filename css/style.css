@@ -360,24 +360,8 @@ section { position: relative; }
 .hero-text {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 34px 64px 28px;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border: 1px solid rgba(22, 48, 43, 0.16);
-  border-radius: 999px;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--accent-red);
-  width: fit-content;
-  margin-bottom: 22px;
 }
 
 .hero-text h1 {
@@ -469,11 +453,11 @@ section { position: relative; }
 /* ---- Hero: the folding-screen photograph ---- */
 
 .hero-graphic {
-  padding: 0;
+  padding: 28px 0;
   overflow: hidden;
   background: linear-gradient(180deg, #141f18 0%, #141f18 52%, #131313 100%);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
 
@@ -484,9 +468,27 @@ section { position: relative; }
 .hero-frame {
   position: relative;
   flex: none;
-  width: 100%;
-  aspect-ratio: 708 / 716;
+  width: min(78%, calc(100svh - var(--header-h) - 56px));
+  aspect-ratio: 1410 / 1408;
   container-type: inline-size;
+}
+
+/* The wall above the screens is empty: the line about the name goes
+   there, set in the photograph's own cream so it reads as part of it. */
+.hero-caption {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 4.27%;
+  margin: 0;
+  text-align: center;
+  color: rgba(244, 239, 226, 0.88);
+  font-family: 'Noto Sans KR', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 2.2cqw;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0.2cqw 0.8cqw rgba(0, 0, 0, 0.45);
 }
 
 .hero-scene {
@@ -512,10 +514,10 @@ section { position: relative; }
 }
 
 .hero-seal {
-  left: 45.9%;
-  top: 18.3%;
-  width: 17.1%;
-  height: 3.95%;
+  left: 45.67%;
+  top: 18.61%;
+  width: 17.17%;
+  height: 4.02%;
   border-radius: 0.35cqw;
   background: linear-gradient(95deg, #8a4636 0%, #904937 50%, #8d4638 100%);
   box-shadow: inset 0 0 0 0.18cqw rgba(38, 14, 9, 0.55),
@@ -537,71 +539,26 @@ section { position: relative; }
   padding-right: 1.6cqw;
 }
 .hero-book-1 {
-  top: 66.0%;
-  width: 17.3%;
-  height: 3.0%;
+  top: 67.12%;
+  width: 17.37%;
+  height: 3.05%;
   background: linear-gradient(90deg, #ab9079 0%, #a2896f 55%, #9f846b 100%);
 }
 .hero-book-2 {
-  top: 70.3%;
-  width: 17.2%;
-  height: 2.7%;
+  top: 71.5%;
+  width: 17.27%;
+  height: 2.75%;
   background: linear-gradient(90deg, #a0856f 0%, #9d826c 55%, #987d66 100%);
 }
 .hero-book-3 {
-  top: 74.1%;
-  width: 17.3%;
-  height: 2.7%;
+  top: 75.36%;
+  width: 17.37%;
+  height: 2.75%;
   background: linear-gradient(90deg, #a2866f 0%, #9d8169 55%, #997d66 100%);
 }
 
 @media (max-width: 980px) {
-  .hero-graphic { aspect-ratio: 708 / 716; align-self: start; }
-}
-
-/* The learning path sits where the WHY panel used to, now that the
-   headline block is gone and WHY has moved up into its place. */
-.hero-path {
-  padding-top: 20px;
-  margin-top: 22px;
-  border-top: 1px solid rgba(22, 48, 43, 0.1);
-  max-width: 520px;
-}
-.hero-path-list {
-  list-style: none;
-  margin: 0 0 14px;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 18px;
-}
-.hero-path-list li {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 12.5px;
-  color: var(--ink);
-}
-.hero-path-num {
-  flex: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--accent-red-soft);
-  color: var(--accent-red);
-  font-size: 10.5px;
-  font-weight: 700;
-}
-.hero-path-link {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--accent-red);
-}
-
-@media (max-width: 560px) {
-  .hero-path-list { grid-template-columns: 1fr; }
+  .hero-graphic { aspect-ratio: 1410 / 1408; align-self: start; }
 }
 
 .hero-cta {
@@ -1152,6 +1109,8 @@ section { position: relative; }
   border-bottom: 1px solid var(--line);
 }
 .footer-top .logo { margin-bottom: 14px; }
+.site-footer .logo .logo-en,
+.site-footer .logo .logo-en span { color: #f2c94c; }
 .footer-top p { font-size: 13.5px; max-width: 260px; color: var(--cream-faint); }
 .footer-col h5 {
   font-size: 11.5px;
@@ -2466,28 +2425,10 @@ section { position: relative; }
 
 .author-panel-top {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
-  margin-bottom: 22px;
-}
-
-/* Portrait is a drawn placeholder, swappable for a real sketch later:
-   drop an <img> in the same span and the frame still holds. */
-.author-portrait {
-  flex: none;
-  width: 92px;
-  height: 92px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #faf6ef;
-}
-.author-portrait svg,
-.author-portrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin-bottom: 18px;
 }
 
 .author-badge {
@@ -2509,6 +2450,7 @@ section { position: relative; }
   line-height: 1.15;
   color: var(--a-ink);
   margin: 0 0 6px;
+  text-align: center;
 }
 
 .author-role {
@@ -2518,6 +2460,7 @@ section { position: relative; }
   text-transform: uppercase;
   color: var(--a-sub);
   margin: 0 0 26px;
+  text-align: center;
 }
 
 .author-credentials {
@@ -2621,22 +2564,27 @@ section { position: relative; }
 
 @media (max-width: 520px) {
   .author-panel { padding: 26px 22px 28px; }
-  .author-portrait { width: 76px; height: 76px; }
   .author-name { font-size: 27px; }
 }
 
 /* ---- Hero: the three entry cards ---- */
 
 .hero-entry {
-  padding-top: 22px;
-  margin-top: 18px;
-  border-top: 1px solid rgba(22, 48, 43, 0.1);
+  padding-top: 0;
+  margin-top: 0;
   max-width: 560px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 .hero-entry .hero-why-head { margin-bottom: 6px; }
+.hero-entry .hero-why-head .eyebrow {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent-red);
+  margin-bottom: 4px;
+}
 
 .entry-card {
   display: grid;
@@ -2679,24 +2627,6 @@ section { position: relative; }
 @media (max-width: 480px) {
   .entry-card { grid-template-columns: 40px 1fr; }
   .entry-go { display: none; }
-}
-
-/* ---- Author monogram ---- */
-
-.author-monogram {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 28%, #fff7ee 0%, #f5e7df 55%, #ecd8cb 100%);
-  box-shadow: inset 0 0 0 1px #e8ded2, inset 0 0 0 5px #fffcf7, inset 0 0 0 6px #e8ded2;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
-  font-size: 30px;
-  letter-spacing: 0.04em;
-  color: #b96743;
 }
 
 /* ---- Guestbook replies ---- */
@@ -2759,6 +2689,18 @@ section { position: relative; }
 .story-reply .story-body { font-size: 14px; }
 .story-reply .story-body p { margin: 0 0 6px; }
 .story-reply .story-actions { margin-top: 6px; }
+.story-reply .story-replies {
+  margin-top: 10px;
+  padding-top: 10px;
+  gap: 10px;
+}
+.story-reply .story-reply { background: rgba(255, 255, 255, 0.55); }
+
+/* Every entry shows all three actions; the ones this visitor may not
+   use are dimmed and explain themselves when pressed. */
+.story-actions .is-muted {
+  opacity: 0.45;
+}
 
 /* ---- Newsletter feedback ---- */
 

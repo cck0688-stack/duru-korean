@@ -717,9 +717,8 @@ create index if not exists resources_category_idx
 -- ------------------------------------------------------------------
 -- A reply is a story row that points at its parent. Reusing the table
 -- means every existing policy already applies: anyone may read, the
--- author may edit or delete their own, an admin may delete any. Only
--- one level is offered in the UI; the column does not forbid deeper
--- nesting, but nothing writes it.
+-- author may edit or delete their own, an admin may delete any. A reply
+-- may itself be replied to, so a thread nests as deep as the talk goes.
 
 alter table public.stories
   add column if not exists parent_id uuid references public.stories (id) on delete cascade;

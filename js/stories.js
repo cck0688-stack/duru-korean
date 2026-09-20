@@ -4,7 +4,9 @@
 // be signed in to write. A learner may edit or delete their own story and
 // nobody else's, and an admin may delete any of them. All of that is
 // enforced by Row Level Security in supabase/schema.sql — the buttons
-// this file shows or hides are a convenience, not the protection.
+// this file shows are a convenience, not the protection. Every entry
+// and reply carries Reply / Edit / Delete; the ones a visitor may not
+// use are dimmed and say why when pressed.
 //
 // Bodies are stored and rendered as plain text. Allowing HTML would let
 // one visitor run code in another visitor's browser, so it is escaped on
@@ -13,7 +15,7 @@
 (function () {
   'use strict';
 
-  var PAGE_SIZE = 30;
+  var PAGE_SIZE = 100;
 
   function t(key, fallback) {
     if (!window.DURU_I18N) return fallback;
@@ -72,25 +74,26 @@
 
     /* ---------------- Rendering ---------------- */
 
-    // Replies grouped by the entry they answer, oldest first.
-    var repliesByParent = Object.create(null);
+    var rows = [];
+    // Children grouped by the row they answer, oldest first. A reply can
+    // itself be answered, so this is walked recursively.
+    var childrenOf = Object.create(null);
 
-    function actionsHTML(row, mine) {
-      if (!currentUser) return '';
+    function actionsHTML(row) {
+      var mine = !!(currentUser && row.user_id === currentUser.id);
+      var canDelete = mine || isAdmin;
       return '<div class="story-actions">' +
-        (!row.parent_id
-          ? '<button type="button" class="story-reply-btn" data-id="' + row.id + '">' +
-              escapeHTML(t('stories.reply', 'Reply')) + '</button>'
-          : '') +
-        (mine ? '<button type="button" class="story-edit-btn" data-id="' + row.id + '">' +
-              escapeHTML(t('stories.edit', 'Edit')) + '</button>' : '') +
-        ((mine || isAdmin) ? '<button type="button" class="story-delete-btn" data-id="' + row.id + '">' +
-              escapeHTML(t('stories.delete', 'Delete')) + '</button>' : '') +
+        '<button type="button" class="story-reply-btn" data-id="' + row.id + '">' +
+          escapeHTML(t('stories.reply', 'Reply')) + '</button>' +
+        '<button type="button" class="story-edit-btn' + (mine ? '' : ' is-muted') + '" data-id="' + row.id + '">' +
+          escapeHTML(t('stories.edit', 'Edit')) + '</button>' +
+        '<button type="button" class="story-delete-btn' + (canDelete ? '' : ' is-muted') + '" data-id="' + row.id + '">' +
+          escapeHTML(t('stories.delete', 'Delete')) + '</button>' +
       '</div>';
     }
 
     function repliesHTML(parent) {
-      var list = repliesByParent[parent.id] || [];
+      var list = childrenOf[parent.id] || [];
       if (!list.length) return '';
       var label = list.length === 1
         ? t('stories.oneReply', '1 reply')
@@ -98,14 +101,14 @@
       return '<div class="story-replies">' +
         '<span class="story-replies-label">' + escapeHTML(label) + '</span>' +
         list.map(function (r) {
-          var mine = currentUser && r.user_id === currentUser.id;
           return '<div class="story-reply">' +
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(r.display_name)) + '</span>' +
             '<div>' +
               '<div class="story-reply-head"><strong>' + escapeHTML(r.display_name) + '</strong>' +
                 '<p class="story-meta">' + escapeHTML(formatDate(r.created_at)) + '</p></div>' +
               '<div class="story-body">' + paragraphs(r.body) + '</div>' +
-              actionsHTML(r, mine) +
+              actionsHTML(r) +
+              repliesHTML(r) +
             '</div>' +
           '</div>';
         }).join('') +
@@ -116,7 +119,6 @@
       listEl.innerHTML = '';
       if (emptyEl) emptyEl.hidden = stories.length > 0;
       stories.forEach(function (s) {
-        var mine = currentUser && s.user_id === currentUser.id;
         var card = document.createElement('article');
         card.className = 'story-card';
         card.innerHTML =
@@ -126,25 +128,44 @@
             '<p class="story-meta">' + escapeHTML(formatDate(s.created_at)) + '</p></div>' +
           '</div>' +
           '<div class="story-body">' + paragraphs(s.body) + '</div>' +
-          actionsHTML(s, mine) +
+          actionsHTML(s) +
           repliesHTML(s);
         listEl.appendChild(card);
       });
       listEl.querySelectorAll('.story-reply-btn').forEach(function (b) {
-        b.addEventListener('click', function () { openReply(find(b.dataset.id)); });
+        b.addEventListener('click', function () {
+          if (!currentUser) { openLogin(); return; }
+          openReply(find(b.dataset.id));
+        });
       });
       listEl.querySelectorAll('.story-edit-btn').forEach(function (b) {
-        b.addEventListener('click', function () { openEditor(find(b.dataset.id)); });
+        b.addEventListener('click', function () {
+          if (!currentUser) { openLogin(); return; }
+          var row = find(b.dataset.id);
+          if (!row) return;
+          if (row.user_id !== currentUser.id) {
+            window.alert(t('stories.onlyAuthorEdit', 'Only the person who wrote this can edit it.'));
+            return;
+          }
+          openEditor(row);
+        });
       });
       listEl.querySelectorAll('.story-delete-btn').forEach(function (b) {
-        b.addEventListener('click', function () { confirmDelete(find(b.dataset.id)); });
+        b.addEventListener('click', function () {
+          if (!currentUser) { openLogin(); return; }
+          var row = find(b.dataset.id);
+          if (!row) return;
+          if (row.user_id !== currentUser.id && !isAdmin) {
+            window.alert(t('stories.onlyAuthorDelete', 'Only the person who wrote this or a site admin can delete it.'));
+            return;
+          }
+          confirmDelete(row);
+        });
       });
     }
 
     function find(id) {
-      var all = stories.slice();
-      Object.keys(repliesByParent).forEach(function (k) { all = all.concat(repliesByParent[k]); });
-      return all.filter(function (s) { return String(s.id) === String(id); })[0];
+      return rows.filter(function (s) { return String(s.id) === String(id); })[0];
     }
 
     function loadStories() {
@@ -152,17 +173,17 @@
         .order('created_at', { ascending: false }).limit(PAGE_SIZE)
         .then(function (res) {
           if (res.error) { console.error('Failed to load stories:', res.error.message); return; }
-          var rows = res.data || [];
+          rows = res.data || [];
           // One query, split here: entries newest first, replies under
-          // their entry oldest first. A row with no parent_id — which is
-          // every row from before the column existed — is an entry, so
-          // the page keeps working until the migration has been run.
+          // whatever they answer, oldest first. A row with no parent_id —
+          // which is every row from before the column existed — is an
+          // entry, so the page keeps working until the migration has run.
           stories = rows.filter(function (r) { return !r.parent_id; });
-          repliesByParent = Object.create(null);
+          childrenOf = Object.create(null);
           rows.filter(function (r) { return r.parent_id; })
             .sort(function (a, b) { return new Date(a.created_at) - new Date(b.created_at); })
             .forEach(function (r) {
-              (repliesByParent[r.parent_id] = repliesByParent[r.parent_id] || []).push(r);
+              (childrenOf[r.parent_id] = childrenOf[r.parent_id] || []).push(r);
             });
           renderList();
         });
