@@ -82,10 +82,13 @@ input:focus-visible,
    whole block, `balance` to even out a heading or a short lead, so a
    phrase stays together and no line ends alone.
 
-   Korean, Japanese and Chinese break between any two characters by
-   default, mid-word; `keep-all` holds each word together. A pasted URL
-   or another long unbroken run is the one case that still has to break
-   anywhere, or it would push its card wider than the screen. */
+   Korean breaks between any two syllables by default, mid-word;
+   `keep-all` holds each word together, and Korean writes spaces between
+   words so there is always somewhere else to break. Japanese and Chinese
+   are left alone: they write no spaces, so holding characters together
+   would leave a heading nowhere to break at all. A pasted URL or another
+   long unbroken run is the one case that still has to break anywhere,
+   or it would push its card wider than the screen. */
 
 p, li, figcaption, blockquote, dd, .eyebrow, .btn, label {
   text-wrap: pretty;
@@ -102,7 +105,7 @@ h1, h2, h3, h4, h5,
   text-wrap: balance;
 }
 
-:root:lang(ko), :root:lang(ja), :root:lang(zh) {
+:root:lang(ko) {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
@@ -205,10 +208,6 @@ section { position: relative; }
   white-space: nowrap;
 }
 .site-visits b { color: var(--ink); font-weight: 700; margin-left: 3px; }
-
-@media (max-width: 1180px) {
-  .site-visits { display: none; }
-}
 
 .logo {
   display: flex;
@@ -1106,25 +1105,37 @@ section { position: relative; }
   .footer-top { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Between the full-size header and the hamburger there's a band where the
-   longest label set (Vietnamese) no longer fits on one line alongside a
-   non-wrapping wordmark. Tighten spacing there rather than shrinking the
-   menu text, then hand over to the mobile menu below 1300px. */
-@media (max-width: 1570px) {
+/* The header holds the wordmark, the visit counts, four menu items and
+   the account controls. Measured with the counts showing and an account
+   signed in, that row needs about 1190px at full size in English, 1110px
+   with the spacing tightened, and 1020px once type and padding are
+   compact — so the menu stays on the bar down to 1040px, and only then
+   gives way to the hamburger. Vietnamese labels run about 90px longer
+   and hand over earlier. The counts stay through all of that and step
+   aside only on phones, in the 720px block below. */
+@media (max-width: 1300px) {
   .logo .logo-en { font-size: 24px; }
   .nav-main { gap: 2px; }
   .nav-main a { padding: 10px 12px; }
   .site-header .wrap { gap: 16px; }
 }
 
-@media (max-width: 1310px) {
-  .nav-main { display: none; }
-  .nav-toggle { display: block; }
-  .logo .logo-en { font-size: 23px; }
+@media (max-width: 1120px) {
+  .logo .logo-en { font-size: 22px; }
+  .nav-main { gap: 0; }
+  .nav-main a { font-size: 14px; padding: 9px 10px; }
+  .site-header .wrap { gap: 12px; }
+  .header-brand { gap: 10px; }
+  .site-visits { gap: 8px; padding-left: 10px; font-size: 11px; }
   .btn-login { font-size: 13.5px; padding: 8px 14px; }
   .account-trigger .email { max-width: 80px; }
   .lang-trigger { font-size: 12.5px; padding: 7px 10px; }
   .lang-trigger .lang-current { max-width: 70px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+@media (max-width: 1040px) {
+  .nav-main { display: none; }
+  .nav-toggle { display: block; }
   .site-header.menu-open .nav-main {
     display: flex;
     flex-direction: column;
@@ -1141,12 +1152,9 @@ section { position: relative; }
   .site-header.menu-open .nav-main a { text-align: center; }
 }
 
-/* Vietnamese labels are materially longer than English or Korean, and the
-   header shares the 1180px content column. Rather than shrinking the menu
-   text to force a fit, hand over to the mobile menu a little earlier for
-   that language only. Selector specificity keeps this above the 1310px
+/* Selector specificity keeps the Vietnamese hand-over above the 1040px
    rules regardless of source order. */
-@media (max-width: 1532px) {
+@media (max-width: 1120px) {
   html[lang="vi"] .nav-main { display: none; }
   html[lang="vi"] .nav-toggle { display: block; }
   html[lang="vi"] .site-header.menu-open .nav-main {
@@ -1167,6 +1175,7 @@ section { position: relative; }
 
 @media (max-width: 720px) {
   .logo .logo-en { font-size: 20px; }
+  .site-visits { display: none; }
   .grid-3, .grid-4, .lesson-grid, .testi-strip, .footer-top { grid-template-columns: 1fr; }
   .newsletter { flex-direction: column; align-items: flex-start; }
   .newsletter-form { width: 100%; }
