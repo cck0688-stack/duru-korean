@@ -549,5 +549,11 @@
   "admin.confirmRemove": "删除此管理员用户?",
   "admin.adding": "正在添加…",
   "admin.removeFailed": "无法删除管理员: {msg}",
-  "admin.addFailed": "无法添加管理员: {msg}"
+  "admin.addFailed": "无法添加管理员: {msg}",
+  "admin.visitorAnalytics": "访客分析",
+  "admin.statTotal": "访客总数",
+  "admin.statCumulative": "累计访问量",
+  "admin.statToday": "今日访客",
+  "admin.statsNote": "独立访客基于最近 {n} 条记录统计。",
+  "blog.shareFailed": "当前无法分享。"
 }

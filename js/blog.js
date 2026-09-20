@@ -189,6 +189,10 @@
           '<div class="blog-share-buttons">' +
             '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(post.title + ' — Duru Korean') + '&url=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn twitter" title="Twitter" aria-label="Share on Twitter">𝕏</a>' +
             '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn facebook" title="Facebook" aria-label="Share on Facebook">f</a>' +
+            '<a href="https://share.naver.com/web/shareView?url=' + encodeURIComponent(postUrl) + '&title=' + encodeURIComponent(post.title) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn naver" title="Naver" aria-label="Share on Naver">N</a>' +
+            (kakaoKey()
+              ? '<button type="button" class="blog-share-btn kakao" title="KakaoTalk" aria-label="Share on KakaoTalk" data-title="' + escapeHTML(post.title) + '" data-url="' + escapeHTML(postUrl) + '">K</button>'
+              : '') +
             '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
           '</div>' +
         '</div>' +
@@ -198,7 +202,49 @@
       setupLikeButton(post.id);
     }
 
+    // KakaoTalk sharing needs a per-site JavaScript key from the Kakao
+    // developer console. Without one the button is not rendered at all,
+    // rather than shown and failing on click. The SDK is fetched on first
+    // use so sites without a key pay nothing for it.
+    function kakaoKey() {
+      return (window.DURU_KAKAO_CONFIG && window.DURU_KAKAO_CONFIG.jsKey) || '';
+    }
+
+    var kakaoSDK = null;
+    function loadKakao() {
+      if (kakaoSDK) return kakaoSDK;
+      kakaoSDK = new Promise(function (resolve, reject) {
+        if (window.Kakao) return resolve(window.Kakao);
+        var s = document.createElement('script');
+        s.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';
+        s.onload = function () { resolve(window.Kakao); };
+        s.onerror = function () { reject(new Error('Kakao SDK failed to load')); };
+        document.head.appendChild(s);
+      }).then(function (Kakao) {
+        if (Kakao && !Kakao.isInitialized()) Kakao.init(kakaoKey());
+        return Kakao;
+      });
+      return kakaoSDK;
+    }
+
     function setupShareButtons() {
+      var kakaoBtn = singleEl.querySelector('.blog-share-btn.kakao');
+      if (kakaoBtn) {
+        kakaoBtn.addEventListener('click', function () {
+          loadKakao().then(function (Kakao) {
+            Kakao.Share.sendDefault({
+              objectType: 'text',
+              text: kakaoBtn.dataset.title,
+              link: { mobileWebUrl: kakaoBtn.dataset.url, webUrl: kakaoBtn.dataset.url }
+            });
+          }).catch(function () {
+            if (window.DURU_NOTIFY) {
+              window.DURU_NOTIFY.error(t('blog.shareFailed', 'Sharing is unavailable right now.'));
+            }
+          });
+        });
+      }
+
       var copyBtn = singleEl.querySelector('.blog-share-btn.copy');
       if (copyBtn) {
         copyBtn.addEventListener('click', function () {

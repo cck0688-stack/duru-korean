@@ -549,5 +549,11 @@
   "admin.confirmRemove": "Xóa người dùng quản trị này?",
   "admin.adding": "Đang thêm…",
   "admin.removeFailed": "Không thể xóa quản trị viên: {msg}",
-  "admin.addFailed": "Không thể thêm quản trị viên: {msg}"
+  "admin.addFailed": "Không thể thêm quản trị viên: {msg}",
+  "admin.visitorAnalytics": "Phân tích khách truy cập",
+  "admin.statTotal": "Tổng số khách",
+  "admin.statCumulative": "Lượt truy cập tích lũy",
+  "admin.statToday": "Hôm nay",
+  "admin.statsNote": "Khách truy cập duy nhất được tính từ {n} bản ghi gần nhất.",
+  "blog.shareFailed": "Hiện không thể chia sẻ."
 }

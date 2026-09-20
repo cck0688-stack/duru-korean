@@ -23,3 +23,12 @@ window.DURU_SUPABASE_CONFIG = {
   anonKey: 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2',
   siteUrl: 'https://www.durukorean.com',
 };
+
+// KakaoTalk sharing. Paste the JavaScript key from your app at
+// developers.kakao.com (My Application → App Keys). Like the Supabase
+// anon key this one is public by design and safe to commit; Kakao
+// restricts it to the domains you register under Platform → Web.
+// While it is empty the KakaoTalk share button is simply not rendered.
+window.DURU_KAKAO_CONFIG = {
+  jsKey: '',
+};
