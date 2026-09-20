@@ -94,7 +94,10 @@
             }
             input.value = '';
             notifyOwner(email, source);
-            setNote(form, t('newsletter.thanks', 'Thanks — you are on the list.'), 'success');
+            // The field and button are taken away with the answer, so
+            // nobody reads the empty box as a second address to fill in.
+            form.dataset.done = 'true';
+            setNote(form, t('newsletter.thanks', 'Thank you! You are on the list.'), 'success');
           });
       });
     });

@@ -2,9 +2,9 @@
 //
 // Every page view writes one row to visitor_logs, so the same person
 // coming back later the same day counts again: the numbers are visits,
-// not people. The footer then shows the running total and today's count
-// through get_visitor_counts(), a function that may be called by anyone
-// while the rows themselves stay readable only by an admin.
+// not people. The header then shows the running total and today's count
+// beside the wordmark, through get_visitor_counts(), a function that may
+// be called by anyone while the rows stay readable only by an admin.
 
 (function () {
   'use strict';
@@ -58,13 +58,13 @@
   }
 
   function showCounts() {
-    var box = document.querySelector('.footer-visits');
+    var box = document.querySelector('.site-visits');
     if (!box) return;
     client.rpc('get_visitor_counts').then(function (res) {
       var row = res.data && (Array.isArray(res.data) ? res.data[0] : res.data);
       if (res.error || !row) return;
-      box.querySelector('[data-visitor-total]').textContent = Number(row.total_visits || 0).toLocaleString();
-      box.querySelector('[data-visitor-today]').textContent = Number(row.today_visits || 0).toLocaleString();
+      box.querySelector('[data-visits-total]').textContent = Number(row.total_visits || 0).toLocaleString();
+      box.querySelector('[data-visits-today]').textContent = Number(row.today_visits || 0).toLocaleString();
       box.hidden = false;
     });
   }
@@ -73,9 +73,9 @@
     recordVisit().then(showCounts);
   });
   document.addEventListener('duru:langchange', function () {
-    var box = document.querySelector('.footer-visits');
+    var box = document.querySelector('.site-visits');
     if (!box || box.hidden) return;
-    box.querySelector('[data-visitor-total-label]').textContent = t('footer.visitorsTotal', 'Total visitors');
-    box.querySelector('[data-visitor-today-label]').textContent = t('footer.visitorsToday', 'Today');
+    box.querySelector('[data-visits-total-label]').textContent = t('visits.total', 'Visits');
+    box.querySelector('[data-visits-today-label]').textContent = t('visits.today', 'Today');
   });
 })();

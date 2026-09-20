@@ -153,6 +153,31 @@ section { position: relative; }
   max-width: 1560px;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Visits sit beside the wordmark, quiet enough not to compete with it. */
+.site-visits {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 16px;
+  border-left: 1px solid var(--header-border);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+.site-visits b { color: var(--ink); font-weight: 700; margin-left: 3px; }
+
+@media (max-width: 1180px) {
+  .site-visits { display: none; }
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -972,7 +997,9 @@ section { position: relative; }
 }
 .newsletter h3 { font-size: 24px; margin: 0 0 8px; font-weight: 800; }
 .newsletter p { margin: 0; color: var(--cream-dim); font-size: 14.5px; }
-.newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.newsletter-form[data-done] input,
+.newsletter-form[data-done] button { display: none; }
 .newsletter-form input {
   padding: 13px 18px;
   border-radius: 999px;
@@ -1032,8 +1059,6 @@ section { position: relative; }
   gap: 12px;
 }
 .footer-bottom .socials { display: flex; gap: 16px; }
-.footer-visits { display: inline-flex; gap: 14px; }
-.footer-visits b { color: var(--cream-dim); font-weight: 600; }
 
 
 /* ---------- Responsive ---------- */
@@ -2609,7 +2634,14 @@ section { position: relative; }
   margin: 8px 0 0;
   font-size: 13px;
 }
-.newsletter-note[data-kind="success"] { color: #2e7d5b; }
+/* Once the form has given way, the answer is all that is left, so it
+   carries the weight the field used to. */
+.newsletter-form[data-done] .newsletter-note {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.newsletter-note[data-kind="success"] { color: #6fcf97; }
 .newsletter-note[data-kind="error"] { color: var(--accent-red); }
 .newsletter-note[data-kind="info"] { color: var(--ink-dim); }
 

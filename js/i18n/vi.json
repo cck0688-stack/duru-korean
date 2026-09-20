@@ -548,7 +548,7 @@
   "hero.path.blog.title": "Blog",
   "hero.path.blog.desc": "Ghi chép về đời sống, ẩm thực, du lịch và ngôn ngữ Hàn Quốc, do chính các giáo viên viết.",
   "hero.path.go": "Mở",
-  "newsletter.thanks": "Cảm ơn — bạn đã có trong danh sách.",
+  "newsletter.thanks": "Cảm ơn bạn! Bạn đã có trong danh sách.",
   "newsletter.invalid": "Vui lòng nhập địa chỉ email hợp lệ.",
   "newsletter.failed": "Hiện không thể đăng ký. Vui lòng thử lại.",
   "newsletter.duplicate": "Địa chỉ này đã đăng ký rồi.",
@@ -564,6 +564,6 @@
   "footer.sharing": "Chia sẻ",
   "stories.onlyAuthorEdit": "Chỉ người viết mới có thể chỉnh sửa.",
   "stories.onlyAuthorDelete": "Chỉ người viết hoặc quản trị viên trang web mới có thể xóa.",
-  "footer.visitorsTotal": "Tổng lượt truy cập",
-  "footer.visitorsToday": "Hôm nay"
+  "visits.total": "Lượt truy cập",
+  "visits.today": "Hôm nay"
 }

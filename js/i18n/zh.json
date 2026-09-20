@@ -548,7 +548,7 @@
   "hero.path.blog.title": "博客",
   "hero.path.blog.desc": "由课程作者亲笔撰写的韩国生活、美食、旅行与语言笔记。",
   "hero.path.go": "打开",
-  "newsletter.thanks": "谢谢 — 你已在订阅名单中。",
+  "newsletter.thanks": "谢谢！您已成功订阅。",
   "newsletter.invalid": "请输入有效的邮箱地址。",
   "newsletter.failed": "目前无法订阅，请稍后再试。",
   "newsletter.duplicate": "该邮箱已订阅。",
@@ -564,6 +564,6 @@
   "footer.sharing": "分享",
   "stories.onlyAuthorEdit": "只有作者本人可以编辑。",
   "stories.onlyAuthorDelete": "只有作者本人或网站管理员可以删除。",
-  "footer.visitorsTotal": "总访问量",
-  "footer.visitorsToday": "今日"
+  "visits.total": "访问",
+  "visits.today": "今日"
 }

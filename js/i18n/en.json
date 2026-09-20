@@ -548,7 +548,7 @@
   "hero.path.blog.title": "Blog",
   "hero.path.blog.desc": "Notes on Korean life, food, travel and language, written by the teachers behind the lessons.",
   "hero.path.go": "Open",
-  "newsletter.thanks": "Thanks — you are on the list.",
+  "newsletter.thanks": "Thank you! You are on the list.",
   "newsletter.invalid": "Please enter a valid email address.",
   "newsletter.failed": "Could not subscribe right now. Please try again.",
   "newsletter.duplicate": "That address is already subscribed.",
@@ -564,6 +564,6 @@
   "footer.sharing": "Sharing",
   "stories.onlyAuthorEdit": "Only the person who wrote this can edit it.",
   "stories.onlyAuthorDelete": "Only the person who wrote this or a site admin can delete it.",
-  "footer.visitorsTotal": "Total visitors",
-  "footer.visitorsToday": "Today"
+  "visits.total": "Visits",
+  "visits.today": "Today"
 }

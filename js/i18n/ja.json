@@ -548,7 +548,7 @@
   "hero.path.blog.title": "ブログ",
   "hero.path.blog.desc": "レッスンを作った教師が書く、韓国の暮らし・食・旅・ことばの記録。",
   "hero.path.go": "開く",
-  "newsletter.thanks": "ありがとうございます — 登録が完了しました。",
+  "newsletter.thanks": "ありがとうございます！登録が完了しました。",
   "newsletter.invalid": "有効なメールアドレスを入力してください。",
   "newsletter.failed": "現在登録できません。もう一度お試しください。",
   "newsletter.duplicate": "このアドレスはすでに登録されています。",
@@ -564,6 +564,6 @@
   "footer.sharing": "共有",
   "stories.onlyAuthorEdit": "編集できるのは書いた本人だけです。",
   "stories.onlyAuthorDelete": "削除できるのは書いた本人またはサイト管理者だけです。",
-  "footer.visitorsTotal": "総訪問数",
-  "footer.visitorsToday": "今日"
+  "visits.total": "訪問",
+  "visits.today": "今日"
 }

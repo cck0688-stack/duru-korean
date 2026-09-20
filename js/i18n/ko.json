@@ -548,7 +548,7 @@
   "hero.path.blog.title": "블로그",
   "hero.path.blog.desc": "강의를 만든 교사들이 직접 쓰는 한국의 생활, 음식, 여행, 언어 이야기.",
   "hero.path.go": "열기",
-  "newsletter.thanks": "감사합니다 — 구독이 완료되었습니다.",
+  "newsletter.thanks": "감사합니다! 구독이 완료되었습니다.",
   "newsletter.invalid": "올바른 이메일 주소를 입력해 주세요.",
   "newsletter.failed": "지금은 구독할 수 없습니다. 다시 시도해 주세요.",
   "newsletter.duplicate": "이미 구독 중인 주소입니다.",
@@ -564,6 +564,6 @@
   "footer.sharing": "나눔",
   "stories.onlyAuthorEdit": "작성자만 수정할 수 있습니다.",
   "stories.onlyAuthorDelete": "작성자 또는 사이트 관리자만 삭제할 수 있습니다.",
-  "footer.visitorsTotal": "총 방문",
-  "footer.visitorsToday": "오늘"
+  "visits.total": "방문",
+  "visits.today": "오늘"
 }

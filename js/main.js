@@ -119,16 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', alignToHash);
   }
 
-  /* Newsletter form (static demo) */
-  document.querySelectorAll('.newsletter-form, .resource-signup-form').forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button');
-      if (btn) {
-        const original = btn.textContent;
-        btn.textContent = 'Thank you!';
-        setTimeout(() => { btn.textContent = original; form.reset(); }, 2200);
-      }
-    });
-  });
 });
