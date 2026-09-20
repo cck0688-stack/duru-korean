@@ -353,8 +353,22 @@
 
     /* ---------------- Header auth state ---------------- */
 
-    function initials(email) {
-      return (email || '?').slice(0, 1).toUpperCase();
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => (
+        { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+      ));
+    }
+
+    function initials(name) {
+      return (name || '?').trim().slice(0, 1).toUpperCase();
+    }
+
+    // The header shows the name the member chose at signup. Until that
+    // row comes back, the part of the address before the @ stands in —
+    // better than a flash of the full address, which is not theirs to
+    // show to whoever is looking over their shoulder.
+    function displayName(user) {
+      return (user.email || '').split('@')[0] || '?';
     }
 
     function renderSignedIn(user) {
@@ -363,8 +377,8 @@
       wrap.className = 'account-menu';
       wrap.innerHTML = `
         <button type="button" class="account-trigger" id="accountTriggerBtn" aria-haspopup="true" aria-expanded="false">
-          <span class="avatar">${initials(user.email)}</span>
-          <span class="email">${user.email}</span>
+          <span class="avatar" id="accountAvatar">${esc(initials(displayName(user)))}</span>
+          <span class="email" id="accountName">${esc(displayName(user))}</span>
         </button>
         <div class="account-dropdown" id="accountDropdown" hidden>
           <a href="${REDIRECT_URL.endsWith('/my-learning.html') ? 'my-learning.html' : REDIRECT_URL}" data-i18n="auth.myLearning">My Learning</a>
@@ -388,6 +402,18 @@
         window.location.reload();
       });
 
+      if (client) {
+        client.from('user_profiles').select('nickname').eq('user_id', user.id).maybeSingle()
+          .then(({ data }) => {
+            const nick = data && data.nickname && data.nickname.trim();
+            if (!nick) return;
+            const nameEl = wrap.querySelector('#accountName');
+            const avatarEl = wrap.querySelector('#accountAvatar');
+            if (nameEl) nameEl.textContent = nick;
+            if (avatarEl) avatarEl.textContent = initials(nick);
+          });
+      }
+
       // Admin-only "Manage Resources" link — verified server-side via the
       // admin_users table's RLS policy, never inferred from the email string.
       if (client) {
@@ -395,7 +421,7 @@
           .then(({ data }) => {
             if (!data) return;
             const link = document.createElement('a');
-            link.href = 'free-resources.html#adminResources';
+            link.href = 'free-resources.html';
             link.setAttribute('data-i18n', 'auth.manageResources');
             link.textContent = t('auth.manageResources', 'Manage Resources');
             dropdown.insertBefore(link, dropdown.querySelector('#logoutBtn'));

@@ -326,8 +326,25 @@
     }
 
     let uploading = false;
+
+    // Wraps the handler so a throw anywhere inside still releases the
+    // button. Without this an unexpected error leaves it reading
+    // "Uploading…" for ever, with the file already in the bucket and no
+    // sign to the admin that anything went wrong.
     async function onUploadSubmit(e) {
       e.preventDefault();
+      try {
+        await runUpload();
+      } catch (err) {
+        uploading = false;
+        const btn = document.getElementById('resUploadSubmit');
+        if (btn) { btn.disabled = false; btn.textContent = t('resources.uploadSubmit', 'Upload'); }
+        setUploadMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}')
+          .replace('{msg}', err && err.message ? err.message : String(err)), 'error');
+      }
+    }
+
+    async function runUpload() {
       if (uploading) return;
       setUploadMsg('', '');
 
@@ -376,7 +393,7 @@
         file_type: ext,
         description_language: descLang,
         learning_level: level,
-        category: overlay.querySelector('#resCategory').value,
+        category: document.getElementById('resCategory').value,
         linked_unit: unit || null,
         storage_key: storageKey,
         file_size: file.size,
