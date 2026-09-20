@@ -554,5 +554,6 @@
   "admin.statTotal": "Tổng số khách",
   "admin.statCumulative": "Lượt truy cập tích lũy",
   "admin.statToday": "Hôm nay",
-  "admin.statsNote": "Khách truy cập duy nhất được tính từ {n} bản ghi gần nhất."
+  "admin.statsNote": "Khách truy cập duy nhất được tính từ {n} bản ghi gần nhất.",
+  "blog.shareFailed": "Hiện không thể chia sẻ."
 }

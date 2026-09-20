@@ -554,5 +554,6 @@
   "admin.statTotal": "총 방문자 수",
   "admin.statCumulative": "누적 방문 수",
   "admin.statToday": "오늘 방문자",
-  "admin.statsNote": "고유 방문자는 최근 {n}건의 기록을 기준으로 집계합니다."
+  "admin.statsNote": "고유 방문자는 최근 {n}건의 기록을 기준으로 집계합니다.",
+  "blog.shareFailed": "지금은 공유할 수 없습니다."
 }

@@ -169,7 +169,7 @@ section { position: relative; }
   gap: 4px;
 }
 .nav-main a {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.005em;
   color: var(--nav-text);
@@ -1841,6 +1841,8 @@ section { position: relative; }
 
 .blog-share-btn.twitter:hover { background: #1da1f2; color: #fff; border-color: #1da1f2; }
 .blog-share-btn.facebook:hover { background: #1877f2; color: #fff; border-color: #1877f2; }
+.blog-share-btn.naver:hover { background: #03c75a; color: #fff; border-color: #03c75a; }
+.blog-share-btn.kakao:hover { background: #fee500; color: #191600; border-color: #fee500; }
 .blog-share-btn.copy:hover { background: var(--accent-red); color: #fff; border-color: var(--accent-red); }
 
 /* ---------- Blog navigation ---------- */

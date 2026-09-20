@@ -554,5 +554,6 @@
   "admin.statTotal": "访客总数",
   "admin.statCumulative": "累计访问量",
   "admin.statToday": "今日访客",
-  "admin.statsNote": "独立访客基于最近 {n} 条记录统计。"
+  "admin.statsNote": "独立访客基于最近 {n} 条记录统计。",
+  "blog.shareFailed": "当前无法分享。"
 }

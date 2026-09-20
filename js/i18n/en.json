@@ -554,5 +554,6 @@
   "admin.statTotal": "Total visitors",
   "admin.statCumulative": "Cumulative visits",
   "admin.statToday": "Today",
-  "admin.statsNote": "Unique visitors are counted from the most recent {n} records."
+  "admin.statsNote": "Unique visitors are counted from the most recent {n} records.",
+  "blog.shareFailed": "Sharing is unavailable right now."
 }
