@@ -150,7 +150,7 @@ create policy "keep_alive: public read"
 create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   slug text not null unique,
-  category text not null check (category in ('study', 'grammar', 'culture', 'travel')),
+  category text not null,
   title text not null check (char_length(trim(title)) between 1 and 160),
   excerpt text check (excerpt is null or char_length(excerpt) <= 400),
   body text not null check (char_length(trim(body)) between 1 and 40000),
@@ -673,3 +673,41 @@ $$;
 
 revoke all on function public.find_user_id_by_email(text) from public, anon;
 grant execute on function public.find_user_id_by_email(text) to authenticated;
+
+-- ------------------------------------------------------------------
+-- 16. blog categories
+-- ------------------------------------------------------------------
+-- The vocabulary changed, so the constraint is rebuilt rather than
+-- declared inline: an inline check on an existing table is never
+-- re-evaluated by `create table if not exists`. Posts written under the
+-- old "study" and "grammar" labels move to "language", which is where
+-- that material now belongs; nothing is deleted.
+
+alter table public.posts drop constraint if exists posts_category_check;
+
+update public.posts
+   set category = 'language'
+ where category in ('study', 'grammar');
+
+alter table public.posts
+  add constraint posts_category_check
+  check (category in ('culture', 'travel', 'food', 'trends', 'language', 'etc'));
+
+-- ------------------------------------------------------------------
+-- 17. resource categories
+-- ------------------------------------------------------------------
+-- Resources were only ever filed by learning level. A category says what
+-- kind of material a file is, which is what a visitor actually browses
+-- by. Anything uploaded before this lands in 'printables', the broadest
+-- of the five, rather than being left null.
+
+alter table public.resources
+  add column if not exists category text not null default 'printables';
+
+alter table public.resources drop constraint if exists resources_category_check;
+alter table public.resources
+  add constraint resources_category_check
+  check (category in ('audio', 'printables', 'worksheets', 'cheatsheets', 'vocab'));
+
+create index if not exists resources_category_idx
+  on public.resources (category, created_at desc);

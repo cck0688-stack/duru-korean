@@ -13,9 +13,9 @@
 (function () {
   'use strict';
 
-  var CATEGORIES = ['study', 'grammar', 'culture', 'travel'];
+  var CATEGORIES = ['culture', 'travel', 'food', 'trends', 'language', 'etc'];
   // Each category's Hangul glyph, matching the static design.
-  var GLYPH = { study: '앎', grammar: '말', culture: '삶', travel: '길' };
+  var GLYPH = { culture: '삶', travel: '길', food: '맛', trends: '멋', language: '말', etc: '기' };
 
   function t(key, fallback) {
     if (!window.DURU_I18N) return fallback;

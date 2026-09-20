@@ -25,7 +25,6 @@
       <a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a>
       <a href="blog.html" data-i18n="nav.blog">Blog</a>
       <a href="stories.html" data-i18n="nav.stories">Guestbook</a>
-      <a href="about.html" data-i18n="nav.about">About</a>
     </nav>
     <div class="header-actions">
       <div class="lang-switcher" id="langSwitcher"></div>
@@ -38,15 +37,21 @@
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-graphic">
-      <img class="hero-scene"
-           src="assets/hero-screens.webp"
-           width="708" height="716"
-           fetchpriority="high" decoding="async"
-           alt="Three Korean folding screens standing on an antique wooden table against a deep green wall. The left screen carries the consonants ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ, the right screen ㅇ ㅈ ㅋ ㅊ ㅌ ㅍ ㅎ, and the taller centre screen the vowels beneath a red seal reading 두루 한국어. A white vase of plum blossom stands to the left, an incense burner and three books marked Language, People and Culture to the right.">
+      <div class="hero-frame">
+        <img class="hero-scene"
+             src="assets/hero-screens.webp"
+             width="1416" height="1432"
+             fetchpriority="high" decoding="async"
+             alt="Three Korean folding screens standing on an antique wooden table against a deep green wall. The left screen carries the consonants ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ, the right screen ㅇ ㅈ ㅋ ㅊ ㅌ ㅍ ㅎ, and the taller centre screen the vowels beneath a red seal reading 두루 한국어. A white vase of plum blossom stands to the left, an incense burner and three books marked Language, People and Culture to the right.">
+        <span class="hero-seal kr" aria-hidden="true">두루 한국어</span>
+        <span class="hero-book hero-book-1" aria-hidden="true">LANGUAGE</span>
+        <span class="hero-book hero-book-2" aria-hidden="true">PEOPLE</span>
+        <span class="hero-book hero-book-3" aria-hidden="true">CULTURE</span>
+      </div>
     </div>
 
     <div class="hero-text">
-      <span class="hero-badge kr">두루 [두루] · Widely, all around</span>
+      <span class="hero-badge kr">두루 · Widely, all around</span>
       <h1 data-i18n="hero.h1">From your first letter to real Korean.</h1>
       <div class="kr-sub kr">두루 한국어</div>
       <p class="hero-lead" data-i18n="hero.lead">A calm, structured path for learners anywhere in the world — clear lessons, native audio, and free resources to get you speaking real Korean.</p>
@@ -196,18 +201,18 @@
     </div>
     <div class="grid-3">
       <article class="blog-card reveal">
-        <div class="blog-thumb kr" aria-hidden="true">앎</div>
+        <div class="blog-thumb kr" aria-hidden="true">말</div>
         <div class="blog-body">
-          <span class="blog-meta" data-i18n="blog.cat.study">Study Tips</span>
+          <span class="blog-meta" data-i18n="blog.cat.language">Language &amp; Tips</span>
           <h3 data-i18n="blog.1.title">5 Habits That Make Hangul Click</h3>
           <p data-i18n="blog.1.desc">Small daily habits that help absolute beginners read Korean in a week.</p>
           <a href="blog.html" class="read-more" data-i18n="blog.readMore">Read more</a>
         </div>
       </article>
       <article class="blog-card reveal">
-        <div class="blog-thumb kr" aria-hidden="true">말</div>
+        <div class="blog-thumb kr" aria-hidden="true">멋</div>
         <div class="blog-body">
-          <span class="blog-meta" data-i18n="blog.cat.grammar">Grammar</span>
+          <span class="blog-meta" data-i18n="blog.cat.trends">Trends &amp; Pop Culture</span>
           <h3 data-i18n="blog.2.title">Why Korean Particles Aren't Scary</h3>
           <p data-i18n="blog.2.desc">A simple way to think about 은/는 and 이/가 once and for all.</p>
           <a href="blog.html" class="read-more" data-i18n="blog.readMore">Read more</a>
@@ -216,7 +221,7 @@
       <article class="blog-card reveal">
         <div class="blog-thumb kr" aria-hidden="true">삶</div>
         <div class="blog-body">
-          <span class="blog-meta" data-i18n="blog.cat.culture">Culture</span>
+          <span class="blog-meta" data-i18n="blog.cat.culture">Culture &amp; Life</span>
           <h3 data-i18n="blog.3.title">Ordering Coffee Like a Local in Seoul</h3>
           <p data-i18n="blog.3.desc">The everyday Korean you won't find in a textbook.</p>
           <a href="blog.html" class="read-more" data-i18n="blog.readMore">Read more</a>
@@ -257,6 +262,47 @@
         <button type="submit" class="btn btn-primary" data-i18n="newsletter.submit">Subscribe</button>
       </form>
     </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="aboutPage.authors.eyebrow">About the Authors</span>
+      <h2 data-i18n="aboutPage.authors.h2">Written by teachers who've done the work</h2>
+      <p data-i18n="aboutPage.authors.p">Duru Korean is created and written by two experienced Korean-language educators.</p>
+    </div>
+    <div class="author-grid reveal">
+      <div class="author-card">
+        <div class="card-icon kr">학</div>
+        <h3>Calvin, CHOI</h3>
+        <ul class="check-list">
+          <li data-i18n="aboutPage.degree">Doctorate in Education</li>
+          <li data-i18n="aboutPage.author1.years">19 years of teaching experience</li>
+          <li data-i18n="aboutPage.certification">Korean Language Teacher Certification, Level 2</li>
+        </ul>
+      </div>
+      <div class="author-card">
+        <div class="card-icon kr">학</div>
+        <h3>Kate, Yoon</h3>
+        <ul class="check-list">
+          <li data-i18n="aboutPage.degree">Doctorate in Education</li>
+          <li data-i18n="aboutPage.author2.years">25 years of teaching experience</li>
+          <li data-i18n="aboutPage.certification">Korean Language Teacher Certification, Level 2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="aboutPage.contact.eyebrow">Get in Touch</span>
+      <h2 data-i18n="aboutPage.contact.h2">Questions, feedback, or partnership ideas?</h2>
+      <p data-i18n="aboutPage.contact.p">We'd love to hear from you — whether it's a question about a lesson, feedback on the site, or an idea for what to teach next.</p>
+    </div>
+    <a href="mailto:hello@durukorean.com" class="btn btn-primary" data-i18n="aboutPage.contact.cta">Email Us: hello@durukorean.com →</a>
   </div>
 </section>
 
