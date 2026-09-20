@@ -26,6 +26,16 @@
   const LEVELS = ['Any level', 'Beginner', 'Intermediate', 'Advanced'];
   const CATEGORIES = ['audio', 'printables', 'worksheets', 'cheatsheets', 'vocab'];
 
+  // "schema cache" in a PostgREST error means a column the page expects
+  // does not exist in the database yet — the migration has not been run.
+  // Saying so beats leaving the admin to decode the raw message.
+  function schemaHint(msg) {
+    msg = String(msg || '');
+    return /schema cache/i.test(msg)
+      ? msg + ' — ' + t('common.schemaHint', 'The database has not been updated yet. Run supabase/schema.sql in the Supabase SQL editor, then try again.')
+      : msg;
+  }
+
   function categoryLabel(cat) {
     return t('resources.cat.' + cat, cat);
   }
@@ -340,7 +350,7 @@
         const btn = document.getElementById('resUploadSubmit');
         if (btn) { btn.disabled = false; btn.textContent = t('resources.uploadSubmit', 'Upload'); }
         setUploadMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}')
-          .replace('{msg}', err && err.message ? err.message : String(err)), 'error');
+          .replace('{msg}', schemaHint(err && err.message ? err.message : String(err))), 'error');
       }
     }
 
@@ -408,7 +418,7 @@
       if (insertErr) {
         // Roll back the uploaded file so we don't leave an orphaned object.
         await client.storage.from(BUCKET).remove([storageKey]);
-        setUploadMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}').replace('{msg}', insertErr.message), 'error');
+        setUploadMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}').replace('{msg}', schemaHint(insertErr.message)), 'error');
         return;
       }
 

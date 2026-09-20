@@ -711,3 +711,83 @@ alter table public.resources
 
 create index if not exists resources_category_idx
   on public.resources (category, created_at desc);
+
+-- ------------------------------------------------------------------
+-- 18. guestbook replies
+-- ------------------------------------------------------------------
+-- A reply is a story row that points at its parent. Reusing the table
+-- means every existing policy already applies: anyone may read, the
+-- author may edit or delete their own, an admin may delete any. Only
+-- one level is offered in the UI; the column does not forbid deeper
+-- nesting, but nothing writes it.
+
+alter table public.stories
+  add column if not exists parent_id uuid references public.stories (id) on delete cascade;
+
+create index if not exists stories_parent_idx
+  on public.stories (parent_id, created_at);
+
+-- The author of an entry hears about replies to it. Followers are told
+-- about new top-level entries only — a reply is a conversation, not a
+-- publication.
+alter table public.notifications drop constraint if exists notifications_kind_check;
+alter table public.notifications
+  add constraint notifications_kind_check
+  check (kind in ('post', 'story', 'reply'));
+
+create or replace function public.notify_followers_of_story()
+returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  if new.parent_id is not null then
+    insert into public.notifications (user_id, kind, title, link, content_id)
+    select s.user_id, 'reply',
+           coalesce(nullif(trim(new.display_name), ''), 'Someone'),
+           'stories.html', new.id
+    from public.stories s
+    where s.id = new.parent_id
+      and s.user_id <> new.user_id;
+    return new;
+  end if;
+
+  insert into public.notifications (user_id, kind, title, link, content_id)
+  select f.follower_id, 'story',
+         coalesce(nullif(trim(new.display_name), ''), 'A learner'),
+         'stories.html', new.id
+  from public.follows f
+  where f.following_id = new.user_id;
+  return new;
+end;
+$$;
+
+-- ------------------------------------------------------------------
+-- 19. newsletter subscribers
+-- ------------------------------------------------------------------
+-- The "get lessons in your inbox" forms write here. Anyone may add an
+-- address; only an admin may read the list. Sending the actual mail
+-- needs a mail provider wired to an Edge Function — this table is the
+-- list that provider would read, and the admin page shows it meanwhile.
+
+create table if not exists public.newsletter_subscribers (
+  id uuid primary key default gen_random_uuid(),
+  email text not null unique check (email ~* '^[^@\s]+@[^@\s]+\.[^@\s]+$'),
+  source text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.newsletter_subscribers enable row level security;
+
+drop policy if exists "newsletter: public insert" on public.newsletter_subscribers;
+create policy "newsletter: public insert"
+  on public.newsletter_subscribers for insert
+  with check (true);
+
+drop policy if exists "newsletter: admin read" on public.newsletter_subscribers;
+create policy "newsletter: admin read"
+  on public.newsletter_subscribers for select
+  using (public.is_admin());
+
+drop policy if exists "newsletter: admin delete" on public.newsletter_subscribers;
+create policy "newsletter: admin delete"
+  on public.newsletter_subscribers for delete
+  using (public.is_admin());

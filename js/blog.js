@@ -29,6 +29,16 @@
     });
   }
 
+  // "schema cache" in a PostgREST error means a column the page expects
+  // does not exist in the database yet — the migration has not been run.
+  // Saying so beats leaving the admin to decode the raw message.
+  function schemaHint(msg) {
+    msg = String(msg || '');
+    return /schema cache/i.test(msg)
+      ? msg + ' — ' + t('common.schemaHint', 'The database has not been updated yet. Run supabase/schema.sql in the Supabase SQL editor, then try again.')
+      : msg;
+  }
+
   function countByCategory(list, cat) {
     return list.filter(function (p) { return p.category === cat; }).length;
   }
@@ -572,7 +582,7 @@
         btn.disabled = false;
         btn.textContent = t('blog.save', 'Save');
         if (res && res.error) {
-          setMsg('error', t('blog.errSaveFailed', 'Couldn’t save: {msg}').replace('{msg}', res.error.message));
+          setMsg('error', t('blog.errSaveFailed', 'Couldn’t save: {msg}').replace('{msg}', schemaHint(res.error.message)));
           return;
         }
         closeEditor();
