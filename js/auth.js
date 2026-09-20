@@ -270,41 +270,41 @@
     });
 
     /* ---- Create account ---- */
-    document.getElementById(‘signupForm’).addEventListener(‘submit’, async (e) => {
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      clearMessage(‘signup’);
-      if (!requireClient(‘signup’)) return;
-      const email = document.getElementById(‘signupEmail’).value.trim();
-      const nickname = document.getElementById(‘signupNickname’).value.trim();
-      const birthDate = document.getElementById(‘signupBirthDate’).value;
-      const password = document.getElementById(‘signupPassword’).value;
-      const confirm = document.getElementById(‘signupPasswordConfirm’).value;
-      const tosAgreed = document.getElementById(‘signupTOS’).checked;
-      const privacyAgreed = document.getElementById(‘signupPrivacy’).checked;
-      const marketingAgreed = document.getElementById(‘signupMarketing’).checked;
+      clearMessage('signup');
+      if (!requireClient('signup')) return;
+      const email = document.getElementById('signupEmail').value.trim();
+      const nickname = document.getElementById('signupNickname').value.trim();
+      const birthDate = document.getElementById('signupBirthDate').value;
+      const password = document.getElementById('signupPassword').value;
+      const confirm = document.getElementById('signupPasswordConfirm').value;
+      const tosAgreed = document.getElementById('signupTOS').checked;
+      const privacyAgreed = document.getElementById('signupPrivacy').checked;
+      const marketingAgreed = document.getElementById('signupMarketing').checked;
 
-      if (password !== confirm) { setMessage(‘signup’, ‘error’, t(‘auth.errors.passwordMismatch’, ‘Passwords don’t match.’)); return; }
-      if (password.length < 6) { setMessage(‘signup’, ‘error’, t(‘auth.errors.passwordTooShort’, ‘Password must be at least 6 characters.’)); return; }
-      if (!tosAgreed) { setMessage(‘signup’, ‘error’, t(‘auth.errors.tosRequired’, ‘You must agree to the Terms of Service.’)); return; }
-      if (!privacyAgreed) { setMessage(‘signup’, ‘error’, t(‘auth.errors.privacyRequired’, ‘You must agree to the Privacy Policy.’)); return; }
+      if (password !== confirm) { setMessage('signup', 'error', t('auth.errors.passwordMismatch', 'Passwords do not match.')); return; }
+      if (password.length < 6) { setMessage('signup', 'error', t('auth.errors.passwordTooShort', 'Password must be at least 6 characters.')); return; }
+      if (!tosAgreed) { setMessage('signup', 'error', t('auth.errors.tosRequired', 'You must agree to the Terms of Service.')); return; }
+      if (!privacyAgreed) { setMessage('signup', 'error', t('auth.errors.privacyRequired', 'You must agree to the Privacy Policy.')); return; }
 
-      const btn = document.getElementById(‘signupSubmit’);
-      setLoading(btn, true, ‘auth.signupSubmit’, ‘Create account’);
+      const btn = document.getElementById('signupSubmit');
+      setLoading(btn, true, 'auth.signupSubmit', 'Create account');
       const { data, error } = await client.auth.signUp({
         email, password,
         options: { emailRedirectTo: REDIRECT_URL },
       });
-      setLoading(btn, false, ‘auth.signupSubmit’, ‘Create account’);
-      if (error) { setMessage(‘signup’, ‘error’, friendlyError(error)); return; }
+      setLoading(btn, false, 'auth.signupSubmit', 'Create account');
+      if (error) { setMessage('signup', 'error', friendlyError(error)); return; }
       if (data && data.user && data.user.identities && data.user.identities.length === 0) {
-        setMessage(‘signup’, ‘error’, t(‘auth.errors.userExists’, ‘An account with this email already exists — try logging in instead.’));
+        setMessage('signup', 'error', t('auth.errors.userExists', 'An account with this email already exists — try logging in instead.'));
         return;
       }
 
       // Save user profile data
       if (data && data.user) {
         const { error: profileError } = await client
-          .from(‘user_profiles’)
+          .from('user_profiles')
           .insert({
             user_id: data.user.id,
             nickname: nickname,
@@ -314,13 +314,13 @@
             marketing_agreed: marketingAgreed
           });
         if (profileError) {
-          console.error(‘Profile save error:’, profileError);
+          console.error('Profile save error:', profileError);
         }
       }
 
-      setMessage(‘signup’, ‘success’,
-        t(‘auth.signupSuccess’, ‘We’ve sent a verification link to {email}. Confirm your email, then log in. Didn’t get it? Use "Forgot password?" from the log in tab to resend, or check your spam folder.’).replace(‘{email}’, email));
-      document.getElementById(‘signupForm’).reset();
+      setMessage('signup', 'success',
+        t('auth.signupSuccess', 'We sent a verification link to {email}. Confirm your email, then log in. Did not get it? Use "Forgot password?" from the log in tab to resend, or check your spam folder.').replace('{email}', email));
+      document.getElementById('signupForm').reset();
     });
 
     /* ---- Reset password ---- */
