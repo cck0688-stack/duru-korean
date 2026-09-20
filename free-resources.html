@@ -25,7 +25,6 @@
       <a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a>
       <a href="blog.html" data-i18n="nav.blog">Blog</a>
       <a href="stories.html" data-i18n="nav.stories">Guestbook</a>
-      <a href="about.html" data-i18n="nav.about">About</a>
     </nav>
     <div class="header-actions">
       <div class="lang-switcher" id="langSwitcher"></div>
@@ -48,67 +47,13 @@
 <section class="section section-after-hero">
   <div class="wrap">
     <p class="section-lead-in" data-i18n="freeResources.leadIn">Printable charts, cheat sheets, and vocabulary lists to get you reading, writing, and speaking Korean right away.</p>
-    <div class="grid-4 reveal">
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card1.tag">PDF · Beginner</span>
-        <h3 data-i18n="freeResources.card1.title">Hangul Chart</h3>
-        <p data-i18n="freeResources.card1.desc">A clean, printable chart of all 24 letters with stroke order and sounds.</p>
-        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Hangul%20Chart" class="btn btn-ghost" data-i18n="freeResources.card1.btn">Request →</a>
-      </div>
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card2.tag">Guide · Beginner</span>
-        <h3 data-i18n="freeResources.card2.title">Survival Phrases</h3>
-        <p data-i18n="freeResources.card2.desc">30 essential phrases for travel, cafés, and everyday situations.</p>
-        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Survival%20Phrases" class="btn btn-ghost" data-i18n="freeResources.card2.btn">Request →</a>
-      </div>
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card3.tag">Flashcards</span>
-        <h3 data-i18n="freeResources.card3.title">Core Vocabulary 200</h3>
-        <p data-i18n="freeResources.card3.desc">200 must-know words, organized by everyday topic and printable as cards.</p>
-        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Core%20Vocabulary%20200" class="btn btn-ghost" data-i18n="freeResources.card3.btn">Request →</a>
-      </div>
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card4.tag">Cheat Sheet</span>
-        <h3 data-i18n="freeResources.card4.title">Grammar Basics</h3>
-        <p data-i18n="freeResources.card4.desc">Core sentence patterns and particles explained on one page.</p>
-        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Grammar%20Basics" class="btn btn-ghost" data-i18n="freeResources.card4.btn">Request →</a>
-      </div>
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card5.tag">Audio Sample</span>
-        <h3 data-i18n="freeResources.card5.title">Free Lesson: Greetings</h3>
-        <p data-i18n="freeResources.card5.desc">One full lesson from the book, with audio, to try before you buy.</p>
-        <a href="book-audio.html" class="btn btn-ghost" data-i18n="freeResources.card5.btn">Listen →</a>
-      </div>
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card6.tag">Worksheet</span>
-        <h3 data-i18n="freeResources.card6.title">Hangul Writing Practice</h3>
-        <p data-i18n="freeResources.card6.desc">Printable practice sheets for handwriting every consonant and vowel.</p>
-        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Hangul%20Writing%20Practice" class="btn btn-ghost" data-i18n="freeResources.card6.btn">Request →</a>
-      </div>
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card7.tag">Cheat Sheet</span>
-        <h3 data-i18n="freeResources.card7.title">Numbers &amp; Counting</h3>
-        <p data-i18n="freeResources.card7.desc">Sino-Korean and native Korean numbers, side by side, with usage notes.</p>
-        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Numbers%20&amp;%20Counting" class="btn btn-ghost" data-i18n="freeResources.card7.btn">Request →</a>
-      </div>
-      <div class="resource-card">
-        <span class="resource-tag" data-i18n="freeResources.card8.tag">Guide</span>
-        <h3 data-i18n="freeResources.card8.title">Honorifics 101</h3>
-        <p data-i18n="freeResources.card8.desc">A beginner-friendly introduction to Korean speech levels.</p>
-        <a href="mailto:hello@durukorean.com?subject=Resource%20Request%3A%20Honorifics%20101" class="btn btn-ghost" data-i18n="freeResources.card8.btn">Request →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="adminResources">
-  <div class="wrap">
-    <div class="section-head-row reveal" style="margin-bottom:28px;">
-      <div class="section-head" style="margin-bottom:0;">
-        <span class="eyebrow" data-i18n="freeResources.filesEyebrow">Downloadable Files</span>
-        <h2 data-i18n="freeResources.filesH2">Uploaded resources</h2>
-        <p data-i18n="resources.sectionDesc">Files attached directly by our team — download instantly, no email needed.</p>
-      </div>
+    <div class="filter-row reveal" id="resourceFilters">
+      <button class="filter-btn active" data-filter="all" data-i18n="resources.filter.all">All</button>
+      <button class="filter-btn" data-filter="audio" data-i18n="resources.cat.audio">Audio &amp; Listening</button>
+      <button class="filter-btn" data-filter="printables" data-i18n="resources.cat.printables">Study Printables</button>
+      <button class="filter-btn" data-filter="worksheets" data-i18n="resources.cat.worksheets">Worksheets &amp; Drills</button>
+      <button class="filter-btn" data-filter="cheatsheets" data-i18n="resources.cat.cheatsheets">Cheat Sheets</button>
+      <button class="filter-btn" data-filter="vocab" data-i18n="resources.cat.vocab">Vocabulary &amp; Flashcards</button>
       <button type="button" class="btn btn-ghost" id="attachResourceBtn" hidden data-i18n="resources.attachBtn">+ Attach Resource</button>
     </div>
     <p class="resource-empty-note" id="resourceListEmpty" hidden data-i18n="resources.emptyNote">No files have been attached yet.</p>

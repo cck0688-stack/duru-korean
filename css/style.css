@@ -2,6 +2,12 @@
    DURU KOREAN — global stylesheet
    ============================================================ */
 
+/* A component that sets its own `display` beats the UA rule the hidden
+   attribute relies on, so `el.hidden = true` silently did nothing on
+   .story-signed-out and would have bitten every future flex/grid
+   component the same way. One global rule settles it. */
+[hidden] { display: none !important; }
+
 :root {
   --bg-deep: #0a2620;
   --bg: #0e332b;
@@ -99,7 +105,6 @@ section { position: relative; }
   transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color .18s ease;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn[hidden] { display: none; }
 
 .btn-primary {
   background: var(--accent-red);
@@ -288,7 +293,6 @@ section { position: relative; }
   list-style: none;
   margin: 0;
 }
-.lang-menu[hidden] { display: none; }
 .lang-menu li {
   padding: 9px 12px;
   border-radius: 8px;
@@ -356,8 +360,8 @@ section { position: relative; }
 .hero-text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 48px 64px;
+  justify-content: flex-start;
+  padding: 34px 64px 28px;
 }
 
 .hero-badge {
@@ -464,33 +468,95 @@ section { position: relative; }
 
 /* ---- Hero: the folding-screen photograph ---- */
 
-/* The panel is taller than the picture, so cropping to fill would cut
-   the books and the SEOUL line off the right edge. The whole frame is
-   shown instead, and the bands above and below are painted in the
-   picture's own wall and floor tones (sampled #141f18 / #131313) so the
-   join is invisible rather than letterboxed. */
 .hero-graphic {
   padding: 0;
   overflow: hidden;
   background: linear-gradient(180deg, #141f18 0%, #141f18 52%, #131313 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Sized to the photograph's own ratio so the crisp captions below can be
+   placed as percentages of it and stay locked to the seal and the book
+   spines at every width. The panel is taller, and the band left above is
+   painted in the picture's wall tone so the join is invisible. */
+.hero-frame {
+  position: relative;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 708 / 716;
+  container-type: inline-size;
 }
 
 .hero-scene {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: 50% 100%;
 }
 
-/* Stacked under the copy below the tablet breakpoint, where the panel
-   can simply take the picture's own proportions and show it whole. */
+/* The photograph's own lettering is soft — it was painted at a size no
+   upscale can recover, and the brush forms are not the block script this
+   wants. These repaint those four patches in the surfaces' sampled
+   colours and set the text as real type, so it stays sharp at any zoom.
+   Positions are measured from the source image; cqw keeps them in step. */
+.hero-seal,
+.hero-book {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+}
+
+.hero-seal {
+  left: 45.9%;
+  top: 18.3%;
+  width: 17.1%;
+  height: 3.95%;
+  border-radius: 0.35cqw;
+  background: linear-gradient(95deg, #8a4636 0%, #904937 50%, #8d4638 100%);
+  box-shadow: inset 0 0 0 0.18cqw rgba(38, 14, 9, 0.55),
+              0 0.15cqw 0.5cqw rgba(0, 0, 0, 0.45);
+  color: #f7ede4;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 2.3cqw;
+  letter-spacing: 0.02em;
+}
+
+.hero-book {
+  right: 0;
+  color: #3f2c1f;
+  font-family: 'Inter', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  font-size: 1.62cqw;
+  letter-spacing: 0.13em;
+  padding-right: 1.6cqw;
+}
+.hero-book-1 {
+  top: 66.0%;
+  width: 17.3%;
+  height: 3.0%;
+  background: linear-gradient(90deg, #ab9079 0%, #a2896f 55%, #9f846b 100%);
+}
+.hero-book-2 {
+  top: 70.3%;
+  width: 17.2%;
+  height: 2.7%;
+  background: linear-gradient(90deg, #a0856f 0%, #9d826c 55%, #987d66 100%);
+}
+.hero-book-3 {
+  top: 74.1%;
+  width: 17.3%;
+  height: 2.7%;
+  background: linear-gradient(90deg, #a2866f 0%, #9d8169 55%, #997d66 100%);
+}
+
 @media (max-width: 980px) {
-  .hero-graphic {
-    aspect-ratio: 708 / 716;
-    align-self: start;
-  }
-  .hero-scene { object-fit: cover; object-position: 50% 50%; }
+  .hero-graphic { aspect-ratio: 708 / 716; align-self: start; }
 }
 
 .hero-cta {
@@ -776,7 +842,6 @@ section { position: relative; }
   padding: 20px;
   z-index: 1000;
 }
-.resource-confirm-overlay[hidden] { display: none; }
 .resource-confirm-modal {
   width: 100%;
   max-width: 420px;
@@ -825,7 +890,6 @@ section { position: relative; }
 }
 .resource-upload-msg.error { background: rgba(179,38,30,0.1); color: #b3261e; }
 .resource-upload-msg.success { background: rgba(58,122,74,0.12); color: #2f6b41; }
-.resource-upload-msg[hidden] { display: none; }
 
 /* ---------- Blog cards ---------- */
 .blog-card {
@@ -1182,7 +1246,6 @@ section { position: relative; }
   padding: 20px;
   z-index: 1000;
 }
-.auth-overlay[hidden] { display: none; }
 
 .auth-modal {
   width: 100%;
@@ -1214,7 +1277,6 @@ section { position: relative; }
 .auth-close:hover { background: rgba(22,48,43,0.12); }
 
 .auth-tabs { display: flex; gap: 6px; margin-bottom: 24px; background: rgba(22,48,43,0.06); padding: 4px; border-radius: 999px; }
-.auth-tabs[hidden] { display: none; }
 .auth-tab {
   flex: 1;
   background: none;
@@ -1227,7 +1289,6 @@ section { position: relative; }
 }
 .auth-tab.active { background: var(--bg); color: var(--cream); }
 
-.auth-panel[hidden] { display: none; }
 .auth-panel h2 { font-size: 22px; margin: 0 0 6px; color: var(--ink); }
 .auth-panel .auth-sub { font-size: 13.5px; color: var(--ink-dim); margin: 0 0 22px; }
 
@@ -1312,7 +1373,6 @@ section { position: relative; }
 .auth-message.info { background: rgba(207, 138, 82, 0.14); color: #7a4f22; }
 .auth-message.success { background: rgba(74, 138, 92, 0.14); color: #2d5c3d; }
 .auth-message.error { background: rgba(184, 73, 47, 0.12); color: var(--accent-red); }
-.auth-message[hidden] { display: none; }
 
 .auth-config-notice {
   font-size: 12.5px;

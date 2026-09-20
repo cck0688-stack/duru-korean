@@ -24,6 +24,11 @@
     mp3: 'audio/mpeg', m4a: 'audio/mp4',
   };
   const LEVELS = ['Any level', 'Beginner', 'Intermediate', 'Advanced'];
+  const CATEGORIES = ['audio', 'printables', 'worksheets', 'cheatsheets', 'vocab'];
+
+  function categoryLabel(cat) {
+    return t('resources.cat.' + cat, cat);
+  }
   const LANGS = [
     { code: 'en', label: 'English' },
     { code: 'vi', label: 'Tiếng Việt' },
@@ -94,6 +99,10 @@
 
     let isAdmin = false;
     let currentUserId = null;
+    // The fetched rows are kept so switching filters redraws from memory
+    // instead of going back to the database on every click.
+    let allResources = [];
+    let activeFilter = 'all';
 
     // The bucket is private, so there is no permanent link to render.
     // A signed URL is minted when the visitor actually clicks, and only
@@ -109,7 +118,10 @@
         });
     }
 
-    function renderList(resources) {
+    function renderList() {
+      const resources = activeFilter === 'all'
+        ? allResources
+        : allResources.filter((r) => r.category === activeFilter);
       listEl.innerHTML = '';
       emptyEl.hidden = resources.length > 0;
       resources.forEach((r) => {
@@ -120,7 +132,7 @@
           .replace('{size}', formatSize(r.file_size)).replace('{lang}', descLangLabel) +
           (r.linked_unit ? ' · ' + escapeHTML(r.linked_unit) : '');
         card.innerHTML = `
-          <span class="resource-tag">${escapeHTML(r.file_type.toUpperCase())}${r.learning_level && r.learning_level !== 'Any level' ? ' · ' + escapeHTML(levelLabel(r.learning_level)) : ''}</span>
+          <span class="resource-tag">${escapeHTML(r.file_type.toUpperCase())}${r.category ? ' · ' + escapeHTML(categoryLabel(r.category)) : ''}${r.learning_level && r.learning_level !== 'Any level' ? ' · ' + escapeHTML(levelLabel(r.learning_level)) : ''}</span>
           <h3>${escapeHTML(r.title)}</h3>
           ${r.description ? `<p>${escapeHTML(r.description)}</p>` : ''}
           <p class="resource-meta">${metaText}</p>
@@ -170,8 +182,24 @@
         console.error('Failed to load resources:', error.message);
         return;
       }
-      renderList(data || []);
+      allResources = data || [];
+      renderList();
     }
+
+    const filtersEl = document.getElementById('resourceFilters');
+    if (filtersEl) {
+      filtersEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        activeFilter = btn.dataset.filter;
+        filtersEl.querySelectorAll('.filter-btn').forEach((b) => {
+          b.classList.toggle('active', b === btn);
+        });
+        renderList();
+      });
+    }
+
+    document.addEventListener('duru:langchange', renderList);
 
     /* ---------------- Delete flow ---------------- */
 
@@ -251,6 +279,12 @@
               <label for="resDescLang" data-i18n="resources.fieldDescLang">${escapeHTML(t('resources.fieldDescLang', 'Description written in'))}</label>
               <select id="resDescLang">
                 ${LANGS.map(l => `<option value="${l.code}">${l.label}</option>`).join('')}
+              </select>
+            </div>
+            <div class="auth-field">
+              <label for="resCategory" data-i18n="resources.fieldCategory">${escapeHTML(t('resources.fieldCategory', 'Category'))}</label>
+              <select id="resCategory">
+                ${CATEGORIES.map(c => `<option value="${c}">${escapeHTML(categoryLabel(c))}</option>`).join('')}
               </select>
             </div>
             <div class="auth-field">
@@ -342,6 +376,7 @@
         file_type: ext,
         description_language: descLang,
         learning_level: level,
+        category: overlay.querySelector('#resCategory').value,
         linked_unit: unit || null,
         storage_key: storageKey,
         file_size: file.size,
