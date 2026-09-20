@@ -7,7 +7,7 @@
 <meta name="description" content="Duru Korean was built to make learning Korean calm, clear, and accessible to learners anywhere in the world.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -19,9 +19,7 @@
       <span class="logo-en">DURU <span>KOREAN</span></span>
     </a>
     <nav class="nav-main">
-      <a href="start-here.html" data-i18n="nav.learningPath">Learning Path</a>
       <a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a>
-      <a href="book-audio.html" data-i18n="nav.bookAudio">Book &amp; Audio</a>
       <a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a>
       <a href="blog.html" data-i18n="nav.blog">Blog</a>
       <a href="stories.html" data-i18n="nav.stories">Guestbook</a>
@@ -44,34 +42,161 @@
   </div>
 </section>
 
-<section class="section section-after-hero">
+<section class="section authors" id="about">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="aboutPage.leadIn">Duru (두루) means "widely, all around" — the idea that good Korean lessons shouldn't depend on where you live or how you learn best.</p>
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="aboutPage.authors.eyebrow">About the Authors</span>
-      <h2 data-i18n="aboutPage.authors.h2">Written by teachers who've done the work</h2>
-      <p data-i18n="aboutPage.authors.p">Duru Korean is created and written by two experienced Korean-language educators.</p>
+
+    <div class="authors-head reveal">
+      <span class="authors-eyebrow" data-i18n="authors.eyebrow">About the Authors</span>
+      <h2 class="authors-title" data-i18n="authors.h2">Written by teachers who have done the work</h2>
+      <p class="authors-lede" data-i18n="authors.lede">Duru Korean is created and written by two experienced Korean-language educators with extensive classroom and nationwide teaching experience.</p>
     </div>
-    <div class="author-grid reveal">
-      <div class="author-card">
-        <div class="card-icon kr">학</div>
-        <h3>Calvin, CHOI</h3>
-        <ul class="check-list">
-          <li data-i18n="aboutPage.degree">Doctorate in Education</li>
-          <li data-i18n="aboutPage.author1.years">19 years of teaching experience</li>
-          <li data-i18n="aboutPage.certification">Korean Language Teacher Certification, Level 2</li>
+
+    <div class="authors-grid reveal">
+
+      <article class="author-panel">
+        <header class="author-panel-top">
+          <span class="author-portrait" aria-hidden="true">
+            <svg viewBox="0 0 96 96" role="presentation">
+              <circle cx="48" cy="48" r="47" fill="#faf6ef" stroke="#e0d3c2"/>
+              <g fill="none" stroke="#8d7a63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M48 26c9 0 15 7 15 16 0 10-6 18-15 18s-15-8-15-18c0-9 6-16 15-16z"/>
+                <path d="M33 40c3-6 9-9 15-9s12 3 15 9"/>
+                <path d="M24 84c2-13 11-21 24-21s22 8 24 21"/>
+                <path d="M40 47h4M52 47h4"/>
+                <path d="M46 55h4"/>
+              </g>
+            </svg>
+          </span>
+          <span class="author-badge" data-i18n="authors.coAuthor">Co-author</span>
+        </header>
+
+        <h3 class="author-name">Calvin Choi</h3>
+        <p class="author-role" data-i18n="authors.role">Korean-language educator</p>
+
+        <ul class="author-credentials">
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.doctorate">Doctorate in Education</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-2a4 4 0 0 0-3-3.8"/><path d="M16 4.2A4 4 0 0 1 16 11"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.years19">19 years of teaching experience</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="9" r="5.2"/><path d="M8.5 13.5L7 22l5-2.6 5 2.6-1.5-8.5"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.certified">Certified Korean Language Teacher, Level 2</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.lectures">Extensive lectures and workshops across Korea</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H11v18H5.5A2.5 2.5 0 0 1 3 18.5z"/><path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H13v18h5.5a2.5 2.5 0 0 0 2.5-2.5z"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.curriculum">Curriculum and teaching materials development</span>
+          </li>
         </ul>
+      </article>
+
+      <div class="authors-link" aria-hidden="true">
+        <span class="authors-link-rule"></span>
+        <span class="authors-link-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6.5C10.4 5.2 8.4 4.5 6 4.5H3v13h3c2.4 0 4.4.7 6 2 1.6-1.3 3.6-2 6-2h3v-13h-3c-2.4 0-4.4.7-6 2z"/><path d="M12 6.5v13"/>
+          </svg>
+        </span>
+        <span class="authors-link-label" data-i18n="authors.coAuthorsLabel">Co-authors</span>
+        <span class="authors-link-note" data-i18n="authors.coAuthorsNote">A shared passion for Korean education</span>
+        <span class="authors-link-rule"></span>
       </div>
-      <div class="author-card">
-        <div class="card-icon kr">학</div>
-        <h3>Kate, Yoon</h3>
-        <ul class="check-list">
-          <li data-i18n="aboutPage.degree">Doctorate in Education</li>
-          <li data-i18n="aboutPage.author2.years">25 years of teaching experience</li>
-          <li data-i18n="aboutPage.certification">Korean Language Teacher Certification, Level 2</li>
+
+      <article class="author-panel">
+        <header class="author-panel-top">
+          <span class="author-portrait" aria-hidden="true">
+            <svg viewBox="0 0 96 96" role="presentation">
+              <circle cx="48" cy="48" r="47" fill="#faf6ef" stroke="#e0d3c2"/>
+              <g fill="none" stroke="#8d7a63" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M48 25c9 0 15 7 15 16 0 10-6 19-15 19s-15-9-15-19c0-9 6-16 15-16z"/>
+                <path d="M31 42c0-10 7-16 17-16s17 6 17 16c0 4-1 7-2 9"/>
+                <path d="M31 42c-1 6-2 12 0 17"/>
+                <path d="M24 84c2-13 11-21 24-21s22 8 24 21"/>
+                <path d="M41 46h4M51 46h4"/>
+                <path d="M46 55h4"/>
+              </g>
+            </svg>
+          </span>
+          <span class="author-badge" data-i18n="authors.coAuthor">Co-author</span>
+        </header>
+
+        <h3 class="author-name">Kate Yoon</h3>
+        <p class="author-role" data-i18n="authors.role">Korean-language educator</p>
+
+        <ul class="author-credentials">
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.doctorate">Doctorate in Education</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-2a4 4 0 0 0-3-3.8"/><path d="M16 4.2A4 4 0 0 1 16 11"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.years25">25 years of teaching experience</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="9" r="5.2"/><path d="M8.5 13.5L7 22l5-2.6 5 2.6-1.5-8.5"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.certified">Certified Korean Language Teacher, Level 2</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.lectures">Extensive lectures and workshops across Korea</span>
+          </li>
+          <li>
+            <span class="cred-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 4h18v12H3z"/><path d="M12 16v4"/><path d="M8 20h8"/><path d="M7 9l3 3 4-5"/>
+              </svg>
+            </span>
+            <span data-i18n="authors.cred.training">Teacher training and curriculum consulting</span>
+          </li>
         </ul>
-      </div>
+      </article>
+
     </div>
+
+    <p class="authors-tagline reveal" data-i18n="authors.tagline">Teaching Korean with experience, clarity, and care.</p>
   </div>
 </section>
 
