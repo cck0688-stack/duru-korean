@@ -549,5 +549,10 @@
   "admin.confirmRemove": "この管理者を削除しますか?",
   "admin.adding": "追加中…",
   "admin.removeFailed": "管理者を削除できません: {msg}",
-  "admin.addFailed": "管理者を追加できません: {msg}"
+  "admin.addFailed": "管理者を追加できません: {msg}",
+  "admin.visitorAnalytics": "訪問者分析",
+  "admin.statTotal": "総訪問者数",
+  "admin.statCumulative": "累計訪問数",
+  "admin.statToday": "本日の訪問者",
+  "admin.statsNote": "ユニーク訪問者は直近{n}件の記録から集計しています。"
 }

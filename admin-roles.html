@@ -53,6 +53,25 @@
 
   <section class="section section-after-hero">
     <div class="wrap">
+      <div id="visitorStats" class="visitor-stats" hidden>
+        <h2 data-i18n="admin.visitorAnalytics">Visitor Analytics</h2>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-value" id="statTotal">—</span>
+            <span class="stat-label" data-i18n="admin.statTotal">Total visitors</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="statCumulative">—</span>
+            <span class="stat-label" data-i18n="admin.statCumulative">Cumulative visits</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="statToday">—</span>
+            <span class="stat-label" data-i18n="admin.statToday">Today</span>
+          </div>
+        </div>
+        <p class="stat-note" id="statScanNote" data-i18n="admin.statsNote">Unique visitors are counted from the most recent 50,000 records.</p>
+      </div>
+
       <div class="admin-panel">
         <div class="admin-section">
           <h2 data-i18n="admin.admins">Admin Users</h2>
@@ -116,6 +135,7 @@
 <script src="js/auth.js"></script>
 <script src="js/visitor-tracking.js"></script>
 <script src="js/admin-roles.js"></script>
+<script src="js/visitor-stats.js"></script>
 <script>window.DURU_PAGE_TITLE_KEY = 'admin.title';</script>
 <script src="js/i18n.js"></script>
 </body>

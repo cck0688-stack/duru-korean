@@ -549,5 +549,10 @@
   "admin.confirmRemove": "Remove this admin user?",
   "admin.adding": "Adding…",
   "admin.removeFailed": "Could not remove admin: {msg}",
-  "admin.addFailed": "Could not add admin: {msg}"
+  "admin.addFailed": "Could not add admin: {msg}",
+  "admin.visitorAnalytics": "Visitor Analytics",
+  "admin.statTotal": "Total visitors",
+  "admin.statCumulative": "Cumulative visits",
+  "admin.statToday": "Today",
+  "admin.statsNote": "Unique visitors are counted from the most recent {n} records."
 }

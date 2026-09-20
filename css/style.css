@@ -2196,3 +2196,50 @@ section { position: relative; }
     max-width: none;
   }
 }
+
+/* ---- Admin: visitor analytics ---- */
+
+.visitor-stats {
+  margin-bottom: 40px;
+}
+.visitor-stats h2 {
+  font-size: 20px;
+  margin: 0 0 16px;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 18px;
+  border: 1px solid var(--header-border);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.stat-value {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+.stat-note {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+
+@media (max-width: 720px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
