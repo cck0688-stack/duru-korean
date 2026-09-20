@@ -408,3 +408,258 @@ returns table (
   order by like_count desc, s.created_at desc
   limit p_limit;
 $$ language sql stable;
+
+-- ------------------------------------------------------------------
+-- 11. post tags
+-- ------------------------------------------------------------------
+-- Tags sit alongside the existing single category: a post has exactly
+-- one category but any number of tags. Stored on the row rather than in
+-- a join table, since tags are only ever read with their post and are
+-- edited as one field in the post editor.
+
+alter table public.posts
+  add column if not exists tags text[] not null default '{}';
+
+create index if not exists posts_tags_idx
+  on public.posts using gin (tags);
+
+-- ------------------------------------------------------------------
+-- 12. user_roles — instructor / contributor / learner
+-- ------------------------------------------------------------------
+-- admin_users stays the top tier and keeps every policy already written
+-- against it. This table only describes the tiers below it, so granting
+-- someone a role here can never take admin away or hand it out.
+--
+-- Everyone without a row is a learner; no row has to be created at
+-- signup for the default to hold.
+
+create table if not exists public.user_roles (
+  user_id uuid primary key references auth.users (id) on delete cascade,
+  role text not null default 'learner'
+    check (role in ('instructor', 'contributor', 'learner')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.user_roles enable row level security;
+
+-- security definer: these are called from inside policies on other
+-- tables, so they must not be re-filtered by this table's own RLS.
+create or replace function public.is_admin()
+returns boolean
+language sql stable security definer set search_path = public as $$
+  select exists (select 1 from public.admin_users a where a.user_id = auth.uid());
+$$;
+
+-- Named duru_role rather than current_role, which Postgres reserves.
+create or replace function public.duru_role()
+returns text
+language sql stable security definer set search_path = public as $$
+  select case
+    when public.is_admin() then 'admin'
+    else coalesce(
+      (select r.role from public.user_roles r where r.user_id = auth.uid()),
+      'learner')
+  end;
+$$;
+
+drop policy if exists "user_roles: self read" on public.user_roles;
+create policy "user_roles: self read"
+  on public.user_roles for select
+  using (auth.uid() = user_id);
+
+drop policy if exists "user_roles: admin read" on public.user_roles;
+create policy "user_roles: admin read"
+  on public.user_roles for select
+  using (public.is_admin());
+
+drop policy if exists "user_roles: admin write" on public.user_roles;
+create policy "user_roles: admin write"
+  on public.user_roles for insert
+  with check (public.is_admin());
+
+drop policy if exists "user_roles: admin update" on public.user_roles;
+create policy "user_roles: admin update"
+  on public.user_roles for update
+  using (public.is_admin())
+  with check (public.is_admin());
+
+drop policy if exists "user_roles: admin delete" on public.user_roles;
+create policy "user_roles: admin delete"
+  on public.user_roles for delete
+  using (public.is_admin());
+
+-- Authoring rights for the two tiers that can write posts. These are
+-- additional permissive policies, OR'd with the admin ones above:
+-- an instructor may publish, a contributor may only leave drafts.
+
+drop policy if exists "posts: author read own" on public.posts;
+create policy "posts: author read own"
+  on public.posts for select
+  using (created_by = auth.uid());
+
+drop policy if exists "posts: author insert" on public.posts;
+create policy "posts: author insert"
+  on public.posts for insert
+  with check (
+    created_by = auth.uid()
+    and public.duru_role() in ('instructor', 'contributor')
+    and (published = false or public.duru_role() = 'instructor')
+  );
+
+drop policy if exists "posts: author update own" on public.posts;
+create policy "posts: author update own"
+  on public.posts for update
+  using (
+    created_by = auth.uid()
+    and public.duru_role() in ('instructor', 'contributor')
+  )
+  with check (
+    created_by = auth.uid()
+    and (published = false or public.duru_role() = 'instructor')
+  );
+
+-- ------------------------------------------------------------------
+-- 13. follows — who hears about whose new work
+-- ------------------------------------------------------------------
+
+create table if not exists public.follows (
+  id uuid primary key default gen_random_uuid(),
+  follower_id uuid not null references auth.users (id) on delete cascade,
+  following_id uuid not null references auth.users (id) on delete cascade,
+  created_at timestamptz not null default now(),
+  unique (follower_id, following_id),
+  check (follower_id <> following_id)
+);
+
+alter table public.follows enable row level security;
+
+-- Follower counts are public; who you follow is written only by you.
+drop policy if exists "follows: public read" on public.follows;
+create policy "follows: public read"
+  on public.follows for select
+  using (true);
+
+drop policy if exists "follows: self insert" on public.follows;
+create policy "follows: self insert"
+  on public.follows for insert
+  with check (auth.uid() = follower_id);
+
+drop policy if exists "follows: self delete" on public.follows;
+create policy "follows: self delete"
+  on public.follows for delete
+  using (auth.uid() = follower_id);
+
+create index if not exists follows_following_idx
+  on public.follows (following_id);
+create index if not exists follows_follower_idx
+  on public.follows (follower_id);
+
+-- ------------------------------------------------------------------
+-- 14. notifications — delivered when a followed author publishes
+-- ------------------------------------------------------------------
+-- Rows are written only by the triggers below, never by a client: there
+-- is no insert policy, so a signed-in user cannot post a notification
+-- into someone else's feed.
+
+create table if not exists public.notifications (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users (id) on delete cascade,
+  kind text not null check (kind in ('post', 'story')),
+  title text not null,
+  link text not null,
+  content_id uuid,
+  is_read boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+alter table public.notifications enable row level security;
+
+drop policy if exists "notifications: self read" on public.notifications;
+create policy "notifications: self read"
+  on public.notifications for select
+  using (auth.uid() = user_id);
+
+drop policy if exists "notifications: self update" on public.notifications;
+create policy "notifications: self update"
+  on public.notifications for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+drop policy if exists "notifications: self delete" on public.notifications;
+create policy "notifications: self delete"
+  on public.notifications for delete
+  using (auth.uid() = user_id);
+
+create index if not exists notifications_user_idx
+  on public.notifications (user_id, is_read, created_at desc);
+
+-- A post notifies on the transition into published, not on every save,
+-- so editing a live post does not re-notify everyone.
+create or replace function public.notify_followers_of_post()
+returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  if new.published and (tg_op = 'INSERT' or not coalesce(old.published, false)) then
+    insert into public.notifications (user_id, kind, title, link, content_id)
+    select f.follower_id, 'post', new.title,
+           'blog.html?post=' || new.slug, new.id
+    from public.follows f
+    where f.following_id = new.created_by;
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists posts_notify_followers on public.posts;
+create trigger posts_notify_followers
+  after insert or update of published on public.posts
+  for each row execute function public.notify_followers_of_post();
+
+create or replace function public.notify_followers_of_story()
+returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  insert into public.notifications (user_id, kind, title, link, content_id)
+  select f.follower_id, 'story',
+         coalesce(nullif(trim(new.display_name), ''), 'A learner'),
+         'stories.html', new.id
+  from public.follows f
+  where f.following_id = new.user_id;
+  return new;
+end;
+$$;
+
+drop trigger if exists stories_notify_followers on public.stories;
+create trigger stories_notify_followers
+  after insert on public.stories
+  for each row execute function public.notify_followers_of_story();
+
+-- ------------------------------------------------------------------
+-- 15. admin lookup of a user id by email
+-- ------------------------------------------------------------------
+-- The admin screens need to turn a typed email into a user id. A browser
+-- holding the anon key cannot read auth.users and cannot call
+-- auth.admin.listUsers(), which needs the service_role key and must
+-- never be shipped to a page. This runs the lookup server-side instead,
+-- and refuses anyone who is not already an admin, so it cannot be used
+-- to test whether an address has an account.
+
+create or replace function public.find_user_id_by_email(p_email text)
+returns uuid
+language plpgsql stable security definer set search_path = public, auth as $$
+declare
+  v_id uuid;
+begin
+  if not public.is_admin() then
+    raise exception 'not authorized';
+  end if;
+  select id into v_id
+  from auth.users
+  where lower(email) = lower(trim(p_email));
+  return v_id;
+end;
+$$;
+
+revoke all on function public.find_user_id_by_email(text) from public, anon;
+grant execute on function public.find_user_id_by_email(text) to authenticated;

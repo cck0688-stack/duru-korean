@@ -75,6 +75,13 @@
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(s.display_name)) + '</span>' +
             '<div><h3>' + escapeHTML(s.display_name) + '</h3>' +
             '<p class="story-meta">' + escapeHTML(formatDate(s.created_at)) + '</p></div>' +
+            ((currentUser && !mine)
+              ? '<button type="button" class="follow-btn' + (following[s.user_id] ? ' is-following' : '') +
+                '" data-author="' + escapeHTML(s.user_id) + '">' +
+                escapeHTML(following[s.user_id]
+                  ? t('stories.following', 'Following')
+                  : t('stories.follow', 'Follow')) + '</button>'
+              : '') +
           '</div>' +
           '<div class="story-body">' + paragraphs(s.body) + '</div>' +
           ((mine || isAdmin) ? '<div class="story-actions">' +
@@ -83,11 +90,53 @@
             '</div>' : '');
         listEl.appendChild(card);
       });
+      listEl.querySelectorAll('.follow-btn').forEach(function (b) {
+        b.addEventListener('click', function () { toggleFollow(b.dataset.author, b); });
+      });
       listEl.querySelectorAll('.story-edit-btn').forEach(function (b) {
         b.addEventListener('click', function () { openEditor(find(b.dataset.id)); });
       });
       listEl.querySelectorAll('.story-delete-btn').forEach(function (b) {
         b.addEventListener('click', function () { confirmDelete(find(b.dataset.id)); });
+      });
+    }
+
+    // Who the signed-in reader already follows, so each card knows which
+    // label to show without a query per card.
+    var following = Object.create(null);
+
+    function loadFollowing() {
+      if (!currentUser) { following = Object.create(null); return Promise.resolve(); }
+      return client.from('follows').select('following_id')
+        .eq('follower_id', currentUser.id)
+        .then(function (res) {
+          following = Object.create(null);
+          (res.data || []).forEach(function (r) { following[r.following_id] = true; });
+        });
+    }
+
+    function toggleFollow(authorId, btn) {
+      if (!currentUser) return;
+      btn.disabled = true;
+      var done;
+      if (following[authorId]) {
+        done = client.from('follows').delete()
+          .eq('follower_id', currentUser.id).eq('following_id', authorId);
+      } else {
+        done = client.from('follows')
+          .insert({ follower_id: currentUser.id, following_id: authorId });
+      }
+      done.then(function (res) {
+        btn.disabled = false;
+        if (res.error) {
+          if (window.DURU_NOTIFY) window.DURU_NOTIFY.error(res.error.message);
+          return;
+        }
+        following[authorId] = !following[authorId];
+        btn.textContent = following[authorId]
+          ? t('stories.following', 'Following')
+          : t('stories.follow', 'Follow');
+        btn.classList.toggle('is-following', following[authorId]);
       });
     }
 
@@ -101,7 +150,9 @@
         .then(function (res) {
           if (res.error) { console.error('Failed to load stories:', res.error.message); return; }
           stories = res.data || [];
-          renderList();
+          // Follow state has to be in hand before the cards render, or
+          // every button would first paint as "Follow".
+          return loadFollowing().then(renderList);
         });
     }
 

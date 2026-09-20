@@ -17,10 +17,6 @@
   // Each category's Hangul glyph, matching the static design.
   var GLYPH = { study: '앎', grammar: '말', culture: '삶', travel: '길' };
 
-  function getCategoryCount(cat) {
-    return posts.filter(function (p) { return p.category === cat; }).length;
-  }
-
   function t(key, fallback) {
     if (!window.DURU_I18N) return fallback;
     var translated = window.DURU_I18N.t(key);
@@ -33,10 +29,35 @@
     });
   }
 
-  // Post bodies are stored and rendered as plain text. Blank lines become
-  // paragraphs; nothing else is interpreted, so a stray < in a sentence
-  // stays a < instead of becoming markup.
+  function countByCategory(list, cat) {
+    return list.filter(function (p) { return p.category === cat; }).length;
+  }
+
+  // Tags are typed as one comma-separated field and stored as an array.
+  function parseTags(input) {
+    var seen = Object.create(null);
+    return String(input || '').split(',').map(function (s) {
+      return s.trim().replace(/^#/, '');
+    }).filter(function (s) {
+      if (!s || s.length > 32 || seen[s.toLowerCase()]) return false;
+      seen[s.toLowerCase()] = true;
+      return true;
+    }).slice(0, 8);
+  }
+
+  function renderTags(tags) {
+    if (!tags || !tags.length) return '';
+    return '<div class="post-tags">' + tags.map(function (tag) {
+      return '<a class="post-tag" href="blog.html?tag=' + encodeURIComponent(tag) + '">#' +
+        escapeHTML(tag) + '</a>';
+    }).join('') + '</div>';
+  }
+
+  // Post bodies are Markdown. The renderer escapes before it marks up, so
+  // this stays safe; if markdown.js is missing, the fallback still escapes
+  // everything itself and simply shows the source syntax.
   function paragraphs(text) {
+    if (window.DURU_MARKDOWN) return window.DURU_MARKDOWN.render(text);
     return String(text || '').split(/\n{2,}/).map(function (block) {
       return '<p>' + escapeHTML(block.trim()).replace(/\n/g, '<br>') + '</p>';
     }).join('');
@@ -80,6 +101,9 @@
 
     var isAdmin = false;
     var activeFilter = 'all';
+    // Set from ?tag= and never changed after load: a tag filter is a
+    // distinct URL, so it stays shareable and survives a reload.
+    var activeTag = new URLSearchParams(location.search).get('tag') || '';
     var posts = [];
 
     /* ---------------- Rendering ---------------- */
@@ -97,13 +121,35 @@
       heroDiv.hidden = !desc;
     }
 
+    function renderTagBanner() {
+      if (!listEl.parentElement) return;
+      var banner = listEl.parentElement.querySelector('.blog-tag-banner');
+      if (!activeTag) { if (banner) banner.remove(); return; }
+      if (!banner) {
+        banner = document.createElement('div');
+        banner.className = 'blog-tag-banner';
+        listEl.parentElement.insertBefore(banner, listEl);
+      }
+      banner.innerHTML =
+        '<span>' + escapeHTML(t('blog.taggedWith', 'Tagged')) + ' <strong>#' +
+          escapeHTML(activeTag) + '</strong></span>' +
+        '<a href="blog.html">' + escapeHTML(t('blog.clearTag', 'Clear')) + '</a>';
+    }
+
     function renderCards() {
       var shown = posts.filter(function (p) {
-        return activeFilter === 'all' || p.category === activeFilter;
+        if (activeFilter !== 'all' && p.category !== activeFilter) return false;
+        if (activeTag) {
+          return (p.tags || []).some(function (tag) {
+            return tag.toLowerCase() === activeTag.toLowerCase();
+          });
+        }
+        return true;
       });
       listEl.innerHTML = '';
       if (emptyEl) emptyEl.hidden = shown.length > 0;
       renderCategoryHero();
+      renderTagBanner();
       shown.forEach(function (p) {
         var card = document.createElement('article');
         card.className = 'blog-card';
@@ -184,6 +230,7 @@
           '</button>' +
         '</div>' +
         '<div class="post-body">' + paragraphs(post.body) + '</div>' +
+        renderTags(post.tags) +
         '<div class="blog-share">' +
           '<span class="blog-share-label">' + escapeHTML(t('blog.share', 'Share this post')) + '</span>' +
           '<div class="blog-share-buttons">' +
@@ -364,6 +411,8 @@
                 }).join('') + '</select></div>' +
               '<div class="auth-field"><label for="postExcerpt"></label>' +
                 '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
+              '<div class="auth-field"><label for="postTags"></label>' +
+                '<input type="text" id="postTags" maxlength="280" placeholder="hangul, beginner"></div>' +
               '<div class="auth-field"><label for="postBody"></label>' +
                 '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
               '<label class="post-publish-row"><input type="checkbox" id="postPublished"> <span id="postPublishedLabel"></span></label>' +
@@ -418,6 +467,7 @@
               title: title,
               category: overlay.querySelector('#postCategory').value,
               excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
+              tags: parseTags(overlay.querySelector('#postTags').value),
               body: body,
               published: overlay.querySelector('#postPublished').checked,
               updated_at: new Date().toISOString()
@@ -440,6 +490,7 @@
       o.querySelector('label[for="postTitle"]').textContent = t('blog.fieldTitle', 'Title');
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
       o.querySelector('label[for="postExcerpt"]').textContent = t('blog.fieldExcerpt', 'Summary (shown on the card)');
+      o.querySelector('label[for="postTags"]').textContent = t('blog.fieldTags', 'Tags (comma separated)');
       o.querySelector('label[for="postBody"]').textContent = t('blog.fieldBody', 'Body');
       o.querySelector('#postPublishedLabel').textContent = t('blog.fieldPublished', 'Publish now (leave off to save as a draft)');
       o.querySelector('#postSubmit').textContent = t('blog.save', 'Save');
@@ -465,6 +516,7 @@
       o.querySelector('#postTitle').value = editing ? editing.title : '';
       o.querySelector('#postCategory').value = editing ? editing.category : 'study';
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
+      o.querySelector('#postTags').value = editing && editing.tags ? editing.tags.join(', ') : '';
       o.querySelector('#postBody').value = editing ? editing.body : '';
       o.querySelector('#postPublished').checked = editing ? !!editing.published : false;
       updatePreview();
@@ -493,6 +545,7 @@
         title: title,
         category: overlay.querySelector('#postCategory').value,
         excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
+        tags: parseTags(overlay.querySelector('#postTags').value),
         body: body,
         published: overlay.querySelector('#postPublished').checked,
       };
@@ -549,7 +602,7 @@
       if (!filtersEl) return;
       filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (btn) {
         var filter = btn.dataset.filter;
-        var count = filter === 'all' ? posts.length : getCategoryCount(filter);
+        var count = filter === 'all' ? posts.length : countByCategory(posts, filter);
         var countEl = btn.querySelector('.filter-count');
         if (!countEl && count > 0) {
           countEl = document.createElement('span');
