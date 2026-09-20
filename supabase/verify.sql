@@ -1,34 +1,56 @@
--- DURU KOREAN — 설치 확인용 조회
+-- DURU KOREAN — post-migration check
 --
--- schema.sql 을 실행한 뒤, 제대로 만들어졌는지 눈으로 확인하는 용도입니다.
--- 아무것도 바꾸지 않고 읽기만 하므로 몇 번을 실행해도 안전합니다.
---
--- 대시보드 → SQL Editor → New query 에 붙여넣고 Run 을 누르세요.
--- 아래 4줄이 나오면 정상입니다.
---
---   테이블                          RLS 보안   정책 수
---   admin_users                     켜짐        1
---   keep_alive                      켜짐        1
---   resources                       켜짐        3
---   storage.objects (파일 저장소)   켜짐        3
---
--- 줄이 빠져 있으면 그 테이블이 안 만들어진 것이고, "RLS 보안"이 꺼짐이면
--- 데이터가 무방비 상태라는 뜻입니다. 둘 중 하나라도 어긋나면
--- schema.sql 을 다시 실행하세요 (몇 번을 실행해도 안전합니다).
+-- Paste this into the Supabase SQL editor after running schema.sql.
+-- Every row should read OK. Any FAIL means schema.sql did not finish —
+-- scroll up in the editor to the first red error and fix that one.
 
+with checks(item, ok) as (
+  values
+    ('posts.tags column',
+     to_regclass('public.posts') is not null and exists (
+       select 1 from information_schema.columns
+       where table_schema='public' and table_name='posts' and column_name='tags')),
+
+    ('resources.category column',
+     to_regclass('public.resources') is not null and exists (
+       select 1 from information_schema.columns
+       where table_schema='public' and table_name='resources' and column_name='category')),
+
+    ('stories.parent_id column (guestbook replies)',
+     to_regclass('public.stories') is not null and exists (
+       select 1 from information_schema.columns
+       where table_schema='public' and table_name='stories' and column_name='parent_id')),
+
+    ('user_roles table',           to_regclass('public.user_roles') is not null),
+    ('follows table',              to_regclass('public.follows') is not null),
+    ('notifications table',        to_regclass('public.notifications') is not null),
+    ('newsletter_subscribers table', to_regclass('public.newsletter_subscribers') is not null),
+
+    ('blog categories updated',
+     exists (select 1 from pg_constraint
+             where conname='posts_category_check'
+               and pg_get_constraintdef(oid) like '%trends%')),
+
+    ('notifications accept replies',
+     exists (select 1 from pg_constraint
+             where conname='notifications_kind_check'
+               and pg_get_constraintdef(oid) like '%reply%')),
+
+    ('find_user_id_by_email function',
+     to_regprocedure('public.find_user_id_by_email(text)') is not null),
+
+    ('reply notification trigger',
+     exists (select 1 from pg_trigger where tgname='stories_notify_followers')),
+
+    ('resources bucket is private',
+     exists (select 1 from storage.buckets where id='resources' and public = false))
+)
 select
-  t.tablename                                   as "테이블",
-  case when t.rowsecurity then '켜짐' else '꺼짐 (문제!)' end as "RLS 보안",
-  (select count(*) from pg_policies p
-    where p.schemaname = 'public' and p.tablename = t.tablename) as "정책 수"
-from pg_tables t
-where t.schemaname = 'public'
-  and t.tablename in ('resources', 'admin_users', 'keep_alive')
-union all
-select
-  'storage.objects (파일 저장소)',
-  '켜짐',
-  (select count(*) from pg_policies
-    where schemaname = 'storage' and tablename = 'objects'
-      and policyname like 'resources bucket%')
-order by 1;
+  case when ok then 'OK   ' else 'FAIL ' end || item as result
+from checks
+order by ok, item;
+
+-- The bucket line is the one exception worth reading twice: it says FAIL
+-- both when the bucket is still public and when no bucket named
+-- "resources" exists yet. Create it under Storage → New bucket with
+-- Public bucket OFF, then run schema.sql again.
