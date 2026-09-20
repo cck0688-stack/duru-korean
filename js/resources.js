@@ -95,16 +95,24 @@
     let isAdmin = false;
     let currentUserId = null;
 
-    function publicUrl(storageKey) {
-      const { data } = client.storage.from(BUCKET).getPublicUrl(storageKey);
-      return data && data.publicUrl;
+    // The bucket is private, so there is no permanent link to render.
+    // A signed URL is minted when the visitor actually clicks, and only
+    // a signed-in session can mint one — the storage policy decides, not
+    // this file hiding a button.
+    const SIGNED_URL_TTL = 300; // seconds
+
+    function signedUrl(storageKey) {
+      return client.storage.from(BUCKET).createSignedUrl(storageKey, SIGNED_URL_TTL)
+        .then(({ data, error }) => {
+          if (error || !data) throw new Error(error ? error.message : 'no url');
+          return data.signedUrl;
+        });
     }
 
     function renderList(resources) {
       listEl.innerHTML = '';
       emptyEl.hidden = resources.length > 0;
       resources.forEach((r) => {
-        const url = publicUrl(r.storage_key);
         const card = document.createElement('div');
         card.className = 'resource-card resource-card--file';
         const descLangLabel = (LANGS.find(l => l.code === r.description_language) || {}).label || r.description_language;
@@ -117,7 +125,9 @@
           ${r.description ? `<p>${escapeHTML(r.description)}</p>` : ''}
           <p class="resource-meta">${metaText}</p>
           <div class="resource-card-actions">
-            ${url ? `<a href="${url}" class="btn btn-ghost" target="_blank" rel="noopener">${escapeHTML(t('resources.download', 'Download →'))}</a>` : `<span class="resource-unavailable">${escapeHTML(t('resources.unavailable', 'No longer available'))}</span>`}
+            ${currentUserId
+              ? `<button type="button" class="btn btn-ghost resource-dl-btn" data-key="${escapeHTML(r.storage_key)}">${escapeHTML(t('resources.download', 'Download →'))}</button>`
+              : `<button type="button" class="btn btn-ghost resource-locked-btn">${escapeHTML(t('resources.loginToDownload', 'Log in to download'))}</button>`}
             ${isAdmin ? `<button type="button" class="resource-delete-btn" data-id="${r.id}" data-title="${escapeHTML(r.title)}" data-key="${escapeHTML(r.storage_key)}" aria-label="${escapeHTML(t('resources.deleteAriaLabel', 'Delete {title}').replace('{title}', r.title))}">${escapeHTML(t('resources.deleteBtn', 'Delete'))}</button>` : ''}
           </div>
         `;
@@ -125,6 +135,28 @@
       });
       listEl.querySelectorAll('.resource-delete-btn').forEach((btn) => {
         btn.addEventListener('click', () => confirmDelete(btn.dataset.id, btn.dataset.title, btn.dataset.key));
+      });
+
+      listEl.querySelectorAll('.resource-locked-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const trigger = document.getElementById('authTrigger');
+          if (trigger) trigger.click();
+        });
+      });
+
+      listEl.querySelectorAll('.resource-dl-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const label = btn.textContent;
+          btn.disabled = true;
+          signedUrl(btn.dataset.key)
+            .then((url) => { window.open(url, '_blank', 'noopener'); })
+            .catch(() => {
+              if (window.DURU_NOTIFY) {
+                window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
+              }
+            })
+            .then(() => { btn.disabled = false; btn.textContent = label; });
+        });
       });
     }
 
@@ -344,7 +376,13 @@
     /* ---------------- Admin check + init ---------------- */
 
     async function checkAdmin(user) {
-      if (!user) { isAdmin = false; currentUserId = null; attachBtn.hidden = true; return; }
+      if (!user) {
+        isAdmin = false;
+        currentUserId = null;
+        attachBtn.hidden = true;
+        loadList();
+        return;
+      }
       currentUserId = user.id;
       const { data } = await client.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
       isAdmin = !!data;

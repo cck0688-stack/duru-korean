@@ -82,14 +82,24 @@ create index if not exists resources_publish_location_idx
 -- 3. Storage bucket + policies
 -- ------------------------------------------------------------------
 -- Create the bucket first from the dashboard: Storage → New bucket →
--- name it exactly "resources" → Public bucket: ON (so download links
--- work for anonymous visitors without a signed URL). Then run the
+-- name it exactly "resources" → Public bucket: OFF. Then run the
 -- policies below (Storage → Policies, or straight from SQL Editor —
 -- both write to storage.objects).
+--
+-- The bucket is private because downloads are for signed-in visitors
+-- only. A public bucket serves every object to anyone holding the URL,
+-- so hiding the download button would have changed nothing: the link is
+-- in the page source either way. Private plus a signed URL means the
+-- link is minted per request, only for a session that has one, and it
+-- expires. This line flips a bucket that was already created as public.
+
+update storage.buckets set public = false where id = 'resources';
 
 drop policy if exists "resources bucket: public read" on storage.objects;
-create policy "resources bucket: public read"
+drop policy if exists "resources bucket: authenticated read" on storage.objects;
+create policy "resources bucket: authenticated read"
   on storage.objects for select
+  to authenticated
   using (bucket_id = 'resources');
 
 drop policy if exists "resources bucket: admin upload" on storage.objects;

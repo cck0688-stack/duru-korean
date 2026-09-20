@@ -462,228 +462,35 @@ section { position: relative; }
 .hero-graphic-top { top: 24px; color: var(--accent); }
 .hero-graphic-bottom { bottom: 24px; color: var(--cream-faint); }
 
-/* ---- Hero: hanji folding-screen scene ---- */
+/* ---- Hero: the folding-screen photograph ---- */
 
-.hanji-scene {
-  position: relative;
-  width: min(560px, 100%);
-  max-height: 100%;
-  aspect-ratio: 1 / 1.02;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  --hanji: #e9e0cc;
-  --hanji-edge: #cbbfa4;
-  --wood: #402c1e;
-}
-
-/* --- the three screens --- */
-
-.scene-screens {
-  position: relative;
-  height: 74%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 2;
-}
-
-.screen {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* The panel is taller than the picture, so cropping to fill would cut
+   the books and the SEOUL line off the right edge. The whole frame is
+   shown instead, and the bands above and below are painted in the
+   picture's own wall and floor tones (sampled #141f18 / #131313) so the
+   join is invisible rather than letterboxed. */
+.hero-graphic {
+  padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(20, 14, 8, 0.45);
-  box-shadow: 0 16px 34px -20px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(180deg, #141f18 0%, #141f18 52%, #131313 100%);
 }
 
-/* Folded side panels are turned a little so the three read as one
-   hinged screen rather than three flat boards. */
-.screen-side {
-  width: 24.5%;
-  height: 87%;
-  color: #6d6350;
-  background:
-    repeating-linear-gradient(90deg, rgba(160,145,115,.13) 0 1px, transparent 1px 33.33%),
-    linear-gradient(160deg, #f1e9d6 0%, var(--hanji) 45%, #ddd2b8 100%);
-}
-.screen-left {
-  transform: perspective(1000px) rotateY(15deg);
-  transform-origin: right center;
-}
-.screen-right {
-  transform: perspective(1000px) rotateY(-15deg);
-  transform-origin: left center;
-}
-
-.screen-center {
-  width: 30%;
+.hero-scene {
+  display: block;
+  width: 100%;
   height: 100%;
-  z-index: 1;
-  border-color: rgba(190, 160, 110, 0.3);
-  background:
-    repeating-linear-gradient(90deg, rgba(0,0,0,.14) 0 1px, transparent 1px 50%),
-    linear-gradient(160deg, #2a6151 0%, #1e5142 52%, #143d33 100%);
+  object-fit: contain;
+  object-position: 50% 100%;
 }
 
-.screen-letters,
-.vowel-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.screen-letters {
-  margin-top: 9%;
-  gap: clamp(7px, 1.5vw, 13px);
-  font-size: clamp(13px, 2.3vw, 19px);
-  color: #3a332a;
-}
-
-.screen-ink {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 30%;
-  filter: blur(0.4px);
-}
-
-.hanji-seal {
-  margin-top: 8%;
-  padding: 4px 9px;
-  background: var(--accent-red);
-  color: #fdf8f4;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: clamp(8px, 1.35vw, 11.5px);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px -3px rgba(0, 0, 0, 0.6);
-}
-
-.screen-vowels {
-  display: flex;
-  gap: clamp(12px, 2.6vw, 24px);
-  margin-top: 11%;
-}
-.vowel-col {
-  gap: clamp(7px, 1.5vw, 13px);
-  font-size: clamp(12px, 2.1vw, 17px);
-  color: rgba(244, 239, 226, 0.82);
-}
-
-/* --- objects resting on the table top --- */
-
-.scene-vase,
-.scene-objects {
-  position: absolute;
-  bottom: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-.scene-vase {
-  left: 0;
-  width: 14%;
-  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.55));
-}
-.scene-vase svg { width: 100%; height: auto; display: block; }
-
-.scene-objects {
-  right: 0;
-  width: 15%;
-  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.55));
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-}
-.scene-incense { width: 58%; height: auto; display: block; }
-
-.scene-books {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 2px;
-}
-.book {
-  font-size: clamp(5px, 0.92vw, 7.5px);
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  color: rgba(244, 239, 226, 0.72);
-  padding: 3px 5px;
-  border-radius: 1px;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.book-1 { background: #6b4230; width: 100%; }
-.book-2 { background: #2f4a3f; width: 92%; align-self: flex-end; }
-.book-3 { background: #4a3a52; width: 84%; align-self: flex-end; }
-
-/* --- the antique table --- */
-
-.scene-table {
-  position: relative;
-  height: 26%;
-  z-index: 1;
-}
-.table-top {
-  height: 9%;
-  background: linear-gradient(180deg, #5a4029 0%, #3e2a1b 100%);
-  border-radius: 2px 2px 0 0;
-  box-shadow: 0 -2px 10px -4px rgba(0, 0, 0, 0.8);
-}
-.table-body {
-  height: 62%;
-  margin: 0 4%;
-  background: linear-gradient(180deg, #3b2819 0%, #2a1c11 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.table-drawer {
-  width: 62%;
-  height: 58%;
-  border: 1px solid rgba(255, 225, 185, 0.12);
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, rgba(255,225,185,.05), transparent);
-}
-.table-handle {
-  width: clamp(11px, 2.1vw, 17px);
-  aspect-ratio: 1;
-  border: 2px solid #b08a4a;
-  border-radius: 50%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-.table-leg {
-  position: absolute;
-  bottom: 0;
-  width: 5%;
-  height: 29%;
-  background: linear-gradient(180deg, #2a1c11, #1d130b);
-}
-.table-leg-l { left: 4%; }
-.table-leg-r { right: 4%; }
-
-/* Below the tablet breakpoint the scene stacks under the copy, so it
-   is capped to keep the first screen from pushing the headline off. */
+/* Stacked under the copy below the tablet breakpoint, where the panel
+   can simply take the picture's own proportions and show it whole. */
 @media (max-width: 980px) {
-  .hanji-scene { width: min(420px, 100%); }
-}
-@media (max-width: 720px) {
-  .hanji-scene { width: min(340px, 100%); }
-  .scene-vase { width: 15%; }
-  .scene-objects { width: 17%; }
+  .hero-graphic {
+    aspect-ratio: 708 / 716;
+    align-self: start;
+  }
+  .hero-scene { object-fit: cover; object-position: 50% 50%; }
 }
 
 .hero-cta {
