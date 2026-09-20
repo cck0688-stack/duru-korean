@@ -97,9 +97,11 @@
         a.dataset.id = row.id;
         a.innerHTML =
           '<span class="notify-kind">' +
-            escapeHTML(row.kind === 'story'
-              ? t('notify.newStory', 'New story')
-              : t('notify.newPost', 'New post')) +
+            escapeHTML(row.kind === 'reply'
+              ? t('notify.newReply', 'New reply')
+              : row.kind === 'story'
+                ? t('notify.newStory', 'New story')
+                : t('notify.newPost', 'New post')) +
           '</span>' +
           '<span class="notify-text">' + escapeHTML(row.title) + '</span>';
         a.addEventListener('click', function () {

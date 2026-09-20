@@ -292,7 +292,10 @@
       setLoading(btn, true, 'auth.signupSubmit', 'Create account');
       const { data, error } = await client.auth.signUp({
         email, password,
-        options: { emailRedirectTo: REDIRECT_URL },
+        options: {
+          emailRedirectTo: REDIRECT_URL,
+          data: { nickname: nickname },
+        },
       });
       setLoading(btn, false, 'auth.signupSubmit', 'Create account');
       if (error) { setMessage('signup', 'error', friendlyError(error)); return; }
@@ -368,6 +371,9 @@
     // better than a flash of the full address, which is not theirs to
     // show to whoever is looking over their shoulder.
     function displayName(user) {
+      const meta = user.user_metadata || {};
+      const nick = (meta.nickname || meta.full_name || meta.name || '').trim();
+      if (nick) return nick;
       return (user.email || '').split('@')[0] || '?';
     }
 

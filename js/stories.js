@@ -21,6 +21,15 @@
     return translated === key ? fallback : translated;
   }
 
+  // "schema cache" in a PostgREST error means a column the page expects
+  // is not in the database yet — the migration has not been run.
+  function schemaHint(msg) {
+    msg = String(msg || '');
+    return /schema cache/i.test(msg)
+      ? msg + ' — ' + t('common.schemaHint', 'The database has not been updated yet. Run supabase/schema.sql in the Supabase SQL editor, then try again.')
+      : msg;
+  }
+
   function escapeHTML(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -63,6 +72,46 @@
 
     /* ---------------- Rendering ---------------- */
 
+    // Replies grouped by the entry they answer, oldest first.
+    var repliesByParent = Object.create(null);
+
+    function actionsHTML(row, mine) {
+      if (!currentUser) return '';
+      return '<div class="story-actions">' +
+        (!row.parent_id
+          ? '<button type="button" class="story-reply-btn" data-id="' + row.id + '">' +
+              escapeHTML(t('stories.reply', 'Reply')) + '</button>'
+          : '') +
+        (mine ? '<button type="button" class="story-edit-btn" data-id="' + row.id + '">' +
+              escapeHTML(t('stories.edit', 'Edit')) + '</button>' : '') +
+        ((mine || isAdmin) ? '<button type="button" class="story-delete-btn" data-id="' + row.id + '">' +
+              escapeHTML(t('stories.delete', 'Delete')) + '</button>' : '') +
+      '</div>';
+    }
+
+    function repliesHTML(parent) {
+      var list = repliesByParent[parent.id] || [];
+      if (!list.length) return '';
+      var label = list.length === 1
+        ? t('stories.oneReply', '1 reply')
+        : t('stories.replies', '{n} replies').replace('{n}', list.length);
+      return '<div class="story-replies">' +
+        '<span class="story-replies-label">' + escapeHTML(label) + '</span>' +
+        list.map(function (r) {
+          var mine = currentUser && r.user_id === currentUser.id;
+          return '<div class="story-reply">' +
+            '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(r.display_name)) + '</span>' +
+            '<div>' +
+              '<div class="story-reply-head"><strong>' + escapeHTML(r.display_name) + '</strong>' +
+                '<p class="story-meta">' + escapeHTML(formatDate(r.created_at)) + '</p></div>' +
+              '<div class="story-body">' + paragraphs(r.body) + '</div>' +
+              actionsHTML(r, mine) +
+            '</div>' +
+          '</div>';
+        }).join('') +
+      '</div>';
+    }
+
     function renderList() {
       listEl.innerHTML = '';
       if (emptyEl) emptyEl.hidden = stories.length > 0;
@@ -75,23 +124,14 @@
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(s.display_name)) + '</span>' +
             '<div><h3>' + escapeHTML(s.display_name) + '</h3>' +
             '<p class="story-meta">' + escapeHTML(formatDate(s.created_at)) + '</p></div>' +
-            ((currentUser && !mine)
-              ? '<button type="button" class="follow-btn' + (following[s.user_id] ? ' is-following' : '') +
-                '" data-author="' + escapeHTML(s.user_id) + '">' +
-                escapeHTML(following[s.user_id]
-                  ? t('stories.following', 'Following')
-                  : t('stories.follow', 'Follow')) + '</button>'
-              : '') +
           '</div>' +
           '<div class="story-body">' + paragraphs(s.body) + '</div>' +
-          ((mine || isAdmin) ? '<div class="story-actions">' +
-            (mine ? '<button type="button" class="story-edit-btn" data-id="' + s.id + '">' + escapeHTML(t('stories.edit', 'Edit')) + '</button>' : '') +
-            '<button type="button" class="story-delete-btn" data-id="' + s.id + '">' + escapeHTML(t('stories.delete', 'Delete')) + '</button>' +
-            '</div>' : '');
+          actionsHTML(s, mine) +
+          repliesHTML(s);
         listEl.appendChild(card);
       });
-      listEl.querySelectorAll('.follow-btn').forEach(function (b) {
-        b.addEventListener('click', function () { toggleFollow(b.dataset.author, b); });
+      listEl.querySelectorAll('.story-reply-btn').forEach(function (b) {
+        b.addEventListener('click', function () { openReply(find(b.dataset.id)); });
       });
       listEl.querySelectorAll('.story-edit-btn').forEach(function (b) {
         b.addEventListener('click', function () { openEditor(find(b.dataset.id)); });
@@ -101,47 +141,10 @@
       });
     }
 
-    // Who the signed-in reader already follows, so each card knows which
-    // label to show without a query per card.
-    var following = Object.create(null);
-
-    function loadFollowing() {
-      if (!currentUser) { following = Object.create(null); return Promise.resolve(); }
-      return client.from('follows').select('following_id')
-        .eq('follower_id', currentUser.id)
-        .then(function (res) {
-          following = Object.create(null);
-          (res.data || []).forEach(function (r) { following[r.following_id] = true; });
-        });
-    }
-
-    function toggleFollow(authorId, btn) {
-      if (!currentUser) return;
-      btn.disabled = true;
-      var done;
-      if (following[authorId]) {
-        done = client.from('follows').delete()
-          .eq('follower_id', currentUser.id).eq('following_id', authorId);
-      } else {
-        done = client.from('follows')
-          .insert({ follower_id: currentUser.id, following_id: authorId });
-      }
-      done.then(function (res) {
-        btn.disabled = false;
-        if (res.error) {
-          if (window.DURU_NOTIFY) window.DURU_NOTIFY.error(res.error.message);
-          return;
-        }
-        following[authorId] = !following[authorId];
-        btn.textContent = following[authorId]
-          ? t('stories.following', 'Following')
-          : t('stories.follow', 'Follow');
-        btn.classList.toggle('is-following', following[authorId]);
-      });
-    }
-
     function find(id) {
-      return stories.filter(function (s) { return String(s.id) === String(id); })[0];
+      var all = stories.slice();
+      Object.keys(repliesByParent).forEach(function (k) { all = all.concat(repliesByParent[k]); });
+      return all.filter(function (s) { return String(s.id) === String(id); })[0];
     }
 
     function loadStories() {
@@ -149,10 +152,19 @@
         .order('created_at', { ascending: false }).limit(PAGE_SIZE)
         .then(function (res) {
           if (res.error) { console.error('Failed to load stories:', res.error.message); return; }
-          stories = res.data || [];
-          // Follow state has to be in hand before the cards render, or
-          // every button would first paint as "Follow".
-          return loadFollowing().then(renderList);
+          var rows = res.data || [];
+          // One query, split here: entries newest first, replies under
+          // their entry oldest first. A row with no parent_id — which is
+          // every row from before the column existed — is an entry, so
+          // the page keeps working until the migration has been run.
+          stories = rows.filter(function (r) { return !r.parent_id; });
+          repliesByParent = Object.create(null);
+          rows.filter(function (r) { return r.parent_id; })
+            .sort(function (a, b) { return new Date(a.created_at) - new Date(b.created_at); })
+            .forEach(function (r) {
+              (repliesByParent[r.parent_id] = repliesByParent[r.parent_id] || []).push(r);
+            });
+          renderList();
         });
     }
 
@@ -160,6 +172,7 @@
 
     var overlay = null;
     var editing = null;
+    var replyTo = null;
     var saving = false;
 
     function buildEditor() {
@@ -199,11 +212,16 @@
     function labelEditor() {
       var o = buildEditor();
       o.querySelector('#storyEditorTitle').textContent = editing
-        ? t('stories.editorEditTitle', 'Edit your story') : t('stories.editorNewTitle', 'Share your story');
+        ? t('stories.editorEditTitle', 'Edit your story')
+        : replyTo
+          ? t('stories.editorReplyTitle', 'Write a reply')
+          : t('stories.editorNewTitle', 'Share your story');
       o.querySelector('#storyEditorSub').textContent =
         t('stories.editorSub', 'Your email address is never shown — only the name you choose here.');
       o.querySelector('label[for="storyName"]').textContent = t('stories.fieldName', 'Name to show');
-      o.querySelector('label[for="storyBody"]').textContent = t('stories.fieldBody', 'Your story');
+      o.querySelector('label[for="storyBody"]').textContent = replyTo
+        ? t('stories.fieldReply', 'Your reply')
+        : t('stories.fieldBody', 'Your story');
       o.querySelector('#storySubmit').textContent = t('stories.post', 'Post');
       updateCount();
     }
@@ -218,6 +236,7 @@
     function openEditor(story) {
       if (!currentUser) { openLogin(); return; }
       editing = story || null;
+      replyTo = editing && editing.parent_id ? { id: editing.parent_id } : null;
       var o = buildEditor();
       labelEditor();
       o.querySelector('[data-msg="story"]').hidden = true;
@@ -231,13 +250,31 @@
     function closeEditor() {
       if (overlay) overlay.hidden = true;
       editing = null;
+      replyTo = null;
+    }
+
+    function openReply(parent) {
+      if (!parent) return;
+      openEditor(null);
+      if (!currentUser) return;
+      replyTo = parent;
+      labelEditor();
+      overlay.querySelector('#storyEditorSub').textContent =
+        t('stories.replyTo', 'Reply to {name}').replace('{name}', parent.display_name);
+      overlay.querySelector('#storyBody').focus();
     }
 
     // Remember the display name locally so a returning writer doesn't have
     // to retype it. It is a convenience on this device only — the name that
     // counts is the one saved on each story.
     function lastUsedName() {
-      try { return localStorage.getItem('duru_story_name') || ''; } catch (e) { return ''; }
+      var remembered = '';
+      try { remembered = localStorage.getItem('duru_story_name') || ''; } catch (e) { remembered = ''; }
+      if (remembered) return remembered;
+      // First time on this device: start from the account's nickname, so
+      // a reply does not stall on an empty name field.
+      var meta = (currentUser && currentUser.user_metadata) || {};
+      return (meta.nickname || '').trim();
     }
     function rememberName(name) {
       try { localStorage.setItem('duru_story_name', name); } catch (e) {}
@@ -250,23 +287,32 @@
       var name = overlay.querySelector('#storyName').value.trim();
       var body = overlay.querySelector('#storyBody').value.trim();
       if (!name) { setMsg('error', t('stories.errNoName', 'Please enter a name to show.')); return; }
-      if (!body) { setMsg('error', t('stories.errNoBody', 'Please write your story first.')); return; }
+      if (!body) {
+        setMsg('error', replyTo
+          ? t('stories.errReplyNoBody', 'Please write your reply first.')
+          : t('stories.errNoBody', 'Please write your story first.'));
+        return;
+      }
 
       saving = true;
       var btn = overlay.querySelector('#storySubmit');
       btn.disabled = true;
       btn.textContent = t('stories.saving', 'Posting…');
 
+      // parent_id is sent only for a reply, so a plain entry still saves
+      // on a database that has not been migrated yet.
+      var row = { user_id: currentUser.id, display_name: name, body: body };
+      if (replyTo) row.parent_id = replyTo.id;
       var op = editing
         ? client.from('stories').update({ display_name: name, body: body, updated_at: new Date().toISOString() }).eq('id', editing.id)
-        : client.from('stories').insert({ user_id: currentUser.id, display_name: name, body: body });
+        : client.from('stories').insert(row);
 
       op.then(function (res) {
         saving = false;
         btn.disabled = false;
         btn.textContent = t('stories.post', 'Post');
         if (res.error) {
-          setMsg('error', t('stories.errSaveFailed', 'Couldn’t post: {msg}').replace('{msg}', res.error.message));
+          setMsg('error', t('stories.errSaveFailed', 'Couldn’t post: {msg}').replace('{msg}', schemaHint(res.error.message)));
           return;
         }
         rememberName(name);
