@@ -558,11 +558,12 @@
   "admin.removeSubscriber": "Remove",
   "admin.subscribersNote": "Addresses from the \"in your inbox\" forms. Sending mail needs a mail provider wired to an Edge Function; this is the list it would read.",
   "common.schemaHint": "The database has not been updated yet. Run supabase/schema.sql in the Supabase SQL editor, then try again.",
-  "hero.meaning": "‘두루’ means widely, all around — Hangul for everyone, everywhere.",
   "hero.path.guestbook.title": "Guestbook",
   "hero.path.guestbook.desc": "Say hello, share how your Korean is going, and read notes from learners around the world.",
   "footer.learning": "Learning",
   "footer.sharing": "Sharing",
   "stories.onlyAuthorEdit": "Only the person who wrote this can edit it.",
-  "stories.onlyAuthorDelete": "Only the person who wrote this or a site admin can delete it."
+  "stories.onlyAuthorDelete": "Only the person who wrote this or a site admin can delete it.",
+  "footer.visitorsTotal": "Total visitors",
+  "footer.visitorsToday": "Today"
 }

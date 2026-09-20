@@ -558,11 +558,12 @@
   "admin.removeSubscriber": "Xóa",
   "admin.subscribersNote": "Địa chỉ từ các biểu mẫu \"nhận qua email\". Việc gửi thư cần một nhà cung cấp email nối với Edge Function; đây là danh sách sẽ được dùng.",
   "common.schemaHint": "Cơ sở dữ liệu chưa được cập nhật. Hãy chạy supabase/schema.sql trong SQL editor của Supabase rồi thử lại.",
-  "hero.meaning": "‘두루’ nghĩa là rộng khắp, mọi nơi — Hangul dành cho mọi người, ở bất cứ đâu.",
   "hero.path.guestbook.title": "Sổ lưu bút",
   "hero.path.guestbook.desc": "Gửi lời chào, chia sẻ hành trình học tiếng Hàn của bạn và đọc lời nhắn từ người học khắp nơi.",
   "footer.learning": "Học tập",
   "footer.sharing": "Chia sẻ",
   "stories.onlyAuthorEdit": "Chỉ người viết mới có thể chỉnh sửa.",
-  "stories.onlyAuthorDelete": "Chỉ người viết hoặc quản trị viên trang web mới có thể xóa."
+  "stories.onlyAuthorDelete": "Chỉ người viết hoặc quản trị viên trang web mới có thể xóa.",
+  "footer.visitorsTotal": "Tổng lượt truy cập",
+  "footer.visitorsToday": "Hôm nay"
 }

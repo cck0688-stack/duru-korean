@@ -354,7 +354,6 @@ section { position: relative; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
-  min-height: calc(100svh - var(--header-h));
 }
 
 .hero-text {
@@ -425,140 +424,41 @@ section { position: relative; }
 }
 .btn-outline-dark:hover { border-color: var(--ink); }
 
-.hero-graphic {
-  position: relative;
-  background: radial-gradient(120% 120% at 50% 0%, var(--bg-soft) 0%, var(--bg) 55%, var(--bg-deep) 100%);
-  color: var(--cream);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 36px;
-}
-
-.hero-graphic-top,
-.hero-graphic-bottom {
-  position: absolute;
-  left: 32px;
-  right: 32px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.hero-graphic-top { top: 24px; color: var(--accent); }
-.hero-graphic-bottom { bottom: 24px; color: var(--cream-faint); }
-
 /* ---- Hero: the folding-screen photograph ---- */
 
+/* The photograph is sized from the cards beside it, not the viewport:
+   the frame is pinned to the same top and bottom offsets as the text
+   column's padding, so its bottom edge lands level with the last card and
+   nothing of it hides below the fold. */
 .hero-graphic {
-  padding: 28px 0;
-  overflow: hidden;
-  background: linear-gradient(180deg, #141f18 0%, #141f18 52%, #131313 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Sized to the photograph's own ratio so the crisp captions below can be
-   placed as percentages of it and stay locked to the seal and the book
-   spines at every width. The panel is taller, and the band left above is
-   painted in the picture's wall tone so the join is invisible. */
-.hero-frame {
   position: relative;
-  flex: none;
-  width: min(78%, calc(100svh - var(--header-h) - 56px));
-  aspect-ratio: 1410 / 1408;
-  container-type: inline-size;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1b2f26 0%, #13261c 55%, #0b1711 100%);
+  min-height: 0;
 }
 
-/* The wall above the screens is empty: the line about the name goes
-   there, set in the photograph's own cream so it reads as part of it. */
-.hero-caption {
+.hero-frame {
   position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 4.27%;
-  margin: 0;
-  text-align: center;
-  color: rgba(244, 239, 226, 0.88);
-  font-family: 'Noto Sans KR', 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 2.2cqw;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0.2cqw 0.8cqw rgba(0, 0, 0, 0.45);
+  top: 34px;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-scene {
   display: block;
-  width: 100%;
   height: 100%;
-}
-
-/* The photograph's own lettering is soft — it was painted at a size no
-   upscale can recover, and the brush forms are not the block script this
-   wants. These repaint those four patches in the surfaces' sampled
-   colours and set the text as real type, so it stays sharp at any zoom.
-   Positions are measured from the source image; cqw keeps them in step. */
-.hero-seal,
-.hero-book {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  overflow: hidden;
-  user-select: none;
-}
-
-.hero-seal {
-  left: 45.67%;
-  top: 18.61%;
-  width: 17.17%;
-  height: 4.02%;
-  border-radius: 0.35cqw;
-  background: linear-gradient(95deg, #8a4636 0%, #904937 50%, #8d4638 100%);
-  box-shadow: inset 0 0 0 0.18cqw rgba(38, 14, 9, 0.55),
-              0 0.15cqw 0.5cqw rgba(0, 0, 0, 0.45);
-  color: #f7ede4;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 700;
-  font-size: 2.3cqw;
-  letter-spacing: 0.02em;
-}
-
-.hero-book {
-  right: 0;
-  color: #3f2c1f;
-  font-family: 'Inter', Georgia, 'Times New Roman', serif;
-  font-weight: 500;
-  font-size: 1.62cqw;
-  letter-spacing: 0.13em;
-  padding-right: 1.6cqw;
-}
-.hero-book-1 {
-  top: 67.12%;
-  width: 17.37%;
-  height: 3.05%;
-  background: linear-gradient(90deg, #ab9079 0%, #a2896f 55%, #9f846b 100%);
-}
-.hero-book-2 {
-  top: 71.5%;
-  width: 17.27%;
-  height: 2.75%;
-  background: linear-gradient(90deg, #a0856f 0%, #9d826c 55%, #987d66 100%);
-}
-.hero-book-3 {
-  top: 75.36%;
-  width: 17.37%;
-  height: 2.75%;
-  background: linear-gradient(90deg, #a2866f 0%, #9d8169 55%, #997d66 100%);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 @media (max-width: 980px) {
-  .hero-graphic { aspect-ratio: 1410 / 1408; align-self: start; }
+  .hero-graphic { aspect-ratio: 1 / 1; align-self: start; padding: 0; min-height: 0; }
+  .hero-frame { top: 0; bottom: 0; }
 }
 
 .hero-cta {
@@ -1132,6 +1032,8 @@ section { position: relative; }
   gap: 12px;
 }
 .footer-bottom .socials { display: flex; gap: 16px; }
+.footer-visits { display: inline-flex; gap: 14px; }
+.footer-visits b { color: var(--cream-dim); font-weight: 600; }
 
 
 /* ---------- Responsive ---------- */
@@ -1141,7 +1043,7 @@ section { position: relative; }
   .split-visual { order: -1; }
   .hero-grid { min-height: auto; }
   .hero-text { padding: 44px 40px 48px; order: 2; }
-  .hero-graphic { min-height: 460px; padding: 48px 32px; order: 1; }
+  .hero-graphic { order: 1; }
   .path-row { grid-template-columns: repeat(2, 1fr); row-gap: 26px; }
   .path-step { border-left: none; padding-left: 0; }
   .footer-top { grid-template-columns: repeat(3, 1fr); }
@@ -1214,8 +1116,6 @@ section { position: relative; }
   .newsletter-form input { flex-grow: 1; }
   .section { padding: 60px 0; }
   .hero-text { padding: 40px 24px 40px; }
-  .hero-graphic { min-height: 400px; padding: 40px 24px; }
-  .hero-graphic-top, .hero-graphic-bottom { left: 20px; right: 20px; font-size: 9px; }
   .page-hero-mark { display: none; }
   .hero-why-list { grid-template-columns: 1fr; gap: 12px; }
   .section-after-hero { padding-top: 24px; }

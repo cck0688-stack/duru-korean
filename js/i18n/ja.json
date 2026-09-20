@@ -558,11 +558,12 @@
   "admin.removeSubscriber": "削除",
   "admin.subscribersNote": "「メールで受け取る」フォームからのアドレスです。実際の送信にはメールサービスと Edge Function の接続が必要で、これがその送信先リストになります。",
   "common.schemaHint": "データベースがまだ更新されていません。Supabase の SQL エディタで supabase/schema.sql を実行してから再試行してください。",
-  "hero.meaning": "「두루（トゥル）」は「広く、あまねく」の意味 — 誰でも、どこでも学べるハングル。",
   "hero.path.guestbook.title": "芳名録",
   "hero.path.guestbook.desc": "ひとこと残して、韓国語学習の様子を共有し、世界中の学習者のメッセージを読んでみましょう。",
   "footer.learning": "学ぶ",
   "footer.sharing": "共有",
   "stories.onlyAuthorEdit": "編集できるのは書いた本人だけです。",
-  "stories.onlyAuthorDelete": "削除できるのは書いた本人またはサイト管理者だけです。"
+  "stories.onlyAuthorDelete": "削除できるのは書いた本人またはサイト管理者だけです。",
+  "footer.visitorsTotal": "総訪問数",
+  "footer.visitorsToday": "今日"
 }

@@ -1,7 +1,7 @@
 -- DURU KOREAN — post-migration check
 --
 -- Paste this into the Supabase SQL editor after running schema.sql.
--- Every row should read OK. Any FAIL means schema.sql did not finish —
+-- Every row (14 of them) should read OK. Any FAIL means schema.sql did not finish —
 -- scroll up in the editor to the first red error and fix that one.
 
 with checks(item, ok) as (
@@ -22,6 +22,11 @@ with checks(item, ok) as (
        where table_schema='public' and table_name='stories' and column_name='parent_id')),
 
     ('user_roles table',           to_regclass('public.user_roles') is not null),
+    ('visitor_logs table',         to_regclass('public.visitor_logs') is not null),
+
+    ('visitor counts function (footer)',
+     to_regprocedure('public.get_visitor_counts()') is not null),
+
     ('follows table',              to_regclass('public.follows') is not null),
     ('notifications table',        to_regclass('public.notifications') is not null),
     ('newsletter_subscribers table', to_regclass('public.newsletter_subscribers') is not null),

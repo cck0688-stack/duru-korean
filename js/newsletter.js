@@ -5,6 +5,12 @@
 // select policy is admin-only, so a visitor can add an address but
 // never read the list. Delivery is a separate concern: this stores the
 // list a mail provider would read.
+//
+// The site owner also hears about each new address by email, through
+// FormSubmit's AJAX endpoint. It needs no key: the first submission
+// sends an activation link to OWNER_EMAIL, and notifications flow once
+// that link has been clicked. It is best-effort — a failure here never
+// turns a successful sign-up into an error for the visitor.
 
 (function () {
   'use strict';
@@ -13,6 +19,24 @@
     if (!window.DURU_I18N) return fallback;
     var translated = window.DURU_I18N.t(key);
     return translated === key ? fallback : translated;
+  }
+
+  var OWNER_EMAIL = 'cck0688@gmail.com';
+
+  function notifyOwner(email, source) {
+    if (typeof fetch !== 'function') return;
+    fetch('https://formsubmit.co/ajax/' + OWNER_EMAIL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'New Duru Korean subscriber: ' + email,
+        _template: 'table',
+        _captcha: 'false',
+        email: email,
+        page: source,
+        time: new Date().toISOString()
+      })
+    }).catch(function () {});
   }
 
   function setNote(form, text, kind) {
@@ -52,9 +76,10 @@
 
         var label = button.textContent;
         button.disabled = true;
+        var source = location.pathname.split('/').pop() || 'index.html';
 
         client.from('newsletter_subscribers')
-          .insert({ email: email, source: location.pathname.split('/').pop() || 'index.html' })
+          .insert({ email: email, source: source })
           .then(function (res) {
             button.disabled = false;
             button.textContent = label;
@@ -68,6 +93,7 @@
               return;
             }
             input.value = '';
+            notifyOwner(email, source);
             setNote(form, t('newsletter.thanks', 'Thanks — you are on the list.'), 'success');
           });
       });

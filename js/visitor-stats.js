@@ -8,8 +8,8 @@
 (function () {
   'use strict';
 
-  // visitor_logs holds one row per fingerprint per day, so distinct
-  // fingerprints have to be counted over the fetched column. This caps
+  // visitor_logs holds one row per page view, so distinct fingerprints
+  // have to be counted over the fetched column. This caps
   // how many are pulled, since the figure is a headline, not a ledger.
   var DISTINCT_SCAN_LIMIT = 50000;
 
@@ -31,8 +31,9 @@
     var client = window.DURU_SUPABASE_CLIENT;
     if (!client) return;
 
+    // The database stamps visited_date in Korean time; ask for the same day.
     function today() {
-      return new Date().toISOString().split('T')[0];
+      return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
     }
 
     function loadStats() {

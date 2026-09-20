@@ -558,11 +558,12 @@
   "admin.removeSubscriber": "삭제",
   "admin.subscribersNote": "\"이메일로 받기\" 폼에 입력된 주소입니다. 실제 발송은 메일 서비스와 Edge Function 연결이 필요하며, 이 목록이 그 발송 대상입니다.",
   "common.schemaHint": "데이터베이스가 아직 업데이트되지 않았습니다. Supabase SQL 편집기에서 supabase/schema.sql을 실행한 뒤 다시 시도하세요.",
-  "hero.meaning": "‘두루’는 널리, 빠짐없이라는 뜻 — 누구나, 어디서나 배우는 한글입니다.",
   "hero.path.guestbook.title": "방명록",
   "hero.path.guestbook.desc": "인사를 남기고, 한국어 공부 이야기를 나누고, 세계 곳곳 학습자들의 글을 읽어 보세요.",
   "footer.learning": "학습",
   "footer.sharing": "나눔",
   "stories.onlyAuthorEdit": "작성자만 수정할 수 있습니다.",
-  "stories.onlyAuthorDelete": "작성자 또는 사이트 관리자만 삭제할 수 있습니다."
+  "stories.onlyAuthorDelete": "작성자 또는 사이트 관리자만 삭제할 수 있습니다.",
+  "footer.visitorsTotal": "총 방문",
+  "footer.visitorsToday": "오늘"
 }

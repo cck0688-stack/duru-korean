@@ -285,14 +285,15 @@ create policy "user_profiles: self update"
 -- ------------------------------------------------------------------
 -- 8. visitor_logs — track daily visitors for analytics
 -- ------------------------------------------------------------------
--- Records one entry per unique visitor per day. Uses hashed fingerprint
--- instead of IP addresses to avoid privacy/GDPR issues. Entries auto-delete
--- after 90 days via a scheduled job (Supabase Functions + pg_cron).
+-- Records one row per page view, so a returning visitor counts again.
+-- Uses a hashed fingerprint instead of IP addresses to avoid privacy
+-- concerns. visited_date is stamped here in Korean time so "today" is
+-- the same day for every visitor, whatever their own clock says.
 
 create table if not exists public.visitor_logs (
   id uuid primary key default gen_random_uuid(),
   visitor_fingerprint text not null,
-  visited_date date not null,
+  visited_date date not null default (now() at time zone 'Asia/Seoul')::date,
   page_path text,
   created_at timestamptz not null default now()
 );
@@ -315,6 +316,20 @@ create index if not exists visitor_logs_date_idx
   on public.visitor_logs (visited_date desc);
 create index if not exists visitor_logs_fingerprint_date_idx
   on public.visitor_logs (visitor_fingerprint, visited_date);
+
+alter table public.visitor_logs
+  alter column visited_date set default (now() at time zone 'Asia/Seoul')::date;
+
+-- The footer shows the running total and today's visits to everyone.
+-- The rows stay admin-only; this hands out just the two numbers.
+create or replace function public.get_visitor_counts()
+returns table (total_visits bigint, today_visits bigint)
+language sql stable security definer set search_path = public as $$
+  select count(*)::bigint,
+         count(*) filter (where visited_date = (now() at time zone 'Asia/Seoul')::date)::bigint
+  from public.visitor_logs;
+$$;
+grant execute on function public.get_visitor_counts() to anon, authenticated;
 
 -- ------------------------------------------------------------------
 -- 9. content_likes — tracks likes on posts and stories

@@ -558,11 +558,12 @@
   "admin.removeSubscriber": "删除",
   "admin.subscribersNote": "来自\"发送到邮箱\"表单的地址。实际发信需要邮件服务商接入 Edge Function，这里就是它会读取的名单。",
   "common.schemaHint": "数据库尚未更新。请在 Supabase SQL 编辑器中运行 supabase/schema.sql 后重试。",
-  "hero.meaning": "“두루”意为广泛、周全 —— 让每个人在任何地方都能学习韩文字母。",
   "hero.path.guestbook.title": "留言簿",
   "hero.path.guestbook.desc": "留下问候，分享你的韩语学习近况，读读世界各地学习者的留言。",
   "footer.learning": "学习",
   "footer.sharing": "分享",
   "stories.onlyAuthorEdit": "只有作者本人可以编辑。",
-  "stories.onlyAuthorDelete": "只有作者本人或网站管理员可以删除。"
+  "stories.onlyAuthorDelete": "只有作者本人或网站管理员可以删除。",
+  "footer.visitorsTotal": "总访问量",
+  "footer.visitorsToday": "今日"
 }
