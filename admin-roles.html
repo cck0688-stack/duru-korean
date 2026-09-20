@@ -82,6 +82,22 @@
           <div id="adminList" class="admin-list"></div>
           <p id="adminEmpty" hidden data-i18n="admin.noAdmins">No admin users yet.</p>
         </div>
+
+        <div class="admin-section">
+          <h2 data-i18n="admin.roles">Role tiers</h2>
+          <p class="admin-section-note" data-i18n="admin.rolesNote">Instructors may write and publish posts. Contributors may write drafts but not publish. Everyone else is a learner.</p>
+          <div class="admin-form">
+            <input type="email" id="roleEmailInput" placeholder="user@example.com" data-i18n="admin.emailPlaceholder" maxlength="255">
+            <select id="roleSelect">
+              <option value="instructor" data-i18n="admin.role.instructor">Instructor</option>
+              <option value="contributor" data-i18n="admin.role.contributor">Contributor</option>
+              <option value="learner" data-i18n="admin.role.learner">Learner</option>
+            </select>
+            <button id="setRoleBtn" type="button" class="btn btn-primary" data-i18n="admin.setRole">Set role</button>
+          </div>
+          <div id="roleList" class="admin-list"></div>
+          <p id="roleEmpty" hidden data-i18n="admin.noRoles">No roles assigned yet.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -133,6 +149,7 @@
 <script src="js/supabase-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/notify-feed.js"></script>
 <script src="js/visitor-tracking.js"></script>
 <script src="js/admin-roles.js"></script>
 <script src="js/visitor-stats.js"></script>

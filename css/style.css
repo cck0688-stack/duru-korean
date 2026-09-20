@@ -1566,7 +1566,7 @@ section { position: relative; }
 .blog-single { max-width: 760px; }
 .blog-single h1 { font-size: clamp(28px, 4vw, 42px); margin: 10px 0 6px; }
 .blog-back {
-  display: inline-block; margin-bottom: 18px;
+  display: block; width: fit-content; margin-bottom: 18px;
   font-size: 14px; font-weight: 700; color: var(--accent-red);
 }
 .post-body { margin-top: 22px; }
@@ -2244,4 +2244,232 @@ section { position: relative; }
 
 @media (max-width: 720px) {
   .stat-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Post tags ---- */
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 0;
+}
+.post-tag {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--accent-red-soft);
+  color: var(--accent-red);
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+.post-tag:hover { background: var(--accent-red); color: #fff; }
+
+.blog-tag-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px 18px;
+  margin-bottom: 22px;
+  border: 1px solid var(--header-border);
+  border-radius: var(--radius);
+  background: var(--paper);
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+.blog-tag-banner strong { color: var(--accent-red); }
+.blog-tag-banner a { color: var(--ink); font-weight: 600; font-size: 13px; }
+
+/* ---- Follow button ---- */
+
+.follow-btn {
+  margin-left: auto;
+  align-self: flex-start;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-red);
+  background: transparent;
+  color: var(--accent-red);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.follow-btn:hover:not(:disabled) { background: var(--accent-red); color: #fff; }
+.follow-btn.is-following {
+  border-color: var(--header-border);
+  color: var(--ink-dim);
+}
+.follow-btn:disabled { opacity: 0.55; cursor: default; }
+
+/* ---- Notification bell ---- */
+
+.notify-wrap { position: relative; }
+
+.notify-bell {
+  position: relative;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+  padding: 7px 8px;
+  border-radius: 999px;
+  transition: background 0.18s ease;
+}
+.notify-bell:hover { background: var(--nav-hover-bg); }
+
+.notify-badge {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  min-width: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent-red);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 17px;
+  text-align: center;
+}
+
+.notify-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(330px, calc(100vw - 32px));
+  max-height: 420px;
+  overflow-y: auto;
+  z-index: 60;
+  background: var(--paper);
+  border: 1px solid var(--header-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.notify-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--header-border);
+  font-size: 14px;
+}
+.notify-readall {
+  border: 0;
+  background: transparent;
+  color: var(--accent-red);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+.notify-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--header-border);
+  text-decoration: none;
+  color: var(--ink);
+}
+.notify-item:last-child { border-bottom: 0; }
+.notify-item:hover { background: var(--nav-hover-bg); }
+.notify-item.unread { background: var(--accent-red-soft); }
+.notify-kind {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-red);
+}
+.notify-text { font-size: 13.5px; line-height: 1.35; }
+.notify-empty {
+  margin: 0;
+  padding: 22px 14px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+
+/* ---- Admin role section ---- */
+
+.admin-section-note {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--ink-dim);
+  line-height: 1.5;
+}
+.admin-form select {
+  padding: 10px 12px;
+  border: 1px solid var(--header-border);
+  border-radius: 8px;
+  background: var(--paper);
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* ---- Markdown output inside a post body ---- */
+/* The global reset strips list markers site-wide, so they are restored
+   here rather than globally: only rendered Markdown wants them back. */
+
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  margin: 30px 0 12px;
+  line-height: 1.3;
+}
+.post-body h2 { font-size: 23px; }
+.post-body h3 { font-size: 19px; }
+.post-body h4 { font-size: 16.5px; }
+.post-body h2:first-child,
+.post-body h3:first-child { margin-top: 0; }
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 18px;
+  padding-left: 1.45em;
+}
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+.post-body li {
+  margin-bottom: 7px;
+  line-height: 1.65;
+}
+
+.post-body blockquote {
+  margin: 20px 0;
+  padding: 4px 0 4px 18px;
+  border-left: 3px solid var(--accent-red);
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+.post-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(22, 48, 43, 0.07);
+}
+
+.post-body hr {
+  margin: 30px 0;
+  border: 0;
+  border-top: 1px solid var(--header-border);
+}
+
+.post-body a { color: var(--accent-red); text-decoration: underline; }
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin: 18px 0;
 }

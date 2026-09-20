@@ -86,6 +86,17 @@
       });
     }
 
+    // auth.admin.listUsers() needs the service_role key, which must never
+    // reach a browser, so the lookup goes through an RPC that checks the
+    // caller is an admin and returns only the id.
+    function lookupUserId(email) {
+      return client.rpc('find_user_id_by_email', { p_email: email })
+        .then(function (res) {
+          if (res.error) throw new Error(res.error.message);
+          return res.data || null;
+        });
+    }
+
     function addAdmin() {
       var email = userEmailInput.value.trim().toLowerCase();
       if (!email || !email.includes('@')) {
@@ -96,20 +107,21 @@
       addAdminBtn.disabled = true;
       addAdminBtn.textContent = t('admin.adding', 'Adding…');
 
-      client.auth.admin.listUsers()
-        .then(function (res) {
-          var user = (res.data && res.data.users || []).find(function (u) { return u.email === email; });
-          if (!user) {
+      function reset() {
+        addAdminBtn.disabled = false;
+        addAdminBtn.textContent = t('admin.addAdmin', 'Make Admin');
+      }
+
+      lookupUserId(email)
+        .then(function (userId) {
+          if (!userId) {
             alert(t('admin.userNotFound', 'User not found. They must sign up first.'));
-            addAdminBtn.disabled = false;
-            addAdminBtn.textContent = t('admin.addAdmin', 'Make Admin');
+            reset();
             return;
           }
-
-          client.from('admin_users').insert({ user_id: user.id })
+          return client.from('admin_users').insert({ user_id: userId })
             .then(function (res) {
-              addAdminBtn.disabled = false;
-              addAdminBtn.textContent = t('admin.addAdmin', 'Make Admin');
+              reset();
               if (res.error) {
                 if (res.error.code === '23505') {
                   alert(t('admin.alreadyAdmin', 'This user is already an admin.'));
@@ -121,7 +133,91 @@
               userEmailInput.value = '';
               loadAdmins().then(renderAdminList);
             });
+        })
+        .catch(function (err) {
+          reset();
+          alert(t('admin.addFailed', 'Could not add admin: {msg}').replace('{msg}', err.message));
         });
+    }
+
+    /* ---------------- Role tiers ---------------- */
+
+    var roleEmailInput = document.getElementById('roleEmailInput');
+    var roleSelect = document.getElementById('roleSelect');
+    var setRoleBtn = document.getElementById('setRoleBtn');
+    var roleListEl = document.getElementById('roleList');
+    var roleEmptyEl = document.getElementById('roleEmpty');
+
+    function loadRoles() {
+      return client.from('user_roles').select('user_id, role, updated_at')
+        .then(function (res) { return res.data || []; });
+    }
+
+    function renderRoleList(rows) {
+      if (!roleListEl) return;
+      roleListEl.innerHTML = '';
+      if (!rows.length) {
+        if (roleEmptyEl) roleEmptyEl.hidden = false;
+        return;
+      }
+      if (roleEmptyEl) roleEmptyEl.hidden = true;
+
+      rows.forEach(function (row) {
+        var item = document.createElement('div');
+        item.className = 'admin-list-item';
+        item.innerHTML =
+          '<div class="admin-item-info">' +
+            '<span class="admin-user-id">' + escapeHTML(row.user_id) + '</span>' +
+            '<span class="admin-created-date">' + escapeHTML(t('admin.role.' + row.role, row.role)) + '</span>' +
+          '</div>' +
+          '<button type="button" class="admin-remove-btn" data-id="' + escapeHTML(row.user_id) + '">' +
+            escapeHTML(t('admin.clearRole', 'Reset to learner')) + '</button>';
+        roleListEl.appendChild(item);
+      });
+
+      roleListEl.querySelectorAll('.admin-remove-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          client.from('user_roles').delete().eq('user_id', btn.dataset.id)
+            .then(function (res) {
+              if (res.error) { alert(res.error.message); return; }
+              loadRoles().then(renderRoleList);
+            });
+        });
+      });
+    }
+
+    function setRole() {
+      var email = roleEmailInput.value.trim().toLowerCase();
+      if (!email || !email.includes('@')) {
+        alert(t('admin.invalidEmail', 'Please enter a valid email address.'));
+        return;
+      }
+      setRoleBtn.disabled = true;
+
+      lookupUserId(email)
+        .then(function (userId) {
+          if (!userId) {
+            alert(t('admin.userNotFound', 'User not found. They must sign up first.'));
+            return;
+          }
+          return client.from('user_roles')
+            .upsert({ user_id: userId, role: roleSelect.value, updated_at: new Date().toISOString() },
+                    { onConflict: 'user_id' })
+            .then(function (res) {
+              if (res.error) { alert(res.error.message); return; }
+              roleEmailInput.value = '';
+              return loadRoles().then(renderRoleList);
+            });
+        })
+        .catch(function (err) { alert(err.message); })
+        .then(function () { setRoleBtn.disabled = false; });
+    }
+
+    if (setRoleBtn) setRoleBtn.addEventListener('click', setRole);
+    if (roleEmailInput) {
+      roleEmailInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') setRole();
+      });
     }
 
     if (addAdminBtn) {
@@ -145,6 +241,7 @@
           if (res.data) {
             showAdminPanel();
             loadAdmins().then(renderAdminList);
+            loadRoles().then(renderRoleList);
           } else {
             showNotAuthorized();
           }
