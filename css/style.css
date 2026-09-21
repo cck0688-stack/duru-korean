@@ -1071,10 +1071,13 @@ section { position: relative; }
    the account controls. Measured with the counts showing and an account
    signed in, that row needs about 1190px at full size in English, 1110px
    with the spacing tightened, and 1020px once type and padding are
-   compact — so the menu stays on the bar down to 1040px, and only then
-   gives way to the hamburger. Vietnamese labels run about 90px longer
-   and hand over earlier. The counts stay through all of that and step
-   aside only on phones, in the 720px block below. */
+   compact. The breakpoints follow those measurements: tighten at
+   1300px, compact at 1120px. Below 1040px (1120px for the longer
+   Vietnamese labels) the row will not hold everything, so instead of
+   hiding the menu behind a hamburger it moves to a second line under
+   the wordmark and controls: everything stays in view, nothing overlaps.
+   Only phones, below 600px, get the hamburger; the counts step aside
+   there too. */
 @media (max-width: 1300px) {
   .logo-img { height: 40px; }
   .nav-main { gap: 2px; }
@@ -1096,29 +1099,49 @@ section { position: relative; }
 }
 
 @media (max-width: 1040px) {
-  .nav-main { display: none; }
-  .nav-toggle { display: block; }
-  .site-header.menu-open .nav-main {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: var(--header-h);
-    left: 0;
-    right: 0;
-    background: var(--header-bg);
-    padding: 20px 28px 30px;
-    gap: 10px;
-    border-bottom: 1px solid var(--header-border);
-    box-shadow: 0 12px 24px -12px rgba(16,59,49,0.18);
+  .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; }
+  .header-brand { order: 1; }
+  .header-actions { order: 2; }
+  .nav-main {
+    order: 3;
+    flex: 1 1 100%;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 10px;
+    padding: 8px 0 10px;
+    border-top: 1px solid var(--header-border);
   }
-  .site-header.menu-open .nav-main a { text-align: center; }
+  .account-trigger .email { max-width: 60px; }
 }
 
 /* Selector specificity keeps the Vietnamese hand-over above the 1040px
    rules regardless of source order. */
 @media (max-width: 1120px) {
+  html[lang="vi"] .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; }
+  html[lang="vi"] .header-brand { order: 1; }
+  html[lang="vi"] .header-actions { order: 2; }
+  html[lang="vi"] .nav-main {
+    order: 3;
+    flex: 1 1 100%;
+    justify-content: center;
+    gap: 2px;
+    margin-top: 10px;
+    padding: 8px 0 10px;
+    border-top: 1px solid var(--header-border);
+  }
+  html[lang="vi"] .account-trigger .email { max-width: 60px; }
+}
+
+/* Phones: one row again, the menu behind the hamburger. Written for the
+   Vietnamese selector too, so it outranks that language's two-row rules. */
+@media (max-width: 600px) {
+  .site-header .wrap,
+  html[lang="vi"] .site-header .wrap { flex-wrap: nowrap; height: var(--header-h); padding-top: 0; }
+  .nav-main,
   html[lang="vi"] .nav-main { display: none; }
-  html[lang="vi"] .nav-toggle { display: block; }
+  .nav-toggle { display: block; }
+  .site-visits { display: none; }
+  .site-header.menu-open .nav-main,
   html[lang="vi"] .site-header.menu-open .nav-main {
     display: flex;
     flex-direction: column;
@@ -1126,13 +1149,15 @@ section { position: relative; }
     top: var(--header-h);
     left: 0;
     right: 0;
-    background: var(--header-bg);
+    margin: 0;
     padding: 20px 28px 30px;
     gap: 10px;
+    border-top: 0;
+    background: var(--header-bg);
     border-bottom: 1px solid var(--header-border);
     box-shadow: 0 12px 24px -12px rgba(16,59,49,0.18);
   }
-  html[lang="vi"] .site-header.menu-open .nav-main a { text-align: center; }
+  .site-header.menu-open .nav-main a { text-align: center; }
 }
 
 @media (max-width: 720px) {
@@ -1142,8 +1167,8 @@ section { position: relative; }
   .header-brand { flex: 1 1 auto; min-width: 0; }
   .logo { flex: 1 1 auto; min-width: 0; max-width: min(174px, 40vw); }
   .logo-img { width: 100%; height: auto; }
+  .site-visits { flex: none; }
   .footer-top .logo-img { height: 36px; width: auto; }
-  .site-visits { display: none; }
   .grid-3, .grid-4, .lesson-grid, .testi-strip, .footer-top { grid-template-columns: 1fr; }
   .newsletter { flex-direction: column; align-items: flex-start; }
   .newsletter-form { width: 100%; }
@@ -1156,6 +1181,14 @@ section { position: relative; }
   .lang-trigger { padding: 8px; }
   .lang-trigger .lang-current { display: none; }
   .lang-menu { left: auto; right: 0; }
+}
+
+/* The narrow end of the two-row band. Vietnamese counts run long enough
+   that, beside a signed-in account, the top row would spill into a
+   third line, so here the logo and the counts each give a little. */
+@media (min-width: 601px) and (max-width: 720px) {
+  .logo { max-width: min(174px, 26vw); }
+  .site-visits { font-size: 10.5px; gap: 6px; padding-left: 8px; letter-spacing: 0; }
 }
 
 /* Phones. Must stay after the 720px block: the header buys back width
