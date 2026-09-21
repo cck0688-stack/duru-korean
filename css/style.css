@@ -2593,9 +2593,15 @@ section { position: relative; }
   color: var(--accent-red);
   white-space: nowrap;
 }
+/* Three columns stop fitting on a phone. Rather than dropping "Open →",
+   it moves to a second row under the text, in the text's own column. */
 @media (max-width: 480px) {
-  .entry-card { grid-template-columns: 40px 1fr; }
-  .entry-go { display: none; }
+  .entry-card {
+    grid-template-columns: 40px 1fr;
+    gap: 8px 14px;
+    padding: 15px 16px;
+  }
+  .entry-go { grid-column: 2; }
 }
 
 /* ---- Guestbook replies ---- */
