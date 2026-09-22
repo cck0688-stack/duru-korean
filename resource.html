@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Blog — Duru Korean</title>
-<meta name="description" content="Notes on Korean language, culture, and study tips from Duru Korean.">
+<title>Download — Duru Korean</title>
+<meta name="description" content="A Duru Korean download: what is inside, how to use it, and the PDF in the language you choose.">
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -39,49 +40,66 @@
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero page-hero--resource">
   <div class="wrap">
-    <span class="page-hero-mark" aria-hidden="true">글</span>
-    <h1 data-i18n="blogPage.h1">Blog</h1>
+    <span class="page-hero-mark" aria-hidden="true">자료</span>
+    <a class="res-back" id="resBack" href="free-resources.html" data-i18n="resource.backToList">← All downloads</a>
+    <span class="eyebrow" id="resCategory"></span>
+    <h1 id="resTitle">…</h1>
     <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline" data-i18n="blogPage.tagline">Notes on Korean, language, and life.</p>
-    <div data-i18n="blogPage.krSub">두루 블로그</div>
+    <p class="page-hero-tagline" id="resSummary"></p>
   </div>
 </section>
 
 <section class="section section-after-hero">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="blogPage.leadIn">Study tips, grammar explained simply, and a look at everyday life and culture in Korea.</p>
-    <div class="filter-row reveal" id="blogFilters">
-      <button class="filter-btn active" data-filter="all" data-i18n="blog.filter.all">All</button>
-      <button class="filter-btn" data-filter="culture" data-i18n="blog.cat.culture">Culture &amp; Life</button>
-      <button class="filter-btn" data-filter="travel" data-i18n="blog.cat.travel">Travel &amp; Places</button>
-      <button class="filter-btn" data-filter="food" data-i18n="blog.cat.food">K-Food &amp; Dining</button>
-      <button class="filter-btn" data-filter="trends" data-i18n="blog.cat.trends">Trends &amp; Pop Culture</button>
-      <button class="filter-btn" data-filter="language" data-i18n="blog.cat.language">Language &amp; Tips</button>
-      <button class="filter-btn" data-filter="etc" data-i18n="blog.cat.etc">Etc.</button>
-      <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
+
+    <div class="res-notfound" id="resNotFound" hidden>
+      <h2 data-i18n="resource.notFoundTitle">Download not found</h2>
+      <p data-i18n="resource.notFoundBody">That download may have been removed, or the link is wrong.</p>
+      <a class="btn btn-ghost" href="free-resources.html" data-i18n="resource.backToList">← All downloads</a>
     </div>
 
-    <div id="blogSingle" class="blog-single" hidden></div>
-
-    <div class="grid-3 reveal" id="blogList"></div>
-    <p class="resource-empty-note" id="blogEmpty" hidden data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>
-  </div>
-</section>
-
-<section class="section-alt section">
-  <div class="wrap">
-    <div class="newsletter reveal">
-      <div>
-        <h3 data-i18n="blogPage.newsletter.h3">Never miss a post</h3>
-        <p data-i18n="blogPage.newsletter.p">New articles on Korean language and culture, sent straight to your inbox.</p>
+    <div class="res-detail" id="resDetail" hidden>
+      <div class="res-detail-media">
+        <div class="res-cover res-cover--large" id="resCover"></div>
+        <dl class="res-facts">
+          <div><dt data-i18n="resource.factType">Type</dt><dd id="resFactType"></dd></div>
+          <div><dt data-i18n="resource.factLevel">Level</dt><dd id="resFactLevel"></dd></div>
+          <div><dt data-i18n="resource.factFormat">Format</dt><dd id="resFactFormat"></dd></div>
+          <div><dt data-i18n="resource.factLanguages">Languages</dt><dd id="resFactLangs"></dd></div>
+        </dl>
       </div>
-      <form class="newsletter-form">
-        <input type="email" placeholder="you@email.com" required>
-        <button type="submit" class="btn btn-primary" data-i18n="blogPage.newsletter.submit">Subscribe</button>
-      </form>
+
+      <div class="res-detail-main">
+        <div class="res-panel" id="resPanel">
+          <span class="res-panel-eyebrow" data-i18n="resource.getEyebrow">Get the PDF</span>
+          <label class="res-lang-field" for="resPdfLang">
+            <span data-i18n="resource.pdfLanguage">PDF language</span>
+            <select id="resPdfLang"></select>
+          </label>
+          <p class="res-notice" id="resLangNotice" hidden></p>
+          <p class="res-file-meta" id="resFileMeta"></p>
+          <div class="res-actions">
+            <button type="button" class="btn btn-outline-dark" id="resPreviewBtn" data-i18n="resource.preview">Preview PDF</button>
+            <button type="button" class="btn btn-primary" id="resDownloadBtn" data-i18n="resource.download">Download PDF</button>
+          </div>
+          <p class="res-login-note" id="resLoginNote" hidden data-i18n="resource.loginNote">Downloads are for signed-in learners — it takes a minute and it is free.</p>
+          <p class="res-lang-hint" data-i18n="resource.langNote">Choosing a PDF language only changes which file you get. The site's own language is set from the menu at the top.</p>
+        </div>
+
+        <div class="res-body">
+          <h2 data-i18n="resource.aboutHeading">What's inside &amp; how to use it</h2>
+          <div id="resBody" class="res-body-text"></div>
+        </div>
+
+        <div class="res-admin" id="resAdmin" hidden>
+          <button type="button" class="btn btn-ghost" id="resEditToggle" data-i18n="resource.edit">Edit this download</button>
+        </div>
+        <div id="resEditor" hidden></div>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -128,14 +146,13 @@
 <script src="js/main.js"></script>
 <script src="js/supabase-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>window.DURU_AUTH_RETURN_TO = window.location.href;</script>
 <script src="js/auth.js"></script>
 <script src="js/notify-feed.js"></script>
 <script src="js/visitor-tracking.js"></script>
-<script src="js/like.js"></script>
-<script src="js/markdown.js"></script>
-<script src="js/blog.js"></script>
-<script>window.DURU_PAGE_TITLE_KEY = 'blogPage.title';</script>
-<script src="js/newsletter.js"></script>
+<script src="js/resource-common.js"></script>
+<script src="js/resource-detail.js"></script>
+<script>window.DURU_PAGE_TITLE_KEY = 'resource.title';</script>
 <script src="js/i18n.js"></script>
 </body>
 </html>

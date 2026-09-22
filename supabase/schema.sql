@@ -721,10 +721,9 @@ alter table public.posts
 alter table public.resources
   add column if not exists category text not null default 'printables';
 
-alter table public.resources drop constraint if exists resources_category_check;
-alter table public.resources
-  add constraint resources_category_check
-  check (category in ('audio', 'printables', 'worksheets', 'cheatsheets', 'vocab'));
+-- The list of categories, and the check that enforces it, now live in
+-- section 20, which also moves older values across. Defining the old
+-- list here as well would reject those moved rows on a re-run.
 
 create index if not exists resources_category_idx
   on public.resources (category, created_at desc);
@@ -807,3 +806,147 @@ drop policy if exists "newsletter: admin delete" on public.newsletter_subscriber
 create policy "newsletter: admin delete"
   on public.newsletter_subscribers for delete
   using (public.is_admin());
+
+-- ------------------------------------------------------------------
+-- 20. downloads in several languages
+-- ------------------------------------------------------------------
+-- A resource is one piece of material — "Hangul writing practice" —
+-- and its files are the same PDF in each language it has been made
+-- in. The list shows one card per resource; the language is chosen on
+-- the resource's own page. Rows uploaded before this each held a
+-- single file, which becomes that resource's first file below.
+--
+-- The old "book-audio" page is now "book-resources"; the location
+-- value follows it. Categories are the five kinds of material the
+-- Free Downloads page files things under; what was there before is
+-- moved to the nearest of them.
+
+alter table public.resources drop constraint if exists resources_publish_location_check;
+update public.resources set publish_location = 'book-resources' where publish_location = 'book-audio';
+alter table public.resources
+  add constraint resources_publish_location_check
+  check (publish_location in ('free-resources', 'book-resources'));
+
+alter table public.resources
+  add column if not exists body text,
+  add column if not exists cover_key text,
+  add column if not exists published boolean not null default true,
+  add column if not exists i18n jsonb not null default '{}'::jsonb,
+  add column if not exists updated_at timestamptz not null default now();
+
+-- The file itself now lives in resource_files; these stay only so old
+-- rows keep their values until the copy below has run.
+alter table public.resources alter column storage_key drop not null;
+alter table public.resources alter column file_size drop not null;
+alter table public.resources alter column file_type drop not null;
+
+alter table public.resources drop constraint if exists resources_category_check;
+update public.resources set category = case category
+  when 'audio' then 'pronunciation'
+  when 'printables' then 'hangul'
+  when 'worksheets' then 'reallife'
+  when 'cheatsheets' then 'grammar'
+  else category end
+where category in ('audio', 'printables', 'worksheets', 'cheatsheets');
+alter table public.resources alter column category set default 'hangul';
+alter table public.resources
+  add constraint resources_category_check
+  check (category in ('hangul', 'pronunciation', 'vocab', 'grammar', 'reallife'));
+
+-- Resources are edited in place now, and a draft is seen by its admins only.
+drop policy if exists "resources: public read" on public.resources;
+create policy "resources: public read"
+  on public.resources for select
+  using (published or exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "resources: admin update" on public.resources;
+create policy "resources: admin update"
+  on public.resources for update
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()))
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+create table if not exists public.resource_files (
+  id uuid primary key default gen_random_uuid(),
+  resource_id uuid not null references public.resources (id) on delete cascade,
+  lang text not null,
+  storage_key text not null unique,
+  file_type text not null check (file_type in ('pdf', 'png', 'jpg', 'jpeg', 'mp3', 'm4a')),
+  file_size bigint not null,
+  mime_type text,
+  page_count integer check (page_count is null or page_count > 0),
+  published boolean not null default true,
+  created_at timestamptz not null default now(),
+  created_by uuid references auth.users (id),
+  unique (resource_id, lang)
+);
+
+alter table public.resource_files enable row level security;
+
+drop policy if exists "resource_files: public read" on public.resource_files;
+create policy "resource_files: public read"
+  on public.resource_files for select
+  using (published or exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "resource_files: admin insert" on public.resource_files;
+create policy "resource_files: admin insert"
+  on public.resource_files for insert
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "resource_files: admin update" on public.resource_files;
+create policy "resource_files: admin update"
+  on public.resource_files for update
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()))
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "resource_files: admin delete" on public.resource_files;
+create policy "resource_files: admin delete"
+  on public.resource_files for delete
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+create index if not exists resource_files_resource_idx
+  on public.resource_files (resource_id, lang);
+
+-- Each old single-file row becomes that resource's file in the language
+-- its description was written in. Safe to re-run: a key already copied
+-- is skipped.
+insert into public.resource_files (resource_id, lang, storage_key, file_type, file_size, mime_type, created_by)
+select r.id, r.description_language, r.storage_key, r.file_type, r.file_size, r.mime_type, r.created_by
+from public.resources r
+where r.storage_key is not null
+  and not exists (select 1 from public.resource_files f where f.storage_key = r.storage_key);
+
+-- Cover pictures are shown on the list to everyone, signed in or not,
+-- so they live in a bucket of their own that is public. Only an admin
+-- may put one there.
+insert into storage.buckets (id, name, public)
+values ('resource-covers', 'resource-covers', true)
+on conflict (id) do update set public = true;
+
+drop policy if exists "covers bucket: public read" on storage.objects;
+create policy "covers bucket: public read"
+  on storage.objects for select
+  using (bucket_id = 'resource-covers');
+
+drop policy if exists "covers bucket: admin upload" on storage.objects;
+create policy "covers bucket: admin upload"
+  on storage.objects for insert
+  with check (
+    bucket_id = 'resource-covers'
+    and exists (select 1 from public.admin_users a where a.user_id = auth.uid())
+  );
+
+drop policy if exists "covers bucket: admin update" on storage.objects;
+create policy "covers bucket: admin update"
+  on storage.objects for update
+  using (
+    bucket_id = 'resource-covers'
+    and exists (select 1 from public.admin_users a where a.user_id = auth.uid())
+  );
+
+drop policy if exists "covers bucket: admin delete" on storage.objects;
+create policy "covers bucket: admin delete"
+  on storage.objects for delete
+  using (
+    bucket_id = 'resource-covers'
+    and exists (select 1 from public.admin_users a where a.user_id = auth.uid())
+  );

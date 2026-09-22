@@ -15,8 +15,9 @@ picking the work up.
 index.html            Home
 faq.html               FAQ (linked from the footer)
 learning-korean.html   "Learn Korean" curriculum overview
-book-audio.html        "Book & Audio"
-free-resources.html    Free downloadable resources
+book-resources.html    "Book Resources": the textbooks with their audio and printables
+free-resources.html    "Free Downloads": one card per resource, filtered by type and language
+resource.html          One download: pick the PDF language, preview or download; admin editor
 blog.html               Blog listing
 about.html              About the authors
 my-learning.html        Signed-in account page (linked from the account menu, not the main nav)
@@ -172,6 +173,37 @@ the corresponding `captchaToken` option to the `signUp` /
   no system can promise that. It avoids the common static-site mistakes
   (plaintext passwords, secrets in the repo, custom token logic) by
   delegating all of that to Supabase's audited auth service.
+
+## Downloads (Free Downloads, Book Resources)
+
+A *resource* is one piece of material; its *files* are the same PDF in
+each language it has been made in (`resources` and `resource_files` in
+`supabase/schema.sql`, section 20). The list shows one card per
+resource whatever languages it comes in — cover, title, short
+description, type · level · format, and EN · VI · ES chips (three, then
+"+N"). Title and description come from `resources.i18n[lang]` when the
+admin has written that language, otherwise from the resource's default
+text. The type chips (Hangul Starter / Pronunciation / Vocabulary /
+Grammar Cheat Sheets / Real-Life Korean) and the Language dropdown
+(My language / All languages / each language that has at least one
+file) filter together, and both are remembered — with the scroll
+position — for the trip back from a resource page.
+
+`resource.html?id=…` is the resource's own page: PDF language dropdown
+(published files only; an admin also sees hidden ones), pages and size
+of the chosen file, Preview and Download through signed links. The list
+passes `&pl=<lang>` when a specific language was chosen there; otherwise
+the site language is tried, and when that file does not exist the page
+says so and falls back to the first available. Choosing a PDF language
+never changes the site language. Downloads still need a signed-in
+session (storage policy); a Google sign-in from a resource page comes
+back to that page.
+
+Admins create a resource from the list ("+ New download": title,
+category, level) and land in its editor, where they set the default
+text, a cover (public `resource-covers` bucket), per-language title /
+description / body, and add, replace or remove one file per language;
+a PDF's page count is read from the file and can be corrected by hand.
 
 ## Language switcher (site-wide)
 

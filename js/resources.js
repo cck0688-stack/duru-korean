@@ -1,464 +1,295 @@
-// DURU KOREAN — admin-managed downloadable resources (Supabase Storage + DB)
+// DURU KOREAN — the downloads list (Free Downloads and Book Resources)
 //
-// Include this after js/auth.js on any page that sets
-// window.DURU_RESOURCE_LOCATION to 'free-resources' or 'book-audio'
-// before this script tag. Every visitor (including anonymous ones) can
-// see and download files here; only a user present in the admin_users
-// table (see supabase/schema.sql) can attach or delete one — and that
-// check happens server-side via Row Level Security, not by trusting
-// anything this file decides on the client.
+// Include after js/auth.js and js/resource-common.js on a page that sets
+// window.DURU_RESOURCE_LOCATION to 'free-resources' or 'book-resources'.
+// One card per resource, whatever languages it comes in; the language
+// is chosen on the resource's own page. The type chips and the language
+// dropdown filter together, and both — with the scroll position — are
+// remembered for the trip back from a resource page.
+//
+// Anyone may look. Only a user in admin_users may create a resource,
+// and Row Level Security enforces that on the server; the button this
+// file shows is a convenience, not the protection.
 
 (function () {
   'use strict';
 
-  const LOCATION = window.DURU_RESOURCE_LOCATION;
+  var LOCATION = window.DURU_RESOURCE_LOCATION;
   if (!LOCATION) return;
+  var R = window.DURU_RES;
+  if (!R) return;
+  var t = R.t, esc = R.escapeHTML;
 
-  const BUCKET = 'resources';
-  const MAX_SIZE = {
-    pdf: 20 * 1024 * 1024, png: 20 * 1024 * 1024, jpg: 20 * 1024 * 1024, jpeg: 20 * 1024 * 1024,
-    mp3: 50 * 1024 * 1024, m4a: 50 * 1024 * 1024,
-  };
-  const MIME_BY_EXT = {
-    pdf: 'application/pdf', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg',
-    mp3: 'audio/mpeg', m4a: 'audio/mp4',
-  };
-  const LEVELS = ['Any level', 'Beginner', 'Intermediate', 'Advanced'];
-  const CATEGORIES = ['audio', 'printables', 'worksheets', 'cheatsheets', 'vocab'];
+  var STATE_KEY = 'duru_dl_state:' + LOCATION;
+  var RETURN_KEY = 'duru_dl_return:' + LOCATION;
 
-  // "schema cache" in a PostgREST error means a column the page expects
-  // does not exist in the database yet — the migration has not been run.
-  // Saying so beats leaving the admin to decode the raw message.
-  function schemaHint(msg) {
-    msg = String(msg || '');
-    return /schema cache/i.test(msg)
-      ? msg + ' — ' + t('common.schemaHint', 'The database has not been updated yet. Run supabase/schema.sql in the Supabase SQL editor, then try again.')
-      : msg;
-  }
+  document.addEventListener('DOMContentLoaded', function () {
+    var listEl = document.getElementById('resourceList');
+    var emptyEl = document.getElementById('resourceListEmpty');
+    var emptyText = document.getElementById('resourceEmptyText');
+    var showAllBtn = document.getElementById('resourceShowAll');
+    var filtersEl = document.getElementById('resourceFilters');
+    var langSel = document.getElementById('resourceLang');
+    var newBtn = document.getElementById('newResourceBtn');
+    if (!listEl) return;
 
-  function categoryLabel(cat) {
-    return t('resources.cat.' + cat, cat);
-  }
-  const LANGS = [
-    { code: 'en', label: 'English' },
-    { code: 'vi', label: 'Tiếng Việt' },
-    { code: 'ko', label: '한국어' },
-  ];
+    var client = window.DURU_SUPABASE_CLIENT;
+    if (!client) return;
 
-  function fileExt(name) {
-    const m = /\.([a-z0-9]+)$/i.exec(name || '');
-    return m ? m[1].toLowerCase() : '';
-  }
+    var isAdmin = false;
+    var currentUser = null;
+    var all = [];
+    var state = { type: 'all', lang: 'mine' };
 
-  function formatSize(bytes) {
-    if (bytes >= 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-    return Math.max(1, Math.round(bytes / 1024)) + ' KB';
-  }
-
-  function escapeHTML(s) {
-    return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => (
-      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
-    ));
-  }
-
-  function t(key, fallback) {
-    // DURU_I18N.t returns the key itself when the dictionary hasn't
-    // arrived yet (it loads over the network) or the key is missing.
-    // Passing that through puts a raw "some.key" string on screen, so
-    // treat it as "no translation" and use the English fallback.
-    if (!window.DURU_I18N) return fallback;
-    var translated = window.DURU_I18N.t(key);
-    return translated === key ? fallback : translated;
-  }
-
-  function levelLabel(level) {
-    const map = {
-      'Any level': t('resources.levelAny', 'Any level'),
-      'Beginner': t('resources.levelBeginner', 'Beginner'),
-      'Intermediate': t('resources.levelIntermediate', 'Intermediate'),
-      'Advanced': t('resources.levelAdvanced', 'Advanced'),
-    };
-    return map[level] || level;
-  }
-
-
-  // The storage API answers a missing bucket and a rejected upload with
-  // developer-facing strings. An admin staring at "Bucket not found" has no
-  // way to know that means "go create the bucket", so name the fix instead.
-  function uploadErrorText(err) {
-    const msg = (err && err.message) || '';
-    if (/bucket not found/i.test(msg)) {
-      return t('resources.errBucketMissing',
-        'The storage bucket isn\u2019t set up yet. Create a public bucket named \u201cresources\u201d in the Supabase dashboard under Storage, then try again.');
-    }
-    if (/row-level security|not authorized|unauthorized|permission denied/i.test(msg)) {
-      return t('resources.errNotAllowed',
-        'Your account isn\u2019t allowed to upload. Check that you\u2019re still signed in as an admin.');
-    }
-    return t('resources.errUploadFailed', 'Upload failed: {msg}').replace('{msg}', msg);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const listEl = document.getElementById('resourceList');
-    const emptyEl = document.getElementById('resourceListEmpty');
-    const attachBtn = document.getElementById('attachResourceBtn');
-    if (!listEl || !attachBtn) return;
-
-    const client = window.DURU_SUPABASE_CLIENT;
-    if (!client) return; // Not configured yet — leave the dynamic section empty/hidden.
-
-    let isAdmin = false;
-    let currentUserId = null;
-    // The fetched rows are kept so switching filters redraws from memory
-    // instead of going back to the database on every click.
-    let allResources = [];
-    let activeFilter = 'all';
-
-    // The bucket is private, so there is no permanent link to render.
-    // A signed URL is minted when the visitor actually clicks, and only
-    // a signed-in session can mint one — the storage policy decides, not
-    // this file hiding a button.
-    const SIGNED_URL_TTL = 300; // seconds
-
-    function signedUrl(storageKey) {
-      return client.storage.from(BUCKET).createSignedUrl(storageKey, SIGNED_URL_TTL)
-        .then(({ data, error }) => {
-          if (error || !data) throw new Error(error ? error.message : 'no url');
-          return data.signedUrl;
-        });
-    }
-
-    function renderList() {
-      const resources = activeFilter === 'all'
-        ? allResources
-        : allResources.filter((r) => r.category === activeFilter);
-      listEl.innerHTML = '';
-      emptyEl.hidden = resources.length > 0;
-      resources.forEach((r) => {
-        const card = document.createElement('div');
-        card.className = 'resource-card resource-card--file';
-        const descLangLabel = (LANGS.find(l => l.code === r.description_language) || {}).label || r.description_language;
-        const metaText = t('resources.descIn', '{size} · description in {lang}')
-          .replace('{size}', formatSize(r.file_size)).replace('{lang}', descLangLabel) +
-          (r.linked_unit ? ' · ' + escapeHTML(r.linked_unit) : '');
-        card.innerHTML = `
-          <span class="resource-tag">${escapeHTML(r.file_type.toUpperCase())}${r.category ? ' · ' + escapeHTML(categoryLabel(r.category)) : ''}${r.learning_level && r.learning_level !== 'Any level' ? ' · ' + escapeHTML(levelLabel(r.learning_level)) : ''}</span>
-          <h3>${escapeHTML(r.title)}</h3>
-          ${r.description ? `<p>${escapeHTML(r.description)}</p>` : ''}
-          <p class="resource-meta">${metaText}</p>
-          <div class="resource-card-actions">
-            ${currentUserId
-              ? `<button type="button" class="btn btn-ghost resource-dl-btn" data-key="${escapeHTML(r.storage_key)}">${escapeHTML(t('resources.download', 'Download →'))}</button>`
-              : `<button type="button" class="btn btn-ghost resource-locked-btn">${escapeHTML(t('resources.loginToDownload', 'Log in to download'))}</button>`}
-            ${isAdmin ? `<button type="button" class="resource-delete-btn" data-id="${r.id}" data-title="${escapeHTML(r.title)}" data-key="${escapeHTML(r.storage_key)}" aria-label="${escapeHTML(t('resources.deleteAriaLabel', 'Delete {title}').replace('{title}', r.title))}">${escapeHTML(t('resources.deleteBtn', 'Delete'))}</button>` : ''}
-          </div>
-        `;
-        listEl.appendChild(card);
-      });
-      listEl.querySelectorAll('.resource-delete-btn').forEach((btn) => {
-        btn.addEventListener('click', () => confirmDelete(btn.dataset.id, btn.dataset.title, btn.dataset.key));
-      });
-
-      listEl.querySelectorAll('.resource-locked-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const trigger = document.getElementById('authTrigger');
-          if (trigger) trigger.click();
-        });
-      });
-
-      listEl.querySelectorAll('.resource-dl-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const label = btn.textContent;
-          btn.disabled = true;
-          signedUrl(btn.dataset.key)
-            .then((url) => { window.open(url, '_blank', 'noopener'); })
-            .catch(() => {
-              if (window.DURU_NOTIFY) {
-                window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
-              }
-            })
-            .then(() => { btn.disabled = false; btn.textContent = label; });
-        });
-      });
-    }
-
-    async function loadList() {
-      const { data, error } = await client
-        .from('resources')
-        .select('*')
-        .eq('publish_location', LOCATION)
-        .order('created_at', { ascending: false });
-      if (error) {
-        console.error('Failed to load resources:', error.message);
-        return;
+    try {
+      var saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        if (saved.type) state.type = saved.type;
+        if (saved.lang) state.lang = saved.lang;
       }
-      allResources = data || [];
-      renderList();
-    }
+    } catch (e) {}
 
-    const filtersEl = document.getElementById('resourceFilters');
-    if (filtersEl) {
-      filtersEl.addEventListener('click', (e) => {
-        const btn = e.target.closest('.filter-btn');
-        if (!btn) return;
-        activeFilter = btn.dataset.filter;
-        filtersEl.querySelectorAll('.filter-btn').forEach((b) => {
-          b.classList.toggle('active', b === btn);
-        });
-        renderList();
-      });
-    }
-
-    document.addEventListener('duru:langchange', renderList);
-
-    /* ---------------- Delete flow ---------------- */
-
-    let confirmOverlay;
-    function ensureConfirmModal() {
-      if (confirmOverlay) return confirmOverlay;
-      confirmOverlay = document.createElement('div');
-      confirmOverlay.className = 'resource-confirm-overlay';
-      confirmOverlay.hidden = true;
-      confirmOverlay.innerHTML = `
-        <div class="resource-confirm-modal" role="alertdialog" aria-modal="true" aria-labelledby="resConfirmTitle">
-          <h3 id="resConfirmTitle" data-i18n="resources.confirmTitle">${escapeHTML(t('resources.confirmTitle', 'Delete this resource?'))}</h3>
-          <p class="resource-confirm-body"></p>
-          <div class="resource-confirm-actions">
-            <button type="button" class="btn btn-outline" data-act="cancel" data-i18n="resources.cancel">${escapeHTML(t('resources.cancel', 'Cancel'))}</button>
-            <button type="button" class="btn btn-danger" data-act="delete" data-i18n="resources.deleteBtn">${escapeHTML(t('resources.deleteBtn', 'Delete'))}</button>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(confirmOverlay);
-      return confirmOverlay;
-    }
-
-    function confirmDelete(id, title, storageKey) {
-      const overlay = ensureConfirmModal();
-      overlay.querySelector('.resource-confirm-body').textContent =
-        t('resources.confirmBody', '"{title}" will be permanently removed for everyone, including its download link. This can’t be undone.').replace('{title}', title);
-      const deleteBtn = overlay.querySelector('[data-act="delete"]');
-      const cancelBtn = overlay.querySelector('[data-act="cancel"]');
-      overlay.hidden = false;
-
-      const close = () => { overlay.hidden = true; };
-      const onCancel = () => close();
-      const onDelete = async () => {
-        deleteBtn.disabled = true;
-        cancelBtn.disabled = true;
-        deleteBtn.textContent = t('resources.deleting', 'Deleting…');
-        const { error: dbErr } = await client.from('resources').delete().eq('id', id);
-        if (dbErr) {
-          deleteBtn.disabled = false;
-          cancelBtn.disabled = false;
-          deleteBtn.textContent = t('resources.deleteBtn', 'Delete');
-          overlay.querySelector('.resource-confirm-body').textContent = t('resources.deleteError', 'Could not delete: {msg}').replace('{msg}', dbErr.message);
-          return;
-        }
-        await client.storage.from(BUCKET).remove([storageKey]);
-        close();
-        loadList();
-      };
-      deleteBtn.addEventListener('click', onDelete, { once: true });
-      cancelBtn.addEventListener('click', onCancel, { once: true });
-    }
-
-    /* ---------------- Upload flow ---------------- */
-
-    let uploadOverlay;
-    function ensureUploadModal() {
-      if (uploadOverlay) return uploadOverlay;
-      uploadOverlay = document.createElement('div');
-      uploadOverlay.className = 'resource-confirm-overlay';
-      uploadOverlay.hidden = true;
-      uploadOverlay.innerHTML = `
-        <div class="resource-confirm-modal resource-upload-modal" role="dialog" aria-modal="true" aria-labelledby="resUploadTitle">
-          <button type="button" class="auth-close" data-act="close" data-i18n-aria-label="resources.closeAria" aria-label="${escapeHTML(t('resources.closeAria', 'Close'))}">&times;</button>
-          <h3 id="resUploadTitle" data-i18n="resources.uploadTitle">${escapeHTML(t('resources.uploadTitle', 'Attach a resource'))}</h3>
-          <div class="resource-upload-msg" hidden></div>
-          <form id="resourceUploadForm" novalidate>
-            <div class="auth-field">
-              <label for="resTitle" data-i18n="resources.fieldTitle">${escapeHTML(t('resources.fieldTitle', 'Title'))}</label>
-              <input type="text" id="resTitle" required maxlength="120">
-            </div>
-            <div class="auth-field">
-              <label for="resDesc" data-i18n="resources.fieldDesc">${escapeHTML(t('resources.fieldDesc', 'Description (optional)'))}</label>
-              <textarea id="resDesc" rows="3" maxlength="500"></textarea>
-            </div>
-            <div class="auth-field">
-              <label for="resDescLang" data-i18n="resources.fieldDescLang">${escapeHTML(t('resources.fieldDescLang', 'Description written in'))}</label>
-              <select id="resDescLang">
-                ${LANGS.map(l => `<option value="${l.code}">${l.label}</option>`).join('')}
-              </select>
-            </div>
-            <div class="auth-field">
-              <label for="resCategory" data-i18n="resources.fieldCategory">${escapeHTML(t('resources.fieldCategory', 'Category'))}</label>
-              <select id="resCategory">
-                ${CATEGORIES.map(c => `<option value="${c}">${escapeHTML(categoryLabel(c))}</option>`).join('')}
-              </select>
-            </div>
-            <div class="auth-field">
-              <label for="resLevel" data-i18n="resources.fieldLevel">${escapeHTML(t('resources.fieldLevel', 'Learning level'))}</label>
-              <select id="resLevel">
-                ${LEVELS.map(l => `<option value="${l}">${escapeHTML(levelLabel(l))}</option>`).join('')}
-              </select>
-            </div>
-            <div class="auth-field">
-              <label for="resUnit" data-i18n="resources.fieldUnit">${escapeHTML(t('resources.fieldUnit', 'Linked book / unit (optional)'))}</label>
-              <input type="text" id="resUnit" maxlength="80" data-i18n-placeholder="resources.fieldUnitPlaceholder" placeholder="${escapeHTML(t('resources.fieldUnitPlaceholder', 'e.g. Unit 3'))}">
-            </div>
-            <div class="auth-field">
-              <label for="resFile" data-i18n="resources.fieldFile">${escapeHTML(t('resources.fieldFile', 'File'))}</label>
-              <input type="file" id="resFile" required accept=".pdf,.png,.jpg,.jpeg,.mp3,.m4a">
-              <p class="resource-hint" data-i18n="resources.fileHint">${escapeHTML(t('resources.fileHint', 'PDF, PNG, JPG, JPEG up to 20MB · MP3, M4A up to 50MB'))}</p>
-            </div>
-            <button type="submit" class="btn btn-primary auth-submit" id="resUploadSubmit" data-i18n="resources.uploadSubmit">${escapeHTML(t('resources.uploadSubmit', 'Upload'))}</button>
-          </form>
-        </div>
-      `;
-      document.body.appendChild(uploadOverlay);
-
-      uploadOverlay.querySelector('[data-act="close"]').addEventListener('click', () => { uploadOverlay.hidden = true; });
-      uploadOverlay.addEventListener('click', (e) => { if (e.target === uploadOverlay) uploadOverlay.hidden = true; });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !uploadOverlay.hidden) uploadOverlay.hidden = true;
-      });
-
-      uploadOverlay.querySelector('#resourceUploadForm').addEventListener('submit', onUploadSubmit);
-      return uploadOverlay;
-    }
-
-    function setUploadMsg(text, type) {
-      const el = uploadOverlay.querySelector('.resource-upload-msg');
-      el.textContent = text;
-      el.className = 'resource-upload-msg ' + (type || '');
-      el.hidden = !text;
-    }
-
-    let uploading = false;
-
-    // Wraps the handler so a throw anywhere inside still releases the
-    // button. Without this an unexpected error leaves it reading
-    // "Uploading…" for ever, with the file already in the bucket and no
-    // sign to the admin that anything went wrong.
-    async function onUploadSubmit(e) {
-      e.preventDefault();
+    function saveState(extra) {
       try {
-        await runUpload();
-      } catch (err) {
-        uploading = false;
-        const btn = document.getElementById('resUploadSubmit');
-        if (btn) { btn.disabled = false; btn.textContent = t('resources.uploadSubmit', 'Upload'); }
-        setUploadMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}')
-          .replace('{msg}', schemaHint(err && err.message ? err.message : String(err))), 'error');
-      }
+        var s = { type: state.type, lang: state.lang };
+        if (extra) Object.keys(extra).forEach(function (k) { s[k] = extra[k]; });
+        sessionStorage.setItem(STATE_KEY, JSON.stringify(s));
+      } catch (e) {}
     }
 
-    async function runUpload() {
-      if (uploading) return;
-      setUploadMsg('', '');
+    /* ---------------- Language dropdown ---------------- */
 
-      const title = document.getElementById('resTitle').value.trim();
-      const description = document.getElementById('resDesc').value.trim();
-      const descLang = document.getElementById('resDescLang').value;
-      const level = document.getElementById('resLevel').value;
-      const unit = document.getElementById('resUnit').value.trim();
-      const fileInput = document.getElementById('resFile');
-      const file = fileInput.files[0];
-
-      if (!title) { setUploadMsg(t('resources.errTitleRequired', 'Please enter a title.'), 'error'); return; }
-      if (!file) { setUploadMsg(t('resources.errFileRequired', 'Please choose a file.'), 'error'); return; }
-
-      const ext = fileExt(file.name);
-      if (!MAX_SIZE[ext]) {
-        setUploadMsg(t('resources.errUnsupportedType', 'Unsupported file type. Allowed: PDF, PNG, JPG, JPEG, MP3, M4A.'), 'error');
-        return;
-      }
-      if (file.size > MAX_SIZE[ext]) {
-        setUploadMsg(t('resources.errTooLarge', 'File is too large. Max size for .{ext} is {size}.').replace('{ext}', ext).replace('{size}', formatSize(MAX_SIZE[ext])), 'error');
-        return;
-      }
-
-      uploading = true;
-      const submitBtn = document.getElementById('resUploadSubmit');
-      submitBtn.disabled = true;
-      submitBtn.textContent = t('resources.uploading', 'Uploading…');
-
-      const storageKey = `${LOCATION}/${crypto.randomUUID()}.${ext}`;
-      const { error: uploadErr } = await client.storage.from(BUCKET).upload(storageKey, file, {
-        contentType: MIME_BY_EXT[ext],
-        upsert: false,
+    function langsPresent() {
+      var seen = {};
+      all.forEach(function (r) {
+        R.availableFiles(r, false).forEach(function (f) { seen[f.lang] = true; });
       });
-      if (uploadErr) {
-        uploading = false;
-        submitBtn.disabled = false;
-        submitBtn.textContent = t('resources.uploadSubmit', 'Upload');
-        setUploadMsg(uploadErrorText(uploadErr), 'error');
-        return;
-      }
+      return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return seen[c]; });
+    }
 
-      const { error: insertErr } = await client.from('resources').insert({
-        title, description: description || null,
+    function buildLangSelect() {
+      if (!langSel) return;
+      var codes = langsPresent();
+      var mineLabel = t('resources.langMine', 'My language') + ' (' + R.langLabel(R.siteLang()) + ')';
+      var html = '<option value="mine">' + esc(mineLabel) + '</option>' +
+        '<option value="all">' + esc(t('resources.langAll', 'All languages')) + '</option>';
+      if (codes.length) {
+        html += '<optgroup label="' + esc(t('resources.langPick', 'Pick a language')) + '">' +
+          codes.map(function (c) { return '<option value="' + esc(c) + '">' + esc(R.langLabel(c)) + '</option>'; }).join('') +
+          '</optgroup>';
+      }
+      langSel.innerHTML = html;
+      // A remembered choice that no resource offers any more falls back.
+      if (state.lang !== 'mine' && state.lang !== 'all' && codes.indexOf(state.lang) === -1) state.lang = 'mine';
+      langSel.value = state.lang;
+    }
+
+    function resolvedLang() {
+      return state.lang === 'mine' ? R.siteLang() : state.lang;
+    }
+
+    /* ---------------- Cards ---------------- */
+
+    function cardHTML(r) {
+      var lang = R.siteLang();
+      var files = R.availableFiles(r, isAdmin);
+      var formats = {};
+      files.forEach(function (f) { formats[String(f.file_type || '').toUpperCase()] = true; });
+      var chips = files.map(function (f) { return f.lang; });
+      var shown = chips.slice(0, 3);
+      var more = chips.length - shown.length;
+      var href = 'resource.html?id=' + encodeURIComponent(r.id) +
+        (state.lang !== 'mine' && state.lang !== 'all' ? '&pl=' + encodeURIComponent(state.lang) : '');
+      var level = r.learning_level && r.learning_level !== 'Any level' ? R.levelLabel(r.learning_level) : '';
+      var meta = [R.categoryLabel(r.category), level, Object.keys(formats).join('/') || 'PDF'].filter(Boolean).join(' · ');
+      return '<article class="res-card' + (r.published === false ? ' res-card--draft' : '') + '">' +
+        '<a class="res-cover" href="' + esc(href) + '" tabindex="-1" aria-hidden="true">' + R.coverHTML(client, r) + '</a>' +
+        '<div class="res-card-body">' +
+          (r.published === false ? '<span class="res-draft">' + esc(t('resource.draft', 'Hidden')) + '</span>' : '') +
+          '<h3><a href="' + esc(href) + '">' + esc(R.localized(r, 'title', lang)) + '</a></h3>' +
+          (R.localized(r, 'description', lang) ? '<p>' + esc(R.localized(r, 'description', lang)) + '</p>' : '') +
+          '<p class="res-meta">' + esc(meta) + '</p>' +
+          '<div class="res-card-foot">' +
+            '<span class="res-langs" aria-label="' + esc(t('resource.factLanguages', 'Languages')) + '">' +
+              shown.map(function (c) { return '<span class="res-chip">' + esc(R.langShort(c)) + '</span>'; }).join('') +
+              (more > 0 ? '<span class="res-chip res-chip--more">+' + more + '</span>' : '') +
+              (!chips.length ? '<span class="res-chip res-chip--none">' + esc(t('resource.noFilesYet', 'No file yet')) + '</span>' : '') +
+            '</span>' +
+            '<a class="btn btn-ghost res-view" href="' + esc(href) + '">' + esc(t('resources.viewDownload', 'View & Download')) + '</a>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }
+
+    function visible() {
+      var lang = resolvedLang();
+      return all.filter(function (r) {
+        if (state.type !== 'all' && r.category !== state.type) return false;
+        if (state.lang === 'all') return true;
+        // An admin also finds a resource by a file that is still hidden.
+        return R.availableFiles(r, isAdmin).some(function (f) { return f.lang === lang; });
+      });
+    }
+
+    function render() {
+      var rows = visible();
+      listEl.innerHTML = rows.map(cardHTML).join('');
+      var anyOfType = all.some(function (r) { return state.type === 'all' || r.category === state.type; });
+      if (rows.length) {
+        emptyEl.hidden = true;
+      } else {
+        emptyEl.hidden = false;
+        if (anyOfType && state.lang !== 'all') {
+          emptyText.textContent = t('resources.noneInLang', 'Nothing here in {lang} yet.').replace('{lang}', R.langLabel(resolvedLang()));
+          showAllBtn.hidden = false;
+        } else {
+          emptyText.textContent = t('resources.emptyNote', 'No files have been attached yet.');
+          showAllBtn.hidden = true;
+        }
+      }
+      listEl.querySelectorAll('a[href^="resource.html"]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          saveState({ scrollY: window.scrollY });
+          try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}
+        });
+      });
+    }
+
+    function restoreScroll() {
+      var back = false;
+      try { back = sessionStorage.getItem(RETURN_KEY) === '1'; sessionStorage.removeItem(RETURN_KEY); } catch (e) {}
+      if (!back) return;
+      try {
+        var s = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
+        if (s && typeof s.scrollY === 'number') window.scrollTo(0, s.scrollY);
+      } catch (e) {}
+    }
+
+    function load() {
+      return client.from('resources')
+        .select('*, resource_files(id, lang, file_type, file_size, page_count, published)')
+        .eq('publish_location', LOCATION)
+        .order('created_at', { ascending: false })
+        .then(function (res) {
+          if (res.error) {
+            console.error('Failed to load resources:', res.error.message);
+            if (isAdmin && window.DURU_NOTIFY) window.DURU_NOTIFY.error(R.schemaHint(res.error.message));
+            return;
+          }
+          all = res.data || [];
+          buildLangSelect();
+          render();
+          restoreScroll();
+        });
+    }
+
+    /* ---------------- Filters ---------------- */
+
+    if (filtersEl) {
+      filtersEl.querySelectorAll('.filter-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.filter === state.type);
+      });
+      filtersEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        state.type = btn.dataset.filter;
+        filtersEl.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.toggle('active', b === btn); });
+        saveState(); render();
+      });
+    }
+    if (langSel) {
+      langSel.addEventListener('change', function () {
+        state.lang = langSel.value;
+        saveState(); render();
+      });
+    }
+    if (showAllBtn) {
+      showAllBtn.addEventListener('click', function () {
+        state.lang = 'all';
+        if (langSel) langSel.value = 'all';
+        saveState(); render();
+      });
+    }
+    document.addEventListener('duru:langchange', function () { buildLangSelect(); render(); });
+
+    /* ---------------- Admin: new resource ---------------- */
+
+    var overlay = null;
+    function ensureNewModal() {
+      if (overlay) return overlay;
+      overlay = document.createElement('div');
+      overlay.className = 'resource-confirm-overlay';
+      overlay.hidden = true;
+      overlay.innerHTML =
+        '<div class="resource-confirm-modal resource-upload-modal" role="dialog" aria-modal="true" aria-labelledby="resNewTitle">' +
+          '<button type="button" class="auth-close" data-act="close" aria-label="' + esc(t('resources.closeAria', 'Close')) + '">&times;</button>' +
+          '<h3 id="resNewTitle">' + esc(t('resources.newTitle', 'New download')) + '</h3>' +
+          '<p class="resource-hint" style="margin:0 0 14px">' + esc(t('resources.newHint', 'Give it a title and a category now; the files for each language are added on its page next.')) + '</p>' +
+          '<div class="resource-upload-msg" hidden></div>' +
+          '<form id="resNewForm" novalidate>' +
+            '<div class="auth-field"><label for="resNewTitleInput">' + esc(t('resources.fieldTitle', 'Title')) + '</label>' +
+              '<input type="text" id="resNewTitleInput" required maxlength="120"></div>' +
+            '<div class="auth-field"><label for="resNewDesc">' + esc(t('resource.fieldSummary', 'Short description')) + '</label>' +
+              '<textarea id="resNewDesc" rows="2" maxlength="300"></textarea></div>' +
+            '<div class="auth-field"><label for="resNewCategory">' + esc(t('resources.fieldCategory', 'Category')) + '</label>' +
+              '<select id="resNewCategory">' + R.CATEGORIES.map(function (c) { return '<option value="' + c + '">' + esc(R.categoryLabel(c)) + '</option>'; }).join('') + '</select></div>' +
+            '<div class="auth-field"><label for="resNewLevel">' + esc(t('resources.fieldLevel', 'Learning level')) + '</label>' +
+              '<select id="resNewLevel">' + R.LEVELS.map(function (l) { return '<option value="' + l + '">' + esc(R.levelLabel(l)) + '</option>'; }).join('') + '</select></div>' +
+            '<button type="submit" class="btn btn-primary auth-submit" id="resNewSubmit">' + esc(t('resources.createBtn', 'Create and add files →')) + '</button>' +
+          '</form>' +
+        '</div>';
+      document.body.appendChild(overlay);
+      overlay.querySelector('[data-act="close"]').addEventListener('click', function () { overlay.hidden = true; });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.hidden = true; });
+      overlay.querySelector('#resNewForm').addEventListener('submit', onCreate);
+      return overlay;
+    }
+
+    function setMsg(text, type) {
+      var el = overlay.querySelector('.resource-upload-msg');
+      el.textContent = text; el.className = 'resource-upload-msg ' + (type || ''); el.hidden = !text;
+    }
+
+    function onCreate(e) {
+      e.preventDefault();
+      var title = overlay.querySelector('#resNewTitleInput').value.trim();
+      if (!title) { setMsg(t('resources.errTitleRequired', 'Please enter a title.'), 'error'); return; }
+      var btn = overlay.querySelector('#resNewSubmit');
+      btn.disabled = true;
+      client.from('resources').insert({
+        title: title,
+        description: overlay.querySelector('#resNewDesc').value.trim() || null,
         publish_location: LOCATION,
-        file_type: ext,
-        description_language: descLang,
-        learning_level: level,
-        category: document.getElementById('resCategory').value,
-        linked_unit: unit || null,
-        storage_key: storageKey,
-        file_size: file.size,
-        mime_type: MIME_BY_EXT[ext],
-        created_by: currentUserId,
+        category: overlay.querySelector('#resNewCategory').value,
+        learning_level: overlay.querySelector('#resNewLevel').value,
+        published: false,
+        created_by: currentUser ? currentUser.id : null
+      }).select('id').single().then(function (res) {
+        btn.disabled = false;
+        if (res.error) { setMsg(R.schemaHint(res.error.message), 'error'); return; }
+        window.location.href = 'resource.html?id=' + encodeURIComponent(res.data.id) + '&edit=1';
       });
-
-      uploading = false;
-      submitBtn.disabled = false;
-      submitBtn.textContent = t('resources.uploadSubmit', 'Upload');
-
-      if (insertErr) {
-        // Roll back the uploaded file so we don't leave an orphaned object.
-        await client.storage.from(BUCKET).remove([storageKey]);
-        setUploadMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}').replace('{msg}', schemaHint(insertErr.message)), 'error');
-        return;
-      }
-
-      setUploadMsg(t('resources.uploadSuccess', 'Uploaded successfully.'), 'success');
-      document.getElementById('resourceUploadForm').reset();
-      loadList();
-      setTimeout(() => { if (uploadOverlay) uploadOverlay.hidden = true; }, 900);
     }
 
-    attachBtn.addEventListener('click', () => {
-      const overlay = ensureUploadModal();
-      setUploadMsg('', '');
-      overlay.hidden = false;
-      overlay.querySelector('#resTitle').focus();
-    });
-
-    /* ---------------- Admin check + init ---------------- */
-
-    async function checkAdmin(user) {
-      if (!user) {
-        isAdmin = false;
-        currentUserId = null;
-        attachBtn.hidden = true;
-        loadList();
-        return;
-      }
-      currentUserId = user.id;
-      const { data } = await client.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
-      isAdmin = !!data;
-      attachBtn.hidden = !isAdmin;
-      loadList();
+    if (newBtn) {
+      newBtn.addEventListener('click', function () {
+        var o = ensureNewModal();
+        setMsg('', ''); o.hidden = false;
+        o.querySelector('#resNewTitleInput').focus();
+      });
     }
 
-    client.auth.getSession().then(({ data }) => {
-      checkAdmin(data && data.session && data.session.user);
-    });
-    client.auth.onAuthStateChange((_event, session) => {
-      checkAdmin(session && session.user);
-    });
+    /* ---------------- Session ---------------- */
 
-    loadList();
+    function applyUser(user) {
+      currentUser = user || null;
+      R.isAdmin(client, currentUser).then(function (admin) {
+        isAdmin = admin;
+        if (newBtn) newBtn.hidden = !isAdmin;
+        load();
+      });
+    }
+    client.auth.getSession().then(function (res) { applyUser(res.data && res.data.session && res.data.session.user); });
+    client.auth.onAuthStateChange(function (_e, session) { applyUser(session && session.user); });
   });
 })();

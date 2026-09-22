@@ -1,7 +1,7 @@
 -- DURU KOREAN — post-migration check
 --
 -- Paste this into the Supabase SQL editor after running schema.sql.
--- Every row (14 of them) should read OK. Any FAIL means schema.sql did not finish —
+-- Every row (19 of them) should read OK. Any FAIL means schema.sql did not finish —
 -- scroll up in the editor to the first red error and fix that one.
 
 with checks(item, ok) as (
@@ -48,7 +48,28 @@ with checks(item, ok) as (
      exists (select 1 from pg_trigger where tgname='stories_notify_followers')),
 
     ('resources bucket is private',
-     exists (select 1 from storage.buckets where id='resources' and public = false))
+     exists (select 1 from storage.buckets where id='resources' and public = false)),
+
+    ('resource_files table (downloads by language)',
+     to_regclass('public.resource_files') is not null),
+
+    ('resources.i18n column',
+     to_regclass('public.resources') is not null and exists (
+       select 1 from information_schema.columns
+       where table_schema='public' and table_name='resources' and column_name='i18n')),
+
+    ('download categories updated',
+     exists (select 1 from pg_constraint
+             where conname='resources_category_check'
+               and pg_get_constraintdef(oid) like '%reallife%')),
+
+    ('book-resources location accepted',
+     exists (select 1 from pg_constraint
+             where conname='resources_publish_location_check'
+               and pg_get_constraintdef(oid) like '%book-resources%')),
+
+    ('resource-covers bucket is public',
+     exists (select 1 from storage.buckets where id='resource-covers' and public = true))
 )
 select
   case when ok then 'OK   ' else 'FAIL ' end || item as result

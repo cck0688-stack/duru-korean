@@ -105,20 +105,27 @@
     try {
       const { data: resources } = await client
         .from('resources')
-        .select('id, title, description, file_type');
+        .select('id, title, description, category, i18n');
 
       if (resources) {
         resources.forEach(res => {
+          // Every language's title and text is searched, so a Vietnamese
+          // learner typing a Vietnamese word finds the resource too.
+          const texts = [res.title, res.description || ''];
+          Object.keys(res.i18n || {}).forEach(code => {
+            const tr = res.i18n[code] || {};
+            texts.push(tr.title || '', tr.description || '');
+          });
+          const hay = texts.join(' ').toLowerCase();
           const titleMatch = res.title.toLowerCase().includes(q);
-          const descMatch = res.description && res.description.toLowerCase().includes(q);
 
-          if (titleMatch || descMatch) {
+          if (hay.includes(q)) {
             allResults.push({
               type: 'resources',
               id: res.id,
               title: res.title,
               excerpt: res.description || '',
-              file_type: res.file_type,
+              category: res.category,
               relevance: titleMatch ? 2 : 1
             });
           }
@@ -174,11 +181,11 @@
         `;
       } else if (result.type === 'resources') {
         html = `
-          <div class="search-result-content">
-            <div class="search-result-type resources">${escapeHTML(result.file_type.toUpperCase())}</div>
+          <a href="resource.html?id=${escapeHTML(result.id)}" class="search-result-link">
+            <div class="search-result-type resources">${escapeHTML(t('resources.cat.' + result.category, result.category || 'PDF'))}</div>
             <h3>${highlightMatch(result.title, query)}</h3>
             <p>${highlightMatch(result.excerpt, query)}</p>
-          </div>
+          </a>
         `;
       }
 

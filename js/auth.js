@@ -345,9 +345,12 @@
     async function signInWithGoogle(panel) {
       clearMessage(panel);
       if (!requireClient(panel)) return;
+      // A page that wants the visitor back where they were (a download,
+      // with its language chosen) sets DURU_AUTH_RETURN_TO before this
+      // script loads; everything else lands on My Learning.
       const { error } = await client.auth.signInWithOAuth({
         provider: 'google',
-        options: { redirectTo: REDIRECT_URL },
+        options: { redirectTo: window.DURU_AUTH_RETURN_TO || REDIRECT_URL },
       });
       if (error) setMessage(panel, 'error', friendlyError(error));
     }

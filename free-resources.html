@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Free Resources — Duru Korean</title>
+<title>Free Downloads — Duru Korean</title>
 <meta name="description" content="Free printable charts, cheat sheets, and vocabulary lists to start learning Korean today, at no cost.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
   <div class="wrap">
     <div class="header-brand">
       <a href="index.html" class="logo">
-        <img class="logo-img" src="assets/logo.webp" alt="Duru Korean" width="1672" height="291">
+        <img class="logo-img" src="assets/logo.webp" alt="Duru Korean" width="1617" height="280">
       </a>
       <span class="site-visits" hidden>
         <span><span data-i18n="visits.total" data-visits-total-label>Visits</span> <b data-visits-total>–</b></span>
@@ -26,7 +26,8 @@
     </div>
     <nav class="nav-main">
       <a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a>
-      <a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a>
+      <a href="book-resources.html" data-i18n="nav.bookResources">Book Resources</a>
+      <a href="free-resources.html" data-i18n="nav.freeResources">Free Downloads</a>
       <a href="blog.html" data-i18n="nav.blog">Blog</a>
       <a href="stories.html" data-i18n="nav.stories">Guestbook</a>
     </nav>
@@ -41,7 +42,7 @@
 <section class="page-hero">
   <div class="wrap">
     <span class="page-hero-mark" aria-hidden="true">자료</span>
-    <h1 data-i18n="freeResources.h1">Free Resources</h1>
+    <h1 data-i18n="freeResources.h1">Free Downloads</h1>
     <div class="page-hero-rule"></div>
     <p class="page-hero-tagline" data-i18n="freeResources.tagline">Everything here is free — start today.</p>
     <div data-i18n="freeResources.krSub">무료 자료</div>
@@ -51,17 +52,28 @@
 <section class="section section-after-hero">
   <div class="wrap">
     <p class="section-lead-in" data-i18n="freeResources.leadIn">Printable charts, cheat sheets, and vocabulary lists to get you reading, writing, and speaking Korean right away.</p>
-    <div class="filter-row reveal" id="resourceFilters">
-      <button class="filter-btn active" data-filter="all" data-i18n="resources.filter.all">All</button>
-      <button class="filter-btn" data-filter="audio" data-i18n="resources.cat.audio">Audio &amp; Listening</button>
-      <button class="filter-btn" data-filter="printables" data-i18n="resources.cat.printables">Study Printables</button>
-      <button class="filter-btn" data-filter="worksheets" data-i18n="resources.cat.worksheets">Worksheets &amp; Drills</button>
-      <button class="filter-btn" data-filter="cheatsheets" data-i18n="resources.cat.cheatsheets">Cheat Sheets</button>
-      <button class="filter-btn" data-filter="vocab" data-i18n="resources.cat.vocab">Vocabulary &amp; Flashcards</button>
-      <button type="button" class="btn btn-ghost" id="attachResourceBtn" hidden data-i18n="resources.attachBtn">+ Attach Resource</button>
+    <div class="dl-toolbar reveal">
+      <div class="filter-row" id="resourceFilters">
+        <button class="filter-btn active" data-filter="all" data-i18n="resources.filter.all">All</button>
+        <button class="filter-btn" data-filter="hangul" data-i18n="resources.cat.hangul">Hangul Starter</button>
+        <button class="filter-btn" data-filter="pronunciation" data-i18n="resources.cat.pronunciation">Pronunciation</button>
+        <button class="filter-btn" data-filter="vocab" data-i18n="resources.cat.vocab">Vocabulary</button>
+        <button class="filter-btn" data-filter="grammar" data-i18n="resources.cat.grammar">Grammar Cheat Sheets</button>
+        <button class="filter-btn" data-filter="reallife" data-i18n="resources.cat.reallife">Real-Life Korean</button>
+      </div>
+      <div class="dl-toolbar-row">
+        <label class="dl-lang" for="resourceLang">
+          <span data-i18n="resources.langFilterLabel">Language</span>
+          <select id="resourceLang"></select>
+        </label>
+        <button type="button" class="btn btn-ghost" id="newResourceBtn" hidden data-i18n="resources.newBtn">+ New resource</button>
+      </div>
     </div>
-    <p class="resource-empty-note" id="resourceListEmpty" hidden data-i18n="resources.emptyNote">No files have been attached yet.</p>
-    <div class="grid-4" id="resourceList"></div>
+    <div class="resource-empty" id="resourceListEmpty" hidden>
+      <p id="resourceEmptyText" data-i18n="resources.emptyNote">No files have been attached yet.</p>
+      <button type="button" class="btn btn-ghost" id="resourceShowAll" hidden data-i18n="resources.showAllLangs">Show all languages</button>
+    </div>
+    <div class="grid-4 resource-grid" id="resourceList"></div>
   </div>
 </section>
 
@@ -85,7 +97,7 @@
     <div class="footer-top">
       <div>
         <a href="index.html" class="logo">
-          <img class="logo-img" src="assets/logo-footer.webp" alt="Duru Korean" width="1672" height="291">
+          <img class="logo-img" src="assets/logo-footer.webp" alt="Duru Korean" width="1412" height="252">
         </a>
         <p data-i18n="footer.tagline">두루 한국어 — practical, audio-first Korean lessons for learners anywhere in the world.</p>
       </div>
@@ -93,7 +105,8 @@
         <h5 data-i18n="footer.learning">Learning</h5>
         <ul>
           <li><a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a></li>
-          <li><a href="free-resources.html" data-i18n="nav.freeResources">Free Resources</a></li>
+          <li><a href="book-resources.html" data-i18n="nav.bookResources">Book Resources</a></li>
+          <li><a href="free-resources.html" data-i18n="nav.freeResources">Free Downloads</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -126,6 +139,7 @@
 <script src="js/notify-feed.js"></script>
 <script src="js/visitor-tracking.js"></script>
 <script>window.DURU_RESOURCE_LOCATION = 'free-resources';</script>
+<script src="js/resource-common.js"></script>
 <script src="js/resources.js"></script>
 <script>window.DURU_PAGE_TITLE_KEY = 'freeResources.title';</script>
 <script src="js/newsletter.js"></script>
