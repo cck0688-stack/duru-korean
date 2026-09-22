@@ -3,13 +3,12 @@
 // Load after js/auth.js and before js/blog.js. Exposes window.DURU_COMMENTS
 // with one entry point: mount(container, postId).
 //
-// Anyone who has read the article can leave a comment, signed in or not.
-// Asking a reader to make an account before they can say "this helped"
-// loses almost all of them, so the form asks for a name and the text and
-// nothing else. A signed-in reader's name is filled in for them and
-// their comment is tied to their account; a signed-out one is tied to
-// the random id the browser keeps (window.DURU_ANON), which identifies
-// nobody but is enough to let them delete what they just wrote.
+// Writing needs an account. A comment carries a name and sits under the
+// article for everyone to read, so it should belong to someone who can
+// be answered — and who can come back and delete it. A signed-out
+// reader sees the thread and a line inviting them to sign in, not a
+// form that will fail. (The heart is the other half of that trade: it
+// costs nothing and needs no account. See js/like.js.)
 //
 // A reply is a comment with a parent, and a reply may itself be replied
 // to, so a thread nests as deep as the talk goes — the same shape the
@@ -19,8 +18,7 @@
 //
 // Who may delete what is decided by Row Level Security in
 // supabase/schema.sql, not by this file hiding a button: an admin may
-// delete any comment, a signed-in author their own, and a signed-out
-// author their own through a function that checks the browser id.
+// delete any comment, and an author their own.
 
 (function () {
   'use strict';
@@ -63,8 +61,11 @@
     }
   }
 
-  function anonId() {
-    return (window.DURU_ANON && window.DURU_ANON.id()) || null;
+  // The site's sign-in modal lives in js/auth.js and opens from the
+  // header button, which is the one thing every page has.
+  function openLogin() {
+    var trigger = document.getElementById('authTrigger');
+    if (trigger) trigger.click();
   }
 
   function mount(container, postId) {
@@ -89,16 +90,27 @@
 
     /* ---------------- The form ---------------- */
 
+    function displayName() {
+      var named = user && user.user_metadata && user.user_metadata.display_name;
+      return named || (user && user.email ? user.email.split('@')[0] : '');
+    }
+
+    // Shown in place of the form to a reader who is not signed in.
+    function signInPromptHTML(parentId) {
+      return '<p class="comment-signin">' +
+        '<span>' + esc(parentId
+          ? t('comments.signInToReply', 'Sign in to reply.')
+          : t('comments.signInToComment', 'Sign in to leave a comment.')) + '</span> ' +
+        '<button type="button" class="res-linkbtn" data-signin="1">' +
+          esc(t('comments.signInBtn', 'Sign in')) + '</button>' +
+        '</p>';
+    }
+
     function formHTML(parentId) {
-      var named = user && (user.user_metadata && user.user_metadata.display_name);
-      var name = named || (user && user.email ? user.email.split('@')[0] : '');
+      if (!user) return signInPromptHTML(parentId);
       return '<form class="comment-form" data-parent="' + esc(parentId || '') + '" novalidate>' +
-        '<div class="comment-form-row">' +
-          '<input type="text" class="comment-name" maxlength="' + MAX_NAME + '"' +
-            ' value="' + esc(name) + '"' + (user ? ' readonly' : '') +
-            ' placeholder="' + esc(t('comments.namePlaceholder', 'Your name')) + '"' +
-            ' aria-label="' + esc(t('comments.namePlaceholder', 'Your name')) + '">' +
-        '</div>' +
+        '<p class="comment-as">' + esc(t('comments.commentingAs', 'Commenting as {name}')
+          .replace('{name}', displayName())) + '</p>' +
         '<textarea class="comment-body" rows="3" maxlength="' + MAX_BODY + '"' +
           ' placeholder="' + esc(parentId
             ? t('comments.replyPlaceholder', 'Write a reply…')
@@ -115,7 +127,15 @@
       '</form>';
     }
 
-    function wireForm(form) {
+    // A form when signed in, a sign-in line when not.
+    function wireForm(box) {
+      var prompt = box.matches('.comment-signin') ? box : box.querySelector('.comment-signin');
+      if (prompt) {
+        prompt.querySelector('[data-signin]').addEventListener('click', openLogin);
+        return;
+      }
+      var form = box.matches('.comment-form') ? box : box.querySelector('.comment-form');
+      if (!form) return;
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         submit(form);
@@ -137,9 +157,8 @@
 
     function submit(form) {
       if (busy) return;
-      var name = form.querySelector('.comment-name').value.trim();
+      if (!user) { openLogin(); return; }
       var body = form.querySelector('.comment-body').value.trim();
-      if (!name) { formMessage(form, t('comments.errNoName', 'Please add a name.')); return; }
       if (!body) { formMessage(form, t('comments.errNoBody', 'Please write something first.')); return; }
       formMessage(form, '');
 
@@ -147,10 +166,10 @@
       var row = {
         post_id: postId,
         parent_id: parentId || null,
-        display_name: name.slice(0, MAX_NAME),
+        display_name: displayName().slice(0, MAX_NAME) || 'Reader',
         body: body.slice(0, MAX_BODY),
-        user_id: user ? user.id : null,
-        anon_id: user ? null : anonId()
+        user_id: user.id,
+        anon_id: null
       };
 
       busy = true;
@@ -193,8 +212,7 @@
 
     function mayDelete(c) {
       if (isAdmin) return true;
-      if (user && c.user_id && c.user_id === user.id) return true;
-      return !c.user_id && !!c.anon_id && c.anon_id === anonId();
+      return !!(user && c.user_id && c.user_id === user.id);
     }
 
     function threadHTML(parentId, depth) {
@@ -209,8 +227,8 @@
             '</div>' +
             '<div class="comment-body-text">' + bodyHTML(c.body) + '</div>' +
             '<div class="comment-actions">' +
-              '<button type="button" class="res-linkbtn" data-reply="' + esc(c.id) + '">' +
-                esc(t('comments.reply', 'Reply')) + '</button>' +
+              (user ? '<button type="button" class="res-linkbtn" data-reply="' + esc(c.id) + '">' +
+                esc(t('comments.reply', 'Reply')) + '</button>' : '') +
               (mayDelete(c)
                 ? '<button type="button" class="res-linkbtn res-linkbtn--danger" data-delete="' + esc(c.id) + '">' +
                   esc(t('comments.delete', 'Delete')) + '</button>'
@@ -229,13 +247,13 @@
         : t('comments.heading', 'Comments');
 
       rootFormEl.innerHTML = formHTML(null);
-      wireForm(rootFormEl.querySelector('.comment-form'));
+      wireForm(rootFormEl);
 
       listEl.innerHTML = comments.length
         ? threadHTML(null, 0)
         : '<p class="comment-empty">' + esc(t('comments.empty', 'No comments yet — be the first.')) + '</p>';
 
-      listEl.querySelectorAll('.comment-form').forEach(wireForm);
+      listEl.querySelectorAll('.comment-form, .comment-signin').forEach(wireForm);
       listEl.querySelectorAll('[data-reply]').forEach(function (b) {
         b.addEventListener('click', function () {
           replyingTo = replyingTo === b.dataset.reply ? null : b.dataset.reply;
@@ -260,17 +278,7 @@
         : t('comments.confirmDelete', 'Delete this comment?');
       if (!window.confirm(question)) return;
 
-      // A signed-out author goes through the function that can check the
-      // browser id; everyone else deletes straight through the policy.
-      var op = (!c.user_id && !isAdmin)
-        ? client.rpc('delete_anon_comment', { p_id: id, p_anon: anonId() })
-            .then(function (res) {
-              if (res.error) return { error: res.error };
-              return res.data ? {} : { error: { message: t('comments.errNotYours', 'That comment is not yours to delete.') } };
-            })
-        : client.from('post_comments').delete().eq('id', id);
-
-      op.then(function (res) {
+      client.from('post_comments').delete().eq('id', id).then(function (res) {
         if (res && res.error) { window.alert(hint(res.error.message)); return; }
         // The database cascades the replies; mirror that here so the
         // thread does not briefly show orphans.

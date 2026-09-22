@@ -1180,3 +1180,81 @@ end;
 $$;
 
 grant execute on function public.delete_anon_comment(uuid, text) to anon, authenticated;
+
+-- ------------------------------------------------------------------
+-- 25. a heart is free, a comment needs an account
+-- ------------------------------------------------------------------
+-- Two different things were being traded for two different prices, and
+-- section 24 priced them the same.
+--
+-- A heart costs a reader nothing and says little, so it stays open to
+-- everyone — but a signed-out one cannot be taken back. Undoing needs
+-- an account, because "this reader already liked it" is the only thing
+-- a browser id can be trusted for; "this reader wants it undone" would
+-- let anyone who guessed an id undo someone else's.
+--
+-- A comment carries a name and sits under the article for everyone to
+-- read, so it needs an account. That also gives every commenter a way
+-- to delete what they wrote, which the anonymous route never really
+-- did.
+
+-- Anonymous callers may now only add a like, never remove one. The
+-- signed-in half is unchanged: their own like still toggles.
+create or replace function public.toggle_content_like(
+  p_type text, p_id uuid, p_anon text default null
+) returns table (liked boolean, total bigint)
+language plpgsql security definer set search_path = public as $$
+declare
+  v_user uuid := auth.uid();
+  v_row public.content_likes;
+begin
+  if p_type not in ('post', 'story') then
+    raise exception 'unknown content type';
+  end if;
+
+  if v_user is not null then
+    select * into v_row from public.content_likes l
+      where l.user_id = v_user and l.content_type = p_type and l.content_id = p_id;
+    if v_row.id is null then
+      insert into public.content_likes (user_id, content_type, content_id, has_liked)
+      values (v_user, p_type, p_id, true);
+    else
+      update public.content_likes
+        set has_liked = not v_row.has_liked, updated_at = now()
+        where id = v_row.id;
+    end if;
+  else
+    if p_anon is null or char_length(p_anon) not between 8 and 64 then
+      raise exception 'a reader id is required';
+    end if;
+    select * into v_row from public.content_likes l
+      where l.anon_id = p_anon and l.content_type = p_type and l.content_id = p_id;
+    -- Add only. An existing like stays; a signed-out reader who wants
+    -- it back has to sign in, and nothing here can be used to undo
+    -- someone else's.
+    if v_row.id is null then
+      insert into public.content_likes (anon_id, content_type, content_id, has_liked)
+      values (p_anon, p_type, p_id, true);
+    elsif not v_row.has_liked then
+      update public.content_likes
+        set has_liked = true, updated_at = now()
+        where id = v_row.id;
+    end if;
+  end if;
+
+  return query select * from public.content_like_state(p_type, p_id, p_anon);
+end;
+$$;
+
+-- Writing a comment now needs an account, and a row must carry that
+-- account's id and no browser id. Comments already written without one
+-- stay where they are and stay readable; an admin can still remove any.
+drop policy if exists "post_comments: anyone insert" on public.post_comments;
+drop policy if exists "post_comments: signed in insert" on public.post_comments;
+create policy "post_comments: signed in insert"
+  on public.post_comments for insert
+  with check (auth.uid() is not null and user_id = auth.uid() and anon_id is null);
+
+-- Nothing can create an anonymous comment any more, so nothing needs a
+-- way to delete one by browser id.
+drop function if exists public.delete_anon_comment(uuid, text);

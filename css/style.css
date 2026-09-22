@@ -1769,6 +1769,19 @@ section { position: relative; }
   cursor: not-allowed;
 }
 
+/* A signed-out reader's like is in and cannot be taken back. It should
+   read as finished rather than as a button that stopped working, so it
+   keeps its colour and only loses the hover and the pointer. */
+.like-btn.is-spent {
+  opacity: 1;
+  cursor: default;
+}
+.like-btn.is-spent:hover {
+  background: rgba(184, 73, 47, 0.1);
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
 .like-count {
   font-weight: 600;
 }
@@ -3199,19 +3212,24 @@ section { position: relative; }
   gap: 10px;
   margin-bottom: 26px;
 }
-.comment-form-row { display: flex; gap: 10px; flex-wrap: wrap; }
-.comment-name {
-  flex: 0 1 240px;
-  min-width: 0;
-  padding: 10px 14px;
-  border: 1px solid rgba(22, 48, 43, 0.18);
-  border-radius: 10px;
-  background: #fff;
-  font: inherit;
-  font-size: 14px;
-  color: var(--ink);
+.comment-as {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-dim);
 }
-.comment-name[readonly] { background: rgba(22, 48, 43, 0.05); color: var(--ink-dim); }
+.comment-signin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 26px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(22, 48, 43, 0.05);
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+.comment .comment-signin { margin: 12px 0 0; }
 .comment-body {
   width: 100%;
   padding: 12px 14px;
@@ -3224,7 +3242,7 @@ section { position: relative; }
   color: var(--ink);
   resize: vertical;
 }
-.comment-name:focus, .comment-body:focus {
+.comment-body:focus {
   outline: none;
   border-color: var(--accent-red);
 }
@@ -3274,7 +3292,6 @@ section { position: relative; }
 .comment-empty { font-size: 14px; color: var(--ink-dim); margin: 0; }
 
 @media (max-width: 480px) {
-  .comment-name { flex-basis: 100%; }
   .comment-form-actions { justify-content: space-between; }
   .comment-thread--nested { padding-left: 12px; }
 }

@@ -543,46 +543,57 @@ the Anthropic SDK used by the default provider — the OpenAI, Google and
 DeepL adapters speak plain HTTP and need nothing. The pages are still
 plain HTML, CSS and browser JavaScript with no build step.
 
-### Likes and comments without an account
+### Likes and comments
 
-A reader who has just finished an article should be able to react to it
-there and then. Requiring an account first loses almost all of them, so
-the heart and the comment form both work signed out.
+Two different things, priced differently. A heart costs a reader nothing
+and says little, so it is open to everyone. A comment carries a name and
+sits under the article for everyone to read, so it needs an account.
 
-"Signed out" still means *someone*: the browser keeps a random id in
-`localStorage` under `duru_anon_id` (`window.DURU_ANON`, in
-`js/main.js`) and sends it along. It identifies nobody — clearing site
-data makes a new person — but it is enough to stop one reader liking the
-same post twenty times, and enough to let them delete a comment they
-just wrote.
+**The heart works signed out, and cannot be taken back.** "Signed out"
+still means *someone*: the browser keeps a random id in `localStorage`
+under `duru_anon_id` (`window.DURU_ANON`, in `js/main.js`) and sends it
+along. That id can be trusted for exactly one claim — "this reader
+already liked it" — which is enough to stop one person liking the same
+post twenty times. It cannot be trusted for "this reader wants it
+undone", which anyone who guessed an id could say about someone else's
+like, so `toggle_content_like` only ever *adds* an anonymous like.
+Undoing needs an account. The button says so rather than quietly doing
+nothing: once a signed-out like is in, it stays filled, stops responding
+and carries "Sign in to take a like back".
 
-**Why both go through SQL functions.** A Row Level Security policy
+**Why the likes go through SQL functions.** A Row Level Security policy
 permissive enough to let a signed-out visitor write their own like row
 would also let them rewrite everyone else's, because RLS has no way to
-know which anonymous id the caller really is. `toggle_content_like`,
-`content_like_state` and `delete_anon_comment` are `security definer`
-functions instead: each one only ever touches the row matching the id it
-was handed, and `content_likes` keeps no insert policy for anonymous
-callers at all. `content_likes.user_id` is nullable now, with a check
-constraint saying a row carries exactly one of `user_id` or `anon_id`,
-and a partial unique index giving anonymous readers one like per item
-the way the old `unique(user_id, …)` does for accounts.
+know which anonymous id the caller really is. `toggle_content_like` and
+`content_like_state` are `security definer` functions instead: each only
+ever touches the row matching the id it was handed, and `content_likes`
+keeps no insert policy for anonymous callers at all.
+`content_likes.user_id` is nullable, with a check constraint saying a
+row carries exactly one of `user_id` or `anon_id`, and a partial unique
+index giving anonymous readers one like per item the way the old
+`unique(user_id, …)` does for accounts.
 
-**Comments** live in `post_comments` and are rendered by
-`js/comments.js`, mounted under a post by `js/blog.js`. A comment with a
-`parent_id` is a reply, and a reply may itself be replied to, so a
-thread nests as deep as the talk goes — the same shape the guestbook
-uses. Deleting cascades to the replies, which is what moderation wants:
-removing the comment that started a bad thread should not leave the
-thread behind. The indent stops at four levels; deeper replies join at
-that level rather than squeezing the text off a phone.
+**Comments need an account.** They live in `post_comments` and are
+rendered by `js/comments.js`, mounted under a post by `js/blog.js`. A
+signed-out reader sees the thread and a line inviting them to sign in —
+which opens the same modal the header button does — not a form that
+would fail. A signed-in one writes under their account name; there is no
+name field to fill in or to put someone else's name in. That also gives
+every commenter a way to come back and delete what they wrote, which the
+anonymous route never really did.
 
-Who may delete what is RLS, not a hidden button: an admin may delete
-any comment, a signed-in author their own, and a signed-out author their
-own through `delete_anon_comment`. The insert policy does not care who
-you are but does care who you *claim* to be — a signed-in comment must
-carry that account's id and a signed-out one must carry none, so nobody
-can post under another account's name.
+A comment with a `parent_id` is a reply, and a reply may itself be
+replied to, so a thread nests as deep as the talk goes — the same shape
+the guestbook uses. Deleting cascades to the replies, which is what
+moderation wants: removing the comment that started a bad thread should
+not leave the thread behind. The indent stops at four levels; deeper
+replies join at that level rather than squeezing the text off a phone.
+
+Who may delete what is RLS, not a hidden button: an admin may delete any
+comment and an author their own. The insert policy does not care who you
+are beyond requiring an account, but it does care who you *claim* to be
+— the row must carry that account's id and no browser id, so nobody can
+post under another account's name.
 
 A comment body is **plain text**, escaped and split on blank lines, for
 the same reason story and post bodies are: accepting HTML from one

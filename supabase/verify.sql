@@ -99,6 +99,14 @@ with checks(item, ok) as (
           where table_schema='public' and table_name='content_likes'
             and column_name='user_id') = 'YES'),
 
+    ('commenting needs an account',
+     exists (select 1 from pg_policies
+             where schemaname='public' and tablename='post_comments'
+               and policyname='post_comments: signed in insert')
+     and not exists (select 1 from pg_policies
+             where schemaname='public' and tablename='post_comments'
+               and policyname='post_comments: anyone insert')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

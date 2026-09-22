@@ -593,9 +593,16 @@
       if (!likeBtn) return;
       var likeCount = singleEl.querySelector('#likeCount');
 
+      // A signed-out reader may add a heart but not take it back, so
+      // once theirs is in, the button stops offering. Saying why beats
+      // a click that quietly does nothing.
       function paint(state) {
+        var spent = state.liked && !state.canUndo;
         likeBtn.classList.toggle('liked', state.liked);
+        likeBtn.classList.toggle('is-spent', spent);
         likeBtn.setAttribute('aria-pressed', state.liked ? 'true' : 'false');
+        likeBtn.disabled = spent;
+        likeBtn.title = spent ? t('like.signInToUndo', 'Sign in to take a like back.') : '';
         likeBtn.querySelector('.like-icon').textContent = state.liked ? '♥' : '♡';
         if (likeCount) likeCount.textContent = String(state.total);
       }
@@ -607,9 +614,9 @@
         window.DURU_LIKE.toggleLike('post', postId)
           .then(paint)
           .catch(function (err) {
+            likeBtn.disabled = false;
             window.alert(R.schemaHint ? R.schemaHint(err.message) : err.message);
-          })
-          .then(function () { likeBtn.disabled = false; });
+          });
       });
     }
 
