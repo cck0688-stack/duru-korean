@@ -179,9 +179,11 @@ the corresponding `captchaToken` option to the `signUp` /
 A *resource* is one piece of material; its *files* are the same PDF in
 each language it has been made in (`resources` and `resource_files` in
 `supabase/schema.sql`, section 20). The list shows one card per
-resource whatever languages it comes in — cover, title, short
-description, type · level · format, and EN · VI · ES chips (three, then
-"+N"). Title and description come from `resources.i18n[lang]` when the
+resource whatever languages it comes in — a 64px square holding the
+cover or the category's glyph, then title, short description,
+type · level · format, and EN · VI · ES chips (three, then "+N"). The
+cards are compact rows, three to a row on a wide screen, so a page of
+twenty downloads stays a page. Title and description come from `resources.i18n[lang]` when the
 admin has written that language, otherwise from the resource's default
 text. The type chips (Hangul Starter / Pronunciation / Vocabulary /
 Grammar Cheat Sheets / Real-Life Korean) and the Language dropdown
@@ -189,7 +191,10 @@ Grammar Cheat Sheets / Real-Life Korean) and the Language dropdown
 file) filter together, and both are remembered — with the scroll
 position — for the trip back from a resource page.
 
-`resource.html?id=…` is the resource's own page: PDF language dropdown
+`resource.html?id=…` is the resource's own page. The short description
+leads the main column with the longer text under it — the banner
+carries the title alone, and the section is dropped only when neither
+has been written. Beside it: a PDF language dropdown
 (published files only; an admin also sees hidden ones), pages and size
 of the chosen file, Preview and Download through signed links. The list
 passes `&pl=<lang>` when a specific language was chosen there; otherwise
