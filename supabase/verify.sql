@@ -84,6 +84,10 @@ with checks(item, ok) as (
      exists (select 1 from information_schema.columns
              where table_schema='public' and table_name='posts' and column_name='lang')),
 
+    ('posts.mt exists (sentence-by-sentence translation)',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='posts' and column_name='mt')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

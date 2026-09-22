@@ -439,6 +439,69 @@ is never interpreted. `escapeHTML` in `js/blog.js` and `js/stories.js`
 is the only thing standing between a pasted `<script>` and every reader
 of that page — do not replace it with `innerHTML` of raw input.
 
+### Automatic translation, sentence by sentence
+
+A post written in Korean is read by people who do not read Korean. When
+the reader's language is one the post is not written in, the post is
+shown bilingually: each source sentence, and directly beneath it the
+same sentence in their language.
+
+The translation is made **once, by an admin**, and stored on the post in
+`posts.mt`. Readers never call a translation service, so a post costs
+one translation rather than one per visitor, and a reader on a slow
+connection waits for nothing.
+
+```
+admin's browser ──▶ /api/translate ──▶ Claude API
+   splits the body       verifies the caller is an admin,
+   into sentences        translates one batch into every
+                         target language at once
+        ◀──────────────── sentences back, one per source sentence
+   writes posts.mt
+
+reader's browser ──▶ posts.mt ──▶ source sentence + translation
+```
+
+**Why the pieces are where they are.** The Anthropic API key cannot go
+in the browser, so the call lives in `api/translate.js`, a Vercel
+serverless function. That function is not open to the world either: the
+caller's Supabase access token is verified against Supabase and checked
+against `admin_users` before a single token is spent, and the batch size
+is capped server-side so a bug in the page cannot turn one save into an
+unbounded bill.
+
+**Why the sentences stay aligned.** One splitter (`js/auto-translate.js`)
+is used three times: the admin's browser splits the body to send it, the
+function returns exactly one translation per sentence — a reply whose
+count does not match is rejected, not stored — and the reader's browser
+splits the same body again to pair them up. A fingerprint of the body is
+stored alongside; edit the post and it no longer matches, so the page
+treats the translation as missing rather than showing sentence 4 under
+sentence 3. The admin's banner says so and offers "Translate again".
+
+A hand-written translation always wins: a language with a body in
+`posts.i18n` is skipped by the translator and shown on its own, with no
+original above it.
+
+**Setting it up.** One environment variable, in Vercel → Project →
+Settings → Environment Variables:
+
+| Name | Value |
+|---|---|
+| `ANTHROPIC_API_KEY` | a key from console.anthropic.com → API keys |
+
+Optional, if the defaults do not suit: `TRANSLATE_MODEL` (default
+`claude-opus-5`), `TRANSLATE_EFFORT` (`low` / `medium` / `high`, default
+`medium`), `SUPABASE_URL` and `SUPABASE_ANON_KEY` (default to the same
+public values `js/supabase-config.js` already serves).
+
+Without the key the site works exactly as before; the translate button
+answers that translation is not set up rather than failing obscurely.
+
+`package.json` exists only for this function. The pages are still plain
+HTML, CSS and browser JavaScript with no build step — Vercel installs
+the one dependency, compiles `api/`, and serves the rest as static files.
+
 ### Header width
 
 The nav carries seven items. That does not fit in the 1180px column the

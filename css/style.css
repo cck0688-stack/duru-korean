@@ -2934,6 +2934,61 @@ section { position: relative; }
 }
 .post-tr-state.is-written { color: #2f6b41; }
 
+/* ---------- Blog: a post read in two languages at once ---------- */
+
+/* Each source sentence sits above its translation. The pair is one
+   block so a long sentence and its translation never drift apart, and
+   the marker on the left tells a reader at a glance which line is
+   which without a label on every one. */
+.mt-para { margin: 0 0 22px; }
+.mt-line {
+  display: block;
+  margin-bottom: 12px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(22, 48, 43, 0.1);
+}
+.mt-line:last-child { margin-bottom: 0; }
+.mt-src {
+  display: block;
+  color: var(--ink);
+}
+.mt-out {
+  display: block;
+  margin-top: 3px;
+  color: var(--ink-dim);
+  font-size: 0.94em;
+}
+.post-body--mt { line-height: 1.65; }
+
+.mt-note {
+  font-size: 12.5px;
+  color: var(--ink-dim);
+  font-style: italic;
+  margin: 0 0 18px;
+}
+.mt-title-src {
+  font-size: 15px;
+  color: var(--ink-dim);
+  margin: -6px 0 0;
+}
+
+/* Admin: how far the translation has got. */
+.mt-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin: -8px 0 20px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(22, 48, 43, 0.05);
+  font-size: 13.5px;
+  color: var(--ink-dim);
+}
+.mt-status.is-stale { background: rgba(184, 73, 45, 0.1); color: #8a3b1f; }
+.mt-status-langs { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+.mt-status .btn { margin-left: auto; padding: 6px 14px; font-size: 13px; }
+
 @media (max-width: 420px) {
   .res-card { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 14px; }
   .res-thumb { width: 48px; height: 48px; border-radius: 10px; }

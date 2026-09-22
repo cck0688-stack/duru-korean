@@ -995,3 +995,24 @@ alter table public.posts
   check (lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh'));
 
 create index if not exists posts_lang_idx on public.posts (lang);
+
+-- ------------------------------------------------------------------
+-- 23. machine translation of a post, sentence by sentence
+-- ------------------------------------------------------------------
+-- A post written in one language is shown to a reader in another with
+-- each source sentence followed by its translation. The translation is
+-- made once, by an admin, and stored here — readers never call a
+-- translation service, so a post costs one translation rather than one
+-- per visitor.
+--
+--   {"zh": {"from": "ko",
+--           "hash": "<fingerprint of the body that was translated>",
+--           "at":   "2026-09-22T00:00:00.000Z",
+--           "sentences": ["我今天去了…", "人真的很多！"]}}
+--
+-- `hash` is what keeps the two columns honest: edit the body and it no
+-- longer matches, so the page treats the translation as missing instead
+-- of pairing sentences with the wrong lines.
+
+alter table public.posts
+  add column if not exists mt jsonb not null default '{}'::jsonb;

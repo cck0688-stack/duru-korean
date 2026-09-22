@@ -1,0 +1,9 @@
+{
+  "name": "duru-korean",
+  "private": true,
+  "type": "module",
+  "description": "Static site for durukorean.com. Node is used only for the serverless functions under api/; the pages themselves are plain HTML, CSS and browser JavaScript and need no build step.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0"
+  }
+}

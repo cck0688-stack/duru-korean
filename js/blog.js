@@ -25,6 +25,7 @@
 
   var R = window.DURU_RES;
   if (!R) return;
+  var MT = window.DURU_MT;
 
   var CATEGORIES = ['culture', 'travel', 'food', 'trends', 'language', 'etc'];
   // Each category's Hangul glyph, matching the static design.
@@ -50,6 +51,47 @@
   // own columns — the same rule the downloads use for their titles.
   function field(post, name, lang) {
     return R.localized(post, name, lang);
+  }
+
+  // What a reader sees for the title or the summary: a human
+  // translation if the admin wrote one, else the machine one, else the
+  // post's own words.
+  function readField(post, name, lang) {
+    var own = (post.i18n && post.i18n[lang] && post.i18n[lang][name]) || '';
+    if (own && String(own).trim()) return own;
+    if (postLangs(post).indexOf(lang) !== -1) return field(post, name, lang);
+    var mt = MT && MT.head(post, lang, name);
+    return mt || field(post, name, lang);
+  }
+
+  // Languages a post can be *read* in at all: the ones it is written in,
+  // plus the ones a stored translation covers. The card's chips and the
+  // list filter use this, so a Korean post with translations shows up
+  // for a reader browsing in Spanish.
+  function readableLangs(post) {
+    var have = {};
+    postLangs(post).forEach(function (c) { have[c] = true; });
+    if (MT) {
+      R.LANGS.forEach(function (l) {
+        if (!have[l.code] && MT.paired(post, l.code)) have[l.code] = true;
+      });
+    }
+    return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return have[c]; });
+  }
+
+  // The reader's view of a translated post: every source sentence with
+  // its translation directly underneath. Escaped on both sides — a post
+  // body is plain text and a translation is text that came back over
+  // the network, so neither is ever treated as markup.
+  function bilingualHTML(pairs, srcLang, outLang) {
+    return pairs.map(function (para) {
+      return '<p class="mt-para">' + para.map(function (pair) {
+        return '<span class="mt-line">' +
+          '<span class="mt-src" lang="' + escapeHTML(srcLang) + '">' + escapeHTML(pair.src) + '</span>' +
+          '<span class="mt-out" lang="' + escapeHTML(outLang) + '">' + escapeHTML(pair.out) + '</span>' +
+          '</span>';
+      }).join('') + '</p>';
+    }).join('');
   }
 
   function t(key, fallback) {
@@ -197,7 +239,7 @@
     function langsPresent() {
       var seen = {};
       posts.filter(matchesFilters).forEach(function (p) {
-        postLangs(p).forEach(function (c) { seen[c] = true; });
+        readableLangs(p).forEach(function (c) { seen[c] = true; });
       });
       return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return seen[c]; });
     }
@@ -244,7 +286,7 @@
 
     function renderCards() {
       var shown = posts.filter(function (p) {
-        return matchesFilters(p) && postLangs(p).indexOf(listLang) !== -1;
+        return matchesFilters(p) && readableLangs(p).indexOf(listLang) !== -1;
       });
       renderCategoryHero();
       renderTagBanner();
@@ -288,16 +330,16 @@
     // card in CSS, so the whole card opens the post with one tab stop.
     function cardHTML(p) {
       var href = 'blog.html?post=' + encodeURIComponent(p.slug) + '&pl=' + encodeURIComponent(listLang);
-      var codes = postLangs(p);
+      var codes = readableLangs(p);
       var shown = codes.slice(0, 3);
       var more = codes.length - shown.length;
-      var excerpt = field(p, 'excerpt', listLang);
+      var excerpt = readField(p, 'excerpt', listLang);
       return '<article class="res-card' + (p.published ? '' : ' res-card--draft') + '">' +
         '<span class="res-thumb"><span class="res-cover-glyph kr" aria-hidden="true">' +
           escapeHTML(GLYPH[p.category] || '') + '</span></span>' +
         '<div class="res-card-body">' +
           (p.published ? '' : '<span class="res-draft">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
-          '<h3><a href="' + href + '">' + escapeHTML(field(p, 'title', listLang)) + '</a></h3>' +
+          '<h3><a href="' + href + '">' + escapeHTML(readField(p, 'title', listLang)) + '</a></h3>' +
           (excerpt ? '<p class="res-card-desc">' + escapeHTML(excerpt) + '</p>' : '') +
           '<p class="res-meta">' + escapeHTML(categoryLabel(p.category) + ' · ' + formatDate(p.created_at)) + '</p>' +
           '<div class="res-card-foot">' +
@@ -338,7 +380,8 @@
       // the language of the site, else the one it was written in. When
       // the wanted language is missing the page says so instead of
       // silently showing something else.
-      var codes = postLangs(post);
+      var codes = readableLangs(post);
+      var written = postLangs(post);
       // Resolved from scratch on every render: were the reader's own
       // choice allowed to stand in for what they asked for, the notice
       // below would vanish the first time anything re-rendered.
@@ -347,6 +390,19 @@
         (window.DURU_I18N && window.DURU_I18N.lang) || 'en';
       var missing = codes.indexOf(wanted) === -1;
       readLang = missing ? (codes.indexOf(post.lang) !== -1 ? post.lang : codes[0]) : wanted;
+
+      // Written in this language, or shown as a translation beneath the
+      // original? The second is the point of the feature: a reader in
+      // Chinese meets the Korean sentence and its Chinese underneath.
+      var pairs = written.indexOf(readLang) === -1 && MT ? MT.paired(post, readLang) : null;
+      var bodyHTML = pairs
+        ? bilingualHTML(pairs, post.lang || 'en', readLang)
+        : paragraphs(field(post, 'body', readLang));
+      var mtNote = pairs
+        ? '<p class="mt-note">' + escapeHTML(t('blog.autoTranslated',
+            'Translated automatically from {lang}. The original is above each line.')
+            .replace('{lang}', R.langLabel(post.lang || 'en'))) + '</p>'
+        : '';
 
       var langHTML = '';
       if (codes.length > 1 || missing) {
@@ -377,7 +433,7 @@
             '<button type="button" class="btn btn-ghost" id="blogEditBtn">' + escapeHTML(t('blog.edit', 'Edit')) + '</button>' +
             '<button type="button" class="btn btn-ghost blog-delete-btn" id="blogDeleteBtn">' + escapeHTML(t('blog.delete', 'Delete')) + '</button>' +
           '</span>' +
-        '</div>';
+        '</div>' + translationStatusHTML(post);
       }
 
       var currentIdx = posts.filter(function (p) { return p.published || isAdmin; }).findIndex(function (p) { return p.id === post.id; });
@@ -390,13 +446,13 @@
         if (prevPost) {
           navHTML += '<a href="blog.html?post=' + encodeURIComponent(prevPost.slug) + '" class="blog-nav-prev">' +
             '<span class="blog-nav-label">' + escapeHTML(t('blog.prevPost', '← Previous')) + '</span>' +
-            '<span class="blog-nav-title">' + escapeHTML(field(prevPost, 'title', readLang)) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(readField(prevPost, 'title', readLang)) + '</span>' +
             '</a>';
         }
         if (nextPost) {
           navHTML += '<a href="blog.html?post=' + encodeURIComponent(nextPost.slug) + '" class="blog-nav-next">' +
             '<span class="blog-nav-label">' + escapeHTML(t('blog.nextPost', 'Next →')) + '</span>' +
-            '<span class="blog-nav-title">' + escapeHTML(field(nextPost, 'title', readLang)) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(readField(nextPost, 'title', readLang)) + '</span>' +
             '</a>';
         }
         navHTML += '</div>';
@@ -407,7 +463,11 @@
         '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
           (post.published ? '' : ' · <span class="blog-draft-tag">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
         '</span>' +
-        '<h1>' + escapeHTML(field(post, 'title', readLang)) + '</h1>' +
+        '<h1>' + escapeHTML(readField(post, 'title', readLang)) + '</h1>' +
+        (pairs && field(post, 'title', post.lang || 'en') !== readField(post, 'title', readLang)
+          ? '<p class="mt-title-src" lang="' + escapeHTML(post.lang || 'en') + '">' +
+            escapeHTML(field(post, 'title', post.lang || 'en')) + '</p>'
+          : '') +
         '<p class="blog-date">' + escapeHTML(formatDate(post.created_at)) + '</p>' +
         langHTML +
         adminHTML +
@@ -417,22 +477,23 @@
             '<span class="like-count" id="likeCount">0</span>' +
           '</button>' +
         '</div>' +
-        '<div class="post-body">' + paragraphs(field(post, 'body', readLang)) + '</div>' +
+        mtNote +
+        '<div class="post-body' + (pairs ? ' post-body--mt' : '') + '">' + bodyHTML + '</div>' +
         renderTags(post.tags) +
         '<div class="blog-share">' +
           '<span class="blog-share-label">' + escapeHTML(t('blog.share', 'Share this post')) + '</span>' +
           '<div class="blog-share-buttons">' +
-            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(field(post, 'title', readLang) + ' — Duru Korean') + '&url=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn twitter" title="Twitter" aria-label="Share on Twitter">𝕏</a>' +
+            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(readField(post, 'title', readLang) + ' — Duru Korean') + '&url=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn twitter" title="Twitter" aria-label="Share on Twitter">𝕏</a>' +
             '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn facebook" title="Facebook" aria-label="Share on Facebook">f</a>' +
-            '<a href="https://share.naver.com/web/shareView?url=' + encodeURIComponent(postUrl) + '&title=' + encodeURIComponent(field(post, 'title', readLang)) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn naver" title="Naver" aria-label="Share on Naver">N</a>' +
+            '<a href="https://share.naver.com/web/shareView?url=' + encodeURIComponent(postUrl) + '&title=' + encodeURIComponent(readField(post, 'title', readLang)) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn naver" title="Naver" aria-label="Share on Naver">N</a>' +
             (kakaoKey()
-              ? '<button type="button" class="blog-share-btn kakao" title="KakaoTalk" aria-label="Share on KakaoTalk" data-title="' + escapeHTML(field(post, 'title', readLang)) + '" data-url="' + escapeHTML(postUrl) + '">K</button>'
+              ? '<button type="button" class="blog-share-btn kakao" title="KakaoTalk" aria-label="Share on KakaoTalk" data-title="' + escapeHTML(readField(post, 'title', readLang)) + '" data-url="' + escapeHTML(postUrl) + '">K</button>'
               : '') +
             '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
           '</div>' +
         '</div>' +
         navHTML;
-      document.title = field(post, 'title', readLang) + ' — Duru Korean';
+      document.title = readField(post, 'title', readLang) + ' — Duru Korean';
       setupShareButtons();
       setupLikeButton(post.id);
 
@@ -449,6 +510,20 @@
       if (editBtn) editBtn.addEventListener('click', function () { openEditor(post); });
       var delBtn = singleEl.querySelector('#blogDeleteBtn');
       if (delBtn) delBtn.addEventListener('click', function () { confirmDelete(post); });
+      var trBtn = singleEl.querySelector('#blogTranslateBtn');
+      if (trBtn) {
+        trBtn.addEventListener('click', function () {
+          trBtn.disabled = true;
+          var box = singleEl.querySelector('.mt-status span');
+          runTranslation(post, function (text) { if (box) box.textContent = text; })
+            .then(function () { renderSingle(post); })
+            .catch(function (err) {
+              trBtn.disabled = false;
+              if (box) box.textContent = t('blog.translateFailed', 'Saved, but the translation failed: {msg}')
+                .replace('{msg}', err.message);
+            });
+        });
+      }
     }
 
     // KakaoTalk sharing needs a per-site JavaScript key from the Kakao
@@ -639,6 +714,7 @@
                   '</details>';
                 }).join('') +
               '</details>' +
+              '<label class="post-publish-row"><input type="checkbox" id="postAutoTranslate" checked> <span id="postAutoTranslateLabel"></span></label>' +
               '<label class="post-publish-row"><input type="checkbox" id="postPublished"> <span id="postPublishedLabel"></span></label>' +
               '<button type="submit" class="btn btn-primary auth-submit" id="postSubmit"></button>' +
             '</form>' +
@@ -772,6 +848,8 @@
         el.placeholder = t('blog.fieldBody', 'Body');
       });
       markTranslationState();
+      o.querySelector('#postAutoTranslateLabel').textContent =
+        t('blog.autoTranslateLabel', 'Translate into the other languages when I save');
       o.querySelector('#postPublishedLabel').textContent = t('blog.fieldPublished', 'Publish now (leave off to save as a draft)');
       o.querySelector('#postSubmit').textContent = t('blog.save', 'Save');
       CATEGORIES.forEach(function (c, i) {
@@ -847,28 +925,136 @@
       btn.disabled = true;
       btn.textContent = t('blog.saving', 'Saving…');
 
+      var wantTranslation = overlay.querySelector('#postAutoTranslate').checked;
+
       var op;
       if (editing) {
         row.updated_at = new Date().toISOString();
-        op = client.from('posts').update(row).eq('id', editing.id);
+        op = client.from('posts').update(row).eq('id', editing.id).select().single();
       } else {
         row.slug = makeSlug(title);
         op = client.auth.getUser().then(function (res) {
           row.created_by = res.data && res.data.user ? res.data.user.id : null;
-          return client.from('posts').insert(row);
+          return client.from('posts').insert(row).select().single();
         });
       }
 
-      op.then(function (res) {
+      function done() {
         saving = false;
         btn.disabled = false;
         btn.textContent = t('blog.save', 'Save');
+        closeEditor();
+        loadPosts();
+      }
+
+      op.then(function (res) {
         if (res && res.error) {
+          saving = false;
+          btn.disabled = false;
+          btn.textContent = t('blog.save', 'Save');
           setMsg('error', t('blog.errSaveFailed', 'Couldn’t save: {msg}').replace('{msg}', schemaHint(res.error.message)));
           return;
         }
-        closeEditor();
-        loadPosts();
+        var saved = (res && res.data) || null;
+        if (!wantTranslation || !saved) { done(); return; }
+
+        // The post is saved at this point. Translating is a second,
+        // slower step, so it reports progress and its failure is said
+        // out loud rather than swallowed — the writing is safe either way.
+        btn.textContent = t('blog.translatingShort', 'Translating…');
+        runTranslation(saved, function (text) { setMsg('info', text); })
+          .then(function () { done(); })
+          .catch(function (err) {
+            saving = false;
+            btn.disabled = false;
+            btn.textContent = t('blog.save', 'Save');
+            setMsg('error', t('blog.translateFailed', 'Saved, but the translation failed: {msg}')
+              .replace('{msg}', err.message));
+            loadPosts();
+          });
+      });
+    }
+
+    // What an admin needs to know at a glance: which languages this
+    // post can be read in, and whether the translation still matches
+    // what is written now.
+    function translationStatusHTML(post) {
+      if (!MT) return '';
+      var targets = mtTargets(post);
+      var fresh = targets.filter(function (c) { return !!MT.paired(post, c); });
+      var stale = targets.filter(function (c) { return MT.isStale(post, c); });
+      var label;
+      if (!fresh.length) {
+        label = t('blog.mtNone', 'Not translated into the other languages yet.');
+      } else if (stale.length) {
+        label = t('blog.mtStale', 'Translated into {n} languages, but the post has changed since.')
+          .replace('{n}', fresh.length);
+      } else {
+        label = t('blog.mtFresh', 'Translated into {n} languages.').replace('{n}', fresh.length);
+      }
+      return '<div class="mt-status' + (stale.length || !fresh.length ? ' is-stale' : '') + '">' +
+        '<span>' + escapeHTML(label) + '</span>' +
+        '<span class="mt-status-langs">' + fresh.map(function (c) {
+          return '<span class="res-chip">' + escapeHTML(R.langShort(c)) + '</span>';
+        }).join('') + '</span>' +
+        '<button type="button" class="btn btn-ghost" id="blogTranslateBtn">' +
+          escapeHTML(fresh.length ? t('blog.retranslate', 'Translate again') : t('blog.translateNow', 'Translate now')) +
+        '</button>' +
+      '</div>';
+    }
+
+    /* ---------------- Machine translation ---------------- */
+
+    // Which languages this post still needs a machine translation for:
+    // not the one it is written in, and not one the admin has already
+    // translated by hand — a person's version always wins.
+    function mtTargets(post) {
+      var human = {};
+      var tr = post.i18n || {};
+      Object.keys(tr).forEach(function (c) {
+        if (tr[c] && String(tr[c].body || '').trim()) human[c] = true;
+      });
+      return R.LANGS.map(function (l) { return l.code; }).filter(function (c) {
+        return c !== (post.lang || 'en') && !human[c];
+      });
+    }
+
+    function mergeMT(post, fresh) {
+      var out = {};
+      var old = post.mt || {};
+      Object.keys(old).forEach(function (c) { out[c] = old[c]; });
+      Object.keys(fresh).forEach(function (c) { out[c] = fresh[c]; });
+      return out;
+    }
+
+    // Runs the batches, then writes the result back in one update. The
+    // post is already saved by the time this starts, so a failure here
+    // loses a translation, never the writing.
+    function runTranslation(post, report) {
+      if (!MT) return Promise.reject(new Error('Translation is not loaded on this page.'));
+      var targets = mtTargets(post);
+      if (!targets.length || !String(post.body || '').trim()) return Promise.resolve(0);
+      return MT.translate(client, {
+        from: post.lang || 'en',
+        to: targets,
+        title: post.title,
+        excerpt: post.excerpt,
+        body: post.body
+      }, function (done, total) {
+        if (report) {
+          report(t('blog.translating', 'Translating… {done} of {total}')
+            .replace('{done}', done).replace('{total}', total));
+        }
+      }).then(function (fresh) {
+        var merged = mergeMT(post, fresh);
+        return client.from('posts')
+          .update({ mt: merged, updated_at: new Date().toISOString() })
+          .eq('id', post.id)
+          .then(function (res) {
+            if (res.error) throw new Error(schemaHint(res.error.message));
+            post.mt = merged;
+            return Object.keys(fresh).length;
+          });
       });
     }
 
@@ -914,7 +1100,7 @@
       // Counts follow the language being browsed, so a chip never
       // promises posts the language filter is about to hide.
       var inLang = posts.filter(function (p) {
-        if (postLangs(p).indexOf(listLang) === -1) return false;
+        if (readableLangs(p).indexOf(listLang) === -1) return false;
         if (!activeTag) return true;
         return (p.tags || []).some(function (tag) { return tag.toLowerCase() === activeTag.toLowerCase(); });
       });
