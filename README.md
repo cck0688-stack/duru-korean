@@ -199,11 +199,18 @@ never changes the site language. Downloads still need a signed-in
 session (storage policy); a Google sign-in from a resource page comes
 back to that page.
 
-Admins create a resource from the list ("+ New download": title,
-category, level) and land in its editor, where they set the default
-text, a cover (public `resource-covers` bucket), per-language title /
-description / body, and add, replace or remove one file per language;
-a PDF's page count is read from the file and can be corrected by hand.
+Admins add one from the list ("+ Add a download"): title, short
+description, category, level, and the files themselves — several at
+once, each file's language guessed from its name (`hangul-vi.pdf`) and
+correctable before uploading — then publish, which is on by default.
+The resource's own page then carries a published / not-published banner
+with the button to flip it, and an editor whose first section is the
+files (add, replace, remove, publish one at a time). The longer
+description and the per-language translations are folded away there,
+since most downloads never need them; a PDF's page count is read from
+the file and can be corrected by hand. Uploads are capped at 50 MB,
+which is also a Supabase project's own default ceiling — raising it
+further means raising it under Storage → Settings first.
 
 ## Language switcher (site-wide)
 

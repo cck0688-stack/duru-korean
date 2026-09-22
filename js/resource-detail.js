@@ -83,10 +83,13 @@
         ? files.map(function (f) { return R.langLabel(f.lang); }).join(', ')
         : t('resource.noFilesYet', 'No file yet');
 
+      // The long description is optional, so the whole section goes
+      // away rather than announcing that nobody has written it.
       var body = R.localized(resource, 'body', lang);
+      document.querySelector('.res-body').hidden = !body;
       $('resBody').innerHTML = body
         ? body.split(/\n{2,}/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('')
-        : '<p class="res-body-empty">' + esc(t('resource.noBody', 'The teachers have not written this part yet.')) + '</p>';
+        : '';
 
       renderLanguagePicker(files);
       $('resAdmin').hidden = !isAdmin;
@@ -233,35 +236,7 @@
         '<div class="res-editor">' +
           '<div class="resource-upload-msg" id="resEdMsg" hidden></div>' +
 
-          '<h3>' + esc(t('resource.editTitle', 'Edit this download')) + '</h3>' +
-          '<form id="resEdForm" novalidate>' +
-            field(t('resources.fieldTitle', 'Title'), '<input type="text" id="edTitle" maxlength="120" value="' + esc(r.title) + '">') +
-            field(t('resource.fieldSummary', 'Short description'), '<textarea id="edDesc" rows="2" maxlength="300">' + esc(r.description || '') + '</textarea>') +
-            field(t('resource.fieldBody', 'What’s inside & how to use it'), '<textarea id="edBody" rows="6">' + esc(r.body || '') + '</textarea>') +
-            '<div class="res-editor-row">' +
-              field(t('resources.fieldCategory', 'Category'), '<select id="edCategory">' + R.CATEGORIES.map(function (c) { return '<option value="' + c + '"' + (c === r.category ? ' selected' : '') + '>' + esc(R.categoryLabel(c)) + '</option>'; }).join('') + '</select>') +
-              field(t('resources.fieldLevel', 'Learning level'), '<select id="edLevel">' + R.LEVELS.map(function (l) { return '<option value="' + l + '"' + (l === (r.learning_level || 'Any level') ? ' selected' : '') + '>' + esc(R.levelLabel(l)) + '</option>'; }).join('') + '</select>') +
-            '</div>' +
-            '<label class="res-check"><input type="checkbox" id="edPublished"' + (r.published !== false ? ' checked' : '') + '> ' + esc(t('resource.fieldPublished', 'Published — visible to everyone')) + '</label>' +
-            field(t('resource.fieldCover', 'Cover image (JPG or PNG, up to 5 MB)'), '<input type="file" id="edCover" accept=".png,.jpg,.jpeg">' +
-              (r.cover_key ? '<p class="resource-hint">' + esc(t('resource.coverSet', 'A cover is set. Choose a new image to replace it.')) + ' <button type="button" class="res-linkbtn" id="edCoverRemove">' + esc(t('resource.removeCover', 'Remove cover')) + '</button></p>' : '')) +
-            '<button type="submit" class="btn btn-primary" id="edSave">' + esc(t('resource.saveBtn', 'Save')) + '</button>' +
-          '</form>' +
-
-          '<h3>' + esc(t('resource.translations', 'Title & description by language')) + '</h3>' +
-          '<p class="resource-hint">' + esc(t('resource.translationHint', 'Leave a language blank to show the default text above.')) + '</p>' +
-          '<div class="res-translations">' +
-            R.LANGS.map(function (l) {
-              var tr = i18n[l.code] || {};
-              return '<details class="res-tr"' + (tr.title || tr.description || tr.body ? ' open' : '') + '><summary>' + esc(l.label) + (tr.title ? ' ✓' : '') + '</summary>' +
-                field(t('resources.fieldTitle', 'Title'), '<input type="text" data-tr="' + l.code + '" data-f="title" maxlength="120" value="' + esc(tr.title || '') + '">') +
-                field(t('resource.fieldSummary', 'Short description'), '<textarea data-tr="' + l.code + '" data-f="description" rows="2" maxlength="300">' + esc(tr.description || '') + '</textarea>') +
-                field(t('resource.fieldBody', 'What’s inside & how to use it'), '<textarea data-tr="' + l.code + '" data-f="body" rows="4">' + esc(tr.body || '') + '</textarea>') +
-              '</details>';
-            }).join('') +
-          '</div>' +
-          '<button type="button" class="btn btn-primary" id="edSaveTr">' + esc(t('resource.saveTranslations', 'Save translations')) + '</button>' +
-
+          // The files are what an admin comes here for, so they are first.
           '<h3>' + esc(t('resource.files', 'Files by language')) + '</h3>' +
           (files.length ? '<table class="res-files"><tbody>' +
             files.map(function (f) {
@@ -287,9 +262,44 @@
               field(t('resources.fieldFile', 'File'), '<input type="file" id="afFile" accept="' + R.ACCEPT + '">') +
               field(t('resource.fieldPages', 'Pages'), '<input type="number" id="afPages" min="1" placeholder="auto">') +
             '</div>' +
-            '<p class="resource-hint">' + esc(t('resources.fileHint', 'PDF, DOC, DOCX, PNG, JPG, JPEG up to 20MB · MP3, M4A up to 50MB')) + '</p>' +
             '<button type="submit" class="btn btn-ghost" id="afSubmit">' + esc(t('resource.addFile', 'Add file')) + '</button>' +
           '</form>' : '') +
+
+          '<h3>' + esc(t('resource.basics', 'Title, category and cover')) + '</h3>' +
+          '<form id="resEdForm" novalidate>' +
+            field(t('resources.fieldTitle', 'Title'), '<input type="text" id="edTitle" maxlength="120" value="' + esc(r.title) + '">') +
+            field(t('resource.fieldSummary', 'Short description'), '<textarea id="edDesc" rows="2" maxlength="300">' + esc(r.description || '') + '</textarea>') +
+            '<div class="res-editor-row">' +
+              field(t('resources.fieldCategory', 'Category'), '<select id="edCategory">' + R.CATEGORIES.map(function (c) { return '<option value="' + c + '"' + (c === r.category ? ' selected' : '') + '>' + esc(R.categoryLabel(c)) + '</option>'; }).join('') + '</select>') +
+              field(t('resources.fieldLevel', 'Learning level'), '<select id="edLevel">' + R.LEVELS.map(function (l) { return '<option value="' + l + '"' + (l === (r.learning_level || 'Any level') ? ' selected' : '') + '>' + esc(R.levelLabel(l)) + '</option>'; }).join('') + '</select>') +
+            '</div>' +
+            field(t('resource.fieldCover', 'Cover image (JPG or PNG, up to 5 MB)'), '<input type="file" id="edCover" accept=".png,.jpg,.jpeg">' +
+              (r.cover_key ? '<p class="resource-hint">' + esc(t('resource.coverSet', 'A cover is set. Choose a new image to replace it.')) + ' <button type="button" class="res-linkbtn" id="edCoverRemove">' + esc(t('resource.removeCover', 'Remove cover')) + '</button></p>' : '')) +
+
+            '<details class="res-more"' + (r.body ? ' open' : '') + '>' +
+              '<summary>' + esc(t('resource.moreBody', 'Add a longer description (optional)')) + '</summary>' +
+              '<p class="resource-hint">' + esc(t('resource.bodyHint', 'Shown under the download buttons — what the file contains and how to work through it. Leave it blank and the section does not appear.')) + '</p>' +
+              '<textarea id="edBody" rows="6">' + esc(r.body || '') + '</textarea>' +
+            '</details>' +
+
+            '<button type="submit" class="btn btn-primary" id="edSave">' + esc(t('resource.saveBtn', 'Save')) + '</button>' +
+          '</form>' +
+
+          '<details class="res-more">' +
+            '<summary>' + esc(t('resource.translations', 'Translate the title and description (optional)')) + '</summary>' +
+            '<p class="resource-hint">' + esc(t('resource.translationHint', 'Leave a language blank to show the default text above.')) + '</p>' +
+            '<div class="res-translations">' +
+              R.LANGS.map(function (l) {
+                var tr = i18n[l.code] || {};
+                return '<details class="res-tr"' + (tr.title || tr.description || tr.body ? ' open' : '') + '><summary>' + esc(l.label) + (tr.title ? ' ✓' : '') + '</summary>' +
+                  field(t('resources.fieldTitle', 'Title'), '<input type="text" data-tr="' + l.code + '" data-f="title" maxlength="120" value="' + esc(tr.title || '') + '">') +
+                  field(t('resource.fieldSummary', 'Short description'), '<textarea data-tr="' + l.code + '" data-f="description" rows="2" maxlength="300">' + esc(tr.description || '') + '</textarea>') +
+                  field(t('resource.moreBody', 'Longer description'), '<textarea data-tr="' + l.code + '" data-f="body" rows="4">' + esc(tr.body || '') + '</textarea>') +
+                '</details>';
+              }).join('') +
+            '</div>' +
+            '<button type="button" class="btn btn-primary" id="edSaveTr">' + esc(t('resource.saveTranslations', 'Save translations')) + '</button>' +
+          '</details>' +
 
           '<div class="res-danger">' +
             '<button type="button" class="btn-danger" id="edDelete">' + esc(t('resource.deleteResource', 'Delete this download')) + '</button>' +
@@ -317,7 +327,10 @@
         af.addEventListener('submit', addFile);
         af.querySelector('#afFile').addEventListener('change', function () {
           var f = this.files[0];
-          if (f && R.fileExt(f.name) === 'pdf') R.pdfPageCount(f).then(function (n) { if (n) af.querySelector('#afPages').value = n; });
+          if (!f) return;
+          var guess = R.guessLang(f.name);
+          if (guess && af.querySelector('#afLang').querySelector('option[value="' + guess + '"]')) af.querySelector('#afLang').value = guess;
+          if (R.fileExt(f.name) === 'pdf') R.pdfPageCount(f).then(function (n) { if (n) af.querySelector('#afPages').value = n; });
         });
       }
       editor.querySelector('#edDelete').addEventListener('click', deleteResource);
@@ -339,7 +352,6 @@
         body: editor.querySelector('#edBody').value.trim() || null,
         category: editor.querySelector('#edCategory').value,
         learning_level: editor.querySelector('#edLevel').value,
-        published: editor.querySelector('#edPublished').checked,
         updated_at: new Date().toISOString()
       };
       var cover = editor.querySelector('#edCover').files[0];
@@ -511,6 +523,12 @@
     }
     client.auth.getSession().then(function (res) { applyUser(res.data && res.data.session && res.data.session.user); });
     client.auth.onAuthStateChange(function (_e, session) { applyUser(session && session.user); });
-    document.addEventListener('duru:langchange', function () { if (resource) render(); });
+    document.addEventListener('duru:langchange', function () {
+      if (!resource) return;
+      render();
+      // The editor is built from translated labels too, and it may have
+      // been opened before the dictionary arrived.
+      if (isAdmin && editorOpen) renderEditor();
+    });
   });
 })();

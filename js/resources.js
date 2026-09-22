@@ -212,9 +212,15 @@
     }
     document.addEventListener('duru:langchange', function () { buildLangSelect(); render(); });
 
-    /* ---------------- Admin: new resource ---------------- */
+    /* ---------------- Admin: add a download ---------------- */
+
+    // One screen does the whole job: name it, file it, drop the files
+    // in, publish. The language of each file is guessed from its name
+    // (hangul-vi.pdf) and can be corrected before uploading.
 
     var overlay = null;
+    var picked = [];
+
     function ensureNewModal() {
       if (overlay) return overlay;
       overlay = document.createElement('div');
@@ -223,26 +229,61 @@
       overlay.innerHTML =
         '<div class="resource-confirm-modal resource-upload-modal" role="dialog" aria-modal="true" aria-labelledby="resNewTitle">' +
           '<button type="button" class="auth-close" data-act="close" aria-label="' + esc(t('resources.closeAria', 'Close')) + '">&times;</button>' +
-          '<h3 id="resNewTitle">' + esc(t('resources.newTitle', 'New download')) + '</h3>' +
-          '<p class="resource-hint" style="margin:0 0 14px">' + esc(t('resources.newHint', 'Give it a title and a category now; the files for each language are added on its page next.')) + '</p>' +
+          '<h3 id="resNewTitle">' + esc(t('resources.newTitle', 'Add a download')) + '</h3>' +
           '<div class="resource-upload-msg" hidden></div>' +
           '<form id="resNewForm" novalidate>' +
             '<div class="auth-field"><label for="resNewTitleInput">' + esc(t('resources.fieldTitle', 'Title')) + '</label>' +
-              '<input type="text" id="resNewTitleInput" required maxlength="120"></div>' +
+              '<input type="text" id="resNewTitleInput" required maxlength="120" placeholder="' + esc(t('resources.titlePlaceholder', 'e.g. Hangul writing practice')) + '"></div>' +
             '<div class="auth-field"><label for="resNewDesc">' + esc(t('resource.fieldSummary', 'Short description')) + '</label>' +
-              '<textarea id="resNewDesc" rows="2" maxlength="300"></textarea></div>' +
-            '<div class="auth-field"><label for="resNewCategory">' + esc(t('resources.fieldCategory', 'Category')) + '</label>' +
-              '<select id="resNewCategory">' + R.CATEGORIES.map(function (c) { return '<option value="' + c + '">' + esc(R.categoryLabel(c)) + '</option>'; }).join('') + '</select></div>' +
-            '<div class="auth-field"><label for="resNewLevel">' + esc(t('resources.fieldLevel', 'Learning level')) + '</label>' +
-              '<select id="resNewLevel">' + R.LEVELS.map(function (l) { return '<option value="' + l + '">' + esc(R.levelLabel(l)) + '</option>'; }).join('') + '</select></div>' +
-            '<button type="submit" class="btn btn-primary auth-submit" id="resNewSubmit">' + esc(t('resources.createBtn', 'Create and add files →')) + '</button>' +
+              '<textarea id="resNewDesc" rows="2" maxlength="300" placeholder="' + esc(t('resources.descPlaceholder', 'One line, shown on the card.')) + '"></textarea></div>' +
+            '<div class="res-editor-row">' +
+              '<div class="auth-field"><label for="resNewCategory">' + esc(t('resources.fieldCategory', 'Category')) + '</label>' +
+                '<select id="resNewCategory">' + R.CATEGORIES.map(function (c) { return '<option value="' + c + '">' + esc(R.categoryLabel(c)) + '</option>'; }).join('') + '</select></div>' +
+              '<div class="auth-field"><label for="resNewLevel">' + esc(t('resources.fieldLevel', 'Learning level')) + '</label>' +
+                '<select id="resNewLevel">' + R.LEVELS.map(function (l) { return '<option value="' + l + '">' + esc(R.levelLabel(l)) + '</option>'; }).join('') + '</select></div>' +
+            '</div>' +
+            '<div class="auth-field">' +
+              '<label for="resNewFiles">' + esc(t('resources.fieldFiles', 'Files')) + '</label>' +
+              '<input type="file" id="resNewFiles" multiple accept="' + R.ACCEPT + '">' +
+              '<p class="resource-hint">' + esc(t('resources.filesHint', 'Pick one file per language — all at once is fine. PDF, DOC, DOCX, images and audio up to 50 MB each.')) + '</p>' +
+              '<div class="res-picked" id="resPicked"></div>' +
+            '</div>' +
+            '<label class="res-check"><input type="checkbox" id="resNewPublish" checked> ' + esc(t('resources.publishNow', 'Publish as soon as it is uploaded')) + '</label>' +
+            '<button type="submit" class="btn btn-primary auth-submit" id="resNewSubmit">' + esc(t('resources.createBtn', 'Upload')) + '</button>' +
           '</form>' +
         '</div>';
       document.body.appendChild(overlay);
       overlay.querySelector('[data-act="close"]').addEventListener('click', function () { overlay.hidden = true; });
       overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.hidden = true; });
       overlay.querySelector('#resNewForm').addEventListener('submit', onCreate);
+      overlay.querySelector('#resNewFiles').addEventListener('change', function () {
+        Array.prototype.forEach.call(this.files, function (f) {
+          picked.push({ file: f, lang: R.guessLang(f.name) || R.siteLang() });
+        });
+        this.value = '';
+        renderPicked();
+      });
       return overlay;
+    }
+
+    function renderPicked() {
+      var box = overlay.querySelector('#resPicked');
+      box.innerHTML = picked.map(function (p, i) {
+        return '<div class="res-picked-row">' +
+          '<span class="res-picked-name" title="' + esc(p.file.name) + '">' + esc(p.file.name) + '</span>' +
+          '<span class="res-picked-size">' + esc(R.formatSize(p.file.size)) + '</span>' +
+          '<select data-i="' + i + '">' + R.LANGS.map(function (l) {
+            return '<option value="' + l.code + '"' + (l.code === p.lang ? ' selected' : '') + '>' + esc(l.label) + '</option>';
+          }).join('') + '</select>' +
+          '<button type="button" class="res-linkbtn res-linkbtn--danger" data-drop="' + i + '">' + esc(t('resource.removeFile', 'Remove')) + '</button>' +
+        '</div>';
+      }).join('');
+      box.querySelectorAll('select').forEach(function (sel) {
+        sel.addEventListener('change', function () { picked[Number(sel.dataset.i)].lang = sel.value; });
+      });
+      box.querySelectorAll('[data-drop]').forEach(function (b) {
+        b.addEventListener('click', function () { picked.splice(Number(b.dataset.drop), 1); renderPicked(); });
+      });
     }
 
     function setMsg(text, type) {
@@ -254,26 +295,73 @@
       e.preventDefault();
       var title = overlay.querySelector('#resNewTitleInput').value.trim();
       if (!title) { setMsg(t('resources.errTitleRequired', 'Please enter a title.'), 'error'); return; }
+
+      var langs = {};
+      for (var i = 0; i < picked.length; i++) {
+        var p = picked[i], ext = R.fileExt(p.file.name);
+        if (!R.MAX_SIZE[ext]) { setMsg(t('resources.errUnsupportedType', 'Unsupported file type. Allowed: PDF, DOC, DOCX, PNG, JPG, JPEG, MP3, M4A.'), 'error'); return; }
+        if (p.file.size > R.MAX_SIZE[ext]) {
+          setMsg(t('resources.errTooLarge', 'File is too large. Max size for .{ext} is {size}.').replace('{ext}', ext).replace('{size}', R.formatSize(R.MAX_SIZE[ext])), 'error');
+          return;
+        }
+        if (langs[p.lang]) { setMsg(t('resources.errSameLang', 'Two files are set to {lang}. A download takes one file per language.').replace('{lang}', R.langLabel(p.lang)), 'error'); return; }
+        langs[p.lang] = true;
+      }
+      var publish = overlay.querySelector('#resNewPublish').checked && picked.length > 0;
+
       var btn = overlay.querySelector('#resNewSubmit');
       btn.disabled = true;
+      setMsg(picked.length ? t('resources.uploading', 'Uploading…') : '', '');
+
       client.from('resources').insert({
         title: title,
         description: overlay.querySelector('#resNewDesc').value.trim() || null,
         publish_location: LOCATION,
         category: overlay.querySelector('#resNewCategory').value,
         learning_level: overlay.querySelector('#resNewLevel').value,
-        published: false,
+        published: publish,
         created_by: currentUser ? currentUser.id : null
       }).select('id').single().then(function (res) {
+        if (res.error) throw new Error(R.schemaHint(res.error.message));
+        var rid = res.data.id;
+        return picked.reduce(function (chain, p) {
+          return chain.then(function () { return uploadOne(rid, p); });
+        }, Promise.resolve()).then(function () { return rid; });
+      }).then(function (rid) {
+        picked = [];
+        window.location.href = 'resource.html?id=' + encodeURIComponent(rid);
+      }).catch(function (err) {
         btn.disabled = false;
-        if (res.error) { setMsg(R.schemaHint(res.error.message), 'error'); return; }
-        window.location.href = 'resource.html?id=' + encodeURIComponent(res.data.id) + '&edit=1';
+        setMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}').replace('{msg}', err.message), 'error');
+      });
+    }
+
+    function uploadOne(rid, p) {
+      var ext = R.fileExt(p.file.name);
+      var key = LOCATION + '/' + rid + '/' + (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2)) + '.' + ext;
+      var pages = ext === 'pdf' ? R.pdfPageCount(p.file) : Promise.resolve(null);
+      return pages.then(function (n) {
+        return client.storage.from(R.BUCKET).upload(key, p.file, { contentType: R.MIME_BY_EXT[ext], upsert: false })
+          .then(function (up) {
+            if (up.error) throw new Error(R.uploadErrorText(up.error));
+            return client.from('resource_files').insert({
+              resource_id: rid, lang: p.lang, storage_key: key, file_type: ext,
+              file_size: p.file.size, mime_type: R.MIME_BY_EXT[ext],
+              page_count: n, published: true,
+              created_by: currentUser ? currentUser.id : null
+            }).then(function (ins) {
+              if (ins.error) {
+                return client.storage.from(R.BUCKET).remove([key]).then(function () { throw new Error(R.schemaHint(ins.error.message)); });
+              }
+            });
+          });
       });
     }
 
     if (newBtn) {
       newBtn.addEventListener('click', function () {
         var o = ensureNewModal();
+        picked = []; renderPicked();
         setMsg('', ''); o.hidden = false;
         o.querySelector('#resNewTitleInput').focus();
       });

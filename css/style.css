@@ -823,7 +823,7 @@ section { position: relative; }
 .btn-danger:hover { background: #921f19; }
 .btn-danger:disabled, .resource-confirm-actions .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-.resource-upload-modal { max-width: 460px; }
+.resource-upload-modal { max-width: 520px; }
 .resource-upload-modal select,
 .resource-upload-modal textarea,
 .resource-upload-modal input[type="file"] {
@@ -2966,6 +2966,46 @@ section { position: relative; }
 }
 .res-linkbtn--danger { color: #b3261e; }
 .res-addfile { margin-top: 14px; padding-top: 14px; border-top: 1px dashed rgba(22,48,43,0.2); }
+
+/* The files chosen in the add-a-download form, before they are sent. */
+.res-picked:not(:empty) { margin-top: 10px; display: grid; gap: 6px; }
+.res-picked-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(120px, 150px) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(22, 48, 43, 0.14);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 13px;
+}
+.res-picked-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; color: var(--ink); }
+.res-picked-size { color: var(--ink-dim); font-size: 12px; white-space: nowrap; }
+.res-picked-row select { padding: 6px 8px; font-size: 12.5px; }
+@media (max-width: 520px) {
+  .res-picked-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .res-picked-row select { grid-column: 1 / -1; }
+}
+
+/* The parts of the editor most uploads never touch. */
+.res-more {
+  margin: 4px 0 16px;
+  border: 1px solid rgba(22, 48, 43, 0.12);
+  border-radius: 10px;
+  background: #fff;
+  padding: 0 14px;
+}
+.res-more > summary {
+  cursor: pointer;
+  padding: 11px 0;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.res-more[open] > summary { border-bottom: 1px solid rgba(22, 48, 43, 0.1); margin-bottom: 12px; }
+.res-more > :last-child { margin-bottom: 14px; }
+.res-more .res-translations { margin-bottom: 12px; }
 .res-danger { margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(179,38,30,0.3); }
 
 @media (max-width: 800px) {

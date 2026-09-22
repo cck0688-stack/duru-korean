@@ -29,10 +29,15 @@
   var CATEGORY_GLYPH = { hangul: '한', pronunciation: '음', vocab: '말', grammar: '법', reallife: '삶' };
   var LEVELS = ['Any level', 'Beginner', 'Intermediate', 'Advanced'];
 
+  // 50 MB is what a Supabase project allows per upload by default, and
+  // the ceiling on the free plan. Raising it further means raising it in
+  // the project first (Storage → Settings → Upload file size limit);
+  // the server rejects anything over that whatever this file says.
+  var MAX_BYTES = 50 * 1024 * 1024;
   var MAX_SIZE = {
-    pdf: 20 * 1024 * 1024, doc: 20 * 1024 * 1024, docx: 20 * 1024 * 1024,
-    png: 20 * 1024 * 1024, jpg: 20 * 1024 * 1024, jpeg: 20 * 1024 * 1024,
-    mp3: 50 * 1024 * 1024, m4a: 50 * 1024 * 1024
+    pdf: MAX_BYTES, doc: MAX_BYTES, docx: MAX_BYTES,
+    png: MAX_BYTES, jpg: MAX_BYTES, jpeg: MAX_BYTES,
+    mp3: MAX_BYTES, m4a: MAX_BYTES
   };
   var MIME_BY_EXT = {
     pdf: 'application/pdf',
@@ -87,7 +92,24 @@
     if (/row-level security|not authorized|unauthorized|permission denied/i.test(msg)) {
       return t('resources.errNotAllowed', 'Your account isn’t allowed to upload. Check that you’re still signed in as an admin.');
     }
+    // The project has its own ceiling, which it enforces whatever this
+    // page allows; say where to raise it rather than leaving the raw text.
+    if (/exceeded the maximum allowed size|payload too large|413/i.test(msg)) {
+      return t('resources.errServerTooLarge', 'The project rejected this file for its size. Raise it in Supabase under Storage → Settings → Upload file size limit, then try again.');
+    }
     return t('resources.errUploadFailed', 'Upload failed: {msg}').replace('{msg}', msg);
+  }
+
+  // A file named hangul-vi.pdf or hangul_ko.docx is almost certainly
+  // that language; guessing saves picking it by hand for every file.
+  function guessLang(name) {
+    var base = String(name || '').replace(/\.[a-z0-9]+$/i, '').toLowerCase();
+    for (var i = 0; i < LANGS.length; i++) {
+      var code = LANGS[i].code.toLowerCase();
+      var tail = new RegExp('[-_. ]' + code.replace('-', '[-_]?') + '$');
+      if (tail.test(base)) return LANGS[i].code;
+    }
+    return null;
   }
 
   function siteLang() {
@@ -188,7 +210,7 @@
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,
     siteLang: siteLang, langLabel: langLabel, langShort: langShort, langEntry: langEntry,
     categoryLabel: categoryLabel, levelLabel: levelLabel,
-    localized: localized, availableFiles: availableFiles,
+    localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
     pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin
   };
