@@ -168,9 +168,30 @@ const anthropic = {
  * OpenAI, and anything that speaks its chat-completions shape
  * ------------------------------------------------------------------ */
 
+// Model names come and go at every provider, and a gateway offers a
+// different set again, so a name the endpoint does not know turns into
+// an error that lists the ones it does rather than a bare 404.
+async function chatModelHint(base, apiKey) {
+  try {
+    const res = await fetch(base.replace(/\/$/, '') + '/models', {
+      headers: { Authorization: 'Bearer ' + apiKey }
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    const names = (data.data || [])
+      .map(function (m) { return String(m.id || ''); })
+      .filter(function (n) { return n && !/embed|whisper|tts|dall|image|audio|moder/i.test(n); })
+      .sort()
+      .slice(0, 8);
+    return names.length ? ' Models this key can use include: ' + names.join(', ') + '.' : '';
+  } catch (e) {
+    return '';
+  }
+}
+
 const openai = {
   envKeys: ['OPENAI_API_KEY'],
-  defaultModel: 'gpt-4o-mini',
+  defaultModel: 'gpt-5-mini',
   defaultBaseUrl: 'https://api.openai.com/v1',
   label: 'OpenAI',
   async translate(opts, cfg) {
@@ -189,6 +210,11 @@ const openai = {
         }
       })
     });
+    if (response.status === 404 || response.status === 400) {
+      const hint = await chatModelHint(cfg.baseUrl, cfg.apiKey);
+      throw new TranslateError(503, cfg.label + ' did not accept the model "' + cfg.model +
+        '". Set TRANSLATE_MODEL to one it offers.' + hint);
+    }
     const data = await readJSON(response, cfg.label);
     const text = data && data.choices && data.choices[0] && data.choices[0].message
       ? data.choices[0].message.content : '';

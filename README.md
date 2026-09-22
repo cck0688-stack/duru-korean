@@ -480,7 +480,7 @@ variable, not a rewrite. Four ship with the site:
 | Provider | Key | Notes |
 |---|---|---|
 | Anthropic | `ANTHROPIC_API_KEY` | the default; uses the Anthropic SDK |
-| OpenAI | `OPENAI_API_KEY` | plain HTTP, chat-completions shape |
+| OpenAI | `OPENAI_API_KEY` | plain HTTP, chat-completions shape; defaults to `gpt-5-mini` |
 | Google Gemini | `GOOGLE_API_KEY` | or `GEMINI_API_KEY` |
 | DeepL | `DEEPL_API_KEY` | a translation service, not a model — alignment is free, and a free-tier `…:fx` key is routed to the free host automatically |
 
@@ -526,7 +526,10 @@ nothing else is needed.
 
 Optional: `TRANSLATE_PROVIDER` (needed only when more than one key is
 set), `TRANSLATE_API_KEY` (the key under a neutral name),
-`TRANSLATE_MODEL`, `TRANSLATE_BASE_URL`, `TRANSLATE_EFFORT`
+`TRANSLATE_MODEL` (every provider renames and retires models, so a name
+the endpoint does not know comes back as an error listing the ones your
+key can actually use — that is the answer, not a dead end),
+`TRANSLATE_BASE_URL`, `TRANSLATE_EFFORT`
 (`low` / `medium` / `high`, default `medium`, for providers that have
 it), and `SUPABASE_URL` / `SUPABASE_ANON_KEY` (default to the same
 public values `js/supabase-config.js` already serves).
