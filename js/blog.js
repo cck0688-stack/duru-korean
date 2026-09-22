@@ -206,13 +206,29 @@
     }).join('') + '</span>';
   }
 
+  // The date on a post is posts.post_date: a plain day, "2026-09-22",
+  // and a day in Seoul at that. `new Date("2026-09-22")` would read it
+  // as midnight UTC, which is the day before for a reader west of
+  // Greenwich, so the parts are taken apart and handed to a local Date.
+  // A full timestamp still works, for the places that pass one.
   function formatDate(iso) {
+    var text = String(iso == null ? '' : iso);
     try {
       var lang = (window.DURU_I18N && window.DURU_I18N.lang) || document.documentElement.lang || 'en';
-      return new Date(iso).toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' });
+      var day = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
+      var when = day
+        ? new Date(Number(day[1]), Number(day[2]) - 1, Number(day[3]))
+        : new Date(text);
+      return when.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' });
     } catch (e) {
-      return String(iso || '').slice(0, 10);
+      return text.slice(0, 10);
     }
+  }
+
+  // What a reader sees, with a fallback for rows written before
+  // posts.post_date existed.
+  function postDay(post) {
+    return (post && (post.post_date || post.created_at)) || '';
   }
 
   // A slug has to be unique and URL-safe. Latin titles keep their words;
@@ -574,7 +590,7 @@
           audienceBadges(p) +
           '<h3><a href="' + href + '">' + escapeHTML(readField(p, 'title', listLang)) + '</a></h3>' +
           (excerpt ? '<p class="res-card-desc">' + escapeHTML(excerpt) + '</p>' : '') +
-          '<p class="res-meta">' + escapeHTML(categoryLabel(p.category) + ' · ' + formatDate(p.created_at)) + '</p>' +
+          '<p class="res-meta">' + escapeHTML(categoryLabel(p.category) + ' · ' + formatDate(postDay(p))) + '</p>' +
           '<div class="res-card-foot">' +
             '<span class="res-langs" aria-label="' + escapeHTML(t('blog.writtenIn', 'Written in')) + '">' +
               shown.map(function (c) { return '<span class="res-chip">' + escapeHTML(R.langShort(c)) + '</span>'; }).join('') +
@@ -701,7 +717,7 @@
           ? '<p class="mt-title-src" lang="' + escapeHTML(post.lang || 'en') + '">' +
             escapeHTML(field(post, 'title', post.lang || 'en')) + '</p>'
           : '') +
-        '<p class="blog-date">' + escapeHTML(formatDate(post.created_at)) + '</p>' +
+        '<p class="blog-date">' + escapeHTML(formatDate(postDay(post))) + '</p>' +
         langHTML +
         adminHTML +
         '<div class="blog-post-actions">' +
@@ -878,7 +894,12 @@
     function loadPosts() {
       // Admins additionally receive drafts, because the RLS policy lets
       // them; nothing here asks for them explicitly.
-      return client.from('posts').select('*').order('created_at', { ascending: false })
+      // Newest day first, and within a day the draft written last. The
+      // day is post_date — when the piece was written, not when an
+      // admin got round to approving it.
+      return client.from('posts').select('*')
+        .order('post_date', { ascending: false })
+        .order('draft_created_at', { ascending: false })
         .then(function (res) {
           if (res.error) { console.error('Failed to load posts:', res.error.message); return; }
           posts = res.data || [];
@@ -915,6 +936,9 @@
     var summaryTouched = false;
     var categoryTouched = false;
     var audienceTouched = false;
+    // What the date field held when the editor opened. Only a real
+    // change counts as the admin setting the date by hand.
+    var postDateWas = '';
     var outlineBusy = false;
     var outlineTimer = null;
     var outlineFrom = '';
@@ -960,6 +984,12 @@
                   '<button type="button" class="res-linkbtn" id="postTagsBtn"></button>' +
                 '</div>' +
                 '<p class="resource-hint" id="postTagsHint"></p></div>' +
+              // The day readers see. Left alone it is the day the draft
+              // was written; changed here it is whatever the admin
+              // says, and post_date_source records which.
+              '<div class="auth-field"><label for="postDate"></label>' +
+                '<input type="date" id="postDate">' +
+                '<p class="resource-hint" id="postDateHint"></p></div>' +
               '<div class="auth-field"><label for="postLang"></label>' +
                 '<select id="postLang">' + R.LANGS.map(function (l) {
                   return '<option value="' + escapeHTML(l.code) + '">' + escapeHTML(l.label) + '</option>';
@@ -1021,6 +1051,28 @@
         el.addEventListener('input', markTranslationState);
       });
       return overlay;
+    }
+
+    // Today in Seoul, as YYYY-MM-DD, whatever the browser's clock is
+    // set to — the same day the database's default would pick.
+    function todayInSeoul() {
+      try {
+        return new Intl.DateTimeFormat('en-CA', {
+          timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).format(new Date());
+      } catch (e) {
+        return new Date().toISOString().slice(0, 10);
+      }
+    }
+
+    // The date to save, and whether the admin chose it. Left untouched,
+    // neither field is written: a new post takes the database's default
+    // and an existing one keeps what it had.
+    function datePatch() {
+      if (!overlay) return {};
+      var picked = overlay.querySelector('#postDate').value;
+      if (!picked || picked === postDateWas) return {};
+      return { post_date: picked, post_date_source: 'ADMIN' };
     }
 
     function readAudiences() {
@@ -1197,6 +1249,7 @@
               published: overlay.querySelector('#postPublished').checked,
               updated_at: new Date().toISOString()
             };
+            Object.assign(row, datePatch());
             client.from('posts').update(row).eq('id', editing.id).then(function (res) {
               if (!res.error) {
                 lastSaveTime = new Date().toISOString();
@@ -1213,6 +1266,9 @@
       o.querySelector('#postEditorTitle').textContent = editing
         ? t('blog.editorEditTitle', 'Edit post') : t('blog.editorNewTitle', 'Write a post');
       o.querySelector('label[for="postTitle"]').textContent = t('blog.fieldTitle', 'Title');
+      o.querySelector('label[for="postDate"]').textContent = t('blog.fieldPostDate', 'Shown as posted on');
+      o.querySelector('#postDateHint').textContent = t('blog.postDateHint',
+        'The day the draft was written. Approving later does not move it — change it here if you want a different day.');
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
       o.querySelector('#postAudienceLabel').textContent = t('blog.fieldAudience', "Who it's for");
       o.querySelectorAll('[data-aud]').forEach(function (box) {
@@ -1262,6 +1318,9 @@
       lastSaveTime = null;
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
+      // A new post has no day yet: the database fills it in, in Seoul.
+      o.querySelector('#postDate').value = (editing && postDay(editing)) || todayInSeoul();
+      postDateWas = o.querySelector('#postDate').value;
       o.querySelector('#postCategory').value = editing ? editing.category : CATEGORIES[0];
       writeAudiences(editing ? editing.audiences : []);
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
@@ -1324,6 +1383,14 @@
         i18n: readTranslations(),
         published: overlay.querySelector('#postPublished').checked,
       };
+      Object.assign(row, datePatch());
+      // Saving a post straight to published is an approval like any
+      // other, and it records the same two moments — without touching
+      // the day the post carries.
+      if (row.published && !(editing && editing.published)) {
+        row.approved_at = new Date().toISOString();
+        row.published_at = row.approved_at;
+      }
 
       saving = true;
       var btn = overlay.querySelector('#postSubmit');
@@ -1501,10 +1568,23 @@
 
     // Publishing lives on the post itself, next to what is being
     // published, rather than as a checkbox inside the editor.
+    // Approving records when it happened and when it went out. It does
+    // not touch post_date — a piece written on Tuesday and approved on
+    // Friday is still Tuesday's piece. Unpublishing clears the two
+    // moments again, and still leaves the day alone.
     function togglePublished(post) {
       var next = !post.published;
+      var now = new Date().toISOString();
+      var patch = { published: next, updated_at: now };
+      if (next) {
+        patch.approved_at = now;
+        patch.published_at = now;
+      } else {
+        patch.approved_at = null;
+        patch.published_at = null;
+      }
       client.from('posts')
-        .update({ published: next, updated_at: new Date().toISOString() })
+        .update(patch)
         .eq('id', post.id)
         .then(function (res) {
           if (res.error) {
@@ -1512,6 +1592,8 @@
             return;
           }
           post.published = next;
+          post.approved_at = patch.approved_at;
+          post.published_at = patch.published_at;
           renderSingle(post);
         });
     }

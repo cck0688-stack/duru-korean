@@ -36,6 +36,26 @@ with checks(item, ok) as (
              where conname='posts_category_check'
                and pg_get_constraintdef(oid) like '%campus%')),
 
+    ('posts carries its own date (post_date, draft_created_at, …)',
+     (select count(*) from information_schema.columns
+      where table_schema='public' and table_name='posts'
+        and column_name in ('post_date', 'draft_created_at', 'approved_at',
+                            'published_at', 'post_date_source')) = 5),
+
+    ('post_date defaults to today in Seoul',
+     (select column_default from information_schema.columns
+      where table_schema='public' and table_name='posts'
+        and column_name='post_date') like '%Asia/Seoul%'),
+
+    ('blog_batches table (one row per generated day)',
+     to_regclass('public.blog_batches') is not null),
+
+    ('one batch per day, one post per category per batch',
+     exists (select 1 from pg_indexes
+             where schemaname='public' and indexname='blog_batches_date_key')
+     and exists (select 1 from pg_indexes
+             where schemaname='public' and indexname='posts_batch_category_key')),
+
     ('posts.audiences exists, posts.subtopic gone',
      exists (select 1 from information_schema.columns
              where table_schema='public' and table_name='posts' and column_name='audiences')

@@ -1341,3 +1341,120 @@ create index if not exists posts_audiences_idx
 -- either way: nothing was ever filed under one.
 drop index if exists public.posts_subtopic_idx;
 alter table public.posts drop column if exists subtopic;
+
+-- ------------------------------------------------------------------
+-- 28. the date a post carries, and the drafts a generator will leave
+-- ------------------------------------------------------------------
+-- A post now has four dates, and they mean four different things. The
+-- one a reader sees is `post_date`, and it is the day the draft was
+-- first written — not the day an admin got round to approving it. A
+-- piece written on Tuesday and approved on Friday is still Tuesday's
+-- piece, and the list is ordered by that.
+--
+--   draft_created_at  when the draft first landed in the database
+--   post_date         the day shown to readers, and what the list sorts on
+--   approved_at       when an admin said yes
+--   published_at      when it actually went public
+--
+-- Approving must never write post_date. The only thing that may change
+-- it is an admin editing it by hand, and `post_date_source` records
+-- that so a later migration can tell the two apart.
+--
+-- post_date is a plain `date`, not a timestamp: it is a day in Seoul,
+-- and its default is computed there rather than in whatever timezone
+-- the database happens to be set to.
+
+alter table public.posts
+  add column if not exists draft_created_at timestamptz not null default now();
+
+alter table public.posts
+  add column if not exists post_date date not null
+  default ((now() at time zone 'Asia/Seoul')::date);
+
+alter table public.posts add column if not exists approved_at timestamptz;
+alter table public.posts add column if not exists published_at timestamptz;
+
+alter table public.posts
+  add column if not exists post_date_source text not null default 'DRAFT_DATE';
+
+alter table public.posts drop constraint if exists posts_post_date_source_check;
+alter table public.posts
+  add constraint posts_post_date_source_check
+  check (post_date_source in ('DRAFT_DATE', 'ADMIN'));
+
+-- Posts written before this section existed keep the day they were
+-- created, read in Seoul, so nothing moves in the list.
+update public.posts
+   set draft_created_at = created_at,
+       post_date = (created_at at time zone 'Asia/Seoul')::date
+ where draft_created_at > created_at;
+
+-- What section 43 of the spec asks the public list to sort by.
+create index if not exists posts_post_date_idx
+  on public.posts (post_date desc, draft_created_at desc);
+
+-- The topic a post was written to answer, and the titles that were
+-- considered before one was picked. Both are for the admin screen: a
+-- title can be swapped for one of its alternatives in a click.
+alter table public.posts add column if not exists topic text;
+alter table public.posts
+  add column if not exists title_candidates text[] not null default '{}'::text[];
+
+-- One picture per post. `image_status` is separate from the URL because
+-- a failed image must not fail the post: the writing is what matters,
+-- and an admin can ask for the picture again.
+alter table public.posts add column if not exists image_url text;
+alter table public.posts add column if not exists image_prompt text;
+alter table public.posts add column if not exists image_status text;
+
+alter table public.posts drop constraint if exists posts_image_status_check;
+alter table public.posts
+  add constraint posts_image_status_check
+  check (image_status is null or image_status in ('PENDING', 'READY', 'FAILED'));
+
+-- ------------------------------------------------------------------
+-- One row per day the generator runs, so a morning that went wrong can
+-- be seen rather than guessed at. Admins only: nothing here is for a
+-- reader, and the public select policy the posts table has is exactly
+-- what this table must not have.
+create table if not exists public.blog_batches (
+  id uuid primary key default gen_random_uuid(),
+  batch_date date not null,
+  status text not null default 'RUNNING',
+  total int not null default 0,
+  succeeded int not null default 0,
+  failed int not null default 0,
+  detail jsonb not null default '{}'::jsonb,
+  started_at timestamptz not null default now(),
+  completed_at timestamptz
+);
+
+alter table public.blog_batches drop constraint if exists blog_batches_status_check;
+alter table public.blog_batches
+  add constraint blog_batches_status_check
+  check (status in ('RUNNING', 'COMPLETED', 'PARTIAL', 'FAILED'));
+
+-- One batch per day. The generator claims the day by inserting this
+-- row, so a second run — a retried cron, a double click — finds the
+-- day already taken instead of writing seven more drafts.
+create unique index if not exists blog_batches_date_key
+  on public.blog_batches (batch_date);
+
+alter table public.blog_batches enable row level security;
+
+drop policy if exists "blog_batches: admin read" on public.blog_batches;
+create policy "blog_batches: admin read"
+  on public.blog_batches for select
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "blog_batches: admin write" on public.blog_batches;
+create policy "blog_batches: admin write"
+  on public.blog_batches for all
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()))
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+-- The generator writes as one category per day, so the same category
+-- cannot be filled twice in one batch either.
+alter table public.posts add column if not exists batch_date date;
+create unique index if not exists posts_batch_category_key
+  on public.posts (batch_date, category) where batch_date is not null;

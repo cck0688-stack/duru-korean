@@ -463,6 +463,35 @@ Travel, Dining and Campus & Life. Below that the list itself, under a
 heading that names where the reader is. The topic lives in the address
 bar, so any view is a link someone can send.
 
+### The date a post carries
+
+A post has four dates, and they mean four different things.
+
+| column | what it is |
+|---|---|
+| `draft_created_at` | when the draft first landed in the database |
+| `post_date` | the day shown to readers, and what the list sorts on |
+| `approved_at` | when an admin said yes |
+| `published_at` | when it actually went public |
+
+The one a reader sees is `post_date`, and it is the day the draft was
+written — **not** the day it was approved. A piece drafted on Tuesday
+and approved on Friday is still Tuesday's piece. Approving writes
+`approved_at` and `published_at` and touches nothing else; the only
+thing that may move `post_date` is an admin editing the date field in
+the editor, and `post_date_source` flips to `ADMIN` when they do, so a
+hand-set date can be told from a default one later.
+
+`post_date` is a plain `date`, not a timestamp, and its default is
+`(now() at time zone 'Asia/Seoul')::date` — a day in Seoul, whatever
+timezone the database or the browser happens to be in. On the way out,
+`formatDate` in `js/blog.js` takes `2026-09-22` apart and builds a local
+`Date` from the parts: `new Date("2026-09-22")` is midnight UTC, which
+is the day before for a reader in Los Angeles.
+
+The list is ordered `post_date desc, draft_created_at desc` — newest day
+first, and within a day the draft written last.
+
 A post is one piece of writing however many languages it is written in,
 the same shape the downloads use. `posts.lang` names the language its
 own `title`/`excerpt`/`body` columns are in; `posts.i18n` holds
