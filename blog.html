@@ -58,9 +58,11 @@
   <div class="wrap">
     <p class="section-lead-in" data-i18n="blogPage.leadIn">Written for people who came here from somewhere else: five days, four years, or somewhere in between.</p>
     <div class="dl-toolbar reveal" id="blogToolbar">
-      <!-- The seven topics. Built in js/blog.js from window.DURU_BLOG,
-           so the list of topics has one home. -->
-      <nav class="blog-cats" id="blogFilters" aria-label="Blog topics"></nav>
+      <!-- All, then the seven topics: eight cards, each with the one
+           line that says what is on it. This is the whole navigation —
+           built in js/blog.js from window.DURU_BLOG, so the list of
+           topics has one home. -->
+      <nav class="cat-grid" id="blogFilters" aria-label="Blog topics"></nav>
       <div class="dl-toolbar-row">
         <label class="dl-lang" for="blogLang">
           <span data-i18n="resources.langPick">Pick a language</span>
@@ -72,33 +74,23 @@
 
     <div id="blogSingle" class="blog-single" hidden></div>
 
-    <!-- The way in for someone who has just landed: what to read first,
-         the seven topics as cards, then a few posts worth starting on.
-         Only on the unfiltered list; picking a topic replaces it. -->
+    <!-- A few posts worth starting on, once there are enough to make
+         picking three of them mean anything. Only on the unfiltered
+         list; picking a topic replaces it. -->
     <div class="blog-landing" id="blogLanding" hidden>
-      <div class="start-here">
-        <span class="start-here-mark kr" aria-hidden="true">첫</span>
-        <div>
-          <h2 data-i18n="blog.startHere.h2">First time in Korea? Start here.</h2>
-          <p data-i18n="blog.startHere.p">The airport, the transport card, the first meal — and the things nobody tells you until you have already done them wrong.</p>
-          <a class="btn btn-primary" href="/blog/travel" data-i18n="blog.startHere.cta">Start with the essentials →</a>
-        </div>
-      </div>
-
-      <h2 class="blog-landing-title" data-i18n="blog.browse">Browse by topic</h2>
-      <div class="cat-grid" id="blogCatGrid"></div>
-
       <div class="blog-landing-picks" id="blogPicksWrap" hidden>
         <h2 class="blog-landing-title" data-i18n="blog.trending">Worth reading first</h2>
         <div class="resource-grid" id="blogPicks"></div>
       </div>
     </div>
 
+    <!-- The heading names where the reader is: "All posts", or the
+         topic they picked. The empty state sits under it, not above. -->
+    <h2 class="blog-landing-title blog-all-title" id="blogAllTitle">All posts</h2>
     <div class="resource-empty" id="blogEmpty" hidden>
       <p id="blogEmptyText" data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>
       <div class="res-lang-suggest" id="blogLangSuggest" hidden></div>
     </div>
-    <h2 class="blog-landing-title blog-all-title" id="blogAllTitle" data-i18n="blog.allPosts" hidden>All posts</h2>
     <div class="resource-grid reveal" id="blogList"></div>
   </div>
 </section>

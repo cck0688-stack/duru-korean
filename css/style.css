@@ -3401,21 +3401,14 @@ section { position: relative; }
 #postTagsHint { margin-top: 6px; }
 #postTagsHint.is-error { color: var(--accent-red); }
 
-/* ---------- Blog: the seven topics ----------
-   A row of names, and nothing under them. No glyphs, no counts, no
-   menus: picking one shows the topic's name and the single sentence
-   that says what is on it.                                            */
+/* ---------- Blog: the eight topics ----------
+   All, then the seven topics, as eight cards at the top of the page.
+   That is the whole navigation — no pills, no menus, no glyphs. Each
+   one says its name, what is on it, and how many posts it holds; the
+   one that is open is filled in.                                      */
 
 /* A blog card has no glyph square, so its body takes the whole width. */
 .res-card--plain { grid-template-columns: minmax(0, 1fr); }
-
-.blog-cats {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
-}
 
 /* Green for a visitor, blue for a student, purple for someone settled —
    a label on the card, so nobody opens a post written for somebody
@@ -3434,84 +3427,57 @@ section { position: relative; }
 .aud-badge--students { background: #e2edfa; color: #19538f; }
 .aud-badge--expats   { background: #efe6fa; color: #5c3590; }
 
-/* ---------- Blog: the landing ---------- */
-
-.blog-landing { margin-bottom: 44px; }
-.start-here {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 30px 32px;
-  border-radius: var(--radius);
-  background: var(--bg);
-  color: var(--cream);
-  margin-bottom: 40px;
-}
-.start-here-mark {
-  flex: none;
-  width: 76px;
-  height: 76px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--accent);
-}
-.start-here h2 {
-  margin: 0 0 8px;
-  font-size: 25px;
-  line-height: 1.25;
-  color: var(--cream);
-}
-.start-here p {
-  margin: 0 0 16px;
-  font-size: 14.5px;
-  line-height: 1.65;
-  color: var(--cream-dim);
-  max-width: 62ch;
-}
-
-.blog-landing-title {
-  font-size: 19px;
-  margin: 0 0 18px;
-  color: var(--ink);
-}
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  margin-bottom: 44px;
+  margin-bottom: 24px;
 }
 .cat-card {
-  display: block;
-  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
   border-radius: var(--radius);
   background: #fff;
   border: 1px solid rgba(22,48,43,0.1);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+              border-color 0.18s ease, background 0.18s ease;
 }
 .cat-card:hover {
   transform: translateY(-2px);
   border-color: rgba(22,48,43,0.22);
   box-shadow: 0 18px 34px -22px rgba(10,38,32,0.45);
 }
-.cat-card h3 { margin: 0 0 8px; font-size: 16px; color: var(--ink); }
-.cat-card p { margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: var(--ink-dim); }
+.cat-card h3 { margin: 0 0 7px; font-size: 15.5px; line-height: 1.3; color: var(--ink); }
+/* The description takes the slack, so the counts line up across a row
+   however long the sentences are. */
+.cat-card p {
+  margin: 0 0 12px;
+  flex: 1 1 auto;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
 .cat-card-count { font-size: 11.5px; font-weight: 700; color: var(--accent-red); }
 
-/* The name of the topic being read, and the one line that says what is
-   on it. This is all a topic gets — the posts underneath are the rest. */
-.blog-category-hero {
-  margin-bottom: 30px;
-  padding: 18px 22px;
-  background: rgba(16, 63, 53, 0.06);
-  border-radius: var(--radius);
-  border-left: 3px solid var(--bg);
+/* The topic that is open. Filled in rather than outlined, because on a
+   page of eight cards an outline is not enough to find at a glance. */
+.cat-card.active {
+  background: var(--bg);
+  border-color: var(--bg);
 }
-.blog-category-hero h2 { margin: 0 0 4px; font-size: 18px; color: var(--ink); }
-.blog-category-hero p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-dim); }
+.cat-card.active h3 { color: var(--cream); }
+.cat-card.active p { color: var(--cream-dim); }
+.cat-card.active .cat-card-count { color: var(--accent); }
+
+/* ---------- Blog: worth reading first ---------- */
+
+.blog-landing { margin-bottom: 44px; }
+.blog-landing-title {
+  font-size: 19px;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
 
 /* ---------- Blog editor: who it is for ---------- */
 
@@ -3570,17 +3536,24 @@ section { position: relative; }
 }
 .nav-menu a:hover { background: var(--nav-active-bg); }
 
+@media (max-width: 1100px) {
+  .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 860px) {
-  .start-here { flex-direction: column; align-items: flex-start; gap: 18px; padding: 26px 22px; }
-  .start-here h2 { font-size: 21px; }
-  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .cat-card { padding: 16px 18px; }
 }
 
 @media (max-width: 600px) {
-  .blog-cats { gap: 6px; }
-  .blog-cats .filter-btn { padding: 8px 12px; font-size: 12.5px; }
   .blog-landing-title { font-size: 17px; }
-  .start-here-mark { width: 60px; height: 60px; font-size: 24px; }
+  /* Two to a row still fits at 390px once the sentence is dropped —
+     eight cards one under the other would be a page of scrolling
+     before the first post. */
+  .cat-card { padding: 14px 15px; }
+  .cat-card h3 { font-size: 14px; margin-bottom: 0; }
+  .cat-card p { display: none; }
+  .cat-card-count { margin-top: 6px; font-size: 11px; }
   /* In the hamburger the menu is part of the stack, not a layer. */
   .site-header.menu-open .nav-item { flex-wrap: wrap; justify-content: center; width: 100%; }
   .site-header.menu-open .nav-caret { margin-left: 0; padding: 10px 4px; }

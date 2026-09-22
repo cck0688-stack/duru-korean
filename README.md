@@ -430,12 +430,15 @@ matter:
 | `career` | Career | part-time permits, job hunting, resumes, internships |
 | `community` | Community | cultural nuance, news for foreigners, reader questions |
 
-Seven names, and nothing under them. Sub-topics were built and taken out
-again: twenty-four of them behind hover menus made a wall where a way in
-was wanted, and the menus covered the topics on the row below. A topic
-now shows its name and the one sentence saying what is on it, and the
-posts are the rest. There are no counts in the bar and no glyphs beside
-the names, for the same reason.
+Eight cards at the top of the page — All, then the seven — and that is
+the whole navigation. Each card carries its name, the one sentence
+saying what is on it, and how many posts it holds in the language being
+read; the one that is open is filled in. There is no row of pills above
+them, no hero panel, and no glyphs.
+
+Sub-topics were built and taken out again: twenty-four of them behind
+hover menus made a wall where a way in was wanted, and the menus covered
+the topics on the row below.
 
 Every post may carry any of three audiences: `tourists` (green),
 `students` (blue), `expats` (purple), shown as badges on the card and on
@@ -454,12 +457,11 @@ the eight dictionaries, and widening `posts_category_check` in
 `supabase/schema.sql`. The ids never change: they are what the database
 stores and what a link someone shared last year still points at.
 
-`blog.html` shows a landing when nothing is filtered — a "First time in
-Korea? Start here" panel, the seven topics as cards with their counts,
-and, once there are more than six posts to choose from, three worth
-starting on. Picking a topic replaces it with that topic's name and
-description. The topic lives in the address bar, so any view is a link
-someone can send.
+Under the cards, on the unfiltered list and once there are more than six
+posts to pick from, sit three worth starting on — the newest from
+Travel, Dining and Campus & Life. Below that the list itself, under a
+heading that names where the reader is. The topic lives in the address
+bar, so any view is a link someone can send.
 
 A post is one piece of writing however many languages it is written in,
 the same shape the downloads use. `posts.lang` names the language its
@@ -469,7 +471,7 @@ counts as available only when it is `lang` or its entry has a body, so
 a half-finished translation is never offered.
 
 The list works like the downloads list: compact cards three to a row,
-the whole card a single stretched link, the topic bar and a "Pick a
+the whole card a single stretched link, the topic cards and a "Pick a
 language" dropdown of all eight languages (English selected by default)
 filtering together. A blog card carries no glyph square — a Hangul
 character on the corner of an English post means nothing to the person

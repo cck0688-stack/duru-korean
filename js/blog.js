@@ -237,7 +237,6 @@
     var leadInEl = document.querySelector('.section-lead-in');
     var filtersEl = document.getElementById('blogFilters');
     var landingEl = document.getElementById('blogLanding');
-    var catGridEl = document.getElementById('blogCatGrid');
     var picksWrapEl = document.getElementById('blogPicksWrap');
     var picksEl = document.getElementById('blogPicks');
     var allTitleEl = document.getElementById('blogAllTitle');
@@ -383,82 +382,68 @@
       return true;
     }
 
-    /* ---------------- The topic bar ---------------- */
+    /* ---------------- The eight topics ---------------- */
 
-    // Seven names across the top, and All. Nothing opens, nothing
-    // hovers, nothing counts: a reader picks a topic and reads the one
-    // sentence that says what is on it. Built once; the labels are
-    // repainted on a language change rather than the whole bar.
+    // All, then the seven topics. Each card carries the name, the one
+    // sentence saying what is on it, and how many posts it holds in the
+    // language being read. This is the whole navigation: the one that
+    // is open is filled in, and there is nothing else to work.
+    //
+    // They are real links, so middle-click and "open in new tab" do
+    // what they should; a plain click filters in place.
     function buildCategoryBar() {
       if (!filtersEl) return;
-      filtersEl.innerHTML =
-        '<button type="button" class="filter-btn" data-filter="all" data-i18n="blog.filter.all">All</button>' +
-        B.CATEGORIES.map(function (c) {
-          return '<button type="button" class="filter-btn" data-filter="' + escapeHTML(c.id) +
-            '" data-i18n="blog.cat.' + escapeHTML(c.id) + '.nav"></button>';
-        }).join('');
+      filtersEl.innerHTML = [{ id: 'all' }].concat(B.CATEGORIES).map(function (c) {
+        return '<a class="cat-card" href="' + B.href(c.id === 'all' ? '' : c.id) +
+          '" data-filter="' + escapeHTML(c.id) + '">' +
+          '<h3></h3><p></p><span class="cat-card-count"></span></a>';
+      }).join('');
       paintCategoryBar();
     }
 
+    // Names and descriptions on a language change; counts whenever the
+    // list is rebuilt, since they follow the language being browsed.
     function paintCategoryBar() {
       if (!filtersEl) return;
-      filtersEl.querySelectorAll('[data-filter]').forEach(function (btn) {
-        btn.textContent = btn.dataset.filter === 'all'
-          ? t('blog.filter.all', 'All')
-          : B.navLabel(btn.dataset.filter);
+      filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
+        var id = card.dataset.filter;
+        card.querySelector('h3').textContent = id === 'all'
+          ? t('blog.allPosts', 'All posts') : B.label(id);
+        card.querySelector('p').textContent = id === 'all'
+          ? t('blog.allPosts.desc', 'Everything on the blog, newest first.')
+          : B.describe(id);
+      });
+      paintCategoryCounts();
+    }
+
+    function paintCategoryCounts() {
+      if (!filtersEl) return;
+      var countable = posts.filter(function (p) {
+        return readableHere(p) && (p.published || isAdmin);
+      });
+      filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
+        var id = card.dataset.filter;
+        card.querySelector('.cat-card-count').textContent =
+          postCount(id === 'all' ? countable.length : countByCategory(countable, id));
       });
     }
 
     /* ---------------- Rendering ---------------- */
 
-    // The name of wherever the reader currently is, with the sentence
-    // that says what it is for. Only on a shelf — the unfiltered list
-    // has the landing instead.
-    function renderCategoryHero() {
-      if (!listEl.parentElement) return;
-      var heroDiv = listEl.parentElement.querySelector('.blog-category-hero');
-      if (activeFilter === 'all') { if (heroDiv) heroDiv.remove(); return; }
-      if (!heroDiv) {
-        heroDiv = document.createElement('div');
-        heroDiv.className = 'blog-category-hero';
-        listEl.parentElement.insertBefore(heroDiv, listEl);
-      }
-      var desc = B.describe(activeFilter);
-      heroDiv.innerHTML =
-        '<h2>' + escapeHTML(categoryLabel(activeFilter)) + '</h2>' +
-        (desc ? '<p>' + escapeHTML(desc) + '</p>' : '');
-      heroDiv.hidden = false;
-    }
-
-    // The way in, for someone who has just arrived: what to sort out
-    // first, the seven shelves as cards, and a post from each of the
-    // three people are most often looking for.
+    // A few posts worth starting on, once there are enough of them to
+    // make picking three mean anything. Only on the unfiltered list.
     function renderLanding() {
       if (!landingEl) return;
       var on = activeFilter === 'all' && !activeTag;
       landingEl.hidden = !on;
-      // The list below only needs a heading when something comes before
-      // it; on a shelf it is the whole page.
-      if (allTitleEl) allTitleEl.hidden = !on;
-      if (!on) return;
-
-      if (catGridEl) {
-        var countable = posts.filter(function (p) {
-          return readableHere(p) && (p.published || isAdmin);
-        });
-        catGridEl.innerHTML = B.CATEGORIES.map(function (c) {
-          return '<a class="cat-card" href="' + B.href(c.id) + '" data-filter="' + escapeHTML(c.id) + '">' +
-            '<h3></h3><p></p>' +
-            '<span class="cat-card-count">' +
-              escapeHTML(postCount(countByCategory(countable, c.id))) + '</span>' +
-            '</a>';
-        }).join('');
-        catGridEl.querySelectorAll('.cat-card').forEach(function (card) {
-          var id = card.dataset.filter;
-          card.querySelector('h3').textContent = B.label(id);
-          card.querySelector('p').textContent = B.describe(id);
-        });
+      // The list's own heading says where the reader is, since the
+      // card above is the only other thing that does.
+      if (allTitleEl) {
+        allTitleEl.textContent = activeFilter === 'all'
+          ? t('blog.allPosts', 'All posts') : categoryLabel(activeFilter);
+        allTitleEl.hidden = !!activeTag;
       }
+      if (!on) return;
 
       // Recommended rather than measured: the newest post on each of
       // the three shelves a new arrival reaches for first. No counter
@@ -526,9 +511,9 @@
       var shown = posts.filter(function (p) {
         return matchesFilters(p) && readableLangs(p).indexOf(listLang) !== -1;
       });
-      renderCategoryHero();
       renderTagBanner();
       renderLanding();
+      paintCategoryCounts();
       listEl.innerHTML = shown.map(cardHTML).join('');
 
       if (shown.length) {
@@ -623,6 +608,7 @@
       if (leadInEl) leadInEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
       if (landingEl) landingEl.hidden = true;
+      if (allTitleEl) allTitleEl.hidden = true;
       var postUrl = location.origin + B.postHref(post.slug);
 
       // Which language to read it in: the one asked for in ?pl=, else
@@ -880,6 +866,7 @@
       if (leadInEl) leadInEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
       if (landingEl) landingEl.hidden = true;
+      if (allTitleEl) allTitleEl.hidden = true;
       singleEl.innerHTML =
         '<a class="blog-back" href="/blog">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
         '<h1>' + escapeHTML(t('blog.notFoundTitle', 'Post not found')) + '</h1>' +
@@ -1551,8 +1538,11 @@
 
     function markActiveFilter() {
       if (!filtersEl) return;
-      filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (b) {
-        b.classList.toggle('active', b.dataset.filter === activeFilter);
+      filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
+        var on = card.dataset.filter === activeFilter;
+        card.classList.toggle('active', on);
+        if (on) card.setAttribute('aria-current', 'true');
+        else card.removeAttribute('aria-current');
       });
     }
 
@@ -1567,9 +1557,10 @@
 
     if (filtersEl) {
       filtersEl.addEventListener('click', function (e) {
-        var btn = e.target.closest('.filter-btn');
-        if (!btn) return;
-        activeFilter = btn.dataset.filter;
+        var card = e.target.closest('.cat-card');
+        if (!card || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+        e.preventDefault();
+        activeFilter = card.dataset.filter;
         applyFilters();
       });
     }
@@ -1594,17 +1585,6 @@
     }
 
     if (writeBtn) writeBtn.addEventListener('click', function () { openEditor(null); });
-
-    if (catGridEl) {
-      catGridEl.addEventListener('click', function (e) {
-        var card = e.target.closest('.cat-card');
-        if (!card || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
-        e.preventDefault();
-        activeFilter = card.dataset.filter;
-        applyFilters();
-        window.scrollTo(0, 0);
-      });
-    }
 
     buildCategoryBar();
     markActiveFilter();
