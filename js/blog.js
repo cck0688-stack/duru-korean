@@ -161,11 +161,16 @@
     }).slice(0, 8);
   }
 
-  function renderTags(tags) {
-    if (!tags || !tags.length) return '';
-    return '<div class="post-tags">' + tags.map(function (tag) {
+  // A tag is shown in the language being read but links by the one it
+  // was written in: the filter runs on posts.tags, and a translated
+  // label that filtered on itself would find nothing.
+  function renderTags(post, lang) {
+    var own = (post && post.tags) || [];
+    if (!own.length) return '';
+    var shown = (MT && MT.tagsFor(post, lang)) || own;
+    return '<div class="post-tags">' + own.map(function (tag, i) {
       return '<a class="post-tag" href="blog.html?tag=' + encodeURIComponent(tag) + '">#' +
-        escapeHTML(tag) + '</a>';
+        escapeHTML(shown[i] || tag) + '</a>';
     }).join('') + '</div>';
   }
 
@@ -233,6 +238,22 @@
     // does not translate the site around it.
     var readLang = null;
     var readPick = null;
+    // The ?pl= the list sent, and the site language the post view is
+    // tuned to. Both give way when the reader changes the language at
+    // the top of the page: that is a statement about what they want to
+    // read, and it should move the post with it.
+    var plOverride = new URLSearchParams(location.search).get('pl');
+    var postTunedTo = null;
+
+    function followPostLang() {
+      var code = R.preferredLang();
+      if (postTunedTo === code) return false;
+      var first = postTunedTo === null;
+      postTunedTo = code;
+      if (!first) { plOverride = null; readPick = null; }
+      return true;
+    }
+    followPostLang();
     // Set from ?tag= and never changed after load: a tag filter is a
     // distinct URL, so it stays shareable and survives a reload.
     var activeTag = new URLSearchParams(location.search).get('tag') || '';
@@ -319,9 +340,20 @@
         banner.className = 'blog-tag-banner';
         listEl.parentElement.insertBefore(banner, listEl);
       }
+      // The tag in the address bar is the one it was written in; show
+      // the reader whichever label they would have clicked.
+      var shownTag = activeTag;
+      posts.some(function (p) {
+        var own = p.tags || [];
+        var i = own.map(function (x) { return String(x).toLowerCase(); }).indexOf(activeTag.toLowerCase());
+        if (i === -1) return false;
+        var tr = MT && MT.tagsFor(p, listLang);
+        if (tr && tr[i]) { shownTag = tr[i]; return true; }
+        return false;
+      });
       banner.innerHTML =
         '<span>' + escapeHTML(t('blog.taggedWith', 'Tagged')) + ' <strong>#' +
-          escapeHTML(activeTag) + '</strong></span>' +
+          escapeHTML(shownTag) + '</strong></span>' +
         '<a href="blog.html">' + escapeHTML(t('blog.clearTag', 'Clear')) + '</a>';
     }
 
@@ -426,8 +458,7 @@
       // Resolved from scratch on every render: were the reader's own
       // choice allowed to stand in for what they asked for, the notice
       // below would vanish the first time anything re-rendered.
-      var wanted = readPick ||
-        new URLSearchParams(location.search).get('pl') ||
+      var wanted = readPick || plOverride || postTunedTo ||
         (window.DURU_I18N && window.DURU_I18N.lang) || 'en';
       var missing = codes.indexOf(wanted) === -1;
       readLang = missing ? (codes.indexOf(post.lang) !== -1 ? post.lang : codes[0]) : wanted;
@@ -517,7 +548,7 @@
           '</button>' +
         '</div>' +
         '<div class="post-body' + (pairs ? ' post-body--mt' : '') + '">' + bodyHTML + '</div>' +
-        renderTags(post.tags) +
+        renderTags(post, readLang) +
         // Straight under the writing, while the sentences are still in
         // mind. Sharing is what a reader does after, so it comes after.
         studyHTML(post, readLang) +
@@ -713,10 +744,27 @@
     // Tags are suggested from the body once it settles, and only while
     // the author has not written their own: an automatic label should
     // never overwrite a deliberate one.
+    // What the author has written for themselves. An automatic answer
+    // fills a field only while its own flag is false — a suggestion
+    // should never overwrite a decision.
     var tagsTouched = false;
-    var tagsBusy = false;
-    var tagsTimer = null;
-    var tagsFrom = '';
+    var summaryTouched = false;
+    var categoryTouched = false;
+    var outlineBusy = false;
+    var outlineTimer = null;
+    var outlineFrom = '';
+
+    // What each category is for, so the model has something to file
+    // against beyond a bare id. Translated labels are no use here: the
+    // ids are what the database stores.
+    var CATEGORY_ABOUT = {
+      culture: 'everyday life, customs, society, people',
+      travel: 'places, trips, neighbourhoods, getting around',
+      food: 'dishes, cooking, eating out, ingredients',
+      trends: 'pop culture, music, drama, what is popular now',
+      language: 'the Korean language itself, grammar, study tips, vocabulary',
+      etc: 'anything the others do not cover, including news and current affairs'
+    };
     var saving = false;
     var autoSaveTimer = null;
     var lastSaveTime = null;
@@ -795,12 +843,14 @@
       ['#postBody', '#postTitle'].forEach(function (sel) {
         overlay.querySelector(sel).addEventListener('input', followTypedLanguage);
       });
-      overlay.querySelector('#postBody').addEventListener('input', scheduleTags);
-      overlay.querySelector('#postBody').addEventListener('blur', function () { fillTags(false); });
+      overlay.querySelector('#postBody').addEventListener('input', scheduleOutline);
+      overlay.querySelector('#postBody').addEventListener('blur', function () { fillOutline(false); });
       overlay.querySelector('#postTags').addEventListener('input', function () { tagsTouched = true; });
+      overlay.querySelector('#postExcerpt').addEventListener('input', function () { summaryTouched = true; });
+      overlay.querySelector('#postCategory').addEventListener('change', function () { categoryTouched = true; });
       overlay.querySelector('#postTagsBtn').addEventListener('click', function () {
-        tagsTouched = false;
-        fillTags(true);
+        tagsTouched = summaryTouched = categoryTouched = false;
+        fillOutline(true);
       });
       overlay.querySelectorAll('[data-tr-body]').forEach(function (el) {
         el.addEventListener('input', markTranslationState);
@@ -815,38 +865,61 @@
       el.classList.toggle('is-error', !!isError);
     }
 
-    // Reads the post and writes 3–5 tags into the field. Runs by itself
-    // a moment after the body stops changing, and on the button at any
-    // time — the button is the way to ask again after an edit.
-    function fillTags(force) {
-      if (!overlay || !MT || tagsBusy) return;
+    // Reads the post once and fills in the summary, the category and
+    // the tags. Runs by itself a moment after the body stops changing,
+    // and on the button at any time — the button is how to ask again
+    // after an edit, and it refills every field including the ones
+    // already written.
+    function fillOutline(force) {
+      if (!overlay || !MT || outlineBusy) return;
       var body = overlay.querySelector('#postBody').value.trim();
       var title = overlay.querySelector('#postTitle').value.trim();
       if (body.length < 80) return;
-      if (!force && (tagsTouched || overlay.querySelector('#postTags').value.trim())) return;
-      if (!force && tagsFrom === body) return;
 
-      tagsBusy = true;
-      tagsFrom = body;
+      var wantTags = force || (!tagsTouched && !overlay.querySelector('#postTags').value.trim());
+      var wantSummary = force || (!summaryTouched && !overlay.querySelector('#postExcerpt').value.trim());
+      var wantCategory = force || !categoryTouched;
+      if (!wantTags && !wantSummary && !wantCategory) return;
+      if (!force && outlineFrom === body) return;
+
+      outlineBusy = true;
+      outlineFrom = body;
       setTagsHint(t('blog.tagsWorking', 'Reading the post…'));
-      MT.suggestTags(client, { from: overlay.querySelector('#postLang').value, title: title, body: body })
-        .then(function (list) {
-          tagsBusy = false;
-          if (!list.length) { setTagsHint(t('blog.tagsNone', 'Nothing obvious to tag — write your own.')); return; }
-          if (!force && tagsTouched) return;
-          overlay.querySelector('#postTags').value = list.join(', ');
-          setTagsHint(t('blog.tagsDone', 'Suggested from the body — change them if you like.'));
-        })
-        .catch(function (err) {
-          tagsBusy = false;
-          tagsFrom = '';
-          setTagsHint(err.message, true);
-        });
+      MT.suggestOutline(client, {
+        from: overlay.querySelector('#postLang').value,
+        title: title,
+        body: body,
+        categories: CATEGORIES.map(function (c) { return { id: c, about: CATEGORY_ABOUT[c] || c }; })
+      }).then(function (out) {
+        outlineBusy = false;
+        if (!out) { setTagsHint(''); return; }
+        var filled = [];
+        if (wantSummary && out.summary && (force || !summaryTouched)) {
+          overlay.querySelector('#postExcerpt').value = out.summary;
+          filled.push(t('blog.fieldExcerpt', 'Summary (shown on the card)'));
+        }
+        if (wantCategory && out.category && (force || !categoryTouched)) {
+          overlay.querySelector('#postCategory').value = out.category;
+          filled.push(t('blog.fieldCategory', 'Category'));
+        }
+        if (wantTags && out.tags && out.tags.length && (force || !tagsTouched)) {
+          overlay.querySelector('#postTags').value = out.tags.join(', ');
+          filled.push(t('blog.fieldTags', 'Tags (comma separated)'));
+        }
+        setTagsHint(filled.length
+          ? t('blog.outlineDone', 'Filled in from the body: {fields}. Change anything you like.')
+              .replace('{fields}', filled.join(', '))
+          : t('blog.tagsNone', 'Nothing obvious to fill in — write your own.'));
+      }).catch(function (err) {
+        outlineBusy = false;
+        outlineFrom = '';
+        setTagsHint(err.message, true);
+      });
     }
 
-    function scheduleTags() {
-      if (tagsTimer) clearTimeout(tagsTimer);
-      tagsTimer = setTimeout(function () { fillTags(false); }, 1500);
+    function scheduleOutline() {
+      if (outlineTimer) clearTimeout(outlineTimer);
+      outlineTimer = setTimeout(function () { fillOutline(false); }, 1500);
     }
 
     // Set "Written in" from the script of what has been typed, unless
@@ -955,9 +1028,9 @@
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
       o.querySelector('label[for="postExcerpt"]').textContent = t('blog.fieldExcerpt', 'Summary (shown on the card)');
       o.querySelector('label[for="postTags"]').textContent = t('blog.fieldTags', 'Tags (comma separated)');
-      o.querySelector('#postTagsBtn').textContent = t('blog.suggestTags', 'Suggest tags');
-      if (!tagsBusy) setTagsHint(t('blog.tagsHint',
-        'Filled in from the body when you stop typing. Edit them freely.'));
+      o.querySelector('#postTagsBtn').textContent = t('blog.suggestTags', 'Read the post again');
+      if (!outlineBusy) setTagsHint(t('blog.tagsHint',
+        'The summary, the category and these tags fill themselves in from the body when you stop typing. Edit any of them freely.'));
       o.querySelector('label[for="postBody"]').textContent = t('blog.fieldBody', 'Body');
       o.querySelector('label[for="postLang"]').textContent = t('blog.fieldLang', 'Written in');
       o.querySelector('#postTranslations > summary').textContent = t('blog.translations', 'Other languages');
@@ -1003,9 +1076,11 @@
       // A post that already carries tags keeps them; a new one is open
       // to a suggestion until the author types.
       tagsTouched = !!(editing && editing.tags && editing.tags.length);
-      tagsBusy = false;
-      tagsFrom = '';
-      if (tagsTimer) { clearTimeout(tagsTimer); tagsTimer = null; }
+      summaryTouched = !!(editing && editing.excerpt);
+      categoryTouched = !!editing;
+      outlineBusy = false;
+      outlineFrom = '';
+      if (outlineTimer) { clearTimeout(outlineTimer); outlineTimer = null; }
       o.querySelector('#postBody').value = editing ? editing.body : '';
       o.querySelector('#postLang').value = (editing && editing.lang) ||
         (window.DURU_I18N && window.DURU_I18N.lang) || 'en';
@@ -1028,7 +1103,7 @@
     }
 
     function closeEditor() {
-      if (tagsTimer) { clearTimeout(tagsTimer); tagsTimer = null; }
+      if (outlineTimer) { clearTimeout(outlineTimer); outlineTimer = null; }
       if (overlay) overlay.hidden = true;
       editing = null;
       if (autoSaveTimer) clearInterval(autoSaveTimer);
@@ -1188,6 +1263,7 @@
         to: targets,
         title: post.title,
         excerpt: post.excerpt,
+        tags: post.tags || [],
         body: post.body
       }, function (done, total) {
         if (report) {
@@ -1354,6 +1430,7 @@
     // language switch has to re-render rather than rely on the DOM scan.
     document.addEventListener('duru:langchange', function () {
       followSiteLang();
+      followPostLang();
       buildLangSelect();
       updateFilterCounts();
       var slug = new URLSearchParams(location.search).get('post');

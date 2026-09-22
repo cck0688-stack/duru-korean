@@ -113,46 +113,65 @@ function vocabPrompt(targets, count) {
   ].join('\n');
 }
 
-// Tags for a post, in the language the post is written in. They are
-// the author's own labels — a reader clicks one to find the other posts
-// like this — so they follow the writing rather than the reader.
-function tagsPrompt(langName, min, max) {
+// What a post is: a one-line summary, the shelf it belongs on, and its
+// tags. All three are read off the same text, so they are asked for
+// together — one request rather than three, and one reading of the post
+// rather than three that might disagree with each other.
+//
+// They come back in the language the post is written in. A summary sits
+// on the card under the title, and a tag is the author's own label that
+// a reader clicks to find the others like it; both belong to the
+// writing. (Readers in another language get them translated with
+// everything else — see posts.mt.)
+function outlinePrompt(langName, categories, min, max) {
   return [
-    'You label one blog post for a Korean-language learning site.',
+    'You file one blog post for a Korean-language learning site.',
     '',
-    'Read the post and give between ' + min + ' and ' + max + ' tags, written in ' + langName + '.',
+    'Read the post and return three things, all written in ' + langName + '.',
     '',
-    'Rules:',
-    '- A tag is what the post is ABOUT, the way a reader looking for more like it would think of it.',
-    '  Not every noun in the text, and not a summary.',
-    '- One to three words each. No hash marks, no punctuation, no quotes, no numbering.',
-    '- Order them broadest first, most specific last.',
-    '- No duplicates and no two tags that mean the same thing.',
-    '- Lowercase, unless the language or the word itself calls for capitals (a place, a brand).',
-    '- Do not invent a topic the post does not cover, and do not tag it with the obvious',
-    '  ("Korean", "blog", "post") — every post here would carry those.'
+    '1. `summary` — one or two sentences saying what a reader would get from this post.',
+    '   It sits under the title on the card, so write it to make someone open the post,',
+    '   not to save them from having to. Under 250 characters. No "This post is about".',
+    '',
+    '2. `category` — exactly one of these ids, whichever the post belongs on:',
+    categories.map(function (c) { return '   - ' + c.id + ': ' + c.about; }).join('\n'),
+    '   Pick "etc" only when none of the others is defensible.',
+    '',
+    '3. `tags` — between ' + min + ' and ' + max + ' of them:',
+    '   - A tag is what the post is ABOUT, the way a reader looking for more like it would',
+    '     think of it. Not every noun in the text, and not a summary.',
+    '   - One to three words each. No hash marks, no punctuation, no quotes, no numbering.',
+    '   - Order them broadest first, most specific last.',
+    '   - No duplicates and no two tags that mean the same thing.',
+    '   - Lowercase, unless the language or the word itself calls for capitals (a place, a brand).',
+    '   - Do not tag it with the obvious ("Korean", "blog", "post") — every post here would',
+    '     carry those.'
   ].join('\n');
 }
 
-function tagsSchema(strict) {
+function outlineSchema(strict, categories) {
   var root = {
     type: 'object',
-    properties: { tags: { type: 'array', items: { type: 'string' } } },
-    required: ['tags']
+    properties: {
+      summary: { type: 'string' },
+      category: { type: 'string', enum: categories.map(function (c) { return c.id; }) },
+      tags: { type: 'array', items: { type: 'string' } }
+    },
+    required: ['summary', 'category', 'tags']
   };
   if (strict) root.additionalProperties = false;
   return root;
 }
 
-function parseTags(text, min, max) {
+function parseOutline(text, categories, min, max) {
   var parsed;
   try {
     parsed = JSON.parse(text);
   } catch (e) {
-    throw new TranslateError(502, 'The tags came back in an unreadable shape. Try again.');
+    throw new TranslateError(502, 'That came back in an unreadable shape. Try again.');
   }
   var seen = {};
-  var out = ((parsed && parsed.tags) || [])
+  var tags = ((parsed && parsed.tags) || [])
     .map(function (x) { return String(x == null ? '' : x).trim().replace(/^#+/, '').trim(); })
     .filter(function (x) {
       if (!x || x.length > 32) return false;
@@ -162,10 +181,19 @@ function parseTags(text, min, max) {
       return true;
     })
     .slice(0, max);
-  if (out.length < Math.min(min, 1)) {
-    throw new TranslateError(502, 'No usable tags came back. Try again.');
+
+  var ids = categories.map(function (c) { return c.id; });
+  var category = String((parsed && parsed.category) || '').trim();
+  // A category that is not one of the six is worse than none: it would
+  // fail the database's check constraint on save.
+  if (ids.indexOf(category) === -1) category = '';
+
+  var summary = String((parsed && parsed.summary) || '').trim().slice(0, 300);
+
+  if (!summary && !category && !tags.length) {
+    throw new TranslateError(502, 'Nothing usable came back. Try again.');
   }
-  return out;
+  return { summary: summary, category: category, tags: tags };
 }
 
 function vocabSchema(strict) {
@@ -532,18 +560,18 @@ export async function translate(opts, cfg) {
   return { model: cfg.model, translations: parseLanguages(text, opts.targets, opts.sentences.length) };
 }
 
-export async function tags(opts, cfg) {
+export async function outline(opts, cfg) {
   if (!cfg.provider.chat) {
-    throw new TranslateError(400, cfg.label + ' only translates — it cannot suggest tags. ' +
+    throw new TranslateError(400, cfg.label + ' only translates — it cannot read a post. ' +
       'Set TRANSLATE_PROVIDER to anthropic, openai or google for this.');
   }
   const text = await cfg.provider.chat(
     cfg,
-    tagsPrompt(opts.fromName, opts.min, opts.max),
+    outlinePrompt(opts.fromName, opts.categories, opts.min, opts.max),
     numbered(opts.sentences),
-    tagsSchema(cfg.provider.strictSchema !== false)
+    outlineSchema(cfg.provider.strictSchema !== false, opts.categories)
   );
-  return { model: cfg.model, tags: parseTags(text, opts.min, opts.max) };
+  return Object.assign({ model: cfg.model }, parseOutline(text, opts.categories, opts.min, opts.max));
 }
 
 export async function vocab(opts, cfg) {

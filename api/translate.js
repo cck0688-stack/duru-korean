@@ -43,13 +43,19 @@
 // The same five words come back for every language, so a reader who
 // switches language keeps the same list with new explanations.
 //
-// And it suggests the tags for a post, in the language the post is
-// written in — `to` is not read in this mode:
+// And it reads a post to fill in what goes around it — the summary on
+// the card, the shelf it belongs on, and its tags — all in the language
+// the post is written in. `to` is not read in this mode; `categories`
+// is the list to choose from, sent by the page so the ids stay in one
+// place (js/blog.js):
 //
-//   { "mode": "tags", "from": "ko", "to": ["en"],
-//     "sentences": [ …the whole post… ], "min": 3, "max": 5 }
+//   { "mode": "outline", "from": "ko", "to": ["en"],
+//     "sentences": [ …the whole post… ], "min": 3, "max": 5,
+//     "categories": [ { "id": "travel", "about": "places, trips" }, … ] }
 //
-//   200 { "provider": …, "model": …, "tags": ["교육", "유학", "어학연수"] }
+//   200 { "provider": …, "model": …,
+//         "summary": "캐나다 어학원들이…", "category": "etc",
+//         "tags": ["유학", "어학연수", "캐나다"] }
 //
 // ── Configuration (Vercel → Settings → Environment Variables) ──────
 //
@@ -82,7 +88,7 @@
 // already serves to every visitor; they are here only so a different
 // project can be pointed at without editing code.
 
-import { LANGUAGES, TranslateError, resolveProvider, translate, vocab, tags } from './_providers.js';
+import { LANGUAGES, TranslateError, resolveProvider, translate, vocab, outline } from './_providers.js';
 
 export const config = { maxDuration: 60 };
 
@@ -101,6 +107,7 @@ const MAX_VOCAB_SENTENCES = 120;
 const MAX_VOCAB_CHARS = 20000;
 const MAX_WORDS = 10;
 const MAX_TAGS = 8;
+const MAX_CATEGORIES = 20;
 
 function bad(res, status, message) {
   res.status(status).json({ error: message });
@@ -154,8 +161,8 @@ export default async function handler(req, res) {
   const sentences = Array.isArray(body.sentences) ? body.sentences : [];
   const count = Math.min(Math.max(Number(body.count) || 5, 1), MAX_WORDS);
 
-  if (['sentences', 'vocab', 'tags'].indexOf(mode) === -1) {
-    return bad(res, 400, 'mode must be "sentences", "vocab" or "tags".');
+  if (['sentences', 'vocab', 'outline'].indexOf(mode) === -1) {
+    return bad(res, 400, 'mode must be "sentences", "vocab" or "outline".');
   }
   if (!LANGUAGES[from]) return bad(res, 400, 'Unknown source language.');
   if (!targets.length || targets.length > MAX_TARGETS) return bad(res, 400, 'Pick 1–8 target languages.');
@@ -164,7 +171,7 @@ export default async function handler(req, res) {
   if (sentences.some(function (s) { return typeof s !== 'string'; })) return bad(res, 400, 'Sentences must be text.');
 
   // Both whole-post jobs need the post, not a batch of it.
-  const wholePost = mode === 'vocab' || mode === 'tags';
+  const wholePost = mode === 'vocab' || mode === 'outline';
   const maxSentences = wholePost ? MAX_VOCAB_SENTENCES : MAX_SENTENCES;
   const maxChars = wholePost ? MAX_VOCAB_CHARS : MAX_CHARS;
   if (!sentences.length || sentences.length > maxSentences) {
@@ -175,14 +182,23 @@ export default async function handler(req, res) {
   }
 
   try {
-    if (mode === 'tags') {
+    if (mode === 'outline') {
       const min = Math.min(Math.max(Number(body.min) || 3, 1), MAX_TAGS);
       const max = Math.min(Math.max(Number(body.max) || 5, min), MAX_TAGS);
-      const out = await tags(
-        { from: from, fromName: LANGUAGES[from], sentences: sentences, min: min, max: max },
+      const categories = (Array.isArray(body.categories) ? body.categories : [])
+        .filter(function (c) { return c && typeof c.id === 'string' && /^[a-z0-9_-]{1,32}$/.test(c.id); })
+        .slice(0, MAX_CATEGORIES)
+        .map(function (c) { return { id: c.id, about: String(c.about || '').slice(0, 120) }; });
+      if (!categories.length) return bad(res, 400, 'Send the list of categories to choose from.');
+      const out = await outline(
+        { from: from, fromName: LANGUAGES[from], sentences: sentences,
+          min: min, max: max, categories: categories },
         cfg
       );
-      res.status(200).json({ provider: cfg.name, model: out.model || cfg.model, tags: out.tags });
+      res.status(200).json({
+        provider: cfg.name, model: out.model || cfg.model,
+        summary: out.summary, category: out.category, tags: out.tags
+      });
       return;
     }
 

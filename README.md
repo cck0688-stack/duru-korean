@@ -428,7 +428,10 @@ silently.
 carries its own "Read in" picker listing only the languages it is
 written in; the language is taken from `pl`, else the site language,
 and a notice says so when neither exists and it falls back. Choosing
-one there never changes the language of the site. An admin sees the
+one there never changes the language of the site — but changing the
+site language does move the post, and the `?pl=` with it: that is the
+reader saying what they want to read now, and a parameter the previous
+page put in the address bar should not outrank it. An admin sees the
 published / not-published banner on the post itself, with Publish now /
 Unpublish beside Edit and Delete — the cards carry no admin buttons,
 since a stretched link would swallow them. The editor holds the eight
@@ -571,15 +574,29 @@ still shows its button and answers that it is not switched on yet, which
 is the truth and points at where to fix it, rather than hiding a button
 whose absence explains nothing.
 
-**Tags write themselves.** The field sits under the body, because there
-is nothing to suggest until something is written. A moment after the
-body stops changing, `api/translate.js` in `mode: "tags"` reads the post
-and fills in three to five, in the language the post is written in — a
-tag is the author's label, and a reader clicking one is looking for the
-other posts like this. It never overwrites: the moment the author types
-in the field it stops offering, and "Suggest tags" is how to ask again.
-Duplicates, hash marks and anything over 32 characters are stripped on
-the way back.
+**The summary, the category and the tags write themselves.** A moment
+after the body stops changing, `api/translate.js` in `mode: "outline"`
+reads the post once and fills in all three — one request rather than
+three, and one reading rather than three that might disagree about what
+the post is. The tags field sits under the body, because there is
+nothing to suggest until something is written.
+
+They come back in the language the post is written in: a summary sits
+on the card under the title and a tag is the author's own label, so both
+belong to the writing rather than to whoever is reading. Readers in
+another language get them translated with everything else — the head of
+each translation batch carries the title, the summary **and the tags**,
+so `mt[lang].tags` lines up one for one with `posts.tags`. A tag is
+then shown in the reading language but still links by the original,
+because the filter runs on `posts.tags` and a translated label that
+filtered on itself would find nothing.
+
+None of it overwrites: each field stops being offered the moment the
+author touches it, and "Read the post again" is how to ask for a fresh
+answer to all three. A category the page did not offer is dropped rather
+than saved, since it would fail the database's check constraint;
+duplicate tags, hash marks and anything over 32 characters are stripped
+on the way back; and a body under 80 characters asks for nothing.
 
 **Naver is deliberately absent.** Supabase has no Naver provider, and
 the only ways to add one are to run the OAuth dance in our own

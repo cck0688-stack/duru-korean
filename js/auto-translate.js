@@ -127,14 +127,13 @@
   // limit and let the progress bar actually move.
   var BATCH = 6;
 
-  // The title and the summary travel as their own first batch: they are
-  // not part of the body, so they are not part of the body's count, and
-  // a reader should not meet a translated post under an untranslated
-  // heading.
+  // The title, the summary and the tags travel as their own first
+  // batch: they are not part of the body, so they are not part of the
+  // body's count, and a reader should not meet a translated post under
+  // an untranslated heading or a row of tags they cannot read.
   function headOf(opts) {
-    var head = [String(opts.title || '').trim()];
-    head.push(String(opts.excerpt || '').trim());
-    return head;
+    var head = [String(opts.title || '').trim(), String(opts.excerpt || '').trim()];
+    return head.concat((opts.tags || []).map(function (x) { return String(x || '').trim(); }));
   }
 
   function headPrint(opts) {
@@ -193,6 +192,9 @@
         targets.forEach(function (c) {
           if (collected[c].length !== sentences.length) return;
           var h = heads[c] || [];
+          // h is [title, excerpt, ...tags], the same shape it was sent
+          // in, so a translated tag keeps its place beside the original
+          // it stands for.
           out[c] = {
             hash: hash,
             headHash: hHash,
@@ -200,6 +202,7 @@
             at: stamp,
             title: String(h[0] || '').trim(),
             excerpt: String(h[1] || '').trim(),
+            tags: h.slice(2).map(function (x) { return String(x || '').trim(); }),
             sentences: collected[c]
           };
         });
@@ -208,30 +211,32 @@
     });
   }
 
-  // Tags for a post, from what has been written. They come back in the
-  // post's own language: a tag is the author's label, and a reader
-  // clicking one is looking for the other posts like this.
+  // What goes around a post — the summary on its card, the shelf it
+  // belongs on, its tags — read off the body in one request. Three
+  // separate calls would cost three readings that could disagree with
+  // each other about what the post is.
   var TAGS_MIN = 3, TAGS_MAX = 5;
 
-  function suggestTags(client, opts) {
+  function suggestOutline(client, opts) {
     var sentences = flatten(splitBody(opts.title + '\n\n' + opts.body)).slice(0, STUDY_MAX);
-    if (!sentences.length) return Promise.resolve([]);
+    if (!sentences.length) return Promise.resolve(null);
     return client.auth.getSession().then(function (res) {
       var token = res && res.data && res.data.session && res.data.session.access_token;
-      if (!token) return Promise.reject(new Error('Sign in again to suggest tags.'));
+      if (!token) return Promise.reject(new Error('Sign in again to read the post.'));
       return fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
         body: JSON.stringify({
-          mode: 'tags', from: opts.from,
+          mode: 'outline', from: opts.from,
           // Not read in this mode, but the endpoint asks for a target.
           to: [opts.from === 'en' ? 'ko' : 'en'],
-          sentences: sentences, min: TAGS_MIN, max: TAGS_MAX
+          sentences: sentences, min: TAGS_MIN, max: TAGS_MAX,
+          categories: opts.categories
         })
       }).then(function (r) {
         return r.json().catch(function () { return {}; }).then(function (data) {
-          if (!r.ok) throw new Error(data.error || ('Tag suggestions failed (' + r.status + ')'));
-          return data.tags || [];
+          if (!r.ok) throw new Error(data.error || ('Reading the post failed (' + r.status + ')'));
+          return data;
         });
       });
     });
@@ -310,17 +315,33 @@
 
   // A translated title or summary, or '' when there is none that still
   // matches what the admin last wrote.
-  function head(post, lang, name) {
+  function headFresh(post, lang) {
     var mt = post && post.mt && post.mt[lang];
-    if (!mt || mt.from !== (post.lang || 'en')) return '';
-    if (mt.headHash !== headPrint({ title: post.title, excerpt: post.excerpt })) return '';
-    return String(mt[name] || '');
+    if (!mt || mt.from !== (post.lang || 'en')) return null;
+    if (mt.headHash !== headPrint({ title: post.title, excerpt: post.excerpt, tags: post.tags })) return null;
+    return mt;
+  }
+
+  function head(post, lang, name) {
+    var mt = headFresh(post, lang);
+    return mt ? String(mt[name] || '') : '';
+  }
+
+  // The post's tags in `lang`, one for one with post.tags so a
+  // translated label can still link to the tag it stands for. Null when
+  // there is no translation that still matches what is written now.
+  function tagsFor(post, lang) {
+    var mt = headFresh(post, lang);
+    var own = (post && post.tags) || [];
+    if (!mt || !Array.isArray(mt.tags) || mt.tags.length !== own.length) return null;
+    return mt.tags.map(function (x, i) { return x || own[i]; });
   }
 
   window.DURU_MT = {
     TAGS_MIN: TAGS_MIN,
     TAGS_MAX: TAGS_MAX,
-    suggestTags: suggestTags,
+    suggestOutline: suggestOutline,
+    tagsFor: tagsFor,
     detectLang: detectLang,
     STUDY_WORDS: STUDY_WORDS,
     study: study,
