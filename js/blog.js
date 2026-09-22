@@ -118,12 +118,24 @@
   // its translation directly underneath. Escaped on both sides — a post
   // body is plain text and a translation is text that came back over
   // the network, so neither is ever treated as markup.
+  // A body is Markdown, and a sub-heading in it reaches this function
+  // as a sentence reading "## 먼저 볼 것". Escaped and printed whole it
+  // showed the reader the hashes — the one thing those marks exist not
+  // to be. They are stripped here and the line is marked as a heading
+  // so it gets the same highlighter stroke the rendered body gives one.
+  // The translation carries them too, because the model is asked to
+  // keep Markdown marks where it found them.
+  var MD_HEAD = /^\s*#{1,4}\s+/;
+
   function bilingualHTML(pairs, srcLang, outLang) {
     return pairs.map(function (para) {
       return '<p class="mt-para">' + para.map(function (pair) {
-        return '<span class="mt-line">' +
-          '<span class="mt-src" lang="' + escapeHTML(srcLang) + '">' + escapeHTML(pair.src) + '</span>' +
-          '<span class="mt-out" lang="' + escapeHTML(outLang) + '">' + escapeHTML(pair.out) + '</span>' +
+        var head = MD_HEAD.test(pair.src);
+        var src = head ? String(pair.src).replace(MD_HEAD, '') : pair.src;
+        var out = head ? String(pair.out == null ? '' : pair.out).replace(MD_HEAD, '') : pair.out;
+        return '<span class="mt-line' + (head ? ' mt-line--head' : '') + '">' +
+          '<span class="mt-src" lang="' + escapeHTML(srcLang) + '">' + escapeHTML(src) + '</span>' +
+          '<span class="mt-out" lang="' + escapeHTML(outLang) + '">' + escapeHTML(out) + '</span>' +
           '</span>';
       }).join('') + '</p>';
     }).join('');
@@ -1887,22 +1899,31 @@
       });
     }
 
+    // One language on this page, not two. The picker above the list
+    // used to change only which posts were listed, which left a reader
+    // looking at Korean articles under English headings, English topic
+    // cards and an English menu — the page half-translated and no way
+    // to tell it that was not what was meant. It says "pick a language"
+    // and a reader means the page, so it sets the site's language,
+    // exactly as the globe in the header does. The langchange handler
+    // below does the rendering; there is nothing to repaint here.
+    function pickLang(code) {
+      if (!code) return;
+      listLang = code;
+      if (langSel) langSel.value = code;
+      saveState();
+      if (window.DURU_I18N && window.DURU_I18N.setLang) window.DURU_I18N.setLang(code);
+      else renderCards();          // no dictionary engine: list only
+    }
+
     if (langSel) {
-      langSel.addEventListener('change', function () {
-        listLang = langSel.value;
-        saveState();
-        renderCards();
-      });
+      langSel.addEventListener('change', function () { pickLang(langSel.value); });
     }
 
     if (suggestEl) {
       suggestEl.addEventListener('click', function (e) {
         var btn = e.target.closest('button[data-lang]');
-        if (!btn) return;
-        listLang = btn.dataset.lang;
-        if (langSel) langSel.value = listLang;
-        saveState();
-        renderCards();
+        if (btn) pickLang(btn.dataset.lang);
       });
     }
 

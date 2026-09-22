@@ -446,6 +446,20 @@ was a second thing to read before getting anywhere.
 The catch-all is `etc`, not `community` — "Community" is what the header
 calls the guestbook, and one site cannot have two of them.
 
+"Pick a language" above the list sets the site's language, exactly as
+the globe in the header does. It used to change only which posts were
+listed, which left a reader with Korean articles under English headings,
+English topic cards and an English menu — the page half-translated, with
+nothing to tell it that was not what was meant.
+
+A `##` sub-heading in a body is drawn as a highlighter stroke rather
+than as a bigger, bolder line: shrink-to-fit, so the colour ends where
+the words do. The paired translation view gets the same stroke on both
+sides, and strips the hashes — they are Markdown's marks, not the
+writer's words, and printing them was the one thing they are not for. A
+heading with text on the very next line, no blank line between, is a
+heading too; it used to come out as a paragraph beginning "##".
+
 Every post may carry any of three audiences: `tourists` (green),
 `students` (blue), `expats` (purple), shown as badges on the card and on
 the post. It is a label, not a filter — it saves someone opening a post

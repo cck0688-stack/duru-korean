@@ -86,9 +86,33 @@
     return '<p>' + inline(trimmed) + '</p>';
   }
 
+  // A blank line separates blocks — except that a heading is its own
+  // block whether or not a blank line follows it. A writer who puts the
+  // first sentence directly under "## 먼저 볼 것" means a heading and a
+  // paragraph, and used to get neither: the two lines arrived here as
+  // one block, the heading pattern did not match across the newline,
+  // and the reader was shown the hashes. So heading lines are cut out
+  // of a block before it is looked at.
+  function blocksOf(text) {
+    var out = [];
+    text.split(/\n{2,}/).forEach(function (block) {
+      var run = [];
+      block.split('\n').forEach(function (line) {
+        if (/^\s*#{1,4}\s+\S/.test(line)) {
+          if (run.length) { out.push(run.join('\n')); run = []; }
+          out.push(line);
+        } else {
+          run.push(line);
+        }
+      });
+      if (run.length) out.push(run.join('\n'));
+    });
+    return out;
+  }
+
   window.DURU_MARKDOWN = {
     render: function (text) {
-      return escapeHTML(text).split(/\n{2,}/).map(renderBlock).join('');
+      return blocksOf(escapeHTML(text)).map(renderBlock).join('');
     }
   };
 })();
