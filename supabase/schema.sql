@@ -1507,3 +1507,32 @@ update public.posts set category = 'etc' where category = 'community';
 alter table public.posts
   add constraint posts_category_check
   check (category in ('travel', 'dining', 'style', 'explore', 'campus', 'career', 'etc'));
+
+-- ------------------------------------------------------------------
+-- 31. the community's three shelves
+-- ------------------------------------------------------------------
+-- The community page is filed the way the blog is: four cards at the
+-- top, All and then three, and picking one narrows the list. Three,
+-- because what people actually come here to do is ask something, say
+-- something, or meet somebody — and a fourth shelf would be one nobody
+-- could tell apart from the others.
+--
+--   ask    a question, and the answers to it
+--   share  an experience, an opinion, a day in Korea
+--   meet   introducing yourself, looking for a study partner
+--
+-- Everything written before this shelf existed was somebody telling a
+-- story, so it lands on `share`. A reply carries whatever its parent
+-- carries — it is part of that thread, not a post of its own, and the
+-- page only ever counts and filters top-level rows.
+
+alter table public.stories
+  add column if not exists category text not null default 'share';
+
+alter table public.stories drop constraint if exists stories_category_check;
+alter table public.stories
+  add constraint stories_category_check
+  check (category in ('ask', 'share', 'meet'));
+
+create index if not exists stories_category_idx
+  on public.stories (category, created_at desc);

@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- This page is also served under /community and /community/ask (see
+     the rewrites in vercel.json), so every relative link, script and
+     fetch on it resolves from the site root rather than from whichever
+     path the reader arrived on. -->
+<base href="/">
 <title>Community — Duru Korean</title>
 <meta name="description" content="Stories from people learning Korean with Duru Korean — in their own words.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,19 +49,24 @@
     <span class="page-hero-mark" aria-hidden="true">소통</span>
     <h1 data-i18n="storiesPage.h1">Community</h1>
     <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline" data-i18n="storiesPage.tagline">Why people started Korean, and how it is going.</p>
-    <div data-i18n="storiesPage.krSub">The Duru Guestbook</div>
+    <p class="page-hero-tagline" data-i18n="storiesPage.tagline">Ask, share, and meet other people learning Korean.</p>
+    <div data-i18n="storiesPage.krSub">The Duru Community</div>
   </div>
 </section>
 
 <section class="section section-after-hero">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="storiesPage.leadIn">Everyone here started somewhere. Share what got you going, what tripped you up, or what finally made it click.</p>
+    <p class="section-lead-in" data-i18n="storiesPage.leadIn">Three places to start: ask a question, tell us how it is going, or introduce yourself.</p>
+
+    <!-- All, then the three shelves: four cards, each with the one line
+         that says what belongs on it. The same navigation the blog
+         uses, built in js/stories.js from window.DURU_COMMUNITY. -->
+    <nav class="cat-grid" id="storyFilters" aria-label="Community topics"></nav>
 
     <div class="story-toolbar reveal">
-      <button type="button" class="btn btn-primary" id="writeStoryBtn" hidden data-i18n="stories.writeBtn">+ Sign the guestbook</button>
+      <button type="button" class="btn btn-primary" id="writeStoryBtn" hidden data-i18n="stories.writeBtn">+ Write a post</button>
       <div class="story-signed-out" id="storySignedOutNote" hidden>
-        <span data-i18n="stories.signInPrompt">Log in to sign the guestbook.</span>
+        <span data-i18n="stories.signInPrompt">Log in to post.</span>
         <button type="button" class="btn btn-ghost" id="storyLoginBtn" data-i18n="stories.signInCta">Log in →</button>
       </div>
     </div>
@@ -113,6 +123,7 @@
 <script src="js/auth.js"></script>
 <script src="js/notify-feed.js"></script>
 <script src="js/visitor-tracking.js"></script>
+<script src="js/community-categories.js"></script>
 <script src="js/stories.js"></script>
 <script>window.DURU_PAGE_TITLE_KEY = 'storiesPage.title';</script>
 <script src="js/i18n.js"></script>

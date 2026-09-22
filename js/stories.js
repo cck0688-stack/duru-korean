@@ -72,6 +72,91 @@
     var isAdmin = false;
     var stories = [];
 
+    // The three shelves, and where on them the reader is. Like the
+    // blog, the address bar is the truth: /community/ask is a link
+    // someone can send and a back button that means something.
+    var C = window.DURU_COMMUNITY;
+    var filtersEl = document.getElementById('storyFilters');
+    var activeFilter = (C && C.route(location.pathname, location.search).cat) || 'all';
+    if (C && activeFilter !== 'all' && !C.has(activeFilter)) activeFilter = 'all';
+
+    /* ---------------- The four cards ---------------- */
+
+    function buildFilterBar() {
+      if (!filtersEl || !C) return;
+      filtersEl.innerHTML = [{ id: 'all' }].concat(C.CATEGORIES).map(function (c) {
+        return '<a class="cat-card" href="' + C.href(c.id === 'all' ? '' : c.id) +
+          '" data-filter="' + escapeHTML(c.id) + '">' +
+          '<h3></h3><p></p><span class="cat-card-count"></span></a>';
+      }).join('');
+      // A card is a link, so it still works without JavaScript and can
+      // be opened in a new tab — but within the page it filters rather
+      // than reloading.
+      filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+          e.preventDefault();
+          activeFilter = card.dataset.filter;
+          syncURL();
+          renderList();
+        });
+      });
+      paintFilterBar();
+    }
+
+    // Names and descriptions on a language change; counts whenever the
+    // list is rebuilt.
+    function paintFilterBar() {
+      if (!filtersEl || !C) return;
+      filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
+        var id = card.dataset.filter;
+        card.classList.toggle('active', id === activeFilter);
+        card.querySelector('h3').textContent = id === 'all'
+          ? t('community.allPosts', 'All posts') : C.label(id);
+        card.querySelector('p').textContent = id === 'all'
+          ? t('community.allPosts.desc', 'Everything the community has written, newest first.')
+          : C.describe(id);
+        card.querySelector('.cat-card-count').textContent =
+          postCount(id === 'all' ? stories.length : countIn(id));
+      });
+    }
+
+    // A row written before the shelves existed has no category; it is
+    // somebody telling a story, so it counts as one. The database says
+    // the same thing with its default — this is only for a page holding
+    // rows it read before the migration ran.
+    function catOf(row) {
+      var id = (row && row.category) || 'share';
+      return (C && C.has(id)) ? id : 'share';
+    }
+
+    function countIn(id) {
+      return stories.filter(function (s2) { return catOf(s2) === id; }).length;
+    }
+
+    function postCount(n) {
+      if (!n) return t('community.postCount.none', 'Nothing yet');
+      if (n === 1) return t('community.postCount.one', '1 post');
+      return t('community.postCount', '{n} posts').replace('{n}', n);
+    }
+
+    // Keep the address bar level with what is on screen, without adding
+    // a history entry per click: a filter is where you are, not a page
+    // you visited.
+    function syncURL() {
+      if (!C || !window.history || !history.replaceState) return;
+      var q = new URLSearchParams(location.search);
+      q.delete('cat');
+      // Readable paths only where the host serves them. Opened as
+      // stories.html — a local preview, a static host without the
+      // rewrites — the query string stays, so a reload still works.
+      var clean = !/\.html$/.test(location.pathname);
+      if (!clean && activeFilter !== 'all') q.set('cat', activeFilter);
+      var qs = q.toString();
+      var path = clean ? C.href(activeFilter === 'all' ? '' : activeFilter) : location.pathname;
+      history.replaceState(null, '', path + (qs ? '?' + qs : ''));
+    }
+
     /* ---------------- Rendering ---------------- */
 
     var rows = [];
@@ -115,17 +200,36 @@
       '</div>';
     }
 
+    function shown() {
+      if (activeFilter === 'all') return stories;
+      return stories.filter(function (s2) { return catOf(s2) === activeFilter; });
+    }
+
     function renderList() {
       listEl.innerHTML = '';
-      if (emptyEl) emptyEl.hidden = stories.length > 0;
-      stories.forEach(function (s) {
+      var list = shown();
+      if (emptyEl) {
+        emptyEl.hidden = list.length > 0;
+        // "Nothing here yet" should say where here is: an empty shelf
+        // and an empty community are not the same thing, and a reader
+        // who picked Meet & Connect has not seen the rest of the page.
+        emptyEl.textContent = activeFilter === 'all'
+          ? t('stories.emptyNote', 'No stories yet — yours could be the first.')
+          : t('community.emptyHere', 'Nothing on {topic} yet — yours could be the first.')
+              .replace('{topic}', C ? C.label(activeFilter) : activeFilter);
+      }
+      paintFilterBar();
+      list.forEach(function (s) {
         var card = document.createElement('article');
         card.className = 'story-card';
         card.innerHTML =
           '<div class="story-head">' +
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(s.display_name)) + '</span>' +
             '<div><h3>' + escapeHTML(s.display_name) + '</h3>' +
-            '<p class="story-meta">' + escapeHTML(formatDate(s.created_at)) + '</p></div>' +
+            '<p class="story-meta">' +
+              '<span class="story-cat story-cat--' + escapeHTML(catOf(s)) + '">' +
+              escapeHTML(C ? C.label(catOf(s)) : catOf(s)) + '</span>' +
+              escapeHTML(formatDate(s.created_at)) + '</p></div>' +
           '</div>' +
           '<div class="story-body">' + paragraphs(s.body) + '</div>' +
           actionsHTML(s) +
@@ -210,6 +314,12 @@
           '<form id="storyForm" novalidate>' +
             '<div class="auth-field"><label for="storyName"></label>' +
               '<input type="text" id="storyName" required maxlength="40"></div>' +
+            // A reply belongs to the thread it answers, so it has no
+            // shelf of its own to pick — the field is hidden for one
+            // and the parent's value is sent instead.
+            '<div class="auth-field" id="storyCatField"><label for="storyCat"></label>' +
+              '<select id="storyCat"></select>' +
+              '<p class="field-hint" id="storyCatHint"></p></div>' +
             '<div class="auth-field"><label for="storyBody"></label>' +
               '<textarea id="storyBody" rows="10" required maxlength="4000"></textarea>' +
               '<p class="field-hint" id="storyCount"></p></div>' +
@@ -240,11 +350,36 @@
       o.querySelector('#storyEditorSub').textContent =
         t('stories.editorSub', 'Your email address is never shown — only the name you choose here.');
       o.querySelector('label[for="storyName"]').textContent = t('stories.fieldName', 'Name to show');
+
+      var catField = o.querySelector('#storyCatField');
+      var catSel = o.querySelector('#storyCat');
+      catField.hidden = !!replyTo || !C;
+      if (C) {
+        var keep = catSel.value;
+        o.querySelector('label[for="storyCat"]').textContent = t('community.fieldCat', 'Where does this go?');
+        catSel.innerHTML = C.CATEGORIES.map(function (c) {
+          return '<option value="' + escapeHTML(c.id) + '">' + escapeHTML(C.label(c.id)) + '</option>';
+        }).join('');
+        catSel.value = keep && C.has(keep) ? keep : defaultCat();
+        o.querySelector('#storyCatHint').textContent = C.describe(catSel.value);
+        catSel.onchange = function () {
+          o.querySelector('#storyCatHint').textContent = C.describe(catSel.value);
+        };
+      }
       o.querySelector('label[for="storyBody"]').textContent = replyTo
         ? t('stories.fieldReply', 'Your reply')
         : t('stories.fieldBody', 'Your story');
       o.querySelector('#storySubmit').textContent = t('stories.post', 'Post');
       updateCount();
+    }
+
+    // Editing keeps the shelf the post is already on. Writing something
+    // new starts on the shelf being browsed, because a reader who opened
+    // Ask & Help and then pressed Write almost certainly has a question.
+    function defaultCat() {
+      if (editing) return catOf(editing);
+      if (C && C.has(activeFilter)) return activeFilter;
+      return 'share';
     }
 
     function setMsg(type, text) {
@@ -322,10 +457,21 @@
 
       // parent_id is sent only for a reply, so a plain entry still saves
       // on a database that has not been migrated yet.
+      var catSel = overlay.querySelector('#storyCat');
+      var picked = (C && catSel && C.has(catSel.value)) ? catSel.value : null;
+
       var row = { user_id: currentUser.id, display_name: name, body: body };
       if (replyTo) row.parent_id = replyTo.id;
+      // A reply carries whatever thread it is in; an entry carries what
+      // was picked. Either is left off entirely when the column is not
+      // there yet, so the page keeps working before the migration.
+      var cat = replyTo ? catOf(replyTo) : picked;
+      if (cat) row.category = cat;
+
+      var patch = { display_name: name, body: body, updated_at: new Date().toISOString() };
+      if (!editing || !editing.parent_id) { if (picked) patch.category = picked; }
       var op = editing
-        ? client.from('stories').update({ display_name: name, body: body, updated_at: new Date().toISOString() }).eq('id', editing.id)
+        ? client.from('stories').update(patch).eq('id', editing.id)
         : client.from('stories').insert(row);
 
       op.then(function (res) {
@@ -377,6 +523,9 @@
           return loadStories();
         });
     }
+
+    buildFilterBar();
+    syncURL();
 
     client.auth.getSession().then(function (res) {
       applyUser(res.data && res.data.session && res.data.session.user);

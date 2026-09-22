@@ -3519,6 +3519,21 @@ section { position: relative; }
 .cat-card.active p { color: var(--cream-dim); }
 .cat-card.active .cat-card-count { color: var(--accent); }
 
+/* The shelf an entry is on, beside its date. Small and quiet: it says
+   which of three, it is not a heading. */
+.story-cat {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.story-cat--ask   { background: #fdeadf; color: #a14a20; }
+.story-cat--share { background: #e2edfa; color: #19538f; }
+.story-cat--meet  { background: #e3f2ea; color: #1d6b48; }
+
 /* ---------- Blog: worth reading first ---------- */
 
 .blog-landing { margin-bottom: 44px; }

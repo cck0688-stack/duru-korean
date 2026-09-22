@@ -460,6 +460,32 @@ writer's words, and printing them was the one thing they are not for. A
 heading with text on the very next line, no blank line between, is a
 heading too; it used to come out as a paragraph beginning "##".
 
+## The community
+
+`stories.html`, served at `/community`, is filed the same way the blog
+is: four cards across the top — All on the left, then three shelves —
+and picking one narrows the list in place rather than loading a page.
+
+| id | name | what belongs on it |
+|----|------|--------------------|
+| `ask` | Ask & Help | questions about Korean or life in Korea, and the answers |
+| `share` | Share & Talk | experiences, opinions, everyday life in Korea |
+| `meet` | Meet & Connect | introductions, looking for a friend or a study partner |
+
+Three, because there are three things people come here to do. A fourth
+would be one nobody could tell apart from the others, and an empty
+shelf reads as a dead page.
+
+A reply has no shelf of its own — it belongs to the thread it answers,
+so the picker is hidden for one and the parent's value is sent instead.
+The counts and the filter only ever look at top-level rows. An entry
+written before section 31 ran has no `category` at all; the page reads
+it as `share`, which is what the column's default says too, so a
+half-migrated database shows every row rather than losing some.
+
+`js/community-categories.js` is the one place those ids live, the same
+shape `js/blog-categories.js` has.
+
 Every post may carry any of three audiences: `tourists` (green),
 `students` (blue), `expats` (purple), shown as badges on the card and on
 the post. It is a label, not a filter — it saves someone opening a post

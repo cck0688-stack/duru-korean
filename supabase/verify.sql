@@ -16,6 +16,11 @@ with checks(item, ok) as (
        select 1 from information_schema.columns
        where table_schema='public' and table_name='resources' and column_name='category')),
 
+    ('the community has three shelves',
+     exists (select 1 from pg_constraint
+             where conname='stories_category_check'
+               and pg_get_constraintdef(oid) like '%meet%')),
+
     ('stories.parent_id column (guestbook replies)',
      to_regclass('public.stories') is not null and exists (
        select 1 from information_schema.columns
