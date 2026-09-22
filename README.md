@@ -428,7 +428,7 @@ matter:
 | `explore` | Explore | neighbourhoods, K-pop and drama locations, day trips |
 | `campus` | Campus & Life | visas, housing, healthcare, multicultural support |
 | `career` | Career | part-time permits, job hunting, resumes, internships |
-| `community` | Community | cultural nuance, news for foreigners, reader questions |
+| `etc` | ETC | cultural nuance, news for foreigners, and whatever fits nowhere else |
 
 Eight cards at the top of the page — All, then the seven — and that is
 the whole navigation. Each card carries its name, the one sentence
@@ -438,7 +438,13 @@ them, no hero panel, and no glyphs.
 
 Sub-topics were built and taken out again: twenty-four of them behind
 hover menus made a wall where a way in was wanted, and the menus covered
-the topics on the row below.
+the topics on the row below. The dropdown that hung the same seven names
+off "Blog" in the site header went the same way, for the same reason:
+the cards are the navigation, and a second copy of them in the header
+was a second thing to read before getting anywhere.
+
+The catch-all is `etc`, not `community` — "Community" is what the header
+calls the guestbook, and one site cannot have two of them.
 
 Every post may carry any of three audiences: `tourists` (green),
 `students` (blue), `expats` (purple), shown as badges on the card and on
@@ -450,8 +456,7 @@ by.
 the English notes the model files against live. Nothing else holds a
 list of topics: `js/blog.js` reads `window.DURU_BLOG`, the editor's
 select is built from it, the outline endpoint is told what to file
-against by `DURU_BLOG.forOutline()`, and the dropdown under "Blog" in
-the site header is rendered by that file on every page that loads it.
+against by `DURU_BLOG.forOutline()`. It builds no navigation of its own.
 Adding a topic means adding it there, adding its `blog.cat.*` keys to
 the eight dictionaries, and widening `posts_category_check` in
 `supabase/schema.sql`. The ids never change: they are what the database

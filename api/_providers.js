@@ -139,7 +139,7 @@ function outlinePrompt(langName, categories, audiences, min, max) {
     '',
     '2. `category` — exactly one of these ids, whichever the post belongs on:',
     topics,
-    '   Pick "community" only when none of the others is defensible.',
+    '   Pick "etc" only when none of the others is defensible.',
     ''
   ];
   if (audiences && audiences.length) {

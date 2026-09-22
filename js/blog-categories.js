@@ -2,6 +2,10 @@
 //
 // Load before js/blog.js. Exposes window.DURU_BLOG.
 //
+// It builds no navigation of its own. The eight cards at the top of
+// blog.html are the way into a topic; a second list of the same seven
+// names hanging off the header was one list too many.
+//
 // The blog is written for people living in or visiting Korea from
 // somewhere else: a tourist who lands on Friday, a student on a D-2, a
 // family who has been here six years. Seven topics, and nothing under
@@ -47,8 +51,8 @@
       about: 'working in Korea: part-time work permits, job hunting, resumes, internships'
     },
     {
-      id: 'community',
-      about: 'cultural nuances, news and policy for foreigners, reader questions and stories'
+      id: 'etc',
+      about: 'cultural nuances, news and policy for foreigners, and anything that fits nowhere else'
     }
   ];
 
@@ -131,76 +135,4 @@
       return out;
     }
   };
-
-  // ── The seven topics, under "Blog" in the site header ──────────────
-  //
-  // Built here rather than written into eighteen HTML files, so the
-  // list has one home. Names only: the panel is a shortcut, and a
-  // shortcut that has to be read is not one.
-
-  function buildNavMenu() {
-    var nav = document.querySelector('.nav-main');
-    if (!nav || nav.querySelector('.nav-item--blog')) return;
-    var link = nav.querySelector('a[href="blog.html"]');
-    if (!link) return;
-
-    var item = document.createElement('span');
-    item.className = 'nav-item nav-item--blog';
-    link.parentNode.insertBefore(item, link);
-    item.appendChild(link);
-
-    var caret = document.createElement('button');
-    caret.type = 'button';
-    caret.className = 'nav-caret';
-    caret.setAttribute('aria-expanded', 'false');
-    caret.innerHTML = '<span aria-hidden="true">▾</span>';
-    item.appendChild(caret);
-
-    var menu = document.createElement('div');
-    menu.className = 'nav-menu';
-    item.appendChild(menu);
-
-    // The labels carry data-i18n as well as their text: this runs
-    // before the dictionary has landed on first load, and js/i18n.js
-    // translates what it finds a moment later. On a language change it
-    // runs again, and t() answers for itself.
-    function paint() {
-      caret.setAttribute('data-i18n-aria-label', 'blog.browse');
-      caret.setAttribute('aria-label', t('blog.browse', 'Browse by topic'));
-      menu.innerHTML = CATEGORIES.map(function (c) {
-        return '<a href="' + window.DURU_BLOG.href(c.id) +
-          '" data-i18n="blog.cat.' + c.id + '.nav"></a>';
-      }).join('');
-      menu.querySelectorAll('a').forEach(function (a, i) {
-        a.textContent = window.DURU_BLOG.navLabel(CATEGORIES[i].id);
-      });
-    }
-    paint();
-
-    caret.addEventListener('click', function (e) {
-      e.preventDefault();
-      var open = item.classList.toggle('is-open');
-      caret.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    document.addEventListener('click', function (e) {
-      if (!item.contains(e.target)) {
-        item.classList.remove('is-open');
-        caret.setAttribute('aria-expanded', 'false');
-      }
-    });
-    item.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        item.classList.remove('is-open');
-        caret.setAttribute('aria-expanded', 'false');
-        caret.focus();
-      }
-    });
-    document.addEventListener('duru:langchange', paint);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', buildNavMenu);
-  } else {
-    buildNavMenu();
-  }
 })();

@@ -3491,51 +3491,6 @@ section { position: relative; }
 .post-aud-row { display: flex; gap: 14px; flex-wrap: wrap; }
 .post-aud { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
 
-/* ---------- The seven topics under "Blog" in the header ---------- */
-
-.nav-item { position: relative; display: inline-flex; align-items: center; }
-.nav-caret {
-  border: 0;
-  background: none;
-  color: var(--nav-text);
-  font-size: 10px;
-  line-height: 1;
-  padding: 10px 8px 10px 0;
-  margin-left: -10px;
-  cursor: pointer;
-  border-radius: 999px;
-}
-.nav-caret:hover { color: var(--nav-active-text); }
-.nav-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  z-index: 60;
-  min-width: 196px;
-  padding: 8px;
-  border-radius: 14px;
-  background: var(--header-bg);
-  border: 1px solid var(--header-border);
-  box-shadow: 0 22px 44px -20px rgba(16,59,49,0.5);
-  display: none;
-  flex-direction: column;
-  gap: 2px;
-}
-.nav-item.is-open .nav-menu { display: flex; }
-@media (hover: hover) and (min-width: 861px) {
-  .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { display: flex; }
-}
-.nav-menu a {
-  display: block;
-  padding: 9px 12px;
-  border-radius: 9px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--nav-text);
-  white-space: nowrap;
-}
-.nav-menu a:hover { background: var(--nav-active-bg); }
-
 @media (max-width: 1100px) {
   .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
@@ -3554,19 +3509,6 @@ section { position: relative; }
   .cat-card h3 { font-size: 14px; margin-bottom: 0; }
   .cat-card p { display: none; }
   .cat-card-count { margin-top: 6px; font-size: 11px; }
-  /* In the hamburger the menu is part of the stack, not a layer. */
-  .site-header.menu-open .nav-item { flex-wrap: wrap; justify-content: center; width: 100%; }
-  .site-header.menu-open .nav-caret { margin-left: 0; padding: 10px 4px; }
-  .site-header.menu-open .nav-menu {
-    position: static;
-    flex-basis: 100%;
-    width: 100%;
-    box-shadow: none;
-    background: transparent;
-    border: 0;
-    padding: 4px 0 0;
-  }
-  .site-header.menu-open .nav-menu a { text-align: center; }
 }
 
 /* ---------- Blog editor: the titles a draft was born with ---------- */

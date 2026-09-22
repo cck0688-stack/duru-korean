@@ -1487,3 +1487,23 @@ alter table public.posts drop constraint if exists posts_image_source_check;
 alter table public.posts
   add constraint posts_image_source_check
   check (image_source is null or image_source in ('unsplash', 'pexels', 'upload'));
+
+-- ------------------------------------------------------------------
+-- 30. the seventh topic is called etc again
+-- ------------------------------------------------------------------
+-- Section 27 folded the old 'etc' shelf into 'community'. The header
+-- menu now calls the guestbook Community, and two things on one site
+-- called Community is one too many — so the blog's catch-all goes back
+-- to 'etc' and the guestbook keeps the name readers will look for.
+--
+-- The id is what a URL carries, so /blog/community stops working. That
+-- is survivable today, while the shelf is empty; it would not have
+-- been in a year.
+
+alter table public.posts drop constraint if exists posts_category_check;
+
+update public.posts set category = 'etc' where category = 'community';
+
+alter table public.posts
+  add constraint posts_category_check
+  check (category in ('travel', 'dining', 'style', 'explore', 'campus', 'career', 'etc'));

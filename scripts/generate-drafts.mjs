@@ -29,6 +29,7 @@ import { resolveProvider } from '../api/_providers.js';
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { resolvePhotos, findPhoto } from '../api/_photos.js';
+import { translateDraft } from './lib/mt.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
@@ -44,7 +45,7 @@ const CATEGORIES = [
   { id: 'explore', about: 'neighbourhoods, K-pop and drama locations, everyday Korean experiences, day trips' },
   { id: 'campus', about: 'living here long term: visas and paperwork, housing, healthcare, multicultural support' },
   { id: 'career', about: 'working in Korea: part-time work permits, job hunting, resumes, internships' },
-  { id: 'community', about: 'cultural nuances, news and policy for foreigners, reader questions and stories' }
+  { id: 'etc', about: 'cultural nuances, news and policy for foreigners, and anything that fits nowhere else' }
 ];
 
 const argv = process.argv.slice(2);
@@ -220,12 +221,35 @@ async function main() {
         }
       }
 
+      // A draft nobody can read is a draft nobody approves. Seven
+      // languages, now, while the post is in hand — so approval is one
+      // click on something already readable, not the start of an
+      // afternoon's translating. Like the photograph, it sits in its
+      // own try: a translation that fails costs the translation, never
+      // the writing. The admin editor can fill it in afterwards.
+      draft.mt = {};
+      try {
+        draft.mt = await translateDraft(cfg, {
+          lang: 'ko', title: draft.title, excerpt: draft.summary,
+          tags: draft.tags, body: draft.content
+        }, (done, total) => {
+          if (done === 0) log(`  번역 중 (${total}묶음)`);
+        });
+        const got = Object.keys(draft.mt);
+        log(got.length
+          ? `  번역: ${got.join(', ')} (${got.length}개 언어)`
+          : '  번역이 돌아오지 않았습니다 — 한국어로만 저장합니다');
+      } catch (err) {
+        log(`  번역 실패 (글은 그대로 저장합니다): ${err.message}`);
+      }
+
       log(`  제목: ${draft.title}`);
       if (DRY) {
         log(`  요약: ${draft.summary}`);
         log(`  태그: ${draft.tags.join(', ')}`);
         log(`  slug: ${draft.slug}`);
         log(`  사진: ${draft.photo ? draft.photo.url : '없음'}`);
+        log(`  번역: ${Object.keys(draft.mt).join(', ') || '없음'}`);
         log(`  본문 ${[...draft.content].length}자\n`);
         results.push({ category: category.id, ok: true, title: draft.title, slug: draft.slug });
         continue;
@@ -325,6 +349,9 @@ function rowFor(draft, category, today, userId) {
     image_credit_url: draft.photo ? draft.photo.creditUrl : null,
     image_source: draft.photo ? draft.photo.source : null,
     image_status: draft.photo ? 'READY' : 'FAILED',
+    // Section 23's shape, written by the same splitter the reader's
+    // browser uses — see scripts/lib/mt.mjs.
+    mt: draft.mt || {},
     batch_date: today,
     // post_date is left to the database, which computes today in Seoul.
     // This is the day the post will carry however long it waits for

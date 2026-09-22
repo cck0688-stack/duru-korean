@@ -4,6 +4,8 @@
 # minutes and a Vercel Hobby function is cut off at sixty seconds.
 # Nothing this job does is public: it signs in as an ordinary admin
 # account and leaves seven unpublished drafts for a person to read.
+# Each is translated into the other seven languages before it is
+# saved, so approving one is a click rather than an afternoon.
 #
 # Secrets to set at Settings → Secrets and variables → Actions:
 #
@@ -44,7 +46,10 @@ concurrency:
 jobs:
   drafts:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Seven posts, each written, checked, illustrated and then
+    # translated into seven languages. Comfortably under an hour;
+    # the limit is here so a hung provider call cannot run all day.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 

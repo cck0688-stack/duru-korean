@@ -36,6 +36,13 @@ with checks(item, ok) as (
              where conname='posts_category_check'
                and pg_get_constraintdef(oid) like '%campus%')),
 
+    -- The catch-all is 'etc'; 'community' is the guestbook now.
+    ('the catch-all topic is etc, not community',
+     exists (select 1 from pg_constraint
+             where conname='posts_category_check'
+               and pg_get_constraintdef(oid) like '%etc%'
+               and pg_get_constraintdef(oid) not like '%community%')),
+
     ('posts carries its own date (post_date, draft_created_at, …)',
      (select count(*) from information_schema.columns
       where table_schema='public' and table_name='posts'
