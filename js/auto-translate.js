@@ -125,7 +125,31 @@
   // One request carries a few sentences into every target language at
   // once. Small batches keep each serverless call well inside its time
   // limit and let the progress bar actually move.
-  var BATCH = 6;
+  //
+  // Four, not six: six sentences into seven languages was taking longer
+  // than the sixty seconds a Vercel function gets, and the gateway
+  // answered 504 — the post saved with no translation at all, which is
+  // what "Saved, but the translation failed (504)" was.
+  var BATCH = 4;
+
+  // …and a batch that times out anyway is asked once more. A 504 is the
+  // gateway giving up on one slow call, not an answer about the post, so
+  // failing the whole translation over it throws away every batch that
+  // already succeeded.
+  function postBatch(token, body, tries) {
+    return fetch('/api/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+      body: JSON.stringify(body)
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        if (r.ok) return data;
+        var again = (r.status === 504 || r.status === 502 || r.status === 429) && (tries || 0) < 1;
+        if (again) return postBatch(token, body, (tries || 0) + 1);
+        throw new Error(data.error || ('Translation failed (' + r.status + ')'));
+      });
+    });
+  }
 
   // The title, the summary and the tags travel as their own first
   // batch: they are not part of the body, so they are not part of the
@@ -166,22 +190,14 @@
       return batches.reduce(function (chain, batch, index) {
         return chain.then(function () {
           if (onProgress) onProgress(index, batches.length);
-          return fetch('/api/translate', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
-            body: JSON.stringify({ from: opts.from, to: targets, sentences: batch })
-          }).then(function (r) {
-            return r.json().catch(function () { return {}; }).then(function (data) {
-              if (!r.ok) throw new Error(data.error || ('Translation failed (' + r.status + ')'));
-              return data;
+          return postBatch(token, { from: opts.from, to: targets, sentences: batch })
+            .then(function (data) {
+              targets.forEach(function (c) {
+                var got = data.translations[c] || [];
+                if (index === 0) heads[c] = got;
+                else collected[c] = collected[c].concat(got);
+              });
             });
-          }).then(function (data) {
-            targets.forEach(function (c) {
-              var got = data.translations[c] || [];
-              if (index === 0) heads[c] = got;
-              else collected[c] = collected[c].concat(got);
-            });
-          });
         });
       }, Promise.resolve()).then(function () {
         if (onProgress) onProgress(batches.length, batches.length);

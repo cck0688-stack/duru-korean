@@ -67,6 +67,10 @@ function systemPrompt(fromName, targets, count) {
     '- If a sentence is a heading, a list item or a fragment, translate it as a heading, list item or',
     '  fragment — do not turn it into a full sentence.',
     '- Markdown marks (**, _, #, -, links) must survive in the same places.',
+    '- The "1. 2. 3." in front of the sentences below is how they are handed to you, not part of',
+    '  them. Never repeat it in what you return. If a sentence itself begins with a number the',
+    '  writer typed — "2) 번호가 있으면" — that number is part of the sentence and must stay,',
+    '  exactly as it is written, with the same bracket or full stop after it.',
     '',
     'Target languages: ' + targets.map(function (c) { return LANGUAGES[c] + ' (' + c + ')'; }).join(', ') + '.',
     'Return one entry per target language, with its code exactly as given above.'
@@ -318,7 +322,28 @@ function parseVocab(text, targets, count) {
   }).filter(function (w) { return w.word; });
 }
 
-function parseLanguages(text, targets, count) {
+// Models echo the numbering they were handed, and then the reader meets
+// "1. 2) If there's a number" under "2) 번호가 있으면". The prompt says
+// not to; this is what happens when it does anyway.
+//
+// The trick is that a sentence may legitimately begin with a number the
+// writer typed. So: a source with no number of its own may not gain one,
+// and a source that has one may not gain a second in front of it. Any
+// other leading number is the writer's and is left alone.
+var LEADING_NUMBER = /^\s*\d{1,3}[.)]\s*/;
+
+function unnumber(out, src) {
+  var text = String(out == null ? '' : out);
+  if (!LEADING_NUMBER.test(text)) return text;
+  if (!LEADING_NUMBER.test(String(src == null ? '' : src))) {
+    return text.replace(LEADING_NUMBER, '');
+  }
+  // The source starts with a number too. Only a second one is ours.
+  var rest = text.replace(LEADING_NUMBER, '');
+  return LEADING_NUMBER.test(rest) ? rest : text;
+}
+
+function parseLanguages(text, targets, count, sources) {
   var parsed;
   try {
     parsed = JSON.parse(text);
@@ -331,7 +356,9 @@ function parseLanguages(text, targets, count) {
     if (!Array.isArray(entry.sentences) || entry.sentences.length !== count) {
       throw new TranslateError(502, 'The translation did not line up with the source. Try again.');
     }
-    out[entry.code] = entry.sentences.map(function (s) { return String(s == null ? '' : s); });
+    out[entry.code] = entry.sentences.map(function (s, i) {
+      return unnumber(s, sources && sources[i]);
+    });
   }
   return out;
 }
@@ -590,7 +617,8 @@ export async function translate(opts, cfg) {
     numbered(opts.sentences),
     schema(cfg.provider.strictSchema !== false)
   );
-  return { model: cfg.model, translations: parseLanguages(text, opts.targets, opts.sentences.length) };
+  return { model: cfg.model,
+           translations: parseLanguages(text, opts.targets, opts.sentences.length, opts.sentences) };
 }
 
 export async function outline(opts, cfg) {

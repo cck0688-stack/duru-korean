@@ -460,6 +460,33 @@ writer's words, and printing them was the one thing they are not for. A
 heading with text on the very next line, no blank line between, is a
 heading too; it used to come out as a paragraph beginning "##".
 
+## What the posts are about
+
+The first week of generated posts read like a guidebook: how to order
+when the menu has no pictures, how to use the subway, how to get from
+the airport. All correct, all useful, and none of it worth a reader's
+time — there is nothing in it to be surprised by.
+
+So the topic step now scores each candidate on how startling it is to
+someone who did not grow up here, refuses anything under six out of
+ten on that scale, and weights it double. What it is looking for is the
+thing a Korean does without thinking that a foreigner finds strange —
+and which has a reason behind it. Side dishes arriving unasked and
+refilled for free. A laptop left on a cafe table while its owner goes
+to the toilet. A stranger asking your age, which is not rudeness but a
+question about which verb endings to use.
+
+A practical topic is still allowed, but it has to enter through the
+surprising door: "how to hail a taxi" is a guidebook, "why an empty
+Korean taxi shows a red light" carries the same information and gets
+read. The body rules now require the post to say *why*, not only what,
+and cap a numbered list at five items — two explained properly beats
+seven listed.
+
+Each draft also arrives with its "words to know" list: five words an
+intermediate learner would be stopped by, explained in all eight
+languages. That used to wait for an admin to press a button.
+
 ## One run a day, and only what is missing
 
 The morning job writes the categories that do not yet have a post for

@@ -24,7 +24,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LANGUAGES, translate } from '../../api/_providers.js';
+import { LANGUAGES, translate, vocab } from '../../api/_providers.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const MT_SOURCE = path.join(here, '..', '..', 'js', 'auto-translate.js');
@@ -139,4 +139,34 @@ export async function translateDraft(cfg, post, onProgress) {
     };
   });
   return out;
+}
+
+// ── the words to know, under the post ──────────────────────────────
+//
+// The same list the admin's button builds, built here for the same
+// reason the translation is: a draft that arrives complete is a draft
+// that gets approved. Five words an intermediate learner would be
+// stopped by, each explained in every language the site reads in —
+// one list, so switching language keeps the same words with new
+// explanations.
+
+const STUDY_WORDS = 5;    // js/auto-translate.js agrees; the test says so
+const STUDY_MAX = 120;
+
+export async function studyDraft(cfg, post) {
+  const from = post.lang || 'ko';
+  const targets = targetsFor(from);
+  const sentences = MT.sentences(post.body).slice(0, STUDY_MAX);
+  if (!sentences.length || !targets.length) return null;
+
+  const list = await vocab(
+    { from, fromName: LANGUAGES[from], targets, sentences, count: STUDY_WORDS }, cfg);
+  if (!list || !list.words || !list.words.length) return null;
+  return {
+    hash: MT.fingerprint(post.body),
+    from,
+    at: new Date().toISOString(),
+    model: list.model || cfg.model || '',
+    words: list.words
+  };
 }

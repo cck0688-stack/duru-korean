@@ -29,7 +29,7 @@ import { resolveProvider } from '../api/_providers.js';
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { resolvePhotos, findPhoto } from '../api/_photos.js';
-import { translateDraft } from './lib/mt.mjs';
+import { translateDraft, studyDraft } from './lib/mt.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
@@ -268,6 +268,22 @@ async function main() {
         log(`  번역 실패 (글은 그대로 저장합니다): ${err.message}`);
       }
 
+      // The words a learner would be stopped by, shown under the post.
+      // Its own try, like the photograph and the translation: a draft
+      // without a word list is a draft, a draft that was never written
+      // is nothing.
+      draft.study = null;
+      try {
+        draft.study = await studyDraft(cfg, {
+          lang: 'ko', title: draft.title, body: draft.content
+        });
+        log(draft.study
+          ? `  낱말: ${draft.study.words.map((w) => w.word).join(', ')}`
+          : '  낱말 목록이 비어 돌아왔습니다 — 없이 저장합니다');
+      } catch (err) {
+        log(`  낱말 목록 실패 (글은 그대로 저장합니다): ${err.message}`);
+      }
+
       log(`  제목: ${draft.title}`);
       if (DRY) {
         log(`  요약: ${draft.summary}`);
@@ -377,6 +393,9 @@ function rowFor(draft, category, today, userId) {
     // Section 23's shape, written by the same splitter the reader's
     // browser uses — see scripts/lib/mt.mjs.
     mt: draft.mt || {},
+    // Section 23's companion: the five words, explained in every
+    // language — see scripts/lib/mt.mjs.
+    study: draft.study || {},
     batch_date: today,
     // post_date is left to the database, which computes today in Seoul.
     // This is the day the post will carry however long it waits for

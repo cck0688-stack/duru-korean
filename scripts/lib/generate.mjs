@@ -37,8 +37,25 @@ const READER = [
   'D-2 비자로 온 유학생, 여섯 해째 사는 가족. 한국어를 잘 못하고,',
   '한국에서 자란 사람이라면 물어볼 필요도 없는 것들을 모릅니다.',
   '',
-  '목표는 칸을 채우는 것이 아니라, 그 사람이 실제로 궁금해하고',
-  '끝까지 읽고 나서 도움이 되었다고 느낄 글을 쓰는 것입니다.'
+  '가장 중요한 것: 이 독자는 한국을 **견디는 법**이 아니라 **이해하는',
+  '법**을 알고 싶어 합니다. 공항에서 시내 가는 법은 어느 가이드북에나',
+  '있습니다. 그런 글은 읽히지 않습니다.',
+  '',
+  '읽히는 글은 이런 것입니다 — 한국 사람은 생각 없이 하는 일인데,',
+  '밖에서 온 사람 눈에는 이상하거나 신기한 것. 그리고 그 뒤에 실제로',
+  '이유가 있는 것.',
+  '',
+  '  · 식당에 들어가면 묻지도 않았는데 물과 반찬이 먼저 나오고, 반찬은',
+  '    더 달라고 해도 공짜다 — 왜 그런가',
+  '  · 카페에 노트북과 지갑을 두고 화장실에 간다 — 그게 왜 괜찮은가',
+  '  · 처음 만난 사람이 나이를 묻는다 — 무례한 게 아니라 말투를 정하려는',
+  '    것이다',
+  '  · 배달 음식 그릇을 문 앞에 그냥 내놓는다',
+  '  · 이사할 때 집 전체가 사다리차로 창문을 통해 올라간다',
+  '',
+  '이런 글은 실용적이면서 동시에 "아, 그래서 그랬구나" 하게 만듭니다.',
+  '목표는 칸을 채우는 것이 아니라, 독자가 다 읽고 나서 한국을 조금 더',
+  '알게 되었다고 느낄 글을 쓰는 것입니다.'
 ].join('\n');
 
 // ── 1. what to write about ─────────────────────────────────────────
@@ -53,22 +70,42 @@ export async function pickTopic(cfg, opts) {
     '가장 나은 하나를 고르세요.',
     '',
     '[좋은 주제]',
-    '- 구체적입니다. "한국 카페 문화"가 아니라 "한국 카페에서 자리를 먼저',
-    '  잡아도 되는 이유"입니다.',
-    '- 독자가 실제로 겪는 일이거나, 실제로 하는 질문입니다.',
+    '- 한국에서는 당연한 일인데, 밖에서 온 사람에게는 낯설거나 신기한 것.',
+    '  이게 가장 중요합니다. 후보를 만들 때 스스로 물어보세요 —',
+    '  "이걸 처음 본 외국인이 놀랄까, 아니면 당연하다고 생각할까?"',
+    '- 그 뒤에 이유가 있는 것. 무엇을 하는지만이 아니라 왜 그런지 말할 수',
+    '  있어야 합니다.',
+    '- 구체적입니다. "한국 카페 문화"가 아니라 "카페에 노트북을 두고',
+    '  화장실에 가도 되는 이유"입니다.',
     '- 500~800자 안에서 제대로 설명할 수 있습니다.',
     '- 틀린 정보를 쓸 위험이 낮습니다.',
     '',
     '[피할 주제]',
+    '- **가이드북에 이미 있는 생존 요령.** "메뉴에 사진이 없을 때 주문하는',
+    '  법", "지하철 타는 법", "공항에서 시내 가는 법", "환전하는 법" —',
+    '  틀린 말은 아니지만 아무도 읽지 않습니다. 놀랄 것이 없기 때문입니다.',
     '- "한국 문화의 특징", "서울의 매력", "한국 음식이 인기 있는 이유"처럼',
     '  넓고 뻔한 것',
+    '- 한국 사람에게도 새로운 것. 이 글은 한국을 설명하는 글이지 뉴스가',
+    '  아닙니다.',
     '- 아래 "이미 쓴 글"과 사실상 같은 것',
     '- 비자·최저임금·요금·정책처럼 숫자나 제도가 바뀌는 것을 단정해야 하는 것.',
     '  이런 주제는 "어디서 확인하는지"를 알려 주는 글로 바꾸면 괜찮습니다.',
     '',
+    '[실용적인 주제를 살리는 법]',
+    '카테고리 때문에 실용적인 주제를 써야 한다면, 놀라운 지점을 찾아서',
+    '거기서 시작하세요. "택시 잡는 법"은 뻔하지만 "한국 택시는 왜 빈 차에',
+    '빨간 불이 켜져 있는가"는 읽힙니다. 같은 정보가 들어가지만 들어가는',
+    '문이 다릅니다.',
+    '',
     '[점수]',
-    '각 후보에 1~10점을 매기세요. 총점이 가장 높은 것을 무조건 고르지',
-    '말고, 틀릴 위험이 낮고 기존 글과 겹치지 않는 것을 고르세요.'
+    '각 후보에 1~10점을 매기세요. surpriseScore 는 "한국에서 자라지 않은',
+    '사람이 이걸 처음 알았을 때 얼마나 놀랄까"입니다. 가이드북에 있는',
+    '내용이면 1~3점입니다.',
+    '',
+    '총점이 가장 높은 것을 무조건 고르지 말고, surpriseScore 가 6점 미만인',
+    '후보는 고르지 마세요. 그중에서 틀릴 위험이 낮고 기존 글과 겹치지 않는',
+    '것을 고르세요.'
   ].join('\n');
 
   const user = [
@@ -100,9 +137,10 @@ export async function pickTopic(cfg, opts) {
           freshnessScore: { type: 'integer' },
           curiosityScore: { type: 'integer' },
           searchIntentScore: { type: 'integer' },
-          uniquenessScore: { type: 'integer' }
+          uniquenessScore: { type: 'integer' },
+          surpriseScore: { type: 'integer' }
         }, ['topic', 'why', 'interestScore', 'usefulnessScore', 'freshnessScore',
-            'curiosityScore', 'searchIntentScore', 'uniquenessScore'])
+            'curiosityScore', 'searchIntentScore', 'uniquenessScore', 'surpriseScore'])
       },
       chosen: { type: 'string' },
       chosenReason: { type: 'string' }
@@ -121,19 +159,23 @@ export async function pickTopic(cfg, opts) {
   return { candidates, chosen: chosen.topic, reason: out.chosenReason || chosen.why, scores: score.parts(chosen) };
 }
 
+const SCORES = ['interestScore', 'usefulnessScore', 'freshnessScore',
+                'curiosityScore', 'searchIntentScore', 'uniquenessScore',
+                'surpriseScore'];
+
+// Surprise counts twice. The whole complaint about the first week of
+// posts was that they read like a guidebook — correct, useful, and not
+// worth anyone's time. A topic that only scores well on usefulness is
+// exactly that, and one extra weight is enough to let a slightly less
+// "useful" but genuinely surprising topic win.
 function score(c) {
-  return ['interestScore', 'usefulnessScore', 'freshnessScore',
-          'curiosityScore', 'searchIntentScore', 'uniquenessScore']
-    .reduce((sum, k) => sum + (Number(c[k]) || 0), 0);
+  return SCORES.reduce((sum, k) => sum + (Number(c[k]) || 0), 0) +
+    (Number(c.surpriseScore) || 0);
 }
-score.parts = (c) => ({
-  interestScore: Number(c.interestScore) || 0,
-  usefulnessScore: Number(c.usefulnessScore) || 0,
-  freshnessScore: Number(c.freshnessScore) || 0,
-  curiosityScore: Number(c.curiosityScore) || 0,
-  searchIntentScore: Number(c.searchIntentScore) || 0,
-  uniquenessScore: Number(c.uniquenessScore) || 0
-});
+score.parts = (c) => SCORES.reduce((out, k) => {
+  out[k] = Number(c[k]) || 0;
+  return out;
+}, {});
 
 // ── 2. the body, and nothing else ──────────────────────────────────
 
@@ -146,9 +188,13 @@ const BODY_RULES = [
   '5. 소제목을 2~3개 넣습니다. 소제목 줄은 "## "로 시작합니다.',
   '6. 첫 문단은 독자가 실제로 겪는 상황이나 궁금증으로 엽니다.',
   '7. "안녕하세요", "오늘은 ~에 대해 알아보겠습니다"로 시작하지 않습니다.',
-  '8. 나열만 하지 말고, 왜 그런지 한 번은 설명합니다.',
+  '8. **왜 그런지를 반드시 설명합니다.** 무엇을 하는지만 나열한 글은',
+  '   가이드북이고, 가이드북은 읽히지 않습니다. 한국 사람이 왜 그렇게',
+  '   하는지 — 역사든, 아파트 구조든, 말투의 규칙이든 — 한 번은 말합니다.',
   '9. 독자가 바로 쓸 수 있는 것을 최소 하나는 넣습니다 — 어디서 하는지,',
   '   어떻게 하는지, 무엇을 조심해야 하는지.',
+  '9-1. 번호를 매긴 목록은 한 덩어리에 5개를 넘기지 않습니다. 일곱 가지',
+  '     방법을 늘어놓은 글보다, 두세 가지를 제대로 설명한 글이 낫습니다.',
   '10. 확인되지 않은 숫자나 제도를 지어내지 않습니다. 바뀔 수 있는 것은',
   '    "어디서 확인하면 되는지"로 씁니다.',
   '11. 제목은 쓰지 않습니다. 본문만 씁니다.'

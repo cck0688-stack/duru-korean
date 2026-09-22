@@ -126,13 +126,24 @@
   // The translation carries them too, because the model is asked to
   // keep Markdown marks where it found them.
   var MD_HEAD = /^\s*#{1,4}\s+/;
+  // Some stored translations carry the numbering the model was handed —
+  // "4. ## Use your eyes and photos" — because they were made before
+  // api/_providers.js started taking it off. The source is the writer's
+  // own text and is never touched; this only reaches into a translation
+  // of a line the source has already proved to be a heading.
+  var MD_HEAD_NUMBERED = /^\s*\d{1,3}[.)]\s*#{1,4}\s+/;
 
   function bilingualHTML(pairs, srcLang, outLang) {
     return pairs.map(function (para) {
       return '<p class="mt-para">' + para.map(function (pair) {
         var head = MD_HEAD.test(pair.src);
         var src = head ? String(pair.src).replace(MD_HEAD, '') : pair.src;
-        var out = head ? String(pair.out == null ? '' : pair.out).replace(MD_HEAD, '') : pair.out;
+        var out = pair.out;
+        if (head) {
+          out = String(pair.out == null ? '' : pair.out)
+            .replace(MD_HEAD_NUMBERED, '')
+            .replace(MD_HEAD, '');
+        }
         return '<span class="mt-line' + (head ? ' mt-line--head' : '') + '">' +
           '<span class="mt-src" lang="' + escapeHTML(srcLang) + '">' + escapeHTML(src) + '</span>' +
           '<span class="mt-out" lang="' + escapeHTML(outLang) + '">' + escapeHTML(out) + '</span>' +
