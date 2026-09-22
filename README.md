@@ -460,6 +460,19 @@ writer's words, and printing them was the one thing they are not for. A
 heading with text on the very next line, no blank line between, is a
 heading too; it used to come out as a paragraph beginning "##".
 
+## One run a day, and only what is missing
+
+The morning job writes the categories that do not yet have a post for
+that day. Nothing on the shelf, and it writes seven; three there, and it
+writes the other four; all seven there, and it says so and stops.
+
+That makes the job safe to run again. It used to claim the day and exit
+the moment it found the day claimed, which meant a day that had stopped
+part-way stayed short for good — the only way back was writing SQL by
+hand. The unique index on `(batch_date, category)` is what actually
+stops a duplicate; the batch row only says whether the day has been
+started.
+
 ## The community
 
 `stories.html`, served at `/community`, is filed the same way the blog

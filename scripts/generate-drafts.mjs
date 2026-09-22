@@ -147,7 +147,7 @@ async function main() {
   log(`사진: ${photoCfg ? photoCfg.label : '없음 (키가 설정되지 않았습니다)'}`);
   if (DRY) log('※ --dry-run: 아무것도 저장하지 않습니다\n');
 
-  const wanted = ONLY.length
+  let wanted = ONLY.length
     ? CATEGORIES.filter((c) => ONLY.includes(c.id))
     : CATEGORIES;
   if (!wanted.length) {
@@ -164,8 +164,9 @@ async function main() {
     call = rest(session.token);
     userId = session.userId;
 
-    // Claim the day. The unique index on batch_date is what stops a
-    // retried workflow writing another seven.
+    // Claim the day. The unique index on batch_date says whether this
+    // is the first run today.
+    let claimed = true;
     try {
       await call('blog_batches', {
         method: 'POST',
@@ -173,11 +174,35 @@ async function main() {
         body: JSON.stringify({ batch_date: today, total: wanted.length, status: 'RUNNING' })
       });
     } catch (err) {
-      if (err.code === '23505') {
-        log(`${today} 는 이미 돌았습니다. 아무것도 하지 않고 끝냅니다.`);
+      if (err.code !== '23505') throw err;
+      claimed = false;
+    }
+
+    // Already claimed means the day has been run — but not necessarily
+    // finished. It can have stopped part-way, or a test run can have
+    // taken the day with one category. Exiting here left those days
+    // short with no way back but hand-written SQL, so instead the run
+    // asks what is actually on the shelf and writes only what is not:
+    // never a second post for a category, never nothing when six are
+    // missing. The unique index on (batch_date, category) is what makes
+    // that safe — it, not this check, is what stops a duplicate.
+    if (!claimed) {
+      const done = await withRetry('오늘 저장된 글 확인',
+        () => call(`posts?select=category&batch_date=eq.${today}`));
+      const have = new Set((done || []).map((r) => r.category));
+      const missing = wanted.filter((c) => !have.has(c.id));
+      if (!missing.length) {
+        log(`${today} 는 이미 다 돌았습니다 (${have.size}편). 아무것도 하지 않고 끝냅니다.`);
         return;
       }
-      throw err;
+      log(`${today} 에 이미 ${have.size}편이 있습니다 — 빠진 ${missing.length}편만 씁니다: ` +
+          `${missing.map((c) => c.id).join(', ')}\n`);
+      wanted = missing;
+      await call(`blog_batches?batch_date=eq.${today}`, {
+        method: 'PATCH',
+        headers: { Prefer: 'return=minimal' },
+        body: JSON.stringify({ status: 'RUNNING' })
+      });
     }
 
     existing = await readExisting(call);
