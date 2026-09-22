@@ -196,9 +196,12 @@ visitor wants to read, so the downloads list and the blog list both
 follow it. A choice made in the dropdown itself is remembered instead —
 but only against the site language it was made under, so changing the
 header language moves the list again rather than leaving it on a
-decision from before. `R.preferredLang()` resolves that chain (`?lang=`
-→ the saved choice → the running language) without waiting for
-`js/i18n.js`, so the first render is already in the right language. When the
+decision from before. `R.preferredLang()` answers with the language `js/i18n.js` has
+actually applied once it has one (`DURU_I18N.ready`), and before that
+with the same chain the engine itself uses — `?lang=`, then the saved
+choice. A `?lang=` still sitting in the address bar is how the visitor
+arrived, not what they want now, so it bootstraps the first render and
+stops mattering the moment they touch the switcher. When the
 chosen language has nothing in the chosen category, the empty state
 names the languages that do, as buttons. A card is a single link:
 the title's anchor is stretched over the card in CSS, so clicking
@@ -416,6 +419,11 @@ trip back. The category counts follow the chosen language. When that
 language has nothing, the empty state names the languages that do, as
 buttons.
 
+The same rule runs on a resource's own page: `?pl=` from the list sets
+the file language on arrival, and changing the header language moves it,
+naming any language the file does not come in rather than switching
+silently.
+
 `blog.html?post=<slug>&pl=<lang>` opens a post in a language. The post
 carries its own "Read in" picker listing only the languages it is
 written in; the language is taken from `pl`, else the site language,
@@ -562,6 +570,16 @@ Providers) plus that service's own app keys and a redirect URL of
 still shows its button and answers that it is not switched on yet, which
 is the truth and points at where to fix it, rather than hiding a button
 whose absence explains nothing.
+
+**Tags write themselves.** The field sits under the body, because there
+is nothing to suggest until something is written. A moment after the
+body stops changing, `api/translate.js` in `mode: "tags"` reads the post
+and fills in three to five, in the language the post is written in — a
+tag is the author's label, and a reader clicking one is looking for the
+other posts like this. It never overwrites: the moment the author types
+in the field it stops offering, and "Suggest tags" is how to ask again.
+Duplicates, hash marks and anything over 32 characters are stripped on
+the way back.
 
 **Naver is deliberately absent.** Supabase has no Naver provider, and
 the only ways to add one are to run the OAuth dance in our own

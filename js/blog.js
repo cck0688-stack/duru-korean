@@ -710,6 +710,13 @@
     // filed as English gets no self-study corner, which is a confusing
     // way to find out.
     var langTouched = false;
+    // Tags are suggested from the body once it settles, and only while
+    // the author has not written their own: an automatic label should
+    // never overwrite a deliberate one.
+    var tagsTouched = false;
+    var tagsBusy = false;
+    var tagsTimer = null;
+    var tagsFrom = '';
     var saving = false;
     var autoSaveTimer = null;
     var lastSaveTime = null;
@@ -735,10 +742,16 @@
                 }).join('') + '</select></div>' +
               '<div class="auth-field"><label for="postExcerpt"></label>' +
                 '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
-              '<div class="auth-field"><label for="postTags"></label>' +
-                '<input type="text" id="postTags" maxlength="280" placeholder="hangul, beginner"></div>' +
               '<div class="auth-field"><label for="postBody"></label>' +
                 '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
+              // Tags come after the body because they are read off it:
+              // there is nothing to suggest until something is written.
+              '<div class="auth-field"><label for="postTags"></label>' +
+                '<div class="post-tags-row">' +
+                  '<input type="text" id="postTags" maxlength="280" placeholder="hangul, beginner">' +
+                  '<button type="button" class="res-linkbtn" id="postTagsBtn"></button>' +
+                '</div>' +
+                '<p class="resource-hint" id="postTagsHint"></p></div>' +
               '<div class="auth-field"><label for="postLang"></label>' +
                 '<select id="postLang">' + R.LANGS.map(function (l) {
                   return '<option value="' + escapeHTML(l.code) + '">' + escapeHTML(l.label) + '</option>';
@@ -782,10 +795,58 @@
       ['#postBody', '#postTitle'].forEach(function (sel) {
         overlay.querySelector(sel).addEventListener('input', followTypedLanguage);
       });
+      overlay.querySelector('#postBody').addEventListener('input', scheduleTags);
+      overlay.querySelector('#postBody').addEventListener('blur', function () { fillTags(false); });
+      overlay.querySelector('#postTags').addEventListener('input', function () { tagsTouched = true; });
+      overlay.querySelector('#postTagsBtn').addEventListener('click', function () {
+        tagsTouched = false;
+        fillTags(true);
+      });
       overlay.querySelectorAll('[data-tr-body]').forEach(function (el) {
         el.addEventListener('input', markTranslationState);
       });
       return overlay;
+    }
+
+    function setTagsHint(text, isError) {
+      if (!overlay) return;
+      var el = overlay.querySelector('#postTagsHint');
+      el.textContent = text || '';
+      el.classList.toggle('is-error', !!isError);
+    }
+
+    // Reads the post and writes 3–5 tags into the field. Runs by itself
+    // a moment after the body stops changing, and on the button at any
+    // time — the button is the way to ask again after an edit.
+    function fillTags(force) {
+      if (!overlay || !MT || tagsBusy) return;
+      var body = overlay.querySelector('#postBody').value.trim();
+      var title = overlay.querySelector('#postTitle').value.trim();
+      if (body.length < 80) return;
+      if (!force && (tagsTouched || overlay.querySelector('#postTags').value.trim())) return;
+      if (!force && tagsFrom === body) return;
+
+      tagsBusy = true;
+      tagsFrom = body;
+      setTagsHint(t('blog.tagsWorking', 'Reading the post…'));
+      MT.suggestTags(client, { from: overlay.querySelector('#postLang').value, title: title, body: body })
+        .then(function (list) {
+          tagsBusy = false;
+          if (!list.length) { setTagsHint(t('blog.tagsNone', 'Nothing obvious to tag — write your own.')); return; }
+          if (!force && tagsTouched) return;
+          overlay.querySelector('#postTags').value = list.join(', ');
+          setTagsHint(t('blog.tagsDone', 'Suggested from the body — change them if you like.'));
+        })
+        .catch(function (err) {
+          tagsBusy = false;
+          tagsFrom = '';
+          setTagsHint(err.message, true);
+        });
+    }
+
+    function scheduleTags() {
+      if (tagsTimer) clearTimeout(tagsTimer);
+      tagsTimer = setTimeout(function () { fillTags(false); }, 1500);
     }
 
     // Set "Written in" from the script of what has been typed, unless
@@ -894,6 +955,9 @@
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
       o.querySelector('label[for="postExcerpt"]').textContent = t('blog.fieldExcerpt', 'Summary (shown on the card)');
       o.querySelector('label[for="postTags"]').textContent = t('blog.fieldTags', 'Tags (comma separated)');
+      o.querySelector('#postTagsBtn').textContent = t('blog.suggestTags', 'Suggest tags');
+      if (!tagsBusy) setTagsHint(t('blog.tagsHint',
+        'Filled in from the body when you stop typing. Edit them freely.'));
       o.querySelector('label[for="postBody"]').textContent = t('blog.fieldBody', 'Body');
       o.querySelector('label[for="postLang"]').textContent = t('blog.fieldLang', 'Written in');
       o.querySelector('#postTranslations > summary').textContent = t('blog.translations', 'Other languages');
@@ -936,6 +1000,12 @@
       o.querySelector('#postCategory').value = editing ? editing.category : CATEGORIES[0];
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
       o.querySelector('#postTags').value = editing && editing.tags ? editing.tags.join(', ') : '';
+      // A post that already carries tags keeps them; a new one is open
+      // to a suggestion until the author types.
+      tagsTouched = !!(editing && editing.tags && editing.tags.length);
+      tagsBusy = false;
+      tagsFrom = '';
+      if (tagsTimer) { clearTimeout(tagsTimer); tagsTimer = null; }
       o.querySelector('#postBody').value = editing ? editing.body : '';
       o.querySelector('#postLang').value = (editing && editing.lang) ||
         (window.DURU_I18N && window.DURU_I18N.lang) || 'en';
@@ -958,6 +1028,7 @@
     }
 
     function closeEditor() {
+      if (tagsTimer) { clearTimeout(tagsTimer); tagsTimer = null; }
       if (overlay) overlay.hidden = true;
       editing = null;
       if (autoSaveTimer) clearInterval(autoSaveTimer);

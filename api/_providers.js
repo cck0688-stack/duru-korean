@@ -113,6 +113,61 @@ function vocabPrompt(targets, count) {
   ].join('\n');
 }
 
+// Tags for a post, in the language the post is written in. They are
+// the author's own labels — a reader clicks one to find the other posts
+// like this — so they follow the writing rather than the reader.
+function tagsPrompt(langName, min, max) {
+  return [
+    'You label one blog post for a Korean-language learning site.',
+    '',
+    'Read the post and give between ' + min + ' and ' + max + ' tags, written in ' + langName + '.',
+    '',
+    'Rules:',
+    '- A tag is what the post is ABOUT, the way a reader looking for more like it would think of it.',
+    '  Not every noun in the text, and not a summary.',
+    '- One to three words each. No hash marks, no punctuation, no quotes, no numbering.',
+    '- Order them broadest first, most specific last.',
+    '- No duplicates and no two tags that mean the same thing.',
+    '- Lowercase, unless the language or the word itself calls for capitals (a place, a brand).',
+    '- Do not invent a topic the post does not cover, and do not tag it with the obvious',
+    '  ("Korean", "blog", "post") — every post here would carry those.'
+  ].join('\n');
+}
+
+function tagsSchema(strict) {
+  var root = {
+    type: 'object',
+    properties: { tags: { type: 'array', items: { type: 'string' } } },
+    required: ['tags']
+  };
+  if (strict) root.additionalProperties = false;
+  return root;
+}
+
+function parseTags(text, min, max) {
+  var parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (e) {
+    throw new TranslateError(502, 'The tags came back in an unreadable shape. Try again.');
+  }
+  var seen = {};
+  var out = ((parsed && parsed.tags) || [])
+    .map(function (x) { return String(x == null ? '' : x).trim().replace(/^#+/, '').trim(); })
+    .filter(function (x) {
+      if (!x || x.length > 32) return false;
+      var key = x.toLowerCase();
+      if (seen[key]) return false;
+      seen[key] = true;
+      return true;
+    })
+    .slice(0, max);
+  if (out.length < Math.min(min, 1)) {
+    throw new TranslateError(502, 'No usable tags came back. Try again.');
+  }
+  return out;
+}
+
 function vocabSchema(strict) {
   var by = {
     type: 'object',
@@ -475,6 +530,20 @@ export async function translate(opts, cfg) {
     schema(cfg.provider.strictSchema !== false)
   );
   return { model: cfg.model, translations: parseLanguages(text, opts.targets, opts.sentences.length) };
+}
+
+export async function tags(opts, cfg) {
+  if (!cfg.provider.chat) {
+    throw new TranslateError(400, cfg.label + ' only translates — it cannot suggest tags. ' +
+      'Set TRANSLATE_PROVIDER to anthropic, openai or google for this.');
+  }
+  const text = await cfg.provider.chat(
+    cfg,
+    tagsPrompt(opts.fromName, opts.min, opts.max),
+    numbered(opts.sentences),
+    tagsSchema(cfg.provider.strictSchema !== false)
+  );
+  return { model: cfg.model, tags: parseTags(text, opts.min, opts.max) };
 }
 
 export async function vocab(opts, cfg) {

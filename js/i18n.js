@@ -120,6 +120,11 @@
       if (opts.persist !== false) setStoredLang(code);
       updateSwitcherUI(code);
       window.DURU_I18N.lang = code;
+      // Says that `lang` above is a language this engine actually
+      // applied, not the placeholder it starts life with. Anything that
+      // has to know the visitor's language before the dictionary lands
+      // reads the same chain as init() until this turns true.
+      window.DURU_I18N.ready = true;
       document.dispatchEvent(new CustomEvent('duru:langchange', { detail: { lang: code } }));
     });
   }
@@ -209,6 +214,7 @@
 
   window.DURU_I18N = {
     lang: currentLang,
+    ready: false,
     t: t,
     apply: function (root) { applyDict(currentDict, root); },
     setLang: setLang,

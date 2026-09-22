@@ -123,10 +123,18 @@
   // later. Always one of the eight.
   function preferredLang() {
     var code = '';
-    try {
-      code = new URLSearchParams(location.search).get('lang') || '';
-      if (!code) code = localStorage.getItem('duru_lang') || '';
-    } catch (e) {}
+    // Once js/i18n.js has applied a language, that is the answer — the
+    // visitor may have changed it since the page opened, and a ?lang=
+    // still sitting in the address bar is only how they arrived, not
+    // what they want now.
+    if (window.DURU_I18N && window.DURU_I18N.ready) {
+      code = window.DURU_I18N.lang || '';
+    } else {
+      try {
+        code = new URLSearchParams(location.search).get('lang') || '';
+        if (!code) code = localStorage.getItem('duru_lang') || '';
+      } catch (e) {}
+    }
     if (!code) code = siteLang();
     return LANGS.some(function (l) { return l.code === code; }) ? code : 'en';
   }

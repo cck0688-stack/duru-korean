@@ -28,7 +28,23 @@
 
     var params = new URLSearchParams(window.location.search);
     var id = params.get('id');
+    // The language the list was filtered to when the visitor came here.
+    // It holds until they change the language at the top of the page
+    // themselves — that is a statement about what they want to read, and
+    // it should move the file language with it rather than leave them on
+    // a choice the previous page made.
     var wantLang = params.get('pl');
+    var tunedTo = null;
+
+    function followSiteLang() {
+      var code = R.preferredLang();
+      if (tunedTo === code) return false;
+      var first = tunedTo === null;
+      tunedTo = code;
+      if (!first) wantLang = null;
+      return true;
+    }
+    followSiteLang();
     if (!id) { notFound.hidden = false; return; }
 
     var resource = null;
@@ -132,7 +148,7 @@
     function renderLanguagePicker(files) {
       var sel = $('resPdfLang');
       var notice = $('resLangNotice');
-      var preferred = wantLang || R.siteLang();
+      var preferred = wantLang || tunedTo || R.siteLang();
       sel.innerHTML = files.map(function (f) {
         return '<option value="' + esc(f.id) + '">' + esc(R.langLabel(f.lang)) +
           (f.published === false ? ' — ' + esc(t('resource.hiddenFile', 'hidden')) : '') + '</option>';
@@ -526,6 +542,7 @@
     client.auth.getSession().then(function (res) { applyUser(res.data && res.data.session && res.data.session.user); });
     client.auth.onAuthStateChange(function (_e, session) { applyUser(session && session.user); });
     document.addEventListener('duru:langchange', function () {
+      followSiteLang();
       if (!resource) return;
       render();
       // The editor is built from translated labels too, and it may have

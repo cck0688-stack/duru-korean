@@ -3402,3 +3402,15 @@ section { position: relative; }
   .study-word::before { width: 19px; height: 19px; font-size: 10px; }
   .study-term { font-size: 17px; }
 }
+
+/* ---------- The tags field, which fills itself ---------- */
+
+.post-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.post-tags-row input { flex: 1 1 auto; min-width: 0; }
+.post-tags-row .res-linkbtn { flex: none; white-space: nowrap; }
+#postTagsHint { margin-top: 6px; }
+#postTagsHint.is-error { color: var(--accent-red); }

@@ -208,6 +208,35 @@
     });
   }
 
+  // Tags for a post, from what has been written. They come back in the
+  // post's own language: a tag is the author's label, and a reader
+  // clicking one is looking for the other posts like this.
+  var TAGS_MIN = 3, TAGS_MAX = 5;
+
+  function suggestTags(client, opts) {
+    var sentences = flatten(splitBody(opts.title + '\n\n' + opts.body)).slice(0, STUDY_MAX);
+    if (!sentences.length) return Promise.resolve([]);
+    return client.auth.getSession().then(function (res) {
+      var token = res && res.data && res.data.session && res.data.session.access_token;
+      if (!token) return Promise.reject(new Error('Sign in again to suggest tags.'));
+      return fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({
+          mode: 'tags', from: opts.from,
+          // Not read in this mode, but the endpoint asks for a target.
+          to: [opts.from === 'en' ? 'ko' : 'en'],
+          sentences: sentences, min: TAGS_MIN, max: TAGS_MAX
+        })
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (data) {
+          if (!r.ok) throw new Error(data.error || ('Tag suggestions failed (' + r.status + ')'));
+          return data.tags || [];
+        });
+      });
+    });
+  }
+
   // The five words a learner would stumble on, explained in every
   // language the post is offered in. One call, because the list has to
   // be the same five words whatever language a reader switches to.
@@ -289,6 +318,9 @@
   }
 
   window.DURU_MT = {
+    TAGS_MIN: TAGS_MIN,
+    TAGS_MAX: TAGS_MAX,
+    suggestTags: suggestTags,
     detectLang: detectLang,
     STUDY_WORDS: STUDY_WORDS,
     study: study,

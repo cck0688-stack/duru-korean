@@ -43,6 +43,14 @@
 // The same five words come back for every language, so a reader who
 // switches language keeps the same list with new explanations.
 //
+// And it suggests the tags for a post, in the language the post is
+// written in — `to` is not read in this mode:
+//
+//   { "mode": "tags", "from": "ko", "to": ["en"],
+//     "sentences": [ …the whole post… ], "min": 3, "max": 5 }
+//
+//   200 { "provider": …, "model": …, "tags": ["교육", "유학", "어학연수"] }
+//
 // ── Configuration (Vercel → Settings → Environment Variables) ──────
 //
 //   One key is all that is required. Set whichever company's key you
@@ -74,7 +82,7 @@
 // already serves to every visitor; they are here only so a different
 // project can be pointed at without editing code.
 
-import { LANGUAGES, TranslateError, resolveProvider, translate, vocab } from './_providers.js';
+import { LANGUAGES, TranslateError, resolveProvider, translate, vocab, tags } from './_providers.js';
 
 export const config = { maxDuration: 60 };
 
@@ -92,6 +100,7 @@ const MAX_CHARS = 8000;
 const MAX_VOCAB_SENTENCES = 120;
 const MAX_VOCAB_CHARS = 20000;
 const MAX_WORDS = 10;
+const MAX_TAGS = 8;
 
 function bad(res, status, message) {
   res.status(status).json({ error: message });
@@ -145,15 +154,19 @@ export default async function handler(req, res) {
   const sentences = Array.isArray(body.sentences) ? body.sentences : [];
   const count = Math.min(Math.max(Number(body.count) || 5, 1), MAX_WORDS);
 
-  if (mode !== 'sentences' && mode !== 'vocab') return bad(res, 400, 'mode must be "sentences" or "vocab".');
+  if (['sentences', 'vocab', 'tags'].indexOf(mode) === -1) {
+    return bad(res, 400, 'mode must be "sentences", "vocab" or "tags".');
+  }
   if (!LANGUAGES[from]) return bad(res, 400, 'Unknown source language.');
   if (!targets.length || targets.length > MAX_TARGETS) return bad(res, 400, 'Pick 1–8 target languages.');
   if (targets.some(function (c) { return !LANGUAGES[c]; })) return bad(res, 400, 'Unknown target language.');
   if (targets.indexOf(from) !== -1) return bad(res, 400, 'The source language cannot also be a target.');
   if (sentences.some(function (s) { return typeof s !== 'string'; })) return bad(res, 400, 'Sentences must be text.');
 
-  const maxSentences = mode === 'vocab' ? MAX_VOCAB_SENTENCES : MAX_SENTENCES;
-  const maxChars = mode === 'vocab' ? MAX_VOCAB_CHARS : MAX_CHARS;
+  // Both whole-post jobs need the post, not a batch of it.
+  const wholePost = mode === 'vocab' || mode === 'tags';
+  const maxSentences = wholePost ? MAX_VOCAB_SENTENCES : MAX_SENTENCES;
+  const maxChars = wholePost ? MAX_VOCAB_CHARS : MAX_CHARS;
   if (!sentences.length || sentences.length > maxSentences) {
     return bad(res, 400, 'Send 1–' + maxSentences + ' sentences per request.');
   }
@@ -162,6 +175,17 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (mode === 'tags') {
+      const min = Math.min(Math.max(Number(body.min) || 3, 1), MAX_TAGS);
+      const max = Math.min(Math.max(Number(body.max) || 5, min), MAX_TAGS);
+      const out = await tags(
+        { from: from, fromName: LANGUAGES[from], sentences: sentences, min: min, max: max },
+        cfg
+      );
+      res.status(200).json({ provider: cfg.name, model: out.model || cfg.model, tags: out.tags });
+      return;
+    }
+
     if (mode === 'vocab') {
       const list = await vocab(
         { from: from, fromName: LANGUAGES[from], targets: targets, sentences: sentences, count: count },
