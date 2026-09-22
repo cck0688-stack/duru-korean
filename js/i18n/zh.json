@@ -607,6 +607,7 @@
   "study.lead": "取自本文的五个词，按本文使用的意思解释。",
   "study.statusMissing": "尚无学习词表。",
   "study.statusReady": "学习词表已就绪。",
+  "study.wrongLang": "本文登记为{lang}，但正文是韩语 — 请把“撰写语言”改为 한국어 并重新翻译，学习词表才会生成。",
   "termsPage.h1": "服务条款",
   "termsPage.s1.h": "关于同意",
   "termsPage.s1.p1": "使用 Duru Korean 即表示您同意本页所写的内容。若您不同意，请不要使用本站。我们力求写得简短易读，而不是冗长且处处设防。",

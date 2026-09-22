@@ -607,6 +607,7 @@
   "study.lead": "Năm từ trong bài, theo đúng nghĩa bài dùng.",
   "study.statusMissing": "Chưa có danh sách từ.",
   "study.statusReady": "Danh sách từ đã sẵn sàng.",
+  "study.wrongLang": "Bài này được lưu là {lang} nhưng nội dung là tiếng Hàn — đổi \"Viết bằng\" thành 한국어 rồi dịch lại để có danh sách từ.",
   "termsPage.h1": "Điều khoản dịch vụ",
   "termsPage.s1.h": "Sự đồng ý",
   "termsPage.s1.p1": "Khi sử dụng Duru Korean, bạn đồng ý với những điều viết ở đây. Nếu không đồng ý, xin đừng sử dụng trang web. Chúng tôi cố gắng viết ngắn và dễ đọc thay vì dài dòng và phòng thủ.",

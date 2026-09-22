@@ -690,6 +690,12 @@
 
     var overlay = null;
     var editing = null;
+    // True once the author picks a language themselves; until then the
+    // select follows what they type. Writing Korean while browsing the
+    // site in English used to file the post as English — and a post
+    // filed as English gets no self-study corner, which is a confusing
+    // way to find out.
+    var langTouched = false;
     var saving = false;
     var autoSaveTimer = null;
     var lastSaveTime = null;
@@ -755,11 +761,30 @@
         bodyTextarea.addEventListener('input', updatePreview);
         bodyTextarea.addEventListener('change', updatePreview);
       }
-      overlay.querySelector('#postLang').addEventListener('change', markTranslationState);
+      overlay.querySelector('#postLang').addEventListener('change', function () {
+        langTouched = true;
+        markTranslationState();
+      });
+      ['#postBody', '#postTitle'].forEach(function (sel) {
+        overlay.querySelector(sel).addEventListener('input', followTypedLanguage);
+      });
       overlay.querySelectorAll('[data-tr-body]').forEach(function (el) {
         el.addEventListener('input', markTranslationState);
       });
       return overlay;
+    }
+
+    // Set "Written in" from the script of what has been typed, unless
+    // the author has already chosen. The select is visible and changes
+    // in front of them, so this suggests rather than decides.
+    function followTypedLanguage() {
+      if (!overlay || langTouched || !MT || !MT.detectLang) return;
+      var sel = overlay.querySelector('#postLang');
+      var guess = MT.detectLang(
+        overlay.querySelector('#postTitle').value + '\n' + overlay.querySelector('#postBody').value);
+      if (!guess || guess === sel.value) return;
+      sel.value = guess;
+      markTranslationState();
     }
 
     // "Written" / "—" beside each language, and the language the post
@@ -908,6 +933,9 @@
         o.querySelector('[data-tr-body="' + l.code + '"]').value = entry.body || '';
       });
       o.querySelector('#postTranslations').open = false;
+      // An existing post keeps the language it was filed under; a new
+      // one follows what gets typed.
+      langTouched = !!editing;
       markTranslationState();
       updatePreview();
       o.hidden = false;
@@ -1014,11 +1042,19 @@
       } else {
         label = t('blog.mtFresh', 'Translated into {n} languages.').replace('{n}', fresh.length);
       }
-      if ((post.lang || 'en') === 'ko') {
+      var filed = post.lang || 'en';
+      if (filed === 'ko') {
         var ready = MT.studyFor(post, fresh[0] || 'en');
         label += ' ' + (ready
           ? t('study.statusReady', 'The study list is ready.')
           : t('study.statusMissing', 'No study list yet.'));
+      } else if (MT.detectLang && MT.detectLang(post.body) === 'ko') {
+        // The one mismatch worth naming: a Korean post filed as
+        // something else gets no self-study corner, and nothing else on
+        // the page would say why.
+        label += ' ' + t('study.wrongLang',
+          'This post is filed as {lang} but reads as Korean — change "Written in" to 한국어 and translate again to get the study list.')
+          .replace('{lang}', R.langLabel(filed));
       }
       return '<div class="mt-status' + (stale.length || !fresh.length ? ' is-stale' : '') + '">' +
         '<span>' + escapeHTML(label) + '</span>' +

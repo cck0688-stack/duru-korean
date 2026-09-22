@@ -582,6 +582,16 @@ with the same body fingerprint the translation carries — edit the post
 and the corner reads as missing rather than as words that are no longer
 there.
 
+**"Written in" follows what is typed.** The corner only exists under a
+post filed as Korean, and the select used to default to whatever
+language the site was being read in — so writing Korean while browsing
+in English filed the post as English and the corner silently never
+appeared. The editor now sets the select from the script of the text as
+it is typed (`DURU_MT.detectLang`, a share of Hangul against the other
+letters, so an English post quoting 발효 is left alone), and stops the
+moment the author picks for themselves. A post already filed wrongly is
+named in the admin banner rather than left to be puzzled over.
+
 The same five words serve every language; only the `by[<lang>]`
 explanations differ. A reader who switches language keeps their place in
 the list. A reader reading the post in Korean sees no corner — they have

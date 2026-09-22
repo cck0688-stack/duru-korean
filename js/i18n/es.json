@@ -607,6 +607,7 @@
   "study.lead": "Cinco palabras de esta entrada, en el sentido que les da.",
   "study.statusMissing": "Todavía no hay lista de estudio.",
   "study.statusReady": "La lista de estudio está lista.",
+  "study.wrongLang": "Esta entrada figura como {lang} pero está en coreano: cambia «Escrito en» a 한국어 y vuelve a traducir para obtener la lista de estudio.",
   "termsPage.h1": "Términos del Servicio",
   "termsPage.s1.h": "Acuerdo",
   "termsPage.s1.p1": "Al usar Duru Korean aceptas lo que se escribe aquí. Si no estás de acuerdo, no uses el sitio. Hemos intentado que esto sea breve y legible, en lugar de largo y defensivo.",

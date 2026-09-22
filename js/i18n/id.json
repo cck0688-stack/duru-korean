@@ -607,6 +607,7 @@
   "study.lead": "Lima kata dari tulisan ini, dalam arti yang dipakai di sini.",
   "study.statusMissing": "Belum ada daftar belajar.",
   "study.statusReady": "Daftar belajar sudah siap.",
+  "study.wrongLang": "Tulisan ini tercatat sebagai {lang} padahal berbahasa Korea — ubah \"Ditulis dalam\" menjadi 한국어 lalu terjemahkan ulang agar daftar belajar muncul.",
   "termsPage.h1": "Ketentuan Layanan",
   "termsPage.s1.h": "Kesepakatan",
   "termsPage.s1.p1": "Dengan menggunakan Duru Korean, Anda menyetujui apa yang tertulis di sini. Jika Anda tidak setuju, mohon jangan menggunakan situs ini. Kami berusaha menjaga bagian ini tetap singkat dan mudah dibaca, bukan panjang dan berbelit.",

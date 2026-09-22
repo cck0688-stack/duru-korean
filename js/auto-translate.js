@@ -85,6 +85,29 @@
   // Enough of a long post to pick from without sending the lot.
   var STUDY_MAX = 120;
 
+  // Which language a piece of writing is in, by the script it uses.
+  // Korean writes in Hangul and no kana; Japanese mixes kana with
+  // Chinese characters; Chinese uses those characters alone. Latin
+  // letters in a Korean post (a brand name, a loanword) are normal, so
+  // the test is a share of the letters rather than a sighting.
+  function detectLang(text) {
+    var hangul = 0, kana = 0, han = 0, latin = 0;
+    var str = String(text || '');
+    for (var i = 0; i < str.length; i++) {
+      var c = str.charCodeAt(i);
+      if (c >= 0xAC00 && c <= 0xD7A3) hangul++;
+      else if ((c >= 0x3040 && c <= 0x30FF) || (c >= 0x31F0 && c <= 0x31FF)) kana++;
+      else if (c >= 0x4E00 && c <= 0x9FFF) han++;
+      else if ((c >= 0x41 && c <= 0x5A) || (c >= 0x61 && c <= 0x7A)) latin++;
+    }
+    var letters = hangul + kana + han + latin;
+    if (letters < 12) return null;
+    if (hangul / letters >= 0.3) return 'ko';
+    if (kana / letters >= 0.08) return 'ja';
+    if (han / letters >= 0.2) return 'zh';
+    return null;
+  }
+
   // A short, stable fingerprint of the exact text that was translated.
   // Not a security hash — it only has to change when the body does.
   function fingerprint(text) {
@@ -266,6 +289,7 @@
   }
 
   window.DURU_MT = {
+    detectLang: detectLang,
     STUDY_WORDS: STUDY_WORDS,
     study: study,
     studyFor: studyFor,
