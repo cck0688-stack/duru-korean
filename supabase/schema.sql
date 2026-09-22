@@ -950,3 +950,16 @@ create policy "covers bucket: admin delete"
     bucket_id = 'resource-covers'
     and exists (select 1 from public.admin_users a where a.user_id = auth.uid())
   );
+
+-- ------------------------------------------------------------------
+-- 21. Word files as downloads
+-- ------------------------------------------------------------------
+-- A worksheet is sometimes handed out as a .doc or .docx so a teacher
+-- can edit it. The list of accepted file types is widened here, on the
+-- per-language files table; the old single-file column on resources is
+-- left as it was, since nothing writes there any more.
+
+alter table public.resource_files drop constraint if exists resource_files_file_type_check;
+alter table public.resource_files
+  add constraint resource_files_file_type_check
+  check (file_type in ('pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg', 'mp3', 'm4a'));

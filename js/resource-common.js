@@ -30,13 +30,20 @@
   var LEVELS = ['Any level', 'Beginner', 'Intermediate', 'Advanced'];
 
   var MAX_SIZE = {
-    pdf: 20 * 1024 * 1024, png: 20 * 1024 * 1024, jpg: 20 * 1024 * 1024, jpeg: 20 * 1024 * 1024,
+    pdf: 20 * 1024 * 1024, doc: 20 * 1024 * 1024, docx: 20 * 1024 * 1024,
+    png: 20 * 1024 * 1024, jpg: 20 * 1024 * 1024, jpeg: 20 * 1024 * 1024,
     mp3: 50 * 1024 * 1024, m4a: 50 * 1024 * 1024
   };
   var MIME_BY_EXT = {
-    pdf: 'application/pdf', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg',
+    pdf: 'application/pdf',
+    doc: 'application/msword',
+    docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg',
     mp3: 'audio/mpeg', m4a: 'audio/mp4'
   };
+  var ACCEPT = '.pdf,.doc,.docx,.png,.jpg,.jpeg,.mp3,.m4a';
+  // A browser shows these on its own; a Word file only downloads.
+  var PREVIEWABLE = { pdf: true, png: true, jpg: true, jpeg: true, mp3: true, m4a: true };
   var COVER_MAX = 5 * 1024 * 1024;
   var SIGNED_URL_TTL = 300;
 
@@ -176,7 +183,7 @@
 
   window.DURU_RES = {
     BUCKET: BUCKET, COVERS: COVERS, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
-    MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX,
+    MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX, ACCEPT: ACCEPT, PREVIEWABLE: PREVIEWABLE,
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,
     siteLang: siteLang, langLabel: langLabel, langShort: langShort, langEntry: langEntry,

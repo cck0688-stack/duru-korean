@@ -2910,7 +2910,22 @@ section { position: relative; }
 .res-body-text p { font-size: 15.5px; line-height: 1.75; color: var(--ink-dim); margin: 0 0 12px; }
 .res-body-empty { font-style: italic; }
 
-.res-admin { margin-top: 28px; }
+.res-admin { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.res-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.res-status--draft { background: rgba(184,73,45,0.12); color: #8a3b1f; border: 1px solid rgba(184,73,45,0.35); }
+.res-status--live { background: rgba(58,122,74,0.12); color: #2f6b41; border: 1px solid rgba(58,122,74,0.3); }
+.res-files td > div + div { margin-top: 6px; }
 
 .res-editor {
   margin-top: 16px;

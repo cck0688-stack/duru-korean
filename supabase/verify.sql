@@ -1,7 +1,7 @@
 -- DURU KOREAN — post-migration check
 --
 -- Paste this into the Supabase SQL editor after running schema.sql.
--- Every row (19 of them) should read OK. Any FAIL means schema.sql did not finish —
+-- Every row (20 of them) should read OK. Any FAIL means schema.sql did not finish —
 -- scroll up in the editor to the first red error and fix that one.
 
 with checks(item, ok) as (
@@ -67,6 +67,11 @@ with checks(item, ok) as (
      exists (select 1 from pg_constraint
              where conname='resources_publish_location_check'
                and pg_get_constraintdef(oid) like '%book-resources%')),
+
+    ('Word files accepted as downloads',
+     exists (select 1 from pg_constraint
+             where conname='resource_files_file_type_check'
+               and pg_get_constraintdef(oid) like '%docx%')),
 
     ('resource-covers bucket is public',
      exists (select 1 from storage.buckets where id='resource-covers' and public = true))

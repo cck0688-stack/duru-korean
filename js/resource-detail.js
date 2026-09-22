@@ -90,6 +90,35 @@
 
       renderLanguagePicker(files);
       $('resAdmin').hidden = !isAdmin;
+      if (isAdmin) renderStatus();
+    }
+
+    // The one control an admin looks for after uploading: is this live?
+    function renderStatus() {
+      var box = $('resStatus');
+      var live = resource.published !== false;
+      box.className = 'res-status ' + (live ? 'res-status--live' : 'res-status--draft');
+      box.innerHTML =
+        '<span>' + esc(live
+          ? t('resource.statusLive', 'Published — everyone can see this download.')
+          : t('resource.statusDraft', 'Not published yet — only admins can see this download.')) + '</span>' +
+        '<button type="button" class="btn ' + (live ? 'btn-outline-dark' : 'btn-primary') + '" id="resPublishBtn">' +
+          esc(live ? t('resource.unpublishBtn', 'Unpublish') : t('resource.publishBtn', 'Publish now')) + '</button>';
+      box.hidden = false;
+      box.querySelector('#resPublishBtn').addEventListener('click', function () {
+        var btn = this;
+        if (!live && !R.availableFiles(resource, true).length) {
+          window.alert(t('resource.publishNoFiles', 'Add at least one file before publishing.'));
+          return;
+        }
+        btn.disabled = true;
+        client.from('resources').update({ published: !live, updated_at: new Date().toISOString() }).eq('id', resource.id)
+          .then(function (res) {
+            btn.disabled = false;
+            if (res.error) { window.alert(R.schemaHint(res.error.message)); return; }
+            load();
+          });
+      });
     }
 
     // The order tried: the language the list was filtered to, then the
@@ -134,14 +163,16 @@
     function renderButtons() {
       var prev = $('resPreviewBtn'), dl = $('resDownloadBtn'), note = $('resLoginNote');
       var have = !!chosen;
+      var fmt = have ? String(chosen.file_type || '').toUpperCase() : 'PDF';
       prev.disabled = !have; dl.disabled = !have;
       if (!currentUser) {
         dl.textContent = t('resources.loginToDownload', 'Log in to download');
         prev.hidden = true;
         note.hidden = false;
       } else {
-        dl.textContent = t('resource.download', 'Download PDF');
-        prev.hidden = false;
+        dl.textContent = t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', fmt);
+        prev.textContent = t('resource.previewFile', 'Preview {fmt}').replace('{fmt}', fmt);
+        prev.hidden = !(have && R.PREVIEWABLE[chosen.file_type]);
         note.hidden = true;
       }
     }
@@ -236,12 +267,15 @@
             files.map(function (f) {
               return '<tr>' +
                 '<th>' + esc(R.langLabel(f.lang)) + '</th>' +
-                '<td>' + esc(String(f.file_type || '').toUpperCase()) + ' · ' + esc(R.formatSize(f.file_size)) +
-                  ' · <label>' + esc(t('resource.fieldPages', 'Pages')) + ' <input type="number" min="1" class="res-pages" data-fid="' + esc(f.id) + '" value="' + (f.page_count || '') + '"></label>' +
-                  ' · <label><input type="checkbox" class="res-fpub" data-fid="' + esc(f.id) + '"' + (f.published !== false ? ' checked' : '') + '> ' + esc(t('resource.fieldPublished', 'Published')) + '</label>' +
+                '<td>' +
+                  '<div>' + esc(String(f.file_type || '').toUpperCase()) + ' · ' + esc(R.formatSize(f.file_size)) + '</div>' +
+                  (f.file_type === 'pdf'
+                    ? '<div><label>' + esc(t('resource.fieldPages', 'Pages')) + ' <input type="number" min="1" class="res-pages" data-fid="' + esc(f.id) + '" value="' + (f.page_count || '') + '"></label></div>'
+                    : '') +
+                  '<div><label><input type="checkbox" class="res-fpub" data-fid="' + esc(f.id) + '"' + (f.published !== false ? ' checked' : '') + '> ' + esc(t('resource.filePublished', 'Published')) + '</label></div>' +
                 '</td>' +
                 '<td class="res-files-act">' +
-                  '<label class="res-linkbtn">' + esc(t('resource.replaceFile', 'Replace')) + '<input type="file" class="res-replace" data-fid="' + esc(f.id) + '" data-key="' + esc(f.storage_key) + '" accept=".pdf,.png,.jpg,.jpeg,.mp3,.m4a" hidden></label> ' +
+                  '<label class="res-linkbtn">' + esc(t('resource.replaceFile', 'Replace')) + '<input type="file" class="res-replace" data-fid="' + esc(f.id) + '" data-key="' + esc(f.storage_key) + '" accept="' + R.ACCEPT + '" hidden></label> ' +
                   '<button type="button" class="res-linkbtn res-linkbtn--danger res-remove" data-fid="' + esc(f.id) + '" data-key="' + esc(f.storage_key) + '">' + esc(t('resource.removeFile', 'Remove')) + '</button>' +
                 '</td>' +
               '</tr>';
@@ -250,10 +284,10 @@
           (free.length ? '<form id="resAddFile" class="res-addfile" novalidate>' +
             '<div class="res-editor-row">' +
               field(t('resource.fieldLang', 'Language'), '<select id="afLang">' + free.map(function (l) { return '<option value="' + l.code + '">' + esc(l.label) + '</option>'; }).join('') + '</select>') +
-              field(t('resources.fieldFile', 'File'), '<input type="file" id="afFile" accept=".pdf,.png,.jpg,.jpeg,.mp3,.m4a">') +
+              field(t('resources.fieldFile', 'File'), '<input type="file" id="afFile" accept="' + R.ACCEPT + '">') +
               field(t('resource.fieldPages', 'Pages'), '<input type="number" id="afPages" min="1" placeholder="auto">') +
             '</div>' +
-            '<p class="resource-hint">' + esc(t('resources.fileHint', 'PDF, PNG, JPG, JPEG up to 20MB · MP3, M4A up to 50MB')) + '</p>' +
+            '<p class="resource-hint">' + esc(t('resources.fileHint', 'PDF, DOC, DOCX, PNG, JPG, JPEG up to 20MB · MP3, M4A up to 50MB')) + '</p>' +
             '<button type="submit" class="btn btn-ghost" id="afSubmit">' + esc(t('resource.addFile', 'Add file')) + '</button>' +
           '</form>' : '') +
 

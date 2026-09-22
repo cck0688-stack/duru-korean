@@ -73,16 +73,16 @@
 
       <div class="res-detail-main">
         <div class="res-panel" id="resPanel">
-          <span class="res-panel-eyebrow" data-i18n="resource.getEyebrow">Get the PDF</span>
+          <span class="res-panel-eyebrow" data-i18n="resource.getEyebrow">Get the file</span>
           <label class="res-lang-field" for="resPdfLang">
-            <span data-i18n="resource.pdfLanguage">PDF language</span>
+            <span data-i18n="resource.pdfLanguage">File language</span>
             <select id="resPdfLang"></select>
           </label>
           <p class="res-notice" id="resLangNotice" hidden></p>
           <p class="res-file-meta" id="resFileMeta"></p>
           <div class="res-actions">
-            <button type="button" class="btn btn-outline-dark" id="resPreviewBtn" data-i18n="resource.preview">Preview PDF</button>
-            <button type="button" class="btn btn-primary" id="resDownloadBtn" data-i18n="resource.download">Download PDF</button>
+            <button type="button" class="btn btn-outline-dark" id="resPreviewBtn">Preview</button>
+            <button type="button" class="btn btn-primary" id="resDownloadBtn">Download</button>
           </div>
           <p class="res-login-note" id="resLoginNote" hidden data-i18n="resource.loginNote">Downloads are for signed-in learners — it takes a minute and it is free.</p>
           <p class="res-lang-hint" data-i18n="resource.langNote">Choosing a PDF language only changes which file you get. The site's own language is set from the menu at the top.</p>
@@ -94,6 +94,7 @@
         </div>
 
         <div class="res-admin" id="resAdmin" hidden>
+          <div class="res-status" id="resStatus" hidden></div>
           <button type="button" class="btn btn-ghost" id="resEditToggle" data-i18n="resource.edit">Edit this download</button>
         </div>
         <div id="resEditor" hidden></div>
