@@ -80,6 +80,11 @@
     return paras.reduce(function (acc, p) { return acc.concat(p); }, []);
   }
 
+  // How many words the self-study list holds.
+  var STUDY_WORDS = 5;
+  // Enough of a long post to pick from without sending the lot.
+  var STUDY_MAX = 120;
+
   // A short, stable fingerprint of the exact text that was translated.
   // Not a security hash — it only has to change when the body does.
   function fingerprint(text) {
@@ -180,6 +185,54 @@
     });
   }
 
+  // The five words a learner would stumble on, explained in every
+  // language the post is offered in. One call, because the list has to
+  // be the same five words whatever language a reader switches to.
+  function study(client, opts, onProgress) {
+    var sentences = flatten(splitBody(opts.body)).slice(0, STUDY_MAX);
+    var targets = opts.to.filter(function (c) { return c !== opts.from; });
+    if (!sentences.length || !targets.length) return Promise.resolve(null);
+
+    return client.auth.getSession().then(function (res) {
+      var token = res && res.data && res.data.session && res.data.session.access_token;
+      if (!token) return Promise.reject(new Error('Sign in again to build the word list.'));
+      if (onProgress) onProgress();
+      return fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({
+          mode: 'vocab', from: opts.from, to: targets,
+          sentences: sentences, count: STUDY_WORDS
+        })
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (data) {
+          if (!r.ok) throw new Error(data.error || ('The word list failed (' + r.status + ')'));
+          return data;
+        });
+      }).then(function (data) {
+        if (!data.words || !data.words.length) return null;
+        return {
+          hash: fingerprint(opts.body),
+          from: opts.from,
+          at: new Date().toISOString(),
+          model: data.model || '',
+          words: data.words
+        };
+      });
+    });
+  }
+
+  // The list a reader in `lang` should see, or null when there is none
+  // that still matches what is written now.
+  function studyFor(post, lang) {
+    var st = post && post.study;
+    if (!st || !Array.isArray(st.words) || !st.words.length) return null;
+    if (st.from !== (post.lang || 'en')) return null;
+    if (st.hash !== fingerprint(post.body)) return null;
+    var words = st.words.filter(function (w) { return w && w.by && w.by[lang] && w.by[lang].meaning; });
+    return words.length ? words : null;
+  }
+
   // What a reader gets: the paragraphs, each a list of {src, out} pairs.
   // Returns null when there is no usable translation, which includes one
   // made before the body was last edited.
@@ -213,6 +266,9 @@
   }
 
   window.DURU_MT = {
+    STUDY_WORDS: STUDY_WORDS,
+    study: study,
+    studyFor: studyFor,
     head: head,
     splitBody: splitBody,
     sentences: function (body) { return flatten(splitBody(body)); },

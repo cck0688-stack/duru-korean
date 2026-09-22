@@ -1331,15 +1331,6 @@ section { position: relative; }
 }
 .auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: rgba(22,48,43,0.14); }
 
-.auth-google {
-  width: 100%;
-  justify-content: center;
-  background: #fff;
-  border: 1px solid rgba(22,48,43,0.18);
-  color: var(--ink);
-}
-.auth-google:hover { background: #f5f5f5; }
-
 .auth-message {
   font-size: 13px;
   padding: 12px 14px;
@@ -3294,4 +3285,120 @@ section { position: relative; }
 @media (max-width: 480px) {
   .comment-form-actions { justify-content: space-between; }
   .comment-thread--nested { padding-left: 12px; }
+}
+
+/* ---------- Sign in with a service ---------- */
+
+/* One row per service rather than a grid of icons: the name is what a
+   visitor scans for, and four full-width rows fit a phone without the
+   text shrinking. The mark on the left is the service's own colour, so
+   the row is recognisable before the label is read. */
+.auth-oauth { display: flex; flex-direction: column; gap: 8px; }
+.auth-oauth-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid rgba(22, 48, 43, 0.18);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.auth-oauth-btn:hover { background: #f5f5f5; }
+.auth-oauth-mark {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  flex: none;
+}
+.auth-oauth-btn--google   .auth-oauth-mark { background: #4285f4; }
+.auth-oauth-btn--facebook .auth-oauth-mark { background: #1877f2; }
+.auth-oauth-btn--twitter  .auth-oauth-mark { background: #000; }
+.auth-oauth-btn--kakao    .auth-oauth-mark { background: #fee500; color: #191600; }
+
+/* ---------- Self-study under a Korean post ---------- */
+
+.study {
+  margin-top: 40px;
+  padding: 26px 28px;
+  border-radius: 16px;
+  background: rgba(22, 48, 43, 0.045);
+  border: 1px solid rgba(22, 48, 43, 0.08);
+}
+.study-title { font-size: 19px; margin: 0 0 4px; color: var(--ink); }
+.study-lead { font-size: 13.5px; color: var(--ink-dim); margin: 0 0 20px; }
+
+.study-list {
+  list-style: none;
+  counter-reset: study;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+.study-word {
+  counter-increment: study;
+  padding-left: 34px;
+  position: relative;
+}
+/* The number is the only ornament: it keeps five entries countable
+   without a bullet competing with the Korean word beside it. */
+.study-word::before {
+  content: counter(study);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.study-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.study-term { font-size: 19px; font-weight: 700; color: var(--ink); }
+.study-rom { font-size: 13px; color: var(--ink-dim); font-style: italic; }
+.study-pos {
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-red);
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(184, 73, 45, 0.1);
+}
+.study-meaning { margin: 0 0 4px; font-size: 15px; font-weight: 600; color: var(--ink); }
+.study-note { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-dim); }
+.study-source {
+  margin: 8px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid rgba(22, 48, 43, 0.14);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+@media (max-width: 480px) {
+  .study { padding: 20px 18px; }
+  .study-word { padding-left: 28px; }
+  .study-word::before { width: 19px; height: 19px; font-size: 10px; }
+  .study-term { font-size: 17px; }
 }

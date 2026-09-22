@@ -107,6 +107,10 @@ with checks(item, ok) as (
              where schemaname='public' and tablename='post_comments'
                and policyname='post_comments: anyone insert')),
 
+    ('posts.study exists (self-study word list)',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='posts' and column_name='study')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

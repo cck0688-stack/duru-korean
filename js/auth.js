@@ -92,7 +92,7 @@
             <button type="submit" class="btn btn-primary auth-submit" id="loginSubmit" data-i18n="auth.loginSubmit">Log in</button>
           </form>
           <div class="auth-divider" data-i18n="auth.or">or</div>
-          <button type="button" class="btn auth-google" id="googleLoginBtn" data-i18n="auth.continueGoogle">Continue with Google</button>
+          <div class="auth-oauth" data-panel-for="login"></div>
         </div>
 
         <!-- Create account panel -->
@@ -138,7 +138,7 @@
             <button type="submit" class="btn btn-primary auth-submit" id="signupSubmit" data-i18n="auth.signupSubmit">Create account</button>
           </form>
           <div class="auth-divider" data-i18n="auth.or">or</div>
-          <button type="button" class="btn auth-google" id="googleSignupBtn" data-i18n="auth.continueGoogle">Continue with Google</button>
+          <div class="auth-oauth" data-panel-for="signup"></div>
         </div>
 
         <!-- Reset password panel -->
@@ -237,7 +237,7 @@
       // answers with a developer-facing string; the visitor needs to know
       // to use email instead, not to read "Unsupported provider".
       if (/unsupported provider|provider is not enabled|validation_failed/i.test(msg)) {
-        return t('auth.errors.providerDisabled', 'Google sign-in isn\u2019t available yet. Please use your email address instead.');
+        return t('auth.errors.providerDisabled', 'That sign-in service isn\u2019t switched on yet. Please use your email address instead.');
       }
       return msg;
     }
@@ -342,20 +342,57 @@
     });
 
     /* ---- Google OAuth ---- */
-    async function signInWithGoogle(panel) {
+    // The services a visitor can arrive with. Each is a provider
+    // Supabase Auth speaks natively; turning one on is a switch in the
+    // dashboard (Authentication → Providers) plus that service's app
+    // keys — nothing here changes. A provider left off there shows the
+    // same button and answers that it is not enabled yet, which is the
+    // truth and points at where to fix it.
+    //
+    // Naver is missing on purpose: Supabase has no Naver provider, and
+    // a half-built one that minted its own sessions would be a worse
+    // thing to own than the gap. See README.md ("Social sign-in").
+    const OAUTH = [
+      { id: 'google',   label: 'Google',      key: 'auth.continueGoogle' },
+      { id: 'facebook', label: 'Facebook',    key: 'auth.continueFacebook' },
+      { id: 'twitter',  label: 'X',           key: 'auth.continueX' },
+      { id: 'kakao',    label: 'KakaoTalk',   key: 'auth.continueKakao' },
+    ];
+
+    function oauthLabel(entry) {
+      const translated = window.DURU_I18N && window.DURU_I18N.t(entry.key);
+      if (translated && translated !== entry.key) return translated;
+      return 'Continue with ' + entry.label;
+    }
+
+    async function signInWith(provider, panel) {
       clearMessage(panel);
       if (!requireClient(panel)) return;
       // A page that wants the visitor back where they were (a download,
       // with its language chosen) sets DURU_AUTH_RETURN_TO before this
       // script loads; everything else lands on My Learning.
       const { error } = await client.auth.signInWithOAuth({
-        provider: 'google',
+        provider,
         options: { redirectTo: window.DURU_AUTH_RETURN_TO || REDIRECT_URL },
       });
       if (error) setMessage(panel, 'error', friendlyError(error));
     }
-    document.getElementById('googleLoginBtn').addEventListener('click', () => signInWithGoogle('login'));
-    document.getElementById('googleSignupBtn').addEventListener('click', () => signInWithGoogle('signup'));
+
+    function renderOAuth() {
+      document.querySelectorAll('.auth-oauth').forEach((box) => {
+        const panel = box.dataset.panelFor;
+        box.innerHTML = OAUTH.map((entry) => (
+          `<button type="button" class="btn auth-oauth-btn auth-oauth-btn--${entry.id}" data-oauth="${entry.id}">` +
+          `<span class="auth-oauth-mark" aria-hidden="true">${esc(entry.label.slice(0, 1))}</span>` +
+          `<span>${esc(oauthLabel(entry))}</span></button>`
+        )).join('');
+        box.querySelectorAll('[data-oauth]').forEach((btn) => {
+          btn.addEventListener('click', () => signInWith(btn.dataset.oauth, panel));
+        });
+      });
+    }
+    renderOAuth();
+    document.addEventListener('duru:langchange', renderOAuth);
 
     /* ---------------- Header auth state ---------------- */
 

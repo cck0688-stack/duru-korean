@@ -79,6 +79,35 @@
     return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return have[c]; });
   }
 
+  // The self-study corner under a Korean post: the words a learner
+  // would stumble on, each with the meaning this post uses. Only shown
+  // to a reader who is not reading the post in its own language —
+  // someone reading the Korean has the words already.
+  function studyHTML(post, lang) {
+    if (!MT || (post.lang || 'en') !== 'ko' || lang === 'ko') return '';
+    var words = MT.studyFor(post, lang);
+    if (!words) return '';
+    return '<section class="study">' +
+      '<h2 class="study-title">' + escapeHTML(t('study.heading', 'Self-study')) + '</h2>' +
+      '<p class="study-lead">' + escapeHTML(t('study.lead',
+        'Five words from this post, in the sense it uses them.')) + '</p>' +
+      '<ol class="study-list">' + words.map(function (w) {
+        var e = w.by[lang];
+        return '<li class="study-word">' +
+          '<div class="study-head">' +
+            '<span class="study-term" lang="ko">' + escapeHTML(w.word) + '</span>' +
+            (w.romanization ? '<span class="study-rom">' + escapeHTML(w.romanization) + '</span>' : '') +
+            (w.pos ? '<span class="study-pos">' + escapeHTML(w.pos) + '</span>' : '') +
+          '</div>' +
+          '<p class="study-meaning" lang="' + escapeHTML(lang) + '">' + escapeHTML(e.meaning) + '</p>' +
+          (e.explanation ? '<p class="study-note" lang="' + escapeHTML(lang) + '">' +
+            escapeHTML(e.explanation) + '</p>' : '') +
+          (w.sentence ? '<p class="study-source" lang="ko">' + escapeHTML(w.sentence) + '</p>' : '') +
+        '</li>';
+      }).join('') + '</ol>' +
+    '</section>';
+  }
+
   // The reader's view of a translated post: every source sentence with
   // its translation directly underneath. Escaped on both sides — a post
   // body is plain text and a translation is text that came back over
@@ -489,6 +518,7 @@
             '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
           '</div>' +
         '</div>' +
+        studyHTML(post, readLang) +
         navHTML +
         '<div id="postComments"></div>';
       document.title = readField(post, 'title', readLang) + ' — Duru Korean';
@@ -984,6 +1014,12 @@
       } else {
         label = t('blog.mtFresh', 'Translated into {n} languages.').replace('{n}', fresh.length);
       }
+      if ((post.lang || 'en') === 'ko') {
+        var ready = MT.studyFor(post, fresh[0] || 'en');
+        label += ' ' + (ready
+          ? t('study.statusReady', 'The study list is ready.')
+          : t('study.statusMissing', 'No study list yet.'));
+      }
       return '<div class="mt-status' + (stale.length || !fresh.length ? ' is-stale' : '') + '">' +
         '<span>' + escapeHTML(label) + '</span>' +
         '<span class="mt-status-langs">' + fresh.map(function (c) {
@@ -1039,13 +1075,32 @@
         }
       }).then(function (fresh) {
         var merged = mergeMT(post, fresh);
+        // The study list only makes sense under a Korean post, and it
+        // is one more call after the sentences rather than part of
+        // them: the five words have to be picked from the whole post.
+        if ((post.lang || 'en') !== 'ko') {
+          return { mt: merged, study: post.study || {}, n: Object.keys(fresh).length };
+        }
+        return MT.study(client, {
+          from: post.lang, to: targets, body: post.body
+        }, function () {
+          if (report) report(t('study.building', 'Picking the study words…'));
+        }).then(function (st) {
+          return { mt: merged, study: st || post.study || {}, n: Object.keys(fresh).length };
+        }).catch(function (err) {
+          // A failed word list should not throw away a good translation.
+          console.warn('study list failed:', err.message);
+          return { mt: merged, study: post.study || {}, n: Object.keys(fresh).length };
+        });
+      }).then(function (out) {
         return client.from('posts')
-          .update({ mt: merged, updated_at: new Date().toISOString() })
+          .update({ mt: out.mt, study: out.study, updated_at: new Date().toISOString() })
           .eq('id', post.id)
           .then(function (res) {
             if (res.error) throw new Error(schemaHint(res.error.message));
-            post.mt = merged;
-            return Object.keys(fresh).length;
+            post.mt = out.mt;
+            post.study = out.study;
+            return out.n;
           });
       });
     }

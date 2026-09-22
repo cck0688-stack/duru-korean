@@ -27,6 +27,22 @@
 // were sent, in the same order — that is the whole guarantee, and a
 // provider that breaks it gets a 502 rather than a stored answer.
 //
+// The same endpoint also builds the self-study list under a Korean
+// post: the words a learner would stumble on, each explained in the
+// reader's own language, in the sense this post uses.
+//
+//   { "mode": "vocab", "from": "ko", "to": ["en", "zh"],
+//     "sentences": [ …the whole post… ], "count": 5 }
+//
+//   200 { "provider": …, "model": …, "words": [
+//           { "word": "발효", "romanization": "balhyo", "pos": "noun",
+//             "sentence": "한식 맛의 핵심은 …",
+//             "by": { "en": { "meaning": "fermentation",
+//                             "explanation": "…" } } } ] }
+//
+// The same five words come back for every language, so a reader who
+// switches language keeps the same list with new explanations.
+//
 // ── Configuration (Vercel → Settings → Environment Variables) ──────
 //
 //   One key is all that is required. Set whichever company's key you
@@ -58,7 +74,7 @@
 // already serves to every visitor; they are here only so a different
 // project can be pointed at without editing code.
 
-import { LANGUAGES, TranslateError, resolveProvider } from './_providers.js';
+import { LANGUAGES, TranslateError, resolveProvider, translate, vocab } from './_providers.js';
 
 export const config = { maxDuration: 60 };
 
@@ -71,6 +87,11 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC
 const MAX_SENTENCES = 25;
 const MAX_TARGETS = 8;
 const MAX_CHARS = 8000;
+// Picking the hardest words needs the whole post, not a batch of it, so
+// the study list gets its own, larger ceiling — still bounded.
+const MAX_VOCAB_SENTENCES = 120;
+const MAX_VOCAB_CHARS = 20000;
+const MAX_WORDS = 10;
 
 function bad(res, status, message) {
   res.status(status).json({ error: message });
@@ -118,24 +139,39 @@ export default async function handler(req, res) {
   if (!allowed.ok) return bad(res, allowed.status, allowed.message);
 
   const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+  const mode = String(body.mode || 'sentences');
   const from = String(body.from || '');
   const targets = Array.isArray(body.to) ? body.to : [];
   const sentences = Array.isArray(body.sentences) ? body.sentences : [];
+  const count = Math.min(Math.max(Number(body.count) || 5, 1), MAX_WORDS);
 
+  if (mode !== 'sentences' && mode !== 'vocab') return bad(res, 400, 'mode must be "sentences" or "vocab".');
   if (!LANGUAGES[from]) return bad(res, 400, 'Unknown source language.');
   if (!targets.length || targets.length > MAX_TARGETS) return bad(res, 400, 'Pick 1–8 target languages.');
   if (targets.some(function (c) { return !LANGUAGES[c]; })) return bad(res, 400, 'Unknown target language.');
   if (targets.indexOf(from) !== -1) return bad(res, 400, 'The source language cannot also be a target.');
-  if (!sentences.length || sentences.length > MAX_SENTENCES) {
-    return bad(res, 400, 'Send 1–' + MAX_SENTENCES + ' sentences per request.');
-  }
   if (sentences.some(function (s) { return typeof s !== 'string'; })) return bad(res, 400, 'Sentences must be text.');
-  if (sentences.join('').length > MAX_CHARS) {
-    return bad(res, 400, 'That batch is too long — send shorter batches.');
+
+  const maxSentences = mode === 'vocab' ? MAX_VOCAB_SENTENCES : MAX_SENTENCES;
+  const maxChars = mode === 'vocab' ? MAX_VOCAB_CHARS : MAX_CHARS;
+  if (!sentences.length || sentences.length > maxSentences) {
+    return bad(res, 400, 'Send 1–' + maxSentences + ' sentences per request.');
+  }
+  if (sentences.join('').length > maxChars) {
+    return bad(res, 400, 'That is too long — send less text per request.');
   }
 
   try {
-    const result = await cfg.provider.translate(
+    if (mode === 'vocab') {
+      const list = await vocab(
+        { from: from, fromName: LANGUAGES[from], targets: targets, sentences: sentences, count: count },
+        cfg
+      );
+      res.status(200).json({ provider: cfg.name, model: list.model || cfg.model, words: list.words });
+      return;
+    }
+
+    const result = await translate(
       { from: from, fromName: LANGUAGES[from], targets: targets, sentences: sentences },
       cfg
     );

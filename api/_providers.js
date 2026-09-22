@@ -11,6 +11,13 @@
 // is provider-neutral, so switching companies is one environment
 // variable, not a rewrite.
 //
+// An adapter supplies one method, `chat(cfg, system, user, schema)`,
+// which sends an instruction and some text and returns the JSON that
+// comes back. Translating and picking vocabulary are both written once
+// on top of that, so a new provider costs one adapter, not two features.
+// DeepL is the exception: it translates and does nothing else, so it
+// brings its own `translate` and no `chat` at all.
+//
 // Adding another provider means adding one entry to PROVIDERS below.
 // Anything that speaks the OpenAI chat-completions shape (Azure OpenAI,
 // Groq, Together, OpenRouter, Fireworks, a self-hosted vLLM or Ollama)
@@ -70,6 +77,73 @@ function numbered(sentences) {
   return sentences.map(function (s, i) { return (i + 1) + '. ' + s; }).join('\n');
 }
 
+// The self-study corner: the words a learner would stumble on, each
+// explained in the reader's own language, in the sense this post uses.
+function vocabPrompt(targets, count) {
+  return [
+    'You prepare a short self-study list for a Korean-language learning site.',
+    '',
+    'You are given one blog post written in Korean, as numbered sentences. Pick the ' + count +
+      ' Korean words or expressions an intermediate learner is most likely to be stopped by,',
+    'and explain each one.',
+    '',
+    'Choosing the words:',
+    '- Pick words that carry the meaning of the post, not the easiest nouns in it and not',
+    '  grammar particles (은/는, 이/가, 에서) on their own.',
+    '- A set phrase or an idiom counts as one word (자리매김하다, 눈에 띄다).',
+    '- Give the dictionary form: a verb or adjective ends in -다 (재해석되다, not 재해석된).',
+    '- No proper nouns, no numbers, no words that are the same in the target language.',
+    '- Each word must actually appear in the post.',
+    '',
+    'Explaining them:',
+    '- A Korean word usually has several meanings. Give the one THIS post uses and no other:',
+    '  "발효" beside kimchi is food fermentation, not a law taking effect.',
+    '- `meaning` is the short gloss — two or three words a reader could put in a notebook.',
+    '- `explanation` is one or two sentences saying what the word does in this sentence, and',
+    '  anything a learner needs to use it: what it attaches to, how formal it is, a near',
+    '  synonym worth knowing. Write it in the target language, not in Korean.',
+    '- `sentence` is the sentence from the post the word appears in, copied exactly.',
+    '- `romanization` uses Revised Romanization (balhyo, jarimaegimhada).',
+    '- `pos` is one of: noun, verb, adjective, adverb, phrase.',
+    '',
+    'Return the same ' + count + ' words for every language, in the same order, with one entry',
+    'per target language inside each word.',
+    '',
+    'Target languages: ' + targets.map(function (c) { return LANGUAGES[c] + ' (' + c + ')'; }).join(', ') + '.'
+  ].join('\n');
+}
+
+function vocabSchema(strict) {
+  var by = {
+    type: 'object',
+    properties: {
+      code: { type: 'string' },
+      meaning: { type: 'string' },
+      explanation: { type: 'string' }
+    },
+    required: ['code', 'meaning', 'explanation']
+  };
+  var word = {
+    type: 'object',
+    properties: {
+      word: { type: 'string' },
+      romanization: { type: 'string' },
+      pos: { type: 'string' },
+      sentence: { type: 'string' },
+      by: { type: 'array', items: by }
+    },
+    required: ['word', 'romanization', 'pos', 'sentence', 'by']
+  };
+  if (strict) { by.additionalProperties = false; word.additionalProperties = false; }
+  var root = {
+    type: 'object',
+    properties: { words: { type: 'array', items: word } },
+    required: ['words']
+  };
+  if (strict) root.additionalProperties = false;
+  return root;
+}
+
 // The answer every language model is asked for. `strict` is set where a
 // provider supports it; where it does not, the count check in the
 // handler still catches a malformed answer.
@@ -90,6 +164,42 @@ function schema(strict) {
   };
   if (strict) root.additionalProperties = false;
   return root;
+}
+
+// The vocabulary answer, checked before it is handed back: the right
+// number of words, each with an entry for every language asked for.
+// A list that is short or missing a language is refused rather than
+// shown half-filled.
+function parseVocab(text, targets, count) {
+  var parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (e) {
+    throw new TranslateError(502, 'The word list came back in an unreadable shape. Try again.');
+  }
+  var words = (parsed && parsed.words) || [];
+  if (!Array.isArray(words) || words.length < 1) {
+    throw new TranslateError(502, 'No words came back for the study list. Try again.');
+  }
+  return words.slice(0, count).map(function (w) {
+    var by = {};
+    ((w && w.by) || []).forEach(function (e) {
+      if (e && targets.indexOf(e.code) !== -1) {
+        by[e.code] = { meaning: String(e.meaning || ''), explanation: String(e.explanation || '') };
+      }
+    });
+    var missing = targets.filter(function (c) { return !by[c] || !by[c].meaning; });
+    if (missing.length) {
+      throw new TranslateError(502, 'The study list is missing: ' + missing.join(', ') + '. Try again.');
+    }
+    return {
+      word: String((w && w.word) || ''),
+      romanization: String((w && w.romanization) || ''),
+      pos: String((w && w.pos) || ''),
+      sentence: String((w && w.sentence) || ''),
+      by: by
+    };
+  }).filter(function (w) { return w.word; });
 }
 
 function parseLanguages(text, targets, count) {
@@ -136,7 +246,8 @@ const anthropic = {
   envKeys: ['ANTHROPIC_API_KEY'],
   defaultModel: 'claude-opus-5',
   label: 'Anthropic',
-  async translate(opts, cfg) {
+  strictSchema: true,
+  async chat(cfg, system, user, jsonSchema) {
     // The one provider with an SDK in this project, so it uses it.
     const client = new Anthropic({ apiKey: cfg.apiKey, baseURL: cfg.baseUrl || undefined });
     let response;
@@ -144,23 +255,22 @@ const anthropic = {
       response = await client.messages.create({
         model: cfg.model,
         max_tokens: 16000,
-        system: systemPrompt(opts.fromName, opts.targets, opts.sentences.length),
-        output_config: { effort: cfg.effort, format: { type: 'json_schema', schema: schema(true) } },
-        messages: [{ role: 'user', content: numbered(opts.sentences) }]
+        system,
+        output_config: { effort: cfg.effort, format: { type: 'json_schema', schema: jsonSchema } },
+        messages: [{ role: 'user', content: user }]
       });
     } catch (err) {
       if (err && err.status === 401) throw new TranslateError(503, 'The Anthropic key on the server was rejected.');
-      if (err && err.status === 429) throw new TranslateError(429, 'Too many translations at once — wait a moment and try again.');
+      if (err && err.status === 429) throw new TranslateError(429, 'Too many requests at once — wait a moment and try again.');
       throw new TranslateError(502, 'Anthropic did not answer. Try again.');
     }
     if (response.stop_reason === 'refusal') {
-      throw new TranslateError(422, 'That text was declined by the translation model.');
+      throw new TranslateError(422, 'That text was declined by the model.');
     }
-    const text = response.content
+    return response.content
       .filter(function (b) { return b.type === 'text'; })
       .map(function (b) { return b.text; })
       .join('');
-    return { model: cfg.model, translations: parseLanguages(text, opts.targets, opts.sentences.length) };
   }
 };
 
@@ -194,19 +304,20 @@ const openai = {
   defaultModel: 'gpt-5-mini',
   defaultBaseUrl: 'https://api.openai.com/v1',
   label: 'OpenAI',
-  async translate(opts, cfg) {
+  strictSchema: true,
+  async chat(cfg, system, user, jsonSchema) {
     const response = await fetch(cfg.baseUrl.replace(/\/$/, '') + '/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + cfg.apiKey },
       body: JSON.stringify({
         model: cfg.model,
         messages: [
-          { role: 'system', content: systemPrompt(opts.fromName, opts.targets, opts.sentences.length) },
-          { role: 'user', content: numbered(opts.sentences) }
+          { role: 'system', content: system },
+          { role: 'user', content: user }
         ],
         response_format: {
           type: 'json_schema',
-          json_schema: { name: 'translations', strict: true, schema: schema(true) }
+          json_schema: { name: 'answer', strict: true, schema: jsonSchema }
         }
       })
     });
@@ -216,9 +327,8 @@ const openai = {
         '". Set TRANSLATE_MODEL to one it offers.' + hint);
     }
     const data = await readJSON(response, cfg.label);
-    const text = data && data.choices && data.choices[0] && data.choices[0].message
-      ? data.choices[0].message.content : '';
-    return { model: cfg.model, translations: parseLanguages(text || '', opts.targets, opts.sentences.length) };
+    return (data && data.choices && data.choices[0] && data.choices[0].message
+      ? data.choices[0].message.content : '') || '';
   }
 };
 
@@ -250,17 +360,18 @@ const google = {
   defaultModel: 'gemini-2.0-flash',
   defaultBaseUrl: 'https://generativelanguage.googleapis.com/v1beta',
   label: 'Google',
-  async translate(opts, cfg) {
+  // Gemini's schema dialect rejects additionalProperties, so it gets the
+  // looser schema; the checks on the way back still guard the answer.
+  strictSchema: false,
+  async chat(cfg, system, user, jsonSchema) {
     const url = cfg.baseUrl.replace(/\/$/, '') + '/models/' + encodeURIComponent(cfg.model) + ':generateContent';
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': cfg.apiKey },
       body: JSON.stringify({
-        systemInstruction: { parts: [{ text: systemPrompt(opts.fromName, opts.targets, opts.sentences.length) }] },
-        contents: [{ role: 'user', parts: [{ text: numbered(opts.sentences) }] }],
-        // Gemini's schema dialect rejects additionalProperties, so the
-        // looser schema goes here; the count check still guards the answer.
-        generationConfig: { responseMimeType: 'application/json', responseSchema: schema(false) }
+        systemInstruction: { parts: [{ text: system }] },
+        contents: [{ role: 'user', parts: [{ text: user }] }],
+        generationConfig: { responseMimeType: 'application/json', responseSchema: jsonSchema }
       })
     });
     if (response.status === 404 || response.status === 400) {
@@ -271,8 +382,7 @@ const google = {
     const data = await readJSON(response, cfg.label);
     const parts = data && data.candidates && data.candidates[0] &&
       data.candidates[0].content && data.candidates[0].content.parts;
-    const text = (parts || []).map(function (p) { return p.text || ''; }).join('');
-    return { model: cfg.model, translations: parseLanguages(text, opts.targets, opts.sentences.length) };
+    return (parts || []).map(function (p) { return p.text || ''; }).join('');
   }
 };
 
@@ -350,6 +460,36 @@ const deepl = {
 };
 
 export const PROVIDERS = { anthropic, openai, google, deepl };
+
+/* ------------------------------------------------------------------ *
+ * The two jobs, written once on top of whichever adapter is in use
+ * ------------------------------------------------------------------ */
+
+export async function translate(opts, cfg) {
+  // DeepL translates and nothing else, so it brings its own.
+  if (cfg.provider.translate) return cfg.provider.translate(opts, cfg);
+  const text = await cfg.provider.chat(
+    cfg,
+    systemPrompt(opts.fromName, opts.targets, opts.sentences.length),
+    numbered(opts.sentences),
+    schema(cfg.provider.strictSchema !== false)
+  );
+  return { model: cfg.model, translations: parseLanguages(text, opts.targets, opts.sentences.length) };
+}
+
+export async function vocab(opts, cfg) {
+  if (!cfg.provider.chat) {
+    throw new TranslateError(400, cfg.label + ' only translates — it cannot build a study list. ' +
+      'Set TRANSLATE_PROVIDER to anthropic, openai or google for this.');
+  }
+  const text = await cfg.provider.chat(
+    cfg,
+    vocabPrompt(opts.targets, opts.count),
+    numbered(opts.sentences),
+    vocabSchema(cfg.provider.strictSchema !== false)
+  );
+  return { model: cfg.model, words: parseVocab(text, opts.targets, opts.count) };
+}
 
 // Which provider to use, and with what. An explicit TRANSLATE_PROVIDER
 // wins; otherwise the first provider whose key is present is taken, so

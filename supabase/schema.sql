@@ -1258,3 +1258,26 @@ create policy "post_comments: signed in insert"
 -- Nothing can create an anonymous comment any more, so nothing needs a
 -- way to delete one by browser id.
 drop function if exists public.delete_anon_comment(uuid, text);
+
+-- ------------------------------------------------------------------
+-- 26. the self-study list under a Korean post
+-- ------------------------------------------------------------------
+-- A reader working through a Korean article in their own language
+-- learns more from five words explained than from a whole post
+-- translated. The list is built once, by an admin, alongside the
+-- translation, and stored here:
+--
+--   {"hash": "<fingerprint of the body it was built from>",
+--    "from": "ko", "at": "2026-09-22T…", "model": "…",
+--    "words": [{"word": "발효", "romanization": "balhyo",
+--               "pos": "noun", "sentence": "한식 맛의 핵심은 …",
+--               "by": {"en": {"meaning": "fermentation",
+--                             "explanation": "…"}}}]}
+--
+-- The same five words serve every language — only the explanations
+-- differ — so a reader who switches language keeps their place. `hash`
+-- does the same job it does for the translation: edit the post and the
+-- list reads as missing rather than as words that are no longer there.
+
+alter table public.posts
+  add column if not exists study jsonb not null default '{}'::jsonb;

@@ -543,6 +543,59 @@ the Anthropic SDK used by the default provider — the OpenAI, Google and
 DeepL adapters speak plain HTTP and need nothing. The pages are still
 plain HTML, CSS and browser JavaScript with no build step.
 
+### Social sign-in
+
+The modal offers Google, Facebook, X and KakaoTalk beside the email
+form. Each is a provider Supabase Auth speaks natively, so the site code
+is one list in `js/auth.js` and one call to `signInWithOAuth`; turning a
+provider on is a switch in the Supabase dashboard (Authentication →
+Providers) plus that service's own app keys and a redirect URL of
+`https://<project>.supabase.co/auth/v1/callback`. A provider left off
+still shows its button and answers that it is not switched on yet, which
+is the truth and points at where to fix it, rather than hiding a button
+whose absence explains nothing.
+
+**Naver is deliberately absent.** Supabase has no Naver provider, and
+the only ways to add one are to run the OAuth dance in our own
+serverless function and mint a Supabase session with the `service_role`
+key, or to stand up a separate identity service. Both put a key that
+bypasses every Row Level Security policy on this site into a request
+path a visitor can reach. That is a worse thing to own than the gap. If
+Naver becomes necessary, the honest route is Supabase adding it — the
+list in `js/auth.js` is one line per provider, so the day it exists the
+change is that line.
+
+### Self-study under a Korean post
+
+A reader working through a Korean article in their own language learns
+more from five words explained than from a whole post translated. Under
+a post written in Korean, `js/blog.js` renders a **Self-study** corner:
+five words a learner would stumble on, each with its romanization, part
+of speech, the meaning **this post uses**, a sentence or two on how to
+use it, and the sentence it came from.
+
+The sense matters more than the gloss, and it is what the instruction in
+`api/_providers.js` spends its words on: 발효 beside kimchi is food
+fermentation, not a law taking effect. The list is built once, by an
+admin, in the same run as the translation, and stored in `posts.study`
+with the same body fingerprint the translation carries — edit the post
+and the corner reads as missing rather than as words that are no longer
+there.
+
+The same five words serve every language; only the `by[<lang>]`
+explanations differ. A reader who switches language keeps their place in
+the list. A reader reading the post in Korean sees no corner — they have
+the words already — and a post not written in Korean has none to build.
+
+`api/translate.js` grew a `mode: "vocab"` for this rather than a second
+endpoint, because the auth check, the provider resolution and the limits
+are the same; only the prompt, the schema and the ceiling on how much
+text may be sent differ. Inside `api/_providers.js`, each adapter now
+supplies one `chat(cfg, system, user, schema)` and both jobs are written
+once on top of it — DeepL is the exception, since it translates and
+does nothing else, so it brings its own `translate` and answers the
+study list with a clear "use another provider for this".
+
 ### Likes and comments
 
 Two different things, priced differently. A heart costs a reader nothing
