@@ -1,10 +1,12 @@
 // DURU KOREAN — visitor counting
 //
-// Every page view writes one row to visitor_logs, so the same person
-// coming back later the same day counts again: the numbers are visits,
-// not people. The header then shows the running total and today's count
-// beside the wordmark, through get_visitor_counts(), a function that may
-// be called by anyone while the rows stay readable only by an admin.
+// One row per visit, not per page view: opening the site counts once,
+// and walking around the menus after that does not count again. The
+// same person coming back later counts again, signed in or not — the
+// numbers are visits, not people. The header shows the running total
+// and today's count beside the wordmark, through get_visitor_counts(),
+// a function anyone may call while the rows stay readable only by an
+// admin.
 
 (function () {
   'use strict';
@@ -42,6 +44,22 @@
     return Promise.resolve('fb' + (h >>> 0).toString(16));
   }
 
+  // The visit marker lives in sessionStorage, so it goes when the tab
+  // does and a return trip counts as a new visit. A tab left open and
+  // picked up again much later is a new visit too, hence the window.
+  // Where storage is unavailable (private mode) every page view counts,
+  // the old behaviour: there is no way to tell one visit from the next.
+  var VISIT_KEY = 'duru_visit_at';
+  var VISIT_WINDOW_MS = 30 * 60 * 1000;
+
+  function startsNewVisit() {
+    var now = Date.now();
+    var last = 0;
+    try { last = Number(sessionStorage.getItem(VISIT_KEY)) || 0; } catch (e) {}
+    try { sessionStorage.setItem(VISIT_KEY, String(now)); } catch (e) {}
+    return !last || now - last > VISIT_WINDOW_MS;
+  }
+
   function recordVisit() {
     return fingerprint().then(function (fp) {
       // visited_date is left to the database, which stamps it in Korean
@@ -70,7 +88,8 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    recordVisit().then(showCounts);
+    if (startsNewVisit()) recordVisit().then(showCounts);
+    else showCounts();
   });
   document.addEventListener('duru:langchange', function () {
     var box = document.querySelector('.site-visits');

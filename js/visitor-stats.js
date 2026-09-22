@@ -8,8 +8,8 @@
 (function () {
   'use strict';
 
-  // visitor_logs holds one row per page view, so distinct fingerprints
-  // have to be counted over the fetched column. This caps
+  // visitor_logs holds one row per visit, so distinct fingerprints have
+  // to be counted over the fetched column. This caps
   // how many are pulled, since the figure is a headline, not a ledger.
   var DISTINCT_SCAN_LIMIT = 50000;
 

@@ -25,8 +25,8 @@ js/main.js               Nav, FAQ accordion, blog filters, scroll behavior
 js/supabase-config.js    Supabase project URL + anon key (placeholders — see below)
 js/auth.js                Login/signup modal + auth state handling
 js/resources.js           Admin-managed file attach/delete on Free Resources & Book & Audio
-js/i18n.js                 Homepage language switcher (English / Vietnamese / Korean)
-js/i18n/en.json, vi.json, ko.json   Homepage translation strings
+js/i18n.js                 Site-wide language switcher; LANGS sets the order
+js/i18n/<code>.json        Translation strings, one file per language
 supabase/schema.sql       SQL to run once in the Supabase dashboard (admin table, resources table, RLS, storage policies)
 ```
 
@@ -175,19 +175,24 @@ the corresponding `captchaToken` option to the `signUp` /
 
 ## Language switcher (site-wide)
 
-Every page has a globe-icon dropdown in the header for English, Tiếng
-Việt, 한국어, 日本語, and 中文 — nav, footer, every page's own content,
-the login/signup modal, and the admin resource-attach/delete UI are all
-covered (`js/i18n/en.json`, `vi.json`, `ko.json`, `ja.json`, `zh.json`;
-380+ keys each, kept in sync by construction — every file is validated
-against the English key set, so a missing or stray key fails loudly
-rather than silently rendering a raw key on the page).
+Every page has a globe-icon dropdown in the header, listing English,
+Tiếng Việt, Español, Bahasa Indonesia, Português (BR), 한국어, 日本語 and
+中文 in that order — nav, footer, every page's own content, the
+login/signup modal, and the admin resource-attach/delete UI are all
+covered (`js/i18n/en.json`, `vi.json`, `es.json`, `id.json`,
+`pt-BR.json`, `ko.json`, `ja.json`, `zh.json`; 535 keys each, kept in
+sync by construction — every file is validated against the English key
+set, so a missing or stray key fails loudly rather than silently
+rendering a raw key on the page).
 
 Adding another language is three steps: copy `en.json` to
 `js/i18n/<code>.json` and translate the values, add
 `{ code: '<code>', label: '<native name>' }` to the `LANGS` array at the
-top of `js/i18n.js`, and re-run the sweep to confirm the longer or
-shorter labels don't break the header.
+top of `js/i18n.js` (its order is the order of the dropdown), and re-run
+the sweep to confirm the longer or shorter labels don't break the
+header. Languages whose menu labels run long enough to need the
+two-row header sooner are listed in the `:is([lang=…])` selector in
+`css/style.css`.
 
 - **Persistence & scope**: the chosen language is saved in
   `localStorage` (`duru_lang`) and re-applied on every page load,

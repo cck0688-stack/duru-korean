@@ -1,4 +1,7 @@
-// DURU KOREAN — site-wide i18n engine (English / Vietnamese / Korean)
+// DURU KOREAN — site-wide i18n engine
+//
+// LANGS below is the whole list: its order is the order of the picker,
+// and each code names a dictionary at js/i18n/<code>.json.
 //
 // Elements are translated via data-i18n="key" (textContent) or
 // data-i18n-html="key" (innerHTML, for the rare string with inline markup).
@@ -21,6 +24,9 @@
   var LANGS = [
     { code: 'en', label: 'English' },
     { code: 'vi', label: 'Tiếng Việt' },
+    { code: 'es', label: 'Español' },
+    { code: 'id', label: 'Bahasa Indonesia' },
+    { code: 'pt-BR', label: 'Português (BR)' },
     { code: 'ko', label: '한국어' },
     { code: 'ja', label: '日本語' },
     { code: 'zh', label: '中文' }

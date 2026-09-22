@@ -1114,13 +1114,15 @@ section { position: relative; }
   .account-trigger .email { max-width: 60px; }
 }
 
-/* Selector specificity keeps the Vietnamese hand-over above the 1040px
-   rules regardless of source order. */
+/* Vietnamese, Spanish, Indonesian and Brazilian Portuguese menu labels
+   run 80–140px longer than English, so those four hand over to two rows
+   earlier. The selector's specificity keeps them above the 1040px rules
+   regardless of source order. */
 @media (max-width: 1120px) {
-  html[lang="vi"] .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; }
-  html[lang="vi"] .header-brand { order: 1; }
-  html[lang="vi"] .header-actions { order: 2; }
-  html[lang="vi"] .nav-main {
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .header-brand { order: 1; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .header-actions { order: 2; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .nav-main {
     order: 3;
     flex: 1 1 100%;
     justify-content: center;
@@ -1129,20 +1131,20 @@ section { position: relative; }
     padding: 8px 0 10px;
     border-top: 1px solid var(--header-border);
   }
-  html[lang="vi"] .account-trigger .email { max-width: 60px; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .account-trigger .email { max-width: 60px; }
 }
 
 /* Phones: one row again, the menu behind the hamburger. Written for the
-   Vietnamese selector too, so it outranks that language's two-row rules. */
+   long-label selector too, so it outranks those languages' two-row rules. */
 @media (max-width: 600px) {
   .site-header .wrap,
-  html[lang="vi"] .site-header .wrap { flex-wrap: nowrap; height: var(--header-h); padding-top: 0; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .site-header .wrap { flex-wrap: nowrap; height: var(--header-h); padding-top: 0; }
   .nav-main,
-  html[lang="vi"] .nav-main { display: none; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .nav-main { display: none; }
   .nav-toggle { display: block; }
   .site-visits { display: none; }
   .site-header.menu-open .nav-main,
-  html[lang="vi"] .site-header.menu-open .nav-main {
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .site-header.menu-open .nav-main {
     display: flex;
     flex-direction: column;
     position: absolute;

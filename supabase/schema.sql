@@ -285,7 +285,9 @@ create policy "user_profiles: self update"
 -- ------------------------------------------------------------------
 -- 8. visitor_logs — track daily visitors for analytics
 -- ------------------------------------------------------------------
--- Records one row per page view, so a returning visitor counts again.
+-- Records one row per visit, not per page view: the site writes here
+-- once when someone arrives and not again as they move between pages.
+-- A returning visitor counts again, signed in or not.
 -- Uses a hashed fingerprint instead of IP addresses to avoid privacy
 -- concerns. visited_date is stamped here in Korean time so "today" is
 -- the same day for every visitor, whatever their own clock says.
