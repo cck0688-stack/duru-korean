@@ -539,7 +539,7 @@
   "resource.pdfLanguage": "Idioma del archivo",
   "resource.loginNote": "Las descargas son para quienes han iniciado sesión: lleva un minuto y es gratis.",
   "resource.langNote": "Elegir el idioma del PDF solo cambia el archivo que recibes. El idioma del sitio se elige en el menú de arriba.",
-  "resource.aboutHeading": "Qué contiene y cómo usarlo",
+  "resource.aboutHeading": "Sobre esta descarga",
   "resource.noFilesYet": "Sin archivo aún",
   "resource.hiddenFile": "oculto",
   "resource.notInLang": "Esta descarga todavía no está disponible en {lang}: elige uno de los idiomas de abajo.",

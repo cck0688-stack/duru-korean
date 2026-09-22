@@ -539,7 +539,7 @@
   "resource.pdfLanguage": "Ngôn ngữ của tài liệu",
   "resource.loginNote": "Tài liệu dành cho người học đã đăng nhập — chỉ mất một phút và hoàn toàn miễn phí.",
   "resource.langNote": "Chọn ngôn ngữ PDF chỉ thay đổi file bạn nhận được. Ngôn ngữ của trang web được đặt ở menu phía trên.",
-  "resource.aboutHeading": "Nội dung & cách sử dụng",
+  "resource.aboutHeading": "Về tài liệu này",
   "resource.noFilesYet": "Chưa có file",
   "resource.hiddenFile": "ẩn",
   "resource.notInLang": "Tài liệu này chưa có bản {lang} — hãy chọn một trong các ngôn ngữ bên dưới.",

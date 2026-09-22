@@ -2768,69 +2768,107 @@ section { position: relative; }
 }
 .resource-empty p { margin: 0; color: var(--ink-dim); font-size: 14.5px; }
 
-.res-card {
-  background: #fff;
-  border: 1px solid rgba(22,48,43,0.08);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--shadow);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+/* A download reads as one compact row: a small square for the cover or
+   its category glyph, then the text. Three to a row on a wide screen,
+   so a page of twenty is still a page rather than a scroll. */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
 }
-.res-card:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -24px rgba(23,43,45,0.45); }
-.res-card--draft { outline: 2px dashed var(--accent-red); outline-offset: -2px; }
-.res-cover {
+
+.res-card {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  background: #fff;
+  border: 1px solid rgba(22, 48, 43, 0.1);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 10px 24px -22px rgba(23, 43, 45, 0.5);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.res-card:hover { border-color: rgba(22, 48, 43, 0.22); box-shadow: 0 14px 28px -20px rgba(23, 43, 45, 0.55); }
+.res-card--draft { border-style: dashed; border-color: rgba(184, 73, 45, 0.5); }
+
+.res-thumb {
   display: block;
-  aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, var(--bg-soft), var(--bg));
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
+  background: linear-gradient(140deg, var(--bg-soft), var(--bg));
 }
-.res-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.res-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .res-cover-glyph {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
   color: #f7f4ec;
-  font-size: 56px;
+  font-size: 26px;
   font-weight: 700;
 }
-.res-card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
-.res-draft { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-red); font-weight: 700; }
-.res-card-body h3 { font-size: 16px; margin: 0; color: var(--ink); line-height: 1.3; }
+
+.res-card-body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.res-draft {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  font-weight: 700;
+}
+.res-card-body h3 { font-size: 15px; margin: 0; color: var(--ink); line-height: 1.35; }
 .res-card-body h3 a { color: inherit; }
-.res-card-body p { font-size: 13.5px; color: var(--ink-dim); margin: 0; }
-.res-card-body p:not(.res-meta) {
+.res-card-body h3 a:hover { color: var(--accent-red); }
+.res-card-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+  margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  flex-grow: 1;
 }
-.res-meta { font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-red); font-weight: 700; }
+.res-meta {
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  font-weight: 700;
+  margin: 1px 0 0;
+}
 .res-card-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin-top: 6px;
   flex-wrap: wrap;
+  margin-top: 4px;
 }
 .res-langs { display: inline-flex; gap: 4px; flex-wrap: wrap; }
 .res-chip {
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 3px 7px;
-  border-radius: 6px;
-  background: rgba(22,48,43,0.08);
-  color: var(--ink);
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba(22, 48, 43, 0.07);
+  color: var(--ink-dim);
 }
-.res-chip--more { background: transparent; border: 1px solid rgba(22,48,43,0.18); color: var(--ink-dim); }
-.res-chip--none { background: transparent; color: var(--ink-dim); font-weight: 500; letter-spacing: 0; text-transform: none; }
-.res-view { font-size: 12.5px; padding: 8px 14px; }
+.res-chip--more { background: transparent; border: 1px solid rgba(22, 48, 43, 0.16); }
+.res-chip--none { background: transparent; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.res-view { font-size: 12.5px; font-weight: 700; color: var(--accent-red); white-space: nowrap; }
+.res-view:hover { text-decoration: underline; }
+
+@media (max-width: 420px) {
+  .res-card { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 14px; }
+  .res-thumb { width: 48px; height: 48px; border-radius: 10px; }
+  .res-cover-glyph { font-size: 21px; }
+}
 
 /* ---------- Downloads: one resource ---------- */
 
@@ -2853,15 +2891,21 @@ section { position: relative; }
 
 .res-detail {
   display: grid;
-  grid-template-columns: minmax(240px, 340px) 1fr;
-  gap: 40px;
+  grid-template-columns: minmax(200px, 260px) 1fr;
+  gap: 36px;
   align-items: start;
 }
 .res-cover--large {
+  position: relative;
+  display: block;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  overflow: hidden;
+  background: linear-gradient(140deg, var(--bg-soft), var(--bg));
+  box-shadow: 0 12px 28px -22px rgba(23, 43, 45, 0.55);
 }
+.res-cover--large img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.res-cover--large .res-cover-glyph { font-size: 46px; }
 .res-facts { margin: 18px 0 0; display: grid; gap: 8px; }
 .res-facts div { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; border-bottom: 1px solid rgba(22,48,43,0.1); padding-bottom: 8px; }
 .res-facts dt { color: var(--ink-dim); font-weight: 600; }
@@ -2906,7 +2950,8 @@ section { position: relative; }
 .res-lang-hint { margin: 4px 0 0; font-size: 12px; color: var(--ink-dim); opacity: 0.85; }
 
 .res-body { margin-top: 32px; }
-.res-body h2 { font-size: 22px; margin: 0 0 12px; }
+.res-body h2 { font-size: 20px; margin: 0 0 12px; }
+.res-lead { font-size: 16.5px; line-height: 1.65; color: var(--ink); margin: 0 0 14px; }
 .res-body-text p { font-size: 15.5px; line-height: 1.75; color: var(--ink-dim); margin: 0 0 12px; }
 .res-body-empty { font-style: italic; }
 

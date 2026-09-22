@@ -102,12 +102,13 @@
         (state.lang !== 'mine' && state.lang !== 'all' ? '&pl=' + encodeURIComponent(state.lang) : '');
       var level = r.learning_level && r.learning_level !== 'Any level' ? R.levelLabel(r.learning_level) : '';
       var meta = [R.categoryLabel(r.category), level, Object.keys(formats).join('/') || 'PDF'].filter(Boolean).join(' · ');
+      var desc = R.localized(r, 'description', lang);
       return '<article class="res-card' + (r.published === false ? ' res-card--draft' : '') + '">' +
-        '<a class="res-cover" href="' + esc(href) + '" tabindex="-1" aria-hidden="true">' + R.coverHTML(client, r) + '</a>' +
+        '<a class="res-thumb" href="' + esc(href) + '" tabindex="-1" aria-hidden="true">' + R.coverHTML(client, r) + '</a>' +
         '<div class="res-card-body">' +
-          (r.published === false ? '<span class="res-draft">' + esc(t('resource.draft', 'Hidden')) + '</span>' : '') +
+          (r.published === false ? '<span class="res-draft">' + esc(t('resource.draft', 'Not published')) + '</span>' : '') +
           '<h3><a href="' + esc(href) + '">' + esc(R.localized(r, 'title', lang)) + '</a></h3>' +
-          (R.localized(r, 'description', lang) ? '<p>' + esc(R.localized(r, 'description', lang)) + '</p>' : '') +
+          (desc ? '<p class="res-card-desc">' + esc(desc) + '</p>' : '') +
           '<p class="res-meta">' + esc(meta) + '</p>' +
           '<div class="res-card-foot">' +
             '<span class="res-langs" aria-label="' + esc(t('resource.factLanguages', 'Languages')) + '">' +
@@ -115,7 +116,7 @@
               (more > 0 ? '<span class="res-chip res-chip--more">+' + more + '</span>' : '') +
               (!chips.length ? '<span class="res-chip res-chip--none">' + esc(t('resource.noFilesYet', 'No file yet')) + '</span>' : '') +
             '</span>' +
-            '<a class="btn btn-ghost res-view" href="' + esc(href) + '">' + esc(t('resources.viewDownload', 'View & Download')) + '</a>' +
+            '<a class="res-view" href="' + esc(href) + '">' + esc(t('resources.viewDownload', 'View & Download')) + ' →</a>' +
           '</div>' +
         '</div>' +
       '</article>';

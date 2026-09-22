@@ -539,7 +539,7 @@
   "resource.pdfLanguage": "文件语言",
   "resource.loginNote": "下载功能面向已登录的学习者 —— 注册只需一分钟，而且免费。",
   "resource.langNote": "选择 PDF 语言只会改变你获得的文件。网站语言在顶部菜单中设置。",
-  "resource.aboutHeading": "内容与使用方法",
+  "resource.aboutHeading": "关于此下载",
   "resource.noFilesYet": "暂无文件",
   "resource.hiddenFile": "隐藏",
   "resource.notInLang": "该资料尚无{lang}版本 —— 请从下方语言中选择。",

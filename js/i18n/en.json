@@ -539,7 +539,7 @@
   "resource.pdfLanguage": "File language",
   "resource.loginNote": "Downloads are for signed-in learners — it takes a minute and it is free.",
   "resource.langNote": "Choosing a PDF language only changes which file you get. The site’s own language is set from the menu at the top.",
-  "resource.aboutHeading": "What’s inside & how to use it",
+  "resource.aboutHeading": "About this download",
   "resource.noFilesYet": "No file yet",
   "resource.hiddenFile": "hidden",
   "resource.notInLang": "This download isn’t available in {lang} yet — pick one of the languages below.",

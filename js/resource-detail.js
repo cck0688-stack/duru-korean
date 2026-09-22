@@ -68,7 +68,7 @@
       var title = R.localized(resource, 'title', lang);
       document.title = title + ' — Duru Korean';
       $('resTitle').textContent = title;
-      $('resSummary').textContent = R.localized(resource, 'description', lang);
+      var summary = R.localized(resource, 'description', lang);
       $('resCategory').textContent = R.categoryLabel(resource.category);
       $('resBack').href = backHref();
       $('resCover').innerHTML = R.coverHTML(client, resource);
@@ -83,13 +83,15 @@
         ? files.map(function (f) { return R.langLabel(f.lang); }).join(', ')
         : t('resource.noFilesYet', 'No file yet');
 
-      // The long description is optional, so the whole section goes
-      // away rather than announcing that nobody has written it.
+      // The short description reads in the column people actually read,
+      // with the longer text under it; the banner keeps the title alone.
+      // Both are optional, so the section goes away when neither is set
+      // rather than announcing that nobody has written it.
       var body = R.localized(resource, 'body', lang);
-      document.querySelector('.res-body').hidden = !body;
-      $('resBody').innerHTML = body
-        ? body.split(/\n{2,}/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('')
-        : '';
+      document.querySelector('.res-body').hidden = !(summary || body);
+      $('resBody').innerHTML =
+        (summary ? '<p class="res-lead">' + esc(summary) + '</p>' : '') +
+        (body ? body.split(/\n{2,}/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('') : '');
 
       renderLanguagePicker(files);
       $('resAdmin').hidden = !isAdmin;

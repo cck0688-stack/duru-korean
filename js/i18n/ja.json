@@ -539,7 +539,7 @@
   "resource.pdfLanguage": "ファイルの言語",
   "resource.loginNote": "ダウンロードはログインした学習者向けです。登録は1分、無料です。",
   "resource.langNote": "PDFの言語を選んでも、受け取るファイルが変わるだけです。サイトの言語は上部メニューで設定します。",
-  "resource.aboutHeading": "内容と使い方",
+  "resource.aboutHeading": "この資料について",
   "resource.noFilesYet": "ファイルなし",
   "resource.hiddenFile": "非公開",
   "resource.notInLang": "この資料はまだ{lang}版がありません。下の言語から選んでください。",

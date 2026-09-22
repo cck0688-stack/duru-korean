@@ -539,7 +539,7 @@
   "resource.pdfLanguage": "파일 언어",
   "resource.loginNote": "다운로드는 로그인한 학습자에게 제공됩니다. 가입은 1분이면 되고 무료입니다.",
   "resource.langNote": "PDF 언어는 받을 파일만 바꿉니다. 사이트 언어는 상단 메뉴에서 정합니다.",
-  "resource.aboutHeading": "수록 내용과 활용 방법",
+  "resource.aboutHeading": "자료 소개",
   "resource.noFilesYet": "파일 없음",
   "resource.hiddenFile": "비공개",
   "resource.notInLang": "이 자료는 아직 {lang} 버전이 없습니다. 아래 언어 중에서 골라 주세요.",
