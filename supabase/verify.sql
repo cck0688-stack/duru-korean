@@ -74,7 +74,12 @@ with checks(item, ok) as (
                and pg_get_constraintdef(oid) like '%docx%')),
 
     ('resource-covers bucket is public',
-     exists (select 1 from storage.buckets where id='resource-covers' and public = true))
+     exists (select 1 from storage.buckets where id='resource-covers' and public = true)),
+
+    ('uploads allowed up to 50 MB',
+     not exists (select 1 from storage.buckets
+                 where id in ('resources', 'resource-covers')
+                   and coalesce(file_size_limit, 52428800) < 52428800))
 )
 select
   case when ok then 'OK   ' else 'FAIL ' end || item as result

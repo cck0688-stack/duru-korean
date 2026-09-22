@@ -963,3 +963,11 @@ alter table public.resource_files drop constraint if exists resource_files_file_
 alter table public.resource_files
   add constraint resource_files_file_type_check
   check (file_type in ('pdf', 'doc', 'docx', 'png', 'jpg', 'jpeg', 'mp3', 'm4a'));
+
+-- A textbook chapter with its audio runs past the 20 MB a new bucket
+-- allows, so both buckets are raised to the 50 MB a project permits per
+-- upload. Nothing in the site offers a file larger than that.
+
+update storage.buckets
+   set file_size_limit = 52428800
+ where id in ('resources', 'resource-covers');
