@@ -17,8 +17,11 @@
 // public select policy filters on `published`, so an unfinished post is
 // never one stray link away from being read.
 //
-// Single posts are addressed as blog.html?post=<slug>; a static host has
-// no routing, so the query string is the only thing available.
+// A single post lives at /blog/post/<slug>, a shelf at /blog/travel and
+// a sub-topic at /blog/travel/transport. vercel.json turns each of those
+// back into the query string this file reads, so nothing here has to
+// know about routing — see js/blog-categories.js for the one place the
+// paths are built.
 
 (function () {
   'use strict';
@@ -27,9 +30,12 @@
   if (!R) return;
   var MT = window.DURU_MT;
 
-  var CATEGORIES = ['culture', 'travel', 'food', 'trends', 'language', 'etc'];
-  // Each category's Hangul glyph, matching the static design.
-  var GLYPH = { culture: '삶', travel: '길', food: '맛', trends: '멋', language: '말', etc: '기' };
+  // The seven shelves and their sub-topics, from js/blog-categories.js.
+  // That file is the one place the ids, the glyphs and the descriptions
+  // live; nothing here should hold a list of categories of its own.
+  var B = window.DURU_BLOG;
+  if (!B) return;
+  var CATEGORIES = B.ids;
 
   var STATE_KEY = 'duru_blog_state';
   var RETURN_KEY = 'duru_blog_return';
@@ -169,7 +175,7 @@
     if (!own.length) return '';
     var shown = (MT && MT.tagsFor(post, lang)) || own;
     return '<div class="post-tags">' + own.map(function (tag, i) {
-      return '<a class="post-tag" href="blog.html?tag=' + encodeURIComponent(tag) + '">#' +
+      return '<a class="post-tag" href="/blog?tag=' + encodeURIComponent(tag) + '">#' +
         escapeHTML(shown[i] || tag) + '</a>';
     }).join('') + '</div>';
   }
@@ -185,7 +191,27 @@
   }
 
   function categoryLabel(cat) {
-    return t('blog.cat.' + cat, cat);
+    return B.label(cat);
+  }
+
+  // Where a post sits, in one line: the shelf, then the sub-topic when
+  // it has one. Both translated, both from the same place.
+  function shelfLabel(post) {
+    var out = categoryLabel(post.category);
+    if (post.subtopic && B.parentOf(post.subtopic)) out += ' · ' + B.subLabel(post.subtopic);
+    return out;
+  }
+
+  // Who a post is for, as the coloured badges the cards carry. An
+  // audience the model or the database does not know about is dropped
+  // rather than rendered as a bare id.
+  function audienceBadges(post) {
+    var list = (post.audiences || []).filter(function (a) { return B.AUDIENCES.indexOf(a) !== -1; });
+    if (!list.length) return '';
+    return '<span class="aud-badges">' + list.map(function (a) {
+      return '<span class="aud-badge aud-badge--' + escapeHTML(a) + '">' +
+        escapeHTML(B.audienceLabel(a)) + '</span>';
+    }).join('') + '</span>';
   }
 
   function formatDate(iso) {
@@ -218,6 +244,12 @@
     var toolbarEl = document.getElementById('blogToolbar');
     var leadInEl = document.querySelector('.section-lead-in');
     var filtersEl = document.getElementById('blogFilters');
+    var audEl = document.getElementById('blogAudiences');
+    var landingEl = document.getElementById('blogLanding');
+    var catGridEl = document.getElementById('blogCatGrid');
+    var picksWrapEl = document.getElementById('blogPicksWrap');
+    var picksEl = document.getElementById('blogPicks');
+    var allTitleEl = document.getElementById('blogAllTitle');
     var langSel = document.getElementById('blogLang');
     var writeBtn = document.getElementById('writePostBtn');
     if (!listEl) return;
@@ -226,7 +258,16 @@
     if (!client) return;
 
     var isAdmin = false;
+    // The address bar is the truth for where in the blog a reader is:
+    // ?cat= a shelf, ?sub= one of its sub-topics, ?aud= who they are.
+    // That makes every view a link someone can send, and a back button
+    // that means something.
+    // Where this page was opened on: /blog/travel/transport and
+    // /blog/post/<slug> as readily as blog.html?cat=&sub= and ?post=.
+    var route = B.route(location.pathname, location.search);
     var activeFilter = 'all';
+    var activeSub = '';
+    var activeAud = '';
     var listLang = R.preferredLang();
     // The site language this list is tuned to — see js/resources.js for
     // the same rule: a choice made in the dropdown is remembered, but
@@ -261,14 +302,60 @@
 
     var saved = null;
     try { saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null'); } catch (e) {}
-    if (saved && typeof saved === 'object' && saved.cat) activeFilter = saved.cat;
+    // Where in the blog the reader is comes from the address bar and
+    // nowhere else. This used to be remembered per tab as well, which
+    // meant a link naming no shelf — a tag link, say — silently
+    // inherited whichever shelf had been open a moment ago and showed
+    // nothing. The shelf is in the URL now, so Back restores it by
+    // itself; sessionStorage is left holding the language and the
+    // scroll position, which no URL carries.
+    if (route.cat) { activeFilter = route.cat; activeSub = route.sub; }
+    activeAud = new URLSearchParams(location.search).get('aud') || '';
+    normaliseFilters();
+
+    // An id that no longer exists — an old bookmark, a hand-typed URL —
+    // falls back rather than showing an empty page with no explanation.
+    // Which post the address bar is asking for, whichever shape it is
+    // written in. Read fresh: syncURL rewrites the path as filters move.
+    function currentSlug() {
+      return B.route(location.pathname, location.search).post;
+    }
+
+    function normaliseFilters() {
+      if (CATEGORIES.indexOf(activeFilter) === -1) activeFilter = 'all';
+      if (activeSub && B.parentOf(activeSub) !== activeFilter) activeSub = '';
+      if (B.AUDIENCES.indexOf(activeAud) === -1) activeAud = '';
+    }
 
     function saveState(extra) {
       try {
-        var st = { cat: activeFilter, lang: listLang, site: tunedTo };
+        var st = { lang: listLang, site: tunedTo };
         if (extra) Object.keys(extra).forEach(function (k) { st[k] = extra[k]; });
         sessionStorage.setItem(STATE_KEY, JSON.stringify(st));
       } catch (e) {}
+    }
+
+    // Keep the address bar level with what is on screen, without adding
+    // a history entry per click: a filter is where you are, not a page
+    // you visited.
+    function syncURL() {
+      if (!window.history || !history.replaceState) return;
+      var q = new URLSearchParams(location.search);
+      ['cat', 'sub', 'aud'].forEach(function (k) { q.delete(k); });
+      if (activeAud) q.set('aud', activeAud);
+      // Readable paths only where the host serves them. Opened as
+      // blog.html — a local preview, a static host without the
+      // rewrites — the query string stays, so a reload still works.
+      var clean = !/\.html$/.test(location.pathname);
+      if (!clean) {
+        if (activeFilter !== 'all') q.set('cat', activeFilter);
+        if (activeSub) q.set('sub', activeSub);
+      }
+      var qs = q.toString();
+      var path = clean
+        ? B.href(activeFilter === 'all' ? '' : activeFilter, activeSub)
+        : location.pathname;
+      history.replaceState(null, '', path + (qs ? '?' + qs : ''));
     }
 
     function followSiteLang() {
@@ -308,6 +395,8 @@
 
     function matchesFilters(p) {
       if (activeFilter !== 'all' && p.category !== activeFilter) return false;
+      if (activeSub && p.subtopic !== activeSub) return false;
+      if (activeAud && (p.audiences || []).indexOf(activeAud) === -1) return false;
       if (activeTag) {
         return (p.tags || []).some(function (tag) {
           return tag.toLowerCase() === activeTag.toLowerCase();
@@ -316,19 +405,197 @@
       return true;
     }
 
+    /* ---------------- The category bar ---------------- */
+
+    // Seven shelves across the top, each opening onto its sub-topics.
+    // Built once; the labels are repainted on a language change rather
+    // than the whole bar, so an open menu stays open.
+    function buildCategoryBar() {
+      if (!filtersEl) return;
+      filtersEl.innerHTML =
+        '<button type="button" class="filter-btn cat-all" data-filter="all" data-i18n="blog.filter.all">All</button>' +
+        B.CATEGORIES.map(function (c) {
+          return '<span class="cat-item" data-cat="' + escapeHTML(c.id) + '">' +
+            '<button type="button" class="filter-btn" data-filter="' + escapeHTML(c.id) + '">' +
+              '<span class="cat-glyph kr" aria-hidden="true">' + escapeHTML(c.glyph) + '</span>' +
+              '<span class="cat-name" data-i18n="blog.cat.' + escapeHTML(c.id) + '.nav"></span>' +
+            '</button>' +
+            '<button type="button" class="cat-caret" aria-expanded="false" data-caret="' +
+              escapeHTML(c.id) + '"><span aria-hidden="true">\u25be</span></button>' +
+            '<div class="cat-menu">' +
+              '<a class="cat-menu-all" href="' + B.href(c.id) + '" data-cat="' + escapeHTML(c.id) +
+                '" data-sub=""></a>' +
+              c.subs.map(function (id) {
+                return '<a href="' + B.href(c.id, id) + '" data-cat="' + escapeHTML(c.id) +
+                  '" data-sub="' + escapeHTML(id) + '" data-i18n="blog.sub.' + escapeHTML(id) + '"></a>';
+              }).join('') +
+            '</div>' +
+          '</span>';
+        }).join('');
+      // mouseleave does not bubble, so this goes on each shelf rather
+      // than on the bar: leaving one clears the suppression set when it
+      // was clicked (see the click handler below).
+      filtersEl.querySelectorAll('.cat-item').forEach(function (item) {
+        item.addEventListener('mouseleave', function () { item.classList.remove('no-hover'); });
+        item.addEventListener('mouseenter', function () { placeMenu(item); });
+        item.addEventListener('focusin', function () { placeMenu(item); });
+      });
+      paintCategoryBar();
+    }
+
+    // Line a menu up with the shelf it belongs to. The menu is
+    // positioned against the bar (see .blog-cats in the stylesheet), so
+    // this is the offset that puts it back under its own shelf —
+    // pulled left when it would otherwise run past the end.
+    function placeMenu(item) {
+      var menu = item.querySelector('.cat-menu');
+      if (!menu || window.innerWidth <= 600) return;
+      var left = item.offsetLeft;
+      var width = menu.offsetWidth || 232;
+      var max = filtersEl.clientWidth - width;
+      menu.style.setProperty('--menu-left', Math.max(0, Math.min(left, max)) + 'px');
+    }
+
+    function paintCategoryBar() {
+      if (!filtersEl) return;
+      filtersEl.querySelectorAll('[data-filter]').forEach(function (btn) {
+        if (btn.dataset.filter === 'all') {
+          // The count is appended by updateFilterCounts; keep it.
+          var count = btn.querySelector('.filter-count');
+          btn.textContent = t('blog.filter.all', 'All');
+          if (count) btn.appendChild(count);
+        } else {
+          var name = btn.querySelector('.cat-name');
+          if (name) name.textContent = B.navLabel(btn.dataset.filter);
+        }
+      });
+      filtersEl.querySelectorAll('.cat-caret').forEach(function (btn) {
+        btn.setAttribute('aria-label',
+          t('blog.allIn', 'All of {cat}').replace('{cat}', B.navLabel(btn.dataset.caret)));
+      });
+      filtersEl.querySelectorAll('.cat-menu a').forEach(function (a) {
+        a.textContent = a.dataset.sub
+          ? B.subLabel(a.dataset.sub)
+          : t('blog.allIn', 'All of {cat}').replace('{cat}', B.navLabel(a.dataset.cat));
+      });
+    }
+
+    // Three chips: who is reading. Narrowing to one hides what does not
+    // apply to them — a tourist here for five days has no use for a post
+    // about extending a student visa.
+    function buildAudienceRow() {
+      if (!audEl) return;
+      audEl.innerHTML = '<span class="blog-aud-label" data-i18n="blog.audienceQ"></span>' +
+        '<span class="blog-aud-chips">' +
+        ['', 'tourists', 'students', 'expats'].map(function (id) {
+          return '<button type="button" class="aud-chip' + (id ? ' aud-chip--' + id : '') +
+            '" data-aud="' + escapeHTML(id) + '"></button>';
+        }).join('') + '</span>';
+      paintAudienceRow();
+    }
+
+    function paintAudienceRow() {
+      if (!audEl) return;
+      audEl.querySelector('.blog-aud-label').textContent = t('blog.audienceQ', "Who's reading?");
+      audEl.querySelectorAll('.aud-chip').forEach(function (btn) {
+        var id = btn.dataset.aud;
+        btn.textContent = id ? B.audienceLabel(id) : t('blog.aud.all', 'Everyone');
+        btn.classList.toggle('active', id === activeAud);
+        btn.setAttribute('aria-pressed', id === activeAud ? 'true' : 'false');
+      });
+    }
+
     /* ---------------- Rendering ---------------- */
 
+    // The name of wherever the reader currently is, with the sentence
+    // that says what it is for. Only on a shelf — the unfiltered list
+    // has the landing instead.
     function renderCategoryHero() {
-      if (activeFilter === 'all' || !listEl.parentElement) return;
+      if (!listEl.parentElement) return;
       var heroDiv = listEl.parentElement.querySelector('.blog-category-hero');
+      if (activeFilter === 'all') { if (heroDiv) heroDiv.remove(); return; }
       if (!heroDiv) {
         heroDiv = document.createElement('div');
         heroDiv.className = 'blog-category-hero';
         listEl.parentElement.insertBefore(heroDiv, listEl);
       }
-      var desc = t('blog.cat.' + activeFilter + '.desc', '');
-      heroDiv.innerHTML = desc ? '<p>' + escapeHTML(desc) + '</p>' : '';
-      heroDiv.hidden = !desc;
+      var desc = B.describe(activeFilter);
+      heroDiv.innerHTML =
+        '<span class="blog-category-glyph kr" aria-hidden="true">' +
+          escapeHTML(B.glyph(activeFilter)) + '</span>' +
+        '<div><h2>' + escapeHTML(categoryLabel(activeFilter)) +
+          (activeSub ? ' <span class="blog-category-sub">· ' +
+            escapeHTML(B.subLabel(activeSub)) + '</span>' : '') + '</h2>' +
+          (desc ? '<p>' + escapeHTML(desc) + '</p>' : '') + '</div>';
+      heroDiv.hidden = false;
+    }
+
+    // The way in, for someone who has just arrived: what to sort out
+    // first, the seven shelves as cards, and a post from each of the
+    // three people are most often looking for.
+    function renderLanding() {
+      if (!landingEl) return;
+      var on = activeFilter === 'all' && !activeSub && !activeTag;
+      landingEl.hidden = !on;
+      // The list below only needs a heading when something comes before
+      // it; on a shelf it is the whole page.
+      if (allTitleEl) allTitleEl.hidden = !on;
+      if (!on) return;
+
+      if (catGridEl) {
+        var countable = posts.filter(function (p) {
+          return readableHere(p) && (p.published || isAdmin) &&
+            (!activeAud || (p.audiences || []).indexOf(activeAud) !== -1);
+        });
+        catGridEl.innerHTML = B.CATEGORIES.map(function (c) {
+          return '<a class="cat-card" href="' + B.href(c.id) + '" data-filter="' + escapeHTML(c.id) + '">' +
+            '<span class="cat-card-glyph kr" aria-hidden="true">' + escapeHTML(c.glyph) + '</span>' +
+            '<h3></h3><p></p>' +
+            '<span class="cat-card-count">' +
+              escapeHTML(postCount(countByCategory(countable, c.id))) + '</span>' +
+            '</a>';
+        }).join('');
+        catGridEl.querySelectorAll('.cat-card').forEach(function (card) {
+          var id = card.dataset.filter;
+          card.querySelector('h3').textContent = B.label(id);
+          card.querySelector('p').textContent = B.describe(id);
+        });
+      }
+
+      // Recommended rather than measured: the newest post on each of
+      // the three shelves a new arrival reaches for first. No counter
+      // to keep, and nothing that reads as popularity it has not earned.
+      if (picksEl && picksWrapEl) {
+        var picked = [];
+        ['travel', 'dining', 'campus'].forEach(function (cat) {
+          var hit = posts.filter(function (p) {
+            return p.category === cat && p.published && readableHere(p) &&
+              picked.indexOf(p) === -1;
+          })[0];
+          if (hit) picked.push(hit);
+        });
+        // On a young blog every pick is also two rows further down, so
+        // the section waits until the list is long enough for a
+        // shortcut into it to be worth anything.
+        var enough = posts.filter(function (p) {
+          return p.published && readableHere(p);
+        }).length > 6;
+        picksWrapEl.hidden = picked.length < 2 || !enough;
+        picksEl.innerHTML = picksWrapEl.hidden ? '' : picked.map(cardHTML).join('');
+        wireCardLinks(picksEl);
+      }
+    }
+
+    function readableHere(p) {
+      return readableLangs(p).indexOf(listLang) !== -1;
+    }
+
+    // "3 posts", "1 post", "Nothing yet" — one is not three, and a
+    // shelf with nothing on it should say so rather than count to zero.
+    function postCount(n) {
+      if (!n) return t('blog.postCount.none', 'Nothing yet');
+      if (n === 1) return t('blog.postCount.one', '1 post');
+      return t('blog.postCount', '{n} posts').replace('{n}', n);
     }
 
     function renderTagBanner() {
@@ -354,7 +621,7 @@
       banner.innerHTML =
         '<span>' + escapeHTML(t('blog.taggedWith', 'Tagged')) + ' <strong>#' +
           escapeHTML(shownTag) + '</strong></span>' +
-        '<a href="blog.html">' + escapeHTML(t('blog.clearTag', 'Clear')) + '</a>';
+        '<a href="/blog">' + escapeHTML(t('blog.clearTag', 'Clear')) + '</a>';
     }
 
     function renderCards() {
@@ -363,6 +630,7 @@
       });
       renderCategoryHero();
       renderTagBanner();
+      renderLanding();
       listEl.innerHTML = shown.map(cardHTML).join('');
 
       if (shown.length) {
@@ -372,7 +640,16 @@
         // Nothing in this language: name the ones that do have a post,
         // as buttons, rather than leaving a dead end.
         var others = langsPresent().filter(function (c) { return c !== listLang; });
-        if (others.length) {
+        if (activeAud && posts.some(function (p) {
+          // Something is here, just not for the reader they said they
+          // are — that is a different dead end, and worth naming.
+          return matchesShelf(p) && readableHere(p);
+        })) {
+          emptyText.textContent = t('blog.noneForAudience',
+            'Nothing here for you yet — try another topic.');
+          suggestEl.innerHTML = '';
+          suggestEl.hidden = true;
+        } else if (others.length) {
           emptyText.textContent = t('blog.noneInLang', 'Nothing here in {lang} yet.')
             .replace('{lang}', R.langLabel(listLang));
           suggestEl.innerHTML = '<span class="res-lang-suggest-label">' +
@@ -389,7 +666,25 @@
         }
       }
 
-      listEl.querySelectorAll('a[href^="blog.html?post="]').forEach(function (a) {
+      wireCardLinks(listEl);
+    }
+
+    // Everything but the audience: used to tell "nothing in this
+    // language" apart from "nothing for this reader".
+    function matchesShelf(p) {
+      if (activeFilter !== 'all' && p.category !== activeFilter) return false;
+      if (activeSub && p.subtopic !== activeSub) return false;
+      if (!activeTag) return true;
+      return (p.tags || []).some(function (tag) {
+        return tag.toLowerCase() === activeTag.toLowerCase();
+      });
+    }
+
+    // Leaving the list remembers where it was, so coming back lands on
+    // the same post rather than at the top.
+    function wireCardLinks(root) {
+      if (!root) return;
+      root.querySelectorAll('a[href^="/blog/post/"]').forEach(function (a) {
         a.addEventListener('click', function () {
           saveState({ scrollY: window.scrollY });
           try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}
@@ -402,19 +697,20 @@
     // languages it is written in. The title's link is stretched over the
     // card in CSS, so the whole card opens the post with one tab stop.
     function cardHTML(p) {
-      var href = 'blog.html?post=' + encodeURIComponent(p.slug) + '&pl=' + encodeURIComponent(listLang);
+      var href = B.postHref(p.slug, listLang);
       var codes = readableLangs(p);
       var shown = codes.slice(0, 3);
       var more = codes.length - shown.length;
       var excerpt = readField(p, 'excerpt', listLang);
       return '<article class="res-card' + (p.published ? '' : ' res-card--draft') + '">' +
         '<span class="res-thumb"><span class="res-cover-glyph kr" aria-hidden="true">' +
-          escapeHTML(GLYPH[p.category] || '') + '</span></span>' +
+          escapeHTML(B.glyph(p.category)) + '</span></span>' +
         '<div class="res-card-body">' +
           (p.published ? '' : '<span class="res-draft">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
+          audienceBadges(p) +
           '<h3><a href="' + href + '">' + escapeHTML(readField(p, 'title', listLang)) + '</a></h3>' +
           (excerpt ? '<p class="res-card-desc">' + escapeHTML(excerpt) + '</p>' : '') +
-          '<p class="res-meta">' + escapeHTML(categoryLabel(p.category) + ' · ' + formatDate(p.created_at)) + '</p>' +
+          '<p class="res-meta">' + escapeHTML(shelfLabel(p) + ' · ' + formatDate(p.created_at)) + '</p>' +
           '<div class="res-card-foot">' +
             '<span class="res-langs" aria-label="' + escapeHTML(t('blog.writtenIn', 'Written in')) + '">' +
               shown.map(function (c) { return '<span class="res-chip">' + escapeHTML(R.langShort(c)) + '</span>'; }).join('') +
@@ -447,7 +743,8 @@
       if (toolbarEl) toolbarEl.hidden = true;
       if (leadInEl) leadInEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
-      var postUrl = location.origin + location.pathname + '?post=' + encodeURIComponent(post.slug);
+      if (landingEl) landingEl.hidden = true;
+      var postUrl = location.origin + B.postHref(post.slug);
 
       // Which language to read it in: the one asked for in ?pl=, else
       // the language of the site, else the one it was written in. When
@@ -514,13 +811,13 @@
       if (prevPost || nextPost) {
         navHTML = '<div class="blog-nav">';
         if (prevPost) {
-          navHTML += '<a href="blog.html?post=' + encodeURIComponent(prevPost.slug) + '" class="blog-nav-prev">' +
+          navHTML += '<a href="' + B.postHref(prevPost.slug) + '" class="blog-nav-prev">' +
             '<span class="blog-nav-label">' + escapeHTML(t('blog.prevPost', '← Previous')) + '</span>' +
             '<span class="blog-nav-title">' + escapeHTML(readField(prevPost, 'title', readLang)) + '</span>' +
             '</a>';
         }
         if (nextPost) {
-          navHTML += '<a href="blog.html?post=' + encodeURIComponent(nextPost.slug) + '" class="blog-nav-next">' +
+          navHTML += '<a href="' + B.postHref(nextPost.slug) + '" class="blog-nav-next">' +
             '<span class="blog-nav-label">' + escapeHTML(t('blog.nextPost', 'Next →')) + '</span>' +
             '<span class="blog-nav-title">' + escapeHTML(readField(nextPost, 'title', readLang)) + '</span>' +
             '</a>';
@@ -529,10 +826,11 @@
       }
 
       singleEl.innerHTML =
-        '<a class="blog-back" href="blog.html">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
-        '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
+        '<a class="blog-back" href="/blog">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
+        '<span class="blog-meta">' + escapeHTML(shelfLabel(post)) +
           (post.published ? '' : ' · <span class="blog-draft-tag">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
         '</span>' +
+        audienceBadges(post) +
         '<h1>' + escapeHTML(readField(post, 'title', readLang)) + '</h1>' +
         (pairs && field(post, 'title', post.lang || 'en') !== readField(post, 'title', readLang)
           ? '<p class="mt-title-src" lang="' + escapeHTML(post.lang || 'en') + '">' +
@@ -702,8 +1000,9 @@
       if (toolbarEl) toolbarEl.hidden = true;
       if (leadInEl) leadInEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
+      if (landingEl) landingEl.hidden = true;
       singleEl.innerHTML =
-        '<a class="blog-back" href="blog.html">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
+        '<a class="blog-back" href="/blog">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
         '<h1>' + escapeHTML(t('blog.notFoundTitle', 'Post not found')) + '</h1>' +
         '<p>' + escapeHTML(t('blog.notFoundBody', 'That post may have been removed, or the link is wrong.')) + '</p>';
     }
@@ -719,7 +1018,7 @@
           posts = res.data || [];
           buildLangSelect();
           updateFilterCounts();
-          var slug = new URLSearchParams(location.search).get('post');
+          var slug = currentSlug();
           if (slug) {
             var match = posts.filter(function (p) { return p.slug === slug; })[0];
             if (match) renderSingle(match); else renderNotFound();
@@ -750,21 +1049,11 @@
     var tagsTouched = false;
     var summaryTouched = false;
     var categoryTouched = false;
+    var audienceTouched = false;
     var outlineBusy = false;
     var outlineTimer = null;
     var outlineFrom = '';
 
-    // What each category is for, so the model has something to file
-    // against beyond a bare id. Translated labels are no use here: the
-    // ids are what the database stores.
-    var CATEGORY_ABOUT = {
-      culture: 'everyday life, customs, society, people',
-      travel: 'places, trips, neighbourhoods, getting around',
-      food: 'dishes, cooking, eating out, ingredients',
-      trends: 'pop culture, music, drama, what is popular now',
-      language: 'the Korean language itself, grammar, study tips, vocabulary',
-      etc: 'anything the others do not cover, including news and current affairs'
-    };
     var saving = false;
     var autoSaveTimer = null;
     var lastSaveTime = null;
@@ -788,6 +1077,16 @@
                 '<select id="postCategory">' + CATEGORIES.map(function (c) {
                   return '<option value="' + c + '"></option>';
                 }).join('') + '</select></div>' +
+              // The sub-topics belong to the category above, so this
+              // select is rebuilt whenever that one changes.
+              '<div class="auth-field"><label for="postSubtopic"></label>' +
+                '<select id="postSubtopic"></select></div>' +
+              '<div class="auth-field"><span class="auth-field-label" id="postAudienceLabel"></span>' +
+                '<div class="post-aud-row">' + B.AUDIENCES.map(function (a) {
+                  return '<label class="post-aud"><input type="checkbox" data-aud="' +
+                    escapeHTML(a) + '"> <span class="aud-badge aud-badge--' + escapeHTML(a) +
+                    '"></span></label>';
+                }).join('') + '</div></div>' +
               '<div class="auth-field"><label for="postExcerpt"></label>' +
                 '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
               '<div class="auth-field"><label for="postBody"></label>' +
@@ -847,15 +1146,54 @@
       overlay.querySelector('#postBody').addEventListener('blur', function () { fillOutline(false); });
       overlay.querySelector('#postTags').addEventListener('input', function () { tagsTouched = true; });
       overlay.querySelector('#postExcerpt').addEventListener('input', function () { summaryTouched = true; });
-      overlay.querySelector('#postCategory').addEventListener('change', function () { categoryTouched = true; });
+      overlay.querySelector('#postCategory').addEventListener('change', function () {
+        categoryTouched = true;
+        buildSubtopics('');
+      });
+      overlay.querySelector('#postSubtopic').addEventListener('change', function () {
+        categoryTouched = true;
+      });
+      overlay.querySelectorAll('[data-aud]').forEach(function (box) {
+        box.addEventListener('change', function () { audienceTouched = true; });
+      });
       overlay.querySelector('#postTagsBtn').addEventListener('click', function () {
-        tagsTouched = summaryTouched = categoryTouched = false;
+        tagsTouched = summaryTouched = categoryTouched = audienceTouched = false;
         fillOutline(true);
       });
       overlay.querySelectorAll('[data-tr-body]').forEach(function (el) {
         el.addEventListener('input', markTranslationState);
       });
       return overlay;
+    }
+
+    // The sub-topics of whichever category is selected, plus a blank
+    // first option: not every post sits on one.
+    function buildSubtopics(want) {
+      if (!overlay) return;
+      var cat = overlay.querySelector('#postCategory').value;
+      var sel = overlay.querySelector('#postSubtopic');
+      var subs = (B.get(cat) || { subs: [] }).subs;
+      sel.innerHTML = '<option value="">' + escapeHTML(t('blog.subAll', 'No sub-topic')) + '</option>' +
+        subs.map(function (id) {
+          return '<option value="' + escapeHTML(id) + '">' + escapeHTML(B.subLabel(id)) + '</option>';
+        }).join('');
+      sel.value = subs.indexOf(want) !== -1 ? want : '';
+    }
+
+    function readAudiences() {
+      var out = [];
+      overlay.querySelectorAll('[data-aud]').forEach(function (box) {
+        if (box.checked) out.push(box.dataset.aud);
+      });
+      return out;
+    }
+
+    function writeAudiences(list) {
+      var have = {};
+      (list || []).forEach(function (a) { have[a] = true; });
+      overlay.querySelectorAll('[data-aud]').forEach(function (box) {
+        box.checked = !!have[box.dataset.aud];
+      });
     }
 
     function setTagsHint(text, isError) {
@@ -879,7 +1217,8 @@
       var wantTags = force || (!tagsTouched && !overlay.querySelector('#postTags').value.trim());
       var wantSummary = force || (!summaryTouched && !overlay.querySelector('#postExcerpt').value.trim());
       var wantCategory = force || !categoryTouched;
-      if (!wantTags && !wantSummary && !wantCategory) return;
+      var wantAudience = force || (!audienceTouched && !readAudiences().length);
+      if (!wantTags && !wantSummary && !wantCategory && !wantAudience) return;
       if (!force && outlineFrom === body) return;
 
       outlineBusy = true;
@@ -889,7 +1228,8 @@
         from: overlay.querySelector('#postLang').value,
         title: title,
         body: body,
-        categories: CATEGORIES.map(function (c) { return { id: c, about: CATEGORY_ABOUT[c] || c }; })
+        categories: B.forOutline(),
+        audiences: B.audiencesForOutline()
       }).then(function (out) {
         outlineBusy = false;
         if (!out) { setTagsHint(''); return; }
@@ -900,7 +1240,13 @@
         }
         if (wantCategory && out.category && (force || !categoryTouched)) {
           overlay.querySelector('#postCategory').value = out.category;
+          buildSubtopics(out.subtopic || '');
           filled.push(t('blog.fieldCategory', 'Category'));
+          if (out.subtopic) filled.push(t('blog.fieldSubtopic', 'Sub-topic'));
+        }
+        if (wantAudience && out.audiences && out.audiences.length && (force || !audienceTouched)) {
+          writeAudiences(out.audiences);
+          filled.push(t('blog.fieldAudience', "Who it's for"));
         }
         if (wantTags && out.tags && out.tags.length && (force || !tagsTouched)) {
           overlay.querySelector('#postTags').value = out.tags.join(', ');
@@ -1001,6 +1347,8 @@
             var row = {
               title: title,
               category: overlay.querySelector('#postCategory').value,
+              subtopic: overlay.querySelector('#postSubtopic').value || null,
+              audiences: readAudiences(),
               excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
               tags: parseTags(overlay.querySelector('#postTags').value),
               body: body,
@@ -1026,6 +1374,11 @@
         ? t('blog.editorEditTitle', 'Edit post') : t('blog.editorNewTitle', 'Write a post');
       o.querySelector('label[for="postTitle"]').textContent = t('blog.fieldTitle', 'Title');
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
+      o.querySelector('label[for="postSubtopic"]').textContent = t('blog.fieldSubtopic', 'Sub-topic');
+      o.querySelector('#postAudienceLabel').textContent = t('blog.fieldAudience', "Who it's for");
+      o.querySelectorAll('[data-aud]').forEach(function (box) {
+        box.nextElementSibling.textContent = B.audienceLabel(box.dataset.aud);
+      });
       o.querySelector('label[for="postExcerpt"]').textContent = t('blog.fieldExcerpt', 'Summary (shown on the card)');
       o.querySelector('label[for="postTags"]').textContent = t('blog.fieldTags', 'Tags (comma separated)');
       o.querySelector('#postTagsBtn').textContent = t('blog.suggestTags', 'Read the post again');
@@ -1053,6 +1406,7 @@
       CATEGORIES.forEach(function (c, i) {
         o.querySelectorAll('#postCategory option')[i].textContent = categoryLabel(c);
       });
+      buildSubtopics(o.querySelector('#postSubtopic').value);
       updateAutoSaveStatus();
     }
 
@@ -1071,6 +1425,8 @@
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
       o.querySelector('#postCategory').value = editing ? editing.category : CATEGORIES[0];
+      buildSubtopics(editing && editing.subtopic ? editing.subtopic : '');
+      writeAudiences(editing ? editing.audiences : []);
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
       o.querySelector('#postTags').value = editing && editing.tags ? editing.tags.join(', ') : '';
       // A post that already carries tags keeps them; a new one is open
@@ -1078,6 +1434,7 @@
       tagsTouched = !!(editing && editing.tags && editing.tags.length);
       summaryTouched = !!(editing && editing.excerpt);
       categoryTouched = !!editing;
+      audienceTouched = !!(editing && editing.audiences && editing.audiences.length);
       outlineBusy = false;
       outlineFrom = '';
       if (outlineTimer) { clearTimeout(outlineTimer); outlineTimer = null; }
@@ -1122,6 +1479,8 @@
       var row = {
         title: title,
         category: overlay.querySelector('#postCategory').value,
+        subtopic: overlay.querySelector('#postSubtopic').value || null,
+        audiences: readAudiences(),
         excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
         tags: parseTags(overlay.querySelector('#postTags').value),
         body: body,
@@ -1331,8 +1690,8 @@
       if (!ok) return;
       client.from('posts').delete().eq('id', post.id).then(function (res) {
         if (res.error) { window.alert(res.error.message); return; }
-        if (new URLSearchParams(location.search).get('post') === post.slug) {
-          location.href = 'blog.html';
+        if (currentSlug() === post.slug) {
+          location.href = '/blog';
         } else {
           loadPosts();
         }
@@ -1345,6 +1704,9 @@
       // promises posts the language filter is about to hide.
       var inLang = posts.filter(function (p) {
         if (readableLangs(p).indexOf(listLang) === -1) return false;
+        // The audience counts too: a chip should not promise posts the
+        // reader has just said are not for them.
+        if (activeAud && (p.audiences || []).indexOf(activeAud) === -1) return false;
         if (!activeTag) return true;
         return (p.tags || []).some(function (tag) { return tag.toLowerCase() === activeTag.toLowerCase(); });
       });
@@ -1352,12 +1714,12 @@
         var filter = btn.dataset.filter;
         var count = filter === 'all' ? inLang.length : countByCategory(inLang, filter);
         var countEl = btn.querySelector('.filter-count');
-        if (!countEl && count > 0) {
+        if (!countEl) {
           countEl = document.createElement('span');
           countEl.className = 'filter-count';
           btn.appendChild(countEl);
         }
-        if (countEl) countEl.textContent = '(' + count + ')';
+        countEl.textContent = '(' + count + ')';
       });
     }
 
@@ -1368,17 +1730,90 @@
       filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (b) {
         b.classList.toggle('active', b.dataset.filter === activeFilter);
       });
+      filtersEl.querySelectorAll('.cat-item').forEach(function (item) {
+        item.classList.toggle('is-current', item.dataset.cat === activeFilter);
+      });
+      filtersEl.querySelectorAll('.cat-menu a').forEach(function (a) {
+        a.classList.toggle('active',
+          a.dataset.cat === activeFilter && (a.dataset.sub || '') === activeSub);
+      });
+      paintAudienceRow();
+    }
+
+    function closeCatMenus() {
+      if (!filtersEl) return;
+      filtersEl.querySelectorAll('.cat-item.is-open').forEach(function (item) {
+        item.classList.remove('is-open');
+        var caret = item.querySelector('.cat-caret');
+        if (caret) caret.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // One re-render for every way of changing where the reader is.
+    function applyFilters() {
+      normaliseFilters();
+      markActiveFilter();
+      saveState();
+      syncURL();
+      updateFilterCounts();
+      renderCards();
     }
 
     if (filtersEl) {
       filtersEl.addEventListener('click', function (e) {
+        var caret = e.target.closest('.cat-caret');
+        if (caret) {
+          e.preventDefault();
+          var item = caret.closest('.cat-item');
+          var open = !item.classList.contains('is-open');
+          closeCatMenus();
+          placeMenu(item);
+          item.classList.toggle('is-open', open);
+          caret.setAttribute('aria-expanded', open ? 'true' : 'false');
+          return;
+        }
+        // A sub-topic is a real link — middle-click and "open in new
+        // tab" work — but a plain click filters in place and leaves the
+        // address bar saying the same thing.
+        var link = e.target.closest('.cat-menu a');
+        if (link) {
+          e.preventDefault();
+          activeFilter = link.dataset.cat;
+          activeSub = link.dataset.sub || '';
+          closeCatMenus();
+          applyFilters();
+          return;
+        }
         var btn = e.target.closest('.filter-btn');
         if (!btn) return;
         activeFilter = btn.dataset.filter;
-        markActiveFilter();
-        saveState();
-        updateFilterCounts();
-        renderCards();
+        activeSub = '';
+        closeCatMenus();
+        // The pointer is still resting on the shelf that was just
+        // clicked, so its menu would hang open over the results the
+        // click just produced. It stays shut until the pointer leaves
+        // and comes back — which is when opening it means something.
+        var item = btn.closest('.cat-item');
+        if (item) item.classList.add('no-hover');
+        applyFilters();
+      });
+
+      filtersEl.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCatMenus();
+      });
+      document.addEventListener('click', function (e) {
+        if (!filtersEl.contains(e.target)) closeCatMenus();
+      });
+    }
+
+    if (audEl) {
+      audEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('.aud-chip');
+        if (!btn) return;
+        // Pressing the one already chosen clears it, so "Everyone" is
+        // never the only way back.
+        activeAud = btn.dataset.aud === activeAud ? '' : btn.dataset.aud;
+        applyFilters();
       });
     }
 
@@ -1404,6 +1839,22 @@
     }
 
     if (writeBtn) writeBtn.addEventListener('click', function () { openEditor(null); });
+
+    if (catGridEl) {
+      catGridEl.addEventListener('click', function (e) {
+        var card = e.target.closest('.cat-card');
+        if (!card || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+        e.preventDefault();
+        activeFilter = card.dataset.filter;
+        activeSub = '';
+        applyFilters();
+        window.scrollTo(0, 0);
+      });
+    }
+
+    buildCategoryBar();
+    buildAudienceRow();
+    markActiveFilter();
 
     function applyAdmin(user) {
       if (!user) {
@@ -1432,8 +1883,10 @@
       followSiteLang();
       followPostLang();
       buildLangSelect();
+      paintCategoryBar();
+      paintAudienceRow();
       updateFilterCounts();
-      var slug = new URLSearchParams(location.search).get('post');
+      var slug = currentSlug();
       if (slug) {
         var match = posts.filter(function (p) { return p.slug === slug; })[0];
         // Switching the site's language re-picks the reading language

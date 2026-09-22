@@ -698,7 +698,7 @@ grant execute on function public.find_user_id_by_email(text) to authenticated;
 -- declared inline: an inline check on an existing table is never
 -- re-evaluated by `create table if not exists`. Posts written under the
 -- old "study" and "grammar" labels move to "language", which is where
--- that material now belongs; nothing is deleted.
+-- that material belonged at the time; nothing is deleted.
 
 alter table public.posts drop constraint if exists posts_category_check;
 
@@ -706,9 +706,10 @@ update public.posts
    set category = 'language'
  where category in ('study', 'grammar');
 
-alter table public.posts
-  add constraint posts_category_check
-  check (category in ('culture', 'travel', 'food', 'trends', 'language', 'etc'));
+-- The list of categories, and the check that enforces it, now live in
+-- section 27, which moves these values across again. Declaring the old
+-- list here as well would reject those moved rows on a re-run — the
+-- same reason section 17 leaves the resource list to section 20.
 
 -- ------------------------------------------------------------------
 -- 17. resource categories
@@ -1281,3 +1282,65 @@ drop function if exists public.delete_anon_comment(uuid, text);
 
 alter table public.posts
   add column if not exists study jsonb not null default '{}'::jsonb;
+
+-- ------------------------------------------------------------------
+-- 27. the blog's seven shelves, their subtopics, and who a post is for
+-- ------------------------------------------------------------------
+-- The blog is written for people living in or visiting Korea from
+-- somewhere else, and the six old categories were shaped around the
+-- language course rather than around them. Seven now, each with a
+-- handful of subtopics, because "Travel" alone is too big to browse and
+-- "T-money vs WOWPASS" alone is too small to be a section.
+--
+-- The ids are what a URL carries and what a link shared last year still
+-- points at, so they are fixed here and everything a reader sees is
+-- translated from them (js/blog-categories.js).
+--
+-- Old posts are re-filed by hand below, not dropped. Where the old
+-- shelf has no obvious new home the post lands in 'community', which is
+-- the explicit catch-all, rather than somewhere that merely sounds
+-- close — an admin can move it in one click and a wrong shelf is harder
+-- to notice than an unsorted one.
+
+alter table public.posts drop constraint if exists posts_category_check;
+
+update public.posts set category = case category
+  when 'travel'   then 'travel'      -- places to go, how to get there
+  when 'food'     then 'dining'      -- the same subject, renamed
+  when 'culture'  then 'explore'     -- everyday life and what to see
+  when 'trends'   then 'explore'     -- pop culture sits with exploring
+  when 'language' then 'community'   -- study material lives elsewhere on the site now
+  when 'etc'      then 'community'
+  else category
+end
+where category in ('travel', 'food', 'culture', 'trends', 'language', 'etc');
+
+alter table public.posts
+  add constraint posts_category_check
+  check (category in ('travel', 'dining', 'style', 'explore', 'campus', 'career', 'community'));
+
+-- A subtopic is the shelf within the shelf. Deliberately unconstrained
+-- text: the list lives in js/blog-categories.js, where adding one costs
+-- a line rather than a migration, and a post filed under a subtopic
+-- that no longer exists still shows under its category.
+alter table public.posts
+  add column if not exists subtopic text;
+
+create index if not exists posts_subtopic_idx
+  on public.posts (subtopic, created_at desc);
+
+-- Who the post is for. A reader picks one and the list narrows to what
+-- applies to them: someone here for five days does not want to read
+-- about extending a D-4. A post may be for several, or for none — an
+-- empty list means "everyone", which is the honest default for a post
+-- nobody has filed yet.
+alter table public.posts
+  add column if not exists audiences text[] not null default '{}'::text[];
+
+alter table public.posts drop constraint if exists posts_audiences_check;
+alter table public.posts
+  add constraint posts_audiences_check
+  check (audiences <@ array['tourists', 'students', 'expats']::text[]);
+
+create index if not exists posts_audiences_idx
+  on public.posts using gin (audiences);

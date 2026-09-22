@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- This page is also served under /blog, /blog/travel and
+     /blog/travel/transport (see the rewrites in vercel.json), so every
+     relative link, script and fetch on it resolves from the site root
+     rather than from whichever path the reader arrived on. -->
+<base href="/">
 <title>Blog — Duru Korean</title>
-<meta name="description" content="Notes on Korean language, culture, and study tips from Duru Korean.">
+<meta name="description" content="Travel, food, style, neighbourhoods, campus life, work and community — Korea explained for tourists, international students and long-term residents.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -44,25 +49,21 @@
     <span class="page-hero-mark" aria-hidden="true">글</span>
     <h1 data-i18n="blogPage.h1">Blog</h1>
     <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline" data-i18n="blogPage.tagline">Notes on Korean, language, and life.</p>
+    <p class="page-hero-tagline" data-i18n="blogPage.tagline">Living, studying and travelling in Korea.</p>
     <div data-i18n="blogPage.krSub">두루 블로그</div>
   </div>
 </section>
 
 <section class="section section-after-hero">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="blogPage.leadIn">Study tips, grammar explained simply, and a look at everyday life and culture in Korea.</p>
+    <p class="section-lead-in" data-i18n="blogPage.leadIn">Written for people who came here from somewhere else: five days, four years, or somewhere in between.</p>
     <div class="dl-toolbar reveal" id="blogToolbar">
-      <div class="filter-row" id="blogFilters">
-        <button class="filter-btn active" data-filter="all" data-i18n="blog.filter.all">All</button>
-        <button class="filter-btn" data-filter="culture" data-i18n="blog.cat.culture">Culture &amp; Life</button>
-        <button class="filter-btn" data-filter="travel" data-i18n="blog.cat.travel">Travel &amp; Places</button>
-        <button class="filter-btn" data-filter="food" data-i18n="blog.cat.food">K-Food &amp; Dining</button>
-        <button class="filter-btn" data-filter="trends" data-i18n="blog.cat.trends">Trends &amp; Pop Culture</button>
-        <button class="filter-btn" data-filter="language" data-i18n="blog.cat.language">Language &amp; Tips</button>
-        <button class="filter-btn" data-filter="etc" data-i18n="blog.cat.etc">Etc.</button>
-      </div>
+      <!-- The seven shelves, each with its sub-topics behind a caret.
+           Built in js/blog.js from window.DURU_BLOG so the list of
+           categories has one home. -->
+      <nav class="blog-cats" id="blogFilters" aria-label="Blog categories"></nav>
       <div class="dl-toolbar-row">
+        <div class="blog-aud" id="blogAudiences"></div>
         <label class="dl-lang" for="blogLang">
           <span data-i18n="resources.langPick">Pick a language</span>
           <select id="blogLang"></select>
@@ -73,10 +74,33 @@
 
     <div id="blogSingle" class="blog-single" hidden></div>
 
+    <!-- The way in for someone who has just landed: what to read first,
+         the seven shelves as cards, then a few posts worth starting on.
+         Only on the unfiltered list; picking a category replaces it. -->
+    <div class="blog-landing" id="blogLanding" hidden>
+      <div class="start-here">
+        <span class="start-here-mark kr" aria-hidden="true">첫</span>
+        <div>
+          <h2 data-i18n="blog.startHere.h2">First time in Korea? Start here.</h2>
+          <p data-i18n="blog.startHere.p">The airport, the transport card, the first meal — and the things nobody tells you until you have already done them wrong.</p>
+          <a class="btn btn-primary" href="/blog/travel" data-i18n="blog.startHere.cta">Start with the essentials →</a>
+        </div>
+      </div>
+
+      <h2 class="blog-landing-title" data-i18n="blog.browse">Browse by topic</h2>
+      <div class="cat-grid" id="blogCatGrid"></div>
+
+      <div class="blog-landing-picks" id="blogPicksWrap" hidden>
+        <h2 class="blog-landing-title" data-i18n="blog.trending">Worth reading first</h2>
+        <div class="resource-grid" id="blogPicks"></div>
+      </div>
+    </div>
+
     <div class="resource-empty" id="blogEmpty" hidden>
       <p id="blogEmptyText" data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>
       <div class="res-lang-suggest" id="blogLangSuggest" hidden></div>
     </div>
+    <h2 class="blog-landing-title blog-all-title" id="blogAllTitle" data-i18n="blog.allPosts" hidden>All posts</h2>
     <div class="resource-grid reveal" id="blogList"></div>
   </div>
 </section>
@@ -137,6 +161,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/blog-categories.js"></script>
 <script src="js/supabase-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="js/auth.js"></script>

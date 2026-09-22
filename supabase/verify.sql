@@ -31,10 +31,15 @@ with checks(item, ok) as (
     ('notifications table',        to_regclass('public.notifications') is not null),
     ('newsletter_subscribers table', to_regclass('public.newsletter_subscribers') is not null),
 
-    ('blog categories updated',
+    ('blog shelves for people in Korea',
      exists (select 1 from pg_constraint
              where conname='posts_category_check'
-               and pg_get_constraintdef(oid) like '%trends%')),
+               and pg_get_constraintdef(oid) like '%campus%')),
+
+    ('posts.subtopic and posts.audiences exist',
+     (select count(*) from information_schema.columns
+      where table_schema='public' and table_name='posts'
+        and column_name in ('subtopic', 'audiences')) = 2),
 
     ('notifications accept replies',
      exists (select 1 from pg_constraint

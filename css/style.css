@@ -3414,3 +3414,352 @@ section { position: relative; }
 .post-tags-row .res-linkbtn { flex: none; white-space: nowrap; }
 #postTagsHint { margin-top: 6px; }
 #postTagsHint.is-error { color: var(--accent-red); }
+
+/* ---------- Blog: the seven shelves ----------
+   A category bar that behaves like a menu rather than a row of pills:
+   each shelf carries its glyph and opens onto its sub-topics. The bar
+   scrolls sideways on a phone instead of wrapping into four rows.      */
+
+.blog-cats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  /* The sub-topic menus hang off the bar, not off their own shelf: at
+     narrow widths the bar wraps to two rows, and a menu anchored to a
+     shelf on the first row would sit on top of the second, covering
+     the very shelves it is next to. js/blog.js slides each menu across
+     to line up with the shelf it belongs to. */
+  position: relative;
+}
+.blog-cats .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.cat-glyph {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+.filter-btn.active .cat-glyph, .filter-btn:hover .cat-glyph { opacity: 1; }
+
+.cat-item { display: inline-flex; align-items: center; }
+.cat-item .filter-btn { border-top-right-radius: 0; border-bottom-right-radius: 0; padding-right: 12px; }
+.cat-caret {
+  border: 1px solid rgba(22,48,43,0.15);
+  border-left: 0;
+  background: #fff;
+  color: var(--ink-dim);
+  padding: 9px 10px 9px 6px;
+  border-radius: 0 999px 999px 0;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+.cat-caret:hover, .cat-item.is-open .cat-caret, .cat-item.is-current .cat-caret {
+  background: var(--bg);
+  border-color: var(--bg);
+  color: var(--cream);
+}
+.cat-item.is-current .filter-btn {
+  background: var(--bg);
+  border-color: var(--bg);
+  color: var(--cream);
+}
+
+.cat-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: var(--menu-left, 0);
+  z-index: 40;
+  min-width: 232px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(22,48,43,0.12);
+  box-shadow: 0 18px 38px -18px rgba(10,38,32,0.45);
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+.cat-item.is-open .cat-menu { display: flex; }
+@media (hover: hover) and (min-width: 861px) {
+  .cat-item:hover .cat-menu { display: flex; }
+  /* Set while the pointer is still on a shelf it has just filtered by;
+     see js/blog.js. Cleared when the pointer leaves. Keyboard users
+     open the menu from the caret, which is a real button with
+     aria-expanded — no :focus-within here, because a click focuses too
+     and would re-open what the click just closed. */
+  .cat-item.no-hover:hover .cat-menu { display: none; }
+}
+.cat-menu a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+.cat-menu a:hover { background: var(--paper-alt); color: var(--ink); }
+.cat-menu a.active { background: var(--bg); color: var(--cream); }
+.cat-menu-all {
+  border-bottom: 1px solid rgba(22,48,43,0.1);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+/* ---------- Blog: who it is for ---------- */
+
+.blog-aud { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.blog-aud-label { font-size: 13px; font-weight: 600; color: var(--ink-dim); }
+.blog-aud-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.aud-chip {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(22,48,43,0.15);
+  background: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  cursor: pointer;
+}
+.aud-chip:hover { border-color: var(--ink-dim); color: var(--ink); }
+.aud-chip.active { background: var(--bg); border-color: var(--bg); color: var(--cream); }
+.aud-chip--tourists.active { background: #1f7a4d; border-color: #1f7a4d; }
+.aud-chip--students.active { background: #1d5fa8; border-color: #1d5fa8; }
+.aud-chip--expats.active { background: #6b3fa0; border-color: #6b3fa0; }
+
+/* Green for a visitor, blue for a student, purple for someone settled —
+   the same three colours wherever a post says who it is for. */
+.aud-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.aud-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.aud-badge--tourists { background: #e3f3ea; color: #1b6b43; }
+.aud-badge--students { background: #e2edfa; color: #19538f; }
+.aud-badge--expats   { background: #efe6fa; color: #5c3590; }
+
+/* ---------- Blog: the landing ---------- */
+
+.blog-landing { margin-bottom: 44px; }
+.start-here {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 30px 32px;
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--cream);
+  margin-bottom: 40px;
+}
+.start-here-mark {
+  flex: none;
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.start-here h2 {
+  margin: 0 0 8px;
+  font-size: 25px;
+  line-height: 1.25;
+  color: var(--cream);
+}
+.start-here p {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--cream-dim);
+  max-width: 62ch;
+}
+
+.blog-landing-title {
+  font-size: 19px;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin-bottom: 44px;
+}
+.cat-card {
+  display: block;
+  padding: 20px 22px;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid rgba(22,48,43,0.1);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.cat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(22,48,43,0.22);
+  box-shadow: 0 18px 34px -22px rgba(10,38,32,0.45);
+}
+.cat-card-glyph {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--paper-alt);
+  color: var(--bg);
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.cat-card h3 { margin: 0 0 6px; font-size: 16px; color: var(--ink); }
+.cat-card p { margin: 0 0 10px; font-size: 13px; line-height: 1.6; color: var(--ink-dim); }
+.cat-card-count { font-size: 11.5px; font-weight: 700; color: var(--accent-red); }
+
+.blog-category-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.blog-category-glyph {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--cream);
+  font-size: 20px;
+  font-weight: 700;
+}
+.blog-category-hero h2 { margin: 0 0 4px; font-size: 18px; color: var(--ink); }
+.blog-category-sub { font-weight: 600; color: var(--ink-dim); }
+
+/* ---------- Blog editor: who it is for ---------- */
+
+.auth-field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  margin-bottom: 6px;
+}
+.post-aud-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.post-aud { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
+
+/* ---------- The seven shelves under "Blog" in the header ---------- */
+
+.nav-item { position: relative; display: inline-flex; align-items: center; }
+.nav-caret {
+  border: 0;
+  background: none;
+  color: var(--nav-text);
+  font-size: 10px;
+  line-height: 1;
+  padding: 10px 8px 10px 0;
+  margin-left: -10px;
+  cursor: pointer;
+  border-radius: 999px;
+}
+.nav-caret:hover { color: var(--nav-active-text); }
+.nav-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 60;
+  width: 320px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--header-bg);
+  border: 1px solid var(--header-border);
+  box-shadow: 0 22px 44px -20px rgba(16,59,49,0.5);
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-item.is-open .nav-menu { display: flex; }
+@media (hover: hover) and (min-width: 861px) {
+  .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { display: flex; }
+}
+.nav-menu a {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 9px 11px;
+  border-radius: 10px;
+  white-space: normal;
+}
+.nav-menu a:hover { background: var(--nav-active-bg); }
+.nav-menu-glyph {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: rgba(18,60,50,0.1);
+  color: var(--logo-duru);
+  font-size: 13px;
+  font-weight: 700;
+}
+.nav-menu-text { display: block; min-width: 0; }
+.nav-menu-name { display: block; font-size: 13.5px; font-weight: 700; color: var(--nav-text); }
+.nav-menu-desc {
+  display: block;
+  font-size: 11.5px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: rgba(36,56,49,0.7);
+  margin-top: 2px;
+}
+
+@media (max-width: 860px) {
+  .start-here { flex-direction: column; align-items: flex-start; gap: 18px; padding: 26px 22px; }
+  .start-here h2 { font-size: 21px; }
+  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  /* Below the hamburger the shelves wrap rather than scroll sideways:
+     a dropdown inside a scrolling row would be clipped by its own
+     overflow, and a clipped menu is worse than an extra row. */
+  .blog-cats { gap: 6px; }
+  .blog-cats .filter-btn { padding: 8px 12px; font-size: 12.5px; }
+  /* Full width under the bar on a phone, so a shelf near the right
+     edge cannot push its menu off screen. */
+  .cat-menu {
+    left: 0;
+    right: 0;
+    width: auto;
+    min-width: 0;
+  }
+  .blog-aud { width: 100%; }
+  .blog-landing-title { font-size: 17px; }
+  .start-here-mark { width: 60px; height: 60px; font-size: 24px; }
+  /* In the hamburger the menu is part of the stack, not a layer. */
+  .site-header.menu-open .nav-item { flex-wrap: wrap; justify-content: center; width: 100%; }
+  .site-header.menu-open .nav-caret { margin-left: 0; padding: 10px 4px; }
+  .site-header.menu-open .nav-menu {
+    position: static;
+    flex-basis: 100%;
+    width: 100%;
+    box-shadow: none;
+    background: transparent;
+    border: 0;
+    padding: 4px 0 0;
+  }
+  .site-header.menu-open .nav-menu-desc { display: none; }
+}

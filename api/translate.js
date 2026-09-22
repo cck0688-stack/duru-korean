@@ -51,11 +51,14 @@
 //
 //   { "mode": "outline", "from": "ko", "to": ["en"],
 //     "sentences": [ …the whole post… ], "min": 3, "max": 5,
-//     "categories": [ { "id": "travel", "about": "places, trips" }, … ] }
+//     "categories": [ { "id": "travel", "about": "arriving, getting around",
+//                       "subs": ["transport", "money-basics"] }, … ],
+//     "audiences": [ { "id": "tourists", "about": "here for a few days" }, … ] }
 //
 //   200 { "provider": …, "model": …,
-//         "summary": "캐나다 어학원들이…", "category": "etc",
-//         "tags": ["유학", "어학연수", "캐나다"] }
+//         "summary": "서울 지하철은…", "category": "travel",
+//         "subtopic": "transport", "audiences": ["tourists", "students"],
+//         "tags": ["지하철", "교통카드", "서울"] }
 //
 // ── Configuration (Vercel → Settings → Environment Variables) ──────
 //
@@ -108,6 +111,8 @@ const MAX_VOCAB_CHARS = 20000;
 const MAX_WORDS = 10;
 const MAX_TAGS = 8;
 const MAX_CATEGORIES = 20;
+const MAX_SUBTOPICS = 12;
+const MAX_AUDIENCES = 8;
 
 function bad(res, status, message) {
   res.status(status).json({ error: message });
@@ -185,19 +190,31 @@ export default async function handler(req, res) {
     if (mode === 'outline') {
       const min = Math.min(Math.max(Number(body.min) || 3, 1), MAX_TAGS);
       const max = Math.min(Math.max(Number(body.max) || 5, min), MAX_TAGS);
+      const isId = function (x) { return typeof x === 'string' && /^[a-z0-9_-]{1,32}$/.test(x); };
       const categories = (Array.isArray(body.categories) ? body.categories : [])
-        .filter(function (c) { return c && typeof c.id === 'string' && /^[a-z0-9_-]{1,32}$/.test(c.id); })
+        .filter(function (c) { return c && isId(c.id); })
         .slice(0, MAX_CATEGORIES)
-        .map(function (c) { return { id: c.id, about: String(c.about || '').slice(0, 120) }; });
+        .map(function (c) {
+          return {
+            id: c.id,
+            about: String(c.about || '').slice(0, 120),
+            subs: (Array.isArray(c.subs) ? c.subs : []).filter(isId).slice(0, MAX_SUBTOPICS)
+          };
+        });
       if (!categories.length) return bad(res, 400, 'Send the list of categories to choose from.');
+      const audiences = (Array.isArray(body.audiences) ? body.audiences : [])
+        .filter(function (a) { return a && isId(a.id); })
+        .slice(0, MAX_AUDIENCES)
+        .map(function (a) { return { id: a.id, about: String(a.about || '').slice(0, 120) }; });
       const out = await outline(
         { from: from, fromName: LANGUAGES[from], sentences: sentences,
-          min: min, max: max, categories: categories },
+          min: min, max: max, categories: categories, audiences: audiences },
         cfg
       );
       res.status(200).json({
         provider: cfg.name, model: out.model || cfg.model,
-        summary: out.summary, category: out.category, tags: out.tags
+        summary: out.summary, category: out.category, subtopic: out.subtopic,
+        audiences: out.audiences, tags: out.tags
       });
       return;
     }

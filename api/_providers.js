@@ -123,21 +123,41 @@ function vocabPrompt(targets, count) {
 // a reader clicks to find the others like it; both belong to the
 // writing. (Readers in another language get them translated with
 // everything else — see posts.mt.)
-function outlinePrompt(langName, categories, min, max) {
-  return [
-    'You file one blog post for a Korean-language learning site.',
+function outlinePrompt(langName, categories, audiences, min, max) {
+  var shelves = categories.map(function (c) {
+    return '   - ' + c.id + ': ' + c.about +
+      (c.subs && c.subs.length ? '\n       sub-topics: ' + c.subs.join(', ') : '');
+  }).join('\n');
+  var lines = [
+    'You file one blog post for a site written for people visiting or living in Korea',
+    'from somewhere else — tourists, international students, and long-term residents.',
     '',
-    'Read the post and return three things, all written in ' + langName + '.',
+    'Read the post and return the following, all written in ' + langName + '.',
     '',
     '1. `summary` — one or two sentences saying what a reader would get from this post.',
     '   It sits under the title on the card, so write it to make someone open the post,',
     '   not to save them from having to. Under 250 characters. No "This post is about".',
     '',
     '2. `category` — exactly one of these ids, whichever the post belongs on:',
-    categories.map(function (c) { return '   - ' + c.id + ': ' + c.about; }).join('\n'),
-    '   Pick "etc" only when none of the others is defensible.',
+    shelves,
+    '   Pick "community" only when none of the others is defensible.',
     '',
-    '3. `tags` — between ' + min + ' and ' + max + ' of them:',
+    '3. `subtopic` — one of the sub-topic ids listed under the category you chose, or an',
+    '   empty string when the post spans the whole category or fits none of them. Never a',
+    '   sub-topic belonging to a different category.',
+    ''
+  ];
+  if (audiences && audiences.length) {
+    lines.push('4. `audiences` — who this post is actually useful to. One or more of:');
+    lines.push(audiences.map(function (a) { return '   - ' + a.id + ': ' + a.about; }).join('\n'));
+    lines.push('   Pick every one it genuinely helps, and no more. A post about extending a');
+    lines.push('   student visa is not for tourists; a subway guide is for all three.');
+    lines.push('');
+    lines.push('5. `tags` — between ' + min + ' and ' + max + ' of them:');
+  } else {
+    lines.push('4. `tags` — between ' + min + ' and ' + max + ' of them:');
+  }
+  return lines.concat([
     '   - A tag is what the post is ABOUT, the way a reader looking for more like it would',
     '     think of it. Not every noun in the text, and not a summary.',
     '   - One to three words each. No hash marks, no punctuation, no quotes, no numbering.',
@@ -146,24 +166,38 @@ function outlinePrompt(langName, categories, min, max) {
     '   - Lowercase, unless the language or the word itself calls for capitals (a place, a brand).',
     '   - Do not tag it with the obvious ("Korean", "blog", "post") — every post here would',
     '     carry those.'
-  ].join('\n');
+  ]).join('\n');
 }
 
-function outlineSchema(strict, categories) {
+function outlineSchema(strict, categories, audiences) {
+  var subs = {};
+  categories.forEach(function (c) {
+    (c.subs || []).forEach(function (id) { subs[id] = true; });
+  });
+  var subIds = Object.keys(subs);
   var root = {
     type: 'object',
     properties: {
       summary: { type: 'string' },
       category: { type: 'string', enum: categories.map(function (c) { return c.id; }) },
+      // '' is a legitimate answer: not every post sits on a sub-topic.
+      subtopic: { type: 'string', enum: [''].concat(subIds) },
       tags: { type: 'array', items: { type: 'string' } }
     },
-    required: ['summary', 'category', 'tags']
+    required: ['summary', 'category', 'subtopic', 'tags']
   };
+  if (audiences && audiences.length) {
+    root.properties.audiences = {
+      type: 'array',
+      items: { type: 'string', enum: audiences.map(function (a) { return a.id; }) }
+    };
+    root.required.push('audiences');
+  }
   if (strict) root.additionalProperties = false;
   return root;
 }
 
-function parseOutline(text, categories, min, max) {
+function parseOutline(text, categories, audiences, min, max) {
   var parsed;
   try {
     parsed = JSON.parse(text);
@@ -184,16 +218,36 @@ function parseOutline(text, categories, min, max) {
 
   var ids = categories.map(function (c) { return c.id; });
   var category = String((parsed && parsed.category) || '').trim();
-  // A category that is not one of the six is worse than none: it would
+  // A category that is not one of the seven is worse than none: it would
   // fail the database's check constraint on save.
   if (ids.indexOf(category) === -1) category = '';
+
+  // A sub-topic only means anything under its own category, so one
+  // borrowed from a different shelf is dropped rather than stored.
+  var owned = {};
+  categories.forEach(function (c) {
+    if (c.id === category) (c.subs || []).forEach(function (id) { owned[id] = true; });
+  });
+  var subtopic = String((parsed && parsed.subtopic) || '').trim();
+  if (!owned[subtopic]) subtopic = '';
+
+  var allowed = {};
+  (audiences || []).forEach(function (a) { allowed[a.id] = true; });
+  var picked = {};
+  var who = ((parsed && parsed.audiences) || [])
+    .map(function (x) { return String(x == null ? '' : x).trim(); })
+    .filter(function (x) {
+      if (!allowed[x] || picked[x]) return false;
+      picked[x] = true;
+      return true;
+    });
 
   var summary = String((parsed && parsed.summary) || '').trim().slice(0, 300);
 
   if (!summary && !category && !tags.length) {
     throw new TranslateError(502, 'Nothing usable came back. Try again.');
   }
-  return { summary: summary, category: category, tags: tags };
+  return { summary: summary, category: category, subtopic: subtopic, audiences: who, tags: tags };
 }
 
 function vocabSchema(strict) {
@@ -567,11 +621,12 @@ export async function outline(opts, cfg) {
   }
   const text = await cfg.provider.chat(
     cfg,
-    outlinePrompt(opts.fromName, opts.categories, opts.min, opts.max),
+    outlinePrompt(opts.fromName, opts.categories, opts.audiences, opts.min, opts.max),
     numbered(opts.sentences),
-    outlineSchema(cfg.provider.strictSchema !== false, opts.categories)
+    outlineSchema(cfg.provider.strictSchema !== false, opts.categories, opts.audiences)
   );
-  return Object.assign({ model: cfg.model }, parseOutline(text, opts.categories, opts.min, opts.max));
+  return Object.assign({ model: cfg.model },
+    parseOutline(text, opts.categories, opts.audiences, opts.min, opts.max));
 }
 
 export async function vocab(opts, cfg) {

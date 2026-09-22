@@ -231,7 +231,7 @@
           // Not read in this mode, but the endpoint asks for a target.
           to: [opts.from === 'en' ? 'ko' : 'en'],
           sentences: sentences, min: TAGS_MIN, max: TAGS_MAX,
-          categories: opts.categories
+          categories: opts.categories, audiences: opts.audiences || []
         })
       }).then(function (r) {
         return r.json().catch(function () { return {}; }).then(function (data) {
