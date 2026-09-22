@@ -200,6 +200,25 @@ const openai = {
  * Google Gemini
  * ------------------------------------------------------------------ */
 
+// Google retires and renames Gemini models often enough that any default
+// written here goes stale. Rather than guess, a model the API does not
+// know turns into an error that lists the ones it does.
+async function geminiModelHint(base, apiKey) {
+  try {
+    const res = await fetch(base.replace(/\/$/, '') + '/models', { headers: { 'x-goog-api-key': apiKey } });
+    if (!res.ok) return '';
+    const data = await res.json();
+    const names = (data.models || [])
+      .filter(function (m) { return (m.supportedGenerationMethods || []).indexOf('generateContent') !== -1; })
+      .map(function (m) { return String(m.name || '').replace(/^models\//, ''); })
+      .filter(function (n) { return /flash|pro/.test(n); })
+      .slice(0, 6);
+    return names.length ? ' Models this key can use include: ' + names.join(', ') + '.' : '';
+  } catch (e) {
+    return '';
+  }
+}
+
 const google = {
   envKeys: ['GOOGLE_API_KEY', 'GEMINI_API_KEY'],
   defaultModel: 'gemini-2.0-flash',
@@ -218,6 +237,11 @@ const google = {
         generationConfig: { responseMimeType: 'application/json', responseSchema: schema(false) }
       })
     });
+    if (response.status === 404 || response.status === 400) {
+      const hint = await geminiModelHint(cfg.baseUrl, cfg.apiKey);
+      throw new TranslateError(503, 'Google did not accept the model "' + cfg.model +
+        '". Set TRANSLATE_MODEL to one it offers.' + hint);
+    }
     const data = await readJSON(response, cfg.label);
     const parts = data && data.candidates && data.candidates[0] &&
       data.candidates[0].content && data.candidates[0].content.parts;

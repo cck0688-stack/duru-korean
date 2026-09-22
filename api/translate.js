@@ -42,7 +42,11 @@
 //                         when more than one key is present
 //     TRANSLATE_API_KEY   the key, when you would rather not use the
 //                         provider's own variable name
-//     TRANSLATE_MODEL     model id; each provider has a sensible default
+//     TRANSLATE_MODEL     model id. Each provider has a default, but
+//                         Google renames and retires Gemini models often
+//                         enough that setting this is worth it there —
+//                         a name it does not know comes back as an error
+//                         listing the names your key can use
 //     TRANSLATE_BASE_URL  point "openai" at any OpenAI-compatible
 //                         gateway — Azure OpenAI, Groq, Together,
 //                         OpenRouter, a self-hosted vLLM or Ollama
