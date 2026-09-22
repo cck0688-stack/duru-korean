@@ -1458,3 +1458,32 @@ create policy "blog_batches: admin write"
 alter table public.posts add column if not exists batch_date date;
 create unique index if not exists posts_batch_category_key
   on public.posts (batch_date, category) where batch_date is not null;
+
+-- ------------------------------------------------------------------
+-- 29. the photograph on a post, and who took it
+-- ------------------------------------------------------------------
+-- Real photographs from Unsplash and Pexels rather than generated
+-- pictures: this blog tells people what a Korean convenience store
+-- actually looks like, and a rendering of a convenience store that does
+-- not exist — with signage in Hangul that is not quite Hangul — would
+-- undo the point of the post.
+--
+-- The image is not copied into Supabase Storage. Both services serve
+-- their photos from a CDN and ask to be hotlinked; storing them here
+-- would fill the free gigabyte in a few months and give nothing back.
+-- `image_url` is therefore a remote address, and the credit travels
+-- with it.
+--
+-- Attribution is stored even where the licence does not demand it. It
+-- costs one line under the picture and it is what both services' API
+-- terms ask for.
+
+alter table public.posts add column if not exists image_credit text;
+alter table public.posts add column if not exists image_credit_url text;
+alter table public.posts add column if not exists image_source text;
+alter table public.posts add column if not exists image_alt text;
+
+alter table public.posts drop constraint if exists posts_image_source_check;
+alter table public.posts
+  add constraint posts_image_source_check
+  check (image_source is null or image_source in ('unsplash', 'pexels', 'upload'));

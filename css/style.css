@@ -3602,3 +3602,111 @@ section { position: relative; }
   cursor: default;
 }
 #postTopic { margin-top: 8px; }
+
+/* ---------- Blog: the photograph ----------
+   Real photographs from Unsplash and Pexels, hotlinked from their CDN.
+   A fixed aspect ratio so the page does not jump when one loads, and a
+   background under it so the gap before it arrives is not a white hole. */
+
+.post-photo {
+  margin: 0 0 26px;
+}
+.post-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--paper-alt);
+}
+.post-photo-credit {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  color: var(--ink-dim);
+}
+.post-photo-credit a { color: var(--ink-dim); border-bottom: 1px solid rgba(22,48,43,0.25); }
+.post-photo-credit a:hover { color: var(--ink); }
+
+/* On a card the picture sits across the top; the credit is left to the
+   post itself, where there is room to read it. */
+.res-card--photo { grid-template-rows: auto auto; padding: 0; overflow: hidden; }
+.post-photo--card { margin: 0; }
+.post-photo--card img {
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+}
+.res-card--photo .res-card-body { padding: 14px 16px 16px; }
+
+/* ---------- Blog editor: choosing the photograph ---------- */
+
+.post-photo-box {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--paper-alt);
+  margin-bottom: 10px;
+}
+.post-photo-box img {
+  flex: none;
+  width: 132px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 7px;
+  background: #fff;
+}
+.post-photo-meta { min-width: 0; }
+.post-photo-alt { margin: 0 0 4px; font-size: 12.5px; color: var(--ink); }
+.post-photo-box .post-photo-credit { margin: 0 0 6px; }
+.post-photo-none { margin: 0; font-size: 12.5px; color: var(--ink-dim); }
+.res-linkbtn.is-danger { color: var(--accent-red); }
+
+.post-photo-find { display: flex; gap: 10px; align-items: center; }
+.post-photo-find input { flex: 1 1 auto; min-width: 0; }
+.post-photo-find .res-linkbtn { flex: none; white-space: nowrap; }
+
+.post-photo-results {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.post-photo-pick {
+  display: block;
+  padding: 0;
+  border: 1px solid rgba(22,48,43,0.14);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+.post-photo-pick:hover { border-color: var(--bg); }
+.post-photo-pick img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--paper-alt);
+}
+.post-photo-pick span {
+  display: block;
+  padding: 5px 7px;
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#postPhotoHint { margin-top: 8px; }
+#postPhotoHint.is-error { color: var(--accent-red); }
+
+@media (max-width: 860px) {
+  .post-photo-results { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .post-photo-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post-photo-box { flex-direction: column; }
+  .post-photo-box img { width: 100%; }
+}

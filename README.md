@@ -503,12 +503,42 @@ generated post read alike. A draft that fails is handed back with the
 list and asked to fix those things — twice. Still failing, it is not
 saved, and the batch records which category and why.
 
-**What it cannot do.** There is no web search, so "what is trending on
-Reddit this week" is out of reach; the seasonal calendar and the gap
-analysis stand in for it, and both are honest about being a substitute.
-It writes no images — the columns are there (`image_url`,
-`image_prompt`, `image_status`) and the prompt is generated and stored,
-but nothing renders one yet.
+**The photograph.** Real ones, from Unsplash or Pexels, not generated:
+a blog that tells people what a Korean convenience store actually looks
+like is worse off with a rendering of one that does not exist, its
+signage in Hangul that is not quite Hangul. `api/_photos.js` holds both
+services behind one interface, the same shape as the translation
+providers — set `UNSPLASH_ACCESS_KEY` or `PEXELS_API_KEY`, both free,
+and `PHOTO_PROVIDER` when both are present.
+
+Finding one takes two more calls: the model turns the post into two
+English search queries (concrete nouns — "Seoul subway gate" finds a
+subway gate, "how to use the subway in Korea" finds nothing), and then
+looks at what came back and either picks one or says none of them fit.
+Saying none is a real answer: a post with no picture beats a post about
+visa paperwork with a photograph of a beach. If the first query finds
+nothing, the second, broader one is tried.
+
+Both licences allow commercial use with no payment and no permission,
+and neither requires attribution — but both services' API terms ask for
+it, so the photographer's name and link are stored with the photo and
+shown under it, and Unsplash's "this was used" endpoint is called when
+one is chosen. Read the licences yourself before launch:
+unsplash.com/license and pexels.com/license; this environment cannot
+reach them to quote the current text.
+
+The picture is **hotlinked from the service's CDN**, not copied into
+Supabase Storage. Unsplash asks to be hotlinked, it keeps the free
+gigabyte free, and a photo is never orphaned from its credit.
+
+A failed photo never fails a post (spec section 30): the whole of it is
+inside its own `try`, and the post is saved with `image_status` of
+`FAILED` and nothing where the picture would be.
+
+**What it still cannot do.** There is no web search, so "what is
+trending on Reddit this week" is out of reach; the seasonal calendar and
+the gap analysis stand in for it, and both are honest about being a
+substitute.
 
 **Running it by hand.** The workflow has a `workflow_dispatch` with a
 dry-run switch and a category filter, and the script takes the same two
@@ -532,6 +562,17 @@ the end of the job says which one went wrong.
 A generated draft carries `topic` and `title_candidates`, and the editor
 shows both: the topic it was written to answer, and the other titles it
 considered as chips under the title field. Clicking one swaps the title.
+
+The editor also has a photo panel — what is on the post now, with its
+credit, and a search box for finding another. The search goes through
+`api/photo.js`, admin-gated exactly like `api/translate.js`, because the
+service's key lives on the server and must never reach a browser.
+
+That endpoint also relays Unsplash's "this photo was used" ping, and the
+address for it comes from the caller — so `isUnsplashUrl` checks it
+against `https://api.unsplash.com` before the key travels with it.
+Without that check an admin could name any host and have the server hand
+them the key.
 
 ### The date a post carries
 

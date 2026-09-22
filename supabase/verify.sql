@@ -47,6 +47,17 @@ with checks(item, ok) as (
       where table_schema='public' and table_name='posts'
         and column_name='post_date') like '%Asia/Seoul%'),
 
+    ('posts carries a photo and its credit',
+     (select count(*) from information_schema.columns
+      where table_schema='public' and table_name='posts'
+        and column_name in ('image_url', 'image_alt', 'image_credit',
+                            'image_credit_url', 'image_source')) = 5),
+
+    ('only the three photo sources are accepted',
+     exists (select 1 from pg_constraint
+             where conname='posts_image_source_check'
+               and pg_get_constraintdef(oid) like '%unsplash%')),
+
     ('blog_batches table (one row per generated day)',
      to_regclass('public.blog_batches') is not null),
 

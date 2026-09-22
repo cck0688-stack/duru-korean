@@ -190,6 +190,46 @@
     }).join('');
   }
 
+  // The photograph on a post, and who took it. Hotlinked from the
+  // service's CDN — see section 29 of supabase/schema.sql. The credit
+  // is shown even where the licence does not demand it: it costs one
+  // line and both services' API terms ask for it.
+  // "unsplash" is an id; "Unsplash" is what goes under a photograph.
+  function photoSource(id) {
+    if (id === 'unsplash') return 'Unsplash';
+    if (id === 'pexels') return 'Pexels';
+    return '';
+  }
+
+  function photoHTML(post, big) {
+    var url = post && post.image_url;
+    if (!url) return '';
+    var alt = post.image_alt || '';
+    var credit = post.image_credit || '';
+    var creditUrl = post.image_credit_url || '';
+    var sourceName = photoSource(post.image_source);
+
+    var line = '';
+    if (big && credit) {
+      line = '<p class="post-photo-credit">' +
+        escapeHTML(t('blog.photoBy', 'Photo by {name}').replace('{name}', '')) +
+        (creditUrl
+          ? '<a href="' + escapeHTML(creditUrl) + '" target="_blank" rel="noopener noreferrer nofollow">' +
+            escapeHTML(credit) + '</a>'
+          : escapeHTML(credit)) +
+        (sourceName ? ' · ' + escapeHTML(sourceName) : '') +
+      '</p>';
+    }
+
+    return '<figure class="post-photo' + (big ? '' : ' post-photo--card') + '">' +
+      // The post's own picture is the first thing under the title, so
+      // it is not deferred; the ones on cards further down the list are.
+      '<img src="' + escapeHTML(url) + '" alt="' + escapeHTML(alt) + '"' +
+        (big ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">' +
+      line +
+    '</figure>';
+  }
+
   function categoryLabel(cat) {
     return B.label(cat);
   }
@@ -584,7 +624,10 @@
       // No glyph square: a Hangul character on the corner of an English
       // post means nothing to the person reading it. The downloads keep
       // theirs, where the glyph stands for a kind of material.
-      return '<article class="res-card res-card--plain' + (p.published ? '' : ' res-card--draft') + '">' +
+      return '<article class="res-card res-card--plain' +
+          (p.image_url ? ' res-card--photo' : '') +
+          (p.published ? '' : ' res-card--draft') + '">' +
+        photoHTML(p, false) +
         '<div class="res-card-body">' +
           (p.published ? '' : '<span class="res-draft">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
           audienceBadges(p) +
@@ -718,6 +761,7 @@
             escapeHTML(field(post, 'title', post.lang || 'en')) + '</p>'
           : '') +
         '<p class="blog-date">' + escapeHTML(formatDate(postDay(post))) + '</p>' +
+        photoHTML(post, true) +
         langHTML +
         adminHTML +
         '<div class="blog-post-actions">' +
@@ -939,6 +983,10 @@
     // What the date field held when the editor opened. Only a real
     // change counts as the admin setting the date by hand.
     var postDateWas = '';
+    // The photo currently on the post being edited: either what it came
+    // with, or one picked from a search. null means no picture.
+    var photoNow = null;
+    var photoBusy = false;
     var outlineBusy = false;
     var outlineTimer = null;
     var outlineFrom = '';
@@ -989,6 +1037,18 @@
                   '<button type="button" class="res-linkbtn" id="postTagsBtn"></button>' +
                 '</div>' +
                 '<p class="resource-hint" id="postTagsHint"></p></div>' +
+              // The photograph. The generator finds one each morning;
+              // this is for when it found the wrong one. The service's
+              // key never reaches the browser — api/photo.js does the
+              // searching, admin-gated like api/translate.js.
+              '<div class="auth-field"><span class="auth-field-label" id="postPhotoLabel"></span>' +
+                '<div class="post-photo-box" id="postPhotoBox"></div>' +
+                '<div class="post-photo-find">' +
+                  '<input type="text" id="postPhotoQuery" maxlength="120">' +
+                  '<button type="button" class="res-linkbtn" id="postPhotoBtn"></button>' +
+                '</div>' +
+                '<div class="post-photo-results" id="postPhotoResults" hidden></div>' +
+                '<p class="resource-hint" id="postPhotoHint"></p></div>' +
               // The day readers see. Left alone it is the day the draft
               // was written; changed here it is whatever the admin
               // says, and post_date_source records which.
@@ -1047,6 +1107,42 @@
         renderAlts();
       });
       overlay.querySelector('#postTitle').addEventListener('input', renderAlts);
+      overlay.querySelector('#postPhotoBtn').addEventListener('click', runPhotoSearch);
+      overlay.querySelector('#postPhotoQuery').addEventListener('keydown', function (e) {
+        // Enter in a text input inside a form submits it; here it
+        // should search, not save a half-written post.
+        if (e.key === 'Enter') { e.preventDefault(); runPhotoSearch(); }
+      });
+      overlay.querySelector('#postPhotoBox').addEventListener('click', function (e) {
+        if (!e.target.closest('#postPhotoClear')) return;
+        photoNow = null;
+        renderPhotoBox();
+        setPhotoHint(t('blog.photoCleared', 'Taken off. Save to keep it that way.'));
+      });
+      overlay.querySelector('#postPhotoResults').addEventListener('click', function (e) {
+        var btn = e.target.closest('.post-photo-pick');
+        if (!btn) return;
+        var all = [];
+        try { all = JSON.parse(overlay.querySelector('#postPhotoResults').dataset.photos || '[]'); } catch (err) {}
+        var picked = all[Number(btn.dataset.i)];
+        if (!picked) return;
+        photoNow = picked;
+        renderPhotoBox();
+        setPhotoHint(t('blog.photoChosen', 'Chosen. Save to keep it.'));
+        // Unsplash asks to be told when a photo is actually used, so a
+        // photographer's count means something. Best effort only.
+        if (picked.downloadLocation) {
+          client.auth.getSession().then(function (r) {
+            var token = r && r.data && r.data.session && r.data.session.access_token;
+            if (!token) return;
+            fetch('/api/photo', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+              body: JSON.stringify({ used: picked.downloadLocation })
+            }).catch(function () {});
+          });
+        }
+      });
       overlay.querySelector('#postTags').addEventListener('input', function () { tagsTouched = true; });
       overlay.querySelector('#postExcerpt').addEventListener('input', function () { summaryTouched = true; });
       overlay.querySelector('#postCategory').addEventListener('change', function () {
@@ -1080,6 +1176,19 @@
     // The date to save, and whether the admin chose it. Left untouched,
     // neither field is written: a new post takes the database's default
     // and an existing one keeps what it had.
+    // What the photo fields should be on save. Written every time, so
+    // taking a picture off is a save like any other.
+    function photoPatch() {
+      return {
+        image_url: photoNow ? photoNow.url : null,
+        image_alt: photoNow ? (photoNow.alt || null) : null,
+        image_credit: photoNow ? (photoNow.credit || null) : null,
+        image_credit_url: photoNow ? (photoNow.creditUrl || null) : null,
+        image_source: photoNow ? (photoNow.source || null) : null,
+        image_status: photoNow ? 'READY' : null
+      };
+    }
+
     function datePatch() {
       if (!overlay) return {};
       var picked = overlay.querySelector('#postDate').value;
@@ -1109,6 +1218,83 @@
       topicEl.textContent = topic
         ? t('blog.writtenFor', 'Written to answer: {topic}').replace('{topic}', topic)
         : '';
+    }
+
+    function setPhotoHint(text, isError) {
+      if (!overlay) return;
+      var el = overlay.querySelector('#postPhotoHint');
+      el.textContent = text || '';
+      el.classList.toggle('is-error', !!isError);
+    }
+
+    // What is on the post right now, with its credit and a way to take
+    // it off. Rendered rather than templated because it changes every
+    // time a search result is clicked.
+    function renderPhotoBox() {
+      if (!overlay) return;
+      var box = overlay.querySelector('#postPhotoBox');
+      if (!photoNow || !photoNow.url) {
+        box.innerHTML = '<p class="post-photo-none">' +
+          escapeHTML(t('blog.photoNone', 'No photo on this post.')) + '</p>';
+        return;
+      }
+      box.innerHTML =
+        '<img src="' + escapeHTML(photoNow.url) + '" alt="">' +
+        '<div class="post-photo-meta">' +
+          '<p class="post-photo-alt">' + escapeHTML(photoNow.alt || '') + '</p>' +
+          (photoNow.credit
+            ? '<p class="post-photo-credit">' +
+                escapeHTML(t('blog.photoBy', 'Photo by {name}').replace('{name}', photoNow.credit)) +
+                (photoSource(photoNow.source) ? ' · ' + escapeHTML(photoSource(photoNow.source)) : '') +
+              '</p>'
+            : '') +
+          '<button type="button" class="res-linkbtn is-danger" id="postPhotoClear">' +
+            escapeHTML(t('blog.photoRemove', 'Remove')) + '</button>' +
+        '</div>';
+    }
+
+    // Asks api/photo.js, which holds the key. The caller's own token
+    // goes with it, the same way the translation calls work.
+    function searchPhotos(query) {
+      return client.auth.getSession().then(function (res) {
+        var token = res && res.data && res.data.session && res.data.session.access_token;
+        if (!token) throw new Error(t('blog.photoSignIn', 'Sign in again to search for photos.'));
+        return fetch('/api/photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+          body: JSON.stringify({ query: query, count: 8 })
+        }).then(function (r) {
+          return r.json().catch(function () { return {}; }).then(function (data) {
+            if (!r.ok) throw new Error(data.error || ('사진 검색 실패 (' + r.status + ')'));
+            return data.photos || [];
+          });
+        });
+      });
+    }
+
+    function runPhotoSearch() {
+      if (!overlay || photoBusy) return;
+      var query = overlay.querySelector('#postPhotoQuery').value.trim();
+      if (!query) { setPhotoHint(t('blog.photoAsk', 'Type what to look for, in English.')); return; }
+      photoBusy = true;
+      setPhotoHint(t('blog.photoSearching', 'Looking…'));
+      searchPhotos(query).then(function (photos) {
+        photoBusy = false;
+        var results = overlay.querySelector('#postPhotoResults');
+        results.hidden = !photos.length;
+        results.innerHTML = photos.map(function (ph, i) {
+          return '<button type="button" class="post-photo-pick" data-i="' + i + '">' +
+            '<img src="' + escapeHTML(ph.thumb || ph.url) + '" alt="' + escapeHTML(ph.alt || '') + '">' +
+            '<span>' + escapeHTML(ph.credit || '') + '</span></button>';
+        }).join('');
+        results.dataset.photos = JSON.stringify(photos);
+        setPhotoHint(photos.length
+          ? t('blog.photoPick', 'Click one to put it on the post.')
+          : t('blog.photoNothing', 'Nothing came back for that. Try other words.'));
+      }).catch(function (err) {
+        photoBusy = false;
+        setPhotoHint(err.message, true);
+      });
     }
 
     function readAudiences() {
@@ -1285,7 +1471,7 @@
               published: overlay.querySelector('#postPublished').checked,
               updated_at: new Date().toISOString()
             };
-            Object.assign(row, datePatch());
+            Object.assign(row, datePatch(), photoPatch());
             client.from('posts').update(row).eq('id', editing.id).then(function (res) {
               if (!res.error) {
                 lastSaveTime = new Date().toISOString();
@@ -1308,6 +1494,10 @@
         'The day the draft was written. Approving later does not move it — change it here if you want a different day.');
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
       o.querySelector('#postAudienceLabel').textContent = t('blog.fieldAudience', "Who it's for");
+      o.querySelector('#postPhotoLabel').textContent = t('blog.fieldPhoto', 'Photo');
+      o.querySelector('#postPhotoBtn').textContent = t('blog.photoSearch', 'Search');
+      o.querySelector('#postPhotoQuery').placeholder = t('blog.photoPlaceholder', 'Seoul subway station');
+      renderPhotoBox();
       o.querySelectorAll('[data-aud]').forEach(function (box) {
         box.nextElementSibling.textContent = B.audienceLabel(box.dataset.aud);
       });
@@ -1356,6 +1546,18 @@
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
       renderAlts();
+      photoNow = editing && editing.image_url ? {
+        url: editing.image_url, alt: editing.image_alt || '',
+        credit: editing.image_credit || '', creditUrl: editing.image_credit_url || '',
+        source: editing.image_source || ''
+      } : null;
+      photoBusy = false;
+      o.querySelector('#postPhotoQuery').value = '';
+      o.querySelector('#postPhotoResults').hidden = true;
+      o.querySelector('#postPhotoResults').innerHTML = '';
+      renderPhotoBox();
+      setPhotoHint(t('blog.photoHint',
+        'Free photos from Unsplash and Pexels, searched in English. The credit is saved with the picture.'));
       // A new post has no day yet: the database fills it in, in Seoul.
       o.querySelector('#postDate').value = (editing && postDay(editing)) || todayInSeoul();
       postDateWas = o.querySelector('#postDate').value;
@@ -1421,7 +1623,7 @@
         i18n: readTranslations(),
         published: overlay.querySelector('#postPublished').checked,
       };
-      Object.assign(row, datePatch());
+      Object.assign(row, datePatch(), photoPatch());
       // Saving a post straight to published is an approval like any
       // other, and it records the same two moments — without touching
       // the day the post carries.

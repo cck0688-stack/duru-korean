@@ -15,6 +15,8 @@
 //   DURU_BOT_EMAIL      the account, which must be in admin_users
 //   DURU_BOT_PASSWORD
 //   OPENAI_API_KEY      (or ANTHROPIC_API_KEY / GOOGLE_API_KEY)
+//   UNSPLASH_ACCESS_KEY (or PEXELS_API_KEY) — optional. Without one,
+//                       the posts are written without a photograph.
 //   TRANSLATE_PROVIDER  optional, when more than one key is present
 //   TRANSLATE_MODEL     optional
 //   SUPABASE_URL        optional, defaults to the project below
@@ -26,6 +28,7 @@
 import { resolveProvider } from '../api/_providers.js';
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
+import { resolvePhotos, findPhoto } from '../api/_photos.js';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
@@ -129,8 +132,18 @@ async function main() {
     log('글을 쓸 수 없습니다:', err.message);
     process.exit(1);
   }
+  // A photo service is optional. Without a key the posts are written
+  // exactly as before, with nothing where the picture would be.
+  let photoCfg = null;
+  try {
+    photoCfg = resolvePhotos(process.env);
+  } catch (err) {
+    log('사진 설정에 문제가 있습니다:', err.message);
+  }
+
   log(`두루 블로그 — ${today} (서울 기준), ${season.month}월`);
   log(`글쓰기: ${cfg.label} · ${cfg.model}`);
+  log(`사진: ${photoCfg ? photoCfg.label : '없음 (키가 설정되지 않았습니다)'}`);
   if (DRY) log('※ --dry-run: 아무것도 저장하지 않습니다\n');
 
   const wanted = ONLY.length
@@ -192,11 +205,27 @@ async function main() {
         continue;
       }
 
+      // Section 30: a picture that cannot be found must not cost the
+      // writing. Everything below is inside its own try.
+      draft.photo = null;
+      if (photoCfg) {
+        try {
+          draft.photo = await findPhoto(cfg, photoCfg, {
+            title: draft.title, topic: draft.topic, content: draft.content
+          }, (m) => log(`  ${m}`));
+          if (!draft.photo) log('  어울리는 사진을 찾지 못했습니다 — 사진 없이 저장합니다');
+          else log(`  사진: ${draft.photo.credit} (${draft.photo.source})`);
+        } catch (err) {
+          log(`  사진 실패 (글은 그대로 저장합니다): ${err.message}`);
+        }
+      }
+
       log(`  제목: ${draft.title}`);
       if (DRY) {
         log(`  요약: ${draft.summary}`);
         log(`  태그: ${draft.tags.join(', ')}`);
         log(`  slug: ${draft.slug}`);
+        log(`  사진: ${draft.photo ? draft.photo.url : '없음'}`);
         log(`  본문 ${[...draft.content].length}자\n`);
         results.push({ category: category.id, ok: true, title: draft.title, slug: draft.slug });
         continue;
@@ -287,6 +316,15 @@ function rowFor(draft, category, today, userId) {
     topic: draft.topic,
     title_candidates: draft.titleCandidates,
     image_prompt: draft.imagePrompt || null,
+    // Hotlinked from the service's CDN, with the credit beside it —
+    // see section 29 of supabase/schema.sql for why it is not copied
+    // into Supabase Storage.
+    image_url: draft.photo ? draft.photo.url : null,
+    image_alt: draft.photo ? draft.photo.alt : null,
+    image_credit: draft.photo ? draft.photo.credit : null,
+    image_credit_url: draft.photo ? draft.photo.creditUrl : null,
+    image_source: draft.photo ? draft.photo.source : null,
+    image_status: draft.photo ? 'READY' : 'FAILED',
     batch_date: today,
     // post_date is left to the database, which computes today in Seoul.
     // This is the day the post will carry however long it waits for
