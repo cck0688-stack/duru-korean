@@ -393,6 +393,33 @@ language switcher uses. Slugs are generated from the title plus a short
 random suffix; a title with no Latin characters reduces to the suffix
 alone rather than a percent-encoded mess.
 
+A post is one piece of writing however many languages it is written in,
+the same shape the downloads use. `posts.lang` names the language its
+own `title`/`excerpt`/`body` columns are in; `posts.i18n` holds
+`{"<lang>": {"title", "excerpt", "body"}}` for the rest. A language
+counts as available only when it is `lang` or its entry has a body, so
+a half-finished translation is never offered.
+
+The list works like the downloads list: compact cards three to a row,
+the whole card a single stretched link, category chips and a "Pick a
+language" dropdown of all eight languages (English selected by default)
+filtering together, both remembered with the scroll position for the
+trip back. The category counts follow the chosen language. When that
+language has nothing, the empty state names the languages that do, as
+buttons.
+
+`blog.html?post=<slug>&pl=<lang>` opens a post in a language. The post
+carries its own "Read in" picker listing only the languages it is
+written in; the language is taken from `pl`, else the site language,
+and a notice says so when neither exists and it falls back. Choosing
+one there never changes the language of the site. An admin sees the
+published / not-published banner on the post itself, with Publish now /
+Unpublish beside Edit and Delete — the cards carry no admin buttons,
+since a stretched link would swallow them. The editor holds the eight
+languages in a collapsed "Other languages" section, each marked written
+or empty, and the language the post itself is in is hidden from that
+list.
+
 **`stories`** are written by learners. Anyone signed in can post; the
 insert policy's `with check (auth.uid() = user_id)` is what stops one
 account posting as another. Authors may edit or delete their own story

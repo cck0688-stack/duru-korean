@@ -76,6 +76,14 @@ with checks(item, ok) as (
     ('resource-covers bucket is public',
      exists (select 1 from storage.buckets where id='resource-covers' and public = true)),
 
+    ('posts.i18n exists (blog in several languages)',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='posts' and column_name='i18n')),
+
+    ('posts.lang exists',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='posts' and column_name='lang')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

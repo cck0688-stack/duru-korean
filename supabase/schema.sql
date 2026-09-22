@@ -971,3 +971,27 @@ alter table public.resource_files
 update storage.buckets
    set file_size_limit = 52428800
  where id in ('resources', 'resource-covers');
+
+-- ------------------------------------------------------------------
+-- 22. blog posts in several languages
+-- ------------------------------------------------------------------
+-- A post is one piece of writing, however many languages it is written
+-- in — the same shape the downloads use. `lang` names the language the
+-- title/excerpt/body columns are written in, and `i18n` holds a
+-- translation per language:
+--
+--   {"ko": {"title": "...", "excerpt": "...", "body": "..."}}
+--
+-- A language counts as available when it is `lang` or its entry has a
+-- body, so a half-written translation never shows up as a choice.
+
+alter table public.posts
+  add column if not exists lang text not null default 'en',
+  add column if not exists i18n jsonb not null default '{}'::jsonb;
+
+alter table public.posts drop constraint if exists posts_lang_check;
+alter table public.posts
+  add constraint posts_lang_check
+  check (lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh'));
+
+create index if not exists posts_lang_idx on public.posts (lang);

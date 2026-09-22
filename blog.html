@@ -52,21 +52,32 @@
 <section class="section section-after-hero">
   <div class="wrap">
     <p class="section-lead-in" data-i18n="blogPage.leadIn">Study tips, grammar explained simply, and a look at everyday life and culture in Korea.</p>
-    <div class="filter-row reveal" id="blogFilters">
-      <button class="filter-btn active" data-filter="all" data-i18n="blog.filter.all">All</button>
-      <button class="filter-btn" data-filter="culture" data-i18n="blog.cat.culture">Culture &amp; Life</button>
-      <button class="filter-btn" data-filter="travel" data-i18n="blog.cat.travel">Travel &amp; Places</button>
-      <button class="filter-btn" data-filter="food" data-i18n="blog.cat.food">K-Food &amp; Dining</button>
-      <button class="filter-btn" data-filter="trends" data-i18n="blog.cat.trends">Trends &amp; Pop Culture</button>
-      <button class="filter-btn" data-filter="language" data-i18n="blog.cat.language">Language &amp; Tips</button>
-      <button class="filter-btn" data-filter="etc" data-i18n="blog.cat.etc">Etc.</button>
-      <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
+    <div class="dl-toolbar reveal" id="blogToolbar">
+      <div class="filter-row" id="blogFilters">
+        <button class="filter-btn active" data-filter="all" data-i18n="blog.filter.all">All</button>
+        <button class="filter-btn" data-filter="culture" data-i18n="blog.cat.culture">Culture &amp; Life</button>
+        <button class="filter-btn" data-filter="travel" data-i18n="blog.cat.travel">Travel &amp; Places</button>
+        <button class="filter-btn" data-filter="food" data-i18n="blog.cat.food">K-Food &amp; Dining</button>
+        <button class="filter-btn" data-filter="trends" data-i18n="blog.cat.trends">Trends &amp; Pop Culture</button>
+        <button class="filter-btn" data-filter="language" data-i18n="blog.cat.language">Language &amp; Tips</button>
+        <button class="filter-btn" data-filter="etc" data-i18n="blog.cat.etc">Etc.</button>
+      </div>
+      <div class="dl-toolbar-row">
+        <label class="dl-lang" for="blogLang">
+          <span data-i18n="resources.langPick">Pick a language</span>
+          <select id="blogLang"></select>
+        </label>
+        <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
+      </div>
     </div>
 
     <div id="blogSingle" class="blog-single" hidden></div>
 
-    <div class="grid-3 reveal" id="blogList"></div>
-    <p class="resource-empty-note" id="blogEmpty" hidden data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>
+    <div class="resource-empty" id="blogEmpty" hidden>
+      <p id="blogEmptyText" data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>
+      <div class="res-lang-suggest" id="blogLangSuggest" hidden></div>
+    </div>
+    <div class="resource-grid reveal" id="blogList"></div>
   </div>
 </section>
 
@@ -133,6 +144,7 @@
 <script src="js/visitor-tracking.js"></script>
 <script src="js/like.js"></script>
 <script src="js/markdown.js"></script>
+<script src="js/resource-common.js"></script>
 <script src="js/blog.js"></script>
 <script>window.DURU_PAGE_TITLE_KEY = 'blogPage.title';</script>
 <script src="js/newsletter.js"></script>

@@ -1,6 +1,16 @@
 // DURU KOREAN — blog posts (Supabase-backed)
 //
-// Include after js/auth.js on blog.html. Everyone sees published posts;
+// Include after js/auth.js and js/resource-common.js on blog.html. The
+// language table, the label helpers and the i18n lookup are shared with
+// the downloads pages so there is one list of languages on the site.
+//
+// A post is one piece of writing, however many languages it is written
+// in: `lang` names the language its own columns are in and `i18n` holds
+// a translation per language. The list filters by language the way the
+// downloads do, and the post's own view lets a reader switch without
+// changing the language of the site around it.
+//
+// Everyone sees published posts;
 // only a user listed in admin_users can write, edit, or delete one — and
 // that is enforced by Row Level Security in supabase/schema.sql, not by
 // this file hiding a button. A draft is invisible to visitors because the
@@ -13,9 +23,34 @@
 (function () {
   'use strict';
 
+  var R = window.DURU_RES;
+  if (!R) return;
+
   var CATEGORIES = ['culture', 'travel', 'food', 'trends', 'language', 'etc'];
   // Each category's Hangul glyph, matching the static design.
   var GLYPH = { culture: '삶', travel: '길', food: '맛', trends: '멋', language: '말', etc: '기' };
+
+  var STATE_KEY = 'duru_blog_state';
+  var RETURN_KEY = 'duru_blog_return';
+
+  // The languages a post can actually be read in: its own, plus every
+  // translation that has a body. A translation with only a title filled
+  // in is not offered, so nobody lands on an empty page.
+  function postLangs(post) {
+    var have = {};
+    have[post.lang || 'en'] = true;
+    var tr = post.i18n || {};
+    Object.keys(tr).forEach(function (code) {
+      if (tr[code] && typeof tr[code].body === 'string' && tr[code].body.trim()) have[code] = true;
+    });
+    return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return have[c]; });
+  }
+
+  // Title, excerpt and body in one language, falling back to the post's
+  // own columns — the same rule the downloads use for their titles.
+  function field(post, name, lang) {
+    return R.localized(post, name, lang);
+  }
 
   function t(key, fallback) {
     if (!window.DURU_I18N) return fallback;
@@ -101,8 +136,13 @@
   document.addEventListener('DOMContentLoaded', function () {
     var listEl = document.getElementById('blogList');
     var emptyEl = document.getElementById('blogEmpty');
+    var emptyText = document.getElementById('blogEmptyText');
+    var suggestEl = document.getElementById('blogLangSuggest');
     var singleEl = document.getElementById('blogSingle');
+    var toolbarEl = document.getElementById('blogToolbar');
+    var leadInEl = document.querySelector('.section-lead-in');
     var filtersEl = document.getElementById('blogFilters');
+    var langSel = document.getElementById('blogLang');
     var writeBtn = document.getElementById('writePostBtn');
     if (!listEl) return;
 
@@ -111,10 +151,66 @@
 
     var isAdmin = false;
     var activeFilter = 'all';
+    var listLang = 'en';
+    // The language the post being read is shown in. `readPick` is set
+    // only when the reader chooses one from the post's own picker; it
+    // never touches the site language, so reading one post in Korean
+    // does not translate the site around it.
+    var readLang = null;
+    var readPick = null;
     // Set from ?tag= and never changed after load: a tag filter is a
     // distinct URL, so it stays shareable and survives a reload.
     var activeTag = new URLSearchParams(location.search).get('tag') || '';
     var posts = [];
+
+    try {
+      var saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        if (saved.cat) activeFilter = saved.cat;
+        if (saved.lang) listLang = saved.lang;
+      }
+    } catch (e) {}
+
+    function saveState(extra) {
+      try {
+        var st = { cat: activeFilter, lang: listLang };
+        if (extra) Object.keys(extra).forEach(function (k) { st[k] = extra[k]; });
+        sessionStorage.setItem(STATE_KEY, JSON.stringify(st));
+      } catch (e) {}
+    }
+
+    // Every language the site speaks, in the picker's order, whether or
+    // not a post exists in it yet; English is the default. Same as the
+    // downloads list, so the two pages behave alike.
+    function buildLangSelect() {
+      if (!langSel) return;
+      langSel.innerHTML = R.LANGS.map(function (l) {
+        return '<option value="' + escapeHTML(l.code) + '">' + escapeHTML(l.label) + '</option>';
+      }).join('');
+      if (!R.LANGS.some(function (l) { return l.code === listLang; })) listLang = 'en';
+      langSel.value = listLang;
+    }
+
+    // Which languages the posts passing the category and tag filters are
+    // written in — used to point somewhere useful when the chosen one
+    // has nothing.
+    function langsPresent() {
+      var seen = {};
+      posts.filter(matchesFilters).forEach(function (p) {
+        postLangs(p).forEach(function (c) { seen[c] = true; });
+      });
+      return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return seen[c]; });
+    }
+
+    function matchesFilters(p) {
+      if (activeFilter !== 'all' && p.category !== activeFilter) return false;
+      if (activeTag) {
+        return (p.tags || []).some(function (tag) {
+          return tag.toLowerCase() === activeTag.toLowerCase();
+        });
+      }
+      return true;
+    }
 
     /* ---------------- Rendering ---------------- */
 
@@ -148,48 +244,81 @@
 
     function renderCards() {
       var shown = posts.filter(function (p) {
-        if (activeFilter !== 'all' && p.category !== activeFilter) return false;
-        if (activeTag) {
-          return (p.tags || []).some(function (tag) {
-            return tag.toLowerCase() === activeTag.toLowerCase();
-          });
-        }
-        return true;
+        return matchesFilters(p) && postLangs(p).indexOf(listLang) !== -1;
       });
-      listEl.innerHTML = '';
-      if (emptyEl) emptyEl.hidden = shown.length > 0;
       renderCategoryHero();
       renderTagBanner();
-      shown.forEach(function (p) {
-        var card = document.createElement('article');
-        card.className = 'blog-card';
-        card.setAttribute('data-cat', p.category);
-        var href = 'blog.html?post=' + encodeURIComponent(p.slug);
-        // Same markup the static cards used, so the existing card styles
-        // apply without a parallel set of rules to keep in step.
-        card.innerHTML =
-          '<div class="blog-thumb kr" aria-hidden="true">' + escapeHTML(GLYPH[p.category] || '') + '</div>' +
-          '<div class="blog-body">' +
-            '<span class="blog-meta">' + escapeHTML(categoryLabel(p.category)) +
-              (p.published ? '' : ' · <span class="blog-draft-tag">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
+      listEl.innerHTML = shown.map(cardHTML).join('');
+
+      if (shown.length) {
+        emptyEl.hidden = true;
+      } else {
+        emptyEl.hidden = false;
+        // Nothing in this language: name the ones that do have a post,
+        // as buttons, rather than leaving a dead end.
+        var others = langsPresent().filter(function (c) { return c !== listLang; });
+        if (others.length) {
+          emptyText.textContent = t('blog.noneInLang', 'Nothing here in {lang} yet.')
+            .replace('{lang}', R.langLabel(listLang));
+          suggestEl.innerHTML = '<span class="res-lang-suggest-label">' +
+            escapeHTML(t('resources.availableIn', 'Available in')) + '</span>' +
+            others.map(function (c) {
+              return '<button type="button" class="btn btn-ghost" data-lang="' + escapeHTML(c) + '">' +
+                escapeHTML(R.langLabel(c)) + '</button>';
+            }).join('');
+          suggestEl.hidden = false;
+        } else {
+          emptyText.textContent = t('blog.emptyNote', 'No posts yet — the first one is on its way.');
+          suggestEl.innerHTML = '';
+          suggestEl.hidden = true;
+        }
+      }
+
+      listEl.querySelectorAll('a[href^="blog.html?post="]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          saveState({ scrollY: window.scrollY });
+          try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}
+        });
+      });
+    }
+
+    // One compact row per post, the same shape a download's card has:
+    // a 64px glyph square, then title, excerpt, category · date, and the
+    // languages it is written in. The title's link is stretched over the
+    // card in CSS, so the whole card opens the post with one tab stop.
+    function cardHTML(p) {
+      var href = 'blog.html?post=' + encodeURIComponent(p.slug) + '&pl=' + encodeURIComponent(listLang);
+      var codes = postLangs(p);
+      var shown = codes.slice(0, 3);
+      var more = codes.length - shown.length;
+      var excerpt = field(p, 'excerpt', listLang);
+      return '<article class="res-card' + (p.published ? '' : ' res-card--draft') + '">' +
+        '<span class="res-thumb"><span class="res-cover-glyph kr" aria-hidden="true">' +
+          escapeHTML(GLYPH[p.category] || '') + '</span></span>' +
+        '<div class="res-card-body">' +
+          (p.published ? '' : '<span class="res-draft">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
+          '<h3><a href="' + href + '">' + escapeHTML(field(p, 'title', listLang)) + '</a></h3>' +
+          (excerpt ? '<p class="res-card-desc">' + escapeHTML(excerpt) + '</p>' : '') +
+          '<p class="res-meta">' + escapeHTML(categoryLabel(p.category) + ' · ' + formatDate(p.created_at)) + '</p>' +
+          '<div class="res-card-foot">' +
+            '<span class="res-langs" aria-label="' + escapeHTML(t('blog.writtenIn', 'Written in')) + '">' +
+              shown.map(function (c) { return '<span class="res-chip">' + escapeHTML(R.langShort(c)) + '</span>'; }).join('') +
+              (more > 0 ? '<span class="res-chip res-chip--more">+' + more + '</span>' : '') +
             '</span>' +
-            '<h3><a href="' + href + '">' + escapeHTML(p.title) + '</a></h3>' +
-            (p.excerpt ? '<p>' + escapeHTML(p.excerpt) + '</p>' : '') +
-            '<p class="blog-date">' + escapeHTML(formatDate(p.created_at)) + '</p>' +
-            '<a class="read-more" href="' + href + '">' + escapeHTML(t('blog.readMore', 'Read more')) + ' →' + '</a>' +
-            (isAdmin ? '<div class="blog-card-admin">' +
-              '<button type="button" class="blog-edit-btn" data-id="' + p.id + '">' + escapeHTML(t('blog.edit', 'Edit')) + '</button>' +
-              '<button type="button" class="blog-delete-btn" data-id="' + p.id + '">' + escapeHTML(t('blog.delete', 'Delete')) + '</button>' +
-              '</div>' : '') +
-          '</div>';
-        listEl.appendChild(card);
-      });
-      listEl.querySelectorAll('.blog-edit-btn').forEach(function (b) {
-        b.addEventListener('click', function () { openEditor(findPost(b.dataset.id)); });
-      });
-      listEl.querySelectorAll('.blog-delete-btn').forEach(function (b) {
-        b.addEventListener('click', function () { confirmDelete(findPost(b.dataset.id)); });
-      });
+            '<span class="res-view">' + escapeHTML(t('blog.readMore', 'Read more')) + ' →</span>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }
+
+    function restoreScroll() {
+      var back = false;
+      try { back = sessionStorage.getItem(RETURN_KEY) === '1'; sessionStorage.removeItem(RETURN_KEY); } catch (e) {}
+      if (!back) return;
+      try {
+        var st = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
+        if (st && typeof st.scrollY === 'number') window.scrollTo(0, st.scrollY);
+      } catch (e) {}
     }
 
     function findPost(id) {
@@ -200,9 +329,56 @@
       if (!singleEl) return;
       singleEl.hidden = false;
       listEl.hidden = true;
-      if (filtersEl) filtersEl.hidden = true;
+      if (toolbarEl) toolbarEl.hidden = true;
+      if (leadInEl) leadInEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
       var postUrl = location.origin + location.pathname + '?post=' + encodeURIComponent(post.slug);
+
+      // Which language to read it in: the one asked for in ?pl=, else
+      // the language of the site, else the one it was written in. When
+      // the wanted language is missing the page says so instead of
+      // silently showing something else.
+      var codes = postLangs(post);
+      // Resolved from scratch on every render: were the reader's own
+      // choice allowed to stand in for what they asked for, the notice
+      // below would vanish the first time anything re-rendered.
+      var wanted = readPick ||
+        new URLSearchParams(location.search).get('pl') ||
+        (window.DURU_I18N && window.DURU_I18N.lang) || 'en';
+      var missing = codes.indexOf(wanted) === -1;
+      readLang = missing ? (codes.indexOf(post.lang) !== -1 ? post.lang : codes[0]) : wanted;
+
+      var langHTML = '';
+      if (codes.length > 1 || missing) {
+        langHTML = '<div class="blog-lang-row">' +
+          '<label class="dl-lang" for="blogReadLang"><span>' +
+            escapeHTML(t('blog.readIn', 'Read in')) + '</span>' +
+            '<select id="blogReadLang">' + codes.map(function (c) {
+              return '<option value="' + escapeHTML(c) + '"' + (c === readLang ? ' selected' : '') + '>' +
+                escapeHTML(R.langLabel(c)) + '</option>';
+            }).join('') + '</select></label>' +
+          (missing ? '<p class="blog-lang-note">' +
+            escapeHTML(t('blog.langMissing', 'Not written in {lang} yet — showing {shown}.')
+              .replace('{lang}', R.langLabel(wanted)).replace('{shown}', R.langLabel(readLang))) +
+            '</p>' : '') +
+          '</div>';
+      }
+
+      var adminHTML = '';
+      if (isAdmin) {
+        adminHTML = '<div class="res-status ' + (post.published ? 'res-status--live' : 'res-status--draft') + '">' +
+          '<span>' + escapeHTML(post.published
+            ? t('blog.statusLive', 'Published — everyone can read this post.')
+            : t('blog.statusDraft', 'Not published yet — only admins can read this post.')) + '</span>' +
+          '<span class="res-status-actions">' +
+            '<button type="button" class="btn ' + (post.published ? 'btn-outline-dark' : 'btn-primary') + '" id="blogPublishBtn">' +
+              escapeHTML(post.published ? t('blog.unpublish', 'Unpublish') : t('blog.publishNow', 'Publish now')) +
+            '</button>' +
+            '<button type="button" class="btn btn-ghost" id="blogEditBtn">' + escapeHTML(t('blog.edit', 'Edit')) + '</button>' +
+            '<button type="button" class="btn btn-ghost blog-delete-btn" id="blogDeleteBtn">' + escapeHTML(t('blog.delete', 'Delete')) + '</button>' +
+          '</span>' +
+        '</div>';
+      }
 
       var currentIdx = posts.filter(function (p) { return p.published || isAdmin; }).findIndex(function (p) { return p.id === post.id; });
       var prevPost = currentIdx > 0 ? posts.filter(function (p) { return p.published || isAdmin; })[currentIdx - 1] : null;
@@ -214,13 +390,13 @@
         if (prevPost) {
           navHTML += '<a href="blog.html?post=' + encodeURIComponent(prevPost.slug) + '" class="blog-nav-prev">' +
             '<span class="blog-nav-label">' + escapeHTML(t('blog.prevPost', '← Previous')) + '</span>' +
-            '<span class="blog-nav-title">' + escapeHTML(prevPost.title) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(field(prevPost, 'title', readLang)) + '</span>' +
             '</a>';
         }
         if (nextPost) {
           navHTML += '<a href="blog.html?post=' + encodeURIComponent(nextPost.slug) + '" class="blog-nav-next">' +
             '<span class="blog-nav-label">' + escapeHTML(t('blog.nextPost', 'Next →')) + '</span>' +
-            '<span class="blog-nav-title">' + escapeHTML(nextPost.title) + '</span>' +
+            '<span class="blog-nav-title">' + escapeHTML(field(nextPost, 'title', readLang)) + '</span>' +
             '</a>';
         }
         navHTML += '</div>';
@@ -231,32 +407,48 @@
         '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
           (post.published ? '' : ' · <span class="blog-draft-tag">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
         '</span>' +
-        '<h1>' + escapeHTML(post.title) + '</h1>' +
+        '<h1>' + escapeHTML(field(post, 'title', readLang)) + '</h1>' +
         '<p class="blog-date">' + escapeHTML(formatDate(post.created_at)) + '</p>' +
+        langHTML +
+        adminHTML +
         '<div class="blog-post-actions">' +
           '<button type="button" class="like-btn" id="likePostBtn" data-id="' + post.id + '" data-liked="false">' +
             '<span class="like-icon">♡</span>' +
             '<span class="like-count" id="likeCount">0</span>' +
           '</button>' +
         '</div>' +
-        '<div class="post-body">' + paragraphs(post.body) + '</div>' +
+        '<div class="post-body">' + paragraphs(field(post, 'body', readLang)) + '</div>' +
         renderTags(post.tags) +
         '<div class="blog-share">' +
           '<span class="blog-share-label">' + escapeHTML(t('blog.share', 'Share this post')) + '</span>' +
           '<div class="blog-share-buttons">' +
-            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(post.title + ' — Duru Korean') + '&url=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn twitter" title="Twitter" aria-label="Share on Twitter">𝕏</a>' +
+            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(field(post, 'title', readLang) + ' — Duru Korean') + '&url=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn twitter" title="Twitter" aria-label="Share on Twitter">𝕏</a>' +
             '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(postUrl) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn facebook" title="Facebook" aria-label="Share on Facebook">f</a>' +
-            '<a href="https://share.naver.com/web/shareView?url=' + encodeURIComponent(postUrl) + '&title=' + encodeURIComponent(post.title) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn naver" title="Naver" aria-label="Share on Naver">N</a>' +
+            '<a href="https://share.naver.com/web/shareView?url=' + encodeURIComponent(postUrl) + '&title=' + encodeURIComponent(field(post, 'title', readLang)) + '" target="_blank" rel="noopener noreferrer" class="blog-share-btn naver" title="Naver" aria-label="Share on Naver">N</a>' +
             (kakaoKey()
-              ? '<button type="button" class="blog-share-btn kakao" title="KakaoTalk" aria-label="Share on KakaoTalk" data-title="' + escapeHTML(post.title) + '" data-url="' + escapeHTML(postUrl) + '">K</button>'
+              ? '<button type="button" class="blog-share-btn kakao" title="KakaoTalk" aria-label="Share on KakaoTalk" data-title="' + escapeHTML(field(post, 'title', readLang)) + '" data-url="' + escapeHTML(postUrl) + '">K</button>'
               : '') +
             '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
           '</div>' +
         '</div>' +
         navHTML;
-      document.title = post.title + ' — Duru Korean';
+      document.title = field(post, 'title', readLang) + ' — Duru Korean';
       setupShareButtons();
       setupLikeButton(post.id);
+
+      var readSel = singleEl.querySelector('#blogReadLang');
+      if (readSel) {
+        readSel.addEventListener('change', function () {
+          readPick = readSel.value;
+          renderSingle(post);
+        });
+      }
+      var pubBtn = singleEl.querySelector('#blogPublishBtn');
+      if (pubBtn) pubBtn.addEventListener('click', function () { togglePublished(post); });
+      var editBtn = singleEl.querySelector('#blogEditBtn');
+      if (editBtn) editBtn.addEventListener('click', function () { openEditor(post); });
+      var delBtn = singleEl.querySelector('#blogDeleteBtn');
+      if (delBtn) delBtn.addEventListener('click', function () { confirmDelete(post); });
     }
 
     // KakaoTalk sharing needs a per-site JavaScript key from the Kakao
@@ -365,7 +557,9 @@
       if (!singleEl) return;
       singleEl.hidden = false;
       listEl.hidden = true;
-      if (filtersEl) filtersEl.hidden = true;
+      if (toolbarEl) toolbarEl.hidden = true;
+      if (leadInEl) leadInEl.hidden = true;
+      if (emptyEl) emptyEl.hidden = true;
       singleEl.innerHTML =
         '<a class="blog-back" href="blog.html">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
         '<h1>' + escapeHTML(t('blog.notFoundTitle', 'Post not found')) + '</h1>' +
@@ -381,13 +575,16 @@
         .then(function (res) {
           if (res.error) { console.error('Failed to load posts:', res.error.message); return; }
           posts = res.data || [];
+          buildLangSelect();
           updateFilterCounts();
           var slug = new URLSearchParams(location.search).get('post');
           if (slug) {
             var match = posts.filter(function (p) { return p.slug === slug; })[0];
             if (match) renderSingle(match); else renderNotFound();
           } else {
+            markActiveFilter();
             renderCards();
+            restoreScroll();
           }
         });
     }
@@ -425,6 +622,23 @@
                 '<input type="text" id="postTags" maxlength="280" placeholder="hangul, beginner"></div>' +
               '<div class="auth-field"><label for="postBody"></label>' +
                 '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
+              '<div class="auth-field"><label for="postLang"></label>' +
+                '<select id="postLang">' + R.LANGS.map(function (l) {
+                  return '<option value="' + escapeHTML(l.code) + '">' + escapeHTML(l.label) + '</option>';
+                }).join('') + '</select></div>' +
+              // The same post in other languages. Collapsed, because most
+              // of the time only one language is being written.
+              '<details class="res-more" id="postTranslations"><summary></summary>' +
+                '<p class="resource-hint" id="postTranslationsHint"></p>' +
+                R.LANGS.map(function (l) {
+                  return '<details class="res-more res-more--nested" data-tr="' + escapeHTML(l.code) + '">' +
+                    '<summary>' + escapeHTML(l.label) + ' <span class="post-tr-state"></span></summary>' +
+                    '<div class="auth-field"><input type="text" data-tr-title="' + escapeHTML(l.code) + '" maxlength="160"></div>' +
+                    '<div class="auth-field"><textarea data-tr-excerpt="' + escapeHTML(l.code) + '" rows="2" maxlength="400"></textarea></div>' +
+                    '<div class="auth-field"><textarea data-tr-body="' + escapeHTML(l.code) + '" rows="8" maxlength="40000"></textarea></div>' +
+                  '</details>';
+                }).join('') +
+              '</details>' +
               '<label class="post-publish-row"><input type="checkbox" id="postPublished"> <span id="postPublishedLabel"></span></label>' +
               '<button type="submit" class="btn btn-primary auth-submit" id="postSubmit"></button>' +
             '</form>' +
@@ -443,7 +657,47 @@
         bodyTextarea.addEventListener('input', updatePreview);
         bodyTextarea.addEventListener('change', updatePreview);
       }
+      overlay.querySelector('#postLang').addEventListener('change', markTranslationState);
+      overlay.querySelectorAll('[data-tr-body]').forEach(function (el) {
+        el.addEventListener('input', markTranslationState);
+      });
       return overlay;
+    }
+
+    // "Written" / "—" beside each language, and the language the post
+    // itself is in hidden from the list so it cannot be filled twice.
+    function markTranslationState() {
+      if (!overlay) return;
+      var base = overlay.querySelector('#postLang').value;
+      overlay.querySelectorAll('[data-tr]').forEach(function (box) {
+        var code = box.dataset.tr;
+        box.hidden = code === base;
+        var body = overlay.querySelector('[data-tr-body="' + code + '"]');
+        var state = box.querySelector('.post-tr-state');
+        if (state) {
+          state.textContent = body && body.value.trim()
+            ? t('blog.trWritten', 'written') : t('blog.trEmpty', 'empty');
+          state.className = 'post-tr-state' + (body && body.value.trim() ? ' is-written' : '');
+        }
+      });
+    }
+
+    function readTranslations() {
+      var base = overlay.querySelector('#postLang').value;
+      var out = {};
+      R.LANGS.forEach(function (l) {
+        if (l.code === base) return;
+        var title = overlay.querySelector('[data-tr-title="' + l.code + '"]').value.trim();
+        var excerpt = overlay.querySelector('[data-tr-excerpt="' + l.code + '"]').value.trim();
+        var body = overlay.querySelector('[data-tr-body="' + l.code + '"]').value.trim();
+        if (!title && !excerpt && !body) return;
+        var entry = {};
+        if (title) entry.title = title;
+        if (excerpt) entry.excerpt = excerpt;
+        if (body) entry.body = body;
+        out[l.code] = entry;
+      });
+      return out;
     }
 
     function updatePreview() {
@@ -479,6 +733,8 @@
               excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
               tags: parseTags(overlay.querySelector('#postTags').value),
               body: body,
+              lang: overlay.querySelector('#postLang').value,
+              i18n: readTranslations(),
               published: overlay.querySelector('#postPublished').checked,
               updated_at: new Date().toISOString()
             };
@@ -502,6 +758,20 @@
       o.querySelector('label[for="postExcerpt"]').textContent = t('blog.fieldExcerpt', 'Summary (shown on the card)');
       o.querySelector('label[for="postTags"]').textContent = t('blog.fieldTags', 'Tags (comma separated)');
       o.querySelector('label[for="postBody"]').textContent = t('blog.fieldBody', 'Body');
+      o.querySelector('label[for="postLang"]').textContent = t('blog.fieldLang', 'Written in');
+      o.querySelector('#postTranslations > summary').textContent = t('blog.translations', 'Other languages');
+      o.querySelector('#postTranslationsHint').textContent =
+        t('blog.translationsHint', 'Fill in a language to offer the post in it. A language needs a body to count as written.');
+      o.querySelectorAll('[data-tr-title]').forEach(function (el) {
+        el.placeholder = t('blog.fieldTitle', 'Title');
+      });
+      o.querySelectorAll('[data-tr-excerpt]').forEach(function (el) {
+        el.placeholder = t('blog.fieldExcerpt', 'Summary (shown on the card)');
+      });
+      o.querySelectorAll('[data-tr-body]').forEach(function (el) {
+        el.placeholder = t('blog.fieldBody', 'Body');
+      });
+      markTranslationState();
       o.querySelector('#postPublishedLabel').textContent = t('blog.fieldPublished', 'Publish now (leave off to save as a draft)');
       o.querySelector('#postSubmit').textContent = t('blog.save', 'Save');
       CATEGORIES.forEach(function (c, i) {
@@ -524,11 +794,21 @@
       lastSaveTime = null;
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
-      o.querySelector('#postCategory').value = editing ? editing.category : 'study';
+      o.querySelector('#postCategory').value = editing ? editing.category : CATEGORIES[0];
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
       o.querySelector('#postTags').value = editing && editing.tags ? editing.tags.join(', ') : '';
       o.querySelector('#postBody').value = editing ? editing.body : '';
-      o.querySelector('#postPublished').checked = editing ? !!editing.published : false;
+      o.querySelector('#postLang').value = (editing && editing.lang) ||
+        (window.DURU_I18N && window.DURU_I18N.lang) || 'en';
+      var tr = (editing && editing.i18n) || {};
+      R.LANGS.forEach(function (l) {
+        var entry = tr[l.code] || {};
+        o.querySelector('[data-tr-title="' + l.code + '"]').value = entry.title || '';
+        o.querySelector('[data-tr-excerpt="' + l.code + '"]').value = entry.excerpt || '';
+        o.querySelector('[data-tr-body="' + l.code + '"]').value = entry.body || '';
+      });
+      o.querySelector('#postTranslations').open = false;
+      markTranslationState();
       updatePreview();
       o.hidden = false;
       o.querySelector('#postTitle').focus();
@@ -557,6 +837,8 @@
         excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
         tags: parseTags(overlay.querySelector('#postTags').value),
         body: body,
+        lang: overlay.querySelector('#postLang').value,
+        i18n: readTranslations(),
         published: overlay.querySelector('#postPublished').checked,
       };
 
@@ -590,6 +872,25 @@
       });
     }
 
+    /* ---------------- Publish ---------------- */
+
+    // Publishing lives on the post itself, next to what is being
+    // published, rather than as a checkbox inside the editor.
+    function togglePublished(post) {
+      var next = !post.published;
+      client.from('posts')
+        .update({ published: next, updated_at: new Date().toISOString() })
+        .eq('id', post.id)
+        .then(function (res) {
+          if (res.error) {
+            if (window.DURU_NOTIFY) window.DURU_NOTIFY.error(schemaHint(res.error.message));
+            return;
+          }
+          post.published = next;
+          renderSingle(post);
+        });
+    }
+
     /* ---------------- Delete ---------------- */
 
     function confirmDelete(post) {
@@ -610,9 +911,16 @@
 
     function updateFilterCounts() {
       if (!filtersEl) return;
+      // Counts follow the language being browsed, so a chip never
+      // promises posts the language filter is about to hide.
+      var inLang = posts.filter(function (p) {
+        if (postLangs(p).indexOf(listLang) === -1) return false;
+        if (!activeTag) return true;
+        return (p.tags || []).some(function (tag) { return tag.toLowerCase() === activeTag.toLowerCase(); });
+      });
       filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (btn) {
         var filter = btn.dataset.filter;
-        var count = filter === 'all' ? posts.length : countByCategory(posts, filter);
+        var count = filter === 'all' ? inLang.length : countByCategory(inLang, filter);
         var countEl = btn.querySelector('.filter-count');
         if (!countEl && count > 0) {
           countEl = document.createElement('span');
@@ -625,14 +933,42 @@
 
     /* ---------------- Filters, admin state ---------------- */
 
+    function markActiveFilter() {
+      if (!filtersEl) return;
+      filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.filter === activeFilter);
+      });
+    }
+
     if (filtersEl) {
       filtersEl.addEventListener('click', function (e) {
         var btn = e.target.closest('.filter-btn');
         if (!btn) return;
         activeFilter = btn.dataset.filter;
-        filtersEl.querySelectorAll('.filter-btn').forEach(function (b) {
-          b.classList.toggle('active', b === btn);
-        });
+        markActiveFilter();
+        saveState();
+        updateFilterCounts();
+        renderCards();
+      });
+    }
+
+    if (langSel) {
+      langSel.addEventListener('change', function () {
+        listLang = langSel.value;
+        saveState();
+        updateFilterCounts();
+        renderCards();
+      });
+    }
+
+    if (suggestEl) {
+      suggestEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('button[data-lang]');
+        if (!btn) return;
+        listLang = btn.dataset.lang;
+        if (langSel) langSel.value = listLang;
+        saveState();
+        updateFilterCounts();
         renderCards();
       });
     }
@@ -663,10 +999,14 @@
     // Labels inside rendered cards are translated at render time, so a
     // language switch has to re-render rather than rely on the DOM scan.
     document.addEventListener('duru:langchange', function () {
+      buildLangSelect();
       updateFilterCounts();
       var slug = new URLSearchParams(location.search).get('post');
       if (slug) {
         var match = posts.filter(function (p) { return p.slug === slug; })[0];
+        // Switching the site's language re-picks the reading language
+        // too, but only on the way in — a reader who chose one on this
+        // page keeps it until they leave.
         if (match) renderSingle(match);
       } else {
         renderCards();
