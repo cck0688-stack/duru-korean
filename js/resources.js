@@ -39,23 +39,40 @@
     var isAdmin = false;
     var currentUser = null;
     var all = [];
-    var state = { type: 'all', lang: 'en' };
+    var state = { type: 'all', lang: R.preferredLang() };
+    // The site language this list is currently tuned to. A choice the
+    // reader made in the dropdown is remembered, but only against the
+    // site language it was made under: picking 中文 at the top of the
+    // page is a statement about what they want to read, and the list
+    // should follow it rather than sit on a choice from before.
+    var tunedTo = null;
 
-    try {
-      var saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
-      if (saved && typeof saved === 'object') {
-        if (saved.type) state.type = saved.type;
-        if (saved.lang) state.lang = saved.lang;
-      }
-    } catch (e) {}
+    var saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null'); } catch (e) {}
+    if (saved && typeof saved === 'object' && saved.type) state.type = saved.type;
 
     function saveState(extra) {
       try {
-        var s = { type: state.type, lang: state.lang };
+        var s = { type: state.type, lang: state.lang, site: tunedTo };
         if (extra) Object.keys(extra).forEach(function (k) { s[k] = extra[k]; });
         sessionStorage.setItem(STATE_KEY, JSON.stringify(s));
       } catch (e) {}
     }
+
+    // Returns true when the list language moved and the page needs a
+    // repaint. On the first call a remembered choice made under this
+    // same site language wins; after that the site language always does.
+    function followSiteLang() {
+      var code = R.preferredLang();
+      if (tunedTo === code) return false;
+      var first = tunedTo === null;
+      tunedTo = code;
+      if (first && saved && saved.lang && saved.site === code) state.lang = saved.lang;
+      else state.lang = code;
+      saveState();
+      return true;
+    }
+    followSiteLang();
 
     /* ---------------- Language dropdown ---------------- */
 
@@ -204,6 +221,7 @@
         state.lang = langSel.value;
         saveState(); render();
       });
+
     }
     if (suggestEl) {
       suggestEl.addEventListener('click', function (e) {
@@ -214,7 +232,11 @@
         saveState(); render();
       });
     }
-    document.addEventListener('duru:langchange', function () { buildLangSelect(); render(); });
+    document.addEventListener('duru:langchange', function () {
+      followSiteLang();
+      buildLangSelect();
+      render();
+    });
 
     /* ---------------- Admin: add a download ---------------- */
 

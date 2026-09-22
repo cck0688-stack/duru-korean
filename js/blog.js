@@ -88,7 +88,7 @@
     var words = MT.studyFor(post, lang);
     if (!words) return '';
     return '<section class="study">' +
-      '<h2 class="study-title">' + escapeHTML(t('study.heading', 'Self-study')) + '</h2>' +
+      '<h2 class="study-title">' + escapeHTML(t('study.heading', 'Words to know')) + '</h2>' +
       '<p class="study-lead">' + escapeHTML(t('study.lead',
         'Five words from this post, in the sense it uses them.')) + '</p>' +
       '<ol class="study-list">' + words.map(function (w) {
@@ -222,7 +222,11 @@
 
     var isAdmin = false;
     var activeFilter = 'all';
-    var listLang = 'en';
+    var listLang = R.preferredLang();
+    // The site language this list is tuned to — see js/resources.js for
+    // the same rule: a choice made in the dropdown is remembered, but
+    // only against the site language it was made under.
+    var tunedTo = null;
     // The language the post being read is shown in. `readPick` is set
     // only when the reader chooses one from the post's own picker; it
     // never touches the site language, so reading one post in Korean
@@ -234,21 +238,29 @@
     var activeTag = new URLSearchParams(location.search).get('tag') || '';
     var posts = [];
 
-    try {
-      var saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
-      if (saved && typeof saved === 'object') {
-        if (saved.cat) activeFilter = saved.cat;
-        if (saved.lang) listLang = saved.lang;
-      }
-    } catch (e) {}
+    var saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null'); } catch (e) {}
+    if (saved && typeof saved === 'object' && saved.cat) activeFilter = saved.cat;
 
     function saveState(extra) {
       try {
-        var st = { cat: activeFilter, lang: listLang };
+        var st = { cat: activeFilter, lang: listLang, site: tunedTo };
         if (extra) Object.keys(extra).forEach(function (k) { st[k] = extra[k]; });
         sessionStorage.setItem(STATE_KEY, JSON.stringify(st));
       } catch (e) {}
     }
+
+    function followSiteLang() {
+      var code = R.preferredLang();
+      if (tunedTo === code) return false;
+      var first = tunedTo === null;
+      tunedTo = code;
+      if (first && saved && saved.lang && saved.site === code) listLang = saved.lang;
+      else listLang = code;
+      saveState();
+      return true;
+    }
+    followSiteLang();
 
     // Every language the site speaks, in the picker's order, whether or
     // not a post exists in it yet; English is the default. Same as the
@@ -506,6 +518,9 @@
         '</div>' +
         '<div class="post-body' + (pairs ? ' post-body--mt' : '') + '">' + bodyHTML + '</div>' +
         renderTags(post.tags) +
+        // Straight under the writing, while the sentences are still in
+        // mind. Sharing is what a reader does after, so it comes after.
+        studyHTML(post, readLang) +
         '<div class="blog-share">' +
           '<span class="blog-share-label">' + escapeHTML(t('blog.share', 'Share this post')) + '</span>' +
           '<div class="blog-share-buttons">' +
@@ -518,7 +533,6 @@
             '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
           '</div>' +
         '</div>' +
-        studyHTML(post, readLang) +
         navHTML +
         '<div id="postComments"></div>';
       document.title = readField(post, 'title', readLang) + ' — Duru Korean';
@@ -1046,14 +1060,14 @@
       if (filed === 'ko') {
         var ready = MT.studyFor(post, fresh[0] || 'en');
         label += ' ' + (ready
-          ? t('study.statusReady', 'The study list is ready.')
-          : t('study.statusMissing', 'No study list yet.'));
+          ? t('study.statusReady', 'The word list is ready.')
+          : t('study.statusMissing', 'No word list yet.'));
       } else if (MT.detectLang && MT.detectLang(post.body) === 'ko') {
         // The one mismatch worth naming: a Korean post filed as
         // something else gets no self-study corner, and nothing else on
         // the page would say why.
         label += ' ' + t('study.wrongLang',
-          'This post is filed as {lang} but reads as Korean — change "Written in" to 한국어 and translate again to get the study list.')
+          'This post is filed as {lang} but reads as Korean — change "Written in" to 한국어 and translate again to get the word list.')
           .replace('{lang}', R.langLabel(filed));
       }
       return '<div class="mt-status' + (stale.length || !fresh.length ? ' is-stale' : '') + '">' +
@@ -1120,7 +1134,7 @@
         return MT.study(client, {
           from: post.lang, to: targets, body: post.body
         }, function () {
-          if (report) report(t('study.building', 'Picking the study words…'));
+          if (report) report(t('study.building', 'Picking the words…'));
         }).then(function (st) {
           return { mt: merged, study: st || post.study || {}, n: Object.keys(fresh).length };
         }).catch(function (err) {
@@ -1268,6 +1282,7 @@
     // Labels inside rendered cards are translated at render time, so a
     // language switch has to re-render rather than rely on the DOM scan.
     document.addEventListener('duru:langchange', function () {
+      followSiteLang();
       buildLangSelect();
       updateFilterCounts();
       var slug = new URLSearchParams(location.search).get('post');

@@ -189,8 +189,16 @@ text. The type chips (Hangul Starter / Pronunciation / Vocabulary /
 Grammar Cheat Sheets / Real-Life Korean) and the "Pick a language"
 dropdown filter together, and both are remembered — with the scroll
 position — for the trip back from a resource page. The dropdown lists
-all eight languages in the picker's order, English first and selected
-by default, whether or not a download exists in each one yet. When the
+all eight languages in the picker's order, whether or not a download
+exists in each one yet, and starts on **the language chosen at the top
+of the page**: picking 中文 in the header is a statement about what the
+visitor wants to read, so the downloads list and the blog list both
+follow it. A choice made in the dropdown itself is remembered instead —
+but only against the site language it was made under, so changing the
+header language moves the list again rather than leaving it on a
+decision from before. `R.preferredLang()` resolves that chain (`?lang=`
+→ the saved choice → the running language) without waiting for
+`js/i18n.js`, so the first render is already in the right language. When the
 chosen language has nothing in the chosen category, the empty state
 names the languages that do, as buttons. A card is a single link:
 the title's anchor is stretched over the card in CSS, so clicking
@@ -565,14 +573,20 @@ Naver becomes necessary, the honest route is Supabase adding it — the
 list in `js/auth.js` is one line per provider, so the day it exists the
 change is that line.
 
-### Self-study under a Korean post
+### Words to know, under a Korean post
 
 A reader working through a Korean article in their own language learns
 more from five words explained than from a whole post translated. Under
-a post written in Korean, `js/blog.js` renders a **Self-study** corner:
-five words a learner would stumble on, each with its romanization, part
-of speech, the meaning **this post uses**, a sentence or two on how to
-use it, and the sentence it came from.
+a post written in Korean, `js/blog.js` renders a **Words to know**
+corner: five words a learner would stumble on, each with its
+romanization, part of speech, the meaning **this post uses**, a sentence
+or two on how to use it, and the sentence it came from.
+
+It sits directly under the writing, before the share buttons — while
+the sentences are still in mind, rather than after the reader has been
+invited to leave. (The heading was "Self-study" at first; that names a
+way of studying rather than what is in the box, and a reader scanning
+the page wants the second.)
 
 The sense matters more than the gloss, and it is what the instruction in
 `api/_providers.js` spends its words on: 발효 beside kimchi is food

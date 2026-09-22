@@ -115,6 +115,21 @@
   function siteLang() {
     return (window.DURU_I18N && window.DURU_I18N.lang) || document.documentElement.lang || 'en';
   }
+
+  // The language the visitor has chosen at the top of the page, resolved
+  // without waiting for js/i18n.js to finish loading its dictionary —
+  // same chain that engine uses, so a list can be built in the right
+  // language on the first render instead of flipping to it a moment
+  // later. Always one of the eight.
+  function preferredLang() {
+    var code = '';
+    try {
+      code = new URLSearchParams(location.search).get('lang') || '';
+      if (!code) code = localStorage.getItem('duru_lang') || '';
+    } catch (e) {}
+    if (!code) code = siteLang();
+    return LANGS.some(function (l) { return l.code === code; }) ? code : 'en';
+  }
   function langEntry(code) {
     return LANGS.filter(function (l) { return l.code === code; })[0] || { code: code, label: code, short: String(code || '').slice(0, 2).toUpperCase() };
   }
@@ -208,7 +223,7 @@
     MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX, ACCEPT: ACCEPT, PREVIEWABLE: PREVIEWABLE,
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,
-    siteLang: siteLang, langLabel: langLabel, langShort: langShort, langEntry: langEntry,
+    siteLang: siteLang, preferredLang: preferredLang, langLabel: langLabel, langShort: langShort, langEntry: langEntry,
     categoryLabel: categoryLabel, levelLabel: levelLabel,
     localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
