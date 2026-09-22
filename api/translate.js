@@ -51,13 +51,12 @@
 //
 //   { "mode": "outline", "from": "ko", "to": ["en"],
 //     "sentences": [ …the whole post… ], "min": 3, "max": 5,
-//     "categories": [ { "id": "travel", "about": "arriving, getting around",
-//                       "subs": ["transport", "money-basics"] }, … ],
+//     "categories": [ { "id": "travel", "about": "arriving, getting around" }, … ],
 //     "audiences": [ { "id": "tourists", "about": "here for a few days" }, … ] }
 //
 //   200 { "provider": …, "model": …,
 //         "summary": "서울 지하철은…", "category": "travel",
-//         "subtopic": "transport", "audiences": ["tourists", "students"],
+//         "audiences": ["tourists", "students"],
 //         "tags": ["지하철", "교통카드", "서울"] }
 //
 // ── Configuration (Vercel → Settings → Environment Variables) ──────
@@ -111,7 +110,6 @@ const MAX_VOCAB_CHARS = 20000;
 const MAX_WORDS = 10;
 const MAX_TAGS = 8;
 const MAX_CATEGORIES = 20;
-const MAX_SUBTOPICS = 12;
 const MAX_AUDIENCES = 8;
 
 function bad(res, status, message) {
@@ -194,13 +192,7 @@ export default async function handler(req, res) {
       const categories = (Array.isArray(body.categories) ? body.categories : [])
         .filter(function (c) { return c && isId(c.id); })
         .slice(0, MAX_CATEGORIES)
-        .map(function (c) {
-          return {
-            id: c.id,
-            about: String(c.about || '').slice(0, 120),
-            subs: (Array.isArray(c.subs) ? c.subs : []).filter(isId).slice(0, MAX_SUBTOPICS)
-          };
-        });
+        .map(function (c) { return { id: c.id, about: String(c.about || '').slice(0, 120) }; });
       if (!categories.length) return bad(res, 400, 'Send the list of categories to choose from.');
       const audiences = (Array.isArray(body.audiences) ? body.audiences : [])
         .filter(function (a) { return a && isId(a.id); })
@@ -213,7 +205,7 @@ export default async function handler(req, res) {
       );
       res.status(200).json({
         provider: cfg.name, model: out.model || cfg.model,
-        summary: out.summary, category: out.category, subtopic: out.subtopic,
+        summary: out.summary, category: out.category,
         audiences: out.audiences, tags: out.tags
       });
       return;

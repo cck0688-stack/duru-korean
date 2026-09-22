@@ -58,12 +58,10 @@
   <div class="wrap">
     <p class="section-lead-in" data-i18n="blogPage.leadIn">Written for people who came here from somewhere else: five days, four years, or somewhere in between.</p>
     <div class="dl-toolbar reveal" id="blogToolbar">
-      <!-- The seven shelves, each with its sub-topics behind a caret.
-           Built in js/blog.js from window.DURU_BLOG so the list of
-           categories has one home. -->
-      <nav class="blog-cats" id="blogFilters" aria-label="Blog categories"></nav>
+      <!-- The seven topics. Built in js/blog.js from window.DURU_BLOG,
+           so the list of topics has one home. -->
+      <nav class="blog-cats" id="blogFilters" aria-label="Blog topics"></nav>
       <div class="dl-toolbar-row">
-        <div class="blog-aud" id="blogAudiences"></div>
         <label class="dl-lang" for="blogLang">
           <span data-i18n="resources.langPick">Pick a language</span>
           <select id="blogLang"></select>
@@ -75,8 +73,8 @@
     <div id="blogSingle" class="blog-single" hidden></div>
 
     <!-- The way in for someone who has just landed: what to read first,
-         the seven shelves as cards, then a few posts worth starting on.
-         Only on the unfiltered list; picking a category replaces it. -->
+         the seven topics as cards, then a few posts worth starting on.
+         Only on the unfiltered list; picking a topic replaces it. -->
     <div class="blog-landing" id="blogLanding" hidden>
       <div class="start-here">
         <span class="start-here-mark kr" aria-hidden="true">첫</span>

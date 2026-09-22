@@ -398,20 +398,22 @@ A post has a `published` flag, and the public select policy filters on
 it, so a draft is genuinely invisible rather than merely unlinked — an
 admin sees drafts because a second select policy grants it.
 
-Single posts live at `/blog/post/<slug>`, a shelf at `/blog/travel` and
-a sub-topic at `/blog/travel/transport`. Those are rewrites in
-`vercel.json` onto `blog.html?post=`, `?cat=` and `?sub=`, so nothing in
-the page has to know about routing; `blog.html?post=<slug>` still works
-and is what `search.js` and `profile.js` link to. Because blog.html is
-served from three different depths, it carries `<base href="/">` — every
-relative script, stylesheet and `fetch('js/i18n/…')` on it resolves from
-the site root rather than from whichever path the reader arrived on.
-Paths are built in one place, `DURU_BLOG.href()` and
-`DURU_BLOG.postHref()`. Slugs are generated from the title plus a short
+Single posts live at `/blog/post/<slug>` and a topic at `/blog/travel`.
+Those are rewrites in `vercel.json` onto `blog.html?post=` and `?cat=`,
+so nothing in the page has to know about routing; `blog.html?post=<slug>`
+still works and is what `search.js` and `profile.js` link to. A rewrite
+happens on the server, though, so the browser is still sitting on
+`/blog/travel` with nothing in its query string — `DURU_BLOG.route()`
+reads the path rather than trusting a query string the browser never
+sees. Because blog.html is served from three different depths, it
+carries `<base href="/">` — every relative script, stylesheet and
+`fetch('js/i18n/…')` on it resolves from the site root rather than from
+whichever path the reader arrived on. Paths are built in one place,
+`DURU_BLOG.href()` and `DURU_BLOG.postHref()`. Slugs are generated from the title plus a short
 random suffix; a title with no Latin characters reduces to the suffix
 alone rather than a percent-encoded mess.
 
-### Seven shelves, and who a post is for
+### Seven topics, and who a post is for
 
 The blog is written for people who came to Korea from somewhere else —
 a tourist here for five days, a student on a D-2, a family six years
@@ -428,28 +430,36 @@ matter:
 | `career` | Career | part-time permits, job hunting, resumes, internships |
 | `community` | Community | cultural nuance, news for foreigners, reader questions |
 
-Each has three or four sub-topics — twenty-four in all — and every post
-may carry any of three audiences: `tourists` (green), `students` (blue),
-`expats` (purple), shown as badges on the card and on the post.
+Seven names, and nothing under them. Sub-topics were built and taken out
+again: twenty-four of them behind hover menus made a wall where a way in
+was wanted, and the menus covered the topics on the row below. A topic
+now shows its name and the one sentence saying what is on it, and the
+posts are the rest. There are no counts in the bar and no glyphs beside
+the names, for the same reason.
 
-`js/blog-categories.js` is the one place the ids, the glyphs, the
-sub-topics and the English descriptions live. Nothing else holds a list
-of categories: `js/blog.js` reads `window.DURU_BLOG`, the editor's
-selects are built from it, the outline endpoint is told what to file
+Every post may carry any of three audiences: `tourists` (green),
+`students` (blue), `expats` (purple), shown as badges on the card and on
+the post. It is a label, not a filter — it saves someone opening a post
+written for somebody else, and narrowing by topic is enough to browse
+by.
+
+`js/blog-categories.js` is the one place the ids, the descriptions and
+the English notes the model files against live. Nothing else holds a
+list of topics: `js/blog.js` reads `window.DURU_BLOG`, the editor's
+select is built from it, the outline endpoint is told what to file
 against by `DURU_BLOG.forOutline()`, and the dropdown under "Blog" in
 the site header is rendered by that file on every page that loads it.
-Adding a shelf means adding it there, adding its `blog.cat.*` and
-`blog.sub.*` keys to the eight dictionaries, and widening
-`posts_category_check` in `supabase/schema.sql`. The ids never change:
-they are what the database stores and what a link someone shared last
-year still points at.
+Adding a topic means adding it there, adding its `blog.cat.*` keys to
+the eight dictionaries, and widening `posts_category_check` in
+`supabase/schema.sql`. The ids never change: they are what the database
+stores and what a link someone shared last year still points at.
 
 `blog.html` shows a landing when nothing is filtered — a "First time in
-Korea? Start here" panel, the seven shelves as cards with their counts,
+Korea? Start here" panel, the seven topics as cards with their counts,
 and, once there are more than six posts to choose from, three worth
-starting on. Picking a shelf replaces it with that shelf's name and
-description. The category, the sub-topic and the audience all live in
-the address bar, so any view is a link someone can send.
+starting on. Picking a topic replaces it with that topic's name and
+description. The topic lives in the address bar, so any view is a link
+someone can send.
 
 A post is one piece of writing however many languages it is written in,
 the same shape the downloads use. `posts.lang` names the language its
@@ -459,14 +469,13 @@ counts as available only when it is `lang` or its entry has a body, so
 a half-finished translation is never offered.
 
 The list works like the downloads list: compact cards three to a row,
-the whole card a single stretched link, the category bar, the audience
-chips and a "Pick a language" dropdown of all eight languages (English
-selected by default) filtering together, all remembered with the scroll
-position for the trip back. The counts follow the chosen language and
-the chosen audience, so a shelf never promises posts the next filter is
-about to hide. When the language has nothing, the empty state names the
-languages that do, as buttons; when the audience is what emptied it, it
-says that instead.
+the whole card a single stretched link, the topic bar and a "Pick a
+language" dropdown of all eight languages (English selected by default)
+filtering together. A blog card carries no glyph square — a Hangul
+character on the corner of an English post means nothing to the person
+reading it; the downloads keep theirs, where the glyph stands for a kind
+of material. When the language has nothing, the empty state names the
+languages that do, as buttons.
 
 The same rule runs on a resource's own page: `?pl=` from the list sets
 the file language on arrival, and changing the header language moves it,

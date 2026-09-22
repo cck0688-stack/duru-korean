@@ -894,20 +894,6 @@ section { position: relative; }
   font-weight: 500;
 }
 
-.blog-category-hero {
-  margin-bottom: 30px;
-  padding: 16px 20px;
-  background: rgba(16, 63, 53, 0.08);
-  border-radius: 8px;
-  border-left: 3px solid var(--bg);
-}
-.blog-category-hero p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink);
-}
-
 /* ---------- FAQ accordion ---------- */
 .faq-item {
   border-bottom: 1px solid rgba(22,48,43,0.1);
@@ -3415,10 +3401,13 @@ section { position: relative; }
 #postTagsHint { margin-top: 6px; }
 #postTagsHint.is-error { color: var(--accent-red); }
 
-/* ---------- Blog: the seven shelves ----------
-   A category bar that behaves like a menu rather than a row of pills:
-   each shelf carries its glyph and opens onto its sub-topics. The bar
-   scrolls sideways on a phone instead of wrapping into four rows.      */
+/* ---------- Blog: the seven topics ----------
+   A row of names, and nothing under them. No glyphs, no counts, no
+   menus: picking one shows the topic's name and the single sentence
+   that says what is on it.                                            */
+
+/* A blog card has no glyph square, so its body takes the whole width. */
+.res-card--plain { grid-template-columns: minmax(0, 1fr); }
 
 .blog-cats {
   display: flex;
@@ -3426,115 +3415,11 @@ section { position: relative; }
   gap: 8px;
   margin-bottom: 14px;
   flex-wrap: wrap;
-  /* The sub-topic menus hang off the bar, not off their own shelf: at
-     narrow widths the bar wraps to two rows, and a menu anchored to a
-     shelf on the first row would sit on top of the second, covering
-     the very shelves it is next to. js/blog.js slides each menu across
-     to line up with the shelf it belongs to. */
-  position: relative;
 }
-.blog-cats .filter-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-.cat-glyph {
-  font-size: 13px;
-  font-weight: 700;
-  opacity: 0.75;
-}
-.filter-btn.active .cat-glyph, .filter-btn:hover .cat-glyph { opacity: 1; }
-
-.cat-item { display: inline-flex; align-items: center; }
-.cat-item .filter-btn { border-top-right-radius: 0; border-bottom-right-radius: 0; padding-right: 12px; }
-.cat-caret {
-  border: 1px solid rgba(22,48,43,0.15);
-  border-left: 0;
-  background: #fff;
-  color: var(--ink-dim);
-  padding: 9px 10px 9px 6px;
-  border-radius: 0 999px 999px 0;
-  font-size: 11px;
-  line-height: 1;
-  cursor: pointer;
-}
-.cat-caret:hover, .cat-item.is-open .cat-caret, .cat-item.is-current .cat-caret {
-  background: var(--bg);
-  border-color: var(--bg);
-  color: var(--cream);
-}
-.cat-item.is-current .filter-btn {
-  background: var(--bg);
-  border-color: var(--bg);
-  color: var(--cream);
-}
-
-.cat-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: var(--menu-left, 0);
-  z-index: 40;
-  min-width: 232px;
-  padding: 8px;
-  border-radius: 12px;
-  background: #fff;
-  border: 1px solid rgba(22,48,43,0.12);
-  box-shadow: 0 18px 38px -18px rgba(10,38,32,0.45);
-  display: none;
-  flex-direction: column;
-  gap: 2px;
-}
-.cat-item.is-open .cat-menu { display: flex; }
-@media (hover: hover) and (min-width: 861px) {
-  .cat-item:hover .cat-menu { display: flex; }
-  /* Set while the pointer is still on a shelf it has just filtered by;
-     see js/blog.js. Cleared when the pointer leaves. Keyboard users
-     open the menu from the caret, which is a real button with
-     aria-expanded — no :focus-within here, because a click focuses too
-     and would re-open what the click just closed. */
-  .cat-item.no-hover:hover .cat-menu { display: none; }
-}
-.cat-menu a {
-  display: block;
-  padding: 9px 12px;
-  border-radius: 8px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--ink-dim);
-  white-space: nowrap;
-}
-.cat-menu a:hover { background: var(--paper-alt); color: var(--ink); }
-.cat-menu a.active { background: var(--bg); color: var(--cream); }
-.cat-menu-all {
-  border-bottom: 1px solid rgba(22,48,43,0.1);
-  border-radius: 8px 8px 0 0;
-  margin-bottom: 4px;
-  color: var(--ink);
-}
-
-/* ---------- Blog: who it is for ---------- */
-
-.blog-aud { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.blog-aud-label { font-size: 13px; font-weight: 600; color: var(--ink-dim); }
-.blog-aud-chips { display: inline-flex; gap: 6px; flex-wrap: wrap; }
-.aud-chip {
-  padding: 7px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(22,48,43,0.15);
-  background: #fff;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--ink-dim);
-  cursor: pointer;
-}
-.aud-chip:hover { border-color: var(--ink-dim); color: var(--ink); }
-.aud-chip.active { background: var(--bg); border-color: var(--bg); color: var(--cream); }
-.aud-chip--tourists.active { background: #1f7a4d; border-color: #1f7a4d; }
-.aud-chip--students.active { background: #1d5fa8; border-color: #1d5fa8; }
-.aud-chip--expats.active { background: #6b3fa0; border-color: #6b3fa0; }
 
 /* Green for a visitor, blue for a student, purple for someone settled —
-   the same three colours wherever a post says who it is for. */
+   a label on the card, so nobody opens a post written for somebody
+   else. There is no filter on it. */
 .aud-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
 .aud-badge {
   display: inline-block;
@@ -3612,41 +3497,21 @@ section { position: relative; }
   border-color: rgba(22,48,43,0.22);
   box-shadow: 0 18px 34px -22px rgba(10,38,32,0.45);
 }
-.cat-card-glyph {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: var(--paper-alt);
-  color: var(--bg);
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.cat-card h3 { margin: 0 0 6px; font-size: 16px; color: var(--ink); }
-.cat-card p { margin: 0 0 10px; font-size: 13px; line-height: 1.6; color: var(--ink-dim); }
+.cat-card h3 { margin: 0 0 8px; font-size: 16px; color: var(--ink); }
+.cat-card p { margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: var(--ink-dim); }
 .cat-card-count { font-size: 11.5px; font-weight: 700; color: var(--accent-red); }
 
+/* The name of the topic being read, and the one line that says what is
+   on it. This is all a topic gets — the posts underneath are the rest. */
 .blog-category-hero {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-.blog-category-glyph {
-  flex: none;
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  background: var(--bg);
-  color: var(--cream);
-  font-size: 20px;
-  font-weight: 700;
+  margin-bottom: 30px;
+  padding: 18px 22px;
+  background: rgba(16, 63, 53, 0.06);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--bg);
 }
 .blog-category-hero h2 { margin: 0 0 4px; font-size: 18px; color: var(--ink); }
-.blog-category-sub { font-weight: 600; color: var(--ink-dim); }
+.blog-category-hero p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-dim); }
 
 /* ---------- Blog editor: who it is for ---------- */
 
@@ -3660,7 +3525,7 @@ section { position: relative; }
 .post-aud-row { display: flex; gap: 14px; flex-wrap: wrap; }
 .post-aud { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
 
-/* ---------- The seven shelves under "Blog" in the header ---------- */
+/* ---------- The seven topics under "Blog" in the header ---------- */
 
 .nav-item { position: relative; display: inline-flex; align-items: center; }
 .nav-caret {
@@ -3680,8 +3545,8 @@ section { position: relative; }
   top: calc(100% + 6px);
   left: 0;
   z-index: 60;
-  width: 320px;
-  padding: 10px;
+  min-width: 196px;
+  padding: 8px;
   border-radius: 14px;
   background: var(--header-bg);
   border: 1px solid var(--header-border);
@@ -3695,36 +3560,15 @@ section { position: relative; }
   .nav-item:hover .nav-menu, .nav-item:focus-within .nav-menu { display: flex; }
 }
 .nav-menu a {
-  display: flex;
-  align-items: flex-start;
-  gap: 11px;
-  padding: 9px 11px;
-  border-radius: 10px;
-  white-space: normal;
+  display: block;
+  padding: 9px 12px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--nav-text);
+  white-space: nowrap;
 }
 .nav-menu a:hover { background: var(--nav-active-bg); }
-.nav-menu-glyph {
-  flex: none;
-  width: 26px;
-  height: 26px;
-  display: grid;
-  place-items: center;
-  border-radius: 7px;
-  background: rgba(18,60,50,0.1);
-  color: var(--logo-duru);
-  font-size: 13px;
-  font-weight: 700;
-}
-.nav-menu-text { display: block; min-width: 0; }
-.nav-menu-name { display: block; font-size: 13.5px; font-weight: 700; color: var(--nav-text); }
-.nav-menu-desc {
-  display: block;
-  font-size: 11.5px;
-  line-height: 1.45;
-  font-weight: 500;
-  color: rgba(36,56,49,0.7);
-  margin-top: 2px;
-}
 
 @media (max-width: 860px) {
   .start-here { flex-direction: column; align-items: flex-start; gap: 18px; padding: 26px 22px; }
@@ -3733,20 +3577,8 @@ section { position: relative; }
 }
 
 @media (max-width: 600px) {
-  /* Below the hamburger the shelves wrap rather than scroll sideways:
-     a dropdown inside a scrolling row would be clipped by its own
-     overflow, and a clipped menu is worse than an extra row. */
   .blog-cats { gap: 6px; }
   .blog-cats .filter-btn { padding: 8px 12px; font-size: 12.5px; }
-  /* Full width under the bar on a phone, so a shelf near the right
-     edge cannot push its menu off screen. */
-  .cat-menu {
-    left: 0;
-    right: 0;
-    width: auto;
-    min-width: 0;
-  }
-  .blog-aud { width: 100%; }
   .blog-landing-title { font-size: 17px; }
   .start-here-mark { width: 60px; height: 60px; font-size: 24px; }
   /* In the hamburger the menu is part of the stack, not a layer. */
@@ -3761,5 +3593,5 @@ section { position: relative; }
     border: 0;
     padding: 4px 0 0;
   }
-  .site-header.menu-open .nav-menu-desc { display: none; }
+  .site-header.menu-open .nav-menu a { text-align: center; }
 }

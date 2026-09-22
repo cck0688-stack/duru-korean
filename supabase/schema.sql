@@ -1284,22 +1284,24 @@ alter table public.posts
   add column if not exists study jsonb not null default '{}'::jsonb;
 
 -- ------------------------------------------------------------------
--- 27. the blog's seven shelves, their subtopics, and who a post is for
+-- 27. the blog's seven topics, and who a post is for
 -- ------------------------------------------------------------------
 -- The blog is written for people living in or visiting Korea from
 -- somewhere else, and the six old categories were shaped around the
--- language course rather than around them. Seven now, each with a
--- handful of subtopics, because "Travel" alone is too big to browse and
--- "T-money vs WOWPASS" alone is too small to be a section.
+-- language course rather than around them. Seven now, and nothing under
+-- them: a reader picks a topic and sees one sentence saying what is on
+-- it. Sub-topics were tried and taken out again — a menu of twenty-four
+-- things is a wall, not a way in — so `subtopic` is dropped below if an
+-- earlier run of this file added it.
 --
 -- The ids are what a URL carries and what a link shared last year still
 -- points at, so they are fixed here and everything a reader sees is
 -- translated from them (js/blog-categories.js).
 --
 -- Old posts are re-filed by hand below, not dropped. Where the old
--- shelf has no obvious new home the post lands in 'community', which is
--- the explicit catch-all, rather than somewhere that merely sounds
--- close — an admin can move it in one click and a wrong shelf is harder
+-- category has no obvious new home the post lands in 'community', which
+-- is the explicit catch-all, rather than somewhere that merely sounds
+-- close — an admin can move it in one click and a wrong topic is harder
 -- to notice than an unsorted one.
 
 alter table public.posts drop constraint if exists posts_category_check;
@@ -1319,21 +1321,11 @@ alter table public.posts
   add constraint posts_category_check
   check (category in ('travel', 'dining', 'style', 'explore', 'campus', 'career', 'community'));
 
--- A subtopic is the shelf within the shelf. Deliberately unconstrained
--- text: the list lives in js/blog-categories.js, where adding one costs
--- a line rather than a migration, and a post filed under a subtopic
--- that no longer exists still shows under its category.
-alter table public.posts
-  add column if not exists subtopic text;
-
-create index if not exists posts_subtopic_idx
-  on public.posts (subtopic, created_at desc);
-
--- Who the post is for. A reader picks one and the list narrows to what
--- applies to them: someone here for five days does not want to read
--- about extending a D-4. A post may be for several, or for none — an
--- empty list means "everyone", which is the honest default for a post
--- nobody has filed yet.
+-- Who the post is for: a badge on its card, so nobody opens something
+-- written for somebody else. A post may be for several, or for none —
+-- an empty list means "everyone", which is the honest default for a
+-- post nobody has filed yet. There is no filter on it; narrowing the
+-- list by topic is enough to browse by.
 alter table public.posts
   add column if not exists audiences text[] not null default '{}'::text[];
 
@@ -1344,3 +1336,8 @@ alter table public.posts
 
 create index if not exists posts_audiences_idx
   on public.posts using gin (audiences);
+
+-- Left over from the version of this section that had sub-topics. Safe
+-- either way: nothing was ever filed under one.
+drop index if exists public.posts_subtopic_idx;
+alter table public.posts drop column if exists subtopic;

@@ -30,9 +30,9 @@
   if (!R) return;
   var MT = window.DURU_MT;
 
-  // The seven shelves and their sub-topics, from js/blog-categories.js.
-  // That file is the one place the ids, the glyphs and the descriptions
-  // live; nothing here should hold a list of categories of its own.
+  // The seven topics, from js/blog-categories.js. That file is the one
+  // place the ids and the descriptions live; nothing here should hold a
+  // list of topics of its own.
   var B = window.DURU_BLOG;
   if (!B) return;
   var CATEGORIES = B.ids;
@@ -194,14 +194,6 @@
     return B.label(cat);
   }
 
-  // Where a post sits, in one line: the shelf, then the sub-topic when
-  // it has one. Both translated, both from the same place.
-  function shelfLabel(post) {
-    var out = categoryLabel(post.category);
-    if (post.subtopic && B.parentOf(post.subtopic)) out += ' · ' + B.subLabel(post.subtopic);
-    return out;
-  }
-
   // Who a post is for, as the coloured badges the cards carry. An
   // audience the model or the database does not know about is dropped
   // rather than rendered as a bare id.
@@ -244,7 +236,6 @@
     var toolbarEl = document.getElementById('blogToolbar');
     var leadInEl = document.querySelector('.section-lead-in');
     var filtersEl = document.getElementById('blogFilters');
-    var audEl = document.getElementById('blogAudiences');
     var landingEl = document.getElementById('blogLanding');
     var catGridEl = document.getElementById('blogCatGrid');
     var picksWrapEl = document.getElementById('blogPicksWrap');
@@ -266,8 +257,6 @@
     // /blog/post/<slug> as readily as blog.html?cat=&sub= and ?post=.
     var route = B.route(location.pathname, location.search);
     var activeFilter = 'all';
-    var activeSub = '';
-    var activeAud = '';
     var listLang = R.preferredLang();
     // The site language this list is tuned to — see js/resources.js for
     // the same rule: a choice made in the dropdown is remembered, but
@@ -309,8 +298,7 @@
     // nothing. The shelf is in the URL now, so Back restores it by
     // itself; sessionStorage is left holding the language and the
     // scroll position, which no URL carries.
-    if (route.cat) { activeFilter = route.cat; activeSub = route.sub; }
-    activeAud = new URLSearchParams(location.search).get('aud') || '';
+    if (route.cat) activeFilter = route.cat;
     normaliseFilters();
 
     // An id that no longer exists — an old bookmark, a hand-typed URL —
@@ -323,8 +311,6 @@
 
     function normaliseFilters() {
       if (CATEGORIES.indexOf(activeFilter) === -1) activeFilter = 'all';
-      if (activeSub && B.parentOf(activeSub) !== activeFilter) activeSub = '';
-      if (B.AUDIENCES.indexOf(activeAud) === -1) activeAud = '';
     }
 
     function saveState(extra) {
@@ -342,19 +328,13 @@
       if (!window.history || !history.replaceState) return;
       var q = new URLSearchParams(location.search);
       ['cat', 'sub', 'aud'].forEach(function (k) { q.delete(k); });
-      if (activeAud) q.set('aud', activeAud);
       // Readable paths only where the host serves them. Opened as
       // blog.html — a local preview, a static host without the
       // rewrites — the query string stays, so a reload still works.
       var clean = !/\.html$/.test(location.pathname);
-      if (!clean) {
-        if (activeFilter !== 'all') q.set('cat', activeFilter);
-        if (activeSub) q.set('sub', activeSub);
-      }
+      if (!clean && activeFilter !== 'all') q.set('cat', activeFilter);
       var qs = q.toString();
-      var path = clean
-        ? B.href(activeFilter === 'all' ? '' : activeFilter, activeSub)
-        : location.pathname;
+      var path = clean ? B.href(activeFilter === 'all' ? '' : activeFilter) : location.pathname;
       history.replaceState(null, '', path + (qs ? '?' + qs : ''));
     }
 
@@ -395,8 +375,6 @@
 
     function matchesFilters(p) {
       if (activeFilter !== 'all' && p.category !== activeFilter) return false;
-      if (activeSub && p.subtopic !== activeSub) return false;
-      if (activeAud && (p.audiences || []).indexOf(activeAud) === -1) return false;
       if (activeTag) {
         return (p.tags || []).some(function (tag) {
           return tag.toLowerCase() === activeTag.toLowerCase();
@@ -405,103 +383,29 @@
       return true;
     }
 
-    /* ---------------- The category bar ---------------- */
+    /* ---------------- The topic bar ---------------- */
 
-    // Seven shelves across the top, each opening onto its sub-topics.
-    // Built once; the labels are repainted on a language change rather
-    // than the whole bar, so an open menu stays open.
+    // Seven names across the top, and All. Nothing opens, nothing
+    // hovers, nothing counts: a reader picks a topic and reads the one
+    // sentence that says what is on it. Built once; the labels are
+    // repainted on a language change rather than the whole bar.
     function buildCategoryBar() {
       if (!filtersEl) return;
       filtersEl.innerHTML =
-        '<button type="button" class="filter-btn cat-all" data-filter="all" data-i18n="blog.filter.all">All</button>' +
+        '<button type="button" class="filter-btn" data-filter="all" data-i18n="blog.filter.all">All</button>' +
         B.CATEGORIES.map(function (c) {
-          return '<span class="cat-item" data-cat="' + escapeHTML(c.id) + '">' +
-            '<button type="button" class="filter-btn" data-filter="' + escapeHTML(c.id) + '">' +
-              '<span class="cat-glyph kr" aria-hidden="true">' + escapeHTML(c.glyph) + '</span>' +
-              '<span class="cat-name" data-i18n="blog.cat.' + escapeHTML(c.id) + '.nav"></span>' +
-            '</button>' +
-            '<button type="button" class="cat-caret" aria-expanded="false" data-caret="' +
-              escapeHTML(c.id) + '"><span aria-hidden="true">\u25be</span></button>' +
-            '<div class="cat-menu">' +
-              '<a class="cat-menu-all" href="' + B.href(c.id) + '" data-cat="' + escapeHTML(c.id) +
-                '" data-sub=""></a>' +
-              c.subs.map(function (id) {
-                return '<a href="' + B.href(c.id, id) + '" data-cat="' + escapeHTML(c.id) +
-                  '" data-sub="' + escapeHTML(id) + '" data-i18n="blog.sub.' + escapeHTML(id) + '"></a>';
-              }).join('') +
-            '</div>' +
-          '</span>';
+          return '<button type="button" class="filter-btn" data-filter="' + escapeHTML(c.id) +
+            '" data-i18n="blog.cat.' + escapeHTML(c.id) + '.nav"></button>';
         }).join('');
-      // mouseleave does not bubble, so this goes on each shelf rather
-      // than on the bar: leaving one clears the suppression set when it
-      // was clicked (see the click handler below).
-      filtersEl.querySelectorAll('.cat-item').forEach(function (item) {
-        item.addEventListener('mouseleave', function () { item.classList.remove('no-hover'); });
-        item.addEventListener('mouseenter', function () { placeMenu(item); });
-        item.addEventListener('focusin', function () { placeMenu(item); });
-      });
       paintCategoryBar();
-    }
-
-    // Line a menu up with the shelf it belongs to. The menu is
-    // positioned against the bar (see .blog-cats in the stylesheet), so
-    // this is the offset that puts it back under its own shelf —
-    // pulled left when it would otherwise run past the end.
-    function placeMenu(item) {
-      var menu = item.querySelector('.cat-menu');
-      if (!menu || window.innerWidth <= 600) return;
-      var left = item.offsetLeft;
-      var width = menu.offsetWidth || 232;
-      var max = filtersEl.clientWidth - width;
-      menu.style.setProperty('--menu-left', Math.max(0, Math.min(left, max)) + 'px');
     }
 
     function paintCategoryBar() {
       if (!filtersEl) return;
       filtersEl.querySelectorAll('[data-filter]').forEach(function (btn) {
-        if (btn.dataset.filter === 'all') {
-          // The count is appended by updateFilterCounts; keep it.
-          var count = btn.querySelector('.filter-count');
-          btn.textContent = t('blog.filter.all', 'All');
-          if (count) btn.appendChild(count);
-        } else {
-          var name = btn.querySelector('.cat-name');
-          if (name) name.textContent = B.navLabel(btn.dataset.filter);
-        }
-      });
-      filtersEl.querySelectorAll('.cat-caret').forEach(function (btn) {
-        btn.setAttribute('aria-label',
-          t('blog.allIn', 'All of {cat}').replace('{cat}', B.navLabel(btn.dataset.caret)));
-      });
-      filtersEl.querySelectorAll('.cat-menu a').forEach(function (a) {
-        a.textContent = a.dataset.sub
-          ? B.subLabel(a.dataset.sub)
-          : t('blog.allIn', 'All of {cat}').replace('{cat}', B.navLabel(a.dataset.cat));
-      });
-    }
-
-    // Three chips: who is reading. Narrowing to one hides what does not
-    // apply to them — a tourist here for five days has no use for a post
-    // about extending a student visa.
-    function buildAudienceRow() {
-      if (!audEl) return;
-      audEl.innerHTML = '<span class="blog-aud-label" data-i18n="blog.audienceQ"></span>' +
-        '<span class="blog-aud-chips">' +
-        ['', 'tourists', 'students', 'expats'].map(function (id) {
-          return '<button type="button" class="aud-chip' + (id ? ' aud-chip--' + id : '') +
-            '" data-aud="' + escapeHTML(id) + '"></button>';
-        }).join('') + '</span>';
-      paintAudienceRow();
-    }
-
-    function paintAudienceRow() {
-      if (!audEl) return;
-      audEl.querySelector('.blog-aud-label').textContent = t('blog.audienceQ', "Who's reading?");
-      audEl.querySelectorAll('.aud-chip').forEach(function (btn) {
-        var id = btn.dataset.aud;
-        btn.textContent = id ? B.audienceLabel(id) : t('blog.aud.all', 'Everyone');
-        btn.classList.toggle('active', id === activeAud);
-        btn.setAttribute('aria-pressed', id === activeAud ? 'true' : 'false');
+        btn.textContent = btn.dataset.filter === 'all'
+          ? t('blog.filter.all', 'All')
+          : B.navLabel(btn.dataset.filter);
       });
     }
 
@@ -521,12 +425,8 @@
       }
       var desc = B.describe(activeFilter);
       heroDiv.innerHTML =
-        '<span class="blog-category-glyph kr" aria-hidden="true">' +
-          escapeHTML(B.glyph(activeFilter)) + '</span>' +
-        '<div><h2>' + escapeHTML(categoryLabel(activeFilter)) +
-          (activeSub ? ' <span class="blog-category-sub">· ' +
-            escapeHTML(B.subLabel(activeSub)) + '</span>' : '') + '</h2>' +
-          (desc ? '<p>' + escapeHTML(desc) + '</p>' : '') + '</div>';
+        '<h2>' + escapeHTML(categoryLabel(activeFilter)) + '</h2>' +
+        (desc ? '<p>' + escapeHTML(desc) + '</p>' : '');
       heroDiv.hidden = false;
     }
 
@@ -535,7 +435,7 @@
     // three people are most often looking for.
     function renderLanding() {
       if (!landingEl) return;
-      var on = activeFilter === 'all' && !activeSub && !activeTag;
+      var on = activeFilter === 'all' && !activeTag;
       landingEl.hidden = !on;
       // The list below only needs a heading when something comes before
       // it; on a shelf it is the whole page.
@@ -544,12 +444,10 @@
 
       if (catGridEl) {
         var countable = posts.filter(function (p) {
-          return readableHere(p) && (p.published || isAdmin) &&
-            (!activeAud || (p.audiences || []).indexOf(activeAud) !== -1);
+          return readableHere(p) && (p.published || isAdmin);
         });
         catGridEl.innerHTML = B.CATEGORIES.map(function (c) {
           return '<a class="cat-card" href="' + B.href(c.id) + '" data-filter="' + escapeHTML(c.id) + '">' +
-            '<span class="cat-card-glyph kr" aria-hidden="true">' + escapeHTML(c.glyph) + '</span>' +
             '<h3></h3><p></p>' +
             '<span class="cat-card-count">' +
               escapeHTML(postCount(countByCategory(countable, c.id))) + '</span>' +
@@ -640,16 +538,7 @@
         // Nothing in this language: name the ones that do have a post,
         // as buttons, rather than leaving a dead end.
         var others = langsPresent().filter(function (c) { return c !== listLang; });
-        if (activeAud && posts.some(function (p) {
-          // Something is here, just not for the reader they said they
-          // are — that is a different dead end, and worth naming.
-          return matchesShelf(p) && readableHere(p);
-        })) {
-          emptyText.textContent = t('blog.noneForAudience',
-            'Nothing here for you yet — try another topic.');
-          suggestEl.innerHTML = '';
-          suggestEl.hidden = true;
-        } else if (others.length) {
+        if (others.length) {
           emptyText.textContent = t('blog.noneInLang', 'Nothing here in {lang} yet.')
             .replace('{lang}', R.langLabel(listLang));
           suggestEl.innerHTML = '<span class="res-lang-suggest-label">' +
@@ -669,17 +558,6 @@
       wireCardLinks(listEl);
     }
 
-    // Everything but the audience: used to tell "nothing in this
-    // language" apart from "nothing for this reader".
-    function matchesShelf(p) {
-      if (activeFilter !== 'all' && p.category !== activeFilter) return false;
-      if (activeSub && p.subtopic !== activeSub) return false;
-      if (!activeTag) return true;
-      return (p.tags || []).some(function (tag) {
-        return tag.toLowerCase() === activeTag.toLowerCase();
-      });
-    }
-
     // Leaving the list remembers where it was, so coming back lands on
     // the same post rather than at the top.
     function wireCardLinks(root) {
@@ -692,25 +570,26 @@
       });
     }
 
-    // One compact row per post, the same shape a download's card has:
-    // a 64px glyph square, then title, excerpt, category · date, and the
-    // languages it is written in. The title's link is stretched over the
-    // card in CSS, so the whole card opens the post with one tab stop.
+    // One compact card per post: who it is for, the title, the summary,
+    // topic · date, and the languages it is written in. The title's link
+    // is stretched over the card in CSS, so the whole card opens the
+    // post with one tab stop.
     function cardHTML(p) {
       var href = B.postHref(p.slug, listLang);
       var codes = readableLangs(p);
       var shown = codes.slice(0, 3);
       var more = codes.length - shown.length;
       var excerpt = readField(p, 'excerpt', listLang);
-      return '<article class="res-card' + (p.published ? '' : ' res-card--draft') + '">' +
-        '<span class="res-thumb"><span class="res-cover-glyph kr" aria-hidden="true">' +
-          escapeHTML(B.glyph(p.category)) + '</span></span>' +
+      // No glyph square: a Hangul character on the corner of an English
+      // post means nothing to the person reading it. The downloads keep
+      // theirs, where the glyph stands for a kind of material.
+      return '<article class="res-card res-card--plain' + (p.published ? '' : ' res-card--draft') + '">' +
         '<div class="res-card-body">' +
           (p.published ? '' : '<span class="res-draft">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
           audienceBadges(p) +
           '<h3><a href="' + href + '">' + escapeHTML(readField(p, 'title', listLang)) + '</a></h3>' +
           (excerpt ? '<p class="res-card-desc">' + escapeHTML(excerpt) + '</p>' : '') +
-          '<p class="res-meta">' + escapeHTML(shelfLabel(p) + ' · ' + formatDate(p.created_at)) + '</p>' +
+          '<p class="res-meta">' + escapeHTML(categoryLabel(p.category) + ' · ' + formatDate(p.created_at)) + '</p>' +
           '<div class="res-card-foot">' +
             '<span class="res-langs" aria-label="' + escapeHTML(t('blog.writtenIn', 'Written in')) + '">' +
               shown.map(function (c) { return '<span class="res-chip">' + escapeHTML(R.langShort(c)) + '</span>'; }).join('') +
@@ -827,7 +706,7 @@
 
       singleEl.innerHTML =
         '<a class="blog-back" href="/blog">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
-        '<span class="blog-meta">' + escapeHTML(shelfLabel(post)) +
+        '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
           (post.published ? '' : ' · <span class="blog-draft-tag">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
         '</span>' +
         audienceBadges(post) +
@@ -1017,7 +896,6 @@
           if (res.error) { console.error('Failed to load posts:', res.error.message); return; }
           posts = res.data || [];
           buildLangSelect();
-          updateFilterCounts();
           var slug = currentSlug();
           if (slug) {
             var match = posts.filter(function (p) { return p.slug === slug; })[0];
@@ -1077,10 +955,6 @@
                 '<select id="postCategory">' + CATEGORIES.map(function (c) {
                   return '<option value="' + c + '"></option>';
                 }).join('') + '</select></div>' +
-              // The sub-topics belong to the category above, so this
-              // select is rebuilt whenever that one changes.
-              '<div class="auth-field"><label for="postSubtopic"></label>' +
-                '<select id="postSubtopic"></select></div>' +
               '<div class="auth-field"><span class="auth-field-label" id="postAudienceLabel"></span>' +
                 '<div class="post-aud-row">' + B.AUDIENCES.map(function (a) {
                   return '<label class="post-aud"><input type="checkbox" data-aud="' +
@@ -1148,10 +1022,6 @@
       overlay.querySelector('#postExcerpt').addEventListener('input', function () { summaryTouched = true; });
       overlay.querySelector('#postCategory').addEventListener('change', function () {
         categoryTouched = true;
-        buildSubtopics('');
-      });
-      overlay.querySelector('#postSubtopic').addEventListener('change', function () {
-        categoryTouched = true;
       });
       overlay.querySelectorAll('[data-aud]').forEach(function (box) {
         box.addEventListener('change', function () { audienceTouched = true; });
@@ -1164,20 +1034,6 @@
         el.addEventListener('input', markTranslationState);
       });
       return overlay;
-    }
-
-    // The sub-topics of whichever category is selected, plus a blank
-    // first option: not every post sits on one.
-    function buildSubtopics(want) {
-      if (!overlay) return;
-      var cat = overlay.querySelector('#postCategory').value;
-      var sel = overlay.querySelector('#postSubtopic');
-      var subs = (B.get(cat) || { subs: [] }).subs;
-      sel.innerHTML = '<option value="">' + escapeHTML(t('blog.subAll', 'No sub-topic')) + '</option>' +
-        subs.map(function (id) {
-          return '<option value="' + escapeHTML(id) + '">' + escapeHTML(B.subLabel(id)) + '</option>';
-        }).join('');
-      sel.value = subs.indexOf(want) !== -1 ? want : '';
     }
 
     function readAudiences() {
@@ -1240,9 +1096,7 @@
         }
         if (wantCategory && out.category && (force || !categoryTouched)) {
           overlay.querySelector('#postCategory').value = out.category;
-          buildSubtopics(out.subtopic || '');
           filled.push(t('blog.fieldCategory', 'Category'));
-          if (out.subtopic) filled.push(t('blog.fieldSubtopic', 'Sub-topic'));
         }
         if (wantAudience && out.audiences && out.audiences.length && (force || !audienceTouched)) {
           writeAudiences(out.audiences);
@@ -1347,7 +1201,6 @@
             var row = {
               title: title,
               category: overlay.querySelector('#postCategory').value,
-              subtopic: overlay.querySelector('#postSubtopic').value || null,
               audiences: readAudiences(),
               excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
               tags: parseTags(overlay.querySelector('#postTags').value),
@@ -1374,7 +1227,6 @@
         ? t('blog.editorEditTitle', 'Edit post') : t('blog.editorNewTitle', 'Write a post');
       o.querySelector('label[for="postTitle"]').textContent = t('blog.fieldTitle', 'Title');
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
-      o.querySelector('label[for="postSubtopic"]').textContent = t('blog.fieldSubtopic', 'Sub-topic');
       o.querySelector('#postAudienceLabel').textContent = t('blog.fieldAudience', "Who it's for");
       o.querySelectorAll('[data-aud]').forEach(function (box) {
         box.nextElementSibling.textContent = B.audienceLabel(box.dataset.aud);
@@ -1406,7 +1258,6 @@
       CATEGORIES.forEach(function (c, i) {
         o.querySelectorAll('#postCategory option')[i].textContent = categoryLabel(c);
       });
-      buildSubtopics(o.querySelector('#postSubtopic').value);
       updateAutoSaveStatus();
     }
 
@@ -1425,7 +1276,6 @@
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
       o.querySelector('#postCategory').value = editing ? editing.category : CATEGORIES[0];
-      buildSubtopics(editing && editing.subtopic ? editing.subtopic : '');
       writeAudiences(editing ? editing.audiences : []);
       o.querySelector('#postExcerpt').value = editing && editing.excerpt ? editing.excerpt : '';
       o.querySelector('#postTags').value = editing && editing.tags ? editing.tags.join(', ') : '';
@@ -1479,7 +1329,6 @@
       var row = {
         title: title,
         category: overlay.querySelector('#postCategory').value,
-        subtopic: overlay.querySelector('#postSubtopic').value || null,
         audiences: readAudiences(),
         excerpt: overlay.querySelector('#postExcerpt').value.trim() || null,
         tags: parseTags(overlay.querySelector('#postTags').value),
@@ -1698,31 +1547,6 @@
       });
     }
 
-    function updateFilterCounts() {
-      if (!filtersEl) return;
-      // Counts follow the language being browsed, so a chip never
-      // promises posts the language filter is about to hide.
-      var inLang = posts.filter(function (p) {
-        if (readableLangs(p).indexOf(listLang) === -1) return false;
-        // The audience counts too: a chip should not promise posts the
-        // reader has just said are not for them.
-        if (activeAud && (p.audiences || []).indexOf(activeAud) === -1) return false;
-        if (!activeTag) return true;
-        return (p.tags || []).some(function (tag) { return tag.toLowerCase() === activeTag.toLowerCase(); });
-      });
-      filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (btn) {
-        var filter = btn.dataset.filter;
-        var count = filter === 'all' ? inLang.length : countByCategory(inLang, filter);
-        var countEl = btn.querySelector('.filter-count');
-        if (!countEl) {
-          countEl = document.createElement('span');
-          countEl.className = 'filter-count';
-          btn.appendChild(countEl);
-        }
-        countEl.textContent = '(' + count + ')';
-      });
-    }
-
     /* ---------------- Filters, admin state ---------------- */
 
     function markActiveFilter() {
@@ -1730,89 +1554,22 @@
       filtersEl.querySelectorAll('.filter-btn[data-filter]').forEach(function (b) {
         b.classList.toggle('active', b.dataset.filter === activeFilter);
       });
-      filtersEl.querySelectorAll('.cat-item').forEach(function (item) {
-        item.classList.toggle('is-current', item.dataset.cat === activeFilter);
-      });
-      filtersEl.querySelectorAll('.cat-menu a').forEach(function (a) {
-        a.classList.toggle('active',
-          a.dataset.cat === activeFilter && (a.dataset.sub || '') === activeSub);
-      });
-      paintAudienceRow();
     }
 
-    function closeCatMenus() {
-      if (!filtersEl) return;
-      filtersEl.querySelectorAll('.cat-item.is-open').forEach(function (item) {
-        item.classList.remove('is-open');
-        var caret = item.querySelector('.cat-caret');
-        if (caret) caret.setAttribute('aria-expanded', 'false');
-      });
-    }
-
-    // One re-render for every way of changing where the reader is.
+    // One re-render for every way of changing which topic is open.
     function applyFilters() {
       normaliseFilters();
       markActiveFilter();
       saveState();
       syncURL();
-      updateFilterCounts();
       renderCards();
     }
 
     if (filtersEl) {
       filtersEl.addEventListener('click', function (e) {
-        var caret = e.target.closest('.cat-caret');
-        if (caret) {
-          e.preventDefault();
-          var item = caret.closest('.cat-item');
-          var open = !item.classList.contains('is-open');
-          closeCatMenus();
-          placeMenu(item);
-          item.classList.toggle('is-open', open);
-          caret.setAttribute('aria-expanded', open ? 'true' : 'false');
-          return;
-        }
-        // A sub-topic is a real link — middle-click and "open in new
-        // tab" work — but a plain click filters in place and leaves the
-        // address bar saying the same thing.
-        var link = e.target.closest('.cat-menu a');
-        if (link) {
-          e.preventDefault();
-          activeFilter = link.dataset.cat;
-          activeSub = link.dataset.sub || '';
-          closeCatMenus();
-          applyFilters();
-          return;
-        }
         var btn = e.target.closest('.filter-btn');
         if (!btn) return;
         activeFilter = btn.dataset.filter;
-        activeSub = '';
-        closeCatMenus();
-        // The pointer is still resting on the shelf that was just
-        // clicked, so its menu would hang open over the results the
-        // click just produced. It stays shut until the pointer leaves
-        // and comes back — which is when opening it means something.
-        var item = btn.closest('.cat-item');
-        if (item) item.classList.add('no-hover');
-        applyFilters();
-      });
-
-      filtersEl.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeCatMenus();
-      });
-      document.addEventListener('click', function (e) {
-        if (!filtersEl.contains(e.target)) closeCatMenus();
-      });
-    }
-
-    if (audEl) {
-      audEl.addEventListener('click', function (e) {
-        var btn = e.target.closest('.aud-chip');
-        if (!btn) return;
-        // Pressing the one already chosen clears it, so "Everyone" is
-        // never the only way back.
-        activeAud = btn.dataset.aud === activeAud ? '' : btn.dataset.aud;
         applyFilters();
       });
     }
@@ -1821,7 +1578,6 @@
       langSel.addEventListener('change', function () {
         listLang = langSel.value;
         saveState();
-        updateFilterCounts();
         renderCards();
       });
     }
@@ -1833,7 +1589,6 @@
         listLang = btn.dataset.lang;
         if (langSel) langSel.value = listLang;
         saveState();
-        updateFilterCounts();
         renderCards();
       });
     }
@@ -1846,14 +1601,12 @@
         if (!card || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
         e.preventDefault();
         activeFilter = card.dataset.filter;
-        activeSub = '';
         applyFilters();
         window.scrollTo(0, 0);
       });
     }
 
     buildCategoryBar();
-    buildAudienceRow();
     markActiveFilter();
 
     function applyAdmin(user) {
@@ -1884,8 +1637,6 @@
       followPostLang();
       buildLangSelect();
       paintCategoryBar();
-      paintAudienceRow();
-      updateFilterCounts();
       var slug = currentSlug();
       if (slug) {
         var match = posts.filter(function (p) { return p.slug === slug; })[0];

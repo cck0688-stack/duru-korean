@@ -3,8 +3,7 @@
   "rewrites": [
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/blog/post/:slug", "destination": "/blog.html?post=:slug" },
-    { "source": "/blog/:cat", "destination": "/blog.html?cat=:cat" },
-    { "source": "/blog/:cat/:sub", "destination": "/blog.html?cat=:cat&sub=:sub" }
+    { "source": "/blog/:cat", "destination": "/blog.html?cat=:cat" }
   ],
   "headers": [
     {
