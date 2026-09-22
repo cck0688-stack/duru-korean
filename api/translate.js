@@ -1,4 +1,4 @@
-// DURU KOREAN — sentence-by-sentence translation for blog posts
+// DURU KOREAN — sentence-by-sentence translation
 //
 // A blog post is written once, in one language, and read by people who
 // speak seven others. This endpoint translates a handful of sentences
@@ -8,44 +8,58 @@
 // they read what was stored, so a post costs one translation, not one
 // per visitor.
 //
-// It lives here rather than in the browser because the Anthropic API
-// key must never be served to a visitor. Only an admin may call it:
-// the caller's Supabase access token is verified against Supabase and
-// checked against admin_users before a single token is spent.
+// It is deliberately not tied to one company. The provider lives in
+// api/_providers.js behind a two-line interface; this file only checks
+// who is asking, what they are asking for, and that the answer lines up
+// with the question. Switching from one translation company to another
+// is an environment variable.
 //
-// Environment variables (Vercel → Project → Settings → Environment
-// Variables):
+// ── The contract ──────────────────────────────────────────────────
 //
-//   ANTHROPIC_API_KEY   required — console.anthropic.com → API keys
-//   TRANSLATE_MODEL     optional — defaults to claude-opus-5
-//   TRANSLATE_EFFORT    optional — low | medium | high (default medium)
-//   SUPABASE_URL        optional — defaults to the project below
-//   SUPABASE_ANON_KEY   optional — defaults to the key below
+//   POST /api/translate
+//   Authorization: Bearer <the caller's Supabase access token>
+//   { "from": "ko", "to": ["en", "zh"], "sentences": ["…", "…"] }
+//
+//   200 { "provider": "anthropic", "model": "claude-opus-5",
+//         "translations": { "en": ["…", "…"], "zh": ["…", "…"] } }
+//
+// Every target language comes back with exactly as many sentences as
+// were sent, in the same order — that is the whole guarantee, and a
+// provider that breaks it gets a 502 rather than a stored answer.
+//
+// ── Configuration (Vercel → Settings → Environment Variables) ──────
+//
+//   One key is all that is required. Set whichever company's key you
+//   have and the provider is picked from it:
+//
+//     ANTHROPIC_API_KEY   console.anthropic.com
+//     OPENAI_API_KEY      platform.openai.com
+//     GOOGLE_API_KEY      aistudio.google.com   (or GEMINI_API_KEY)
+//     DEEPL_API_KEY       deepl.com/pro-api
+//
+//   Optional:
+//     TRANSLATE_PROVIDER  anthropic | openai | google | deepl — set this
+//                         when more than one key is present
+//     TRANSLATE_API_KEY   the key, when you would rather not use the
+//                         provider's own variable name
+//     TRANSLATE_MODEL     model id; each provider has a sensible default
+//     TRANSLATE_BASE_URL  point "openai" at any OpenAI-compatible
+//                         gateway — Azure OpenAI, Groq, Together,
+//                         OpenRouter, a self-hosted vLLM or Ollama
+//     TRANSLATE_EFFORT    low | medium | high (providers that have it)
+//     SUPABASE_URL        defaults to the project below
+//     SUPABASE_ANON_KEY   defaults to the key below
 //
 // The two Supabase values are the same public ones js/supabase-config.js
 // already serves to every visitor; they are here only so a different
 // project can be pointed at without editing code.
 
-import Anthropic from '@anthropic-ai/sdk';
+import { LANGUAGES, TranslateError, resolveProvider } from './_providers.js';
 
 export const config = { maxDuration: 60 };
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
-const MODEL = process.env.TRANSLATE_MODEL || 'claude-opus-5';
-const EFFORT = process.env.TRANSLATE_EFFORT || 'medium';
-
-// The site's eight languages, named as the model should name them.
-const LANGUAGES = {
-  en: 'English',
-  vi: 'Vietnamese',
-  es: 'Spanish',
-  id: 'Indonesian',
-  'pt-BR': 'Brazilian Portuguese',
-  ko: 'Korean',
-  ja: 'Japanese',
-  zh: 'Simplified Chinese'
-};
 
 // One call carries at most this much. The browser batches to stay well
 // inside the function's time limit, and these are the backstop: a bug
@@ -53,53 +67,6 @@ const LANGUAGES = {
 const MAX_SENTENCES = 25;
 const MAX_TARGETS = 8;
 const MAX_CHARS = 8000;
-
-const SCHEMA = {
-  type: 'object',
-  properties: {
-    languages: {
-      type: 'array',
-      items: {
-        type: 'object',
-        properties: {
-          code: { type: 'string' },
-          sentences: { type: 'array', items: { type: 'string' } }
-        },
-        required: ['code', 'sentences'],
-        additionalProperties: false
-      }
-    }
-  },
-  required: ['languages'],
-  additionalProperties: false
-};
-
-function systemPrompt(fromName, targets, count) {
-  return [
-    'You translate one blog post for a Korean-language learning site, sentence by sentence.',
-    '',
-    'The source is ' + fromName + '. You are given exactly ' + count + ' numbered sentences ' +
-      'and must return exactly ' + count + ' translated sentences per target language, in the same order.',
-    '',
-    'Rules:',
-    '- One source sentence produces exactly one translated sentence. Never merge two, never split one,',
-    '  never drop one, never add one. The counts must match or the result is unusable, because each',
-    '  translation is shown directly beneath its own source sentence.',
-    '- Translate what the sentence says, in natural, everyday prose a native reader would write.',
-    '  Do not transliterate, do not explain, do not add notes or parentheses that are not in the source.',
-    '- Keep proper nouns, place names and brand names as a reader of the target language would expect',
-    '  (Seoul, 서울, 首尔, ソウル). Keep numbers, dates and prices as they are.',
-    '- Keep the register of the source: a casual sentence stays casual, a polite one stays polite.',
-    '- Korean words kept deliberately in the source (한글, 반말) may stay, with the target language’s',
-    '  usual rendering beside them only if that is how the target language normally writes them.',
-    '- If a sentence is a heading, a list item or a fragment, translate it as a heading, list item or',
-    '  fragment — do not turn it into a full sentence.',
-    '- Markdown marks (**, _, #, -, links) must survive in the same places.',
-    '',
-    'Target languages: ' + targets.map(function (c) { return LANGUAGES[c] + ' (' + c + ')'; }).join(', ') + '.',
-    'Return one entry per target language, with its code exactly as given above.'
-  ].join('\n');
-}
 
 function bad(res, status, message) {
   res.status(status).json({ error: message });
@@ -135,8 +102,12 @@ async function requireAdmin(req) {
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return bad(res, 405, 'Use POST.');
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return bad(res, 503, 'Translation is not set up yet: ANTHROPIC_API_KEY is missing on the server.');
+
+  let cfg;
+  try {
+    cfg = resolveProvider(process.env);
+  } catch (err) {
+    return bad(res, err.status || 503, err.message);
   }
 
   const allowed = await requireAdmin(req);
@@ -155,56 +126,33 @@ export default async function handler(req, res) {
     return bad(res, 400, 'Send 1–' + MAX_SENTENCES + ' sentences per request.');
   }
   if (sentences.some(function (s) { return typeof s !== 'string'; })) return bad(res, 400, 'Sentences must be text.');
-  const chars = sentences.join('').length;
-  if (chars > MAX_CHARS) return bad(res, 400, 'That batch is too long — send shorter batches.');
-
-  const numbered = sentences.map(function (s, i) { return (i + 1) + '. ' + s; }).join('\n');
+  if (sentences.join('').length > MAX_CHARS) {
+    return bad(res, 400, 'That batch is too long — send shorter batches.');
+  }
 
   try {
-    const client = new Anthropic();
-    const response = await client.messages.create({
-      model: MODEL,
-      max_tokens: 16000,
-      system: systemPrompt(LANGUAGES[from], targets, sentences.length),
-      output_config: { effort: EFFORT, format: { type: 'json_schema', schema: SCHEMA } },
-      messages: [{ role: 'user', content: numbered }]
-    });
-
-    if (response.stop_reason === 'refusal') {
-      return bad(res, 422, 'That text was declined by the translation model.');
-    }
-
-    const text = response.content
-      .filter(function (b) { return b.type === 'text'; })
-      .map(function (b) { return b.text; })
-      .join('');
-
-    let parsed;
-    try {
-      parsed = JSON.parse(text);
-    } catch (e) {
-      return bad(res, 502, 'The translation came back in an unreadable shape. Try again.');
-    }
+    const result = await cfg.provider.translate(
+      { from: from, fromName: LANGUAGES[from], targets: targets, sentences: sentences },
+      cfg
+    );
 
     // A translation that lost or gained a sentence would pair the wrong
     // lines together for every sentence after it, so it is rejected
-    // rather than stored.
-    const out = {};
-    for (const entry of parsed.languages || []) {
-      if (!LANGUAGES[entry.code] || targets.indexOf(entry.code) === -1) continue;
-      if (!Array.isArray(entry.sentences) || entry.sentences.length !== sentences.length) {
-        return bad(res, 502, 'The translation did not line up with the source. Try again.');
-      }
-      out[entry.code] = entry.sentences.map(function (s) { return String(s == null ? '' : s); });
+    // rather than passed on — whichever company produced it.
+    const missing = targets.filter(function (c) {
+      return !Array.isArray(result.translations[c]) || result.translations[c].length !== sentences.length;
+    });
+    if (missing.length) {
+      return bad(res, 502, 'The translation did not line up with the source for: ' + missing.join(', '));
     }
-    const missing = targets.filter(function (c) { return !out[c]; });
-    if (missing.length) return bad(res, 502, 'No translation came back for: ' + missing.join(', '));
 
-    res.status(200).json({ model: MODEL, translations: out });
+    res.status(200).json({
+      provider: cfg.name,
+      model: result.model || cfg.model,
+      translations: result.translations
+    });
   } catch (err) {
-    const status = err && err.status;
-    if (status === 401) return bad(res, 503, 'The translation key on the server was rejected.');
-    if (status === 429) return bad(res, 429, 'Too many translations at once — wait a moment and try again.');
+    if (err instanceof TranslateError) return bad(res, err.status, err.message);
     console.error('translate failed:', err && err.message);
     return bad(res, 502, 'The translation service did not answer. Try again.');
   }

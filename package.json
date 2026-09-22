@@ -2,7 +2,7 @@
   "name": "duru-korean",
   "private": true,
   "type": "module",
-  "description": "Static site for durukorean.com. Node is used only for the serverless functions under api/; the pages themselves are plain HTML, CSS and browser JavaScript and need no build step.",
+  "description": "Static site for durukorean.com. Node is used only for the serverless functions under api/; the pages themselves are plain HTML, CSS and browser JavaScript and need no build step. The one dependency is the Anthropic SDK, used by the default translation provider; the OpenAI, Google and DeepL providers speak plain HTTP and need nothing.",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0"
   }

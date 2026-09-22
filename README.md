@@ -462,13 +462,33 @@ admin's browser ──▶ /api/translate ──▶ Claude API
 reader's browser ──▶ posts.mt ──▶ source sentence + translation
 ```
 
-**Why the pieces are where they are.** The Anthropic API key cannot go
+**Why the pieces are where they are.** A translation API key cannot go
 in the browser, so the call lives in `api/translate.js`, a Vercel
 serverless function. That function is not open to the world either: the
 caller's Supabase access token is verified against Supabase and checked
 against `admin_users` before a single token is spent, and the batch size
 is capped server-side so a bug in the page cannot turn one save into an
 unbounded bill.
+
+**No company is baked in.** `api/_providers.js` holds one small adapter
+per provider, each with the same two-line shape — sentences in, one
+translation per sentence out. Everything around it (the endpoint, the
+admin check, the alignment check, the browser) is provider-neutral, so
+moving from one translation company to another is an environment
+variable, not a rewrite. Four ship with the site:
+
+| Provider | Key | Notes |
+|---|---|---|
+| Anthropic | `ANTHROPIC_API_KEY` | the default; uses the Anthropic SDK |
+| OpenAI | `OPENAI_API_KEY` | plain HTTP, chat-completions shape |
+| Google Gemini | `GOOGLE_API_KEY` | or `GEMINI_API_KEY` |
+| DeepL | `DEEPL_API_KEY` | a translation service, not a model — alignment is free, and a free-tier `…:fx` key is routed to the free host automatically |
+
+Anything else that speaks the OpenAI chat-completions shape — Azure
+OpenAI, Groq, Together, OpenRouter, Fireworks, a self-hosted vLLM or
+Ollama — needs no new code: set `TRANSLATE_PROVIDER=openai` and point
+`TRANSLATE_BASE_URL` at it. A provider with its own shape is one entry
+in `PROVIDERS`.
 
 **Why the sentences stay aligned.** One splitter (`js/auto-translate.js`)
 is used three times: the admin's browser splits the body to send it, the
@@ -483,24 +503,42 @@ A hand-written translation always wins: a language with a body in
 `posts.i18n` is skipped by the translator and shown on its own, with no
 original above it.
 
+**The endpoint's contract** is deliberately ordinary, so it is useful
+for more than this blog:
+
+```
+POST /api/translate
+Authorization: Bearer <the caller's Supabase access token>
+{ "from": "ko", "to": ["en", "zh"], "sentences": ["…", "…"] }
+
+200 { "provider": "anthropic", "model": "claude-opus-5",
+      "translations": { "en": ["…", "…"], "zh": ["…", "…"] } }
+```
+
+Every target language comes back with exactly as many sentences as were
+sent, in the same order. That is the whole guarantee, and a provider
+that breaks it gets a 502 rather than a stored answer.
+
 **Setting it up.** One environment variable, in Vercel → Project →
-Settings → Environment Variables:
+Settings → Environment Variables: whichever company's key you have, from
+the table above. The provider is chosen from the key that is present, so
+nothing else is needed.
 
-| Name | Value |
-|---|---|
-| `ANTHROPIC_API_KEY` | a key from console.anthropic.com → API keys |
-
-Optional, if the defaults do not suit: `TRANSLATE_MODEL` (default
-`claude-opus-5`), `TRANSLATE_EFFORT` (`low` / `medium` / `high`, default
-`medium`), `SUPABASE_URL` and `SUPABASE_ANON_KEY` (default to the same
+Optional: `TRANSLATE_PROVIDER` (needed only when more than one key is
+set), `TRANSLATE_API_KEY` (the key under a neutral name),
+`TRANSLATE_MODEL`, `TRANSLATE_BASE_URL`, `TRANSLATE_EFFORT`
+(`low` / `medium` / `high`, default `medium`, for providers that have
+it), and `SUPABASE_URL` / `SUPABASE_ANON_KEY` (default to the same
 public values `js/supabase-config.js` already serves).
 
-Without the key the site works exactly as before; the translate button
-answers that translation is not set up rather than failing obscurely.
+Without any key the site works exactly as before; the translate button
+answers that translation is not set up, and names the variables it would
+accept, rather than failing obscurely.
 
-`package.json` exists only for this function. The pages are still plain
-HTML, CSS and browser JavaScript with no build step — Vercel installs
-the one dependency, compiles `api/`, and serves the rest as static files.
+`package.json` exists only for this function, and its one dependency is
+the Anthropic SDK used by the default provider — the OpenAI, Google and
+DeepL adapters speak plain HTTP and need nothing. The pages are still
+plain HTML, CSS and browser JavaScript with no build step.
 
 ### Header width
 

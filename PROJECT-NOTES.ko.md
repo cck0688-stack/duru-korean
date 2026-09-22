@@ -77,8 +77,22 @@ GitHub 저장소  ──push──▶  Vercel  ──▶  www.durukorean.com
 - 번역은 **한 번만** 돌고 저장됩니다. 독자가 읽을 때마다 비용이
   드는 구조가 아닙니다
 
-> 이 기능은 Vercel에 `ANTHROPIC_API_KEY` 환경변수가 있어야 돕니다.
-> 키가 없으면 나머지 사이트는 그대로 돌아가고, 번역 버튼만
+**번역 회사는 골라서 쓸 수 있습니다.** 특정 회사에 묶여 있지 않아서,
+Vercel 환경변수에 아래 중 **가지고 계신 키 하나만** 넣으면 그 회사로
+번역합니다.
+
+| 회사 | 환경변수 이름 | 가입처 |
+|---|---|---|
+| Anthropic (기본) | `ANTHROPIC_API_KEY` | console.anthropic.com |
+| OpenAI | `OPENAI_API_KEY` | platform.openai.com |
+| Google Gemini | `GOOGLE_API_KEY` | aistudio.google.com |
+| DeepL | `DEEPL_API_KEY` | deepl.com/pro-api |
+
+나중에 회사를 바꾸고 싶으면 **환경변수만 바꾸면 됩니다.** 코드는
+그대로입니다. 키를 두 개 이상 넣었다면 `TRANSLATE_PROVIDER` 에
+`anthropic` / `openai` / `google` / `deepl` 중 하나를 적어 고릅니다.
+
+> 키가 하나도 없으면 나머지 사이트는 그대로 돌아가고, 번역 버튼만
 > "번역이 아직 설정되지 않았다"고 답합니다. 설정법은 `README.md`의
 > *Automatic translation, sentence by sentence* 참고.
 
