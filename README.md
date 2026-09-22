@@ -186,10 +186,16 @@ cards are compact rows, three to a row on a wide screen, so a page of
 twenty downloads stays a page. Title and description come from `resources.i18n[lang]` when the
 admin has written that language, otherwise from the resource's default
 text. The type chips (Hangul Starter / Pronunciation / Vocabulary /
-Grammar Cheat Sheets / Real-Life Korean) and the Language dropdown
-(My language / All languages / each language that has at least one
-file) filter together, and both are remembered — with the scroll
-position — for the trip back from a resource page.
+Grammar Cheat Sheets / Real-Life Korean) and the "Pick a language"
+dropdown filter together, and both are remembered — with the scroll
+position — for the trip back from a resource page. The dropdown lists
+all eight languages in the picker's order, English first and selected
+by default, whether or not a download exists in each one yet. When the
+chosen language has nothing in the chosen category, the empty state
+names the languages that do, as buttons. A card is a single link:
+the title's anchor is stretched over the card in CSS, so clicking
+anywhere on it opens the resource while there is still one tab stop
+and one focus ring per card.
 
 `resource.html?id=…` is the resource's own page. The short description
 leads the main column with the longer text under it — the banner
@@ -197,9 +203,8 @@ carries the title alone, and the section is dropped only when neither
 has been written. Beside it: a PDF language dropdown
 (published files only; an admin also sees hidden ones), pages and size
 of the chosen file, Preview and Download through signed links. The list
-passes `&pl=<lang>` when a specific language was chosen there; otherwise
-the site language is tried, and when that file does not exist the page
-says so and falls back to the first available. Choosing a PDF language
+passes `&pl=<lang>` for the language chosen there; when that file does
+not exist the page says so and falls back to the first available. Choosing a PDF language
 never changes the site language. Downloads still need a signed-in
 session (storage policy); a Google sign-in from a resource page comes
 back to that page.

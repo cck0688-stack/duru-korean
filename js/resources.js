@@ -27,7 +27,7 @@
     var listEl = document.getElementById('resourceList');
     var emptyEl = document.getElementById('resourceListEmpty');
     var emptyText = document.getElementById('resourceEmptyText');
-    var showAllBtn = document.getElementById('resourceShowAll');
+    var suggestEl = document.getElementById('resourceLangSuggest');
     var filtersEl = document.getElementById('resourceFilters');
     var langSel = document.getElementById('resourceLang');
     var newBtn = document.getElementById('newResourceBtn');
@@ -39,7 +39,7 @@
     var isAdmin = false;
     var currentUser = null;
     var all = [];
-    var state = { type: 'all', lang: 'mine' };
+    var state = { type: 'all', lang: 'en' };
 
     try {
       var saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
@@ -59,33 +59,29 @@
 
     /* ---------------- Language dropdown ---------------- */
 
-    function langsPresent() {
+    // Which languages the resources on this page are actually written
+    // in, used to point somewhere useful when the chosen one has none.
+    function langsPresent(inType) {
       var seen = {};
       all.forEach(function (r) {
-        R.availableFiles(r, false).forEach(function (f) { seen[f.lang] = true; });
+        if (inType && state.type !== 'all' && r.category !== state.type) return;
+        R.availableFiles(r, isAdmin).forEach(function (f) { seen[f.lang] = true; });
       });
       return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return seen[c]; });
     }
 
+    // Every language the site speaks is listed, in the picker's order,
+    // whether or not a download exists in it yet: a reader looking for
+    // their own language should see it named rather than wonder where
+    // it went. English is the default, and the empty state below says
+    // what to do when the chosen language has nothing.
     function buildLangSelect() {
       if (!langSel) return;
-      var codes = langsPresent();
-      var mineLabel = t('resources.langMine', 'My language') + ' (' + R.langLabel(R.siteLang()) + ')';
-      var html = '<option value="mine">' + esc(mineLabel) + '</option>' +
-        '<option value="all">' + esc(t('resources.langAll', 'All languages')) + '</option>';
-      if (codes.length) {
-        html += '<optgroup label="' + esc(t('resources.langPick', 'Pick a language')) + '">' +
-          codes.map(function (c) { return '<option value="' + esc(c) + '">' + esc(R.langLabel(c)) + '</option>'; }).join('') +
-          '</optgroup>';
-      }
-      langSel.innerHTML = html;
-      // A remembered choice that no resource offers any more falls back.
-      if (state.lang !== 'mine' && state.lang !== 'all' && codes.indexOf(state.lang) === -1) state.lang = 'mine';
+      langSel.innerHTML = R.LANGS.map(function (l) {
+        return '<option value="' + esc(l.code) + '">' + esc(l.label) + '</option>';
+      }).join('');
+      if (!R.LANGS.some(function (l) { return l.code === state.lang; })) state.lang = 'en';
       langSel.value = state.lang;
-    }
-
-    function resolvedLang() {
-      return state.lang === 'mine' ? R.siteLang() : state.lang;
     }
 
     /* ---------------- Cards ---------------- */
@@ -98,13 +94,12 @@
       var chips = files.map(function (f) { return f.lang; });
       var shown = chips.slice(0, 3);
       var more = chips.length - shown.length;
-      var href = 'resource.html?id=' + encodeURIComponent(r.id) +
-        (state.lang !== 'mine' && state.lang !== 'all' ? '&pl=' + encodeURIComponent(state.lang) : '');
+      var href = 'resource.html?id=' + encodeURIComponent(r.id) + '&pl=' + encodeURIComponent(state.lang);
       var level = r.learning_level && r.learning_level !== 'Any level' ? R.levelLabel(r.learning_level) : '';
       var meta = [R.categoryLabel(r.category), level, Object.keys(formats).join('/') || 'PDF'].filter(Boolean).join(' · ');
       var desc = R.localized(r, 'description', lang);
       return '<article class="res-card' + (r.published === false ? ' res-card--draft' : '') + '">' +
-        '<a class="res-thumb" href="' + esc(href) + '" tabindex="-1" aria-hidden="true">' + R.coverHTML(client, r) + '</a>' +
+        '<span class="res-thumb">' + R.coverHTML(client, r) + '</span>' +
         '<div class="res-card-body">' +
           (r.published === false ? '<span class="res-draft">' + esc(t('resource.draft', 'Not published')) + '</span>' : '') +
           '<h3><a href="' + esc(href) + '">' + esc(R.localized(r, 'title', lang)) + '</a></h3>' +
@@ -116,36 +111,42 @@
               (more > 0 ? '<span class="res-chip res-chip--more">+' + more + '</span>' : '') +
               (!chips.length ? '<span class="res-chip res-chip--none">' + esc(t('resource.noFilesYet', 'No file yet')) + '</span>' : '') +
             '</span>' +
-            '<a class="res-view" href="' + esc(href) + '">' + esc(t('resources.viewDownload', 'View & Download')) + ' →</a>' +
+            '<span class="res-view">' + esc(t('resources.viewDownload', 'View & Download')) + ' →</span>' +
           '</div>' +
         '</div>' +
       '</article>';
     }
 
     function visible() {
-      var lang = resolvedLang();
       return all.filter(function (r) {
         if (state.type !== 'all' && r.category !== state.type) return false;
-        if (state.lang === 'all') return true;
         // An admin also finds a resource by a file that is still hidden.
-        return R.availableFiles(r, isAdmin).some(function (f) { return f.lang === lang; });
+        return R.availableFiles(r, isAdmin).some(function (f) { return f.lang === state.lang; });
       });
     }
 
     function render() {
       var rows = visible();
       listEl.innerHTML = rows.map(cardHTML).join('');
-      var anyOfType = all.some(function (r) { return state.type === 'all' || r.category === state.type; });
       if (rows.length) {
         emptyEl.hidden = true;
       } else {
         emptyEl.hidden = false;
-        if (anyOfType && state.lang !== 'all') {
-          emptyText.textContent = t('resources.noneInLang', 'Nothing here in {lang} yet.').replace('{lang}', R.langLabel(resolvedLang()));
-          showAllBtn.hidden = false;
+        // Nothing in this language: name the ones that do have something,
+        // as buttons, so the reader is one click from a file instead of
+        // working through the dropdown.
+        var others = langsPresent(true).filter(function (c) { return c !== state.lang; });
+        if (others.length) {
+          emptyText.textContent = t('resources.noneInLang', 'Nothing here in {lang} yet.').replace('{lang}', R.langLabel(state.lang));
+          suggestEl.innerHTML = '<span class="res-lang-suggest-label">' + esc(t('resources.availableIn', 'Available in')) + '</span>' +
+            others.map(function (c) {
+              return '<button type="button" class="btn btn-ghost" data-lang="' + esc(c) + '">' + esc(R.langLabel(c)) + '</button>';
+            }).join('');
+          suggestEl.hidden = false;
         } else {
           emptyText.textContent = t('resources.emptyNote', 'No files have been attached yet.');
-          showAllBtn.hidden = true;
+          suggestEl.innerHTML = '';
+          suggestEl.hidden = true;
         }
       }
       listEl.querySelectorAll('a[href^="resource.html"]').forEach(function (a) {
@@ -204,10 +205,12 @@
         saveState(); render();
       });
     }
-    if (showAllBtn) {
-      showAllBtn.addEventListener('click', function () {
-        state.lang = 'all';
-        if (langSel) langSel.value = 'all';
+    if (suggestEl) {
+      suggestEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('button[data-lang]');
+        if (!btn) return;
+        state.lang = btn.dataset.lang;
+        if (langSel) langSel.value = state.lang;
         saveState(); render();
       });
     }

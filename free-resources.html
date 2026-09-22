@@ -63,7 +63,7 @@
       </div>
       <div class="dl-toolbar-row">
         <label class="dl-lang" for="resourceLang">
-          <span data-i18n="resources.langFilterLabel">Language</span>
+          <span data-i18n="resources.langPick">Pick a language</span>
           <select id="resourceLang"></select>
         </label>
         <button type="button" class="btn btn-ghost" id="newResourceBtn" hidden data-i18n="resources.newBtn">+ New resource</button>
@@ -71,7 +71,7 @@
     </div>
     <div class="resource-empty" id="resourceListEmpty" hidden>
       <p id="resourceEmptyText" data-i18n="resources.emptyNote">No files have been attached yet.</p>
-      <button type="button" class="btn btn-ghost" id="resourceShowAll" hidden data-i18n="resources.showAllLangs">Show all languages</button>
+      <div class="res-lang-suggest" id="resourceLangSuggest" hidden></div>
     </div>
     <div class="resource-grid" id="resourceList"></div>
   </div>

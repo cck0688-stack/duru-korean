@@ -2777,7 +2777,13 @@ section { position: relative; }
   gap: 16px;
 }
 
+/* The whole card opens the resource. One real link — the title — is
+   stretched over the card with ::after, so there is a single tab stop
+   and a single target, and the thumbnail and the arrow are plain text
+   sitting underneath it. */
 .res-card {
+  position: relative;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
   gap: 14px;
@@ -2822,7 +2828,18 @@ section { position: relative; }
 }
 .res-card-body h3 { font-size: 15px; margin: 0; color: var(--ink); line-height: 1.35; }
 .res-card-body h3 a { color: inherit; }
-.res-card-body h3 a:hover { color: var(--accent-red); }
+.res-card-body h3 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.res-card-body h3 a:focus-visible { outline: none; }
+.res-card-body h3 a:focus-visible::after {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 3px;
+}
+.res-card:hover .res-card-body h3 a { color: var(--accent-red); }
 .res-card-desc {
   font-size: 13px;
   line-height: 1.5;
@@ -2862,7 +2879,25 @@ section { position: relative; }
 .res-chip--more { background: transparent; border: 1px solid rgba(22, 48, 43, 0.16); }
 .res-chip--none { background: transparent; font-weight: 500; letter-spacing: 0; text-transform: none; }
 .res-view { font-size: 12.5px; font-weight: 700; color: var(--accent-red); white-space: nowrap; }
-.res-view:hover { text-decoration: underline; }
+.res-card:hover .res-view { text-decoration: underline; }
+
+/* Empty state: the languages this category does have, as a way out. */
+.res-lang-suggest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.res-lang-suggest-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-dim);
+}
+.res-lang-suggest .btn { padding: 6px 14px; font-size: 13px; }
 
 @media (max-width: 420px) {
   .res-card { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 14px; }
