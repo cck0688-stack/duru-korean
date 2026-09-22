@@ -1016,3 +1016,167 @@ create index if not exists posts_lang_idx on public.posts (lang);
 
 alter table public.posts
   add column if not exists mt jsonb not null default '{}'::jsonb;
+
+-- ------------------------------------------------------------------
+-- 24. likes without an account, and comments on a post
+-- ------------------------------------------------------------------
+-- A reader who has just finished an article should be able to react to
+-- it there and then. Requiring an account first loses almost all of
+-- them, so a like and a comment both work signed out.
+--
+-- "Signed out" still means *someone*: the browser keeps a random id in
+-- localStorage (duru_anon_id) and sends it along. It proves nothing —
+-- clearing site data makes a new person — but it is enough to stop one
+-- reader liking the same post twenty times, and enough to let them
+-- delete a comment they just wrote.
+
+alter table public.content_likes alter column user_id drop not null;
+alter table public.content_likes
+  add column if not exists anon_id text;
+
+alter table public.content_likes drop constraint if exists content_likes_who_check;
+alter table public.content_likes
+  add constraint content_likes_who_check
+  check ((user_id is not null and anon_id is null)
+      or (user_id is null and anon_id is not null and char_length(anon_id) between 8 and 64));
+
+-- One like per person per item, for both kinds of person. The old
+-- unique(user_id, …) constraint no longer covers anonymous rows, since
+-- every one of those has user_id null.
+create unique index if not exists content_likes_anon_uidx
+  on public.content_likes (anon_id, content_type, content_id)
+  where anon_id is not null;
+
+-- Anonymous likes go through these two functions rather than through a
+-- table policy. A policy permissive enough to let a signed-out visitor
+-- write their own row would also let them rewrite everyone else's,
+-- because RLS has no way to know which anonymous id the caller really
+-- is. A security definer function does: it only ever touches the row
+-- matching the id it was handed.
+
+create or replace function public.content_like_state(
+  p_type text, p_id uuid, p_anon text default null
+) returns table (liked boolean, total bigint)
+language sql stable security definer set search_path = public as $$
+  select
+    exists (
+      select 1 from public.content_likes l
+      where l.content_type = p_type and l.content_id = p_id and l.has_liked
+        and ((auth.uid() is not null and l.user_id = auth.uid())
+          or (auth.uid() is null and p_anon is not null and l.anon_id = p_anon))
+    ),
+    (select count(*) from public.content_likes l
+      where l.content_type = p_type and l.content_id = p_id and l.has_liked)::bigint;
+$$;
+
+create or replace function public.toggle_content_like(
+  p_type text, p_id uuid, p_anon text default null
+) returns table (liked boolean, total bigint)
+language plpgsql security definer set search_path = public as $$
+declare
+  v_user uuid := auth.uid();
+  v_row public.content_likes;
+begin
+  if p_type not in ('post', 'story') then
+    raise exception 'unknown content type';
+  end if;
+
+  if v_user is not null then
+    select * into v_row from public.content_likes l
+      where l.user_id = v_user and l.content_type = p_type and l.content_id = p_id;
+  else
+    if p_anon is null or char_length(p_anon) not between 8 and 64 then
+      raise exception 'a reader id is required';
+    end if;
+    select * into v_row from public.content_likes l
+      where l.anon_id = p_anon and l.content_type = p_type and l.content_id = p_id;
+  end if;
+
+  if v_row.id is null then
+    insert into public.content_likes (user_id, anon_id, content_type, content_id, has_liked)
+    values (v_user, case when v_user is null then p_anon end, p_type, p_id, true);
+  else
+    update public.content_likes
+      set has_liked = not v_row.has_liked, updated_at = now()
+      where id = v_row.id;
+  end if;
+
+  return query select * from public.content_like_state(p_type, p_id, p_anon);
+end;
+$$;
+
+grant execute on function public.content_like_state(text, uuid, text) to anon, authenticated;
+grant execute on function public.toggle_content_like(text, uuid, text) to anon, authenticated;
+
+-- ------------------------------------------------------------------
+-- post_comments — a conversation under an article
+-- ------------------------------------------------------------------
+-- A comment with a parent is a reply, and a reply may itself be replied
+-- to, so a thread nests as deep as the talk goes — the same shape the
+-- guestbook uses. Deleting a comment takes its replies with it, which
+-- is what moderation wants: removing the comment that started a bad
+-- thread should not leave the thread behind.
+
+create table if not exists public.post_comments (
+  id uuid primary key default gen_random_uuid(),
+  post_id uuid not null references public.posts (id) on delete cascade,
+  parent_id uuid references public.post_comments (id) on delete cascade,
+  user_id uuid references auth.users (id) on delete set null,
+  anon_id text,
+  display_name text not null check (char_length(trim(display_name)) between 1 and 40),
+  body text not null check (char_length(trim(body)) between 1 and 2000),
+  created_at timestamptz not null default now()
+);
+
+alter table public.post_comments enable row level security;
+
+create index if not exists post_comments_post_idx
+  on public.post_comments (post_id, created_at);
+create index if not exists post_comments_parent_idx
+  on public.post_comments (parent_id, created_at);
+
+drop policy if exists "post_comments: public read" on public.post_comments;
+create policy "post_comments: public read"
+  on public.post_comments for select
+  using (true);
+
+-- Anyone may write one. The check is not about who they are but about
+-- who they claim to be: a signed-in commenter's row must carry their own
+-- id, and a signed-out one must carry none, so nobody can post under
+-- another account's name.
+drop policy if exists "post_comments: anyone insert" on public.post_comments;
+create policy "post_comments: anyone insert"
+  on public.post_comments for insert
+  with check (
+    (auth.uid() is not null and user_id = auth.uid())
+    or (auth.uid() is null and user_id is null and anon_id is not null
+        and char_length(anon_id) between 8 and 64)
+  );
+
+-- A signed-in author may remove their own; an admin may remove any.
+drop policy if exists "post_comments: author or admin delete" on public.post_comments;
+create policy "post_comments: author or admin delete"
+  on public.post_comments for delete
+  using (
+    (user_id is not null and user_id = auth.uid())
+    or exists (select 1 from public.admin_users a where a.user_id = auth.uid())
+  );
+
+-- A signed-out author deletes through this instead, for the same reason
+-- the likes do: only the function can check an anonymous id safely.
+create or replace function public.delete_anon_comment(p_id uuid, p_anon text)
+returns boolean
+language plpgsql security definer set search_path = public as $$
+declare v_deleted int;
+begin
+  if p_anon is null or char_length(p_anon) not between 8 and 64 then
+    return false;
+  end if;
+  delete from public.post_comments
+    where id = p_id and user_id is null and anon_id = p_anon;
+  get diagnostics v_deleted = row_count;
+  return v_deleted > 0;
+end;
+$$;
+
+grant execute on function public.delete_anon_comment(uuid, text) to anon, authenticated;

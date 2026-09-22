@@ -1,5 +1,34 @@
 // DURU KOREAN — shared behaviors
 
+// Who a signed-out reader is, as far as a like or a comment is
+// concerned: a random id kept in this browser. It identifies nobody and
+// proves nothing — clearing site data makes a new person — but it is
+// enough to stop one reader liking the same post twenty times, and
+// enough to let them delete a comment they just wrote. In a browser
+// that refuses storage it falls back to an id that lasts the tab.
+window.DURU_ANON = (function () {
+  var KEY = 'duru_anon_id';
+  var memory = null;
+  function make() {
+    if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+    return 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
+  }
+  return {
+    id: function () {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved && saved.length >= 8) return saved;
+        var made = make();
+        localStorage.setItem(KEY, made);
+        return made;
+      } catch (e) {
+        if (!memory) memory = make();
+        return memory;
+      }
+    }
+  };
+})();
+
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }

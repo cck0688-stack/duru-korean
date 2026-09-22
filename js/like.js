@@ -6,76 +6,52 @@
 (function () {
   'use strict';
 
+  function anonId() {
+    return (window.DURU_ANON && window.DURU_ANON.id()) || null;
+  }
+
+  // Liking is one round trip to a security definer function rather than
+  // a read followed by a write. That is what lets a signed-out reader
+  // like something at all: no table policy loose enough for them to
+  // write their own row could stop them rewriting everyone else's, but
+  // a function only ever touches the row matching the id it was handed.
   window.DURU_LIKE = {
-    // Toggle like status for content (post or story)
+    // Toggle like status for content (post or story). Resolves with
+    // { liked, total } so the button can update without asking again.
     toggleLike: function (contentType, contentId) {
       var client = window.DURU_SUPABASE_CLIENT;
-      if (!client) return Promise.reject('Supabase not initialized');
-
-      return client.auth.getUser().then(function (res) {
-        var user = res.data && res.data.user;
-        if (!user) return Promise.reject('Not signed in');
-
-        return client.from('content_likes')
-          .select('*')
-          .eq('user_id', user.id)
-          .eq('content_type', contentType)
-          .eq('content_id', contentId)
-          .maybeSingle()
-          .then(function (res) {
-            var existing = res.data;
-            if (existing) {
-              var newLiked = !existing.has_liked;
-              return client.from('content_likes')
-                .update({ has_liked: newLiked, updated_at: new Date().toISOString() })
-                .eq('id', existing.id);
-            } else {
-              return client.from('content_likes').insert({
-                user_id: user.id,
-                content_type: contentType,
-                content_id: contentId,
-                has_liked: true
-              });
-            }
-          });
+      if (!client) return Promise.reject(new Error('Supabase not initialized'));
+      return client.rpc('toggle_content_like', {
+        p_type: contentType, p_id: contentId, p_anon: anonId()
+      }).then(function (res) {
+        if (res.error) throw new Error(res.error.message);
+        var row = (res.data && res.data[0]) || {};
+        return { liked: !!row.liked, total: Number(row.total) || 0 };
       });
     },
 
-    // Get like count for content
+    // Whether this reader has liked it, and how many have — one call.
+    getState: function (contentType, contentId) {
+      var client = window.DURU_SUPABASE_CLIENT;
+      if (!client) return Promise.resolve({ liked: false, total: 0 });
+      return client.rpc('content_like_state', {
+        p_type: contentType, p_id: contentId, p_anon: anonId()
+      }).then(function (res) {
+        if (res.error) return { liked: false, total: 0 };
+        var row = (res.data && res.data[0]) || {};
+        return { liked: !!row.liked, total: Number(row.total) || 0 };
+      }).catch(function () {
+        return { liked: false, total: 0 };
+      });
+    },
+
+    // Kept for callers that only want the number.
     getLikeCount: function (contentType, contentId) {
-      var client = window.DURU_SUPABASE_CLIENT;
-      if (!client) return Promise.resolve(0);
-
-      return client.from('content_likes')
-        .select('id', { count: 'exact', head: true })
-        .eq('content_type', contentType)
-        .eq('content_id', contentId)
-        .eq('has_liked', true)
-        .then(function (res) {
-          return (res.count || 0);
-        });
+      return this.getState(contentType, contentId).then(function (s) { return s.total; });
     },
 
-    // Check if current user has liked content
     hasUserLiked: function (contentType, contentId) {
-      var client = window.DURU_SUPABASE_CLIENT;
-      if (!client) return Promise.resolve(false);
-
-      return client.auth.getUser().then(function (res) {
-        var user = res.data && res.data.user;
-        if (!user) return false;
-
-        return client.from('content_likes')
-          .select('id')
-          .eq('user_id', user.id)
-          .eq('content_type', contentType)
-          .eq('content_id', contentId)
-          .eq('has_liked', true)
-          .maybeSingle()
-          .then(function (res) {
-            return !!(res && res.data);
-          });
-      });
+      return this.getState(contentType, contentId).then(function (s) { return s.liked; });
     },
 
     // Get most liked posts (for recommendations)

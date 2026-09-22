@@ -88,6 +88,17 @@ with checks(item, ok) as (
      exists (select 1 from information_schema.columns
              where table_schema='public' and table_name='posts' and column_name='mt')),
 
+    ('post_comments table (comments and replies)',
+     exists (select 1 from information_schema.tables
+             where table_schema='public' and table_name='post_comments')),
+
+    ('likes work without an account',
+     exists (select 1 from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+             where n.nspname='public' and p.proname='toggle_content_like')
+     and (select is_nullable from information_schema.columns
+          where table_schema='public' and table_name='content_likes'
+            and column_name='user_id') = 'YES'),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

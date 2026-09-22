@@ -543,6 +543,51 @@ the Anthropic SDK used by the default provider — the OpenAI, Google and
 DeepL adapters speak plain HTTP and need nothing. The pages are still
 plain HTML, CSS and browser JavaScript with no build step.
 
+### Likes and comments without an account
+
+A reader who has just finished an article should be able to react to it
+there and then. Requiring an account first loses almost all of them, so
+the heart and the comment form both work signed out.
+
+"Signed out" still means *someone*: the browser keeps a random id in
+`localStorage` under `duru_anon_id` (`window.DURU_ANON`, in
+`js/main.js`) and sends it along. It identifies nobody — clearing site
+data makes a new person — but it is enough to stop one reader liking the
+same post twenty times, and enough to let them delete a comment they
+just wrote.
+
+**Why both go through SQL functions.** A Row Level Security policy
+permissive enough to let a signed-out visitor write their own like row
+would also let them rewrite everyone else's, because RLS has no way to
+know which anonymous id the caller really is. `toggle_content_like`,
+`content_like_state` and `delete_anon_comment` are `security definer`
+functions instead: each one only ever touches the row matching the id it
+was handed, and `content_likes` keeps no insert policy for anonymous
+callers at all. `content_likes.user_id` is nullable now, with a check
+constraint saying a row carries exactly one of `user_id` or `anon_id`,
+and a partial unique index giving anonymous readers one like per item
+the way the old `unique(user_id, …)` does for accounts.
+
+**Comments** live in `post_comments` and are rendered by
+`js/comments.js`, mounted under a post by `js/blog.js`. A comment with a
+`parent_id` is a reply, and a reply may itself be replied to, so a
+thread nests as deep as the talk goes — the same shape the guestbook
+uses. Deleting cascades to the replies, which is what moderation wants:
+removing the comment that started a bad thread should not leave the
+thread behind. The indent stops at four levels; deeper replies join at
+that level rather than squeezing the text off a phone.
+
+Who may delete what is RLS, not a hidden button: an admin may delete
+any comment, a signed-in author their own, and a signed-out author their
+own through `delete_anon_comment`. The insert policy does not care who
+you are but does care who you *claim* to be — a signed-in comment must
+carry that account's id and a signed-out one must carry none, so nobody
+can post under another account's name.
+
+A comment body is **plain text**, escaped and split on blank lines, for
+the same reason story and post bodies are: accepting HTML from one
+visitor would let them run code in another visitor's browser.
+
 ### Header width
 
 The nav carries seven items. That does not fit in the 1180px column the

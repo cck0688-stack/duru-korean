@@ -398,11 +398,9 @@
       var bodyHTML = pairs
         ? bilingualHTML(pairs, post.lang || 'en', readLang)
         : paragraphs(field(post, 'body', readLang));
-      var mtNote = pairs
-        ? '<p class="mt-note">' + escapeHTML(t('blog.autoTranslated',
-            'Translated automatically from {lang}. The original is above each line.')
-            .replace('{lang}', R.langLabel(post.lang || 'en'))) + '</p>'
-        : '';
+      // No note above the text: the pairing itself says what it is, and
+      // a line of small print between the reader and the first sentence
+      // was in the way.
 
       var langHTML = '';
       if (codes.length > 1 || missing) {
@@ -477,7 +475,6 @@
             '<span class="like-count" id="likeCount">0</span>' +
           '</button>' +
         '</div>' +
-        mtNote +
         '<div class="post-body' + (pairs ? ' post-body--mt' : '') + '">' + bodyHTML + '</div>' +
         renderTags(post.tags) +
         '<div class="blog-share">' +
@@ -492,10 +489,14 @@
             '<button type="button" class="blog-share-btn copy" title="Copy link" aria-label="Copy link" data-url="' + escapeHTML(postUrl) + '">🔗</button>' +
           '</div>' +
         '</div>' +
-        navHTML;
+        navHTML +
+        '<div id="postComments"></div>';
       document.title = readField(post, 'title', readLang) + ' — Duru Korean';
       setupShareButtons();
       setupLikeButton(post.id);
+      if (window.DURU_COMMENTS) {
+        window.DURU_COMMENTS.mount(singleEl.querySelector('#postComments'), post.id);
+      }
 
       var readSel = singleEl.querySelector('#blogReadLang');
       if (readSel) {
@@ -590,41 +591,25 @@
       if (!window.DURU_LIKE) return;
       var likeBtn = singleEl.querySelector('#likePostBtn');
       if (!likeBtn) return;
-
       var likeCount = singleEl.querySelector('#likeCount');
-      var liked = false;
 
-      window.DURU_LIKE.getLikeCount('post', postId).then(function (count) {
-        if (likeCount) likeCount.textContent = String(count);
-      });
+      function paint(state) {
+        likeBtn.classList.toggle('liked', state.liked);
+        likeBtn.setAttribute('aria-pressed', state.liked ? 'true' : 'false');
+        likeBtn.querySelector('.like-icon').textContent = state.liked ? '♥' : '♡';
+        if (likeCount) likeCount.textContent = String(state.total);
+      }
 
-      window.DURU_LIKE.hasUserLiked('post', postId).then(function (userLiked) {
-        liked = userLiked;
-        if (liked) {
-          likeBtn.classList.add('liked');
-          likeBtn.querySelector('.like-icon').textContent = '♥';
-        }
-      });
+      window.DURU_LIKE.getState('post', postId).then(paint);
 
       likeBtn.addEventListener('click', function () {
         likeBtn.disabled = true;
-        window.DURU_LIKE.toggleLike('post', postId).then(function () {
-          liked = !liked;
-          if (liked) {
-            likeBtn.classList.add('liked');
-            likeBtn.querySelector('.like-icon').textContent = '♥';
-          } else {
-            likeBtn.classList.remove('liked');
-            likeBtn.querySelector('.like-icon').textContent = '♡';
-          }
-          likeBtn.disabled = false;
-          window.DURU_LIKE.getLikeCount('post', postId).then(function (count) {
-            if (likeCount) likeCount.textContent = String(count);
-          });
-        }).catch(function () {
-          likeBtn.disabled = false;
-          window.alert(t('like.loginRequired', 'Sign in to like'));
-        });
+        window.DURU_LIKE.toggleLike('post', postId)
+          .then(paint)
+          .catch(function (err) {
+            window.alert(R.schemaHint ? R.schemaHint(err.message) : err.message);
+          })
+          .then(function () { likeBtn.disabled = false; });
       });
     }
 

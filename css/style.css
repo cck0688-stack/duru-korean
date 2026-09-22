@@ -2960,12 +2960,6 @@ section { position: relative; }
 }
 .post-body--mt { line-height: 1.65; }
 
-.mt-note {
-  font-size: 12.5px;
-  color: var(--ink-dim);
-  font-style: italic;
-  margin: 0 0 18px;
-}
 .mt-title-src {
   font-size: 15px;
   color: var(--ink-dim);
@@ -3184,4 +3178,103 @@ section { position: relative; }
   .res-files th { width: auto; }
   .res-files tr { display: grid; grid-template-columns: 1fr; }
   .res-files-act { text-align: left; }
+}
+
+/* ---------- Comments under a post ---------- */
+
+.comments {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(22, 48, 43, 0.12);
+}
+.comments-title {
+  font-size: 20px;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.comment-form-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.comment-name {
+  flex: 0 1 240px;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(22, 48, 43, 0.18);
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+}
+.comment-name[readonly] { background: rgba(22, 48, 43, 0.05); color: var(--ink-dim); }
+.comment-body {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(22, 48, 43, 0.18);
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  resize: vertical;
+}
+.comment-name:focus, .comment-body:focus {
+  outline: none;
+  border-color: var(--accent-red);
+}
+.comment-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: flex-end;
+}
+.comment-send { padding: 9px 20px; font-size: 14px; }
+.comment-form-msg {
+  margin: 0;
+  font-size: 13px;
+  color: var(--accent-red);
+}
+
+.comment-thread { list-style: none; margin: 0; padding: 0; }
+/* A reply steps in once; the rule on the left is what carries the
+   nesting, because indenting far enough to be obvious would leave a
+   phone no room for the words. */
+.comment-thread--nested {
+  margin: 14px 0 0 0;
+  padding-left: 16px;
+  border-left: 2px solid rgba(22, 48, 43, 0.1);
+}
+.comment {
+  padding: 14px 0;
+  border-top: 1px solid rgba(22, 48, 43, 0.08);
+}
+.comment-thread > .comment:first-child { border-top: none; }
+.comment-thread--nested > .comment { padding: 12px 0; }
+
+.comment-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+.comment-author { font-weight: 700; font-size: 14px; color: var(--ink); }
+.comment-when { font-size: 12px; color: var(--ink-dim); }
+.comment-body-text p { margin: 0 0 8px; font-size: 14.5px; line-height: 1.65; color: var(--ink); }
+.comment-body-text p:last-child { margin-bottom: 0; }
+.comment-actions { display: flex; gap: 14px; margin-top: 8px; }
+.comment .comment-form-wrap { margin-top: 12px; }
+.comment .comment-form { margin-bottom: 0; }
+.comment-empty { font-size: 14px; color: var(--ink-dim); margin: 0; }
+
+@media (max-width: 480px) {
+  .comment-name { flex-basis: 100%; }
+  .comment-form-actions { justify-content: space-between; }
+  .comment-thread--nested { padding-left: 12px; }
 }
