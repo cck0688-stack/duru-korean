@@ -1,0 +1,9 @@
+# Things the website does not need.
+#
+# scripts/ runs in GitHub Actions, not on Vercel — there is nothing
+# secret in it, but a static host would otherwise serve it at
+# durukorean.com/scripts/… for no reason.
+scripts/
+.github/
+supabase/
+PROJECT-NOTES.ko.md

@@ -961,7 +961,12 @@
           '<div class="post-editor-container">' +
             '<form id="postForm" novalidate class="post-editor-form">' +
               '<div class="auth-field"><label for="postTitle"></label>' +
-                '<input type="text" id="postTitle" required maxlength="160"></div>' +
+                '<input type="text" id="postTitle" required maxlength="160">' +
+                // What the generator considered before it picked one.
+                // Clicking any of them swaps the title; the one in the
+                // field is marked so it is clear which is in use.
+                '<div class="post-alts" id="postAlts" hidden></div>' +
+                '<p class="resource-hint" id="postTopic" hidden></p></div>' +
               '<div class="auth-field"><label for="postCategory"></label>' +
                 '<select id="postCategory">' + CATEGORIES.map(function (c) {
                   return '<option value="' + c + '"></option>';
@@ -1035,6 +1040,13 @@
       });
       overlay.querySelector('#postBody').addEventListener('input', scheduleOutline);
       overlay.querySelector('#postBody').addEventListener('blur', function () { fillOutline(false); });
+      overlay.querySelector('#postAlts').addEventListener('click', function (e) {
+        var btn = e.target.closest('.post-alt');
+        if (!btn) return;
+        overlay.querySelector('#postTitle').value = btn.textContent;
+        renderAlts();
+      });
+      overlay.querySelector('#postTitle').addEventListener('input', renderAlts);
       overlay.querySelector('#postTags').addEventListener('input', function () { tagsTouched = true; });
       overlay.querySelector('#postExcerpt').addEventListener('input', function () { summaryTouched = true; });
       overlay.querySelector('#postCategory').addEventListener('change', function () {
@@ -1073,6 +1085,30 @@
       var picked = overlay.querySelector('#postDate').value;
       if (!picked || picked === postDateWas) return {};
       return { post_date: picked, post_date_source: 'ADMIN' };
+    }
+
+    // The alternatives a generated draft carries, and the topic it was
+    // written to answer. Neither appears on a post an admin typed.
+    function renderAlts() {
+      if (!overlay) return;
+      var box = overlay.querySelector('#postAlts');
+      var topicEl = overlay.querySelector('#postTopic');
+      var alts = (editing && editing.title_candidates) || [];
+      var current = overlay.querySelector('#postTitle').value.trim();
+
+      box.hidden = alts.length < 2;
+      box.innerHTML = box.hidden ? '' :
+        '<span class="post-alts-label">' + escapeHTML(t('blog.titleAlts', 'Other titles it considered')) + '</span>' +
+        alts.map(function (title) {
+          return '<button type="button" class="post-alt' + (title === current ? ' is-current' : '') +
+            '">' + escapeHTML(title) + '</button>';
+        }).join('');
+
+      var topic = (editing && editing.topic) || '';
+      topicEl.hidden = !topic;
+      topicEl.textContent = topic
+        ? t('blog.writtenFor', 'Written to answer: {topic}').replace('{topic}', topic)
+        : '';
     }
 
     function readAudiences() {
@@ -1267,6 +1303,7 @@
         ? t('blog.editorEditTitle', 'Edit post') : t('blog.editorNewTitle', 'Write a post');
       o.querySelector('label[for="postTitle"]').textContent = t('blog.fieldTitle', 'Title');
       o.querySelector('label[for="postDate"]').textContent = t('blog.fieldPostDate', 'Shown as posted on');
+      renderAlts();
       o.querySelector('#postDateHint').textContent = t('blog.postDateHint',
         'The day the draft was written. Approving later does not move it — change it here if you want a different day.');
       o.querySelector('label[for="postCategory"]').textContent = t('blog.fieldCategory', 'Category');
@@ -1318,6 +1355,7 @@
       lastSaveTime = null;
       o.querySelector('[data-msg="post"]').hidden = true;
       o.querySelector('#postTitle').value = editing ? editing.title : '';
+      renderAlts();
       // A new post has no day yet: the database fills it in, in Seoul.
       o.querySelector('#postDate').value = (editing && postDay(editing)) || todayInSeoul();
       postDateWas = o.querySelector('#postDate').value;

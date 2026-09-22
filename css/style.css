@@ -3568,3 +3568,37 @@ section { position: relative; }
   }
   .site-header.menu-open .nav-menu a { text-align: center; }
 }
+
+/* ---------- Blog editor: the titles a draft was born with ---------- */
+
+.post-alts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.post-alts-label {
+  flex: 1 1 100%;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+.post-alt {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(22,48,43,0.16);
+  background: #fff;
+  font-size: 12.5px;
+  color: var(--ink-dim);
+  cursor: pointer;
+  text-align: left;
+}
+.post-alt:hover { border-color: var(--ink-dim); color: var(--ink); }
+.post-alt.is-current {
+  background: var(--bg);
+  border-color: var(--bg);
+  color: var(--cream);
+  cursor: default;
+}
+#postTopic { margin-top: 8px; }

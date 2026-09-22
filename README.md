@@ -463,6 +463,76 @@ Travel, Dining and Campus & Life. Below that the list itself, under a
 heading that names where the reader is. The topic lives in the address
 bar, so any view is a link someone can send.
 
+### The morning's seven drafts
+
+`scripts/generate-drafts.mjs` writes seven drafts a day, one per topic,
+and stops. It publishes nothing: an admin reads them at `blog.html` and
+approves what is worth approving.
+
+**Where it runs.** GitHub Actions, not Vercel — writing seven articles
+takes minutes and a Vercel Hobby function is cut off at sixty seconds.
+`.github/workflows/daily-drafts.yml` fires at 20:30 UTC, which is 05:30
+the next morning in Seoul, so the drafts are ready well before seven.
+
+**How it signs in.** As an ordinary Supabase account that is listed in
+`admin_users` — `DURU_BOT_EMAIL` and `DURU_BOT_PASSWORD` — and *not*
+with the `service_role` key. That distinction is the point: if this
+job's secrets leak, what leaks is an account that can write blog drafts.
+Row Level Security applies to every write it makes, exactly as it does
+to a person.
+
+**Three calls per post, in this order**, because section 8.1 of the spec
+is the whole idea — the title is written from the body, not the other
+way round:
+
+1. `pickTopic` — four candidates, each scored on six axes, one chosen.
+   It is given the month's calendar (`scripts/lib/season.mjs`), the
+   questions foreigners actually ask in that topic, and every title the
+   site already carries, so it can avoid repeating itself.
+2. `writeBody` — the body alone, 500–800 characters, two or three
+   subheadings, no title.
+3. `wrapUp` — five title candidates, the chosen title, the summary, the
+   tags, the slug and an image prompt, all read off the finished body.
+
+**Then the gate.** `scripts/lib/quality.mjs` counts and matches; it
+never asks the model whether its own work is good enough, because a
+model that has just written 430 characters will tell you it wrote 600.
+Body length, summary length, title length, tag count, duplicate titles
+and slugs, banned clickbait, the stock openings that make every
+generated post read alike. A draft that fails is handed back with the
+list and asked to fix those things — twice. Still failing, it is not
+saved, and the batch records which category and why.
+
+**What it cannot do.** There is no web search, so "what is trending on
+Reddit this week" is out of reach; the seasonal calendar and the gap
+analysis stand in for it, and both are honest about being a substitute.
+It writes no images — the columns are there (`image_url`,
+`image_prompt`, `image_status`) and the prompt is generated and stored,
+but nothing renders one yet.
+
+**Running it by hand.** The workflow has a `workflow_dispatch` with a
+dry-run switch and a category filter, and the script takes the same two
+flags:
+
+```
+node scripts/generate-drafts.mjs --dry-run --only=travel,dining
+```
+
+**Twice in one day is harmless.** The script claims the day by inserting
+a `blog_batches` row, and `batch_date` is unique; a second run finds the
+day taken and exits without writing. `posts (batch_date, category)` is
+unique too, so a category cannot be filled twice either.
+
+**When one category fails**, it fails alone: the loop catches it,
+records the stage (`TOPIC_SELECTION_FAILED`, `TEXT_GENERATION_FAILED`,
+`CONTENT_VALIDATION_FAILED`, `DB_SAVE_FAILED`) and carries on with the
+next. The batch ends `PARTIAL` rather than `FAILED`, and the summary at
+the end of the job says which one went wrong.
+
+A generated draft carries `topic` and `title_candidates`, and the editor
+shows both: the topic it was written to answer, and the other titles it
+considered as chips under the title field. Clicking one swaps the title.
+
 ### The date a post carries
 
 A post has four dates, and they mean four different things.

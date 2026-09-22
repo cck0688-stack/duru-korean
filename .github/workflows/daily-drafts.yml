@@ -1,0 +1,79 @@
+# DURU KOREAN — the morning's seven drafts
+#
+# Runs here rather than on Vercel because writing seven articles takes
+# minutes and a Vercel Hobby function is cut off at sixty seconds.
+# Nothing this job does is public: it signs in as an ordinary admin
+# account and leaves seven unpublished drafts for a person to read.
+#
+# Secrets to set at Settings → Secrets and variables → Actions:
+#
+#   DURU_BOT_EMAIL      a Supabase account that is in admin_users
+#   DURU_BOT_PASSWORD
+#   OPENAI_API_KEY      (or ANTHROPIC_API_KEY, or GOOGLE_API_KEY)
+#
+# Optional: TRANSLATE_PROVIDER, TRANSLATE_MODEL.
+
+name: Daily blog drafts
+
+on:
+  schedule:
+    # 20:30 UTC is 05:30 the next morning in Seoul, which leaves the
+    # drafts ready well before seven. GitHub's scheduler can run late
+    # when it is busy; the job claims the day by its Seoul date, so a
+    # late start still files under the right day and a double start
+    # writes nothing twice.
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Write nothing, just print what would be saved'
+        type: boolean
+        default: false
+      only:
+        description: 'Only these categories, comma separated (e.g. travel,dining)'
+        type: string
+        default: ''
+
+concurrency:
+  group: daily-blog-drafts
+  cancel-in-progress: false
+
+jobs:
+  drafts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Write the drafts
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+          # Same names keep-alive.yml already uses. Unset is fine —
+          # the script falls back to this project's public values.
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          # Through the environment, never interpolated into the command
+          # line: a ${{ }} inside `run:` is pasted into the shell before
+          # bash sees it, so a dispatch input would be shell, not an
+          # argument. Only someone with write access can dispatch this,
+          # but that is not a reason to hand them a shell.
+          DRY_RUN: ${{ inputs.dry_run }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          args=()
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          node scripts/generate-drafts.mjs "${args[@]}"
