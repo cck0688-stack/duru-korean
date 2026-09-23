@@ -232,6 +232,38 @@ unreachable because nobody has guessed its URL is not private.
 Playwright is a **devDependency**: it makes the files, it is not part of
 the site, and nothing in `devDependencies` is served to a visitor.
 
+### The review queue
+
+`review.html` and `js/review.js`: one screen showing everything §6 of
+the brief asks to be seen together — what the sheet is, the PDF itself
+in every language it was made in, where the material came from, the
+rights position, what the technical checks found, and what is still
+blocking it.
+
+**It is not what stops a draft being published.** The database does
+that. If the rule lived in this file, "disable the button" would be the
+whole of it and anyone who can open a console could publish an
+unchecked draft — which the test does deliberately, twice, and gets
+nothing published either time. What the screen does is *show* the
+reasons the database would give, so that nobody is left pressing a
+button that does nothing and wondering why. When the two disagree the
+database wins and the screen repeats what it said.
+
+Approving copies that exact version out of `resource-drafts` into the
+public bucket and then hands its key to `publish_resource_file()`. The
+copy happens first on purpose: if the function refuses, an unreferenced
+object in the public bucket is harmless, whereas a row pointing at a
+file that was never copied is a broken download on a live page.
+
+Clearing a source goes through `clear_resource_source()` rather than an
+update, because "a person checked this" is a claim that has to carry
+that person's name and the time. The screen asks what they checked and
+keeps the answer.
+
+The verdict of the last action survives the reload that follows it. It
+did not at first, and a refusal appeared and vanished within the same
+frame — indistinguishable from the button doing nothing.
+
 Both pages are `js/resources.js` over the same table, told apart by
 `window.DURU_RESOURCE_LOCATION`. The shelves — the ids, the glyph, the
 line icon — live once, in `js/resource-common.js` as

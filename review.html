@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Review downloads — Duru Korean Admin</title>
+<meta name="description" content="Admin review queue for generated worksheets.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-brand">
+      <a href="index.html" class="logo">
+        <img class="logo-img" src="assets/logo.webp" alt="Duru Korean" width="1617" height="280">
+      </a>
+      <span class="site-visits" hidden>
+        <span><span data-i18n="visits.total" data-visits-total-label>Visits</span> <b data-visits-total>–</b></span>
+        <span><span data-i18n="visits.today" data-visits-today-label>Today</span> <b data-visits-today>–</b></span>
+      </span>
+    </div>
+    <nav class="nav-main">
+      <a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a>
+      <a href="book-resources.html" data-i18n="nav.bookResources">Book Resources</a>
+      <a href="free-resources.html" data-i18n="nav.freeResources">Free Downloads</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="stories.html" data-i18n="nav.stories">Community</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher" id="langSwitcher"></div>
+      <button id="authTrigger" class="btn-login" type="button" data-i18n="nav.login">Log in</button>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div id="adminNotAuthorized" class="page-hero" hidden>
+  <div class="wrap">
+    <h1 data-i18n="admin.notAuthorized">Not Authorized</h1>
+    <p data-i18n="admin.notAuthorizedDesc">You don't have access to this page.</p>
+  </div>
+</div>
+
+<div id="adminContent" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1 data-i18n="review.title">Review downloads</h1>
+      <div class="page-hero-rule"></div>
+      <p class="page-hero-tagline" data-i18n="review.tagline">Nothing here is public. It goes out when you say so.</p>
+    </div>
+  </section>
+
+  <section class="section section-after-hero">
+    <div class="wrap">
+      <div class="list-head">
+        <div>
+          <h2 id="reviewHeading" data-i18n="review.waiting">Waiting for you</h2>
+          <p class="list-head-count" id="reviewCount"></p>
+        </div>
+        <button type="button" class="btn btn-ghost" id="reviewRefresh" data-i18n="review.refresh">Refresh</button>
+      </div>
+
+      <div class="review-empty" id="reviewEmpty" hidden>
+        <p data-i18n="review.nothing">Nothing is waiting. The next run is at 13:00.</p>
+      </div>
+
+      <div id="reviewList"></div>
+    </div>
+  </section>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/blog-categories.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/notify-feed.js"></script>
+<script src="js/resource-common.js"></script>
+<script src="js/review.js"></script>
+<script>window.DURU_PAGE_TITLE_KEY = 'review.title';</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
