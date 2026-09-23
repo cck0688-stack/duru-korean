@@ -1,0 +1,104 @@
+# DURU KOREAN — the day's worksheets
+#
+# Writes worksheets, renders them to PDF in eight languages and leaves
+# them in the private bucket for a person to approve. It publishes
+# nothing: the database refuses to publish anything that a human admin
+# has not approved and whose sources a human admin has not cleared.
+# See supabase/schema.sql §36f.
+#
+# Runs here rather than on Vercel for the same reason the blog's run
+# does — writing and rendering a day's sheets takes minutes and a
+# Hobby function is cut off at sixty seconds. It also needs a browser,
+# which a serverless function has not got.
+#
+# Secrets to set at Settings → Secrets and variables → Actions:
+#
+#   DURU_BOT_EMAIL      a Supabase account that is in admin_users
+#   DURU_BOT_PASSWORD
+#   OPENAI_API_KEY      (or ANTHROPIC_API_KEY, or GOOGLE_API_KEY)
+#
+# The same bot account the blog's run uses. It is an ordinary account
+# rather than the service_role key, so that if these secrets ever leak
+# what leaks is an account that can write drafts — not a key that reads
+# every row in the database.
+#
+# Optional variables: TRANSLATE_PROVIDER, TRANSLATE_MODEL,
+# TRANSLATE_FAST_MODEL.
+
+name: Daily worksheets
+
+on:
+  schedule:
+    # 04:00 UTC is 13:00 in Seoul. GitHub's scheduler runs late when it
+    # is busy, which is harmless here: the run decides what to make by
+    # counting what is already on the shelf rather than by the date, so
+    # a late start, a missed day or a half-finished run all correct
+    # themselves the next time it runs.
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Write nothing, just print what would be saved'
+        type: boolean
+        default: false
+      only:
+        description: 'Only these shelves, comma separated (e.g. vocab,reading)'
+        type: string
+        default: ''
+      count:
+        description: 'How many per shelf (default 1)'
+        type: string
+        default: ''
+
+concurrency:
+  group: daily-worksheets
+  cancel-in-progress: false
+
+jobs:
+  sheets:
+    runs-on: ubuntu-latest
+    # Six sheets, each written, checked, translated seven times and
+    # rendered eight times. The limit is here so that a hung provider
+    # call cannot run all day, not because it is expected to be close.
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # Only Chromium, and only its own dependencies. The renderer
+      # needs a browser; it does not need three of them.
+      - name: Install the browser that renders the PDFs
+        run: npx playwright install --with-deps chromium
+
+      - name: Write the worksheets
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+          TRANSLATE_FAST_MODEL: ${{ vars.TRANSLATE_FAST_MODEL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          # Through the environment, never interpolated into the command
+          # line: a ${{ }} inside `run:` is pasted into the shell before
+          # bash sees it, so a dispatch input would be shell, not an
+          # argument. Only someone with write access can dispatch this,
+          # but that is not a reason to hand them a shell.
+          DRY_RUN: ${{ inputs.dry_run }}
+          ONLY: ${{ inputs.only }}
+          COUNT: ${{ inputs.count }}
+        run: |
+          args=()
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ -n "$COUNT" ]; then args+=(--count="$COUNT"); fi
+          node scripts/generate-sheets.mjs "${args[@]}"
