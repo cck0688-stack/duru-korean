@@ -15,6 +15,7 @@
 // what to do with it.
 
 import { check, repairNote, LIMITS } from './quality.mjs';
+import { pickVoice, dayNumber } from './voices.mjs';
 
 const schema = (strict, properties, required) => {
   const root = { type: 'object', properties, required };
@@ -201,8 +202,22 @@ const BODY_RULES = [
 ].join('\n');
 
 export async function writeBody(cfg, opts) {
+  // The shape this one is written in. Without it every post came out
+  // the same: a hook, three numbered things, a closing line — fine
+  // once, a machine seven times a morning.
+  const voice = opts.voice;
+  const shape = voice ? [
+    '',
+    '[이번 글의 형식]',
+    `${voice.name}`,
+    ...voice.how,
+    '',
+    '이 형식을 지키세요. 다른 글과 같은 틀로 쓰지 마세요 — 특히',
+    '"~하는 법 3가지" 같은 번호 나열로 흘러가지 않게 하세요.'
+  ] : [];
+
   const system = [READER, '', '지금은 본문만 쓰는 단계입니다. 제목은 나중에 붙입니다.',
-                  '', BODY_RULES].join('\n');
+                  '', BODY_RULES, ...shape].join('\n');
   const user = [
     `카테고리: ${opts.category} — ${opts.about}`,
     `주제: ${opts.topic}`,
@@ -352,8 +367,15 @@ export async function writeOne(cfg, opts, log) {
   const picked = await pickTopic(cfg, opts);
   note(`주제: ${picked.chosen}`);
 
+  // Which of the thirty shapes this post is written in — picked by the
+  // runner, so a morning's seven never share one.
+  const voice = opts.voice || pickVoice(dayNumber(opts.day), opts.slot || 0, opts.slots || 1);
+  note(`형식: ${voice.name}`);
+
   note('본문 쓰는 중');
-  const content = await writeBody(cfg, { ...opts, topic: picked.chosen, reason: picked.reason });
+  const content = await writeBody(cfg, {
+    ...opts, topic: picked.chosen, reason: picked.reason, voice: voice
+  });
 
   note('제목·요약·태그 만드는 중');
   const wrapped = await wrapUp(cfg, { ...opts, topic: picked.chosen, content: content });
@@ -361,6 +383,7 @@ export async function writeOne(cfg, opts, log) {
   let draft = {
     category: opts.category,
     topic: picked.chosen,
+    voice: voice.id,
     content: content,
     ...wrapped,
     candidates: picked.candidates,

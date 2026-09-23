@@ -503,6 +503,34 @@ Each draft also arrives with its "words to know" list: five words an
 intermediate learner would be stopped by, explained in all eight
 languages. That used to wait for an admin to press a button.
 
+## Thirty shapes, and a photograph on every post
+
+Seven posts a morning written to one template read as a machine however
+good each is: a hook, three numbered things, a closing line. The shape
+is chosen before the post is written, from thirty in
+`scripts/lib/voices.mjs` that are genuinely different — a single scene,
+a myth corrected, three whys in a row, a short dialogue unpacked, one
+object examined, a walk through a space, a letter from someone who
+arrived six months earlier.
+
+Chosen by walking, not by drawing. With thirty shapes and eight posts a
+day, random would put two of a morning on the same shape about half the
+time. The index is day number times shelves plus shelf, so every post
+in a morning differs, a shelf waits fifteen days to see a shape again,
+all thirty get used, and the choice is reproducible — which matters
+when a draft comes out badly and the question is what produced it.
+
+Every post now gets a photograph. It used to be allowed to end with
+none, on the grounds that a post about visa paperwork is worse off
+beside a beach. That still holds; what was wrong was treating "nothing
+specific enough" as the end of the search rather than its middle. Five
+queries: three the model writes, then the shelf's own two, which cannot
+be off-topic because the shelf is what the post is about. The first
+four are judged as strictly as before. On the fifth the best of what
+came back is taken — a Korean street under a post about Korean streets
+is not a mismatch, and no picture reads as unfinished. A photo service
+that is down still ends with none, because there is nothing to take.
+
 ## One run a day, and only what is missing
 
 The morning job writes the categories that do not yet have a post for

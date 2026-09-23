@@ -103,7 +103,17 @@ const QUESTIONS = {
     'what a labour contract should say',
     'what hoesik is, and whether you have to go'
   ],
-  community: [
+  language: [
+    'why a stranger asks your age before they have said anything else',
+    'which of the words for "you" is safe to use, and which is not',
+    'what 눈치 means and why nobody translates it the same way twice',
+    'why a shopkeeper says "얼마예요" and a friend says "얼마야"',
+    'what 수고하셨습니다 is doing at the end of every working day',
+    'why Koreans count two different ways, and when each one is used',
+    'what changes about a sentence when you add 요 to the end',
+    'why "no" is so rarely the word people use to say no'
+  ],
+  etc: [
     'what jeong means and why people keep mentioning it',
     'how much to put in a wedding or funeral envelope',
     'what age has to do with how people speak to you',

@@ -28,6 +28,7 @@
 import { resolveProvider } from '../api/_providers.js';
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
+import { pickVoice, dayNumber } from './lib/voices.mjs';
 import { resolvePhotos, findPhoto } from '../api/_photos.js';
 import { translateDraft, studyDraft } from './lib/mt.mjs';
 
@@ -212,11 +213,19 @@ async function main() {
 
   const results = [];
   for (const category of wanted) {
+    // Which shelf this is among all eight, not where it happens to sit
+    // in this run: a top-up run writes a subset, and the shape a post
+    // gets should not depend on which of its neighbours were missing.
+    const slot = CATEGORIES.findIndex((c) => c.id === category.id);
     log(`── ${category.id}`);
     try {
       const draft = await writeOne(cfg, {
         category: category.id,
         about: category.about,
+        // One of thirty shapes, walked rather than drawn: every post in
+        // a morning gets a different one, and a shelf waits a fortnight
+        // before it sees the same shape twice. See scripts/lib/voices.mjs.
+        voice: pickVoice(dayNumber(today), slot, CATEGORIES.length),
         month: season.month,
         seasonNotes: season.notes,
         questions: questionsFor(category.id),
@@ -238,10 +247,14 @@ async function main() {
       if (photoCfg) {
         try {
           draft.photo = await findPhoto(cfg, photoCfg, {
-            title: draft.title, topic: draft.topic, content: draft.content
+            title: draft.title, topic: draft.topic, content: draft.content,
+            // The shelf is the last resort's search term, so it has to
+            // travel with the post — see SHELF_QUERIES in api/_photos.js.
+            category: category.id
           }, (m) => log(`  ${m}`));
-          if (!draft.photo) log('  어울리는 사진을 찾지 못했습니다 — 사진 없이 저장합니다');
-          else log(`  사진: ${draft.photo.credit} (${draft.photo.source})`);
+          if (!draft.photo) log('  사진을 끝내 찾지 못했습니다 — 사진 없이 저장합니다');
+          else log(`  사진: ${draft.photo.credit} (${draft.photo.source})` +
+                   (draft.photo.fallback ? ' — 주제 기본 사진' : ''));
         } catch (err) {
           log(`  사진 실패 (글은 그대로 저장합니다): ${err.message}`);
         }

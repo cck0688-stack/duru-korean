@@ -149,8 +149,10 @@ export async function queryFor(cfg, opts) {
     '  "Korean university campus"가 찾아집니다.',
     '- 사람 얼굴이 크게 나오는 사진보다 장면이 나오는 사진이 좋습니다.',
     '',
-    '두 개를 주세요. 첫 번째가 가장 구체적인 것, 두 번째는 못 찾았을 때',
-    '쓸 조금 더 넓은 것.'
+    '세 개를 주세요. 첫 번째가 가장 구체적인 것, 두 번째는 한 단계 넓은',
+    '것, 세 번째는 이 글의 큰 주제를 나타내는 가장 넓은 것입니다.',
+    '세 번째는 반드시 한국 관련 사진이 많은 흔한 장면이어야 합니다 —',
+    '"Seoul street", "Korean food table", "Korean cafe" 처럼.'
   ].join('\n');
   const user = [`제목: ${opts.title}`, `주제: ${opts.topic}`, '', '본문:', opts.content].join('\n');
 
@@ -220,17 +222,74 @@ export async function pickPhoto(cfg, photos, opts) {
 // The whole thing: a query from the post, a search, a choice. Returns
 // null when nothing fits, and throws only when the service itself is
 // unreachable — the caller treats both as "no picture today".
+// What a shelf looks like when nothing more specific can be found.
+// These are not a guess at the article — they are the subject the
+// article is filed under, which is the widest thing that is still
+// honestly about it. A post on ingredient labels ending up beside a
+// photograph of Korean skincare is right; beside a beach it is not.
+export const SHELF_QUERIES = {
+  travel: ['Seoul street scene', 'Korea travel'],
+  dining: ['Korean food table', 'Korean restaurant'],
+  style: ['Korean skincare products', 'Seoul shopping street'],
+  explore: ['Seoul neighbourhood', 'Korean palace'],
+  campus: ['Korean university campus', 'Seoul apartment building'],
+  career: ['Seoul office building', 'Korean business district'],
+  language: ['Hangul sign Korea', 'Korean notebook study'],
+  etc: ['Seoul daily life', 'Korea street']
+};
+
+// Every post gets a photograph.
+//
+// It used to be allowed to end with none, on the grounds that a post
+// about visa paperwork is worse off beside a photograph of a beach.
+// That reasoning still holds — what was wrong was treating "nothing
+// specific enough" as the end of the search rather than the middle of
+// it. So the model's three queries are tried first and judged as
+// strictly as before; then the shelf's own queries, which cannot be
+// off-topic because the shelf is what the post is about; and only on
+// that last query, having asked five times, is the best of what came
+// back taken rather than refused. A Korean street under a post about
+// Korean streets is not a mismatch, and a post with no picture at all
+// reads as unfinished.
 export async function findPhoto(cfg, photoCfg, opts, log) {
   const note = log || (() => {});
-  const queries = await queryFor(cfg, opts);
-  for (const query of queries) {
+  let queries = [];
+  try {
+    queries = await queryFor(cfg, opts);
+  } catch (err) {
+    note(`  검색어를 만들지 못했습니다 (${err.message}) — 주제 기본 검색어로 갑니다`);
+  }
+  const shelf = SHELF_QUERIES[opts.category] || SHELF_QUERIES.etc;
+  const all = queries.concat(shelf.filter((q) => queries.indexOf(q) === -1));
+
+  for (let i = 0; i < all.length; i += 1) {
+    const query = all[i];
+    const last = i === all.length - 1;
     note(`사진 찾는 중: "${query}"`);
-    const found = await photoCfg.service.search(photoCfg.key, query, opts.count || 8);
-    if (!found.length) continue;
+    let found = [];
+    try {
+      found = await photoCfg.service.search(photoCfg.key, query, opts.count || 8);
+    } catch (err) {
+      note(`  검색 실패 (${err.message})`);
+      if (!last) continue;
+    }
+    if (!found.length) {
+      if (!last) note('  결과가 없어 다음 검색어로 넘어갑니다');
+      continue;
+    }
     const chosen = await pickPhoto(cfg, found, opts);
     if (chosen) {
       await photoCfg.service.used(photoCfg.key, chosen);
       return { ...chosen, query };
+    }
+    if (last) {
+      // Five queries in, the last of them the shelf's own. Whatever
+      // came back is about this subject even if the model would rather
+      // have something closer, and a post without a picture is worse.
+      note('  더 고를 것이 없어 주제 사진으로 채웁니다');
+      const fallback = found[0];
+      await photoCfg.service.used(photoCfg.key, fallback);
+      return { ...fallback, query, fallback: true };
     }
     note('  어울리는 사진이 없어 다음 검색어로 넘어갑니다');
   }
