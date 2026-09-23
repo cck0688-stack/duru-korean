@@ -166,6 +166,28 @@ with checks(item, ok) as (
      exists (select 1 from information_schema.columns
              where table_schema='public' and table_name='posts' and column_name='study')),
 
+    ('stories.lang exists (which language a post was written in)',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='stories' and column_name='lang')),
+
+    ('stories.mt exists (translations kept on the post itself)',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='stories' and column_name='mt')),
+
+    ('translation caching is a locked function, not a table write',
+     exists (select 1 from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+             where n.nspname='public' and p.proname='cache_story_translation'
+               and p.prosecdef)
+     and not exists (select 1 from pg_policies
+             where schemaname='public' and tablename='stories'
+               and cmd in ('UPDATE', 'ALL') and policyname not like '%author%')),
+
+    ('app_secrets is unreachable from the API',
+     exists (select 1 from pg_tables
+             where schemaname='public' and tablename='app_secrets' and rowsecurity)
+     and not exists (select 1 from pg_policies
+             where schemaname='public' and tablename='app_secrets')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

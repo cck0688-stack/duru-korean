@@ -10,7 +10,25 @@
 //
 // Bodies are stored and rendered as plain text. Allowing HTML would let
 // one visitor run code in another visitor's browser, so it is escaped on
-// the way out and never interpreted.
+// the way out and never interpreted. A translation is escaped by exactly
+// the same function as the original, because it comes from outside the
+// site and is no more trustworthy for having been asked for.
+//
+// ── Many languages, one community ─────────────────────────────────
+//
+// People write here in whatever language they are comfortable in, and
+// read in whatever language they picked in the header. Those are two
+// different settings and both are respected: the post is stored once,
+// in the words its author typed, and a reader who cannot read them
+// presses a button and gets a translation of that same post — same id,
+// same thread, same replies, with the author's language still named on
+// the card.
+//
+// Nothing is ever translated silently. A translated body always says
+// so, always names the language it came from, and always has the
+// original one press away, because a machine's guess at what somebody
+// said is not the same thing as what they said — and on a page where
+// people are learning Korean, the difference matters more than usual.
 
 (function () {
   'use strict';
@@ -83,6 +101,58 @@
     var emptyTitleEl = document.getElementById('storyEmptyTitle');
     var activeFilter = (C && C.route(location.pathname, location.search).cat) || 'all';
     if (C && activeFilter !== 'all' && !C.has(activeFilter)) activeFilter = 'all';
+
+    /* ---------------- Language ---------------- */
+
+    var L = window.DURU_LANGDETECT;
+    var langFilterEl = document.getElementById('storyLangFilter');
+    var langFilterLabel = document.getElementById('storyLangFilterLabel');
+    var activeLang = 'all';           // which language people wrote in
+
+    // What the reader currently has in front of them, per row. None of
+    // this is stored anywhere: it is a reading choice, not a setting,
+    // and it lasts as long as the page does.
+    // Whether the database has had supabase/schema.sql §33 run against
+    // it yet. Until it has, the page is exactly the community it was
+    // before: no badges, no filter, no offer to translate anything.
+    // Everything here can be deployed before the migration, which is
+    // the only order that does not take the page down in between.
+    var mtReady = true;
+
+    var trans = Object.create(null);        // id -> { lang, body, from }
+    var showOriginal = Object.create(null); // id -> the reader asked for the author's words back
+    var busy = Object.create(null);         // id -> a request is out
+    var failed = Object.create(null);       // id -> the last attempt did not come back
+
+    function siteLang() {
+      return (window.DURU_I18N && window.DURU_I18N.lang) || document.documentElement.lang || 'en';
+    }
+
+    function langLabel(code) {
+      var list = (window.DURU_I18N && window.DURU_I18N.LANGS) || [];
+      for (var i = 0; i < list.length; i += 1) {
+        if (list[i].code === code) return list[i].label;
+      }
+      return code;
+    }
+
+    // "VI · Tiếng Việt" — the code for someone scanning a list of them,
+    // the name in its own language for someone looking for their own.
+    function langChip(code) {
+      return String(code).split('-')[0].toUpperCase() + ' · ' + langLabel(code);
+    }
+
+    // A translation stored on the row itself, from the last time
+    // somebody asked for this language. It is used only while it still
+    // belongs to the body on screen: an edited post has a different
+    // fingerprint, and the old translation is dropped rather than shown
+    // under words it no longer matches.
+    function cachedFor(row, code) {
+      var kept = row && row.mt && row.mt[code];
+      if (!kept || !kept.body || !L) return null;
+      if (kept.hash !== L.hashText(row.body || '')) return null;
+      return { lang: code, body: String(kept.body), from: row.lang || null };
+    }
 
     /* ---------------- The four cards ---------------- */
 
@@ -192,6 +262,77 @@
       '</div>';
     }
 
+    // The author's words, or a translation of them, and a line saying
+    // which of the two this is. There is no state in which the page
+    // shows a translation without saying so.
+    function bodyHTML(row) {
+      var want = siteLang();
+      var held = trans[row.id];
+      var live = !!(held && held.lang === want && !showOriginal[row.id]);
+      var text = live ? held.body : row.body;
+      var code = live ? want : row.lang;
+      return '<div class="story-body"' + (code ? ' lang="' + escapeHTML(code) + '"' : '') + '>' +
+        paragraphs(text) + '</div>' + mtNoteHTML(row, live, held);
+    }
+
+    function mtNoteHTML(row, live, held) {
+      var want = siteLang();
+      if (!mtReady) return '';
+      if (live) {
+        var fromCode = held.from || row.lang;
+        var origin = fromCode
+          ? t('community.mt.from', 'from {lang}').replace('{lang}', langLabel(fromCode))
+          : t('community.mt.fromUnknown', 'from the original');
+        return '<p class="story-mt is-on">' +
+          '<span class="story-mt-tag">' + escapeHTML(t('community.mt.tag', 'Auto-translated')) + '</span>' +
+          '<span class="story-mt-src">' + escapeHTML(origin) + '</span>' +
+          '<button type="button" class="story-mt-orig" data-id="' + escapeHTML(row.id) + '">' +
+            escapeHTML(t('community.mt.original', 'Show original')) + '</button>' +
+        '</p>';
+      }
+      if (busy[row.id]) {
+        return '<p class="story-mt is-busy">' +
+          escapeHTML(t('community.mt.busy', 'Translating…')) + '</p>';
+      }
+      if (failed[row.id]) {
+        return '<p class="story-mt is-error">' +
+          '<span>' + escapeHTML(t('community.mt.failed', 'Couldn’t translate this right now.')) + '</span>' +
+          '<button type="button" class="story-mt-go" data-id="' + escapeHTML(row.id) + '">' +
+            escapeHTML(t('community.mt.retry', 'Try again')) + '</button>' +
+        '</p>';
+      }
+      // Nothing to offer when it is already in the reader's language.
+      // A post from before the language column existed says nothing
+      // about itself, so it is offered — the translator works out what
+      // it is, and if it turns out to be the same language the reader
+      // gets told so rather than getting a pointless round trip.
+      if (row.lang === want) return '';
+      return '<p class="story-mt">' +
+        '<button type="button" class="story-mt-go" data-id="' + escapeHTML(row.id) + '">' +
+          escapeHTML(t('community.mt.read', 'Read in {lang}').replace('{lang}', langLabel(want))) +
+        '</button></p>';
+    }
+
+    // The language the author wrote in stays on the card whether or not
+    // a translation is showing, because who wrote what, in what, does
+    // not change when a reader presses a button.
+    function langChipHTML(row) {
+      if (!mtReady || !row.lang) return '';
+      return '<span class="story-lang" lang="' + escapeHTML(row.lang) + '">' +
+        escapeHTML(langChip(row.lang)) + '</span>';
+    }
+
+    // A post and everything written underneath it, however deep. One
+    // press translates the conversation, not one line of it.
+    function threadIds(row) {
+      var out = [];
+      (function walk(id) {
+        out.push(id);
+        (childrenOf[id] || []).forEach(function (child) { walk(child.id); });
+      })(row.id);
+      return out;
+    }
+
     function repliesHTML(parent) {
       var list = childrenOf[parent.id] || [];
       if (!list.length) return '';
@@ -205,8 +346,9 @@
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(r.display_name)) + '</span>' +
             '<div>' +
               '<div class="story-reply-head"><strong>' + escapeHTML(r.display_name) + '</strong>' +
-                '<p class="story-meta">' + escapeHTML(formatDate(r.created_at)) + '</p></div>' +
-              '<div class="story-body">' + paragraphs(r.body) + '</div>' +
+                '<p class="story-meta">' + langChipHTML(r) +
+                  escapeHTML(formatDate(r.created_at)) + '</p></div>' +
+              bodyHTML(r) +
               actionsHTML(r) +
               repliesHTML(r) +
             '</div>' +
@@ -215,9 +357,39 @@
       '</div>';
     }
 
+    // The two filters are read together: Ask & Help written in
+    // Vietnamese is a reasonable thing to want, and picking one should
+    // not quietly clear the other.
     function shown() {
-      if (activeFilter === 'all') return stories;
-      return stories.filter(function (s2) { return catOf(s2) === activeFilter; });
+      return stories.filter(function (s2) {
+        if (activeFilter !== 'all' && catOf(s2) !== activeFilter) return false;
+        if (activeLang !== 'all' && (s2.lang || 'unknown') !== activeLang) return false;
+        return true;
+      });
+    }
+
+    // Every action here redraws the list, which would otherwise drop
+    // keyboard focus on the floor. Pressing "Read in English" and being
+    // returned to the top of the page is a small thing with a mouse and
+    // the end of the road without one, so the button that was pressed
+    // hands its place to whatever replaces it.
+    var refocus = null;
+
+    function keepFocus(cls, id) {
+      refocus = { cls: cls, id: id };
+    }
+
+    function restoreFocus() {
+      if (!refocus) return;
+      var want = refocus;
+      var el = listEl.querySelector('.' + want.cls + '[data-id="' + want.id + '"]') ||
+               listEl.querySelector('.story-mt-go[data-id="' + want.id + '"]') ||
+               listEl.querySelector('.story-mt-orig[data-id="' + want.id + '"]');
+      if (el) { refocus = null; el.focus(); return; }
+      // While the translation is out there is no button to land on —
+      // the place says "Translating…". The claim is held until the
+      // answer arrives and puts one back.
+      if (!busy[want.id]) refocus = null;
     }
 
     function renderList() {
@@ -241,6 +413,7 @@
         }
       }
       paintFilterBar();
+      paintLangFilter();
       list.forEach(function (s) {
         var card = document.createElement('article');
         card.className = 'story-card';
@@ -251,9 +424,10 @@
             '<p class="story-meta">' +
               '<span class="story-cat story-cat--' + escapeHTML(catOf(s)) + '">' +
               escapeHTML(C ? C.label(catOf(s)) : catOf(s)) + '</span>' +
+              langChipHTML(s) +
               escapeHTML(formatDate(s.created_at)) + '</p></div>' +
           '</div>' +
-          '<div class="story-body">' + paragraphs(s.body) + '</div>' +
+          bodyHTML(s) +
           actionsHTML(s) +
           repliesHTML(s);
         listEl.appendChild(card);
@@ -276,6 +450,22 @@
           openEditor(row);
         });
       });
+      listEl.querySelectorAll('.story-mt-go').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var row = find(b.dataset.id);
+          if (!row) return;
+          keepFocus('story-mt-orig', b.dataset.id);
+          translateItems(threadIds(row));
+        });
+      });
+      listEl.querySelectorAll('.story-mt-orig').forEach(function (b) {
+        b.addEventListener('click', function () {
+          showOriginal[b.dataset.id] = true;
+          keepFocus('story-mt-go', b.dataset.id);
+          renderList();
+        });
+      });
+      restoreFocus();
       listEl.querySelectorAll('.story-delete-btn').forEach(function (b) {
         b.addEventListener('click', function () {
           if (!currentUser) { openLogin(); return; }
@@ -294,12 +484,119 @@
       return rows.filter(function (s) { return String(s.id) === String(id); })[0];
     }
 
+    /* ---------------- Translation ---------------- */
+
+    // The endpoint is given ids, never text: it reads the posts itself,
+    // so nobody can hand the site somebody else's paragraphs to
+    // translate at its expense. See api/community-translate.js.
+    var MT_ENDPOINT = '/api/community-translate';
+    var MT_BATCH = 25;
+
+    function translateItems(ids) {
+      var want = siteLang();
+      var need = [];
+
+      ids.forEach(function (id) {
+        var row = find(id);
+        if (!row) return;
+        delete showOriginal[id];
+        delete failed[id];
+        if (row.lang === want) return;                     // already readable
+        var held = trans[id];
+        if (held && held.lang === want) return;            // asked for before
+        var hit = cachedFor(row, want);                    // translated for someone else
+        if (hit) { trans[id] = hit; return; }
+        need.push(id);
+      });
+
+      if (!need.length) { renderList(); return; }
+      need.forEach(function (id) { busy[id] = true; });
+      renderList();
+
+      for (var i = 0; i < need.length; i += MT_BATCH) {
+        request(need.slice(i, i + MT_BATCH), want);
+      }
+    }
+
+    function request(ids, want) {
+      function giveUp() {
+        ids.forEach(function (id) { delete busy[id]; failed[id] = true; });
+        renderList();
+      }
+
+      fetch(MT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: ids, to: want })
+      }).then(function (res) {
+        if (!res.ok) { giveUp(); return null; }
+        return res.json();
+      }).then(function (data) {
+        if (!data) return;
+        // The reader may have changed the site language while this was
+        // in the air. An answer in a language nobody is reading any
+        // more is dropped rather than shown.
+        if (data.to !== siteLang()) {
+          // Whatever is showing now is owned by the request that went
+          // out with the new language; clearing flags here would clear
+          // that one's.
+          return;
+        }
+        var items = data.items || {};
+        ids.forEach(function (id) {
+          delete busy[id];
+          var got = items[id];
+          if (got && got.body) {
+            trans[id] = { lang: data.to, body: String(got.body), from: got.from || null };
+          } else if (got && got.same) {
+            // It was already in this language after all. Nothing to
+            // show and nothing to apologise for.
+          } else {
+            failed[id] = true;
+          }
+        });
+        renderList();
+      }).catch(giveUp);
+    }
+
+    /* ---------------- Which language it was written in ---------------- */
+
+    // Only the languages people have actually written in, so the list
+    // is short and every entry in it finds something. Kept in the order
+    // of the site's own picker rather than of whoever posted first.
+    function paintLangFilter() {
+      if (!langFilterEl) return;
+      if (!mtReady) { langFilterEl.parentNode.hidden = true; return; }
+      var order = ((window.DURU_I18N && window.DURU_I18N.LANGS) || []).map(function (l) { return l.code; });
+      var present = Object.create(null);
+      var anyUnknown = false;
+      stories.forEach(function (r) {
+        if (r.lang) present[r.lang] = true; else anyUnknown = true;
+      });
+      var codes = order.filter(function (c) { return present[c]; });
+      if (anyUnknown) codes.push('unknown');
+      if (activeLang !== 'all' && codes.indexOf(activeLang) === -1) activeLang = 'all';
+
+      if (langFilterLabel) langFilterLabel.textContent = t('community.lang.filter', 'Language');
+      langFilterEl.innerHTML =
+        '<option value="all">' + escapeHTML(t('community.lang.all', 'All languages')) + '</option>' +
+        codes.map(function (c) {
+          var label = c === 'unknown' ? t('community.lang.unknown', 'Not marked') : langChip(c);
+          return '<option value="' + escapeHTML(c) + '">' + escapeHTML(label) + '</option>';
+        }).join('');
+      langFilterEl.value = activeLang;
+      // One language on the shelf is not a choice; the control would
+      // only be one more thing to read past.
+      langFilterEl.parentNode.hidden = codes.length < 2;
+    }
+
     function loadStories() {
       return client.from('stories').select('*')
         .order('created_at', { ascending: false }).limit(PAGE_SIZE)
         .then(function (res) {
           if (res.error) { console.error('Failed to load stories:', res.error.message); return; }
           rows = res.data || [];
+          if (rows.length) mtReady = Object.prototype.hasOwnProperty.call(rows[0], 'lang');
           // One query, split here: entries newest first, replies under
           // whatever they answer, oldest first. A row with no parent_id —
           // which is every row from before the column existed — is an
@@ -336,6 +633,13 @@
           '<form id="storyForm" novalidate>' +
             '<div class="auth-field"><label for="storyName"></label>' +
               '<input type="text" id="storyName" required maxlength="40"></div>' +
+            // Filled in from what is being typed, and left alone the
+            // moment the writer touches it. Getting it right matters:
+            // it is what tells a reader in another language that there
+            // is something here worth translating.
+            '<div class="auth-field" id="storyLangField"><label for="storyLang"></label>' +
+              '<select id="storyLang"></select>' +
+              '<p class="field-hint" id="storyLangHint"></p></div>' +
             // A reply belongs to the thread it answers, so it has no
             // shelf of its own to pick — the field is hidden for one
             // and the parent's value is sent instead.
@@ -352,7 +656,13 @@
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closeEditor(); });
       overlay.querySelector('#storyCloseBtn').addEventListener('click', closeEditor);
       overlay.querySelector('#storyForm').addEventListener('submit', save);
-      overlay.querySelector('#storyBody').addEventListener('input', updateCount);
+      overlay.querySelector('#storyBody').addEventListener('input', function () {
+        updateCount();
+        guessLang();
+      });
+      overlay.querySelector('#storyLang').addEventListener('change', function () {
+        langTouched = true;
+      });
       return overlay;
     }
 
@@ -360,6 +670,21 @@
       var body = overlay.querySelector('#storyBody');
       overlay.querySelector('#storyCount').textContent =
         t('stories.charCount', '{n} / 4000 characters').replace('{n}', body.value.length);
+    }
+
+    // The writer's language, guessed while they type and abandoned as a
+    // guess the instant they correct it. A guess that keeps overriding
+    // a correction is worse than no guess at all.
+    var langTouched = false;
+
+    function guessLang() {
+      if (langTouched || !overlay || !L) return;
+      var sel = overlay.querySelector('#storyLang');
+      if (!sel) return;
+      var guess = L.detect(overlay.querySelector('#storyBody').value);
+      // Nothing recognisable yet — "ok", a URL, three words. The
+      // language being read is the better guess than any of those.
+      sel.value = guess || siteLang();
     }
 
     function labelEditor() {
@@ -372,6 +697,8 @@
       o.querySelector('#storyEditorSub').textContent =
         t('stories.editorSub', 'Your email address is never shown — only the name you choose here.');
       o.querySelector('label[for="storyName"]').textContent = t('stories.fieldName', 'Name to show');
+
+      o.querySelector('#storyLangField').hidden = !mtReady;
 
       var catField = o.querySelector('#storyCatField');
       var catSel = o.querySelector('#storyCat');
@@ -388,6 +715,18 @@
           o.querySelector('#storyCatHint').textContent = C.describe(catSel.value);
         };
       }
+      var langSel = o.querySelector('#storyLang');
+      o.querySelector('label[for="storyLang"]').textContent =
+        t('community.lang.field', 'Language you are writing in');
+      o.querySelector('#storyLangHint').textContent =
+        t('community.lang.hint', 'Readers can have this translated into their own language. Change it if the guess is wrong.');
+      var keepLang = langSel.value;
+      langSel.innerHTML = ((window.DURU_I18N && window.DURU_I18N.LANGS) || [{ code: 'en', label: 'English' }])
+        .map(function (l) {
+          return '<option value="' + escapeHTML(l.code) + '">' + escapeHTML(langChip(l.code)) + '</option>';
+        }).join('');
+      langSel.value = keepLang || siteLang();
+
       o.querySelector('label[for="storyBody"]').textContent = replyTo
         ? t('stories.fieldReply', 'Your reply')
         : t('stories.fieldBody', 'Your story');
@@ -419,7 +758,17 @@
       labelEditor();
       o.querySelector('[data-msg="story"]').hidden = true;
       o.querySelector('#storyName').value = editing ? editing.display_name : lastUsedName();
+      // Always the words the author typed, never a translation of them.
       o.querySelector('#storyBody').value = editing ? editing.body : '';
+      // An entry written before the language column existed has none
+      // stored; reading it off the text is better than assuming.
+      o.querySelector('#storyLang').value = editing
+        ? (editing.lang || (L && L.detect(editing.body)) || siteLang())
+        : siteLang();
+      // An existing entry already has an answer, so it is not re-guessed
+      // under the author while they edit a typo.
+      langTouched = !!editing;
+      if (!editing) guessLang();
       updateCount();
       o.hidden = false;
       o.querySelector(editing ? '#storyBody' : '#storyName').focus();
@@ -482,7 +831,13 @@
       var catSel = overlay.querySelector('#storyCat');
       var picked = (C && catSel && C.has(catSel.value)) ? catSel.value : null;
 
+      var langSel = overlay.querySelector('#storyLang');
+      var lang = langSel && langSel.value;
+      var validLang = ((window.DURU_I18N && window.DURU_I18N.LANGS) || [])
+        .some(function (l) { return l.code === lang; });
+
       var row = { user_id: currentUser.id, display_name: name, body: body };
+      if (validLang && mtReady) row.lang = lang;
       if (replyTo) row.parent_id = replyTo.id;
       // A reply carries whatever thread it is in; an entry carries what
       // was picked. Either is left off entirely when the column is not
@@ -491,6 +846,12 @@
       if (cat) row.category = cat;
 
       var patch = { display_name: name, body: body, updated_at: new Date().toISOString() };
+      if (validLang && mtReady) patch.lang = lang;
+      // Rewriting the text makes every translation of it wrong. The
+      // stored fingerprint would catch that on its own; throwing the
+      // entries away as well means there is never a moment where an
+      // out-of-date translation is a bug away from being shown.
+      if (mtReady && editing && editing.body !== body) patch.mt = {};
       if (!editing || !editing.parent_id) { if (picked) patch.category = picked; }
       var op = editing
         ? client.from('stories').update(patch).eq('id', editing.id)
@@ -505,6 +866,11 @@
           return;
         }
         rememberName(name);
+        if (editing) {
+          delete trans[editing.id];
+          delete showOriginal[editing.id];
+          delete failed[editing.id];
+        }
         closeEditor();
         loadStories();
       });
@@ -546,6 +912,13 @@
         });
     }
 
+    if (langFilterEl) {
+      langFilterEl.addEventListener('change', function () {
+        activeLang = langFilterEl.value || 'all';
+        renderList();
+      });
+    }
+
     buildFilterBar();
     syncURL();
 
@@ -556,8 +929,19 @@
       applyUser(session && session.user);
     });
 
+    // Switching the site language switches what the reader is reading,
+    // including anything they had already had translated: they asked
+    // to read this thread in a language, and now that language is a
+    // different one. What is not touched is a post they deliberately
+    // put back into the original — that was a choice about this post,
+    // not about the site.
     document.addEventListener('duru:langchange', function () {
+      var again = Object.keys(trans).filter(function (id) { return !showOriginal[id]; });
+      trans = Object.create(null);
+      failed = Object.create(null);
+      busy = Object.create(null);
       renderList();
+      if (again.length) translateItems(again);
       if (overlay && !overlay.hidden) labelEditor();
     });
   });

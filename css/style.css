@@ -3780,6 +3780,89 @@ section { position: relative; }
 .story-cat--share { background: #e2edfa; color: #19538f; }
 .story-cat--meet  { background: #e3f2ea; color: #1d6b48; }
 
+/* The language the author wrote in. It sits beside the shelf and the
+   date and stays there whether or not a translation is showing, because
+   it is a fact about the post rather than about how it is being read.
+   The code is for scanning a list of them; the name is in its own
+   language, for finding your own in one. */
+.story-lang {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(22, 48, 43, 0.06);
+  color: var(--ink-dim);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Under the body: what this is, and the way back to what was written.
+   Quiet enough not to compete with the post, loud enough that nobody
+   mistakes a machine's words for a person's. */
+.story-mt {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin: 2px 0 12px;
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+.story-mt-tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eef3f0;
+  color: #1d6b48;
+  font-size: 11px;
+  font-weight: 700;
+}
+.story-mt-src { font-size: 12.5px; }
+.story-mt-go,
+.story-mt-orig {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent-red);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.story-mt-go:hover,
+.story-mt-orig:hover { opacity: 0.75; }
+.story-mt.is-busy { font-style: italic; }
+.story-mt.is-error { color: #a14a20; }
+
+/* Which language people wrote in, beside the Write button. A select
+   rather than another row of cards: it is a narrowing, not a place. */
+.story-langfilter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-dim);
+}
+.story-langfilter select {
+  padding: 7px 10px;
+  border: 1px solid rgba(22, 48, 43, 0.18);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13.5px;
+  max-width: 190px;
+}
+
+@media (max-width: 600px) {
+  /* At this width the toolbar is already stacking; the filter takes a
+     line of its own rather than squeezing the Write button off screen. */
+  .story-langfilter { width: 100%; }
+  .story-langfilter select { flex: 1 1 auto; max-width: none; }
+}
+
 /* Nothing here yet, said properly: a panel the width of the list
    rather than a stray line under a heading. Only ever shown when the
    list really is empty — see js/stories.js. */

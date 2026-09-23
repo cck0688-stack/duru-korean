@@ -599,6 +599,95 @@ half-migrated database shows every row rather than losing some.
 `js/community-categories.js` is the one place those ids live, the same
 shape `js/blog-categories.js` has.
 
+### Writing in one language, reading in another
+
+The community is one community in eight languages, not eight
+communities. A member writes in whatever language they are comfortable
+in; a reader reads in whatever language they picked in the header; and
+the post is stored once, in the words its author typed.
+
+The composer has a **language** field, filled in from the text while it
+is being typed (`js/lang-detect.js`) and left alone the moment the
+writer corrects it. Writing systems settle most cases outright — Hangul,
+kana, Han — and the Latin languages are separated first by the letters
+only one of them uses (ệ, ñ, ã) and then, failing that, by a short list
+of words common to almost any paragraph. When it cannot tell, it says
+so and the language being read is used instead, which is the better
+guess anyway.
+
+Each card names the language it was written in (`VI · Tiếng Việt`), and
+when that is not the language being read, offers a translation. One
+press translates the post **and every reply under it**, because a
+question is not much use without its answers. A translated body always
+carries `Auto-translated · from Tiếng Việt` and a **Show original** that
+is one press away, and the author's language stays on the card
+throughout: which words are whose does not change when a reader presses
+a button. The `lang` attribute follows the text, so a screen reader
+reads a translation in the right voice.
+
+Held to, deliberately:
+
+- **One post, one id.** No per-language board, no translation saved as a
+  second entry. No new URLs; `/community/ask` means what it always did,
+  and search still searches what people actually wrote.
+- **On demand, not in bulk.** A post is translated into a language when
+  somebody asks to read it in that language, not into all eight when it
+  is written.
+- **Translated once.** The result is stored on the row (`stories.mt`) and
+  comes down with the row, so the second reader of a thread makes no
+  request at all.
+- **Edited means re-translated.** Each stored translation carries a
+  fingerprint of the body it was made from. When they stop matching the
+  entry is ignored, and `js/stories.js` clears `mt` outright when an
+  author changes the text — a stale translation is worse than none,
+  because nothing on screen would say it is out of date.
+- **A failure shows the original.** It never shows a blank, and it never
+  shows a body the site cannot vouch for.
+- A **language** filter sits above the list, defaults to all, combines
+  with the topic filter, and hides itself when there is only one
+  language to choose between.
+
+`api/community-translate.js` does the work. It takes **ids, never
+text**: the endpoint is open, because asking someone to sign in before
+they can read would defeat the whole point, and an open endpoint that
+translates whatever it is handed is somebody else's free translation
+service billed to this site. Taking ids caps the bill at what it costs
+to translate the posts that exist into the languages the site
+publishes — a number that shrinks as translations accumulate and that a
+visitor cannot grow except by writing posts, which they could do anyway.
+
+The provider is the one `api/translate.js` already uses; no new key.
+The one new variable is optional:
+
+| variable | what it does |
+|---|---|
+| `TRANSLATE_CACHE_SECRET` | lets the endpoint remember translations. Put the same string in the database: `insert into public.app_secrets (name, value) values ('translate_cache', '…') on conflict (name) do update set value = excluded.value;` |
+
+Without it the site still translates; it simply re-fetches each time
+instead of remembering, so it can be deployed first and configured
+after.
+
+The secret exists because the write is the delicate part: the reader who
+triggers a translation does not own the post, so it cannot go through
+the author's update policy — and a function that lets anyone store any
+text as the English version of anyone's post is a defacement tool, since
+the post would still carry its author's name. `service_role` would solve
+it and is not used, for the same reason the daily generator does not use
+it: that key reads every row of every table, and it has no business in a
+function a visitor can reach. `public.cache_story_translation`
+(`supabase/schema.sql` §33a) compares the secret against its own copy
+and writes nothing otherwise. Leaking it costs the ability to write
+translation caches, and nothing else.
+
+Everything here degrades cleanly: on a database that has not had §33
+run, the page is exactly the community it was before — no badges, no
+offer, no filter — so the deploy and the migration do not have to happen
+in the same minute.
+
+One thing the schema does not have: `stories` has no title column, only
+`display_name` and `body`. There is no title to translate, and the
+author's name is left alone.
+
 Every post may carry any of three audiences: `tourists` (green),
 `students` (blue), `expats` (purple), shown as badges on the card and on
 the post. It is a label, not a filter — it saves someone opening a post

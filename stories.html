@@ -85,6 +85,13 @@
         <p class="list-head-count" id="storyCount"></p>
       </div>
       <div class="story-toolbar">
+        <!-- Which language people wrote in. Built and hidden by
+             js/stories.js: it only appears once there is more than one
+             language on the shelf to choose between. -->
+        <div class="story-langfilter" hidden>
+          <label for="storyLangFilter" id="storyLangFilterLabel">Language</label>
+          <select id="storyLangFilter"></select>
+        </div>
         <button type="button" class="btn btn-primary" id="writeStoryBtn" hidden data-i18n="stories.writeBtn">+ Write a post</button>
         <div class="story-signed-out" id="storySignedOutNote" hidden>
           <span data-i18n="stories.signInPrompt">Log in to post.</span>
@@ -156,6 +163,7 @@
 <script src="js/notify-feed.js"></script>
 <script src="js/visitor-tracking.js"></script>
 <script src="js/community-categories.js"></script>
+<script src="js/lang-detect.js"></script>
 <script src="js/stories.js"></script>
 <script>window.DURU_PAGE_TITLE_KEY = 'storiesPage.title';</script>
 <script src="js/i18n.js"></script>

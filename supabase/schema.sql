@@ -1555,3 +1555,138 @@ alter table public.posts
   add constraint posts_category_check
   check (category in ('travel', 'dining', 'style', 'explore',
                       'campus', 'career', 'language', 'etc'));
+
+-- ------------------------------------------------------------------
+-- 33. one community, many languages
+-- ------------------------------------------------------------------
+-- A member writes in whatever language they are comfortable in, and a
+-- reader reads it in whatever language they chose in the header. That
+-- is one post, not eight: there is no Vietnamese board, and a
+-- translation is never a second row with its own id, its own likes and
+-- its own comment thread.
+--
+-- So each row gains two things.
+--
+--   lang  the language it was actually written in. Guessed from the
+--         text while it is being typed and shown in the composer, so
+--         the writer can correct it before posting. Null on everything
+--         written before this existed — the page treats that as "we
+--         don't know", shows no badge, and offers a translation anyway.
+--
+--   mt    the translations made so far, one entry per target language:
+--
+--           { "en": { "body": "…", "hash": "7f3a9c21",
+--                     "engine": "openai:gpt-5",
+--                     "at": "2026-09-23T04:11:02Z" } }
+--
+--         `hash` is of the body that was translated. When the author
+--         edits their post the hash stops matching and the entry is
+--         ignored — a stale translation is worse than none, because
+--         nothing on screen would say it is out of date.
+--
+-- Translations ride along with the row the page already reads, so a
+-- post someone has read before costs no request at all.
+
+alter table public.stories
+  add column if not exists lang text;
+
+alter table public.stories drop constraint if exists stories_lang_check;
+alter table public.stories
+  add constraint stories_lang_check
+  check (lang is null or lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh'));
+
+alter table public.stories
+  add column if not exists mt jsonb not null default '{}'::jsonb;
+
+create index if not exists stories_lang_idx
+  on public.stories (lang) where lang is not null;
+
+-- ------------------------------------------------------------------
+-- 33a. who is allowed to write a translation into somebody else's row
+-- ------------------------------------------------------------------
+-- This is the part that needs care. The translation is triggered by a
+-- reader, who may not be signed in and who certainly does not own the
+-- post — so the write cannot go through the author's update policy.
+--
+-- Nor can it be thrown open. A function that lets anyone store any text
+-- as the English version of anyone's post is a defacement tool: the
+-- post would still be the author's, with the author's name on it, and
+-- every English reader would see words the author never wrote.
+--
+-- The service_role key would solve it and is not used here, for the
+-- same reason it is not used by the daily generator: it reads every row
+-- of every table, and it would then live in a function a visitor can
+-- reach. If that ever leaked, the whole database goes with it.
+--
+-- What is used instead is a secret that can do exactly one thing. The
+-- API function holds it (Vercel → TRANSLATE_CACHE_SECRET); this
+-- function compares it against the copy below and refuses everything
+-- else. Leaking it costs the ability to write translation caches, and
+-- nothing else at all.
+--
+-- Until a secret is set, nothing breaks: translations still work, they
+-- are just re-fetched instead of remembered. So the feature can be
+-- deployed first and the secret added afterwards.
+
+create table if not exists public.app_secrets (
+  name text primary key,
+  value text not null,
+  created_at timestamptz not null default now()
+);
+
+-- No policies, ever. With row level security on and nothing granted,
+-- the table is unreachable from the API by any role except through the
+-- security definer function below.
+alter table public.app_secrets enable row level security;
+revoke all on public.app_secrets from anon, authenticated;
+
+create or replace function public.cache_story_translation(
+  p_secret text,
+  p_id uuid,
+  p_lang text,
+  p_body text,
+  p_hash text,
+  p_engine text
+) returns boolean
+language plpgsql
+volatile
+security definer
+set search_path = public
+as $$
+declare
+  v_secret text;
+begin
+  select value into v_secret from public.app_secrets where name = 'translate_cache';
+  -- No secret configured, or the wrong one: say no and write nothing.
+  -- The answer is the same either way, so a caller cannot tell a site
+  -- that has no secret from one whose secret they guessed wrong.
+  if v_secret is null or p_secret is null or v_secret <> p_secret then
+    return false;
+  end if;
+
+  if p_lang not in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh') then
+    return false;
+  end if;
+  if p_body is null or char_length(p_body) > 20000 then
+    return false;
+  end if;
+
+  update public.stories
+     set mt = coalesce(mt, '{}'::jsonb) || jsonb_build_object(
+           p_lang,
+           jsonb_build_object(
+             'body', p_body,
+             'hash', coalesce(p_hash, ''),
+             'engine', left(coalesce(p_engine, ''), 80),
+             'at', to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS"Z"')
+           )
+         )
+   where id = p_id;
+
+  return found;
+end;
+$$;
+
+revoke all on function public.cache_story_translation(text, uuid, text, text, text, text) from public;
+grant execute on function public.cache_story_translation(text, uuid, text, text, text, text)
+  to anon, authenticated;

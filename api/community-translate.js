@@ -1,0 +1,260 @@
+// DURU KOREAN — reading the community in your own language
+//
+// A member writes in Vietnamese. A reader who has the site in English
+// presses "Read in English" and gets that post, and the replies under
+// it, in English — without a Vietnamese board existing, without the
+// post being duplicated, and without the author's Vietnamese being
+// thrown away. One post, one id, one thread; the translation is
+// something attached to it.
+//
+// ── The contract ──────────────────────────────────────────────────
+//
+//   POST /api/community-translate
+//   { "ids": ["<uuid>", …], "to": "en" }
+//
+//   200 {
+//     "to": "en",
+//     "engine": "openai:gpt-5",
+//     "items": {
+//       "<uuid>": { "body": "…", "from": "vi", "cached": false },
+//       "<uuid>": { "same": true },            // already in English
+//       "<uuid>": { "error": "…" }
+//     }
+//   }
+//
+// ── Why it takes ids and not text ─────────────────────────────────
+//
+// This endpoint is open: a reader does not sign in to read, and asking
+// them to would defeat the entire point. An open endpoint that
+// translates whatever text it is handed is somebody else's free
+// translation API, billed to this site.
+//
+// So it never accepts text. It accepts the id of a row that is already
+// public, reads that row itself, and translates that. The most anyone
+// can spend is what it costs to translate the posts that exist into
+// the eight languages the site publishes — a number that is finite,
+// that shrinks every time a translation is cached, and that a visitor
+// cannot grow except by writing posts, which they could do anyway.
+//
+// ── Why the translation is stored, and how ────────────────────────
+//
+// A popular thread read by a hundred people should cost one
+// translation, not a hundred. Translations are written back onto the
+// row (stories.mt) and come down with the row on the next page load,
+// so the second reader makes no request at all.
+//
+// The write is the delicate part, because the reader who triggered it
+// does not own the post. It does not use service_role — that key reads
+// every row of every table and has no business in a function a visitor
+// can reach. It uses a secret that can do exactly one thing: the SQL
+// function public.cache_story_translation compares TRANSLATE_CACHE_SECRET
+// against its own copy and writes nothing if it does not match. See
+// supabase/schema.sql §33a.
+//
+// If the secret is not set, translations still work; they are simply
+// re-fetched each time instead of remembered. Deploy first, configure
+// after.
+//
+// ── Configuration (Vercel → Settings → Environment Variables) ─────
+//
+//   The translation provider is the one api/translate.js already uses —
+//   whichever of ANTHROPIC_API_KEY / OPENAI_API_KEY / GOOGLE_API_KEY /
+//   DEEPL_API_KEY is set, with the optional TRANSLATE_* overrides.
+//   Nothing new is needed for translation itself.
+//
+//   New, and optional:
+//     TRANSLATE_CACHE_SECRET   any long random string. Put the same
+//                              string in the database:
+//                                insert into public.app_secrets (name, value)
+//                                values ('translate_cache', '<the string>')
+//                                on conflict (name) do update set value = excluded.value;
+
+import { LANGUAGES, TranslateError, resolveProvider, translate } from './_providers.js';
+
+export const config = { maxDuration: 60 };
+
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
+const CACHE_SECRET = process.env.TRANSLATE_CACHE_SECRET || '';
+
+// A thread: one post and its replies. Deep enough for any real
+// conversation, low enough that one press cannot become a large bill.
+const MAX_IDS = 25;
+// The stories table already caps a body at 4000 characters; this is the
+// backstop for the whole request.
+const MAX_CHARS = 24000;
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// The community is people talking, not an article. The default prompt
+// is written for blog prose and would tidy a post into something its
+// author did not say.
+const NOTE = [
+  'You translate posts and replies from a community forum where learners of Korean talk to',
+  'each other, line by line. They are written by ordinary people, not by writers.'
+].join('\n');
+
+function bad(res, status, message) {
+  res.status(status).json({ error: message });
+}
+
+// Must match hashText in js/lang-detect.js exactly — the browser uses
+// the stored hash to decide whether a cached translation still belongs
+// to the body it can see. test_community_mt.mjs compares the two.
+export function hashText(text) {
+  const s = String(text == null ? '' : text);
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i += 1) {
+    h ^= s.charCodeAt(i);
+    h = (h + ((h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24))) >>> 0;
+  }
+  return ('0000000' + h.toString(16)).slice(-8);
+}
+
+// A body is translated line by line, with the blank lines left where
+// they are. That keeps paragraphs where the author put them, and it
+// keeps the promise the provider makes — n lines in, n lines out —
+// meaningful at the level the page renders.
+export function linesOf(body) {
+  return String(body == null ? '' : body).split('\n');
+}
+
+export function rebuild(lines, translated) {
+  let i = 0;
+  return lines.map((line) => (line.trim() ? (translated[i++] ?? line) : line)).join('\n');
+}
+
+async function readStories(ids) {
+  const url = SUPABASE_URL + '/rest/v1/stories'
+    + '?select=id,body,lang,mt'
+    + '&id=in.(' + ids.map(encodeURIComponent).join(',') + ')';
+  const r = await fetch(url, {
+    headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY }
+  });
+  if (!r.ok) throw new TranslateError(502, 'Could not read those posts.');
+  const rows = await r.json();
+  return Array.isArray(rows) ? rows : [];
+}
+
+// Best effort by design: a translation that could not be remembered is
+// still a translation, and the reader should never see an error about
+// the site's own bookkeeping.
+async function remember(id, lang, body, hash, engine) {
+  if (!CACHE_SECRET) return false;
+  try {
+    const r = await fetch(SUPABASE_URL + '/rest/v1/rpc/cache_story_translation', {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: 'Bearer ' + SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        p_secret: CACHE_SECRET, p_id: id, p_lang: lang,
+        p_body: body, p_hash: hash, p_engine: engine
+      })
+    });
+    if (!r.ok) {
+      console.warn('translation cache refused:', r.status);
+      return false;
+    }
+    return (await r.json()) === true;
+  } catch (err) {
+    console.warn('translation cache failed:', err && err.message);
+    return false;
+  }
+}
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return bad(res, 405, 'Use POST.');
+
+  const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+  const to = String(body.to || '');
+  const asked = Array.isArray(body.ids) ? body.ids : [];
+
+  if (!LANGUAGES[to]) return bad(res, 400, 'Unknown target language.');
+  if (!asked.length || asked.length > MAX_IDS) {
+    return bad(res, 400, 'Ask for 1–' + MAX_IDS + ' posts at a time.');
+  }
+  const ids = asked.filter((id) => typeof id === 'string' && UUID.test(id));
+  if (ids.length !== asked.length) return bad(res, 400, 'Those are not post ids.');
+
+  let cfg;
+  try {
+    cfg = resolveProvider(process.env);
+  } catch (err) {
+    return bad(res, err.status || 503, err.message);
+  }
+
+  let rows;
+  try {
+    rows = await readStories(Array.from(new Set(ids)));
+  } catch (err) {
+    return bad(res, err.status || 502, err.message);
+  }
+
+  const items = {};
+  const work = [];
+  let chars = 0;
+
+  for (const row of rows) {
+    const text = String(row.body || '');
+    const from = LANGUAGES[row.lang] ? row.lang : null;
+
+    if (!text.trim()) { items[row.id] = { same: true }; continue; }
+    // Written in the language being asked for: there is nothing to do,
+    // and pretending otherwise would put a machine translation in front
+    // of a reader who could have had the author's own words.
+    if (from === to) { items[row.id] = { same: true }; continue; }
+
+    const hash = hashText(text);
+    const kept = row.mt && row.mt[to];
+    if (kept && kept.body && kept.hash === hash) {
+      items[row.id] = { body: String(kept.body), from: from, cached: true };
+      continue;
+    }
+
+    chars += text.length;
+    if (chars > MAX_CHARS) {
+      items[row.id] = { error: 'too-long' };
+      continue;
+    }
+    work.push({ id: row.id, text: text, from: from, hash: hash });
+  }
+
+  const engine = cfg.name + ':' + cfg.model;
+
+  await Promise.all(work.map(async (job) => {
+    const lines = linesOf(job.text);
+    const units = lines.filter((l) => l.trim());
+    try {
+      const out = await translate({
+        // A post written before the language column existed says
+        // nothing about itself. An empty `from` is DeepL's way of
+        // spelling "detect it", and the sentence below is how the
+        // model-backed providers are told the same thing.
+        from: job.from || '',
+        fromName: job.from ? LANGUAGES[job.from]
+          : 'an unknown language, which you should work out from the text itself',
+        targets: [to],
+        sentences: units,
+        note: NOTE
+      }, cfg);
+      const got = out.translations[to];
+      if (!Array.isArray(got) || got.length !== units.length) {
+        items[job.id] = { error: 'mismatched' };
+        return;
+      }
+      const text = rebuild(lines, got);
+      const cached = await remember(job.id, to, text, job.hash, engine);
+      items[job.id] = { body: text, from: job.from, cached: false, stored: cached };
+    } catch (err) {
+      if (!(err instanceof TranslateError)) {
+        console.error('community translate failed:', err && err.message);
+      }
+      items[job.id] = { error: 'failed' };
+    }
+  }));
+
+  res.status(200).json({ to: to, engine: engine, items: items });
+}

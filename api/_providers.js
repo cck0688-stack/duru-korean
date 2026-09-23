@@ -48,9 +48,9 @@ export class TranslateError extends Error {
  * The instruction, shared by every provider that takes one
  * ------------------------------------------------------------------ */
 
-function systemPrompt(fromName, targets, count) {
+function systemPrompt(fromName, targets, count, note) {
   return [
-    'You translate one blog post for a Korean-language learning site, sentence by sentence.',
+    note || 'You translate one blog post for a Korean-language learning site, sentence by sentence.',
     '',
     'The source is ' + fromName + '. You are given exactly ' + count + ' numbered sentences ' +
       'and must return exactly ' + count + ' translated sentences per target language, in the same order.',
@@ -613,7 +613,7 @@ export async function translate(opts, cfg) {
   if (cfg.provider.translate) return cfg.provider.translate(opts, cfg);
   const text = await cfg.provider.chat(
     cfg,
-    systemPrompt(opts.fromName, opts.targets, opts.sentences.length),
+    systemPrompt(opts.fromName, opts.targets, opts.sentences.length, opts.note),
     numbered(opts.sentences),
     schema(cfg.provider.strictSchema !== false)
   );
