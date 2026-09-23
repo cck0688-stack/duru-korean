@@ -374,6 +374,59 @@ function parseLanguages(text, targets, count, sources) {
   return out;
 }
 
+/* ------------------------------------------------------------------ *
+ * Reaching a provider at all
+ * ------------------------------------------------------------------ */
+
+// `fetch` reports every broken connection as the two words "fetch
+// failed" and puts the actual reason — a name that would not resolve, a
+// socket that was reset, a socket that simply went quiet — one level
+// down, on err.cause. A log without that says nothing: the daily
+// worksheet run once spent four minutes and fifty-five seconds waiting
+// and then printed "fetch failed", which could have been the key, the
+// network, the model or the moon.
+//
+// The four minutes fifty-five was itself the clue. Node gives a request
+// five minutes to produce its first response header and then gives up,
+// so a model still thinking at the five-minute mark takes the whole run
+// down with a message that names nothing. Asking for a shorter deadline
+// of our own turns that into a sentence that says what happened, early
+// enough to do something about it.
+const DEFAULT_TIMEOUT_MS = 240000;
+
+function deadline(cfg) {
+  const n = Number(cfg && cfg.timeoutMs);
+  return Number.isFinite(n) && n > 0 ? n : DEFAULT_TIMEOUT_MS;
+}
+
+// Marked transient: nothing was refused, so the same request is worth
+// making again. Anything a provider actually said no to is not marked,
+// and a caller that retries on this flag will not hammer a rejection.
+function transient(error) {
+  error.transient = true;
+  return error;
+}
+
+function unreachable(label, ms, err) {
+  const name = err && err.name;
+  if (name === 'TimeoutError' || name === 'AbortError') {
+    return transient(new TranslateError(504, label + ' did not answer within ' +
+      Math.round(ms / 1000) + 's.'));
+  }
+  const cause = err && err.cause;
+  const why = (cause && (cause.code || cause.message)) || (err && err.message) || 'unknown';
+  return transient(new TranslateError(502, label + ' could not be reached (' + why + ').'));
+}
+
+async function send(cfg, label, url, init) {
+  const ms = deadline(cfg);
+  try {
+    return await fetch(url, Object.assign({ signal: AbortSignal.timeout(ms) }, init));
+  } catch (err) {
+    throw unreachable(label, ms, err);
+  }
+}
+
 async function readJSON(response, label) {
   const text = await response.text();
   if (!response.ok) {
@@ -381,9 +434,9 @@ async function readJSON(response, label) {
       throw new TranslateError(503, 'The ' + label + ' key on the server was rejected.');
     }
     if (response.status === 429) {
-      throw new TranslateError(429, 'Too many translations at once — wait a moment and try again.');
+      throw transient(new TranslateError(429, 'Too many translations at once — wait a moment and try again.'));
     }
-    throw new TranslateError(502, label + ' answered ' + response.status + '. Try again.');
+    throw transient(new TranslateError(502, label + ' answered ' + response.status + '. Try again.'));
   }
   try {
     return JSON.parse(text);
@@ -406,7 +459,8 @@ const anthropic = {
   async chat(cfg, system, user, jsonSchema) {
     // The one provider with an SDK in this project, so it uses it.
     const Anthropic = await anthropicSDK();
-    const client = new Anthropic({ apiKey: cfg.apiKey, baseURL: cfg.baseUrl || undefined });
+    const client = new Anthropic({ apiKey: cfg.apiKey, baseURL: cfg.baseUrl || undefined,
+                                   timeout: deadline(cfg), maxRetries: 0 });
     let response;
     try {
       response = await client.messages.create({
@@ -419,8 +473,10 @@ const anthropic = {
       });
     } catch (err) {
       if (err && err.status === 401) throw new TranslateError(503, 'The Anthropic key on the server was rejected.');
-      if (err && err.status === 429) throw new TranslateError(429, 'Too many requests at once — wait a moment and try again.');
-      throw new TranslateError(502, 'Anthropic did not answer. Try again.');
+      if (err && err.status === 429) throw transient(new TranslateError(429, 'Too many requests at once — wait a moment and try again.'));
+      // Same reason as unreachable() above: "did not answer" on its own
+      // sends whoever is reading the log looking in the wrong place.
+      throw unreachable('Anthropic', deadline(cfg), err);
     }
     if (response.stop_reason === 'refusal') {
       throw new TranslateError(422, 'That text was declined by the model.');
@@ -442,7 +498,8 @@ const anthropic = {
 async function chatModelHint(base, apiKey) {
   try {
     const res = await fetch(base.replace(/\/$/, '') + '/models', {
-      headers: { Authorization: 'Bearer ' + apiKey }
+      headers: { Authorization: 'Bearer ' + apiKey },
+      signal: AbortSignal.timeout(15000)
     });
     if (!res.ok) return '';
     const data = await res.json();
@@ -465,7 +522,7 @@ const openai = {
   label: 'OpenAI',
   strictSchema: true,
   async chat(cfg, system, user, jsonSchema) {
-    const response = await fetch(cfg.baseUrl.replace(/\/$/, '') + '/chat/completions', {
+    const response = await send(cfg, cfg.label, cfg.baseUrl.replace(/\/$/, '') + '/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + cfg.apiKey },
       body: JSON.stringify(Object.assign({
@@ -483,11 +540,14 @@ const openai = {
       // "translate these two lines", where it is most of the wait.
       // Asked for outright, so that a model which has never heard of
       // the setting says so and gets asked again without it.
-      }, cfg.fast ? { reasoning_effort: 'minimal' } : null))
+      // Outside the fast path the setting is still worth sending: it is
+      // how a job that runs unattended asks for less thinking when a
+      // model has already timed out once at more. 'medium' is what the
+      // model does when not asked, so it is not asked — a gateway that
+      // has never heard of the setting is not sent it for nothing.
+      }, cfg.fast ? { reasoning_effort: 'minimal' }
+         : (cfg.effort && cfg.effort !== 'medium' ? { reasoning_effort: cfg.effort } : null)))
     });
-    if (cfg.fast && response.status === 400) {
-      return openai.chat(Object.assign({}, cfg, { fast: false }), system, user, jsonSchema);
-    }
     if (response.status === 404 || response.status === 400) {
       // What actually went wrong, first. A 400 is usually the request,
       // not the model — a schema the provider will not accept, a
@@ -500,6 +560,17 @@ const openai = {
         const body = await response.json();
         why = (body && body.error && body.error.message) || '';
       } catch (e) { /* not JSON; the model hint below is all there is */ }
+
+      // An endpoint that speaks this shape without being OpenAI may
+      // never have heard of reasoning_effort. Asked for outright, so
+      // that such a model says so and gets asked again without it —
+      // but only when the refusal is about that setting, because a
+      // schema it will not accept is refused again just as fast and
+      // twice as expensively.
+      if (response.status === 400 && (cfg.fast || (cfg.effort && cfg.effort !== 'medium')) &&
+          (!why || /reasoning|effort|unsupported|unrecogni[sz]ed|unknown parameter/i.test(why))) {
+        return openai.chat(Object.assign({}, cfg, { fast: false, effort: '' }), system, user, jsonSchema);
+      }
 
       if (why && !/model/i.test(why)) {
         throw new TranslateError(503, cfg.label + ' refused the request: ' + why);
@@ -523,7 +594,8 @@ const openai = {
 // know turns into an error that lists the ones it does.
 async function geminiModelHint(base, apiKey) {
   try {
-    const res = await fetch(base.replace(/\/$/, '') + '/models', { headers: { 'x-goog-api-key': apiKey } });
+    const res = await fetch(base.replace(/\/$/, '') + '/models',
+      { headers: { 'x-goog-api-key': apiKey }, signal: AbortSignal.timeout(15000) });
     if (!res.ok) return '';
     const data = await res.json();
     const names = (data.models || [])
@@ -548,7 +620,7 @@ const google = {
   strictSchema: false,
   async chat(cfg, system, user, jsonSchema) {
     const url = cfg.baseUrl.replace(/\/$/, '') + '/models/' + encodeURIComponent(cfg.model) + ':generateContent';
-    const response = await fetch(url, {
+    const response = await send(cfg, cfg.label, url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': cfg.apiKey },
       body: JSON.stringify({
@@ -611,7 +683,7 @@ const deepl = {
       if (!target) {
         throw new TranslateError(400, 'DeepL does not translate into ' + LANGUAGES[code] + '. Use another provider for it.');
       }
-      const response = await fetch(base + '/translate', {
+      const response = await send(cfg, 'DeepL', base + '/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: 'DeepL-Auth-Key ' + cfg.apiKey },
         body: JSON.stringify({

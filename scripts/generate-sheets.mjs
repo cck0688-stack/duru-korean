@@ -39,6 +39,7 @@
 
 import { resolveProvider, translate, LANGUAGES, TranslateError } from '../api/_providers.js';
 import { pickSubject, writeSheet, problemsWith, translateSheet, slugify, SHELVES } from './lib/sheets.mjs';
+import { withPatience } from './lib/patiently.mjs';
 import { renderSheet } from './pdf/render.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
@@ -257,8 +258,15 @@ export async function run() {
   const today = todayInSeoul();
   log('DURU KOREAN 자료실 — ' + today + (DRY ? ' (연습)' : ''));
 
-  const cfg = resolveProvider(process.env);
-  log('번역·작성: ' + cfg.label + ' / ' + cfg.model);
+  // Every model call asks again when a connection drops or a deadline
+  // passes — see lib/patiently.mjs. The deadline is three minutes, not
+  // the five Node allows before it gives up without saying why: long
+  // enough to write a worksheet, short enough to leave room for the
+  // two further tries.
+  const cfg = withPatience(resolveProvider(process.env), log);
+  cfg.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 180000;
+  log('번역·작성: ' + cfg.label + ' / ' + cfg.model +
+      ' (한 번에 최대 ' + Math.round(cfg.timeoutMs / 1000) + '초)');
 
   const session = await signIn();
   const call = api(session.token);

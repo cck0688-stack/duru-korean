@@ -26,6 +26,7 @@
 //   --only=travel,dining   just those categories
 
 import { resolveProvider } from '../api/_providers.js';
+import { withPatience } from './lib/patiently.mjs';
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
@@ -130,7 +131,9 @@ async function main() {
 
   let cfg;
   try {
-    cfg = resolveProvider(process.env);
+    // Asks again when a connection drops or a model runs out of time,
+    // thinking less each time — see lib/patiently.mjs.
+    cfg = withPatience(resolveProvider(process.env), log);
   } catch (err) {
     log('글을 쓸 수 없습니다:', err.message);
     process.exit(1);
