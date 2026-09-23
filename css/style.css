@@ -3836,6 +3836,21 @@ section { position: relative; }
 .story-mt.is-busy { font-style: italic; }
 .story-mt.is-error { color: #a14a20; }
 
+/* A line only an admin ever sees: something is switched off and they
+   are the one who can switch it on. Deliberately plain — it is a note
+   to the person running the site, not part of the page. */
+.story-admin-note {
+  max-width: 760px;
+  margin: 0 0 16px;
+  padding: 11px 14px;
+  border: 1px dashed rgba(161, 74, 32, 0.45);
+  border-radius: 10px;
+  background: #fdf4ee;
+  color: #8a4420;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
 /* Which language people wrote in, beside the Write button. A select
    rather than another row of cards: it is a narrowing, not a place. */
 .story-langfilter {

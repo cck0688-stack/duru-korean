@@ -634,15 +634,35 @@ of words common to almost any paragraph. When it cannot tell, it says
 so and the language being read is used instead, which is the better
 guess anyway.
 
-Each card names the language it was written in (`VI · Tiếng Việt`), and
-when that is not the language being read, offers a translation. One
-press translates the post **and every reply under it**, because a
-question is not much use without its answers. A translated body always
-carries `Auto-translated · from Tiếng Việt` and a **Show original** that
-is one press away, and the author's language stays on the card
-throughout: which words are whose does not change when a reader presses
-a button. The `lang` attribute follows the text, so a screen reader
-reads a translation in the right voice.
+Picking a language in the header is the whole request. From then on,
+what is not in that language is translated into it — no button to find
+on each post, because a reader who cannot read Korean cannot read the
+button either. Each card still names the language it was written in
+(`VI · Tiếng Việt`), a translated body always carries `Auto-translated ·
+from Tiếng Việt` and a **Show original** one press away, and the
+author's language stays on the card throughout: which words are whose
+does not change when the page is translated. The `lang` attribute
+follows the text, so a screen reader reads a translation in the right
+voice.
+
+Two things stop that being expensive. Anything translated before comes
+down with the row and costs nothing at all, and one page view
+translates at most `AUTO_MAX` (40) entries — enough for any real
+screenful, and a ceiling on what a single visit can cost. Whatever is
+left keeps a **Read in …** button, which is also what a failed
+translation falls back to. `autoTranslate()` waits for
+`DURU_I18N.ready`: until the first dictionary lands `lang` is a
+placeholder, and translating against it would do the whole page in the
+wrong language and then again in the right one — twice the wait and
+twice the bill, on every page load.
+
+A row with no stored language has one read off its text locally
+(`srcOf`). The guess is used to decide things — is there anything to
+translate here? — but never displayed: a badge saying "Tiếng Việt" is a
+claim about what somebody wrote and needs better evidence than a look
+at the letters, while deciding not to send a Korean post to be
+translated into Korean needs none at all, because being wrong costs one
+round trip.
 
 Held to, deliberately:
 
@@ -701,7 +721,11 @@ translation caches, and nothing else.
 Everything here degrades cleanly: on a database that has not had §33
 run, the page is exactly the community it was before — no badges, no
 offer, no filter — so the deploy and the migration do not have to happen
-in the same minute.
+in the same minute. Degrading quietly has its own failure mode, though,
+which is that the one person who can fix it cannot tell the feature is
+off from it having nothing to do. So the reason goes to the console for
+whoever is looking, and on screen for a signed-in admin only; a visitor
+is never shown a migration notice.
 
 One thing the schema does not have: `stories` has no title column, only
 `display_name` and `body`. There is no title to translate, and the

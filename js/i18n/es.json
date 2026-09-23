@@ -337,6 +337,7 @@
   "community.mt.failed": "Ahora mismo no se ha podido traducir.",
   "community.mt.from": "del {lang}",
   "community.mt.fromUnknown": "del original",
+  "community.mt.needsMigration": "La traducción está desactivada: la base de datos aún no se ha actualizado. Ejecuta la sección 33 de supabase/schema.sql en el editor SQL de Supabase. Solo los administradores ven esta línea.",
   "community.mt.original": "Ver el original",
   "community.mt.read": "Leer en {lang}",
   "community.mt.retry": "Reintentar",

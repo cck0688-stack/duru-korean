@@ -337,6 +337,7 @@
   "community.mt.failed": "지금은 번역할 수 없습니다.",
   "community.mt.from": "원문: {lang}",
   "community.mt.fromUnknown": "원문에서 번역",
+  "community.mt.needsMigration": "번역이 꺼져 있습니다 — 데이터베이스가 아직 업데이트되지 않았습니다. Supabase SQL 편집기에서 supabase/schema.sql의 33절을 실행하세요. 이 줄은 관리자에게만 보입니다.",
   "community.mt.original": "원문 보기",
   "community.mt.read": "{lang}로 보기",
   "community.mt.retry": "다시 시도",

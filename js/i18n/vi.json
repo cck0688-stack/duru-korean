@@ -337,6 +337,7 @@
   "community.mt.failed": "Hiện chưa dịch được bài này.",
   "community.mt.from": "từ {lang}",
   "community.mt.fromUnknown": "từ bản gốc",
+  "community.mt.needsMigration": "Bản dịch đang tắt: cơ sở dữ liệu chưa được cập nhật. Hãy chạy mục 33 của supabase/schema.sql trong trình soạn SQL của Supabase. Chỉ quản trị viên thấy dòng này.",
   "community.mt.original": "Xem bản gốc",
   "community.mt.read": "Đọc bằng {lang}",
   "community.mt.retry": "Thử lại",

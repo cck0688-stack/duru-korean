@@ -337,6 +337,7 @@
   "community.mt.failed": "Untuk saat ini belum bisa diterjemahkan.",
   "community.mt.from": "dari {lang}",
   "community.mt.fromUnknown": "dari aslinya",
+  "community.mt.needsMigration": "Terjemahan sedang mati: basis data belum diperbarui. Jalankan bagian 33 dari supabase/schema.sql di editor SQL Supabase. Hanya admin yang melihat baris ini.",
   "community.mt.original": "Lihat aslinya",
   "community.mt.read": "Baca dalam {lang}",
   "community.mt.retry": "Coba lagi",

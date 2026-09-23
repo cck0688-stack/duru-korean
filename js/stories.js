@@ -107,6 +107,7 @@
 
     var L = window.DURU_LANGDETECT;
     var langFilterEl = document.getElementById('storyLangFilter');
+    var mtNoteEl = document.getElementById('storyMtNote');
     var langFilterLabel = document.getElementById('storyLangFilterLabel');
     var activeLang = 'all';           // which language people wrote in
 
@@ -127,6 +128,40 @@
     var showOriginal = Object.create(null); // id -> the reader asked for the author's words back
     var busy = Object.create(null);         // id -> a request is out
     var failed = Object.create(null);       // id -> the last attempt did not come back
+
+    // A database that has not had supabase/schema.sql §33 run cannot
+    // store a language or a translation, so the whole feature goes
+    // quiet — correctly, but silently, which is its own problem: the
+    // one person who can fix it has no way of knowing that is what
+    // happened. A visitor should not be shown a migration notice, so
+    // this goes in the console for whoever is looking, and on screen
+    // only for a signed-in admin.
+    var saidIt = false;
+
+    function sayIfNotMigrated(rows) {
+      var ready = !rows.length ||
+        Object.prototype.hasOwnProperty.call(rows[0], 'lang');
+      if (!ready && !saidIt) {
+        saidIt = true;
+        if (window.console && console.warn) {
+          console.warn('DURU: the stories table has no "lang" column, so posts ' +
+            'cannot be translated. Run section 33 of supabase/schema.sql in the ' +
+            'Supabase SQL editor.');
+        }
+      }
+      paintMtNote(ready);
+    }
+
+    function paintMtNote(ready) {
+      if (!mtNoteEl) return;
+      var show = isAdmin && ready === false;
+      mtNoteEl.hidden = !show;
+      if (show) {
+        mtNoteEl.textContent = t('community.mt.needsMigration',
+          'Translation is off: the database has not been updated yet. Run section 33 of ' +
+          'supabase/schema.sql in the Supabase SQL editor. Only admins see this line.');
+      }
+    }
 
     function siteLang() {
       return (window.DURU_I18N && window.DURU_I18N.lang) || document.documentElement.lang || 'en';
@@ -151,6 +186,21 @@
     // belongs to the body on screen: an edited post has a different
     // fingerprint, and the old translation is dropped rather than shown
     // under words it no longer matches.
+    // What language a row is in. The stored value when there is one;
+    // otherwise the text read locally by js/lang-detect.js.
+    //
+    // The guess is used to decide things — is there anything to
+    // translate here? — but it is never shown. A badge saying
+    // "Tiếng Việt" is a claim about what somebody wrote, and a claim
+    // needs better evidence than a look at the letters. Deciding not to
+    // send a Korean post to be translated into Korean needs no evidence
+    // at all: being wrong costs one round trip.
+    function srcOf(row) {
+      if (row && row.lang) return row.lang;
+      if (!L || !row) return null;
+      return L.detect(row.body || '');
+    }
+
     function cachedFor(row, code) {
       var kept = row && row.mt && row.mt[code];
       if (!kept || !kept.body || !L) return null;
@@ -180,6 +230,9 @@
           activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
           syncURL();
           renderList();
+          // A shelf that was below the ceiling a moment ago is at the
+          // top of the page now.
+          autoTranslate();
         });
       });
       if (allBtn) {
@@ -187,6 +240,7 @@
           activeFilter = 'all';
           syncURL();
           renderList();
+          autoTranslate();
         });
       }
       paintFilterBar();
@@ -310,7 +364,7 @@
       // about itself, so it is offered — the translator works out what
       // it is, and if it turns out to be the same language the reader
       // gets told so rather than getting a pointless round trip.
-      if (row.lang === want) return '';
+      if (srcOf(row) === want) return '';
       return '<p class="story-mt">' +
         '<button type="button" class="story-mt-go" data-id="' + escapeHTML(row.id) + '">' +
           escapeHTML(t('community.mt.read', 'Read in {lang}').replace('{lang}', langLabel(want))) +
@@ -418,6 +472,7 @@
       }
       paintFilterBar();
       paintLangFilter();
+      paintMtNote(mtReady);
       list.forEach(function (s) {
         var card = document.createElement('article');
         card.className = 'story-card';
@@ -505,7 +560,7 @@
         if (!row) return;
         delete showOriginal[id];
         delete failed[id];
-        if (row.lang === want) return;                     // already readable
+        if (srcOf(row) === want) return;                   // already readable
         var held = trans[id];
         if (held && held.lang === want) return;            // asked for before
         var hit = cachedFor(row, want);                    // translated for someone else
@@ -563,6 +618,56 @@
       }).catch(giveUp);
     }
 
+    // Reading the community in your own language should not be a button
+    // you have to find on every post. Picking a language in the header
+    // is the whole request: from then on, what is not in that language
+    // gets translated into it.
+    //
+    // Two things keep that from being expensive. Anything translated
+    // before comes down with the row and costs nothing at all. And one
+    // page view translates at most AUTO_MAX entries — enough for any
+    // real screenful, and a ceiling on what a single visit can cost.
+    // Whatever is left keeps its button.
+    var AUTO_MAX = 40;
+
+    function autoTranslate() {
+      if (!mtReady) return;
+      // Until the first dictionary lands, DURU_I18N.lang is a
+      // placeholder. Translating against it would translate the whole
+      // page into the wrong language and then, a moment later, do it
+      // all again into the right one — twice the wait and twice the
+      // bill, on every single page load. The langchange this engine
+      // fires when it is ready brings us straight back here.
+      if (window.DURU_I18N && !window.DURU_I18N.ready) return;
+      var want = siteLang();
+      var wanted = [];
+
+      function consider(row) {
+        if (!row || wanted.length >= AUTO_MAX) return;
+        if (showOriginal[row.id]) return;      // they asked for the author's words
+        if (busy[row.id] || failed[row.id]) return;
+        var held = trans[row.id];
+        if (held && held.lang === want) return;
+        if (srcOf(row) === want) return;
+        wanted.push(row.id);
+      }
+
+      // Down the page in the order it is read, so if the ceiling is
+      // reached it is reached at the bottom, where a button is a
+      // reasonable thing to find.
+      shown().forEach(function (row) {
+        consider(row);
+        (function walk(id) {
+          (childrenOf[id] || []).forEach(function (child) {
+            consider(child);
+            walk(child.id);
+          });
+        })(row.id);
+      });
+
+      if (wanted.length) translateItems(wanted);
+    }
+
     /* ---------------- Which language it was written in ---------------- */
 
     // Only the languages people have actually written in, so the list
@@ -600,6 +705,7 @@
         .then(function (res) {
           if (res.error) { console.error('Failed to load stories:', res.error.message); return; }
           rows = res.data || [];
+          sayIfNotMigrated(rows);
           if (rows.length) {
             // PostgREST hands back every column of every row, so one row
             // is enough to know what this database has. Knowing now
@@ -621,6 +727,7 @@
               (childrenOf[r.parent_id] = childrenOf[r.parent_id] || []).push(r);
             });
           renderList();
+          autoTranslate();
         });
     }
 
@@ -981,6 +1088,7 @@
       langFilterEl.addEventListener('change', function () {
         activeLang = langFilterEl.value || 'all';
         renderList();
+        autoTranslate();
       });
     }
 
@@ -1001,12 +1109,11 @@
     // put back into the original — that was a choice about this post,
     // not about the site.
     document.addEventListener('duru:langchange', function () {
-      var again = Object.keys(trans).filter(function (id) { return !showOriginal[id]; });
       trans = Object.create(null);
       failed = Object.create(null);
       busy = Object.create(null);
       renderList();
-      if (again.length) translateItems(again);
+      autoTranslate();
       if (overlay && !overlay.hidden) labelEditor();
     });
   });

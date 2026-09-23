@@ -337,6 +337,7 @@
   "community.mt.failed": "Couldn’t translate this right now.",
   "community.mt.from": "from {lang}",
   "community.mt.fromUnknown": "from the original",
+  "community.mt.needsMigration": "Translation is off: the database has not been updated yet. Run section 33 of supabase/schema.sql in the Supabase SQL editor. Only admins see this line.",
   "community.mt.original": "Show original",
   "community.mt.read": "Read in {lang}",
   "community.mt.retry": "Try again",

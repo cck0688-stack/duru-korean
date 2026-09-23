@@ -337,6 +337,7 @@
   "community.mt.failed": "今は翻訳できませんでした。",
   "community.mt.from": "原文: {lang}",
   "community.mt.fromUnknown": "原文からの翻訳",
+  "community.mt.needsMigration": "翻訳は停止しています — データベースがまだ更新されていません。Supabase の SQL エディタで supabase/schema.sql の第33節を実行してください。この行は管理者にのみ表示されます。",
   "community.mt.original": "原文を見る",
   "community.mt.read": "{lang}で読む",
   "community.mt.retry": "もう一度",

@@ -337,6 +337,7 @@
   "community.mt.failed": "暂时无法翻译这篇帖子。",
   "community.mt.from": "原文：{lang}",
   "community.mt.fromUnknown": "译自原文",
+  "community.mt.needsMigration": "翻译已关闭：数据库尚未更新。请在 Supabase SQL 编辑器中运行 supabase/schema.sql 的第 33 节。此行仅管理员可见。",
   "community.mt.original": "查看原文",
   "community.mt.read": "用{lang}阅读",
   "community.mt.retry": "重试",
