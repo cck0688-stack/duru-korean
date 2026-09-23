@@ -489,9 +489,24 @@ const openai = {
       return openai.chat(Object.assign({}, cfg, { fast: false }), system, user, jsonSchema);
     }
     if (response.status === 404 || response.status === 400) {
+      // What actually went wrong, first. A 400 is usually the request,
+      // not the model — a schema the provider will not accept, a
+      // parameter it has not heard of — and this used to report every
+      // one of them as "that model is not available", which sends
+      // whoever is reading the log to change a setting that was never
+      // the problem.
+      let why = '';
+      try {
+        const body = await response.json();
+        why = (body && body.error && body.error.message) || '';
+      } catch (e) { /* not JSON; the model hint below is all there is */ }
+
+      if (why && !/model/i.test(why)) {
+        throw new TranslateError(503, cfg.label + ' refused the request: ' + why);
+      }
       const hint = await chatModelHint(cfg.baseUrl, cfg.apiKey);
       throw new TranslateError(503, cfg.label + ' did not accept the model "' + cfg.model +
-        '". Set TRANSLATE_MODEL to one it offers.' + hint);
+        '"' + (why ? ' (' + why + ')' : '') + '. Set TRANSLATE_MODEL to one it offers.' + hint);
     }
     const data = await readJSON(response, cfg.label);
     return (data && data.choices && data.choices[0] && data.choices[0].message

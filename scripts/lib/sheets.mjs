@@ -81,43 +81,66 @@ const COMMON = [
   '- 문제는 그 학습지를 읽으면 풀 수 있어야 합니다.'
 ].join('\n');
 
-function sheetSchema(isStrict) {
-  const word = strict({
-    korean: { type: 'string' }, roman: { type: 'string' },
-    meaning: { type: 'string' }, example: { type: 'string' },
-    exampleMeaning: { type: 'string' }
-  }, ['korean', 'meaning'], isStrict);
+// The shape the model must answer in — for one shelf, not for all six.
+//
+// It has to be one shelf at a time because of a rule that is easy to
+// miss: a provider running a schema in strict mode requires every
+// property to be listed as required. One schema covering all six
+// shelves therefore cannot have optional fields, and a vocabulary
+// sheet has no dialogue in it.
+//
+// The first version of this had twenty-six properties and seven
+// required, which OpenAI answered with a 400 — reported, unhelpfully,
+// as "that model is not available". Per-shelf schemas are smaller,
+// strictly valid, and give the model a clearer target than a form with
+// twenty fields it is meant to leave blank.
+function sheetSchema(category, isStrict) {
+  const str = { type: 'string' };
+  const strs = { type: 'array', items: str };
 
-  return strict({
-    title: { type: 'string' },
-    summary: { type: 'string' },
-    objective: { type: 'string' },
-    level: { type: 'string' },
-    minutes: { type: 'integer' },
-    tags: { type: 'array', items: { type: 'string' } },
-    words: { type: 'array', items: word },
-    passage: { type: 'array', items: { type: 'string' } },
-    forms: { type: 'array', items: strict({
-      form: { type: 'string' }, when: { type: 'string' },
-      means: { type: 'string' }, example: { type: 'string' },
-      exampleMeaning: { type: 'string' }
-    }, ['form', 'means', 'example'], isStrict) },
-    watchOut: { type: 'array', items: { type: 'string' } },
-    setting: { type: 'string' },
-    dialogue: { type: 'array', items: strict({
-      who: { type: 'string' }, korean: { type: 'string' }, meaning: { type: 'string' }
-    }, ['who', 'korean'], isStrict) },
-    letters: { type: 'array', items: strict({
-      letter: { type: 'string' }, sound: { type: 'string' }, as: { type: 'string' }
-    }, ['letter', 'sound'], isStrict) },
-    sections: { type: 'array', items: strict({
-      heading: { type: 'string' }, paragraphs: { type: 'array', items: { type: 'string' } }
-    }, ['heading', 'paragraphs'], isStrict) },
-    note: { type: 'string' },
-    exercises: { type: 'array', items: { type: 'string' } },
-    answers: { type: 'array', items: { type: 'string' } },
-    checkThese: { type: 'array', items: { type: 'string' } }
-  }, ['title', 'summary', 'objective', 'level', 'minutes', 'exercises', 'answers'], isStrict);
+  const word = strict({
+    korean: str, roman: str, meaning: str, example: str, exampleMeaning: str
+  }, ['korean', 'roman', 'meaning', 'example', 'exampleMeaning'], isStrict);
+
+  const shapes = {
+    words: { words: { type: 'array', items: word } },
+    passage: { passage: strs, words: { type: 'array', items: word } },
+    forms: {
+      forms: { type: 'array', items: strict({
+        form: str, when: str, means: str, example: str, exampleMeaning: str
+      }, ['form', 'when', 'means', 'example', 'exampleMeaning'], isStrict) },
+      watchOut: strs
+    },
+    dialogue: {
+      setting: str,
+      dialogue: { type: 'array', items: strict({
+        who: str, korean: str, meaning: str
+      }, ['who', 'korean', 'meaning'], isStrict) },
+      words: { type: 'array', items: word }
+    },
+    letters: {
+      letters: { type: 'array', items: strict({
+        letter: str, sound: str, as: str
+      }, ['letter', 'sound', 'as'], isStrict) },
+      words: { type: 'array', items: word }
+    },
+    sections: {
+      sections: { type: 'array', items: strict({
+        heading: str, paragraphs: strs
+      }, ['heading', 'paragraphs'], isStrict) },
+      note: str
+    }
+  };
+
+  const shape = shapes[(SHELVES[category] || SHELVES.etc).shape] || shapes.sections;
+
+  const properties = Object.assign({
+    title: str, summary: str, objective: str, level: str,
+    minutes: { type: 'integer' }, tags: strs,
+    exercises: strs, answers: strs, checkThese: strs
+  }, shape);
+
+  return strict(properties, Object.keys(properties), isStrict);
 }
 
 // Picks something the shelf has not got yet. The existing titles and
@@ -142,13 +165,18 @@ export async function pickSubject(cfg, opts) {
     '확인할 것이 없으면 빈 배열로 두세요.'
   ].join('\n');
 
-  const schema = strict({
+  // Every property listed as required — see sheetSchema() for why a
+  // strict schema cannot have an optional field. This is the first
+  // call the run makes, so getting it wrong took the whole run down
+  // before anything else was tried.
+  const want = {
     subject: { type: 'string' },
     objective: { type: 'string' },
     level: { type: 'string' },
     why: { type: 'string' },
     checkThese: { type: 'array', items: { type: 'string' } }
-  }, ['subject', 'objective', 'level', 'why'], cfg.provider.strictSchema !== false);
+  };
+  const schema = strict(want, Object.keys(want), cfg.provider.strictSchema !== false);
 
   const out = await cfg.provider.chat(cfg, system,
     '갈래: ' + opts.category + '\n오늘 날짜: ' + (opts.today || ''),
@@ -185,7 +213,7 @@ export async function writeSheet(cfg, opts) {
   ].join('\n');
 
   const out = await cfg.provider.chat(cfg, system, user,
-    sheetSchema(cfg.provider.strictSchema !== false));
+    sheetSchema(opts.category, cfg.provider.strictSchema !== false));
   const sheet = parse(out, '학습지 쓰기');
   sheet.category = opts.category;
   return sheet;

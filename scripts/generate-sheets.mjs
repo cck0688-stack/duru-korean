@@ -317,6 +317,17 @@ export async function run() {
 
   log('\n끝: ' + done.length + '편' + (failed.length ? ', 실패 ' + failed.length + '건' : ''));
   failed.forEach((f) => log('  ! ' + f));
+
+  // A run that made nothing at all is a failed run, and has to look
+  // like one. One shelf falling over while the others work is a
+  // warning; every shelf falling over came back green, took thirty
+  // seconds, and was indistinguishable from a quiet success until
+  // somebody opened the log.
+  if (!done.length && failed.length) {
+    const err = new Error('아무것도 만들지 못했습니다:\n  ' + failed.join('\n  '));
+    err.madeNothing = true;
+    throw err;
+  }
   return { done, failed };
 }
 
