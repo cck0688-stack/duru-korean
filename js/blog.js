@@ -1883,6 +1883,7 @@
         // pressed.
         activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
         applyFilters();
+        if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST('blogList');
       });
     }
 

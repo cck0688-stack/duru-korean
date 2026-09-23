@@ -3655,15 +3655,17 @@ section { position: relative; }
 .cat-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-bottom: 26px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
+/* The cards are signposts, not the content: two-thirds of the size
+   they first had, so the posts they lead to start higher up the page. */
 .cat-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 11px 14px;
+  border-radius: 9px;
   background: #fff;
   border: 1px solid rgba(22,48,43,0.12);
   color: inherit;
@@ -3683,17 +3685,17 @@ section { position: relative; }
 .cat-card-icon {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  margin-bottom: 14px;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 6px;
   border-radius: 50%;
   background: var(--paper-alt);
   color: var(--bg);
   flex: none;
 }
 .cat-card-icon svg {
-  width: 23px;
-  height: 23px;
+  width: 17px;
+  height: 17px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.6;
@@ -3701,17 +3703,17 @@ section { position: relative; }
   stroke-linejoin: round;
 }
 .cat-card h3 {
-  margin: 0 0 7px;
-  font-size: 15.5px;
-  line-height: 1.3;
+  margin: 0 0 4px;
+  font-size: 14.5px;
+  line-height: 1.25;
   color: var(--bg);
 }
 /* The sentence is never clipped: a card grows to hold it, and the row
    grows with the tallest card. */
 .cat-card p {
   margin: 0;
-  font-size: 12.5px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.45;
   color: var(--ink-dim);
 }
 
@@ -3730,7 +3732,7 @@ section { position: relative; }
 /* Community reads its three cards as a row of equals, so they are
    centred rather than left-aligned. */
 .cat-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.cat-grid--three .cat-card { align-items: center; text-align: center; padding: 26px 22px; }
+.cat-grid--three .cat-card { align-items: center; text-align: center; padding: 11px 18px; }
 
 /* The heading over the list, and the button beside it. */
 .list-head {
@@ -3760,8 +3762,8 @@ section { position: relative; }
   .cat-grid--three { grid-template-columns: 1fr; }
   .all-posts { font-size: 21px; min-height: 58px; width: 100%; }
   .all-posts svg { width: 21px; height: 21px; }
-  .cat-card { padding: 16px 18px; }
-  .cat-card-icon { width: 40px; height: 40px; margin-bottom: 11px; }
+  .cat-card { padding: 11px 14px; }
+  .cat-card-icon { width: 30px; height: 30px; margin-bottom: 7px; }
   .list-head h2 { font-size: 22px; }
 }
 

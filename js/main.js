@@ -29,6 +29,25 @@ window.DURU_ANON = (function () {
   };
 })();
 
+// A topic card was picked: bring the posts it leads to into view. The
+// target is the heading over the list ("Latest downloads", "All posts"
+// and so on), so the reader sees what they are looking at and not the
+// middle of a card; the sticky header is measured rather than guessed,
+// because it is taller on some pages and languages than others. Done
+// after the list has been redrawn, so the page is already the height
+// it will be.
+window.DURU_SCROLL_TO_LIST = function (listEl) {
+  var list = typeof listEl === 'string' ? document.getElementById(listEl) : listEl;
+  if (!list) return;
+  var head = list.parentNode && list.parentNode.querySelector('.list-head');
+  var target = head || list;
+  var header = document.querySelector('.site-header');
+  var offset = (header ? header.getBoundingClientRect().height : 0) + 14;
+  var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: Math.max(0, top), behavior: still ? 'auto' : 'smooth' });
+};
+
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }

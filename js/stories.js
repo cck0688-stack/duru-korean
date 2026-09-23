@@ -236,7 +236,9 @@
           // Pressing the topic already open steps back out of it.
           activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
           syncURL();
-          loadStories();
+          var go = function () { if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST('storyList'); };
+          var p = loadStories();
+          if (p && p.then) p.then(go, go); else go();
         });
       });
       if (allBtn) {

@@ -258,6 +258,7 @@
         state.type = card.dataset.filter === state.type ? 'all' : card.dataset.filter;
         saveState();
         render();
+        if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST(listEl);
       });
       if (allBtn) {
         allBtn.addEventListener('click', function () {
