@@ -336,7 +336,9 @@
       files.forEach(function (file) {
         chain = chain.then(function () {
           var key = file.draft_key.replace(/^resource-drafts\//, '');
-          var target = 'auto/' + row.slug + '/' + file.lang + '-v' + file.version + '.pdf';
+          // The row's id, never its slug: the slug is Korean and Storage
+          // refuses a key with anything outside ASCII in it.
+          var target = 'auto/' + row.id + '/' + file.lang + '-v' + file.version + '.pdf';
           return client.storage.from(DRAFTS).download(key)
             .then(function (got) {
               if (got.error) throw got.error;

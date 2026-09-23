@@ -190,8 +190,14 @@ async function save(call, token, userId, category, made) {
     }])
   });
 
+  // The folder is the row's id, not the slug: the slug is Korean, and
+  // Storage refuses any key with a character outside ASCII in it
+  // ("InvalidKey"). The third real run wrote, translated and rendered
+  // a whole sheet and then lost it at the upload. The id is a UUID,
+  // which nothing refuses, and it is what the review screen uses for
+  // the public key too, so the two never disagree.
   for (const [lang, out] of Object.entries(rendered)) {
-    const path = slug + '/' + lang + '-v1.pdf';
+    const path = resource.id + '/' + lang + '-v1.pdf';
     const key = await putDraft(token, path, out.pdf);
     await call('resource_files', {
       method: 'POST',
