@@ -158,7 +158,11 @@ async function makeOne(cfg, category, context, browser) {
     const review = problems.length ? { ok: false, problems: [] } : await reviewSheet(writer, sheet);
     notes = problems.concat(review.problems);
     if (!notes.length) break;
-    if (round >= REWRITES) throw new Error('검수를 통과하지 못했습니다: ' + notes.join(' '));
+    if (round >= REWRITES) {
+      const err = new Error('검수를 통과하지 못했습니다: ' + notes.join(' '));
+      err.subject = subject.subject;     // so the next try picks something else
+      throw err;
+    }
     log('    검수에서 ' + notes.length + '가지 걸림 — 다시 씁니다 (' + (round + 1) + '/' + REWRITES + '): ' +
         notes.join(' ').slice(0, 300));
     sheet = await writeSheet(writer, {
@@ -333,7 +337,13 @@ export async function run() {
   const failed = [];
   try {
     for (const category of shelves) {
-      for (let i = 0; i < want; i += 1) {
+      // Three saved, not three tried. The reviewer turns down about
+      // half of what is written — which is the point of having one —
+      // so a shelf keeps going with new subjects until it has its three,
+      // up to twice as many attempts. A sheet that fails review is
+      // never saved to make up the number.
+      let savedHere = 0;
+      for (let i = 0; savedHere < want && i < want * 2; i += 1) {
         try {
           const out = await makeOne(cfg, category, { today, existing, writer }, browser);
           if (DRY) {
@@ -347,9 +357,11 @@ export async function run() {
           }
           existing.push(out.sheet.title + ' — ' + out.sheet.objective);
           done.push(out.sheet.title);
+          savedHere += 1;
         } catch (err) {
           // One shelf failing must not take the others down with it.
           failed.push(category + ': ' + err.message);
+          if (err.subject) existing.push(err.subject);
           log('    실패 — ' + err.message);
         }
       }
