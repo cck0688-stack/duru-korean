@@ -645,16 +645,29 @@ does not change when the page is translated. The `lang` attribute
 follows the text, so a screen reader reads a translation in the right
 voice.
 
-Two things stop that being expensive. Anything translated before comes
-down with the row and costs nothing at all, and one page view
-translates at most `AUTO_MAX` (40) entries — enough for any real
-screenful, and a ceiling on what a single visit can cost. Whatever is
-left keeps a **Read in …** button, which is also what a failed
-translation falls back to. `autoTranslate()` waits for
-`DURU_I18N.ready`: until the first dictionary lands `lang` is a
-placeholder, and translating against it would do the whole page in the
-wrong language and then again in the right one — twice the wait and
-twice the bill, on every page load.
+**Only what somebody looks at is paid for.** A card is translated when
+it comes near the viewport, with 800px of runway so the words are
+already there by the time it is on screen. A reader who opens the
+community, reads three posts and leaves pays for three posts — not for
+the three hundred on the shelf behind them. That is the difference
+between a bill that tracks how much this place is read and one that
+tracks how much has ever been written in it, and at three hundred posts
+those are not the same number.
+
+Behind that, two more limits. Anything translated before comes down
+with the row and costs nothing at all, so a busy thread is paid for
+once, by whoever got there first. And one page view translates at most
+`AUTO_MAX` (60) entries however far it is scrolled, so no single visit
+can run away; past that the **Read in …** button comes back, which is
+also what a failed translation falls back to.
+
+`watchCards()` waits for `DURU_I18N.ready`: until the first dictionary
+lands `lang` is a placeholder, and working against it would translate
+the page into the wrong language and then again into the right one —
+twice the wait and twice the bill, on every page load. And a card that
+is already translated, already in the reader's language, or deliberately
+put back to the original is not watched at all, so the redraw after a
+translation lands cannot start another round.
 
 A row with no stored language has one read off its text locally
 (`srcOf`). The guess is used to decide things — is there anything to

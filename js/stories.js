@@ -230,9 +230,6 @@
           activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
           syncURL();
           renderList();
-          // A shelf that was below the ceiling a moment ago is at the
-          // top of the page now.
-          autoTranslate();
         });
       });
       if (allBtn) {
@@ -240,7 +237,6 @@
           activeFilter = 'all';
           syncURL();
           renderList();
-          autoTranslate();
         });
       }
       paintFilterBar();
@@ -476,6 +472,7 @@
       list.forEach(function (s) {
         var card = document.createElement('article');
         card.className = 'story-card';
+        card.dataset.story = s.id;
         card.innerHTML =
           '<div class="story-head">' +
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(s.display_name)) + '</span>' +
@@ -525,6 +522,7 @@
         });
       });
       restoreFocus();
+      watchCards();
       listEl.querySelectorAll('.story-delete-btn').forEach(function (b) {
         b.addEventListener('click', function () {
           if (!currentUser) { openLogin(); return; }
@@ -557,24 +555,45 @@
     // to something readable and easier to watch.
     var MT_BATCH = 6;
 
-    function translateItems(ids) {
+    // `auto` says the page noticed a card coming into view rather than
+    // the reader pressing something. The difference matters twice over:
+    // an automatic pass must not undo a reader's deliberate "show me
+    // the original", must not keep retrying something that already
+    // failed, and must stay inside the page view's budget — while a
+    // press is the reader asking outright, and is always honoured.
+    function translateItems(ids, auto) {
       var want = siteLang();
       var need = [];
+      var changed = false;
 
       ids.forEach(function (id) {
         var row = find(id);
         if (!row) return;
-        delete showOriginal[id];
-        delete failed[id];
+        if (auto) {
+          if (showOriginal[id] || failed[id] || busy[id]) return;
+        } else {
+          if (showOriginal[id] || failed[id]) changed = true;
+          delete showOriginal[id];
+          delete failed[id];
+        }
         if (srcOf(row) === want) return;                   // already readable
         var held = trans[id];
-        if (held && held.lang === want) return;            // asked for before
-        var hit = cachedFor(row, want);                    // translated for someone else
-        if (hit) { trans[id] = hit; return; }
+        if (held && held.lang === want) return;            // done already
+        var hit = cachedFor(row, want);                    // somebody else paid
+        if (hit) { trans[id] = hit; changed = true; return; }
         need.push(id);
       });
 
-      if (!need.length) { renderList(); return; }
+      if (auto) {
+        var room = Math.max(0, AUTO_MAX - spent);
+        if (need.length > room) need = need.slice(0, room);
+        spent += need.length;
+      }
+
+      // Nothing to do and nothing moved: do not redraw. A redraw here
+      // would re-arm the observer, which would call back in, which
+      // would redraw — round and round for as long as the page is open.
+      if (!need.length) { if (changed) renderList(); return; }
       need.forEach(function (id) { busy[id] = true; });
       renderList();
 
@@ -629,49 +648,105 @@
     // is the whole request: from then on, what is not in that language
     // gets translated into it.
     //
-    // Two things keep that from being expensive. Anything translated
-    // before comes down with the row and costs nothing at all. And one
-    // page view translates at most AUTO_MAX entries — enough for any
-    // real screenful, and a ceiling on what a single visit can cost.
-    // Whatever is left keeps its button.
-    var AUTO_MAX = 40;
+    // ── What gets translated, and what that costs ──────────────────
+    //
+    // Only what somebody actually looks at. A reader who opens the
+    // community, reads three posts and leaves pays for three posts —
+    // not for the three hundred on the shelf behind them. That matters
+    // more the bigger this place gets: translating the whole page on
+    // arrival would mean a community of three hundred posts charges
+    // every passing visitor for three hundred posts in a language they
+    // may not even scroll to.
+    //
+    // A card is translated when it comes near the viewport, with enough
+    // room ahead (RUNWAY) that by the time it is actually on screen the
+    // words are already there. The reader sees no button and no wait;
+    // the bill follows what was read.
+    //
+    // Behind that, two more limits. Anything translated before comes
+    // down with the row and costs nothing at all — a busy thread is
+    // paid for once, by whoever got there first. And one page view
+    // translates at most AUTO_MAX entries however far it is scrolled,
+    // so no single visit can run away. Past that the button comes back.
+    var AUTO_MAX = 60;
+    var RUNWAY = '800px 0px';
 
-    function autoTranslate() {
+    var spent = 0;                       // entries translated this page view
+    var watcher = null;
+    var queued = Object.create(null);
+    var queueTimer = null;
+
+    // Is there anything to do for this row, in the language on screen?
+    function needsWork(row) {
+      if (!row || !mtReady) return false;
+      if (showOriginal[row.id] || failed[row.id] || busy[row.id]) return false;
+      var want = siteLang();
+      var held = trans[row.id];
+      if (held && held.lang === want) return false;
+      return srcOf(row) !== want;
+    }
+
+    function threadNeedsWork(row) {
+      return threadIds(row).some(function (id) { return needsWork(find(id)); });
+    }
+
+    // Scrolling past ten cards in a second should be one request, not
+    // ten. They are collected for a moment and sent together.
+    function queueThread(id) {
+      var row = find(id);
+      if (!row) return;
+      threadIds(row).forEach(function (each) { queued[each] = true; });
+      if (queueTimer) clearTimeout(queueTimer);
+      queueTimer = setTimeout(flushQueue, 120);
+    }
+
+    function flushQueue() {
+      queueTimer = null;
+      var ids = Object.keys(queued);
+      queued = Object.create(null);
+      if (ids.length) translateItems(ids, true);
+    }
+
+    function watchCards() {
       if (!mtReady) return;
       // Until the first dictionary lands, DURU_I18N.lang is a
-      // placeholder. Translating against it would translate the whole
-      // page into the wrong language and then, a moment later, do it
-      // all again into the right one — twice the wait and twice the
-      // bill, on every single page load. The langchange this engine
-      // fires when it is ready brings us straight back here.
+      // placeholder. Working against it would translate the page into
+      // the wrong language and then, a moment later, do it all again
+      // into the right one — twice the wait and twice the bill, on
+      // every single page load. The langchange the engine fires when it
+      // is ready brings us straight back here.
       if (window.DURU_I18N && !window.DURU_I18N.ready) return;
-      var want = siteLang();
-      var wanted = [];
 
-      function consider(row) {
-        if (!row || wanted.length >= AUTO_MAX) return;
-        if (showOriginal[row.id]) return;      // they asked for the author's words
-        if (busy[row.id] || failed[row.id]) return;
-        var held = trans[row.id];
-        if (held && held.lang === want) return;
-        if (srcOf(row) === want) return;
-        wanted.push(row.id);
+      var cards = listEl.querySelectorAll('.story-card');
+      if (!window.IntersectionObserver) {
+        // An old browser with no way to ask what is on screen. It gets
+        // the top of the page, which is what it would have read first.
+        var top = [];
+        for (var i = 0; i < cards.length && top.length < 12; i += 1) {
+          var row = find(cards[i].dataset.story);
+          if (row && threadNeedsWork(row)) top.push(row.id);
+        }
+        top.forEach(queueThread);
+        return;
       }
 
-      // Down the page in the order it is read, so if the ceiling is
-      // reached it is reached at the bottom, where a button is a
-      // reasonable thing to find.
-      shown().forEach(function (row) {
-        consider(row);
-        (function walk(id) {
-          (childrenOf[id] || []).forEach(function (child) {
-            consider(child);
-            walk(child.id);
+      if (!watcher) {
+        watcher = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            watcher.unobserve(entry.target);
+            queueThread(entry.target.dataset.story);
           });
-        })(row.id);
-      });
+        }, { rootMargin: RUNWAY });
+      }
 
-      if (wanted.length) translateItems(wanted);
+      cards.forEach(function (card) {
+        // Anything already done, already the reader's language, or put
+        // back to the original on purpose is not watched at all — so a
+        // redraw after a translation lands cannot start another round.
+        var row = find(card.dataset.story);
+        if (row && threadNeedsWork(row)) watcher.observe(card);
+      });
     }
 
     /* ---------------- Which language it was written in ---------------- */
@@ -733,7 +808,6 @@
               (childrenOf[r.parent_id] = childrenOf[r.parent_id] || []).push(r);
             });
           renderList();
-          autoTranslate();
         });
     }
 
@@ -1094,7 +1168,6 @@
       langFilterEl.addEventListener('change', function () {
         activeLang = langFilterEl.value || 'all';
         renderList();
-        autoTranslate();
       });
     }
 
@@ -1118,8 +1191,12 @@
       trans = Object.create(null);
       failed = Object.create(null);
       busy = Object.create(null);
+      // A new language is a new page view as far as the budget goes:
+      // what was spent reading this place in English says nothing about
+      // what it costs to read it in Vietnamese.
+      spent = 0;
+      if (watcher) { watcher.disconnect(); watcher = null; }
       renderList();
-      autoTranslate();
       if (overlay && !overlay.hidden) labelEditor();
     });
   });
