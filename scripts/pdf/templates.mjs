@@ -25,7 +25,7 @@ const list = (x) => (Array.isArray(x) ? x : []);
 
 // A numbered question with room to answer it. `lines` is how much room.
 function question(text, i, lines = 1) {
-  return '<div class="q"><div class="q-ask"><span class="n">' + (i + 1) + '.</span>' +
+  return '<div class="q"><div class="q-ask"><span class="n">' + (i + 1) + ')</span>' +
     esc(text) + '</div>' + '<div class="rule"></div>'.repeat(Math.max(1, lines)) + '</div>';
 }
 

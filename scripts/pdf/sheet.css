@@ -93,7 +93,7 @@ tr { break-inside: avoid; }
 /* ---- room to write --------------------------------------------- */
 .q { margin-bottom: 13px; break-inside: avoid; }
 .q-ask { font-size: 11.5px; margin-bottom: 5px; }
-.q-ask .n { font-weight: 700; color: #b4472a; margin-right: 5px; }
+.q-ask .n, .answers .n { font-weight: 700; color: #b4472a; margin-right: 5px; }
 .rule { border-bottom: 1px solid #c9d2cf; height: 21px; }
 .rule + .rule { margin-top: 7px; }
 .boxes { display: grid; grid-template-columns: repeat(auto-fill, 26px); gap: 5px; }
@@ -111,8 +111,7 @@ tr { break-inside: avoid; }
    being printed double-sided and handed out. */
 .answers { break-before: page; }
 .answers h2 { color: #b4472a; border-bottom-color: #f0d8cc; }
-.answers ol { margin: 0; padding-left: 20px; }
-.answers li { margin-bottom: 7px; font-size: 11.5px; }
+.answers .a { margin-bottom: 7px; font-size: 11.5px; break-inside: avoid; }
 
 /* ---- footer ------------------------------------------------------ */
 /* There isn't one here. A `position: fixed` footer does not repeat per

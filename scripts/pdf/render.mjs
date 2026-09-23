@@ -150,10 +150,13 @@ function masthead(sheet, L) {
 function answersPage(sheet, L) {
   const answers = Array.isArray(sheet.answers) ? sheet.answers : [];
   if (!answers.length) return '';
-  return '<div class="answers"><h2>' + esc(L.answers) + '</h2><ol>' +
-    answers.map((a) => '<li>' + esc(typeof a === 'string' ? a : a.answer) +
-      (a && a.why ? ' <span class="ex-tr">— ' + esc(a.why) + '</span>' : '') + '</li>').join('') +
-    '</ol></div>';
+  // Numbered the same way the questions are — "1)" — so the two halves
+  // of the sheet read as one list, not as "1." over here and "1)" there.
+  return '<div class="answers"><h2>' + esc(L.answers) + '</h2>' +
+    answers.map((a, i) => '<div class="a"><span class="n">' + (i + 1) + ')</span>' +
+      esc(typeof a === 'string' ? a : a.answer) +
+      (a && a.why ? ' <span class="ex-tr">— ' + esc(a.why) + '</span>' : '') + '</div>').join('') +
+    '</div>';
 }
 
 // Section 5.4: the sources used to check facts are shown, separately

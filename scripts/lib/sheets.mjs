@@ -214,8 +214,27 @@ export async function writeSheet(cfg, opts) {
 
   const out = await cfg.provider.chat(cfg, system, user,
     sheetSchema(opts.category, cfg.provider.strictSchema !== false));
-  const sheet = parse(out, '학습지 쓰기');
+  const sheet = unnumbered(parse(out, '학습지 쓰기'));
   sheet.category = opts.category;
+  return sheet;
+}
+
+// The template numbers the questions and the answers itself, and the
+// model, asked for a list, numbers them too — so the first sheets went
+// out reading "1. 1) 엄마 / 먹다 …". Whatever it wrote in front stays
+// behind here: "1)", "1.", "(1)", "①". The template's own "1)" is then
+// the only number on the page.
+const LEADING_NUMBER = /^\s*(?:\(\d+\)|\d+\s*[.)]|[①-⑳])\s*/;
+
+export function unnumbered(sheet) {
+  const strip = (v) => (typeof v === 'string' ? v.replace(LEADING_NUMBER, '') : v);
+  const each = (list, key) => (Array.isArray(list) ? list : []).map((item) => {
+    if (typeof item === 'string') return strip(item);
+    if (item && typeof item[key] === 'string') return Object.assign({}, item, { [key]: strip(item[key]) });
+    return item;
+  });
+  sheet.exercises = each(sheet.exercises, 'ask');
+  sheet.answers = each(sheet.answers, 'answer');
   return sheet;
 }
 
