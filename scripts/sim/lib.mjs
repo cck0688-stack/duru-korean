@@ -98,6 +98,14 @@ async function withRetry(what, run) {
   for (let i = 0; i < 4; i += 1) {
     try { return await run(); } catch (err) {
       last = err;
+      // Supabase sending a confirmation email for every sign-up, and
+      // running out of the few it may send an hour. Waiting does not
+      // help — the setting has to change — so say which one and stop.
+      if (/email rate limit/i.test(String(err && err.message))) {
+        throw new Error('가입이 막혔습니다 (email rate limit exceeded). 시험 프로젝트에서 ' +
+          'Authentication → Sign In / Providers → Email 의 "Confirm email" 을 꺼 주세요. ' +
+          '켜져 있으면 가입할 때마다 확인 메일을 보내려 하고, 한 시간에 몇 통밖에 못 보냅니다.');
+      }
       if (!/fetch failed|ECONN|ETIMEDOUT|socket|429|50\d|rate limit/i.test(String(err && err.message))) break;
       const wait = /429|rate limit/i.test(String(err.message)) ? 65000 : 3000 * (i + 1);
       log('  ' + what + ' — ' + err.message + ' / ' + Math.round(wait / 1000) + '초 뒤 다시');
