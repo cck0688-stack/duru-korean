@@ -22,6 +22,13 @@
 # what leaks is an account that can write drafts — not a key that reads
 # every row in the database.
 #
+#   CLAUDE_CODE_OAUTH_TOKEN  optional. When set, the sheets are written,
+#                       reviewed and translated on the owner's Claude
+#                       subscription instead of OPENAI_API_KEY — no
+#                       per-call bill, the plan's usage allowance instead.
+#                       Made once with `claude setup-token`. See
+#                       scripts/lib/claude-code.mjs.
+#
 # Optional variables: TRANSLATE_PROVIDER, TRANSLATE_MODEL,
 # TRANSLATE_FAST_MODEL, SHEET_MODEL (the model that writes and reviews;
 # gpt-5 on OpenAI unless set).
@@ -85,6 +92,10 @@ jobs:
       - name: Install the browser that renders the PDFs
         run: npx playwright install --with-deps chromium
 
+      # The Claude Code command line, for when the subscription writes.
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Write the worksheets (${{ matrix.shelf }})
         env:
           DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
@@ -96,6 +107,8 @@ jobs:
           TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
           TRANSLATE_FAST_MODEL: ${{ vars.TRANSLATE_FAST_MODEL }}
           SHEET_MODEL: ${{ vars.SHEET_MODEL }}
+          SHEET_PROVIDER: ${{ vars.SHEET_PROVIDER }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           # Through the environment, never interpolated into the command

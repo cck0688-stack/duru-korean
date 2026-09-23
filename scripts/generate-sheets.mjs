@@ -51,6 +51,7 @@
 import { resolveProvider, translate, LANGUAGES, TranslateError } from '../api/_providers.js';
 import { pickSubject, writeSheet, reviewSheet, problemsWith, translateSheet, slugify, SHELVES } from './lib/sheets.mjs';
 import { withPatience } from './lib/patiently.mjs';
+import { subscriptionConfig } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
@@ -297,19 +298,31 @@ export async function run() {
   // the five Node allows before it gives up without saying why: long
   // enough to write a worksheet, short enough to leave room for the
   // two further tries.
-  const cfg = withPatience(resolveProvider(process.env), log);
-  cfg.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 180000;
-
-  // The writer: the larger model, given longer, because a sheet it is
-  // still thinking about at three minutes is usually worth the fourth.
-  // (A test that shortens the call deadline shortens this one too,
-  // unless it says otherwise.)
-  const writer = Object.assign({}, cfg, {
-    model: process.env.SHEET_MODEL || WRITING_MODEL[cfg.name] || cfg.model,
-    timeoutMs: Number(process.env.DURU_WRITE_TIMEOUT_MS) ||
-               (process.env.DURU_CALL_TIMEOUT_MS ? cfg.timeoutMs : Math.max(cfg.timeoutMs, 280000))
-  });
-  log('작성·검수: ' + cfg.label + ' / ' + writer.model + ' (한 번에 최대 ' + Math.round(writer.timeoutMs / 1000) + '초)');
+  // Which account pays: the owner's Claude subscription when its token
+  // is here (see lib/claude-code.mjs), otherwise an API key as before.
+  // SHEET_PROVIDER=api forces the API even with the token present.
+  const onSubscription = !!process.env.CLAUDE_CODE_OAUTH_TOKEN && process.env.SHEET_PROVIDER !== 'api';
+  let cfg, writer;
+  if (onSubscription) {
+    const sub = subscriptionConfig(process.env);
+    cfg = withPatience(sub.translator, log);
+    writer = withPatience(sub.writer, log);
+    cfg.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 240000;
+    writer.timeoutMs = Number(process.env.DURU_WRITE_TIMEOUT_MS) || 420000;
+  } else {
+    cfg = withPatience(resolveProvider(process.env), log);
+    cfg.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 180000;
+    // The writer: the larger model, given longer, because a sheet it is
+    // still thinking about at three minutes is usually worth the fourth.
+    // (A test that shortens the call deadline shortens this one too,
+    // unless it says otherwise.)
+    writer = Object.assign({}, cfg, {
+      model: process.env.SHEET_MODEL || WRITING_MODEL[cfg.name] || cfg.model,
+      timeoutMs: Number(process.env.DURU_WRITE_TIMEOUT_MS) ||
+                 (process.env.DURU_CALL_TIMEOUT_MS ? cfg.timeoutMs : Math.max(cfg.timeoutMs, 280000))
+    });
+  }
+  log('작성·검수: ' + writer.label + ' / ' + writer.model + ' (한 번에 최대 ' + Math.round(writer.timeoutMs / 1000) + '초)');
   log('번역: ' + cfg.label + ' / ' + cfg.model + ' (한 번에 최대 ' + Math.round(cfg.timeoutMs / 1000) + '초)');
 
   const session = await signIn();
