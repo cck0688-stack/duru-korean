@@ -316,6 +316,10 @@
     var allBtn = document.getElementById('blogAllBtn');
     var langSel = document.getElementById('blogLang');
     var writeBtn = document.getElementById('writePostBtn');
+    var pendingBtn = document.getElementById('blogPendingBtn');
+    var pendingN = document.getElementById('blogPendingN');
+    // An admin looking at what is not published yet.
+    var pendingOnly = false;
     if (!listEl) return;
 
     var client = window.DURU_SUPABASE_CLIENT;
@@ -446,7 +450,17 @@
       return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return seen[c]; });
     }
 
+    // Not live, and not turned down: what "Not published" lists.
+    function isPending(p) {
+      return !p.published && !p.rejected_at;
+    }
+
     function matchesFilters(p) {
+      // A draft that was turned down is kept for the record — so the
+      // morning run does not write the same piece again — and shown
+      // nowhere.
+      if (p.rejected_at) return false;
+      if (pendingOnly && !isPending(p)) return false;
       if (activeFilter !== 'all' && p.category !== activeFilter) return false;
       if (activeTag) {
         return (p.tags || []).some(function (tag) {
@@ -502,8 +516,8 @@
     // how that happens.
     function renderLanding(showing) {
       if (allTitleEl) {
-        allTitleEl.textContent = activeFilter === 'all'
-          ? t('blog.latestPosts', 'Latest posts') : categoryLabel(activeFilter);
+        allTitleEl.textContent = pendingOnly ? t('admin.pendingTitle', 'Waiting to be published')
+          : activeFilter === 'all' ? t('blog.latestPosts', 'Latest posts') : categoryLabel(activeFilter);
         allTitleEl.hidden = !!activeTag;
       }
       if (countEl) {
@@ -511,6 +525,12 @@
         countEl.hidden = !!activeTag;
       }
       if (allBtn) allBtn.setAttribute('aria-pressed', activeFilter === 'all' ? 'true' : 'false');
+      if (pendingBtn) {
+        var n = posts.filter(isPending).length;
+        pendingBtn.hidden = !isAdmin;
+        pendingBtn.setAttribute('aria-pressed', pendingOnly ? 'true' : 'false');
+        if (pendingN) pendingN.textContent = n ? String(n) : '';
+      }
     }
 
     function readableHere(p) {
@@ -553,7 +573,8 @@
 
     function renderCards() {
       var shown = posts.filter(function (p) {
-        return matchesFilters(p) && readableLangs(p).indexOf(listLang) !== -1;
+        // Everything waiting, whatever language it is in.
+        return matchesFilters(p) && (pendingOnly || readableLangs(p).indexOf(listLang) !== -1);
       });
       renderTagBanner();
       renderLanding(shown.length);
@@ -632,6 +653,15 @@
             '</span>' +
             '<span class="res-view">' + escapeHTML(t('blog.readMore', 'Read more')) + ' →</span>' +
           '</div>' +
+          (isAdmin && isPending(p)
+            ? '<div class="res-decide">' +
+                '<button type="button" class="btn btn-primary res-decide-go" data-act="publish" data-id="' + escapeHTML(p.id) + '">' +
+                  escapeHTML(t('admin.publish', 'Publish')) + '</button>' +
+                '<button type="button" class="btn btn-ghost res-decide-no" data-act="reject" data-id="' + escapeHTML(p.id) + '">' +
+                  escapeHTML(t('admin.reject', 'Reject')) + '</button>' +
+                '<span class="res-decide-msg" role="status"></span>' +
+              '</div>'
+            : '') +
         '</div>' +
       '</article>';
     }
@@ -1928,15 +1958,69 @@
     buildCategoryBar();
     markActiveFilter();
 
+    /* ---------------- Not published yet ---------------- */
+
+    if (pendingBtn) {
+      pendingBtn.addEventListener('click', function () {
+        pendingOnly = !pendingOnly;
+        renderCards();
+        if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST('blogList');
+      });
+    }
+
+    // Publish is what the button on the post itself does; Reject sets
+    // the draft aside (posts.rejected_at, schema §38) rather than
+    // deleting it, so the record stays and the morning run does not
+    // write the same piece again.
+    listEl.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-act]');
+      if (!b || !isAdmin) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var post = findPost(b.dataset.id);
+      if (!post) return;
+      var title = readField(post, 'title', listLang);
+      var box = b.closest('.res-decide');
+      var msg = box && box.querySelector('.res-decide-msg');
+      var say = function (text, kind) { if (msg) { msg.textContent = text; msg.className = 'res-decide-msg ' + (kind || ''); } };
+      var buttons = box ? box.querySelectorAll('button') : [];
+      var busy = function (on) { buttons.forEach(function (x) { x.disabled = on; }); };
+      var now = new Date().toISOString();
+      var publish = b.dataset.act === 'publish';
+      var question = publish
+        ? t('admin.confirmPublishPost', 'Publish “{title}”? Everyone will be able to read it.')
+        : t('admin.confirmReject', 'Reject “{title}”? It leaves this list and is not published.');
+      if (!window.confirm(question.replace('{title}', title))) return;
+      var patch = publish
+        ? { published: true, approved_at: now, published_at: now, updated_at: now }
+        : { rejected_at: now, updated_at: now };
+      busy(true);
+      if (publish) say(t('admin.publishing', 'Publishing…'));
+      client.from('posts').update(patch).eq('id', post.id).then(function (res) {
+        if (res.error) {
+          busy(false);
+          say(/rejected_at/.test(res.error.message)
+            ? t('admin.needs38', 'Run section 38 of supabase/schema.sql first.')
+            : schemaHint(res.error.message), 'bad');
+          return;
+        }
+        Object.keys(patch).forEach(function (k) { post[k] = patch[k]; });
+        say(publish ? t('admin.published', 'Published.') : t('admin.rejected', 'Rejected.'), 'ok');
+        setTimeout(function () { renderCards(); markActiveFilter(); }, 600);
+      });
+    });
+
     function applyAdmin(user) {
       if (!user) {
         isAdmin = false;
+        pendingOnly = false;
         if (writeBtn) writeBtn.hidden = true;
         return loadPosts();
       }
       return client.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle()
         .then(function (res) {
           isAdmin = !!(res && res.data);
+          if (!isAdmin) pendingOnly = false;
           if (writeBtn) writeBtn.hidden = !isAdmin;
           return loadPosts();
         });

@@ -95,7 +95,13 @@
         <h2 id="blogAllTitle" data-i18n="blog.latestPosts">Latest posts</h2>
         <p class="list-head-count" id="blogCount"></p>
       </div>
-      <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
+      <div class="dl-toolbar-row">
+        <button type="button" class="pending-btn" id="blogPendingBtn" hidden aria-pressed="false">
+          <span data-i18n="admin.pending">Not published</span>
+          <span class="pending-n" id="blogPendingN"></span>
+        </button>
+        <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
+      </div>
     </div>
     <div class="resource-empty" id="blogEmpty" hidden>
       <p id="blogEmptyText" data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>

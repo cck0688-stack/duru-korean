@@ -34,6 +34,8 @@
     var countEl = document.getElementById('resourceCount');
     var langSel = document.getElementById('resourceLang');
     var newBtn = document.getElementById('newResourceBtn');
+    var pendingBtn = document.getElementById('resourcePendingBtn');
+    var pendingN = document.getElementById('resourcePendingN');
     if (!listEl) return;
 
     var client = window.DURU_SUPABASE_CLIENT;
@@ -42,7 +44,8 @@
     var isAdmin = false;
     var currentUser = null;
     var all = [];
-    var state = { type: 'all', lang: R.preferredLang() };
+    // pending: an admin looking at what is not published yet.
+    var state = { type: 'all', lang: R.preferredLang(), pending: false };
     // The site language this list is currently tuned to. A choice the
     // reader made in the dropdown is remembered, but only against the
     // site language it was made under: picking 中文 at the top of the
@@ -123,6 +126,18 @@
       // not-live: still in the review queue, or taken down.
       var inReview = !!(r.status && r.status !== 'published');
       var draft = inReview || r.published === false;
+      // The two decisions an admin makes about something not yet out,
+      // on the card itself. Above the title's stretched link, so they
+      // are pressed rather than opening the page.
+      var decide = isAdmin && R.isPending(r)
+        ? '<div class="res-decide">' +
+            '<button type="button" class="btn btn-primary res-decide-go" data-act="publish" data-id="' + esc(r.id) + '">' +
+              esc(t('admin.publish', 'Publish')) + '</button>' +
+            '<button type="button" class="btn btn-ghost res-decide-no" data-act="reject" data-id="' + esc(r.id) + '">' +
+              esc(t('admin.reject', 'Reject')) + '</button>' +
+            '<span class="res-decide-msg" role="status"></span>' +
+          '</div>'
+        : '';
       return '<article class="res-card' + (draft ? ' res-card--draft' : '') + '">' +
         '<span class="res-thumb">' + R.coverHTML(client, r) + '</span>' +
         '<div class="res-card-body">' +
@@ -140,6 +155,7 @@
             '</span>' +
             '<span class="res-view">' + esc(t('resources.viewDownload', 'View & Download')) + ' →</span>' +
           '</div>' +
+          decide +
         '</div>' +
       '</article>';
     }
@@ -157,15 +173,31 @@
 
     function visible() {
       return all.filter(function (r) {
+        // A download that was turned down is done with; it is kept in
+        // the database for the record and out of every list.
+        if (r.status === 'rejected') return false;
         if (state.type !== 'all' && shelfOf(r) !== state.type) return false;
+        // Everything waiting, whatever language it is in: an admin
+        // deciding what goes out should not have to hunt for it.
+        if (state.pending) return R.isPending(r);
         // An admin also finds a resource by a file that is still hidden.
         return R.availableFiles(r, isAdmin).some(function (f) { return f.lang === state.lang; });
       });
     }
 
+    function paintPending() {
+      if (!pendingBtn) return;
+      var n = all.filter(R.isPending).length;
+      pendingBtn.hidden = !isAdmin;
+      pendingBtn.setAttribute('aria-pressed', state.pending ? 'true' : 'false');
+      if (pendingN) pendingN.textContent = n ? String(n) : '';
+      if (state.pending && titleEl) titleEl.textContent = t('admin.pendingTitle', 'Waiting to be published');
+    }
+
     function render() {
       var rows = visible();
       paintShelves();
+      paintPending();
       if (countEl) countEl.textContent = fileCount(rows.length);
       listEl.innerHTML = rows.map(cardHTML).join('');
       if (rows.length) {
@@ -504,12 +536,58 @@
       });
     }
 
+    /* ---------------- Not published yet ---------------- */
+
+    if (pendingBtn) {
+      pendingBtn.addEventListener('click', function () {
+        state.pending = !state.pending;
+        render();
+        if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST(listEl);
+      });
+    }
+
+    listEl.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-act]');
+      if (!b || !isAdmin) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var row = all.filter(function (r) { return String(r.id) === b.dataset.id; })[0];
+      if (!row) return;
+      var title = R.localized(row, 'title', R.siteLang());
+      var box = b.closest('.res-decide');
+      var msg = box && box.querySelector('.res-decide-msg');
+      var say = function (text, kind) { if (msg) { msg.textContent = text; msg.className = 'res-decide-msg ' + (kind || ''); } };
+      var buttons = box ? box.querySelectorAll('button') : [];
+      var busy = function (on) { buttons.forEach(function (x) { x.disabled = on; }); };
+
+      if (b.dataset.act === 'publish') {
+        if (!window.confirm(t('admin.confirmPublish', 'Publish “{title}”? Publishing records that you have checked what it says.')
+          .replace('{title}', title))) return;
+        busy(true); say(t('admin.publishing', 'Publishing…'));
+        R.publishResource(client, row.id, t('admin.checkedNote', 'Checked and published from the list by an admin.'))
+          .then(function (refused) {
+            if (refused.length) { busy(false); say(t('admin.refused', 'Not published: {why}').replace('{why}', refused.join(' · ')), 'bad'); return; }
+            say(t('admin.published', 'Published.'), 'ok');
+            setTimeout(load, 700);
+          })
+          .catch(function (err) { busy(false); say((err && err.message) || String(err), 'bad'); });
+      } else {
+        if (!window.confirm(t('admin.confirmReject', 'Reject “{title}”? It leaves this list and is not published.')
+          .replace('{title}', title))) return;
+        busy(true);
+        R.rejectResource(client, row.id, currentUser && currentUser.id)
+          .then(function () { say(t('admin.rejected', 'Rejected.'), 'ok'); setTimeout(load, 500); })
+          .catch(function (err) { busy(false); say((err && err.message) || String(err), 'bad'); });
+      }
+    });
+
     /* ---------------- Session ---------------- */
 
     function applyUser(user) {
       currentUser = user || null;
       R.isAdmin(client, currentUser).then(function (admin) {
         isAdmin = admin;
+        if (!isAdmin) state.pending = false;
         if (newBtn) newBtn.hidden = !isAdmin;
         load();
       });

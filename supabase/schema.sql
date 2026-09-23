@@ -2147,3 +2147,11 @@ $$;
 
 revoke all on function public.publish_resource_file(uuid, text, bigint) from public;
 grant execute on function public.publish_resource_file(uuid, text, bigint) to authenticated;
+
+-- 38. a blog draft can be turned down without being deleted ---------
+-- The list's Reject button sets this rather than deleting the draft:
+-- the record stays, it drops out of every list, and the morning run —
+-- which reads every title before it writes — does not write the same
+-- piece again. Only an admin can see a draft at all, and only an admin
+-- can update one (the policies in §4), so nothing new is exposed.
+alter table public.posts add column if not exists rejected_at timestamptz;

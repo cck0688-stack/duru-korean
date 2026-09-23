@@ -249,6 +249,98 @@
     }).catch(function () { return null; });
   }
 
+  /* ---------------- Publish or reject, from the list ---------------- */
+  //
+  // The review screen's gate, reached from the list card. Nothing here
+  // goes round it: a sheet the daily run wrote is published the only
+  // way the database allows — each language copied from the private
+  // drafts bucket to the public one, then publish_resource_file(),
+  // which refuses while anything still blocks it. What pressing Publish
+  // adds is the one step that has to be a person's: the sources are
+  // marked checked through clear_resource_source(), which records who
+  // and when. A source marked unusable is never cleared this way.
+  //
+  // A download made by hand has no drafts; for it, Publish is what the
+  // switch on its own page always did.
+  function publishResource(client, id, note) {
+    return client.from('resources').select('*, resource_files(*), resource_sources(*)')
+      .eq('id', id).maybeSingle()
+      .then(function (res) {
+        if (res.error || !res.data) throw new Error(res.error ? res.error.message : 'not found');
+        var r = res.data;
+        var sources = r.resource_sources || [];
+        if (sources.some(function (s) { return s.rights_status === 'forbidden'; })) {
+          throw new Error(t('admin.forbidden', 'A source on this download is marked as not usable, so it cannot be published.'));
+        }
+        // The newest version of each language, not yet out.
+        var newest = {};
+        (r.resource_files || []).forEach(function (f) {
+          if (!f.draft_key || f.published) return;
+          if (!newest[f.lang] || (f.version || 1) > (newest[f.lang].version || 1)) newest[f.lang] = f;
+        });
+        var drafts = Object.keys(newest).map(function (k) { return newest[k]; });
+        var refused = [];
+        var chain = Promise.resolve();
+
+        if (!drafts.length) {
+          return client.from('resources')
+            .update({ published: true, status: 'published', updated_at: new Date().toISOString() })
+            .eq('id', id)
+            .then(function (up) { if (up.error) throw up.error; return refused; });
+        }
+
+        sources.filter(function (s) { return s.rights_status === 'unchecked' || s.rights_status === 'needs-human'; })
+          .forEach(function (s) {
+            chain = chain.then(function () {
+              return client.rpc('clear_resource_source', { p_source_id: s.id, p_note: note })
+                .then(function (out) { if (out.error) throw out.error; });
+            });
+          });
+
+        drafts.forEach(function (file) {
+          chain = chain.then(function () {
+            var key = file.draft_key.replace(/^resource-drafts\//, '');
+            var target = 'auto/' + r.id + '/' + file.lang + '-v' + (file.version || 1) + '.pdf';
+            return client.storage.from(DRAFTS).download(key)
+              .then(function (got) {
+                if (got.error) throw got.error;
+                return client.storage.from(BUCKET).upload(target, got.data, { contentType: 'application/pdf', upsert: true });
+              })
+              .then(function (up) {
+                if (up.error) throw up.error;
+                return client.rpc('publish_resource_file', {
+                  p_file_id: file.id, p_storage_key: target, p_file_size: file.file_size || 0
+                });
+              })
+              .then(function (out) {
+                if (out.error) throw out.error;
+                if ((out.data || []).length) refused.push(file.lang + ': ' + out.data.join(', '));
+              });
+          });
+        });
+        return chain.then(function () { return refused; });
+      });
+  }
+
+  function rejectResource(client, id, userId) {
+    return client.from('resources')
+      .update({ status: 'rejected', published: false, updated_at: new Date().toISOString() })
+      .eq('id', id)
+      .then(function (res) {
+        if (res.error) throw res.error;
+        return client.from('resource_reviews')
+          .insert([{ resource_id: id, actor_id: userId || null, action: 'rejected', note: null }])
+          .then(function () { return true; }, function () { return true; });
+      });
+  }
+
+  // Not live yet, and not turned down: what the "Not published" button
+  // lists, and what gets the two buttons on its card.
+  function isPending(r) {
+    if (!r || r.status === 'rejected') return false;
+    return r.published === false || !!(r.status && r.status !== 'published');
+  }
+
   function isAdmin(client, user) {
     if (!user) return Promise.resolve(false);
     return client.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle()
@@ -262,7 +354,8 @@
   }
 
   window.DURU_RES = {
-    BUCKET: BUCKET, DRAFTS: DRAFTS, COVERS: COVERS, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
+    BUCKET: BUCKET, DRAFTS: DRAFTS, COVERS: COVERS,
+    publishResource: publishResource, rejectResource: rejectResource, isPending: isPending, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
     MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX, ACCEPT: ACCEPT, PREVIEWABLE: PREVIEWABLE,
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,
