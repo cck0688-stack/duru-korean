@@ -333,6 +333,8 @@
   "community.lang.hint": "其他读者可以用自己的语言阅读这篇帖子。如果判断有误，请修改。",
   "community.lang.unknown": "未标注",
   "community.latest": "最新讨论",
+  "community.more": "查看更多（还有 {n} 篇）",
+  "community.more.loading": "加载中…",
   "community.mt.busy": "正在翻译…",
   "community.mt.failed": "暂时无法翻译这篇帖子。",
   "community.mt.from": "原文：{lang}",

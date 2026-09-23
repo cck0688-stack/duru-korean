@@ -333,6 +333,8 @@
   "community.lang.hint": "Outras pessoas podem ler isto no próprio idioma. Corrija se a detecção estiver errada.",
   "community.lang.unknown": "Sem indicação",
   "community.latest": "Conversas recentes",
+  "community.more": "Ver mais (faltam {n})",
+  "community.more.loading": "Carregando…",
   "community.mt.busy": "Traduzindo…",
   "community.mt.failed": "Não foi possível traduzir agora.",
   "community.mt.from": "do {lang}",

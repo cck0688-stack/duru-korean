@@ -333,6 +333,8 @@
   "community.lang.hint": "Readers can have this translated into their own language. Change it if the guess is wrong.",
   "community.lang.unknown": "Not marked",
   "community.latest": "Latest discussions",
+  "community.more": "Show more ({n} left)",
+  "community.more.loading": "Loading…",
   "community.mt.busy": "Translating…",
   "community.mt.failed": "Couldn’t translate this right now.",
   "community.mt.from": "from {lang}",

@@ -333,6 +333,8 @@
   "community.lang.hint": "Người đọc có thể xem bài này bằng ngôn ngữ của họ. Hãy sửa nếu chúng tôi đoán sai.",
   "community.lang.unknown": "Chưa ghi rõ",
   "community.latest": "Thảo luận mới nhất",
+  "community.more": "Xem thêm (còn {n})",
+  "community.more.loading": "Đang tải…",
   "community.mt.busy": "Đang dịch…",
   "community.mt.failed": "Hiện chưa dịch được bài này.",
   "community.mt.from": "từ {lang}",

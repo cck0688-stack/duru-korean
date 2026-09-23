@@ -33,7 +33,11 @@
 (function () {
   'use strict';
 
-  var PAGE_SIZE = 100;
+  // Posts per page. Replies are fetched separately and do not count
+  // against it, so this is twenty conversations, not twenty rows.
+  var PAGE_SIZE = 20;
+  // Only for a database too old to page against — see loadEverything().
+  var LEGACY_LIMIT = 100;
 
   function t(key, fallback) {
     if (!window.DURU_I18N) return fallback;
@@ -108,8 +112,11 @@
     var L = window.DURU_LANGDETECT;
     var langFilterEl = document.getElementById('storyLangFilter');
     var mtNoteEl = document.getElementById('storyMtNote');
+    var moreEl = document.getElementById('storyMore');
+    var moreBtn = document.getElementById('storyMoreBtn');
     var langFilterLabel = document.getElementById('storyLangFilterLabel');
     var activeLang = 'all';           // which language people wrote in
+    var languagesPresent = [];        // every language written in, community-wide
 
     // What the reader currently has in front of them, per row. None of
     // this is stored anywhere: it is a reading choice, not a setting,
@@ -229,14 +236,14 @@
           // Pressing the topic already open steps back out of it.
           activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
           syncURL();
-          renderList();
+          loadStories();
         });
       });
       if (allBtn) {
         allBtn.addEventListener('click', function () {
           activeFilter = 'all';
           syncURL();
-          renderList();
+          loadStories();
         });
       }
       paintFilterBar();
@@ -271,6 +278,25 @@
 
     function countIn(id) {
       return stories.filter(function (s2) { return catOf(s2) === id; }).length;
+    }
+
+    // In the paged world the database counted; in the fallback, where
+    // everything is in hand and narrowed here, the list itself is the
+    // count.
+    function shownTotal(list) {
+      return (legacy || absent.category || absent.lang) ? list.length : total;
+    }
+
+    function paintMore(list) {
+      if (!moreEl || !moreBtn) return;
+      var left = shownTotal(list) - list.length;
+      var show = !legacy && left > 0;
+      moreEl.hidden = !show;
+      if (!show) return;
+      moreBtn.disabled = loading;
+      moreBtn.textContent = loading
+        ? t('community.more.loading', 'Loading…')
+        : t('community.more', 'Show more ({n} left)').replace('{n}', left);
     }
 
     function postCount(n) {
@@ -413,11 +439,15 @@
 
     // The two filters are read together: Ask & Help written in
     // Vietnamese is a reasonable thing to want, and picking one should
-    // not quietly clear the other.
+    // not quietly clear the other. The database applies them both — see
+    // scoped() — so this only has work to do where it could not: a
+    // column that is not there yet, or the unpaged fallback.
     function shown() {
       return stories.filter(function (s2) {
-        if (activeFilter !== 'all' && catOf(s2) !== activeFilter) return false;
-        if (activeLang !== 'all' && (s2.lang || 'unknown') !== activeLang) return false;
+        if (activeFilter !== 'all' && (absent.category || legacy) &&
+            catOf(s2) !== activeFilter) return false;
+        if (activeLang !== 'all' && (absent.lang || legacy) &&
+            (s2.lang || 'unknown') !== activeLang) return false;
         return true;
       });
     }
@@ -454,7 +484,10 @@
           ? t('community.latest', 'Latest discussions')
           : (C ? C.label(activeFilter) : activeFilter);
       }
-      if (countEl) countEl.textContent = postCount(list.length);
+      // What the database says matches, not what happens to be loaded:
+      // "3 posts" under a list of twenty out of three hundred would be
+      // a lie about the community, and "20 posts" a lie about the shelf.
+      if (countEl) countEl.textContent = postCount(shownTotal(list));
       if (emptyEl) {
         emptyEl.hidden = list.length > 0;
         // "Nothing here yet" should say where here is: an empty shelf
@@ -469,6 +502,7 @@
       paintFilterBar();
       paintLangFilter();
       paintMtNote(mtReady);
+      paintMore(list);
       list.forEach(function (s) {
         var card = document.createElement('article');
         card.className = 'story-card';
@@ -585,7 +619,7 @@
       });
 
       if (auto) {
-        var room = Math.max(0, AUTO_MAX - spent);
+        var room = Math.max(0, budget - spent);
         if (need.length > room) need = need.slice(0, room);
         spent += need.length;
       }
@@ -672,6 +706,13 @@
     var RUNWAY = '800px 0px';
 
     var spent = 0;                       // entries translated this page view
+    // The allowance. Sixty to start with, which covers any amount of
+    // scrolling through what is already on the page. Pressing Show more
+    // raises it, because that press is the reader asking for another
+    // twenty conversations outright — refusing to translate what they
+    // just asked to see would be answering the wrong question. The
+    // ceiling stays a ceiling: it only moves when somebody moves it.
+    var budget = AUTO_MAX;
     var watcher = null;
     var queued = Object.create(null);
     var queueTimer = null;
@@ -760,8 +801,13 @@
       var order = ((window.DURU_I18N && window.DURU_I18N.LANGS) || []).map(function (l) { return l.code; });
       var present = Object.create(null);
       var anyUnknown = false;
-      stories.forEach(function (r) {
-        if (r.lang) present[r.lang] = true; else anyUnknown = true;
+      // Community-wide when that has been read; the page in hand while
+      // it is still on its way, or on a database that cannot answer it.
+      var from = languagesPresent.length
+        ? languagesPresent
+        : stories.map(function (r) { return r.lang; });
+      from.forEach(function (lang) {
+        if (lang) present[lang] = true; else anyUnknown = true;
       });
       var codes = order.filter(function (c) { return present[c]; });
       if (anyUnknown) codes.push('unknown');
@@ -780,34 +826,160 @@
       langFilterEl.parentNode.hidden = codes.length < 2;
     }
 
-    function loadStories() {
-      return client.from('stories').select('*')
-        .order('created_at', { ascending: false }).limit(PAGE_SIZE)
+    /* ---------------- Reading the list ---------------- */
+    //
+    // Two queries rather than one, and this is not only about paging.
+    //
+    // A reply is a row in this same table, so one query for everything
+    // meant the page limit counted posts and replies together: sixty
+    // posts with forty replies filled it, and the sixty-first post
+    // simply was not there. The number of replies a conversation
+    // attracts should not decide how many conversations are listed.
+    //
+    // So: one query for the posts, which is what is paged and counted,
+    // and one for the replies to the posts actually on screen. A reply
+    // can itself be answered, so that second query walks down until it
+    // stops finding anything.
+    //
+    // The filters moved to the database at the same time, for the same
+    // reason. Narrowing a page of twenty to the ones that happen to be
+    // Ask & Help is not filtering the community, it is filtering
+    // whatever arrived first — the answer has to come from the whole
+    // shelf, and so does the count under the heading.
+
+    var REPLY_DEPTH = 5;
+
+    var loadedPages = 0;        // how many pages of posts are on screen
+    var total = 0;              // how many posts match, in the database
+    var loading = false;
+    var legacy = false;         // a database too old to page against
+
+    // Every read of the list starts here, so that the list, the count
+    // and "show more" can never disagree about what is being looked at.
+    var DEFAULT_CAT = 'share';
+
+    function scoped(select, opts) {
+      var q = client.from('stories').select(select, opts).is('parent_id', null);
+      if (activeFilter !== 'all' && !absent.category) {
+        // The shelf a post with no shelf belongs on. The column arrived
+        // with a default, so a migrated database has no such rows — but
+        // this page has always promised that an entry written before
+        // the shelves existed counts as Share & Talk, and a promise
+        // that quietly stops holding when the filtering moves to the
+        // database is worse than one never made. A post cannot be
+        // allowed to disappear from every shelf while still being in
+        // All posts.
+        q = activeFilter === DEFAULT_CAT
+          ? q.or('category.eq.' + DEFAULT_CAT + ',category.is.null')
+          : q.eq('category', activeFilter);
+      }
+      if (activeLang !== 'all' && !absent.lang) {
+        q = activeLang === 'unknown' ? q.is('lang', null) : q.eq('lang', activeLang);
+      }
+      return q;
+    }
+
+    function noteColumns(sample) {
+      if (!sample) return;
+      mtReady = Object.prototype.hasOwnProperty.call(sample, 'lang');
+      ['category', 'lang', 'mt'].forEach(function (col) {
+        if (!Object.prototype.hasOwnProperty.call(sample, col)) absent[col] = true;
+      });
+    }
+
+    // The replies to a set of posts, and the replies to those, and so
+    // on. Bounded, because a cycle in the data would otherwise be an
+    // endless loop rather than a wrong answer.
+    function loadReplies(parents, found, depth) {
+      found = found || [];
+      depth = depth || 0;
+      var ids = parents.map(function (r) { return r.id; });
+      if (!ids.length || depth >= REPLY_DEPTH) return Promise.resolve(found);
+      return client.from('stories').select('*').in('parent_id', ids)
         .then(function (res) {
+          if (res.error || !res.data || !res.data.length) return found;
+          found = found.concat(res.data);
+          return loadReplies(res.data, found, depth + 1);
+        });
+    }
+
+    function fileReplies(replies) {
+      childrenOf = Object.create(null);
+      replies.slice()
+        .sort(function (a, b) { return new Date(a.created_at) - new Date(b.created_at); })
+        .forEach(function (r) {
+          (childrenOf[r.parent_id] = childrenOf[r.parent_id] || []).push(r);
+        });
+    }
+
+    function loadStories(more) {
+      if (legacy) return loadEverything();
+      if (loading) return Promise.resolve();
+      loading = true;
+      if (!more) { loadedPages = 0; spent = 0; budget = AUTO_MAX; }
+      else { budget += PAGE_SIZE * 2; }     // the page asked for, and its replies
+      var from = more ? loadedPages * PAGE_SIZE : 0;
+
+      return scoped('*', { count: 'exact' })
+        .order('created_at', { ascending: false })
+        .range(from, from + PAGE_SIZE - 1)
+        .then(function (res) {
+          loading = false;
+          if (res.error) {
+            // A database without parent_id — or without the columns the
+            // filters name — cannot answer this. Fall back to reading
+            // the lot, which is what this page did before it paged.
+            console.warn('DURU: paging the community failed, reading it whole instead:',
+              res.error.message);
+            legacy = true;
+            return loadEverything();
+          }
+          var page = res.data || [];
+          noteColumns(page[0]);
+          sayIfNotMigrated(page);
+          total = typeof res.count === 'number' ? res.count : (from + page.length);
+          stories = more ? stories.concat(page) : page;
+          loadedPages = more ? loadedPages + 1 : 1;
+
+          return loadReplies(stories).then(function (replies) {
+            fileReplies(replies);
+            rows = stories.concat(replies);
+            renderList();
+          });
+        });
+    }
+
+    // The old single query, kept for a database that cannot do the new
+    // one. Everything in one go, split here.
+    function loadEverything() {
+      loading = true;
+      return client.from('stories').select('*')
+        .order('created_at', { ascending: false }).limit(LEGACY_LIMIT)
+        .then(function (res) {
+          loading = false;
           if (res.error) { console.error('Failed to load stories:', res.error.message); return; }
           rows = res.data || [];
+          noteColumns(rows[0]);
           sayIfNotMigrated(rows);
-          if (rows.length) {
-            // PostgREST hands back every column of every row, so one row
-            // is enough to know what this database has. Knowing now
-            // saves send() a rejected round trip on the first post.
-            mtReady = Object.prototype.hasOwnProperty.call(rows[0], 'lang');
-            ['category', 'lang', 'mt'].forEach(function (col) {
-              if (!Object.prototype.hasOwnProperty.call(rows[0], col)) absent[col] = true;
-            });
-          }
-          // One query, split here: entries newest first, replies under
-          // whatever they answer, oldest first. A row with no parent_id —
-          // which is every row from before the column existed — is an
-          // entry, so the page keeps working until the migration has run.
           stories = rows.filter(function (r) { return !r.parent_id; });
-          childrenOf = Object.create(null);
-          rows.filter(function (r) { return r.parent_id; })
-            .sort(function (a, b) { return new Date(a.created_at) - new Date(b.created_at); })
-            .forEach(function (r) {
-              (childrenOf[r.parent_id] = childrenOf[r.parent_id] || []).push(r);
-            });
+          fileReplies(rows.filter(function (r) { return r.parent_id; }));
+          total = stories.length;
+          loadedPages = 1;
           renderList();
+        });
+    }
+
+    // Which languages people have written in, across the whole
+    // community rather than across the page being looked at — a filter
+    // that only offers what happens to be on screen is not a filter.
+    // One short column, read once.
+    function loadLanguages() {
+      if (absent.lang || legacy) return Promise.resolve();
+      return client.from('stories').select('lang').is('parent_id', null)
+        .then(function (res) {
+          if (res.error) return;
+          languagesPresent = (res.data || []).map(function (r) { return r.lang; });
+          paintLangFilter();
         });
     }
 
@@ -1148,7 +1320,7 @@
       if (signedOutNote) signedOutNote.hidden = !!currentUser;
       if (!currentUser) {
         isAdmin = false;
-        return loadStories();
+        return loadStories().then(loadLanguages);
       }
       return Promise.all([
         client.from('admin_users').select('user_id').eq('user_id', currentUser.id).maybeSingle(),
@@ -1160,14 +1332,22 @@
         isAdmin = !!(both[0] && both[0].data);
         var profile = both[1] && both[1].data;
         myNickname = (profile && profile.nickname && profile.nickname.trim()) || '';
-        return loadStories();
+        return loadStories().then(loadLanguages);
       });
     }
 
     if (langFilterEl) {
       langFilterEl.addEventListener('change', function () {
         activeLang = langFilterEl.value || 'all';
-        renderList();
+        loadStories();
+      });
+    }
+
+    if (moreBtn) {
+      moreBtn.addEventListener('click', function () {
+        if (loading) return;
+        paintMore(shown());
+        loadStories(true);
       });
     }
 
@@ -1191,10 +1371,12 @@
       trans = Object.create(null);
       failed = Object.create(null);
       busy = Object.create(null);
-      // A new language is a new page view as far as the budget goes:
+      // A new language is a new page view as far as the allowance goes:
       // what was spent reading this place in English says nothing about
-      // what it costs to read it in Vietnamese.
+      // what it costs to read it in Vietnamese. The pages already asked
+      // for are still on screen, so the allowance keeps their share.
       spent = 0;
+      budget = AUTO_MAX + Math.max(0, loadedPages - 1) * PAGE_SIZE * 2;
       if (watcher) { watcher.disconnect(); watcher = null; }
       renderList();
       if (overlay && !overlay.hidden) labelEditor();

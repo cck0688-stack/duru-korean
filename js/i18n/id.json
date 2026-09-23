@@ -333,6 +333,8 @@
   "community.lang.hint": "Pembaca lain bisa membaca ini dalam bahasa mereka sendiri. Ubah kalau tebakannya keliru.",
   "community.lang.unknown": "Belum ditandai",
   "community.latest": "Diskusi terbaru",
+  "community.more": "Lihat lainnya ({n} lagi)",
+  "community.more.loading": "Memuat…",
   "community.mt.busy": "Menerjemahkan…",
   "community.mt.failed": "Untuk saat ini belum bisa diterjemahkan.",
   "community.mt.from": "dari {lang}",

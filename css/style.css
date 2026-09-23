@@ -3836,6 +3836,16 @@ section { position: relative; }
 .story-mt.is-busy { font-style: italic; }
 .story-mt.is-error { color: #a14a20; }
 
+/* The rest of the list, on request. Centred under the cards and quiet
+   — it is a way to carry on reading, not a call to action. */
+.story-more {
+  display: flex;
+  justify-content: center;
+  max-width: 760px;
+  margin: 22px 0 0;
+}
+.story-more .btn { min-width: 220px; }
+
 /* A line only an admin ever sees: something is switched off and they
    are the one who can switch it on. Deliberately plain — it is a note
    to the person running the site, not part of the page. */

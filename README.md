@@ -618,6 +618,45 @@ half-migrated database shows every row rather than losing some.
 `js/community-categories.js` is the one place those ids live, the same
 shape `js/blog-categories.js` has.
 
+### Reading the list
+
+Two queries, and not only for paging. A reply is a row in this same
+table, so one query with one limit meant the limit counted posts and
+replies together: sixty posts with forty replies filled it and the
+sixty-first post was simply not there, with nothing on screen to say
+so. How many answers a conversation attracts should not decide how many
+conversations are listed.
+
+So one query for the posts — paged, twenty at a time, and counted — and
+one for the replies to the posts actually on screen, walking down until
+it stops finding anything (a reply can itself be answered). **Show
+more** appends the next page: a button rather than loading on scroll,
+because the reader decides when to fetch, the footer stays reachable,
+and translation then follows what they chose to look at.
+
+The filters went to the database at the same time and for the same
+reason. Narrowing a loaded page of twenty to the ones that happen to be
+Ask & Help is not filtering the community, it is filtering whatever
+arrived first; the answer has to come from the whole shelf, and so does
+the count under the heading — hence `count: 'exact'`. `scoped()` is the
+one place that builds it, so the list, the count and Show more cannot
+disagree about what is being looked at. The language dropdown is fed by
+its own short `select('lang')` over every post, because a filter that
+only offers what happens to be on screen is not a filter.
+
+One promise survived the move. This page has always said that an entry
+written before the shelves existed counts as Share & Talk; the column
+arrived with a default so a migrated database has no such rows, but if
+one existed it would now vanish from every shelf while still appearing
+in All posts. `scoped()` asks for `category.eq.share,category.is.null`
+on that shelf rather than letting a promise quietly stop holding
+because the filtering moved.
+
+A database too old to answer the paged query — no `parent_id`, or
+without the columns the filters name — falls back to `loadEverything()`,
+the single unpaged read this page did before, with a console line
+saying so.
+
 ### Writing in one language, reading in another
 
 The community is one community in eight languages, not eight

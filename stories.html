@@ -105,6 +105,14 @@
     <p class="story-admin-note" id="storyMtNote" hidden></p>
 
     <div class="story-list" id="storyList"></div>
+    <!-- The rest of the list, a page at a time. A button rather than
+         loading on scroll: the reader decides when to fetch more, the
+         footer stays reachable, and translation follows what they
+         actually chose to look at. Built by js/stories.js. -->
+    <div class="story-more" id="storyMore" hidden>
+      <button type="button" class="btn btn-ghost" id="storyMoreBtn"></button>
+    </div>
+
     <!-- Only when there really is nothing: a panel, not a stray line. -->
     <div class="story-empty" id="storyEmpty" hidden>
       <span class="story-empty-icon" aria-hidden="true">
