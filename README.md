@@ -476,6 +476,35 @@ writer's words, and printing them was the one thing they are not for. A
 heading with text on the very next line, no blank line between, is a
 heading too; it used to come out as a paragraph beginning "##".
 
+## Offering the site in the visitor's language
+
+The language switcher is the one control someone has to use while the
+page is in a language they cannot read: recognise a globe, guess what
+it does, open it, find their language in a list, with no word of help
+they can read. They should not have to. `navigator.languages` already
+says which languages the visitor reads, because they typed it into
+their own settings.
+
+So a bar above the header offers first, and the offer is written in
+their language rather than the page's — which is why those sentences
+live as a fixed table in `js/langbar.js` rather than going through the
+site dictionary. The dictionary translates into the language on screen,
+which is precisely the one they cannot read.
+
+It offers, never imposes: a Korean-American with a Korean phone may
+want the English site, and switching under them takes that choice away.
+Any answer — yes, no, or the close button — is remembered and it never
+returns. It stays away entirely from anyone who has already chosen a
+language, arrived on a `?lang=` link, reads a language the site does
+not publish, or is already reading the one they would be offered.
+
+This is not the country guess `js/i18n.js` rules out, and the
+distinction matters: an IP address says where a request came from,
+which a VPN, a holiday or an expatriate life makes meaningless.
+`navigator.languages` is not a guess at all. `pt-PT` is offered the
+Brazilian edition and `zh-Hant` the simplified one — not the same
+thing, but nearer than English.
+
 ## What the posts are about
 
 The first week of generated posts read like a guidebook: how to order

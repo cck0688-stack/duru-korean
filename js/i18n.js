@@ -218,6 +218,10 @@
     t: t,
     apply: function (root) { applyDict(currentDict, root); },
     setLang: setLang,
+    // The languages the site publishes, each under its own name.
+    // js/langbar.js needs them to say "Stay in 한국어" rather than
+    // "Stay in ko"; a copy, so nothing outside can reorder the list.
+    LANGS: LANGS.map(function (l) { return { code: l.code, label: l.label }; })
   };
 
   if (document.readyState === 'loading') {
