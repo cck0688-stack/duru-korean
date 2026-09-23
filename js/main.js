@@ -38,6 +38,20 @@ window.DURU_ANON = (function () {
 // been redrawn, so the page is already the height it will be. With
 // nothing under the topic, the list's heading (and its "nothing here")
 // is what comes into view instead.
+// Bring one element to just under the sticky header. Used when a post
+// is opened: the page loads with the banner, the topic cards and the
+// list above the article, and a reader who clicked a title wants the
+// title, not the top of the page. Instant rather than smooth, because
+// the page has only just appeared.
+window.DURU_SCROLL_TO = function (el, smooth) {
+  if (!el) return;
+  var header = document.querySelector('.site-header');
+  var offset = (header ? header.getBoundingClientRect().height : 0) + 14;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: Math.max(0, top), behavior: smooth && !still ? 'smooth' : 'instant' });
+};
+
 window.DURU_SCROLL_TO_LIST = function (listEl) {
   var list = typeof listEl === 'string' ? document.getElementById(listEl) : listEl;
   if (!list) return;

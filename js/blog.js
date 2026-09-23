@@ -973,6 +973,18 @@
           if (slug) {
             var match = posts.filter(function (p) { return p.slug === slug; })[0];
             if (match) renderSingle(match); else renderNotFound();
+            // Opened from a card or a link: start at the title, not at the
+            // banner and the topic cards above it. Once more when the page
+            // has finished loading, in case fonts or pictures above the
+            // article moved it — unless the reader has scrolled by then.
+            var title = singleEl && singleEl.querySelector('h1');
+            if (title && window.DURU_SCROLL_TO) {
+              window.DURU_SCROLL_TO(title);
+              var placed = window.pageYOffset;
+              window.addEventListener('load', function () {
+                if (Math.abs(window.pageYOffset - placed) < 4) window.DURU_SCROLL_TO(title);
+              }, { once: true });
+            }
           } else {
             markActiveFilter();
             renderCards();
