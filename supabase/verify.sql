@@ -188,10 +188,14 @@ with checks(item, ok) as (
      and not exists (select 1 from pg_policies
              where schemaname='public' and tablename='app_secrets')),
 
-    ('downloads have a catch-all shelf',
+    ('downloads have a catch-all shelf, and a reading shelf',
      exists (select 1 from pg_constraint
              where conname = 'resources_category_check'
-               and pg_get_constraintdef(oid) like '%etc%')),
+               and pg_get_constraintdef(oid) like '%etc%'
+               and pg_get_constraintdef(oid) like '%reading%')),
+
+    ('nothing is left filed under a shelf that no longer exists',
+     not exists (select 1 from public.resources where category = 'pronunciation')),
 
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets

@@ -600,6 +600,8 @@
   "resources.cat.hangul.desc": "Tablas de letras y práctica de escritura para empezar a leer hangul.",
   "resources.cat.pronunciation": "Pronunciación",
   "resources.cat.pronunciation.desc": "Sonidos, práctica de escucha y las reglas que hay detrás.",
+  "resources.cat.reading": "Práctica de lectura",
+  "resources.cat.reading.desc": "Textos breves a tu nivel, con glosario y preguntas.",
   "resources.cat.reallife": "Coreano real",
   "resources.cat.reallife.desc": "El coreano que se usa de verdad: pedir, preguntar, moverse.",
   "resources.cat.vocab": "Vocabulario",

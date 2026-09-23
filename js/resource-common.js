@@ -36,9 +36,9 @@
   // `etc` is the catch-all, last on purpose. Without one, a calendar or
   // a song sheet gets filed under a shelf that does not describe it,
   // and the five honest shelves quietly stop meaning what they say.
-  var CATEGORIES = ['hangul', 'pronunciation', 'vocab', 'grammar', 'reallife', 'etc'];
+  var CATEGORIES = ['hangul', 'reading', 'vocab', 'grammar', 'reallife', 'etc'];
   var CATEGORY_GLYPH = {
-    hangul: '한', pronunciation: '음', vocab: '말',
+    hangul: '한', reading: '읽', vocab: '말',
     grammar: '법', reallife: '삶', etc: '글'
   };
 
@@ -47,8 +47,9 @@
   var CATEGORY_ICON = {
     // a sheet with the Hangul letter shapes on it
     hangul: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h3M9.5 8v3.5"/><path d="M14 8v4M13 16h6M16 13.5v5"/><path d="M8 13.5h3.5"/>',
-    // a mouth and sound waves leaving it
-    pronunciation: '<path d="M4.5 9.5v5"/><path d="M8 7v10"/><path d="M11.5 10v4"/><path d="M15.4 8.3a5.2 5.2 0 0 1 0 7.4"/><path d="M18.3 5.8a8.8 8.8 0 0 1 0 12.4"/>',
+    // an open book — the one shelf that is connected text rather than
+    // words, rules or phrases
+    reading: '<path d="M12 6.6S10 4.6 4 4.6v12.8c6 0 8 2 8 2s2-2 8-2V4.6c-6 0-8 2-8 2Z"/><path d="M12 6.6v12.8"/>',
     // a stack of word cards
     vocab: '<rect x="3" y="7" width="13" height="10" rx="1.8"/><path d="M7 11h5M7 13.5h3"/><path d="M18.5 8.5v9a1.8 1.8 0 0 1-1.8 1.8H8"/>',
     // a ruled sheet with a check on it

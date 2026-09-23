@@ -187,11 +187,27 @@ dictionaries, and widening `resources_category_check` in
 `supabase/schema.sql`. The ids never change: they are what the database
 stores.
 
-There are six, the sixth being `etc`. Without a catch-all a calendar or
-a song sheet gets filed under a shelf that does not describe it, and the
+There are six, one of them `etc`. Without a catch-all a calendar or a
+song sheet gets filed under a shelf that does not describe it, and the
 five honest shelves quietly stop meaning what they say — the blog
 learned the same thing in §30. Six also sits as two rows of three rather
 than five and a gap.
+
+`reading` replaced `pronunciation` (§35). Pronunciation is a real
+subject; the trouble is that the valuable part of a pronunciation sheet
+is the sound, and a silent PDF about sound is half a thing — so that
+shelf would have stayed empty while the others filled. Reading is the
+one gap nothing else covers: free word lists are everywhere, a short
+Korean passage at a level a learner can actually read is not, and it is
+the only shelf that is connected text rather than words, rules, phrases
+or letters. Its glossary is also worth eight times as much once
+translated, which is something this site can do and a word processor
+cannot.
+
+`shelfOf()` in `js/resources.js` reads any category the page does not
+know as `etc`. Between this deploying and §35 running, a file still
+filed under `pronunciation` would otherwise sit in All downloads and on
+no shelf at all — listed, but unreachable by anyone browsing.
 
 Free Downloads is filed the way the blog and the community are: one All
 button on its own above the rule, then **Browse by topic** and the

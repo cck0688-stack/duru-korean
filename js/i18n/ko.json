@@ -600,6 +600,8 @@
   "resources.cat.hangul.desc": "글자표와 쓰기 연습 — 한글을 읽을 수 있게 되는 자료.",
   "resources.cat.pronunciation": "발음",
   "resources.cat.pronunciation.desc": "소리와 듣기 연습, 그리고 그 뒤의 규칙.",
+  "resources.cat.reading": "읽기 연습",
+  "resources.cat.reading.desc": "수준에 맞는 짧은 지문 — 낱말풀이와 문제까지.",
   "resources.cat.reallife": "실생활 한국어",
   "resources.cat.reallife.desc": "실제로 쓰이는 한국어 — 주문하기, 묻기, 길 찾기.",
   "resources.cat.vocab": "어휘",

@@ -600,6 +600,8 @@
   "resources.cat.hangul.desc": "文字表と書き取り練習 — ハングルが読めるようになる資料。",
   "resources.cat.pronunciation": "発音",
   "resources.cat.pronunciation.desc": "音と聞き取り練習、その裏にある規則。",
+  "resources.cat.reading": "読解練習",
+  "resources.cat.reading.desc": "レベルに合った短い文章 — 語句の説明と設問つき。",
   "resources.cat.reallife": "実生活の韓国語",
   "resources.cat.reallife.desc": "実際に使われる韓国語 — 注文する、尋ねる、移動する。",
   "resources.cat.vocab": "語彙",

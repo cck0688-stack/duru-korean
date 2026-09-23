@@ -1712,3 +1712,37 @@ alter table public.resources drop constraint if exists resources_category_check;
 alter table public.resources
   add constraint resources_category_check
   check (category in ('hangul', 'pronunciation', 'vocab', 'grammar', 'reallife', 'etc'));
+
+-- ------------------------------------------------------------------
+-- 35. reading takes pronunciation's place on the shelf
+-- ------------------------------------------------------------------
+-- Pronunciation is a real subject and this is not a judgement on it.
+-- It is that the valuable part of a pronunciation sheet is the sound,
+-- and a silent PDF about sound is half a thing. Nothing here can make
+-- the audio, so the shelf would have stayed empty while five others
+-- filled up.
+--
+-- Reading takes the slot because it is the one gap nothing else covers.
+-- Free word lists are everywhere; a short Korean passage at a level a
+-- learner can actually read is genuinely hard to find. It is also the
+-- only shelf that is connected text rather than words (vocab), rules
+-- (grammar), phrases (reallife) or letters (hangul) — and the glossary
+-- beside it is worth eight times as much once it is translated, which
+-- is a thing this site can do and a person with a word processor
+-- cannot.
+--
+-- Anything already filed under pronunciation moves to the catch-all
+-- rather than being deleted or left pointing at a shelf that no longer
+-- exists. `etc` is exactly what a catch-all is for, and re-filing one
+-- of them by hand afterwards is a dropdown.
+--
+-- If pronunciation should come back later — with audio attached — it
+-- is this constraint plus a line in js/resource-common.js.
+
+update public.resources set category = 'etc' where category = 'pronunciation';
+
+alter table public.resources drop constraint if exists resources_category_check;
+
+alter table public.resources
+  add constraint resources_category_check
+  check (category in ('hangul', 'reading', 'vocab', 'grammar', 'reallife', 'etc'));

@@ -137,9 +137,20 @@
       '</article>';
     }
 
+    // The shelf a resource is on. A category the page has never heard of
+    // — one filed before a shelf was renamed, or between this deploying
+    // and the migration running — counts as the catch-all rather than
+    // as nothing at all. Without this such a file sits in All downloads
+    // and on no shelf, which is the worst of both: still listed, but
+    // unreachable by anyone browsing.
+    function shelfOf(r) {
+      var id = r && r.category;
+      return R.CATEGORIES.indexOf(id) === -1 ? 'etc' : id;
+    }
+
     function visible() {
       return all.filter(function (r) {
-        if (state.type !== 'all' && r.category !== state.type) return false;
+        if (state.type !== 'all' && shelfOf(r) !== state.type) return false;
         // An admin also finds a resource by a file that is still hidden.
         return R.availableFiles(r, isAdmin).some(function (f) { return f.lang === state.lang; });
       });
