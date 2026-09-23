@@ -88,6 +88,7 @@
 
     var currentUser = null;
     var isAdmin = false;
+    var myNickname = '';
     var stories = [];
 
     // The three shelves, and where on them the reader is. Like the
@@ -118,6 +119,9 @@
     // Everything here can be deployed before the migration, which is
     // the only order that does not take the page down in between.
     var mtReady = true;
+
+    // Columns this database has told us it does not have. See send().
+    var absent = Object.create(null);
 
     var trans = Object.create(null);        // id -> { lang, body, from }
     var showOriginal = Object.create(null); // id -> the reader asked for the author's words back
@@ -596,7 +600,15 @@
         .then(function (res) {
           if (res.error) { console.error('Failed to load stories:', res.error.message); return; }
           rows = res.data || [];
-          if (rows.length) mtReady = Object.prototype.hasOwnProperty.call(rows[0], 'lang');
+          if (rows.length) {
+            // PostgREST hands back every column of every row, so one row
+            // is enough to know what this database has. Knowing now
+            // saves send() a rejected round trip on the first post.
+            mtReady = Object.prototype.hasOwnProperty.call(rows[0], 'lang');
+            ['category', 'lang', 'mt'].forEach(function (col) {
+              if (!Object.prototype.hasOwnProperty.call(rows[0], col)) absent[col] = true;
+            });
+          }
           // One query, split here: entries newest first, replies under
           // whatever they answer, oldest first. A row with no parent_id —
           // which is every row from before the column existed — is an
@@ -791,17 +803,21 @@
       overlay.querySelector('#storyBody').focus();
     }
 
-    // Remember the display name locally so a returning writer doesn't have
-    // to retype it. It is a convenience on this device only — the name that
-    // counts is the one saved on each story.
+    // The name to show. The nickname the writer chose when they signed
+    // up comes first, because that is the name they have already decided
+    // to be known by here — and it follows them to a new phone, which
+    // anything kept on one device does not.
+    //
+    // Behind it, in order: the nickname their account was created with,
+    // and then whatever they last typed on this device. Either of those
+    // is better than an empty box, and the box is still a box: whatever
+    // is in it when they press Post is what gets saved.
     function lastUsedName() {
-      var remembered = '';
-      try { remembered = localStorage.getItem('duru_story_name') || ''; } catch (e) { remembered = ''; }
-      if (remembered) return remembered;
-      // First time on this device: start from the account's nickname, so
-      // a reply does not stall on an empty name field.
+      if (myNickname) return myNickname;
       var meta = (currentUser && currentUser.user_metadata) || {};
-      return (meta.nickname || '').trim();
+      var signup = (meta.nickname || meta.full_name || meta.name || '').trim();
+      if (signup) return signup;
+      try { return localStorage.getItem('duru_story_name') || ''; } catch (e) { return ''; }
     }
     function rememberName(name) {
       try { localStorage.setItem('duru_story_name', name); } catch (e) {}
@@ -837,27 +853,25 @@
         .some(function (l) { return l.code === lang; });
 
       var row = { user_id: currentUser.id, display_name: name, body: body };
-      if (validLang && mtReady) row.lang = lang;
+      if (validLang && mtReady && !absent.lang) row.lang = lang;
       if (replyTo) row.parent_id = replyTo.id;
       // A reply carries whatever thread it is in; an entry carries what
       // was picked. Either is left off entirely when the column is not
       // there yet, so the page keeps working before the migration.
       var cat = replyTo ? catOf(replyTo) : picked;
-      if (cat) row.category = cat;
+      if (cat && !absent.category) row.category = cat;
 
       var patch = { display_name: name, body: body, updated_at: new Date().toISOString() };
-      if (validLang && mtReady) patch.lang = lang;
+      if (validLang && mtReady && !absent.lang) patch.lang = lang;
       // Rewriting the text makes every translation of it wrong. The
       // stored fingerprint would catch that on its own; throwing the
       // entries away as well means there is never a moment where an
       // out-of-date translation is a bug away from being shown.
-      if (mtReady && editing && editing.body !== body) patch.mt = {};
-      if (!editing || !editing.parent_id) { if (picked) patch.category = picked; }
-      var op = editing
-        ? client.from('stories').update(patch).eq('id', editing.id)
-        : client.from('stories').insert(row);
-
-      op.then(function (res) {
+      if (mtReady && !absent.mt && editing && editing.body !== body) patch.mt = {};
+      if (!editing || !editing.parent_id) {
+        if (picked && !absent.category) patch.category = picked;
+      }
+      send(editing ? patch : row, editing && editing.id).then(function (res) {
         saving = false;
         btn.disabled = false;
         btn.textContent = t('stories.post', 'Post');
@@ -873,6 +887,50 @@
         }
         closeEditor();
         loadStories();
+      });
+    }
+
+    // Everything a post really needs — who wrote it, under what name,
+    // and what it says. The rest are improvements that arrived with a
+    // migration, and any of them may be missing from a database that
+    // has not had that migration run yet.
+    var CORE = ['user_id', 'display_name', 'body', 'updated_at'];
+
+    // A column the database has never heard of comes back from PostgREST
+    // as "Could not find the 'category' column of 'stories' in the schema
+    // cache". That is a fixable thing to be told: the writer's words are
+    // all still there, and what is missing is a shelf label or a language
+    // badge. So it is dropped and the post goes in without it, rather
+    // than the writer losing what they typed to a database migration
+    // they have never heard of and cannot run.
+    //
+    // Only the extras are ever dropped. If the database says it has
+    // never heard of `body`, something is wrong that hiding would not
+    // fix, and the error is shown.
+    function send(fields, id, tries) {
+      var attempt = tries || 0;
+      var op = id
+        ? client.from('stories').update(fields).eq('id', id)
+        : client.from('stories').insert(fields);
+
+      return op.then(function (res) {
+        var msg = res.error && res.error.message;
+        if (!msg || attempt >= 4) return res;
+        var missing = /Could not find the '([^']+)' column/.exec(msg);
+        if (!missing || !/schema cache/i.test(msg)) return res;
+        var column = missing[1];
+        if (CORE.indexOf(column) !== -1 ||
+            !Object.prototype.hasOwnProperty.call(fields, column)) return res;
+
+        var without = {};
+        Object.keys(fields).forEach(function (k) {
+          if (k !== column) without[k] = fields[k];
+        });
+        // Remember it for the rest of the page's life, so the next post
+        // does not pay for the same round trip.
+        absent[column] = true;
+        if (column === 'lang' || column === 'mt') mtReady = false;
+        return send(without, id, attempt + 1);
       });
     }
 
@@ -905,11 +963,18 @@
         isAdmin = false;
         return loadStories();
       }
-      return client.from('admin_users').select('user_id').eq('user_id', currentUser.id).maybeSingle()
-        .then(function (res) {
-          isAdmin = !!(res && res.data);
-          return loadStories();
-        });
+      return Promise.all([
+        client.from('admin_users').select('user_id').eq('user_id', currentUser.id).maybeSingle(),
+        // Only this person's own row is readable — that is what the
+        // "user_profiles: self read" policy says — so this asks for
+        // their nickname and gets nothing else.
+        client.from('user_profiles').select('nickname').eq('user_id', currentUser.id).maybeSingle()
+      ]).then(function (both) {
+        isAdmin = !!(both[0] && both[0].data);
+        var profile = both[1] && both[1].data;
+        myNickname = (profile && profile.nickname && profile.nickname.trim()) || '';
+        return loadStories();
+      });
     }
 
     if (langFilterEl) {

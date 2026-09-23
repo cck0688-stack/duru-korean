@@ -591,6 +591,25 @@ shelf reads as a dead page.
 
 A reply has no shelf of its own — it belongs to the thread it answers,
 so the picker is hidden for one and the parent's value is sent instead.
+
+The name on an entry starts as the nickname the writer chose when they
+signed up (`user_profiles.nickname`, then the copy in the account's
+metadata, then whatever they last typed on this device). It is still a
+text box: what is in it when they press Post is what gets saved.
+
+The site deploys in one place and the database is migrated in another,
+by hand, so there is always a window where the code knows about columns
+the database has not got yet. `send()` in `js/stories.js` handles that
+window: when PostgREST answers "Could not find the 'category' column of
+'stories' in the schema cache", the column is dropped and the post goes
+in without it. Those columns are improvements — a shelf label, a
+language badge — and an improvement that cannot be saved should not cost
+somebody the paragraph they just typed. Only the extras are ever
+dropped; if the database says it has never heard of `body`, the error is
+shown and the editor stays open with their words still in it. What a
+database is missing is remembered for the rest of the page's life, and
+read off the first loaded row on arrival, so it costs at most one
+rejected round trip.
 The counts and the filter only ever look at top-level rows. An entry
 written before section 31 ran has no `category` at all; the page reads
 it as `share`, which is what the column's default says too, so a
