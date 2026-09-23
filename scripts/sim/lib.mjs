@@ -63,6 +63,11 @@ export function simEnv(env = process.env) {
   ].filter(Boolean);
   if (missing.length) throw new Error('시험 환경 설정이 없습니다: ' + missing.join(', '));
   if (secret.length < 16) throw new Error('SIM_PASSWORD_SECRET 은 16자 이상이어야 합니다.');
+  if (!/^https?:\/\/[^\s/]+$/.test(url)) {
+    throw new Error('SIM_SUPABASE_URL 이 주소 모양이 아닙니다 (' + url.length + '자, ' +
+      (url.startsWith('sb_') || url.startsWith('eyJ') ? '키가 들어 있는 것 같습니다' : 'https:// 로 시작해야 합니다') +
+      '). https://<프로젝트 ID>.supabase.co 모양이어야 합니다.');
+  }
 
   const live = liveProject();
   const liveRef = refOf(live);
