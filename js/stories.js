@@ -549,7 +549,13 @@
     // so nobody can hand the site somebody else's paragraphs to
     // translate at its expense. See api/community-translate.js.
     var MT_ENDPOINT = '/api/community-translate';
-    var MT_BATCH = 25;
+    // Small on purpose. The server translates the posts in a batch in
+    // parallel, so the batch is only as quick as its slowest post —
+    // with everything in one request a long thread at the bottom keeps
+    // the first post on screen waiting for it. In small groups the page
+    // fills in from the top as the answers land, which is both faster
+    // to something readable and easier to watch.
+    var MT_BATCH = 6;
 
     function translateItems(ids) {
       var want = siteLang();

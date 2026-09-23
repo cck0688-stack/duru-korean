@@ -69,7 +69,7 @@
 //                                values ('translate_cache', '<the string>')
 //                                on conflict (name) do update set value = excluded.value;
 
-import { LANGUAGES, TranslateError, resolveProvider, translate } from './_providers.js';
+import { LANGUAGES, TranslateError, asFast, resolveProvider, translate } from './_providers.js';
 
 export const config = { maxDuration: 60 };
 
@@ -86,13 +86,33 @@ const MAX_CHARS = 24000;
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-// The community is people talking, not an article. The default prompt
-// is written for blog prose and would tidy a post into something its
-// author did not say.
-const NOTE = [
-  'You translate posts and replies from a community forum where learners of Korean talk to',
-  'each other, line by line. They are written by ordinary people, not by writers.'
-].join('\n');
+// The community's own instruction, rather than the blog's.
+//
+// Two reasons it is its own. The blog's is written for an article —
+// markdown marks, headings, numbered lists — and would tidy a post into
+// something its author did not say. And it is five hundred tokens long,
+// which is free at four in the morning and is not free when somebody is
+// watching a spinner: this one is a fifth of that, and every one of
+// those tokens is read before the first word comes back.
+function prompt(fromName, code, count) {
+  return [
+    'You translate one short post from a community forum where learners of Korean talk to each',
+    'other. They are ordinary people writing quickly, not writers.',
+    '',
+    'The source is ' + fromName + '. You are given exactly ' + count + ' numbered lines and must',
+    'return exactly ' + count + ', in the same order.',
+    '',
+    '- One line in, one line out. Never merge, split, drop or add one.',
+    '- Plain everyday language, the way a person would actually write it. Do not explain, do not',
+    '  add notes, do not tidy up what they said.',
+    '- Keep the register: casual stays casual, polite stays polite.',
+    '- Keep names, numbers, prices and dates as they are.',
+    '- The "1. 2. 3." in front of the lines is how they are handed to you, not part of them.',
+    '  Never repeat it. A number the writer typed themselves stays exactly as written.',
+    '',
+    'Target language: ' + LANGUAGES[code] + ' (' + code + '). Return one entry, with that code.'
+  ].join('\n');
+}
 
 function bad(res, status, message) {
   res.status(status).json({ error: message });
@@ -181,7 +201,8 @@ export default async function handler(req, res) {
 
   let cfg;
   try {
-    cfg = resolveProvider(process.env);
+    // Somebody is waiting on this one, so it runs on the fast profile.
+    cfg = asFast(resolveProvider(process.env));
   } catch (err) {
     return bad(res, err.status || 503, err.message);
   }
@@ -223,6 +244,11 @@ export default async function handler(req, res) {
   }
 
   const engine = cfg.name + ':' + cfg.model;
+  // Started as each translation lands and collected at the very end,
+  // after the answer has already gone out. Remembering a translation is
+  // this site's bookkeeping; there is no reason for a reader to sit and
+  // watch a spinner through a database write that does nothing for them.
+  const writes = [];
 
   await Promise.all(work.map(async (job) => {
     const lines = linesOf(job.text);
@@ -234,11 +260,13 @@ export default async function handler(req, res) {
         // spelling "detect it", and the sentence below is how the
         // model-backed providers are told the same thing.
         from: job.from || '',
-        fromName: job.from ? LANGUAGES[job.from]
-          : 'an unknown language, which you should work out from the text itself',
         targets: [to],
         sentences: units,
-        note: NOTE
+        prompt: prompt(
+          job.from ? LANGUAGES[job.from]
+            : 'an unknown language, which you should work out from the text itself',
+          to, units.length
+        )
       }, cfg);
       const got = out.translations[to];
       if (!Array.isArray(got) || got.length !== units.length) {
@@ -246,8 +274,8 @@ export default async function handler(req, res) {
         return;
       }
       const text = rebuild(lines, got);
-      const cached = await remember(job.id, to, text, job.hash, engine);
-      items[job.id] = { body: text, from: job.from, cached: false, stored: cached };
+      writes.push(remember(job.id, to, text, job.hash, engine));
+      items[job.id] = { body: text, from: job.from, cached: false };
     } catch (err) {
       if (!(err instanceof TranslateError)) {
         console.error('community translate failed:', err && err.message);
@@ -257,4 +285,8 @@ export default async function handler(req, res) {
   }));
 
   res.status(200).json({ to: to, engine: engine, items: items });
+
+  // The reader has their translation by now. This is what makes the
+  // next reader's free, and if it fails they simply pay for theirs too.
+  if (writes.length) await Promise.allSettled(writes);
 }

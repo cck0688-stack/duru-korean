@@ -23,7 +23,18 @@
 // Groq, Together, OpenRouter, Fireworks, a self-hosted vLLM or Ollama)
 // needs no new code at all — point TRANSLATE_BASE_URL at it.
 
-import Anthropic from '@anthropic-ai/sdk';
+// Loaded the first time the Anthropic provider is actually used, not
+// when this file is. A serverless function is started from cold often
+// enough that pulling a large SDK into memory for a site running on
+// somebody else's key is a tax paid on every first visitor, for
+// nothing.
+let AnthropicSDK = null;
+async function anthropicSDK() {
+  if (!AnthropicSDK) {
+    ({ default: AnthropicSDK } = await import('@anthropic-ai/sdk'));
+  }
+  return AnthropicSDK;
+}
 
 // The site's eight languages, named as a translator should name them.
 export const LANGUAGES = {
@@ -388,10 +399,13 @@ async function readJSON(response, label) {
 const anthropic = {
   envKeys: ['ANTHROPIC_API_KEY'],
   defaultModel: 'claude-opus-5',
+  // Used where somebody is waiting — see asFast() at the bottom.
+  fastModel: 'claude-haiku-4-5-20251001',
   label: 'Anthropic',
   strictSchema: true,
   async chat(cfg, system, user, jsonSchema) {
     // The one provider with an SDK in this project, so it uses it.
+    const Anthropic = await anthropicSDK();
     const client = new Anthropic({ apiKey: cfg.apiKey, baseURL: cfg.baseUrl || undefined });
     let response;
     try {
@@ -399,7 +413,8 @@ const anthropic = {
         model: cfg.model,
         max_tokens: 16000,
         system,
-        output_config: { effort: cfg.effort, format: { type: 'json_schema', schema: jsonSchema } },
+        output_config: { effort: cfg.fast ? 'low' : cfg.effort,
+                         format: { type: 'json_schema', schema: jsonSchema } },
         messages: [{ role: 'user', content: user }]
       });
     } catch (err) {
@@ -445,6 +460,7 @@ async function chatModelHint(base, apiKey) {
 const openai = {
   envKeys: ['OPENAI_API_KEY'],
   defaultModel: 'gpt-5-mini',
+  fastModel: 'gpt-5-mini',
   defaultBaseUrl: 'https://api.openai.com/v1',
   label: 'OpenAI',
   strictSchema: true,
@@ -452,7 +468,7 @@ const openai = {
     const response = await fetch(cfg.baseUrl.replace(/\/$/, '') + '/chat/completions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + cfg.apiKey },
-      body: JSON.stringify({
+      body: JSON.stringify(Object.assign({
         model: cfg.model,
         messages: [
           { role: 'system', content: system },
@@ -462,8 +478,16 @@ const openai = {
           type: 'json_schema',
           json_schema: { name: 'answer', strict: true, schema: jsonSchema }
         }
-      })
+      // The gpt-5 models think before they answer, and think by
+      // default. That is right for a hard question and wrong for
+      // "translate these two lines", where it is most of the wait.
+      // Asked for outright, so that a model which has never heard of
+      // the setting says so and gets asked again without it.
+      }, cfg.fast ? { reasoning_effort: 'minimal' } : null))
     });
+    if (cfg.fast && response.status === 400) {
+      return openai.chat(Object.assign({}, cfg, { fast: false }), system, user, jsonSchema);
+    }
     if (response.status === 404 || response.status === 400) {
       const hint = await chatModelHint(cfg.baseUrl, cfg.apiKey);
       throw new TranslateError(503, cfg.label + ' did not accept the model "' + cfg.model +
@@ -501,6 +525,7 @@ async function geminiModelHint(base, apiKey) {
 const google = {
   envKeys: ['GOOGLE_API_KEY', 'GEMINI_API_KEY'],
   defaultModel: 'gemini-2.0-flash',
+  fastModel: 'gemini-2.0-flash',
   defaultBaseUrl: 'https://generativelanguage.googleapis.com/v1beta',
   label: 'Google',
   // Gemini's schema dialect rejects additionalProperties, so it gets the
@@ -608,12 +633,21 @@ export const PROVIDERS = { anthropic, openai, google, deepl };
  * The two jobs, written once on top of whichever adapter is in use
  * ------------------------------------------------------------------ */
 
+// The same provider, set up for a person who is waiting rather than for
+// a job that runs at four in the morning: the smaller model, and no
+// thinking out loud first. A community post is a few lines of ordinary
+// speech; the difference in the answer is nothing, and the difference
+// in the wait is most of it.
+export function asFast(cfg) {
+  return Object.assign({}, cfg, { model: cfg.fastModel || cfg.model, fast: true });
+}
+
 export async function translate(opts, cfg) {
   // DeepL translates and nothing else, so it brings its own.
   if (cfg.provider.translate) return cfg.provider.translate(opts, cfg);
   const text = await cfg.provider.chat(
     cfg,
-    systemPrompt(opts.fromName, opts.targets, opts.sentences.length, opts.note),
+    opts.prompt || systemPrompt(opts.fromName, opts.targets, opts.sentences.length, opts.note),
     numbered(opts.sentences),
     schema(cfg.provider.strictSchema !== false)
   );
@@ -672,6 +706,10 @@ export function resolveProvider(env) {
       apiKey: key,
       label: provider.label,
       model: env.TRANSLATE_MODEL || provider.defaultModel,
+      // Deliberately not TRANSLATE_MODEL: a site that points the blog
+      // at a large model for its once-a-day run should not make every
+      // visitor wait for that model to translate a two-line post.
+      fastModel: env.TRANSLATE_FAST_MODEL || provider.fastModel || provider.defaultModel,
       baseUrl: env.TRANSLATE_BASE_URL || provider.defaultBaseUrl || '',
       effort: env.TRANSLATE_EFFORT || 'medium'
     };

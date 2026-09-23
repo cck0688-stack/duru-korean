@@ -695,12 +695,42 @@ to translate the posts that exist into the languages the site
 publishes — a number that shrinks as translations accumulate and that a
 visitor cannot grow except by writing posts, which they could do anyway.
 
+It runs the provider on a **fast profile** (`asFast()` in
+`api/_providers.js`), which is the difference between a feature people
+use and one they wait through. Three things, each of which was most of
+the wait at some point:
+
+- **The model is told not to reason first.** The gpt-5 family thinks
+  before answering, and thinks by default; so does Claude. That is
+  right for a hard question and wrong for "translate these two lines",
+  where it was the bulk of the delay. `reasoning_effort: minimal` on
+  OpenAI, `effort: low` on Anthropic. A model that has never heard of
+  the setting answers 400 and is simply asked again without it.
+- **A smaller model.** `fastModel` per provider — Haiku rather than
+  Opus, deliberately *not* `TRANSLATE_MODEL`: a site that points the
+  blog at a large model for its once-a-day run should not make every
+  visitor wait for that model to translate a greeting.
+  `TRANSLATE_FAST_MODEL` overrides it.
+- **A short instruction.** The blog's is five hundred tokens about
+  markdown and headings, every one of them read before the first word
+  comes back. The community's is a fifth of that and keeps the only
+  guarantee that matters: n lines in, n lines out.
+
+Two more things are off the reader's clock. The Anthropic SDK is
+imported the first time that provider is actually used rather than when
+`_providers.js` loads, which is about 100ms of every cold start on a
+site running on somebody else's key. And the answer is sent before the
+translation is written to the cache: remembering it is this site's
+bookkeeping, and there is no reason for a reader to watch a spinner
+through a database write that does nothing for them.
+
 The provider is the one `api/translate.js` already uses; no new key.
-The one new variable is optional:
+The new variables are both optional:
 
 | variable | what it does |
 |---|---|
 | `TRANSLATE_CACHE_SECRET` | lets the endpoint remember translations. Put the same string in the database: `insert into public.app_secrets (name, value) values ('translate_cache', '…') on conflict (name) do update set value = excluded.value;` |
+| `TRANSLATE_FAST_MODEL` | the model used where somebody is waiting. Defaults to the provider's own small model, which is usually right. |
 
 Without it the site still translates; it simply re-fetches each time
 instead of remembering, so it can be deployed first and configured
