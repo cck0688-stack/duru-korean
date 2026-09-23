@@ -1746,3 +1746,380 @@ alter table public.resources drop constraint if exists resources_category_check;
 alter table public.resources
   add constraint resources_category_check
   check (category in ('hangul', 'reading', 'vocab', 'grammar', 'reallife', 'etc'));
+
+-- ------------------------------------------------------------------
+-- 36. drafts, versions, sources and approvals for the downloads
+-- ------------------------------------------------------------------
+-- The blog's daily run writes an unpublished row and waits to be
+-- approved. A download is the same idea with two differences that make
+-- it a good deal more careful.
+--
+-- First, a download is a file. A blog post that turns out to be wrong
+-- is edited in place and the old one is gone; a PDF has been
+-- downloaded, printed and put in somebody's folder. So a file is a
+-- version: editing makes a new one, approval is of a particular
+-- version, and an edited version is approved again from scratch. The
+-- old approval never carries over.
+--
+-- Second, a download is a thing this site hands out. Where the material
+-- came from therefore has to be written down and checked by a person
+-- before it goes anywhere. That is what resource_sources is for, and
+-- the important column in it is rights_status, which is never set to
+-- 'cleared' by anything automatic. A machine can record what a page
+-- said its licence was. It cannot decide that the licence covers what
+-- this site wants to do, and it must not be able to unblock itself.
+--
+-- Nothing here relaxes an existing rule. Reading is still public,
+-- writing is still admin-only, and the draft file is not in the public
+-- bucket at all.
+
+-- 36a. a resource gets the fields the review screen needs ----------
+alter table public.resources add column if not exists slug text;
+alter table public.resources add column if not exists summary text;
+alter table public.resources add column if not exists tags text[] not null default '{}';
+alter table public.resources add column if not exists objective text;
+alter table public.resources add column if not exists minutes integer;
+alter table public.resources add column if not exists first_published_at timestamptz;
+alter table public.resources add column if not exists updated_at timestamptz not null default now();
+alter table public.resources add column if not exists origin text not null default 'hand';
+
+-- Where a resource is in the pipeline. The order in section 7 of the
+-- brief, with 'published' at the end.
+alter table public.resources drop constraint if exists resources_status_check;
+alter table public.resources add column if not exists status text not null default 'published';
+alter table public.resources
+  add constraint resources_status_check
+  check (status in ('idea', 'researching', 'drafting', 'rendering',
+                    'checking', 'review', 'changes', 'rejected', 'published'));
+
+-- 'hand' is a resource somebody uploaded; 'auto' is one the daily run
+-- wrote. Only the second needs the rights trail below.
+alter table public.resources drop constraint if exists resources_origin_check;
+alter table public.resources
+  add constraint resources_origin_check check (origin in ('hand', 'auto'));
+
+create unique index if not exists resources_slug_idx
+  on public.resources (slug) where slug is not null;
+create index if not exists resources_status_idx
+  on public.resources (status, created_at desc);
+
+-- 36b. a file becomes a version -------------------------------------
+-- resource_files already held one file per language with its own
+-- published flag, which is most of what the brief calls a
+-- resource_version. What it could not do is hold two of them: the
+-- unique key was (resource_id, lang), so an edit overwrote the file
+-- somebody had already approved. Now the key includes the version, and
+-- approving is approving one row.
+
+alter table public.resource_files add column if not exists version integer not null default 1;
+alter table public.resource_files add column if not exists file_hash text;
+alter table public.resource_files add column if not exists draft_key text;
+alter table public.resource_files add column if not exists check_result jsonb not null default '{}'::jsonb;
+alter table public.resource_files add column if not exists approved_by uuid references auth.users (id);
+alter table public.resource_files add column if not exists approved_at timestamptz;
+alter table public.resource_files add column if not exists published_at timestamptz;
+
+-- storage_key is where the public file lives, and a draft has not got
+-- one yet, so it can no longer be required.
+alter table public.resource_files alter column storage_key drop not null;
+alter table public.resource_files alter column file_size drop not null;
+
+-- The old key allowed one row per language. Replaced rather than
+-- dropped, so two versions of the same language cannot collide either.
+alter table public.resource_files drop constraint if exists resource_files_resource_id_lang_key;
+create unique index if not exists resource_files_version_idx
+  on public.resource_files (resource_id, lang, version);
+
+create index if not exists resource_files_pending_idx
+  on public.resource_files (resource_id, lang, version desc) where approved_at is null;
+
+-- Everything already on the shelf was put there by a person, which is
+-- the strongest approval there is. Without this the policy below would
+-- hide every file uploaded before any of this existed — the whole
+-- downloads page would go blank on the day this migration ran.
+update public.resource_files
+   set approved_at = coalesce(approved_at, created_at),
+       published_at = coalesce(published_at, created_at)
+ where published and approved_at is null;
+
+-- A draft must not be readable by a visitor who guesses the row. The
+-- old policy already hid unpublished rows from anyone but an admin;
+-- this restates it so that the rule is in one place after the change.
+drop policy if exists "resource_files: public read" on public.resource_files;
+create policy "resource_files: public read"
+  on public.resource_files for select
+  using (
+    (published and approved_at is not null)
+    or exists (select 1 from public.admin_users a where a.user_id = auth.uid())
+  );
+
+-- 36c. where the material came from ---------------------------------
+-- One row per source consulted, per version. The brief's source_record.
+--
+-- The column that matters is rights_status, and the point of it is that
+-- nothing automatic ever writes 'cleared'. A generator can read a page
+-- and write down what the page claimed; it cannot decide that the claim
+-- covers what this site wants to do with it, and it must not be able to
+-- clear its own block. The check constraint says so, the default says
+-- so, and public.clear_resource_source() below is the only way to move
+-- a row to 'cleared' — it requires an admin and records who.
+
+create table if not exists public.resource_sources (
+  id uuid primary key default gen_random_uuid(),
+  resource_id uuid not null references public.resources (id) on delete cascade,
+  file_id uuid references public.resource_files (id) on delete cascade,
+
+  source_url text not null,
+  source_title text,
+  creator text,
+  publisher text,
+  checked_at timestamptz not null default now(),
+  published_at timestamptz,
+
+  license_name text,
+  license_url text,
+  -- fact, text, question, table, image, font …
+  asset_type text not null default 'fact',
+  -- what it was used for: checking a fact, quoting, adapting, inserting …
+  intended_use text not null default 'fact-check',
+
+  commercial_allowed text not null default 'unclear',
+  adaptation_allowed text not null default 'unclear',
+  redistribution_allowed text not null default 'unclear',
+
+  permission_evidence text,
+  credit_text text,
+  review_note text,
+
+  rights_status text not null default 'unchecked',
+  cleared_by uuid references auth.users (id),
+  cleared_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
+alter table public.resource_sources drop constraint if exists resource_sources_rights_check;
+alter table public.resource_sources
+  add constraint resource_sources_rights_check
+  check (rights_status in ('unchecked', 'needs-human', 'cleared', 'forbidden'));
+
+alter table public.resource_sources drop constraint if exists resource_sources_allowed_check;
+alter table public.resource_sources
+  add constraint resource_sources_allowed_check
+  check (commercial_allowed in ('yes', 'no', 'unclear')
+     and adaptation_allowed in ('yes', 'no', 'unclear')
+     and redistribution_allowed in ('yes', 'no', 'unclear'));
+
+-- 'cleared' is a person's word, so it carries that person's name.
+alter table public.resource_sources drop constraint if exists resource_sources_cleared_check;
+alter table public.resource_sources
+  add constraint resource_sources_cleared_check
+  check (rights_status <> 'cleared' or (cleared_by is not null and cleared_at is not null));
+
+create index if not exists resource_sources_resource_idx
+  on public.resource_sources (resource_id);
+
+alter table public.resource_sources enable row level security;
+
+-- Sources are shown on the public detail page, so they are readable.
+drop policy if exists "resource_sources: public read" on public.resource_sources;
+create policy "resource_sources: public read"
+  on public.resource_sources for select using (true);
+
+drop policy if exists "resource_sources: admin write" on public.resource_sources;
+create policy "resource_sources: admin write"
+  on public.resource_sources for all
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()))
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+-- 36d. what a person decided ----------------------------------------
+create table if not exists public.resource_reviews (
+  id uuid primary key default gen_random_uuid(),
+  resource_id uuid not null references public.resources (id) on delete cascade,
+  file_id uuid references public.resource_files (id) on delete set null,
+  actor_id uuid references auth.users (id),
+  action text not null,
+  note text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.resource_reviews drop constraint if exists resource_reviews_action_check;
+alter table public.resource_reviews
+  add constraint resource_reviews_action_check
+  check (action in ('generated', 'checked', 'approved', 'changes', 'rejected',
+                    'published', 'unpublished', 'rights-cleared'));
+
+create index if not exists resource_reviews_resource_idx
+  on public.resource_reviews (resource_id, created_at desc);
+
+alter table public.resource_reviews enable row level security;
+
+drop policy if exists "resource_reviews: admin read" on public.resource_reviews;
+create policy "resource_reviews: admin read"
+  on public.resource_reviews for select
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "resource_reviews: admin write" on public.resource_reviews;
+create policy "resource_reviews: admin write"
+  on public.resource_reviews for insert
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+-- 36e. the drafts bucket --------------------------------------------
+-- A draft PDF does not go in the public bucket at all. The brief is
+-- blunt about why: a file that is only unreachable because nobody has
+-- guessed its URL is not private. So drafts live in their own bucket
+-- that no policy lets a visitor read, and the approved copy is written
+-- to the ordinary bucket at the moment of approval.
+
+insert into storage.buckets (id, name, public)
+values ('resource-drafts', 'resource-drafts', false)
+on conflict (id) do update set public = false;
+
+drop policy if exists "drafts bucket: admin read" on storage.objects;
+create policy "drafts bucket: admin read"
+  on storage.objects for select
+  using (bucket_id = 'resource-drafts'
+         and exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "drafts bucket: admin write" on storage.objects;
+create policy "drafts bucket: admin write"
+  on storage.objects for insert
+  with check (bucket_id = 'resource-drafts'
+              and exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+drop policy if exists "drafts bucket: admin delete" on storage.objects;
+create policy "drafts bucket: admin delete"
+  on storage.objects for delete
+  using (bucket_id = 'resource-drafts'
+         and exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+-- 36f. nothing is published except by a person ----------------------
+-- The brief asks for this to be checked on the server rather than by
+-- hiding a button, and for the reasons a draft is blocked to be
+-- reasons a machine cannot argue its way out of.
+--
+-- publish_resource_file() is the only door. It refuses unless an admin
+-- is asking, and it refuses while any of the blocking conditions in
+-- section 6 still holds: a source that has not been cleared by a
+-- person, a failed technical check, a missing file. It writes the
+-- approval down — who, when, which version, which hash — and leaves a
+-- review_event behind.
+
+create or replace function public.resource_blocks(p_file_id uuid)
+returns text[]
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select coalesce(array_agg(reason), '{}')
+  from (
+    -- the file itself
+    select 'no-file' as reason
+     where not exists (select 1 from public.resource_files f
+                        where f.id = p_file_id and f.draft_key is not null)
+    union all
+    -- every technical check has to have passed
+    select 'failed-check'
+     where exists (select 1 from public.resource_files f
+                    where f.id = p_file_id
+                      and coalesce(f.check_result ->> 'ok', 'false') <> 'true')
+    union all
+    -- a source a person has not looked at is not a cleared source
+    select 'rights-unchecked'
+     where exists (
+       select 1 from public.resource_files f
+        join public.resource_sources s on s.resource_id = f.resource_id
+       where f.id = p_file_id and s.rights_status in ('unchecked', 'needs-human'))
+    union all
+    select 'rights-forbidden'
+     where exists (
+       select 1 from public.resource_files f
+        join public.resource_sources s on s.resource_id = f.resource_id
+       where f.id = p_file_id and s.rights_status = 'forbidden')
+  ) reasons;
+$$;
+
+grant execute on function public.resource_blocks(uuid) to authenticated;
+
+create or replace function public.publish_resource_file(
+  p_file_id uuid,
+  p_storage_key text,
+  p_file_size bigint
+) returns text[]
+language plpgsql
+volatile
+security definer
+set search_path = public
+as $$
+declare
+  v_blocks text[];
+  v_resource uuid;
+begin
+  if not exists (select 1 from public.admin_users a where a.user_id = auth.uid()) then
+    raise exception 'Only an admin can publish a download.';
+  end if;
+
+  v_blocks := public.resource_blocks(p_file_id);
+  if array_length(v_blocks, 1) is not null then
+    return v_blocks;                      -- nothing is changed
+  end if;
+
+  update public.resource_files
+     set storage_key = p_storage_key,
+         file_size = p_file_size,
+         published = true,
+         approved_by = auth.uid(),
+         approved_at = coalesce(approved_at, now()),
+         published_at = coalesce(published_at, now())
+   where id = p_file_id
+   returning resource_id into v_resource;
+
+  update public.resources
+     set status = 'published',
+         first_published_at = coalesce(first_published_at, now()),
+         updated_at = now()
+   where id = v_resource;
+
+  insert into public.resource_reviews (resource_id, file_id, actor_id, action)
+  values (v_resource, p_file_id, auth.uid(), 'approved');
+
+  return '{}'::text[];
+end;
+$$;
+
+revoke all on function public.publish_resource_file(uuid, text, bigint) from public;
+grant execute on function public.publish_resource_file(uuid, text, bigint) to authenticated;
+
+-- Clearing a source is a person's decision and is recorded as one.
+create or replace function public.clear_resource_source(p_source_id uuid, p_note text)
+returns boolean
+language plpgsql
+volatile
+security definer
+set search_path = public
+as $$
+declare
+  v_resource uuid;
+begin
+  if not exists (select 1 from public.admin_users a where a.user_id = auth.uid()) then
+    raise exception 'Only an admin can clear a source.';
+  end if;
+
+  update public.resource_sources
+     set rights_status = 'cleared',
+         cleared_by = auth.uid(),
+         cleared_at = now(),
+         review_note = coalesce(p_note, review_note)
+   where id = p_source_id
+   returning resource_id into v_resource;
+
+  if v_resource is null then return false; end if;
+
+  insert into public.resource_reviews (resource_id, actor_id, action, note)
+  values (v_resource, auth.uid(), 'rights-cleared', p_note);
+  return true;
+end;
+$$;
+
+revoke all on function public.clear_resource_source(uuid, text) from public;
+grant execute on function public.clear_resource_source(uuid, text) to authenticated;

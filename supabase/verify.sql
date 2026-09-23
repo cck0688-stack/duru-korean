@@ -197,6 +197,30 @@ with checks(item, ok) as (
     ('nothing is left filed under a shelf that no longer exists',
      not exists (select 1 from public.resources where category = 'pronunciation')),
 
+    ('a download file is a version, not a single row per language',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='resource_files' and column_name='version')
+     and not exists (select 1 from pg_constraint
+                     where conname = 'resource_files_resource_id_lang_key')),
+
+    ('nothing already on the shelf was hidden by the draft rules',
+     not exists (select 1 from public.resource_files
+                 where published and approved_at is null)),
+
+    ('drafts live in a bucket of their own, and it is private',
+     exists (select 1 from storage.buckets where id = 'resource-drafts' and not public)),
+
+    ('only an admin can publish a download, and only through the gate',
+     exists (select 1 from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+             where n.nspname='public' and p.proname='publish_resource_file' and p.prosecdef)
+     and not exists (select 1 from pg_policies
+                     where schemaname='public' and tablename='resource_files'
+                       and cmd in ('UPDATE','ALL') and qual not like '%admin_users%')),
+
+    ('a source cannot be marked cleared without a person''s name on it',
+     exists (select 1 from pg_constraint
+             where conname = 'resource_sources_cleared_check')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

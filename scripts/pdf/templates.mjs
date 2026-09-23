@@ -1,0 +1,158 @@
+// DURU KOREAN — what each kind of download looks like
+//
+// One function per shelf. Each takes the structured sheet the model
+// wrote and returns the body of the page; the furniture around it —
+// masthead, objective, footer, answer page — is the same for all six
+// and lives in render.mjs.
+//
+// Keeping them apart matters because the shelves are genuinely
+// different documents. A vocabulary sheet is a table. A reading sheet
+// is a passage with a glossary beside it and questions under it. A
+// Hangul sheet is mostly empty boxes to write in. Pouring all three
+// through one template would produce three things that look the same
+// and none that is right.
+//
+// Everything here escapes what it is given. The text comes from a
+// model, which is not a reason to trust it with markup.
+
+export function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
+
+const list = (x) => (Array.isArray(x) ? x : []);
+
+// A numbered question with room to answer it. `lines` is how much room.
+function question(text, i, lines = 1) {
+  return '<div class="q"><div class="q-ask"><span class="n">' + (i + 1) + '.</span>' +
+    esc(text) + '</div>' + '<div class="rule"></div>'.repeat(Math.max(1, lines)) + '</div>';
+}
+
+function wordRows(words, heads) {
+  return '<table><thead><tr>' +
+    heads.map((h, i) => '<th' + (i === 0 ? ' style="width:26%"' : '') + '>' + esc(h) + '</th>').join('') +
+    '</tr></thead><tbody>' +
+    list(words).map((w) =>
+      '<tr><td><div class="word" lang="ko">' + esc(w.korean) + '</div>' +
+      (w.roman ? '<div class="rom">' + esc(w.roman) + '</div>' : '') + '</td>' +
+      '<td>' + esc(w.meaning) + '</td>' +
+      '<td>' + (w.example
+        ? '<div class="ex-kr" lang="ko">' + esc(w.example) + '</div>' +
+          (w.exampleMeaning ? '<div class="ex-tr">' + esc(w.exampleMeaning) + '</div>' : '')
+        : '') + '</td></tr>').join('') +
+    '</tbody></table>';
+}
+
+/* ---- vocabulary -------------------------------------------------- */
+// Words, what they mean, and one real sentence each. The sentence is
+// the part that makes it a worksheet rather than a list.
+function vocab(s, L) {
+  return '<section><h2>' + esc(L.words) + '</h2>' +
+    wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>' +
+    (s.note ? '<section><div class="note"><b>' + esc(L.goodToKnow) + '</b> ' + esc(s.note) + '</div></section>' : '') +
+    practice(s, L);
+}
+
+/* ---- reading ----------------------------------------------------- */
+// The one shelf that is connected text. The glossary sits under the
+// passage rather than beside it, because a reader who has to look
+// sideways mid-sentence has lost the thread.
+function reading(s, L) {
+  return '<section><h2>' + esc(L.passage) + '</h2>' +
+    '<div class="passage" lang="ko">' +
+    list(s.passage).map((p) => '<p>' + esc(p) + '</p>').join('') +
+    '</div></section>' +
+    (list(s.words).length
+      ? '<section><h2>' + esc(L.glossary) + '</h2>' + wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>'
+      : '') +
+    practice(s, L);
+}
+
+/* ---- grammar ----------------------------------------------------- */
+// The pattern stated once, then what it does, then where it goes
+// wrong. The last part is what people actually keep the sheet for.
+function grammar(s, L) {
+  return '<section><h2>' + esc(L.pattern) + '</h2>' +
+    '<table><tbody>' + list(s.forms).map((f) =>
+      '<tr><td><div class="word" lang="ko">' + esc(f.form) + '</div>' +
+      (f.when ? '<div class="rom">' + esc(f.when) + '</div>' : '') + '</td>' +
+      '<td>' + esc(f.means) + '</td>' +
+      '<td><div class="ex-kr" lang="ko">' + esc(f.example) + '</div>' +
+      (f.exampleMeaning ? '<div class="ex-tr">' + esc(f.exampleMeaning) + '</div>' : '') +
+      '</td></tr>').join('') + '</tbody></table></section>' +
+    (list(s.watchOut).length
+      ? '<section><h2>' + esc(L.watchOut) + '</h2>' +
+        list(s.watchOut).map((w) => '<div class="note" style="margin-bottom:8px">' + esc(w) + '</div>').join('') +
+        '</section>'
+      : '') +
+    practice(s, L);
+}
+
+/* ---- real-life --------------------------------------------------- */
+// A situation, played out. Who says what has to be readable at a
+// glance, so it is a dialogue rather than a paragraph.
+function reallife(s, L) {
+  return (s.setting ? '<section><div class="note">' + esc(s.setting) + '</div></section>' : '') +
+    '<section><h2>' + esc(L.dialogue) + '</h2>' +
+    list(s.dialogue).map((t) =>
+      '<div class="turn"><div class="who">' + esc(t.who) + '</div>' +
+      '<div class="said"><div class="ex-kr" lang="ko">' + esc(t.korean) + '</div>' +
+      (t.meaning ? '<div class="ex-tr">' + esc(t.meaning) + '</div>' : '') + '</div></div>').join('') +
+    '</section>' +
+    (list(s.words).length
+      ? '<section><h2>' + esc(L.phrases) + '</h2>' + wordRows(s.words, [L.phrase, L.meaning, L.inUse]) + '</section>'
+      : '') +
+    practice(s, L);
+}
+
+/* ---- hangul ------------------------------------------------------ */
+// Mostly empty space on purpose: this one is printed and written on.
+// The boxes are square because Hangul is written in squares.
+function hangul(s, L) {
+  return '<section><h2>' + esc(L.letters) + '</h2>' +
+    '<table><thead><tr><th style="width:26%">' + esc(L.letter) + '</th><th>' + esc(L.sound) +
+    '</th><th>' + esc(L.practice) + '</th></tr></thead><tbody>' +
+    list(s.letters).map((l) =>
+      '<tr><td><div class="word" lang="ko" style="font-size:24px">' + esc(l.letter) + '</div></td>' +
+      '<td>' + esc(l.sound) + (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</td>' +
+      '<td><div class="boxes">' + '<div class="box"></div>'.repeat(8) + '</div></td></tr>').join('') +
+    '</tbody></table></section>' +
+    (list(s.words).length
+      ? '<section><h2>' + esc(L.nowTheWords) + '</h2>' + wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>'
+      : '') +
+    practice(s, L);
+}
+
+/* ---- everything else --------------------------------------------- */
+// The catch-all has no shape of its own, so it takes whatever blocks
+// the sheet happens to carry.
+function etc(s, L) {
+  return (list(s.words).length
+      ? '<section><h2>' + esc(L.words) + '</h2>' + wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>'
+      : '') +
+    list(s.sections).map((sec) =>
+      '<section><h2>' + esc(sec.heading) + '</h2>' +
+      list(sec.paragraphs).map((p) => '<p>' + esc(p) + '</p>').join('') + '</section>').join('') +
+    (s.note ? '<section><div class="note">' + esc(s.note) + '</div></section>' : '') +
+    practice(s, L);
+}
+
+// The part the learner fills in. Shared, because every shelf has one —
+// a sheet with nothing to do on it is a reference card, not a
+// worksheet.
+function practice(s, L) {
+  const qs = list(s.exercises);
+  if (!qs.length) return '';
+  return '<section><h2>' + esc(L.yourTurn) + '</h2>' +
+    qs.map((q, i) => question(typeof q === 'string' ? q : q.ask, i,
+      (typeof q === 'object' && q.lines) || 1)).join('') +
+    '</section>';
+}
+
+export const TEMPLATES = { vocab, reading, grammar, reallife, hangul, etc };
+
+export function bodyFor(category, sheet, labels) {
+  const make = TEMPLATES[category] || TEMPLATES.etc;
+  return make(sheet, labels);
+}

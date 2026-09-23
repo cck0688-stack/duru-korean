@@ -176,6 +176,62 @@ the corresponding `captchaToken` option to the `signUp` /
 
 ## Downloads (Free Downloads, Book Resources)
 
+### Making a download, and approving it
+
+`supabase/schema.sql` §36 and `scripts/pdf/` are the machinery for
+generating worksheets, checking them and putting them in front of a
+person. The design follows the brief in `DURU_KOREAN 자료실 PDF
+제작·승인 자동화 작업지시서`; two of its rules shape everything else.
+
+**A file is a version.** A blog post that turns out wrong is edited in
+place and the old one is gone. A PDF has been downloaded, printed and
+put in somebody's folder, so editing makes a new version,
+`resource_files` is keyed on `(resource_id, lang, version)`, approval is
+of a particular version, and an edited version is approved again from
+scratch. The old approval never carries over.
+
+**Nothing automatic clears its own block.** `resource_sources` records
+where material came from, and its `rights_status` starts at
+`unchecked`. A generator can write down what a page claimed its licence
+was; it cannot decide that the claim covers what this site wants to do.
+`resource_blocks()` lists what is stopping a file — an unchecked source,
+a forbidden one, a failed technical check, a missing file — and
+`publish_resource_file()` refuses while the list is non-empty. Both are
+`security definer` functions that check `admin_users` first, so it is
+the database refusing, not a hidden button.
+
+Drafts go to their own private bucket (`resource-drafts`), never to the
+public one. The brief is blunt about why: a file that is only
+unreachable because nobody has guessed its URL is not private.
+
+`scripts/pdf/` renders them:
+
+- `templates.mjs` — one function per shelf, because the shelves are
+  genuinely different documents. A vocabulary sheet is a table, a
+  reading sheet is a passage with a glossary under it, a Hangul sheet is
+  mostly empty boxes to write in. Everything is escaped: the text comes
+  from a model, which is not a reason to trust it with markup.
+- `sheet.css` — the print stylesheet. A4, the site's own typeface, the
+  title, level, time and objective on top, room to write, and the answer
+  key on a page of its own so it survives being printed and handed out.
+- `render.mjs` — HTML through the Chromium already here for the browser
+  tests. Fonts are **embedded**, not named: the stylesheet Google Fonts
+  serves is fetched once and every font file in it inlined as a data
+  URI, so a sheet renders the same on a machine with no Korean font.
+  The running footer is Chromium's, not CSS's — a `position: fixed`
+  footer looks like it should repeat per page and does not.
+- `check.mjs` — what has to be true before a person sees it. Page count
+  and blank pages read out of the PDF rather than measured in the
+  browser (the laid-out document and the printed one are not the same
+  shape — an earlier version missed every `break-before: page`), text
+  proved to be real text by inflating the streams and finding the text
+  operators, nothing over the page edge, nothing under 8px, and the
+  answer count matching the question count. The result lands in
+  `check_result` and a failure is a closed door, not a line in a log.
+
+Playwright is a **devDependency**: it makes the files, it is not part of
+the site, and nothing in `devDependencies` is served to a visitor.
+
 Both pages are `js/resources.js` over the same table, told apart by
 `window.DURU_RESOURCE_LOCATION`. The shelves — the ids, the glyph, the
 line icon — live once, in `js/resource-common.js` as

@@ -1,0 +1,124 @@
+/* DURU KOREAN — how a download looks on paper.
+ *
+ * One stylesheet for all six shelves. What changes between them is the
+ * blocks the body is made of, not the furniture around it.
+ *
+ * Section 5.5 of the brief is the specification here: A4, nothing so
+ * dense it cannot be read on a phone, the title, level, time and
+ * objective at the top, room to write on a printable, legible in black
+ * and white, and answers kept clearly apart from the questions. */
+
+/* Size only. The margins are set by page.pdf() in render.mjs, because
+   the running footer is drawn by Chromium and has to be given room in
+   the bottom margin — and a margin declared here would win over the
+   one passed there, which is how an earlier version ended up printing
+   to the very edge of the paper. */
+@page { size: A4; }
+
+* { box-sizing: border-box; }
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  color: #16302b;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* Korean, and every other script that is not Latin, comes from the one
+   family that has them all. A missing glyph is not a styling problem —
+   it is a box where a word should be. */
+.kr, [lang="ko"] { font-family: 'Noto Sans KR', sans-serif; }
+[lang="ja"] { font-family: 'Noto Sans JP', 'Noto Sans KR', sans-serif; }
+[lang="zh"] { font-family: 'Noto Sans SC', 'Noto Sans KR', sans-serif; }
+
+/* ---- the masthead ---------------------------------------------- */
+.mast {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 12px; border-bottom: 3px solid #16302b; padding-bottom: 9px;
+}
+.mast-brand { font-size: 11px; font-weight: 700; letter-spacing: .14em; color: #b4472a; }
+.mast-tags { display: flex; gap: 6px; }
+.tag {
+  font-size: 9.5px; font-weight: 700; letter-spacing: .08em;
+  border: 1px solid #cfd8d4; border-radius: 999px; padding: 3px 9px; color: #5b6b66;
+  white-space: nowrap;
+}
+
+h1 { font-family: 'Noto Sans KR', sans-serif; font-size: 25px; margin: 15px 0 4px; line-height: 1.25; }
+.summary { font-size: 12px; color: #5b6b66; margin: 0 0 12px; }
+
+/* The learning objective, stated plainly where a teacher can see it
+   before deciding to print thirty copies. */
+.objective {
+  border-left: 3px solid #1d6b48; background: #f1f6f3;
+  padding: 9px 12px; font-size: 11.5px; margin: 0 0 18px;
+}
+.objective b { color: #1d6b48; letter-spacing: .04em; font-size: 10px; text-transform: uppercase; }
+
+/* ---- blocks the body is made of -------------------------------- */
+section { margin-bottom: 18px; break-inside: avoid; }
+h2 {
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: #5b6b66; margin: 0 0 9px; padding-bottom: 5px; border-bottom: 1px solid #e2e7e5;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th {
+  font-size: 9px; letter-spacing: .09em; text-transform: uppercase; color: #8b9793;
+  text-align: left; padding: 0 7px 6px; font-weight: 700;
+}
+td { padding: 9px 7px; border-top: 1px solid #eef1f0; vertical-align: top; }
+tr { break-inside: avoid; }
+
+.word { font-family: 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 700; white-space: nowrap; }
+.rom { font-size: 10px; color: #8b9793; font-style: italic; }
+.ex-kr { font-family: 'Noto Sans KR', sans-serif; font-size: 12px; }
+.ex-tr { font-size: 10.5px; color: #5b6b66; }
+
+/* Reading passages want line height and a wider measure than a table. */
+.passage { font-family: 'Noto Sans KR', sans-serif; font-size: 13.5px; line-height: 2.05; }
+.passage p { margin: 0 0 11px; }
+
+/* A dialogue, where who says what has to be obvious at a glance. */
+.turn { display: flex; gap: 10px; margin-bottom: 9px; break-inside: avoid; }
+.who {
+  flex: none; width: 52px; font-size: 10px; font-weight: 700; color: #b4472a;
+  text-align: right; padding-top: 2px;
+}
+.said { flex: 1 1 auto; }
+
+/* ---- room to write --------------------------------------------- */
+.q { margin-bottom: 13px; break-inside: avoid; }
+.q-ask { font-size: 11.5px; margin-bottom: 5px; }
+.q-ask .n { font-weight: 700; color: #b4472a; margin-right: 5px; }
+.rule { border-bottom: 1px solid #c9d2cf; height: 21px; }
+.rule + .rule { margin-top: 7px; }
+.boxes { display: grid; grid-template-columns: repeat(auto-fill, 26px); gap: 5px; }
+.box { width: 26px; height: 26px; border: 1px solid #c9d2cf; border-radius: 3px; }
+
+.note {
+  border-left: 3px solid #cf8a52; background: #fbf6ef;
+  padding: 10px 12px; font-size: 11px; line-height: 1.65;
+}
+.note b { color: #b4472a; }
+
+/* ---- answers, kept apart --------------------------------------- */
+/* Section 5.5 asks for the answers to be clearly separated from the
+   questions. A page of their own is the only separation that survives
+   being printed double-sided and handed out. */
+.answers { break-before: page; }
+.answers h2 { color: #b4472a; border-bottom-color: #f0d8cc; }
+.answers ol { margin: 0; padding-left: 20px; }
+.answers li { margin-bottom: 7px; font-size: 11.5px; }
+
+/* ---- footer ------------------------------------------------------ */
+/* There isn't one here. A `position: fixed` footer does not repeat per
+   page the way it looks as though it should — it was rendering once
+   and landing in the middle of page two. Chromium's own footer
+   template does repeat, and can count the pages, so render.mjs draws
+   it. */
+.credits { font-size: 8.5px; color: #9aa5a1; margin-top: 14px;
+           border-top: 1px solid #eef1f0; padding-top: 8px; line-height: 1.5; }
