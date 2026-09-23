@@ -2,3 +2,8 @@ node_modules/
 .vercel/
 .env
 .env.local
+
+# the community simulation's verification output
+sim-report.md
+sim-report.json
+sim-shots/

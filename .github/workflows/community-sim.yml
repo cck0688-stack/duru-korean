@@ -1,0 +1,118 @@
+# DURU KOREAN — Community simulation (TEST PROJECT ONLY)
+#
+# Invented members who write in the site's eight languages, talking to
+# each other around the clock in a SEPARATE Supabase project, so the
+# multilingual community can be watched working under real use without
+# a single row landing in the live site. See scripts/sim/lib.mjs for
+# the two locks that make pointing it at the live project impossible.
+#
+# ── On and off ────────────────────────────────────────────────────
+#
+# Nothing runs until the repository variable SIM_ENABLED is "true"
+# (Settings → Secrets and variables → Actions → Variables). Setting it
+# to anything else — or deleting it — stops every tick at once. That is
+# the stop button.
+#
+# ── Secrets (Settings → Secrets and variables → Actions → Secrets) ─
+#
+#   SIM_SUPABASE_URL            the TEST project's URL
+#   SIM_SUPABASE_ANON_KEY       the TEST project's anon / publishable key
+#   SIM_PASSWORD_SECRET         any long random string
+#   SIM_TRANSLATE_CACHE_SECRET  optional; the value put in the TEST
+#                               project's app_secrets as translate_cache
+#   OPENAI_API_KEY              already set for the blog and worksheets
+#
+# ── Schedule ──────────────────────────────────────────────────────
+#
+# Every twenty minutes: sign-ups (twenty a day), posts, replies,
+# hearts. Once a day at 06:50 Seoul time: the verification, whose
+# report appears on the run's summary page and as a download.
+
+name: Community simulation (test project)
+
+on:
+  schedule:
+    - cron: '7,27,47 * * * *'
+    - cron: '50 21 * * *'
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'What to run'
+        type: choice
+        options: [tick, verify, both]
+        default: tick
+
+concurrency:
+  group: community-sim
+  cancel-in-progress: false
+
+jobs:
+  sim:
+    if: vars.SIM_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      SIM_SUPABASE_URL: ${{ secrets.SIM_SUPABASE_URL }}
+      SIM_SUPABASE_ANON_KEY: ${{ secrets.SIM_SUPABASE_ANON_KEY }}
+      SIM_PASSWORD_SECRET: ${{ secrets.SIM_PASSWORD_SECRET }}
+      SIM_TRANSLATE_CACHE_SECRET: ${{ secrets.SIM_TRANSLATE_CACHE_SECRET }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+      # Which part: set through the environment, never pasted into the
+      # command line.
+      EVENT: ${{ github.event_name }}
+      CRON: ${{ github.event.schedule }}
+      TASK: ${{ inputs.task }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Decide
+        id: what
+        run: |
+          tick=false; verify=false
+          if [ "$EVENT" = "schedule" ]; then
+            if [ "$CRON" = "50 21 * * *" ]; then verify=true; else tick=true; fi
+          else
+            case "$TASK" in
+              tick) tick=true ;;
+              verify) verify=true ;;
+              both) tick=true; verify=true ;;
+            esac
+          fi
+          echo "tick=$tick" >> "$GITHUB_OUTPUT"
+          echo "verify=$verify" >> "$GITHUB_OUTPUT"
+
+      - name: Tick
+        if: steps.what.outputs.tick == 'true'
+        run: node scripts/sim/run.mjs tick
+
+      - name: Install the browser for the verification
+        if: steps.what.outputs.verify == 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify
+        if: steps.what.outputs.verify == 'true'
+        run: |
+          set +e
+          node scripts/sim/verify.mjs
+          code=$?
+          [ -f sim-report.md ] && cat sim-report.md >> "$GITHUB_STEP_SUMMARY"
+          exit $code
+
+      - name: Keep the report
+        if: always() && steps.what.outputs.verify == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: community-sim-report
+          path: |
+            sim-report.md
+            sim-report.json
+            sim-shots/
+          if-no-files-found: ignore

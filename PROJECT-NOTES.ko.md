@@ -1016,3 +1016,55 @@ SQL 실행   /project/ejiwgvlinlffkyycuyym/sql/new
 
 데이터베이스 구조는 `supabase/schema.sql`에 주석과 함께 들어 있습니다.
 **몇 번을 실행해도 안전합니다.**
+
+### 커뮤니티 다국어 시뮬레이션 (시험 프로젝트 전용)
+
+가상 회원들이 사이트의 8개 언어로 **24시간** 서로 글을 쓰고, 답하고,
+하트를 누릅니다. 다국어 커뮤니티가 실제로 쓰일 때 제대로 도는지 보기
+위한 것이고, **운영 중인 사이트와 완전히 분리된 시험용 Supabase
+프로젝트에서만** 돕니다. durukorean.com 에는 한 줄도 올라가지 않습니다.
+
+**운영 사이트에 잘못 붙는 일이 없도록 잠금이 두 개입니다.**
+1. 주소 — 운영 사이트의 Supabase 주소(js/supabase-config.js)가 설정돼
+   있으면 시작을 거부합니다. 기본 주소도 없습니다.
+2. 데이터베이스 — 시험 프로젝트에만 있는 표시 테이블(sim_environment)이
+   없으면 아무것도 쓰지 않습니다.
+
+**하는 일**
+- 매일 20명 가입 (그만하라고 하실 때까지). 이메일은 영단어+숫자 5자리
+  @example.com — 어떤 메일도 실제 사람에게 가지 않는 예약 도메인입니다.
+- 닉네임과 글은 각자의 언어로. 국적은 저장하지도, 표시하지도,
+  언어로 추정하지도 않습니다.
+- 한 사람당 원문 글 1건, 정해진 주제 하나(Ask & Help / Share & Talk /
+  Meet & Connect)에, 50~400자.
+- 20분마다: 새 글, 답글(질문엔 답, 나머지는 대화), 하트. 오늘 글에도,
+  며칠 전 글에도 답합니다. 답글에 답글도 답니다.
+- 모든 글은 올리기 전에 검사: 길이, 연락처·링크·아이디 금지,
+  OpenAI 안전 검사(moderation).
+- 매일 06:50 검증: 작성 언어 감지, 원문 저장, 8개 언어 번역 보기,
+  원문 보기, 주제 필터, 댓글 번역. 결과표와 언어별 화면 캡처가
+  GitHub Actions 실행 페이지에 남습니다.
+
+#### 켜는 법 (한 번만)
+
+1. supabase.com → **New project** (무료) — 이름 예: `duru-test`
+2. 새 프로젝트의 SQL Editor 에서 차례로 실행:
+   `supabase/schema.sql` 전체 → `scripts/sim/sim-schema.sql`
+3. Authentication → Sign In / Providers → Email → **Confirm email 끄기**
+   (가상 회원은 메일을 받을 수 없습니다)
+4. Authentication → Rate Limits → 가입·로그인 한도를 100 정도로
+5. (선택) 번역 캐시: 새 프로젝트 SQL Editor 에서
+   `insert into public.app_secrets (name, value) values ('translate_cache', '<긴 무작위 문자열>');`
+6. GitHub → Settings → Secrets and variables → Actions
+   - Secrets: `SIM_SUPABASE_URL`, `SIM_SUPABASE_ANON_KEY` (새 프로젝트의
+     Project Settings → API), `SIM_PASSWORD_SECRET` (아무 긴 무작위 문자열),
+     선택: `SIM_TRANSLATE_CACHE_SECRET` (5번과 같은 값)
+   - Variables: `SIM_ENABLED` = `true`
+
+**끄는 법**: Variables 의 `SIM_ENABLED` 를 `false` 로 바꾸면 다음 차례부터
+전부 멈춥니다.
+
+**보는 법**: GitHub → Actions → "Community simulation (test project)" →
+06:50 실행 → 요약 페이지의 검증 결과표, 그리고 아래 Artifacts 의
+`community-sim-report` 에 언어별 커뮤니티 화면 캡처. 시험 프로젝트의
+Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
