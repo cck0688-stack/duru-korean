@@ -51,15 +51,34 @@
 
 <section class="section section-after-hero">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="freeResources.leadIn">Printable charts, cheat sheets, and vocabulary lists to get you reading, writing, and speaking Korean right away.</p>
-    <div class="dl-toolbar reveal">
-      <div class="filter-row" id="resourceFilters">
-        <button class="filter-btn active" data-filter="all" data-i18n="resources.filter.all">All</button>
-        <button class="filter-btn" data-filter="hangul" data-i18n="resources.cat.hangul">Hangul Starter</button>
-        <button class="filter-btn" data-filter="pronunciation" data-i18n="resources.cat.pronunciation">Pronunciation</button>
-        <button class="filter-btn" data-filter="vocab" data-i18n="resources.cat.vocab">Vocabulary</button>
-        <button class="filter-btn" data-filter="grammar" data-i18n="resources.cat.grammar">Grammar Cheat Sheets</button>
-        <button class="filter-btn" data-filter="reallife" data-i18n="resources.cat.reallife">Real-Life Korean</button>
+    <!-- Everything, on its own above the rule — the same button the
+         blog and the community have, for the same reason: it is the way
+         back out of a shelf, not a seventh one. -->
+    <div class="topic-bar reveal">
+      <button type="button" class="all-posts" id="resourceAllBtn" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+        </svg>
+        <span data-i18n="resources.allDownloads">All downloads</span>
+      </button>
+    </div>
+    <div class="topic-rule"></div>
+
+    <!-- Six shelves in two rows of three, built by js/resources.js from
+         window.DURU_RES.CATEGORIES. -->
+    <h2 class="browse-head" data-i18n="blog.browseByTopic">Browse by topic</h2>
+    <nav class="cat-grid cat-grid--three reveal" id="resourceFilters" aria-label="Download topics"></nav>
+
+    <div class="topic-rule"></div>
+
+    <div class="list-head">
+      <div>
+        <h2 id="resourceAllTitle" data-i18n="resources.latest">Latest downloads</h2>
+        <p class="list-head-count" id="resourceCount"></p>
       </div>
       <div class="dl-toolbar-row">
         <label class="dl-lang" for="resourceLang">

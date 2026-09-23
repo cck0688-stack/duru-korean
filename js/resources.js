@@ -29,6 +29,9 @@
     var emptyText = document.getElementById('resourceEmptyText');
     var suggestEl = document.getElementById('resourceLangSuggest');
     var filtersEl = document.getElementById('resourceFilters');
+    var allBtn = document.getElementById('resourceAllBtn');
+    var titleEl = document.getElementById('resourceAllTitle');
+    var countEl = document.getElementById('resourceCount');
     var langSel = document.getElementById('resourceLang');
     var newBtn = document.getElementById('newResourceBtn');
     if (!listEl) return;
@@ -144,6 +147,8 @@
 
     function render() {
       var rows = visible();
+      paintShelves();
+      if (countEl) countEl.textContent = fileCount(rows.length);
       listEl.innerHTML = rows.map(cardHTML).join('');
       if (rows.length) {
         emptyEl.hidden = true;
@@ -202,20 +207,107 @@
         });
     }
 
-    /* ---------------- Filters ---------------- */
+    /* ---------------- The shelves ---------------- */
+    //
+    // Six cards in two rows of three, the same furniture the blog and
+    // the community have: one All button on its own above the rule,
+    // then the shelves under a heading that says what they are. They
+    // are built from window.DURU_RES.CATEGORIES rather than written
+    // into the page, so a shelf added there appears here, in the admin
+    // editor and on a resource page all at once.
 
-    if (filtersEl) {
-      filtersEl.querySelectorAll('.filter-btn').forEach(function (b) {
-        b.classList.toggle('active', b.dataset.filter === state.type);
+    // Book Resources is the same script over the same data with a
+    // different publish_location, and it keeps the plain row of buttons
+    // it has always had. Only the page whose markup asks for cards gets
+    // cards; both get every shelf, so a file filed under `etc` is
+    // reachable from either.
+    var asCards = !!(filtersEl && filtersEl.classList.contains('cat-grid'));
+
+    function buildShelves() {
+      if (!filtersEl) return;
+      if (!asCards) return buildButtons();
+      filtersEl.innerHTML = R.CATEGORIES.map(function (id) {
+        return '<button type="button" class="cat-card" data-filter="' + esc(id) +
+          '" aria-pressed="false">' +
+          '<span class="cat-card-icon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24">' + R.categoryIcon(id) + '</svg>' +
+          '</span><h3></h3><p></p></button>';
+      }).join('');
+      filtersEl.addEventListener('click', function (e) {
+        var card = e.target.closest('.cat-card');
+        if (!card) return;
+        // Pressing the shelf already open steps back out of it.
+        state.type = card.dataset.filter === state.type ? 'all' : card.dataset.filter;
+        saveState();
+        render();
       });
+      if (allBtn) {
+        allBtn.addEventListener('click', function () {
+          state.type = 'all';
+          saveState();
+          render();
+        });
+      }
+      paintShelves();
+    }
+
+    // Names and descriptions on a language change; which one is open
+    // whenever the list is redrawn. aria-pressed is both what the CSS
+    // styles and what a screen reader is told, so they cannot disagree.
+    // The row of buttons, for the page that still has one. Built from
+    // the same list, so neither page can quietly fall a shelf behind.
+    function buildButtons() {
+      filtersEl.innerHTML =
+        '<button class="filter-btn" data-filter="all">' + esc(t('resources.filter.all', 'All')) + '</button>' +
+        R.CATEGORIES.map(function (id) {
+          return '<button class="filter-btn" data-filter="' + esc(id) + '">' +
+            esc(R.categoryLabel(id)) + '</button>';
+        }).join('');
       filtersEl.addEventListener('click', function (e) {
         var btn = e.target.closest('.filter-btn');
         if (!btn) return;
         state.type = btn.dataset.filter;
-        filtersEl.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.toggle('active', b === btn); });
-        saveState(); render();
+        saveState();
+        render();
       });
+      paintShelves();
     }
+
+    function paintShelves() {
+      if (!filtersEl) return;
+      if (!asCards) {
+        filtersEl.querySelectorAll('.filter-btn').forEach(function (b) {
+          var id = b.dataset.filter;
+          b.classList.toggle('active', id === state.type);
+          b.textContent = id === 'all' ? t('resources.filter.all', 'All') : R.categoryLabel(id);
+        });
+        return;
+      }
+      filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
+        var id = card.dataset.filter;
+        var on = id === state.type;
+        card.classList.toggle('active', on);
+        card.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (on) card.setAttribute('aria-current', 'true');
+        else card.removeAttribute('aria-current');
+        card.querySelector('h3').textContent = R.categoryLabel(id);
+        card.querySelector('p').textContent = R.categoryDescribe(id);
+      });
+      if (allBtn) allBtn.setAttribute('aria-pressed', state.type === 'all' ? 'true' : 'false');
+      if (titleEl) {
+        titleEl.textContent = state.type === 'all'
+          ? t('resources.latest', 'Latest downloads')
+          : R.categoryLabel(state.type);
+      }
+    }
+
+    function fileCount(n) {
+      if (!n) return t('resources.count.none', 'Nothing yet');
+      if (n === 1) return t('resources.count.one', '1 download');
+      return t('resources.count', '{n} downloads').replace('{n}', n);
+    }
+
+    buildShelves();
     if (langSel) {
       langSel.addEventListener('change', function () {
         state.lang = langSel.value;

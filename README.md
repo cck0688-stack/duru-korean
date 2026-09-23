@@ -176,6 +176,31 @@ the corresponding `captchaToken` option to the `signUp` /
 
 ## Downloads (Free Downloads, Book Resources)
 
+Both pages are `js/resources.js` over the same table, told apart by
+`window.DURU_RESOURCE_LOCATION`. The shelves — the ids, the glyph, the
+line icon — live once, in `js/resource-common.js` as
+`DURU_RES.CATEGORIES`, and everything reads them: the cards on Free
+Downloads, the row of buttons on Book Resources, the picker in the admin
+editor, the label on a resource page. Adding a shelf is adding it there,
+adding its `resources.cat.*` keys (name and description) to the eight
+dictionaries, and widening `resources_category_check` in
+`supabase/schema.sql`. The ids never change: they are what the database
+stores.
+
+There are six, the sixth being `etc`. Without a catch-all a calendar or
+a song sheet gets filed under a shelf that does not describe it, and the
+five honest shelves quietly stop meaning what they say — the blog
+learned the same thing in §30. Six also sits as two rows of three rather
+than five and a gap.
+
+Free Downloads is filed the way the blog and the community are: one All
+button on its own above the rule, then **Browse by topic** and the
+cards, then a heading naming where the reader is with the count under
+it. Book Resources keeps its plain row of buttons — `buildShelves()`
+looks at whether the element it was given is a `.cat-grid` and builds
+one or the other — but both are built from the same list, so neither
+page can fall a shelf behind the other.
+
 A *resource* is one piece of material; its *files* are the same PDF in
 each language it has been made in (`resources` and `resource_files` in
 `supabase/schema.sql`, section 20). The list shows one card per

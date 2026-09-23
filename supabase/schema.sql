@@ -1690,3 +1690,25 @@ $$;
 revoke all on function public.cache_story_translation(text, uuid, text, text, text, text) from public;
 grant execute on function public.cache_story_translation(text, uuid, text, text, text, text)
   to anon, authenticated;
+
+-- ------------------------------------------------------------------
+-- 34. downloads get a catch-all shelf too
+-- ------------------------------------------------------------------
+-- Five shelves and a sixth kind of file. Everything that is plainly a
+-- Hangul chart or a grammar sheet already has somewhere to go, and
+-- everything that is not — a calendar, a song sheet, a form somebody
+-- needs filled in — had to be filed under a shelf it did not belong on.
+--
+-- The blog learned this the hard way in section 30: a catch-all is not
+-- an admission of failure, it is what stops the five honest shelves
+-- being quietly stretched to cover things they do not describe. It also
+-- makes the row of shelves six, which sits as two rows of three rather
+-- than five and an awkward gap.
+--
+-- Nothing moves. This only widens what is allowed.
+
+alter table public.resources drop constraint if exists resources_category_check;
+
+alter table public.resources
+  add constraint resources_category_check
+  check (category in ('hangul', 'pronunciation', 'vocab', 'grammar', 'reallife', 'etc'));

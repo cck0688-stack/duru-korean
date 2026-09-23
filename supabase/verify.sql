@@ -188,6 +188,11 @@ with checks(item, ok) as (
      and not exists (select 1 from pg_policies
              where schemaname='public' and tablename='app_secrets')),
 
+    ('downloads have a catch-all shelf',
+     exists (select 1 from pg_constraint
+             where conname = 'resources_category_check'
+               and pg_get_constraintdef(oid) like '%etc%')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

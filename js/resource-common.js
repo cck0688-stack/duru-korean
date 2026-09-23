@@ -25,8 +25,39 @@
     { code: 'ja', label: '日本語', short: 'JA' },
     { code: 'zh', label: '中文', short: 'ZH' }
   ];
-  var CATEGORIES = ['hangul', 'pronunciation', 'vocab', 'grammar', 'reallife'];
-  var CATEGORY_GLYPH = { hangul: '한', pronunciation: '음', vocab: '말', grammar: '법', reallife: '삶' };
+  // The shelves, in the order they are shown. This is the one list:
+  // the cards on the downloads page, the picker in the admin editor and
+  // the label on a resource page all read it, so adding a shelf is
+  // adding it here, adding its `resources.cat.*` keys to the eight
+  // dictionaries, and widening resources_category_check in
+  // supabase/schema.sql. The ids never change — they are what the
+  // database stores.
+  //
+  // `etc` is the catch-all, last on purpose. Without one, a calendar or
+  // a song sheet gets filed under a shelf that does not describe it,
+  // and the five honest shelves quietly stop meaning what they say.
+  var CATEGORIES = ['hangul', 'pronunciation', 'vocab', 'grammar', 'reallife', 'etc'];
+  var CATEGORY_GLYPH = {
+    hangul: '한', pronunciation: '음', vocab: '말',
+    grammar: '법', reallife: '삶', etc: '글'
+  };
+
+  // Drawn, not fetched — the same three-line SVGs the blog and the
+  // community use, inheriting their stroke from the cards' CSS.
+  var CATEGORY_ICON = {
+    // a sheet with the Hangul letter shapes on it
+    hangul: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h3M9.5 8v3.5"/><path d="M14 8v4M13 16h6M16 13.5v5"/><path d="M8 13.5h3.5"/>',
+    // a mouth and sound waves leaving it
+    pronunciation: '<path d="M4.5 9.5v5"/><path d="M8 7v10"/><path d="M11.5 10v4"/><path d="M15.4 8.3a5.2 5.2 0 0 1 0 7.4"/><path d="M18.3 5.8a8.8 8.8 0 0 1 0 12.4"/>',
+    // a stack of word cards
+    vocab: '<rect x="3" y="7" width="13" height="10" rx="1.8"/><path d="M7 11h5M7 13.5h3"/><path d="M18.5 8.5v9a1.8 1.8 0 0 1-1.8 1.8H8"/>',
+    // a ruled sheet with a check on it
+    grammar: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 11.5h8"/><path d="M8.5 15.8l2 2 4.5-4.5"/>',
+    // a shopfront — Korean as it is actually used
+    reallife: '<path d="M3.5 9.5 5 4.5h14l1.5 5"/><path d="M4.5 9.5v10h15v-10"/><path d="M3.5 9.5a2.6 2.6 0 0 0 5.2 0 2.6 2.6 0 0 0 5.2 0 2.6 2.6 0 0 0 5.2 0"/><path d="M9.5 19.5v-5h5v5"/>',
+    // a folder, for the things that are none of the above
+    etc: '<path d="M3.5 7.2a1.7 1.7 0 0 1 1.7-1.7h3.4l2 2.4h7.7a1.7 1.7 0 0 1 1.7 1.7v8.9a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7Z"/>'
+  };
   var LEVELS = ['Any level', 'Beginner', 'Intermediate', 'Advanced'];
 
   // 50 MB is what a Supabase project allows per upload by default, and
@@ -145,6 +176,8 @@
   function langShort(code) { return langEntry(code).short; }
 
   function categoryLabel(cat) { return t('resources.cat.' + cat, cat); }
+  function categoryDescribe(cat) { return t('resources.cat.' + cat + '.desc', ''); }
+  function categoryIcon(cat) { return CATEGORY_ICON[cat] || CATEGORY_ICON.etc; }
   function levelLabel(level) {
     var map = {
       'Any level': t('resources.levelAny', 'Any level'),
@@ -232,7 +265,8 @@
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,
     siteLang: siteLang, preferredLang: preferredLang, langLabel: langLabel, langShort: langShort, langEntry: langEntry,
-    categoryLabel: categoryLabel, levelLabel: levelLabel,
+    categoryLabel: categoryLabel, categoryDescribe: categoryDescribe,
+    categoryIcon: categoryIcon, levelLabel: levelLabel,
     localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
     pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin
