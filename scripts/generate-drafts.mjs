@@ -45,6 +45,7 @@ const CATEGORIES = [
   { id: 'explore', about: 'neighbourhoods, K-pop and drama locations, everyday Korean experiences, day trips' },
   { id: 'campus', about: 'living here long term: visas and paperwork, housing, healthcare, multicultural support' },
   { id: 'career', about: 'working in Korea: part-time work permits, job hunting, resumes, internships' },
+  { id: 'language', about: 'the Korean language itself: useful expressions, common mistakes, what a word really means' },
   { id: 'etc', about: 'cultural nuances, news and policy for foreigners, and anything that fits nowhere else' }
 ];
 

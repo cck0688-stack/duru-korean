@@ -174,10 +174,6 @@
       : msg;
   }
 
-  function countByCategory(list, cat) {
-    return list.filter(function (p) { return p.category === cat; }).length;
-  }
-
   // Tags are typed as one comma-separated field and stored as an array.
   function parseTags(input) {
     var seen = Object.create(null);
@@ -315,10 +311,9 @@
     var toolbarEl = document.getElementById('blogToolbar');
     var leadInEl = document.querySelector('.section-lead-in');
     var filtersEl = document.getElementById('blogFilters');
-    var landingEl = document.getElementById('blogLanding');
-    var picksWrapEl = document.getElementById('blogPicksWrap');
-    var picksEl = document.getElementById('blogPicks');
     var allTitleEl = document.getElementById('blogAllTitle');
+    var countEl = document.getElementById('blogCount');
+    var allBtn = document.getElementById('blogAllBtn');
     var langSel = document.getElementById('blogLang');
     var writeBtn = document.getElementById('writePostBtn');
     if (!listEl) return;
@@ -463,89 +458,59 @@
 
     /* ---------------- The eight topics ---------------- */
 
-    // All, then the seven topics. Each card carries the name, the one
-    // sentence saying what is on it, and how many posts it holds in the
-    // language being read. This is the whole navigation: the one that
-    // is open is filled in, and there is nothing else to work.
+    // Eight cards, each an icon, a name and the one sentence saying
+    // what is on it. No count: a shelf with nothing on it yet should
+    // read as a place to go, not as a zero.
     //
-    // They are real links, so middle-click and "open in new tab" do
-    // what they should; a plain click filters in place.
+    // They are links, so middle-click and "open in new tab" do what
+    // they should; a plain click filters in place. `aria-pressed` is
+    // what a screen reader is told, and what the CSS styles, so the two
+    // can never disagree about which topic is open.
     function buildCategoryBar() {
       if (!filtersEl) return;
-      filtersEl.innerHTML = [{ id: 'all' }].concat(B.CATEGORIES).map(function (c) {
-        return '<a class="cat-card" href="' + B.href(c.id === 'all' ? '' : c.id) +
-          '" data-filter="' + escapeHTML(c.id) + '">' +
-          '<h3></h3><p></p><span class="cat-card-count"></span></a>';
+      filtersEl.innerHTML = B.CATEGORIES.map(function (c) {
+        return '<a class="cat-card" href="' + B.href(c.id) +
+          '" data-filter="' + escapeHTML(c.id) + '" aria-pressed="false">' +
+          '<span class="cat-card-icon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24">' + B.icon(c.id) + '</svg>' +
+          '</span><h3></h3><p></p></a>';
       }).join('');
       paintCategoryBar();
     }
 
-    // Names and descriptions on a language change; counts whenever the
-    // list is rebuilt, since they follow the language being browsed.
+    // Names and descriptions, on load and on a language change.
     function paintCategoryBar() {
       if (!filtersEl) return;
       filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
         var id = card.dataset.filter;
-        card.querySelector('h3').textContent = id === 'all'
-          ? t('blog.allPosts', 'All posts') : B.label(id);
-        card.querySelector('p').textContent = id === 'all'
-          ? t('blog.allPosts.desc', 'Everything on the blog, newest first.')
-          : B.describe(id);
+        card.querySelector('h3').textContent = B.label(id);
+        card.querySelector('p').textContent = B.describe(id);
       });
-      paintCategoryCounts();
-    }
-
-    function paintCategoryCounts() {
-      if (!filtersEl) return;
-      var countable = posts.filter(function (p) {
-        return readableHere(p) && (p.published || isAdmin);
-      });
-      filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
-        var id = card.dataset.filter;
-        card.querySelector('.cat-card-count').textContent =
-          postCount(id === 'all' ? countable.length : countByCategory(countable, id));
-      });
+      markActiveFilter();
     }
 
     /* ---------------- Rendering ---------------- */
 
-    // A few posts worth starting on, once there are enough of them to
-    // make picking three mean anything. Only on the unfiltered list.
-    function renderLanding() {
-      if (!landingEl) return;
-      var on = activeFilter === 'all' && !activeTag;
-      landingEl.hidden = !on;
-      // The list's own heading says where the reader is, since the
-      // card above is the only other thing that does.
+    // The heading over the list says where the reader is — "Latest
+    // posts", or the topic they picked — and the line under it says how
+    // many are actually there, in the language being read. The count is
+    // the list's own, not a guess: an empty topic says so rather than
+    // showing a heading over nothing.
+    // `showing` is the list's own length, passed in rather than counted
+    // again here: a heading that says four over a list of seven is
+    // worse than no heading, and two predicates kept in step by hand is
+    // how that happens.
+    function renderLanding(showing) {
       if (allTitleEl) {
         allTitleEl.textContent = activeFilter === 'all'
-          ? t('blog.allPosts', 'All posts') : categoryLabel(activeFilter);
+          ? t('blog.latestPosts', 'Latest posts') : categoryLabel(activeFilter);
         allTitleEl.hidden = !!activeTag;
       }
-      if (!on) return;
-
-      // Recommended rather than measured: the newest post on each of
-      // the three shelves a new arrival reaches for first. No counter
-      // to keep, and nothing that reads as popularity it has not earned.
-      if (picksEl && picksWrapEl) {
-        var picked = [];
-        ['travel', 'dining', 'campus'].forEach(function (cat) {
-          var hit = posts.filter(function (p) {
-            return p.category === cat && p.published && readableHere(p) &&
-              picked.indexOf(p) === -1;
-          })[0];
-          if (hit) picked.push(hit);
-        });
-        // On a young blog every pick is also two rows further down, so
-        // the section waits until the list is long enough for a
-        // shortcut into it to be worth anything.
-        var enough = posts.filter(function (p) {
-          return p.published && readableHere(p);
-        }).length > 6;
-        picksWrapEl.hidden = picked.length < 2 || !enough;
-        picksEl.innerHTML = picksWrapEl.hidden ? '' : picked.map(cardHTML).join('');
-        wireCardLinks(picksEl);
+      if (countEl) {
+        countEl.textContent = activeTag ? '' : postCount(showing);
+        countEl.hidden = !!activeTag;
       }
+      if (allBtn) allBtn.setAttribute('aria-pressed', activeFilter === 'all' ? 'true' : 'false');
     }
 
     function readableHere(p) {
@@ -591,8 +556,7 @@
         return matchesFilters(p) && readableLangs(p).indexOf(listLang) !== -1;
       });
       renderTagBanner();
-      renderLanding();
-      paintCategoryCounts();
+      renderLanding(shown.length);
       listEl.innerHTML = shown.map(cardHTML).join('');
 
       if (shown.length) {
@@ -613,7 +577,11 @@
             }).join('');
           suggestEl.hidden = false;
         } else {
-          emptyText.textContent = t('blog.emptyNote', 'No posts yet — the first one is on its way.');
+          // An empty topic and an empty blog are not the same thing:
+          // one says come back, the other says try another shelf.
+          emptyText.textContent = activeFilter === 'all'
+            ? t('blog.emptyNote', 'No posts yet — the first one is on its way.')
+            : t('blog.emptyTopic', 'No posts in this topic yet.');
           suggestEl.innerHTML = '';
           suggestEl.hidden = true;
         }
@@ -689,8 +657,8 @@
       if (toolbarEl) toolbarEl.hidden = true;
       if (leadInEl) leadInEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
-      if (landingEl) landingEl.hidden = true;
       if (allTitleEl) allTitleEl.hidden = true;
+      if (countEl) countEl.hidden = true;
       var postUrl = location.origin + B.postHref(post.slug);
 
       // Which language to read it in: the one asked for in ?pl=, else
@@ -948,8 +916,8 @@
       if (toolbarEl) toolbarEl.hidden = true;
       if (leadInEl) leadInEl.hidden = true;
       if (emptyEl) emptyEl.hidden = true;
-      if (landingEl) landingEl.hidden = true;
       if (allTitleEl) allTitleEl.hidden = true;
+      if (countEl) countEl.hidden = true;
       singleEl.innerHTML =
         '<a class="blog-back" href="/blog">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
         '<h1>' + escapeHTML(t('blog.notFoundTitle', 'Post not found')) + '</h1>' +
@@ -1881,14 +1849,19 @@
 
     /* ---------------- Filters, admin state ---------------- */
 
+    // One topic is open at a time, and three things have to agree on
+    // which: the styling, what a screen reader announces, and the
+    // address bar. aria-pressed carries the first two.
     function markActiveFilter() {
       if (!filtersEl) return;
       filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
         var on = card.dataset.filter === activeFilter;
         card.classList.toggle('active', on);
+        card.setAttribute('aria-pressed', on ? 'true' : 'false');
         if (on) card.setAttribute('aria-current', 'true');
         else card.removeAttribute('aria-current');
       });
+      if (allBtn) allBtn.setAttribute('aria-pressed', activeFilter === 'all' ? 'true' : 'false');
     }
 
     // One re-render for every way of changing which topic is open.
@@ -1905,7 +1878,18 @@
         var card = e.target.closest('.cat-card');
         if (!card || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
         e.preventDefault();
-        activeFilter = card.dataset.filter;
+        // Picking the topic already open is how a reader steps back out
+        // of it, which is what they expect from something that looks
+        // pressed.
+        activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
+        applyFilters();
+      });
+    }
+
+    // "All posts" is not a ninth card; it is the way back to everything.
+    if (allBtn) {
+      allBtn.addEventListener('click', function () {
+        activeFilter = 'all';
         applyFilters();
       });
     }

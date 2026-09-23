@@ -49,30 +49,62 @@
     <span class="page-hero-mark" aria-hidden="true">소통</span>
     <h1 data-i18n="storiesPage.h1">Community</h1>
     <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline" data-i18n="storiesPage.tagline">Ask, share, and meet other people learning Korean.</p>
-    <div data-i18n="storiesPage.krSub">The Duru Community</div>
+    <p class="page-hero-tagline" data-i18n="storiesPage.tagline">Ask questions, share experiences, and connect with others.</p>
   </div>
 </section>
 
 <section class="section section-after-hero">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="storiesPage.leadIn">Three places to start: ask a question, tell us how it is going, or introduce yourself.</p>
+    <!-- Everything, on its own above the rule — the same button the
+         blog has, for the same reason: it is the way back out of a
+         topic, not a fourth one. -->
+    <div class="topic-bar reveal">
+      <button type="button" class="all-posts" id="storyAllBtn" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+        </svg>
+        <span data-i18n="community.allPosts">All posts</span>
+      </button>
+    </div>
+    <div class="topic-rule"></div>
 
-    <!-- All, then the three shelves: four cards, each with the one line
-         that says what belongs on it. The same navigation the blog
-         uses, built in js/stories.js from window.DURU_COMMUNITY. -->
-    <nav class="cat-grid" id="storyFilters" aria-label="Community topics"></nav>
+    <!-- The three shelves, built in js/stories.js from
+         window.DURU_COMMUNITY. -->
+    <h2 class="browse-head" data-i18n="blog.browseByTopic">Browse by topic</h2>
+    <nav class="cat-grid cat-grid--three reveal" id="storyFilters" aria-label="Community topics"></nav>
 
-    <div class="story-toolbar reveal">
-      <button type="button" class="btn btn-primary" id="writeStoryBtn" hidden data-i18n="stories.writeBtn">+ Write a post</button>
-      <div class="story-signed-out" id="storySignedOutNote" hidden>
-        <span data-i18n="stories.signInPrompt">Log in to post.</span>
-        <button type="button" class="btn btn-ghost" id="storyLoginBtn" data-i18n="stories.signInCta">Log in →</button>
+    <div class="topic-rule"></div>
+
+    <div class="list-head">
+      <div>
+        <h2 id="storyAllTitle" data-i18n="community.latest">Latest discussions</h2>
+        <p class="list-head-count" id="storyCount"></p>
+      </div>
+      <div class="story-toolbar">
+        <button type="button" class="btn btn-primary" id="writeStoryBtn" hidden data-i18n="stories.writeBtn">+ Write a post</button>
+        <div class="story-signed-out" id="storySignedOutNote" hidden>
+          <span data-i18n="stories.signInPrompt">Log in to post.</span>
+          <button type="button" class="btn btn-ghost" id="storyLoginBtn" data-i18n="stories.signInCta">Log in →</button>
+        </div>
       </div>
     </div>
 
     <div class="story-list" id="storyList"></div>
-    <p class="resource-empty-note" id="storyEmpty" hidden data-i18n="stories.emptyNote">No stories yet — yours could be the first.</p>
+    <!-- Only when there really is nothing: a panel, not a stray line. -->
+    <div class="story-empty" id="storyEmpty" hidden>
+      <span class="story-empty-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.5 12.5c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.6-.34L4 21l1.3-3.4a6.7 6.7 0 0 1-2.3-5c0-4 3.8-7.2 8.5-7.2s9 3.2 9 7.2Z"/>
+        </svg>
+      </span>
+      <p class="story-empty-title" id="storyEmptyTitle" data-i18n="community.emptyTitle">No discussions yet.</p>
+      <p class="story-empty-sub" data-i18n="community.emptySub">Ask a question, share a story, or say hello.</p>
+    </div>
   </div>
 </section>
 

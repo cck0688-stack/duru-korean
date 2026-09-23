@@ -20,6 +20,17 @@
     { id: 'meet' }
   ];
 
+  // Drawn, not fetched — the same three-line SVGs the blog's shelves
+  // use, inheriting their stroke from the cards' CSS.
+  var ICONS = {
+    // a speech bubble with a question mark in it
+    ask: '<path d="M20.5 12.5c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.6-.34L4 21l1.3-3.4a6.7 6.7 0 0 1-2.3-5c0-4 3.8-7.2 8.5-7.2s9 3.2 9 7.2Z"/><path d="M9.8 10a2.2 2.2 0 1 1 2.8 2.1c-.5.2-.8.6-.8 1.1v.4"/><path d="M11.8 15.7h.01"/>',
+    // two bubbles, one behind the other
+    share: '<path d="M16.5 10.5c0 2.8-2.8 5-6.2 5a8 8 0 0 1-1.9-.23L5 16.5l.9-2.4a4.9 4.9 0 0 1-1.6-3.6c0-2.8 2.8-5 6.2-5s6 2.2 6 5Z"/><path d="M17.4 8.6c1.7.8 2.8 2.3 2.8 4 0 1.2-.5 2.3-1.4 3.1l.8 2.2-2.3-1a7.6 7.6 0 0 1-1.8.2 6.9 6.9 0 0 1-3.2-.76"/>',
+    // two people
+    meet: '<circle cx="9" cy="8" r="3.2"/><path d="M3 19.5a6 6 0 0 1 12 0"/><path d="M16.2 5.3a3.2 3.2 0 0 1 0 6"/><path d="M17.5 14.2a6 6 0 0 1 3.5 5.3"/>'
+  };
+
   var byId = {};
   CATEGORIES.forEach(function (c) { byId[c.id] = c; });
 
@@ -37,6 +48,7 @@
     CATEGORIES: CATEGORIES,
     ids: CATEGORIES.map(function (c) { return c.id; }),
     has: function (id) { return !!byId[id]; },
+    icon: function (id) { return ICONS[id] || ICONS.share; },
     label: function (id) { return t('community.cat.' + id, humanise(id)); },
     describe: function (id) { return t('community.cat.' + id + '.desc', ''); },
 

@@ -428,13 +428,29 @@ matter:
 | `explore` | Explore | neighbourhoods, K-pop and drama locations, day trips |
 | `campus` | Campus & Life | visas, housing, healthcare, multicultural support |
 | `career` | Career | part-time permits, job hunting, resumes, internships |
+| `language` | Korean Language Tips | useful expressions, common mistakes, everyday Korean made simple |
 | `etc` | ETC | cultural nuance, news for foreigners, and whatever fits nowhere else |
 
-Eight cards at the top of the page — All, then the seven — and that is
-the whole navigation. Each card carries its name, the one sentence
-saying what is on it, and how many posts it holds in the language being
-read; the one that is open is filled in. There is no row of pills above
-them, no hero panel, and no glyphs.
+The way in is the same on Blog and on Community, so the two read as one
+site: a wide "All posts" button alone above a thin rule, then a grid of
+cards under a small "Browse by topic" heading.
+
+"All posts" is deliberately not one of the cards. It is how a reader
+gets back out of a topic, so it is bigger than a card, sits on its own,
+and is filled in while everything is showing and outlined while a topic
+is. The language picker is lifted out of the flow beside it, because
+otherwise the button would centre on what is left of the row rather
+than on the column.
+
+Each card is an icon, a name and one sentence — no count. A shelf with
+nothing on it yet should read as a place to go, not as a zero, and the
+number a reader actually wants is the one over the list. The sentence is
+never clipped: the card grows, and the row grows with the tallest card.
+
+`aria-pressed` is both what the CSS styles and what a screen reader is
+told, so the two cannot disagree about which topic is open. Pressing the
+open topic steps back out of it. Four columns, two on a tablet, one on a
+phone.
 
 Sub-topics were built and taken out again: twenty-four of them behind
 hover menus made a wall where a way in was wanted, and the menus covered

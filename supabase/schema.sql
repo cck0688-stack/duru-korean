@@ -1536,3 +1536,22 @@ alter table public.stories
 
 create index if not exists stories_category_idx
   on public.stories (category, created_at desc);
+
+-- ------------------------------------------------------------------
+-- 32. Korean Language Tips comes back as a shelf of its own
+-- ------------------------------------------------------------------
+-- Section 27 folded 'language' into the catch-all on the grounds that
+-- study material lives elsewhere on the site. That was true of lessons
+-- and worksheets; it was not true of the small things — why a stranger
+-- asks your age before choosing a verb ending, which of two words for
+-- "you" is safe. Those are blog posts, and they had nowhere to go.
+--
+-- Eight shelves now. Anything filed under 'etc' stays there; this only
+-- widens what is allowed.
+
+alter table public.posts drop constraint if exists posts_category_check;
+
+alter table public.posts
+  add constraint posts_category_check
+  check (category in ('travel', 'dining', 'style', 'explore',
+                      'campus', 'career', 'language', 'etc'));

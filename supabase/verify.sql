@@ -41,12 +41,18 @@ with checks(item, ok) as (
              where conname='posts_category_check'
                and pg_get_constraintdef(oid) like '%campus%')),
 
-    -- The catch-all is 'etc'; 'community' is the guestbook now.
+    -- The catch-all is 'etc'; 'community' is the guestbook now. And
+    -- 'language' is a shelf again — section 32.
     ('the catch-all topic is etc, not community',
      exists (select 1 from pg_constraint
              where conname='posts_category_check'
                and pg_get_constraintdef(oid) like '%etc%'
                and pg_get_constraintdef(oid) not like '%community%')),
+
+    ('Korean Language Tips is a topic of its own',
+     exists (select 1 from pg_constraint
+             where conname='posts_category_check'
+               and pg_get_constraintdef(oid) like '%language%')),
 
     ('posts carries its own date (post_date, draft_created_at, …)',
      (select count(*) from information_schema.columns

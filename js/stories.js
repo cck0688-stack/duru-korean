@@ -77,6 +77,10 @@
     // someone can send and a back button that means something.
     var C = window.DURU_COMMUNITY;
     var filtersEl = document.getElementById('storyFilters');
+    var allBtn = document.getElementById('storyAllBtn');
+    var titleEl = document.getElementById('storyAllTitle');
+    var countEl = document.getElementById('storyCount');
+    var emptyTitleEl = document.getElementById('storyEmptyTitle');
     var activeFilter = (C && C.route(location.pathname, location.search).cat) || 'all';
     if (C && activeFilter !== 'all' && !C.has(activeFilter)) activeFilter = 'all';
 
@@ -84,10 +88,12 @@
 
     function buildFilterBar() {
       if (!filtersEl || !C) return;
-      filtersEl.innerHTML = [{ id: 'all' }].concat(C.CATEGORIES).map(function (c) {
-        return '<a class="cat-card" href="' + C.href(c.id === 'all' ? '' : c.id) +
-          '" data-filter="' + escapeHTML(c.id) + '">' +
-          '<h3></h3><p></p><span class="cat-card-count"></span></a>';
+      filtersEl.innerHTML = C.CATEGORIES.map(function (c) {
+        return '<a class="cat-card" href="' + C.href(c.id) +
+          '" data-filter="' + escapeHTML(c.id) + '" aria-pressed="false">' +
+          '<span class="cat-card-icon" aria-hidden="true">' +
+            '<svg viewBox="0 0 24 24">' + C.icon(c.id) + '</svg>' +
+          '</span><h3></h3><p></p></a>';
       }).join('');
       // A card is a link, so it still works without JavaScript and can
       // be opened in a new tab — but within the page it filters rather
@@ -96,29 +102,38 @@
         card.addEventListener('click', function (e) {
           if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
           e.preventDefault();
-          activeFilter = card.dataset.filter;
+          // Pressing the topic already open steps back out of it.
+          activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
           syncURL();
           renderList();
         });
       });
+      if (allBtn) {
+        allBtn.addEventListener('click', function () {
+          activeFilter = 'all';
+          syncURL();
+          renderList();
+        });
+      }
       paintFilterBar();
     }
 
-    // Names and descriptions on a language change; counts whenever the
-    // list is rebuilt.
+    // Names and descriptions on a language change; which one is open
+    // whenever the list is rebuilt. aria-pressed is both what the CSS
+    // styles and what a screen reader is told, so they cannot disagree.
     function paintFilterBar() {
       if (!filtersEl || !C) return;
       filtersEl.querySelectorAll('.cat-card').forEach(function (card) {
         var id = card.dataset.filter;
-        card.classList.toggle('active', id === activeFilter);
-        card.querySelector('h3').textContent = id === 'all'
-          ? t('community.allPosts', 'All posts') : C.label(id);
-        card.querySelector('p').textContent = id === 'all'
-          ? t('community.allPosts.desc', 'Everything the community has written, newest first.')
-          : C.describe(id);
-        card.querySelector('.cat-card-count').textContent =
-          postCount(id === 'all' ? stories.length : countIn(id));
+        var on = id === activeFilter;
+        card.classList.toggle('active', on);
+        card.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (on) card.setAttribute('aria-current', 'true');
+        else card.removeAttribute('aria-current');
+        card.querySelector('h3').textContent = C.label(id);
+        card.querySelector('p').textContent = C.describe(id);
       });
+      if (allBtn) allBtn.setAttribute('aria-pressed', activeFilter === 'all' ? 'true' : 'false');
     }
 
     // A row written before the shelves existed has no category; it is
@@ -208,15 +223,22 @@
     function renderList() {
       listEl.innerHTML = '';
       var list = shown();
+      if (titleEl) {
+        titleEl.textContent = activeFilter === 'all'
+          ? t('community.latest', 'Latest discussions')
+          : (C ? C.label(activeFilter) : activeFilter);
+      }
+      if (countEl) countEl.textContent = postCount(list.length);
       if (emptyEl) {
         emptyEl.hidden = list.length > 0;
         // "Nothing here yet" should say where here is: an empty shelf
         // and an empty community are not the same thing, and a reader
         // who picked Meet & Connect has not seen the rest of the page.
-        emptyEl.textContent = activeFilter === 'all'
-          ? t('stories.emptyNote', 'No stories yet — yours could be the first.')
-          : t('community.emptyHere', 'Nothing on {topic} yet — yours could be the first.')
-              .replace('{topic}', C ? C.label(activeFilter) : activeFilter);
+        if (emptyTitleEl) {
+          emptyTitleEl.textContent = activeFilter === 'all'
+            ? t('community.emptyTitle', 'No discussions yet.')
+            : t('community.emptyHere', 'No discussions in this topic yet.');
+        }
       }
       paintFilterBar();
       list.forEach(function (s) {

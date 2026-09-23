@@ -49,44 +49,54 @@
     <span class="page-hero-mark" aria-hidden="true">글</span>
     <h1 data-i18n="blogPage.h1">Blog</h1>
     <div class="page-hero-rule"></div>
-    <p class="page-hero-tagline" data-i18n="blogPage.tagline">Living, studying and travelling in Korea.</p>
-    <div data-i18n="blogPage.krSub">두루 블로그</div>
+    <p class="page-hero-tagline" data-i18n="blogPage.tagline">Your guide to Korean language, culture, and everyday life.</p>
   </div>
 </section>
 
 <section class="section section-after-hero">
   <div class="wrap">
-    <p class="section-lead-in" data-i18n="blogPage.leadIn">Written for people who came here from somewhere else: five days, four years, or somewhere in between.</p>
-    <div class="dl-toolbar reveal" id="blogToolbar">
-      <!-- All, then the seven topics: eight cards, each with the one
-           line that says what is on it. This is the whole navigation —
-           built in js/blog.js from window.DURU_BLOG, so the list of
-           topics has one home. -->
-      <nav class="cat-grid" id="blogFilters" aria-label="Blog topics"></nav>
-      <div class="dl-toolbar-row">
+    <!-- Everything, on its own, above the rule: not a ninth card but
+         the way back out of a topic. The language picker is lifted out
+         of the flow beside it so the button sits on the centre of the
+         column rather than the centre of what is left. -->
+    <div class="topic-bar reveal">
+      <button type="button" class="all-posts" id="blogAllBtn" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+          <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>
+        </svg>
+        <span data-i18n="blog.allPosts">All posts</span>
+      </button>
+      <div class="topic-bar-side">
         <label class="dl-lang" for="blogLang">
           <span data-i18n="resources.langPick">Pick a language</span>
           <select id="blogLang"></select>
         </label>
-        <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
       </div>
     </div>
+    <div class="topic-rule"></div>
+
+    <!-- The eight shelves, built in js/blog.js from window.DURU_BLOG so
+         the list of topics has one home. -->
+    <h2 class="browse-head" data-i18n="blog.browseByTopic">Browse by topic</h2>
+    <nav class="cat-grid reveal" id="blogFilters" aria-label="Blog topics"></nav>
 
     <div id="blogSingle" class="blog-single" hidden></div>
 
-    <!-- A few posts worth starting on, once there are enough to make
-         picking three of them mean anything. Only on the unfiltered
-         list; picking a topic replaces it. -->
-    <div class="blog-landing" id="blogLanding" hidden>
-      <div class="blog-landing-picks" id="blogPicksWrap" hidden>
-        <h2 class="blog-landing-title" data-i18n="blog.trending">Worth reading first</h2>
-        <div class="resource-grid" id="blogPicks"></div>
-      </div>
-    </div>
+    <div class="topic-rule"></div>
 
-    <!-- The heading names where the reader is: "All posts", or the
-         topic they picked. The empty state sits under it, not above. -->
-    <h2 class="blog-landing-title blog-all-title" id="blogAllTitle">All posts</h2>
+    <!-- The heading names where the reader is: "Latest posts", or the
+         topic they picked, with how many are actually under it. -->
+    <div class="list-head">
+      <div>
+        <h2 id="blogAllTitle" data-i18n="blog.latestPosts">Latest posts</h2>
+        <p class="list-head-count" id="blogCount"></p>
+      </div>
+      <button type="button" class="btn btn-ghost" id="writePostBtn" hidden data-i18n="blog.writeBtn">+ Write a post</button>
+    </div>
     <div class="resource-empty" id="blogEmpty" hidden>
       <p id="blogEmptyText" data-i18n="blog.emptyNote">No posts yet — the first one is on its way.</p>
       <div class="res-lang-suggest" id="blogLangSuggest" hidden></div>

@@ -51,6 +51,10 @@
       about: 'working in Korea: part-time work permits, job hunting, resumes, internships'
     },
     {
+      id: 'language',
+      about: 'the Korean language itself: useful expressions, common mistakes, what a word really means'
+    },
+    {
       id: 'etc',
       about: 'cultural nuances, news and policy for foreigners, and anything that fits nowhere else'
     }
@@ -66,6 +70,29 @@
     tourists: 'short-term visitors, here for days or weeks, no Korean address',
     students: 'international students on a study visa, living on or near a campus',
     expats: 'people settled in Korea for years — work, family, a home of their own'
+  };
+
+  // A line icon per shelf, drawn rather than fetched: eight small SVGs
+  // weigh less than one icon font, take the colour of the text around
+  // them, and cannot fail to load. Each is a 24×24 viewBox and inherits
+  // stroke from CSS, so the cards style them, not this file.
+  var ICONS = {
+    // an aeroplane
+    travel: '<path d="M21 15.5 3.5 9.8a.6.6 0 0 1 0-1.13l2.1-.77a1 1 0 0 1 .73.02l3.2 1.4 3.6-1.3-2.5-3.2a.6.6 0 0 1 .27-.93l1.5-.55a1 1 0 0 1 .9.12L19 6.9l2.2-.8a1.6 1.6 0 1 1 1.1 3l-1.3.47"/><path d="M4 19h16"/>',
+    // a bowl with steam
+    dining: '<path d="M3.5 11h17a8.5 8.5 0 0 1-17 0Z"/><path d="M5.5 19h13"/><path d="M9 7.5c0-1 1-1.4 1-2.4S9 3.2 9 3.2"/><path d="M13 7.5c0-1 1-1.4 1-2.4s-1-1.9-1-1.9"/>',
+    // a cosmetics bottle with a sparkle
+    style: '<rect x="8" y="8" width="8" height="13" rx="2"/><path d="M10.5 8V5.5h3V8"/><path d="M11 3h2"/><path d="M19 4l.6 1.7L21.3 6l-1.7.6L19 8.3l-.6-1.7L16.7 6l1.7-.6Z"/>',
+    // a tiled roof over pillars
+    explore: '<path d="M3 9h18L12 3 3 9Z"/><path d="M5 9v9"/><path d="M9.5 9v9"/><path d="M14.5 9v9"/><path d="M19 9v9"/><path d="M3 21h18"/>',
+    // a graduation cap
+    campus: '<path d="M12 4 2 9l10 5 10-5-10-5Z"/><path d="M6 11.5V17c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5.5"/><path d="M22 9v5"/>',
+    // a briefcase
+    career: '<rect x="2.5" y="7.5" width="19" height="12.5" rx="2"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5"/><path d="M2.5 13h19"/>',
+    // an open book
+    language: '<path d="M12 7.5C10.5 6 8.4 5.3 4 5.3v12c4.4 0 6.5.7 8 2.2 1.5-1.5 3.6-2.2 8-2.2v-12c-4.4 0-6.5.7-8 2.2Z"/><path d="M12 7.5v12"/>',
+    // a speech bubble
+    etc: '<path d="M20.5 12.5c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.6-.34L4 21l1.3-3.4a6.7 6.7 0 0 1-2.3-5c0-4 3.8-7.2 8.5-7.2s9 3.2 9 7.2Z"/>'
   };
 
   var byId = {};
@@ -91,6 +118,9 @@
     AUDIENCES: AUDIENCES,
     ids: CATEGORIES.map(function (c) { return c.id; }),
     get: function (id) { return byId[id] || null; },
+    // The shelf's icon, ready to drop inside a <svg>. Unknown ids get
+    // the speech bubble rather than an empty circle.
+    icon: function (id) { return ICONS[id] || ICONS.etc; },
     label: function (id) { return t('blog.cat.' + id, humanise(id)); },
     // The short name the top navigation and the topic bar have room
     // for: "Campus & Life" rather than "Campus & Living Support".
