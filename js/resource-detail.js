@@ -115,8 +115,29 @@
     }
 
     // The one control an admin looks for after uploading: is this live?
+    //
+    // A sheet the daily run wrote is a different case. It has a status
+    // — review, changes, rejected — and its files are drafts that only
+    // the review screen can approve, one version at a time, through the
+    // database's own gate. The toggle here flips a column; it cannot
+    // publish a draft file, and for a while it said "everyone can see
+    // this download" about a sheet nobody could see. So a sheet that is
+    // still in the queue gets told where the queue is, and no toggle.
+    function inReview() {
+      return !!(resource.status && resource.status !== 'published');
+    }
+
     function renderStatus() {
       var box = $('resStatus');
+      if (inReview()) {
+        box.className = 'res-status res-status--draft';
+        box.innerHTML =
+          '<span>' + esc(t('resource.statusReview', 'Waiting for review — nobody can see this download until it is approved on the review screen.')) + '</span>' +
+          '<a class="btn btn-primary" id="resReviewLink" href="review.html">' +
+            esc(t('resource.reviewLink', 'Open the review screen')) + '</a>';
+        box.hidden = false;
+        return;
+      }
       var live = resource.published !== false;
       box.className = 'res-status ' + (live ? 'res-status--live' : 'res-status--draft');
       box.innerHTML =
@@ -150,8 +171,13 @@
       var notice = $('resLangNotice');
       var preferred = wantLang || tunedTo || R.siteLang();
       sel.innerHTML = files.map(function (f) {
+        // A draft has a file in the drafts bucket and none in the public
+        // one; "hidden" is for a file that was published and then taken
+        // down, which is a different thing to say to an admin.
+        var mark = !f.storage_key && f.draft_key ? t('resource.draftFile', 'not approved yet')
+                 : f.published === false ? t('resource.hiddenFile', 'hidden') : '';
         return '<option value="' + esc(f.id) + '">' + esc(R.langLabel(f.lang)) +
-          (f.published === false ? ' — ' + esc(t('resource.hiddenFile', 'hidden')) : '') + '</option>';
+          (mark ? ' — ' + esc(mark) : '') + '</option>';
       }).join('');
       var match = files.filter(function (f) { return f.lang === preferred; })[0];
       chosen = match || (chosen && files.filter(function (f) { return f.id === chosen.id; })[0]) || files[0] || null;
@@ -208,13 +234,22 @@
     function fetchLink(download) {
       if (!currentUser) { R.openLogin(); return Promise.reject(new Error('login')); }
       if (!chosen) return Promise.reject(new Error('no file'));
-      return R.signedUrl(client, chosen.storage_key, download);
+      if (chosen.storage_key) return R.signedUrl(client, chosen.storage_key, download);
+      // Not approved yet: the only copy is in the private drafts bucket,
+      // which the storage policy opens to admins alone. Asking for a
+      // signed link to a key of null used to fail with "could not be
+      // created", which told the admin nothing about why.
+      if (chosen.draft_key && isAdmin) {
+        return R.signedUrl(client, chosen.draft_key.replace(/^resource-drafts\//, ''), download, R.DRAFTS);
+      }
+      if (window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resource.noFileLink', 'This version has no file to open yet.'));
+      return Promise.reject(new Error('no file'));
     }
     $('resPreviewBtn').addEventListener('click', function () {
       var btn = this; btn.disabled = true;
       fetchLink(false).then(function (url) { window.open(url, '_blank', 'noopener'); })
         .catch(function (err) {
-          if (err.message !== 'login' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
+          if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
         })
         .then(function () { btn.disabled = false; });
     });
@@ -222,7 +257,7 @@
       var btn = this; btn.disabled = true;
       fetchLink(true).then(function (url) { window.location.href = url; })
         .catch(function (err) {
-          if (err.message !== 'login' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
+          if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
         })
         .then(function () { btn.disabled = false; });
     });

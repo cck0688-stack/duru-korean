@@ -186,6 +186,9 @@ async function save(call, token, userId, category, made) {
       file_size: 0,
       status: 'review',
       origin: 'auto',
+      // Said outright: the column defaults to true, and a draft that
+      // leaves it there is on the public list before anyone reads it.
+      published: false,
       created_by: userId
     }])
   });

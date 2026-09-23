@@ -118,10 +118,17 @@
       var level = r.learning_level && r.learning_level !== 'Any level' ? R.levelLabel(r.learning_level) : '';
       var meta = [R.categoryLabel(r.category), level, Object.keys(formats).join('/') || 'PDF'].filter(Boolean).join(' · ');
       var desc = R.localized(r, 'description', lang);
-      return '<article class="res-card' + (r.published === false ? ' res-card--draft' : '') + '">' +
+      // Only an admin is shown a row that is not live — the read policy
+      // keeps it from everyone else — and the badge says which kind of
+      // not-live: still in the review queue, or taken down.
+      var inReview = !!(r.status && r.status !== 'published');
+      var draft = inReview || r.published === false;
+      return '<article class="res-card' + (draft ? ' res-card--draft' : '') + '">' +
         '<span class="res-thumb">' + R.coverHTML(client, r) + '</span>' +
         '<div class="res-card-body">' +
-          (r.published === false ? '<span class="res-draft">' + esc(t('resource.draft', 'Not published')) + '</span>' : '') +
+          (draft ? '<span class="res-draft">' + esc(inReview
+            ? t('resource.inReview', 'Waiting for review')
+            : t('resource.draft', 'Not published')) + '</span>' : '') +
           '<h3><a href="' + esc(href) + '">' + esc(R.localized(r, 'title', lang)) + '</a></h3>' +
           (desc ? '<p class="res-card-desc">' + esc(desc) + '</p>' : '') +
           '<p class="res-meta">' + esc(meta) + '</p>' +

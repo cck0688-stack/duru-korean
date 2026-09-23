@@ -221,6 +221,19 @@ with checks(item, ok) as (
      exists (select 1 from pg_constraint
              where conname = 'resource_sources_cleared_check')),
 
+    ('a sheet still in the review queue is not on the public list',
+     not exists (select 1 from public.resources
+                 where published and status <> 'published')
+     and exists (select 1 from pg_policies
+                 where schemaname='public' and tablename='resources' and cmd='SELECT'
+                   and qual like '%status = ''published''%')),
+
+    ('approving a sheet is what makes it public, and it says so in both columns',
+     exists (select 1 from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+             where n.nspname='public' and p.proname='publish_resource_file'
+               and p.prosrc like '%published = true%'
+               and p.prosrc like '%status = ''published''%')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

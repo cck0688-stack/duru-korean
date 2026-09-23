@@ -2041,6 +2041,63 @@ $$;
 
 grant execute on function public.resource_blocks(uuid) to authenticated;
 
+-- publish_resource_file() itself is defined in §37 below, where it
+-- gained one more line.
+
+-- Clearing a source is a person's decision and is recorded as one.
+create or replace function public.clear_resource_source(p_source_id uuid, p_note text)
+returns boolean
+language plpgsql
+volatile
+security definer
+set search_path = public
+as $$
+declare
+  v_resource uuid;
+begin
+  if not exists (select 1 from public.admin_users a where a.user_id = auth.uid()) then
+    raise exception 'Only an admin can clear a source.';
+  end if;
+
+  update public.resource_sources
+     set rights_status = 'cleared',
+         cleared_by = auth.uid(),
+         cleared_at = now(),
+         review_note = coalesce(p_note, review_note)
+   where id = p_source_id
+   returning resource_id into v_resource;
+
+  if v_resource is null then return false; end if;
+
+  insert into public.resource_reviews (resource_id, actor_id, action, note)
+  values (v_resource, auth.uid(), 'rights-cleared', p_note);
+  return true;
+end;
+$$;
+
+revoke all on function public.clear_resource_source(uuid, text) from public;
+grant execute on function public.clear_resource_source(uuid, text) to authenticated;
+
+-- 37. a draft is not published because a column says so ------------
+-- resources.published dates from before the review queue and defaults
+-- to true, so a sheet the run had just written — status 'review', no
+-- approved file — showed on the public list and told its admin
+-- "Published — everyone can see this download" while its files were
+-- still drafts. The approval function now sets the column, the run
+-- clears it, the rows already there are corrected, and the read policy
+-- stops trusting it on its own: a row is public when it says published
+-- AND its status is published.
+
+update public.resources
+   set published = false
+ where origin = 'auto' and status <> 'published';
+
+drop policy if exists "resources: public read" on public.resources;
+create policy "resources: public read"
+  on public.resources for select
+  using ((published and status = 'published')
+         or exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
 create or replace function public.publish_resource_file(
   p_file_id uuid,
   p_storage_key text,
@@ -2076,6 +2133,7 @@ begin
 
   update public.resources
      set status = 'published',
+         published = true,
          first_published_at = coalesce(first_published_at, now()),
          updated_at = now()
    where id = v_resource;
@@ -2089,37 +2147,3 @@ $$;
 
 revoke all on function public.publish_resource_file(uuid, text, bigint) from public;
 grant execute on function public.publish_resource_file(uuid, text, bigint) to authenticated;
-
--- Clearing a source is a person's decision and is recorded as one.
-create or replace function public.clear_resource_source(p_source_id uuid, p_note text)
-returns boolean
-language plpgsql
-volatile
-security definer
-set search_path = public
-as $$
-declare
-  v_resource uuid;
-begin
-  if not exists (select 1 from public.admin_users a where a.user_id = auth.uid()) then
-    raise exception 'Only an admin can clear a source.';
-  end if;
-
-  update public.resource_sources
-     set rights_status = 'cleared',
-         cleared_by = auth.uid(),
-         cleared_at = now(),
-         review_note = coalesce(p_note, review_note)
-   where id = p_source_id
-   returning resource_id into v_resource;
-
-  if v_resource is null then return false; end if;
-
-  insert into public.resource_reviews (resource_id, actor_id, action, note)
-  values (v_resource, auth.uid(), 'rights-cleared', p_note);
-  return true;
-end;
-$$;
-
-revoke all on function public.clear_resource_source(uuid, text) from public;
-grant execute on function public.clear_resource_source(uuid, text) to authenticated;

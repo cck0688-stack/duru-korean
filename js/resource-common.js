@@ -11,6 +11,7 @@
   'use strict';
 
   var BUCKET = 'resources';
+  var DRAFTS = 'resource-drafts';   // where the daily run leaves a sheet until a person approves it
   var COVERS = 'resource-covers';
 
   // Same codes and order as the site's language picker. `short` is the
@@ -227,9 +228,9 @@
 
   // The bucket is private: a link is minted when the visitor asks, and
   // only a signed-in session can mint one — the storage policy decides.
-  function signedUrl(client, storageKey, download) {
+  function signedUrl(client, storageKey, download, bucket) {
     var opts = download ? { download: true } : undefined;
-    return client.storage.from(BUCKET).createSignedUrl(storageKey, SIGNED_URL_TTL, opts)
+    return client.storage.from(bucket || BUCKET).createSignedUrl(storageKey, SIGNED_URL_TTL, opts)
       .then(function (res) {
         if (res.error || !res.data) throw new Error(res.error ? res.error.message : 'no url');
         return res.data.signedUrl;
@@ -261,7 +262,7 @@
   }
 
   window.DURU_RES = {
-    BUCKET: BUCKET, COVERS: COVERS, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
+    BUCKET: BUCKET, DRAFTS: DRAFTS, COVERS: COVERS, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
     MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX, ACCEPT: ACCEPT, PREVIEWABLE: PREVIEWABLE,
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,
