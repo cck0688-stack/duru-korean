@@ -7,26 +7,37 @@
 //
 // ── How much it makes ──────────────────────────────────────────────
 //
-// An empty library is useless, so the first stretch fills the shelves:
-// six sheets a day, one per shelf, until there are sixty. After that
-// one a day, rotating, which is about a hundred and fifty a year — a
-// library rather than a landfill.
+// Three sheets on each of the six shelves, every morning, eighteen a
+// day, until the owner says stop. --count changes the three; --only
+// picks the shelves. The workflow runs one shelf per job so that six
+// jobs of three take the time of three sheets, not eighteen.
 //
-// That is counted from what is actually on the shelf, not from the
-// calendar. A day that is missed, or a run that half-fails, corrects
-// itself the next morning instead of leaving a permanent hole.
+// ── What "good" means here ─────────────────────────────────────────
+//
+// A sheet is written by the larger model, then read by a second pass
+// asked to find what is wrong with it — a misspelt particle, an answer
+// that does not follow, a gloss that is the dictionary's first sense
+// rather than this sentence's. What it finds goes back to the writer;
+// a sheet that fails twice is not saved. Nothing here is "good enough":
+// the review screen is a person's time, and it should be spent on
+// sheets that are ready to go out, not on catching what a loop can.
 //
 // ── What it costs ──────────────────────────────────────────────────
 //
-// One sheet is two model calls (pick a subject, write it) plus seven
-// translations, and eight PDF renders which cost nothing but time.
-// A sheet is translated once, ever.
+// One sheet is three calls to the writing model (pick a subject, write
+// it, review it — more if the review sends it back) plus seven
+// translations on the smaller model, and eight PDF renders which cost
+// nothing but time. A sheet is translated once, ever.
 //
 // ── Configuration ──────────────────────────────────────────────────
 //
 //   DURU_BOT_EMAIL            a site account that is in admin_users
 //   DURU_BOT_PASSWORD         — the same pair the blog's run uses
 //   one provider key          as api/translate.js documents
+//   SHEET_MODEL               optional — the model that writes and
+//                             reviews; defaults to the provider's
+//                             larger model (gpt-5 on OpenAI). The
+//                             translations use TRANSLATE_MODEL as usual.
 //   SUPABASE_URL              optional, defaults to the project below
 //   SUPABASE_ANON_KEY         optional
 //
@@ -35,10 +46,10 @@
 // leaks is an account that can write drafts, not a key that reads every
 // row in the database.
 //
-//   node scripts/generate-sheets.mjs [--only=vocab] [--count=2] [--dry-run]
+//   node scripts/generate-sheets.mjs [--only=vocab,reading] [--count=3] [--dry-run]
 
 import { resolveProvider, translate, LANGUAGES, TranslateError } from '../api/_providers.js';
-import { pickSubject, writeSheet, problemsWith, translateSheet, slugify, SHELVES } from './lib/sheets.mjs';
+import { pickSubject, writeSheet, reviewSheet, problemsWith, translateSheet, slugify, SHELVES } from './lib/sheets.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { renderSheet } from './pdf/render.mjs';
 
@@ -47,7 +58,13 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
   'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 
 const SHELF_ORDER = ['vocab', 'reading', 'grammar', 'reallife', 'hangul', 'etc'];
-const SEED_TARGET = 60;             // six a day for ten days, then one
+const PER_SHELF = 3;                // every shelf, every day, until told to stop
+const REWRITES = 2;                 // a sheet sent back this many times is not saved
+
+// The model that writes and reviews. The smaller one translates well
+// enough and is what the site uses everywhere else; a worksheet that a
+// learner will study from is worth the larger one.
+const WRITING_MODEL = { openai: 'gpt-5' };
 const LANGS = Object.keys(LANGUAGES);
 const SOURCE_LANG = 'en';           // sheets are written with English explanations
 
@@ -119,27 +136,36 @@ async function putDraft(token, path, bytes) {
 
 async function makeOne(cfg, category, context, browser) {
   const today = context.today;
+  const writer = context.writer || cfg;
 
-  const subject = await pickSubject(cfg, {
+  const subject = await pickSubject(writer, {
     category, today, existing: context.existing
   });
   log('  · ' + category + ' — ' + subject.subject);
 
-  let sheet = await writeSheet(cfg, {
+  let sheet = await writeSheet(writer, {
     category, subject: subject.subject,
     objective: subject.objective, level: subject.level
   });
 
-  let problems = problemsWith(sheet, { existing: context.existing });
-  if (problems.length) {
-    log('    다시 씁니다: ' + problems.join(' '));
-    sheet = await writeSheet(cfg, {
+  // What the checks find — the mechanical ones here, the reader's ones
+  // in reviewSheet() — goes back to the writer as a list. Twice; a
+  // sheet that is still wrong after that is not saved, and the shelf
+  // gets a different subject tomorrow.
+  let notes = [];
+  for (let round = 0; ; round += 1) {
+    const problems = problemsWith(sheet, { existing: context.existing });
+    const review = problems.length ? { ok: false, problems: [] } : await reviewSheet(writer, sheet);
+    notes = problems.concat(review.problems);
+    if (!notes.length) break;
+    if (round >= REWRITES) throw new Error('검수를 통과하지 못했습니다: ' + notes.join(' '));
+    log('    검수에서 ' + notes.length + '가지 걸림 — 다시 씁니다 (' + (round + 1) + '/' + REWRITES + '): ' +
+        notes.join(' ').slice(0, 300));
+    sheet = await writeSheet(writer, {
       category,
-      subject: subject.subject + '\n\n[지난번 문제점] ' + problems.join(' '),
+      subject: subject.subject + '\n\n[지난번 검수에서 걸린 것 — 전부 고치세요]\n- ' + notes.join('\n- '),
       objective: subject.objective, level: subject.level
     });
-    problems = problemsWith(sheet, { existing: context.existing });
-    if (problems.length) throw new Error('학습지가 기준에 못 미칩니다: ' + problems.join(' '));
   }
 
   // English first: it is the language the sheet was written in, so it
@@ -258,11 +284,6 @@ function todayInSeoul() {
   return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
 }
 
-function dayNumber(iso) {
-  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
-  return m ? Math.floor(Date.UTC(+m[1], +m[2] - 1, +m[3]) / 86400000) : 0;
-}
-
 export async function run() {
   const today = todayInSeoul();
   log('DURU KOREAN 자료실 — ' + today + (DRY ? ' (연습)' : ''));
@@ -274,31 +295,36 @@ export async function run() {
   // two further tries.
   const cfg = withPatience(resolveProvider(process.env), log);
   cfg.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 180000;
-  log('번역·작성: ' + cfg.label + ' / ' + cfg.model +
-      ' (한 번에 최대 ' + Math.round(cfg.timeoutMs / 1000) + '초)');
+
+  // The writer: the larger model, given longer, because a sheet it is
+  // still thinking about at three minutes is usually worth the fourth.
+  // (A test that shortens the call deadline shortens this one too,
+  // unless it says otherwise.)
+  const writer = Object.assign({}, cfg, {
+    model: process.env.SHEET_MODEL || WRITING_MODEL[cfg.name] || cfg.model,
+    timeoutMs: Number(process.env.DURU_WRITE_TIMEOUT_MS) ||
+               (process.env.DURU_CALL_TIMEOUT_MS ? cfg.timeoutMs : Math.max(cfg.timeoutMs, 280000))
+  });
+  log('작성·검수: ' + cfg.label + ' / ' + writer.model + ' (한 번에 최대 ' + Math.round(writer.timeoutMs / 1000) + '초)');
+  log('번역: ' + cfg.label + ' / ' + cfg.model + ' (한 번에 최대 ' + Math.round(cfg.timeoutMs / 1000) + '초)');
 
   const session = await signIn();
   const call = api(session.token);
 
-  // What is already on the shelf: for not repeating it, and for
-  // deciding how many to make.
-  const made = await call('resources?select=title,objective,category,origin&publish_location=eq.free-resources&limit=500');
+  // What is already on the shelf, so that nothing is written twice.
+  // Rejected sheets stay in this list on purpose: a subject the owner
+  // turned down once is not offered again under a new title.
+  const made = await call('resources?select=title,objective,category,origin&publish_location=eq.free-resources&limit=1000');
   const existing = made.map((r) => r.title + (r.objective ? ' — ' + r.objective : ''));
   const autoCount = made.filter((r) => r.origin === 'auto').length;
 
-  const seeding = autoCount < SEED_TARGET;
-  let shelves;
-  if (arg('only')) {
-    shelves = arg('only').split(',').map((s) => s.trim()).filter((s) => SHELVES[s]);
-  } else if (seeding) {
-    shelves = SHELF_ORDER.slice();
-  } else {
-    shelves = [SHELF_ORDER[dayNumber(today) % SHELF_ORDER.length]];
-  }
-  const want = Number(arg('count')) || 1;
+  const shelves = arg('only')
+    ? arg('only').split(',').map((s) => s.trim()).filter((s) => SHELVES[s])
+    : SHELF_ORDER.slice();
+  const want = Number(arg('count')) || PER_SHELF;
 
   log('자료실에 ' + made.length + '편 (자동 생성 ' + autoCount + '편). ' +
-      (seeding ? '채우는 중 — ' : '유지 중 — ') + shelves.join(', '));
+      '오늘: ' + shelves.join(', ') + ' × ' + want + '편');
 
   const { chromium } = await import('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
@@ -309,7 +335,7 @@ export async function run() {
     for (const category of shelves) {
       for (let i = 0; i < want; i += 1) {
         try {
-          const out = await makeOne(cfg, category, { today, existing }, browser);
+          const out = await makeOne(cfg, category, { today, existing, writer }, browser);
           if (DRY) {
             const bad = Object.entries(out.rendered).filter(([, r]) => !r.check.ok);
             log('    (연습) ' + out.sheet.title + ' — ' +

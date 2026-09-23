@@ -23,18 +23,19 @@
 # every row in the database.
 #
 # Optional variables: TRANSLATE_PROVIDER, TRANSLATE_MODEL,
-# TRANSLATE_FAST_MODEL.
+# TRANSLATE_FAST_MODEL, SHEET_MODEL (the model that writes and reviews;
+# gpt-5 on OpenAI unless set).
 
 name: Daily worksheets
 
 on:
   schedule:
-    # 04:00 UTC is 13:00 in Seoul. GitHub's scheduler runs late when it
-    # is busy, which is harmless here: the run decides what to make by
-    # counting what is already on the shelf rather than by the date, so
-    # a late start, a missed day or a half-finished run all correct
-    # themselves the next time it runs.
-    - cron: '0 4 * * *'
+    # 22:00 UTC is 07:00 the next morning in Seoul. GitHub's scheduler
+    # runs late when it is busy, which is harmless here: the run reads
+    # what is already on the shelf rather than the date, so a late
+    # start, a missed day or a half-finished run leaves no hole that
+    # the next one does not fill.
+    - cron: '0 22 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -46,21 +47,29 @@ on:
         type: string
         default: ''
       count:
-        description: 'How many per shelf (default 1)'
+        description: 'How many per shelf (default 3)'
         type: string
         default: ''
-
-concurrency:
-  group: daily-worksheets
-  cancel-in-progress: false
 
 jobs:
   sheets:
     runs-on: ubuntu-latest
-    # Six sheets, each written, checked, translated seven times and
-    # rendered eight times. The limit is here so that a hung provider
-    # call cannot run all day, not because it is expected to be close.
-    timeout-minutes: 90
+    # One job per shelf, six at once: eighteen sheets take the time of
+    # three. A shelf that fails takes only itself down. The subjects
+    # cannot collide, because each job writes for one shelf and reads
+    # the whole shelf before it picks.
+    strategy:
+      fail-fast: false
+      matrix:
+        shelf: [vocab, reading, grammar, reallife, hangul, etc]
+    concurrency:
+      group: daily-worksheets-${{ matrix.shelf }}
+      cancel-in-progress: false
+    # Three sheets, each written, reviewed, possibly rewritten,
+    # translated seven times and rendered eight times: an hour on a
+    # slow day. The limit is here so that a hung provider call cannot
+    # run all day, not because it is expected to be close.
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
 
@@ -76,7 +85,7 @@ jobs:
       - name: Install the browser that renders the PDFs
         run: npx playwright install --with-deps chromium
 
-      - name: Write the worksheets
+      - name: Write the worksheets (${{ matrix.shelf }})
         env:
           DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
           DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
@@ -86,6 +95,7 @@ jobs:
           TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
           TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
           TRANSLATE_FAST_MODEL: ${{ vars.TRANSLATE_FAST_MODEL }}
+          SHEET_MODEL: ${{ vars.SHEET_MODEL }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           # Through the environment, never interpolated into the command
@@ -96,9 +106,15 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
           COUNT: ${{ inputs.count }}
+          SHELF: ${{ matrix.shelf }}
         run: |
-          args=()
+          # A dispatch that names shelves runs only those: a job whose
+          # shelf is not named does nothing and says so.
+          if [ -n "$ONLY" ] && ! echo ",$ONLY," | tr -d ' ' | grep -q ",$SHELF,"; then
+            echo "$SHELF is not in --only=$ONLY; nothing to do."
+            exit 0
+          fi
+          args=(--only="$SHELF")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
-          if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
           if [ -n "$COUNT" ]; then args+=(--count="$COUNT"); fi
           node scripts/generate-sheets.mjs "${args[@]}"

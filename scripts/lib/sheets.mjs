@@ -69,16 +69,23 @@ export const SHELVES = {
 };
 
 const COMMON = [
-  '당신은 한국어를 배우는 외국인을 위한 학습지를 만드는 교사입니다.',
+  '당신은 한국어를 배우는 외국인을 위한 학습지를 만드는, 경력 많은 한국어 교사입니다.',
+  '이 학습지는 사람이 검토한 뒤 실제 학습자에게 배포됩니다. 대충 만든 것은 검토에서 반려됩니다.',
   '',
   '지켜야 할 것:',
   '- 남의 학습지를 베끼거나 흉내 내지 마세요. 당신이 아는 한국어로 처음부터 만드세요.',
   '- 한국어는 실제로 쓰는 말이어야 합니다. 교과서에만 있고 아무도 안 쓰는 문장은 쓰지 마세요.',
-  '- 예문은 짧고, 그 낱말이 왜 필요한지 보여 주는 것이어야 합니다.',
+  '- 맞춤법, 띄어쓰기, 조사(은/는, 이/가, 을/를)를 정확히 쓰세요. 한 글자 틀린 예문은 없는 것보다 나쁩니다.',
+  '- 예문은 짧고, 그 낱말이 왜 필요한지 보여 주는 것이어야 합니다. 같은 문장 틀을 반복하지 마세요.',
+  '- 영어 뜻풀이는 그 문장에서 쓰인 뜻이어야 합니다. 사전의 첫 번째 뜻을 그냥 옮기지 마세요.',
+  '- 로마자 표기는 국어의 로마자 표기법(Revised Romanization)을 따르세요.',
+  '- 수준을 지키세요. Beginner 에게 한자어 관용구를, Advanced 에게 인사말을 주지 마세요.',
   '- 확실하지 않은 사실(가격, 영업시간, 법, 통계)은 아예 쓰지 마세요. 지어내는 것보다 빼는 게 낫습니다.',
   '- 학습 목표는 하나로 좁게 잡으세요. "한국어 배우기" 같은 것은 목표가 아닙니다.',
-  '- 문제와 정답의 개수는 반드시 같아야 합니다.',
-  '- 문제는 그 학습지를 읽으면 풀 수 있어야 합니다.'
+  '- 문제는 학습 목표를 실제로 연습시키는 것이어야 하고, 그 학습지를 읽으면 풀 수 있어야 합니다.',
+  '- 정답은 하나로 분명해야 합니다. 여러 답이 가능하면 대표 답을 쓰고 괄호에 다른 답을 적으세요.',
+  '- 문제와 정답의 개수는 반드시 같아야 하고, 순서도 같아야 합니다.',
+  '- 문제나 정답 앞에 번호를 붙이지 마세요. 번호는 학습지가 붙입니다.'
 ].join('\n');
 
 // The shape the model must answer in — for one shelf, not for all six.
@@ -198,7 +205,7 @@ export async function writeSheet(cfg, opts) {
     '반드시 채울 것: title, summary, objective, level, minutes, exercises, answers.',
     'title 은 한국어로, summary 와 objective 는 영어로 쓰세요.',
     'minutes 는 학습자가 이 학습지를 푸는 데 걸릴 시간입니다.',
-    'exercises 는 3~6개, answers 는 그와 정확히 같은 개수.',
+    'exercises 는 4~6개, answers 는 그와 정확히 같은 개수.',
     '',
     '이 갈래에서 추가로 채울 것: ' + shelf.shape,
     '',
@@ -236,6 +243,48 @@ export function unnumbered(sheet) {
   sheet.exercises = each(sheet.exercises, 'ask');
   sheet.answers = each(sheet.answers, 'answer');
   return sheet;
+}
+
+// A second teacher reads the sheet before anyone else does. The writer
+// is asked to be careful; this one is asked to be unkind — to find the
+// misspelt particle, the answer that does not follow from the sheet,
+// the English gloss that is the dictionary's first sense rather than
+// this sentence's. What it finds goes back to the writer as a list,
+// and a sheet that fails twice is not saved at all. The point is that
+// "make it good" is not an instruction a model can follow, but "here
+// are the four things wrong with it" is.
+export async function reviewSheet(cfg, sheet) {
+  const system = [
+    '당신은 한국어 교재를 검수하는 편집자입니다. 아래 학습지 JSON을 읽고 잘못된 곳을 찾으세요.',
+    '이 학습지는 실제 학습자에게 배포되므로, 봐줄 이유가 없습니다.',
+    '',
+    '반드시 확인할 것:',
+    '- 한국어 문장의 맞춤법, 띄어쓰기, 조사, 어미가 모두 맞는가. 실제로 쓰는 자연스러운 말인가.',
+    '- 영어 뜻풀이와 예문 번역이 정확한가. 그 문장에서 쓰인 뜻인가.',
+    '- 로마자 표기가 표기법에 맞는가.',
+    '- 문제가 학습 목표를 연습시키는가. 학습지만 읽고 풀 수 있는가.',
+    '- 정답이 맞는가. 문제와 하나씩 짝이 맞는가. 다른 답도 가능한데 하나만 정답이라고 하지 않았는가.',
+    '- 수준(level)에 맞는가.',
+    '- 확인할 수 없는 사실(가격, 법, 통계)을 단정하지 않았는가.',
+    '- 같은 낱말이나 같은 문장 틀이 반복되어 학습지가 얇아지지 않았는가.',
+    '',
+    '판정:',
+    '- 잘못된 곳이 하나라도 있으면 verdict 는 "fix", problems 에 하나씩 적으세요.',
+    '  각 항목은 어디가(어느 낱말·문제 번호) 어떻게 틀렸고 무엇으로 고쳐야 하는지까지 적으세요.',
+    '- 취향 차이나 사소한 표현 선택은 문제가 아닙니다. 틀린 것만 적으세요.',
+    '- 틀린 곳이 없으면 verdict 는 "pass", problems 는 빈 배열.'
+  ].join('\n');
+
+  const want = {
+    verdict: { type: 'string', enum: ['pass', 'fix'] },
+    problems: { type: 'array', items: { type: 'string' } }
+  };
+  const schema = strict(want, Object.keys(want), cfg.provider.strictSchema !== false);
+  const out = parse(await cfg.provider.chat(cfg, system, JSON.stringify(sheet, null, 1), schema), '검수');
+  const problems = Array.isArray(out.problems) ? out.problems.map((x) => String(x || '').trim()).filter(Boolean) : [];
+  // A "fix" with nothing listed is nothing to fix; a "pass" with a
+  // list is a list.
+  return { ok: out.verdict !== 'fix' && !problems.length, problems };
 }
 
 // ── what makes a sheet unusable ────────────────────────────────────
