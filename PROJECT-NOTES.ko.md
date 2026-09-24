@@ -1069,6 +1069,15 @@ SQL 실행   /project/ejiwgvlinlffkyycuyym/sql/new
 `community-sim-report` 에 언어별 커뮤니티 화면 캡처. 시험 프로젝트의
 Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
 
+### 실제 사이트 Community의 예시 글 (§39)
+
+`scripts/sim/live.mjs` 는 실제 사이트 Community에 예시 글을 씁니다.
+- 모든 글에 `is_sample` 표시가 붙고, 화면에 "예시 글 / Sample" 배지가 보입니다.
+- 가입은 하지 않습니다. 블로그·자료실이 쓰는 봇 계정(`DURU_BOT_EMAIL`)으로, 작성자마다 다른 표시 이름을 씁니다.
+- 예시 작성자끼리만 답글과 하트를 주고받습니다. 실제 회원 글에는 답하지도, 하트를 누르지도 않습니다.
+- §39 를 운영 DB에 실행하기 전에는 아무것도 쓰지 않습니다.
+- 모두 지우기: `delete from public.stories where is_sample;`
+
 ### API 대신 Claude 구독으로 쓰기 (블로그·자료실·커뮤니티 시뮬레이션)
 
 세 가지 자동 작업 — 매일 블로그 초안, 매일 자료실 학습지, 커뮤니티

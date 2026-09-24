@@ -44,7 +44,7 @@ const flag = (name) => {
 };
 const DRY = args.includes('--dry-run');
 
-function balanced(personas, n, key, values) {
+export function balanced(personas, n, key, values) {
   const count = Object.fromEntries(values.map((v) => [v, 0]));
   personas.forEach((p) => { if (p[key] in count) count[p[key]] += 1; });
   const out = [];
@@ -198,7 +198,7 @@ export async function tick() {
 
 // Today's threads most of the time, older ones sometimes, and a
 // question nobody has answered yet ahead of everything else.
-function chooseThread(roots, stories) {
+export function chooseThread(roots, stories) {
   const replies = (id) => stories.filter((s) => s.parent_id === id).length;
   const hour = Date.now() - 3600000;
   const unanswered = roots.filter((r) => r.category === 'ask' && !replies(r.id) &&
@@ -210,7 +210,7 @@ function chooseThread(roots, stories) {
   return pick(roots);
 }
 
-function threadOf(root, stories) {
+export function threadOf(root, stories) {
   const out = [];
   (function walk(id) {
     const row = stories.find((s) => s.id === id);

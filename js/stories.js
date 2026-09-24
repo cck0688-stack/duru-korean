@@ -415,6 +415,15 @@
       return out;
     }
 
+    // A post the site wrote as an example says so, next to its name, on
+    // every card and every reply: nobody should take it for a learner.
+    function sampleHTML(row) {
+      if (!row || !row.is_sample) return '';
+      return ' <span class="story-sample" title="' +
+        escapeHTML(t('stories.sampleNote', 'A sample post written by Duru Korean to show how Community works.')) + '">' +
+        escapeHTML(t('stories.sample', 'Sample')) + '</span>';
+    }
+
     function repliesHTML(parent) {
       var list = childrenOf[parent.id] || [];
       if (!list.length) return '';
@@ -427,7 +436,7 @@
           return '<div class="story-reply">' +
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(r.display_name)) + '</span>' +
             '<div>' +
-              '<div class="story-reply-head"><strong>' + escapeHTML(r.display_name) + '</strong>' +
+              '<div class="story-reply-head"><strong>' + escapeHTML(r.display_name) + '</strong>' + sampleHTML(r) +
                 '<p class="story-meta">' + langChipHTML(r) +
                   escapeHTML(formatDate(r.created_at)) + '</p></div>' +
               bodyHTML(r) +
@@ -512,7 +521,7 @@
         card.innerHTML =
           '<div class="story-head">' +
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(s.display_name)) + '</span>' +
-            '<div><h3>' + escapeHTML(s.display_name) + '</h3>' +
+            '<div><h3>' + escapeHTML(s.display_name) + sampleHTML(s) + '</h3>' +
             '<p class="story-meta">' +
               '<span class="story-cat story-cat--' + escapeHTML(catOf(s)) + '">' +
               escapeHTML(C ? C.label(catOf(s)) : catOf(s)) + '</span>' +

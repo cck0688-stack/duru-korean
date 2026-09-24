@@ -2155,3 +2155,43 @@ grant execute on function public.publish_resource_file(uuid, text, bigint) to au
 -- piece again. Only an admin can see a draft at all, and only an admin
 -- can update one (the policies in §4), so nothing new is exposed.
 alter table public.posts add column if not exists rejected_at timestamptz;
+
+-- 39. sample posts in Community, labelled as samples ----------------
+-- The owner asked for the invented members' writing to appear on the
+-- live Community too. It does so openly: every such row carries
+-- is_sample, and the page shows a "Sample" badge on it, so a visitor
+-- is never led to think a real learner wrote it.
+--
+-- They are written through the site's bot account (the one the blog
+-- and worksheet runs use), under a display name per sample writer, the
+-- same way any member picks a display name per post. No sign-ups, no
+-- invented email addresses in the live project's Auth, and nothing
+-- added to the member count. Hearts on them come from the anonymous
+-- heart path, one reader id per sample writer.
+--
+-- Who the sample writers are lives in sample_personas, which only an
+-- admin can read or change. To take every sample post down at once:
+--   delete from public.stories where is_sample;
+alter table public.stories add column if not exists is_sample boolean not null default false;
+
+create index if not exists stories_sample_idx on public.stories (is_sample) where is_sample;
+
+create table if not exists public.sample_personas (
+  id uuid primary key default gen_random_uuid(),
+  nickname text not null unique check (char_length(trim(nickname)) between 1 and 40),
+  lang text not null,
+  topic text not null check (topic in ('ask', 'share', 'meet')),
+  voice text,
+  anon_id text not null unique check (char_length(anon_id) between 8 and 64),
+  joined_on date not null,
+  posted_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
+alter table public.sample_personas enable row level security;
+
+drop policy if exists "sample_personas: admin all" on public.sample_personas;
+create policy "sample_personas: admin all"
+  on public.sample_personas for all
+  using (public.is_admin())
+  with check (public.is_admin());

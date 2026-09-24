@@ -234,6 +234,12 @@ with checks(item, ok) as (
                and p.prosrc like '%published = true%'
                and p.prosrc like '%status = ''published''%')),
 
+    ('sample posts carry their own mark, and sample writers are admin-only',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='stories' and column_name='is_sample')
+     and exists (select 1 from pg_tables
+                 where schemaname='public' and tablename='sample_personas' and rowsecurity)),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')
