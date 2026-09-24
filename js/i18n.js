@@ -63,9 +63,13 @@
     return out === '/index.html' ? '/' : out;
   }
 
+  // The home page in a language is /vi, not /vi/: the host sends an
+  // address ending in "/" to the same address without it
+  // (vercel.json, trailingSlash), so this is the one it keeps.
   function langPath(path, code) {
     var bare = barePath(path);
-    return code ? '/' + code + bare : bare;
+    if (!code) return bare;
+    return '/' + code + (bare === '/' ? '' : bare);
   }
 
   // Pages, not files: links to scripts, styles, pictures, downloads and

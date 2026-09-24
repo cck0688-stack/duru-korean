@@ -31,8 +31,10 @@ function esc(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 
+// /vi, not /vi/ — the address the host keeps (vercel.json, trailingSlash).
 function at(lang, bare) {
-  return SITE + (lang ? '/' + lang : '') + bare;
+  if (!lang) return SITE + bare;
+  return SITE + '/' + lang + (bare === '/' ? '' : bare);
 }
 
 export function entries(bare, lastmod) {

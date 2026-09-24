@@ -1103,7 +1103,7 @@ Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
 ### 언어별 주소 (/vi/, /ko/ …)
 
 사이트는 하나이고, 모든 페이지를 8개 언어 주소로도 열 수 있습니다.
-- 예: `/vi/free-resources.html`, `/ko/blog`, `/pt-BR/community/ask`, `/ja/` (홈).
+- 예: `/vi/free-resources.html`, `/ko/blog`, `/pt-BR/community/ask`, `/ja` (홈). 끝에 `/` 를 붙여도 열립니다 (`/ja/` → `/ja` 로 이동, vercel.json 의 trailingSlash).
 - `vercel.json` 의 rewrites 가 같은 파일을 언어 주소마다 내어 줍니다. 파일을 언어별로 복사하지 않습니다.
 - `js/i18n.js` 가 주소의 언어를 가장 먼저 읽고, 페이지 안의 링크를 모두 같은 언어 주소로 바꿉니다. 메뉴에서 언어를 바꾸면 주소도 바뀝니다.
 - 언어 표시가 없는 주소(`/`, `/blog.html`)는 처음 온 방문자와 검색 로봇에게 영어로 보이고, 전에 언어를 고른 방문자에게는 그 언어 주소로 바뀝니다.
