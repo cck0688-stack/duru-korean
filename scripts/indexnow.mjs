@@ -78,20 +78,30 @@ export async function collect({ all, sinceMinutes }) {
   return { urls: [...new Set(bare.flatMap(addresses))], posts: posts.length, resources: resources.length };
 }
 
-export async function submit(urls, k) {
+// The first time a key is used, IndexNow answers 403
+// SiteVerificationNotCompleted until it has fetched the key file; that
+// takes a minute or a few, so it is asked again after a pause.
+export async function submit(urls, k, { tries = 6, pauseMs = 60000 } = {}) {
   let sent = 0;
   for (let i = 0; i < urls.length; i += 10000) {
     const chunk = urls.slice(i, i + 10000);
-    const res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({ host: HOST, key: k, keyLocation: SITE + '/' + k + '.txt', urlList: chunk }),
-      signal: AbortSignal.timeout(30000)
-    });
-    // 200 OK and 202 Accepted are both success; 202 means the key is
-    // still being checked.
-    if (res.status !== 200 && res.status !== 202) {
-      throw new Error('IndexNow ' + res.status + ': ' + (await res.text()).slice(0, 200));
+    for (let attempt = 1; ; attempt++) {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({ host: HOST, key: k, keyLocation: SITE + '/' + k + '.txt', urlList: chunk }),
+        signal: AbortSignal.timeout(30000)
+      });
+      // 200 OK and 202 Accepted are both success; 202 means the key is
+      // still being checked.
+      if (res.status === 200 || res.status === 202) break;
+      const text = (await res.text()).slice(0, 200);
+      if (res.status === 403 && /SiteVerificationNotCompleted/.test(text) && attempt < tries) {
+        console.log('IndexNow가 아직 사이트를 확인하는 중 — ' + Math.round(pauseMs / 1000) + '초 뒤 다시 보냅니다 (' + attempt + '/' + tries + ')');
+        await new Promise((r) => setTimeout(r, pauseMs));
+        continue;
+      }
+      throw new Error('IndexNow ' + res.status + ': ' + text);
     }
     sent += chunk.length;
   }
