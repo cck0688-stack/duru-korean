@@ -17,7 +17,7 @@
 #
 # A second job, "live", writes to the real Community as well, every
 # twenty minutes, through the bot account (DURU_BOT_EMAIL). Every row
-# it writes is marked is_sample and shows a "Sample" badge on the page;
+# it writes is marked is_sample (a "Sample" badge admins alone see);
 # sample writers only talk among themselves. It refuses to write until
 # supabase/schema.sql §39 has been run on the live project.
 #

@@ -1,11 +1,13 @@
-// DURU KOREAN — sample posts on the LIVE Community, labelled as samples
+// DURU KOREAN — sample posts on the LIVE Community
 //
 // The owner asked for the invented members' writing to appear on the
-// real site too. This is that, done in the open:
+// real site too, and, later, for the "Sample" badge to be shown to
+// admins only until they say otherwise. So:
 //
-//   - Every row it writes has is_sample = true, and the Community page
-//     shows a "Sample" badge on it (supabase/schema.sql §39). A visitor
-//     can always tell a sample from a real learner.
+//   - Every row it writes has is_sample = true (supabase/schema.sql
+//     §39). The Community page shows a "Sample" badge on it to admins
+//     only; visitors see no mark. The column stays, so every sample
+//     can be found and removed at once.
 //   - It writes through the site's bot account (DURU_BOT_EMAIL, the
 //     one the blog and worksheet runs already use), with one display
 //     name per sample writer — no sign-ups, no invented addresses in
@@ -104,7 +106,7 @@ async function signInBot(env) {
 }
 
 // The one lock this side needs: the live database must have been given
-// §39, which is what puts the "Sample" badge on these rows. Without it
+// §39, which is what marks these rows as samples. Without it
 // they would appear unlabelled, so nothing is written.
 async function assertLabelled(call) {
   try {

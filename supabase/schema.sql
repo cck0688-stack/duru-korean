@@ -2158,9 +2158,9 @@ alter table public.posts add column if not exists rejected_at timestamptz;
 
 -- 39. sample posts in Community, labelled as samples ----------------
 -- The owner asked for the invented members' writing to appear on the
--- live Community too. It does so openly: every such row carries
--- is_sample, and the page shows a "Sample" badge on it, so a visitor
--- is never led to think a real learner wrote it.
+-- live Community too. Every such row carries is_sample. The page shows
+-- a "Sample" badge on it to admins only (the owner's instruction), and
+-- the column is what lets every sample be found and removed at once.
 --
 -- They are written through the site's bot account (the one the blog
 -- and worksheet runs use), under a display name per sample writer, the

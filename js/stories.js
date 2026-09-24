@@ -415,12 +415,13 @@
       return out;
     }
 
-    // A post the site wrote as an example says so, next to its name, on
-    // every card and every reply: nobody should take it for a learner.
+    // A post the site wrote as an example is marked next to its name —
+    // for admins only, at the owner's instruction. The row itself always
+    // carries is_sample, so the samples can be found and removed at once.
     function sampleHTML(row) {
-      if (!row || !row.is_sample) return '';
+      if (!row || !row.is_sample || !isAdmin) return '';
       return ' <span class="story-sample" title="' +
-        escapeHTML(t('stories.sampleNote', 'A sample post written by Duru Korean to show how Community works.')) + '">' +
+        escapeHTML(t('stories.sampleNote', 'A sample post. Only admins see this mark.')) + '">' +
         escapeHTML(t('stories.sample', 'Sample')) + '</span>';
     }
 
