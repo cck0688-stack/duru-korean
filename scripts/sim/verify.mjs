@@ -198,7 +198,7 @@ export async function checkPages({ base, anon, langs, threads, out, report, only
           if (!st.on) continue;                         // written in L to begin with
           if (st.reply) r.repliesTranslated += 1; else r.translated += 1;
           const got = inLanguage(st.text, L);
-          if (got && got !== L) { r.wrongLang += 1; r.notes.push(L + ' 가 아닌 번역(' + got + '): ' + norm(st.text).slice(0, 50)); }
+          if (got && got !== L) { r.wrongLang += 1; r.notes.push(L + ' 가 아닌 번역(' + got + '): ' + norm(st.text).slice(0, 140)); }
         }
         // "Show original" on the post itself.
         const orig = page.locator(card + ' .story-mt-orig[data-id="' + rootId + '"]');
@@ -281,6 +281,12 @@ export function markdown(r) {
     '| 독자 언어 | 확인한 글타래 | 번역된 글 | 번역된 답글 / 번역이 필요한 답글 | 다른 언어로 번역 | 원문 보기 |', '|---|---|---|---|---|---|');
   Object.entries(r.readers).forEach(([l, x]) => lines.push('| ' + LANG_NAMES[l] + ' | ' + x.threads + ' | ' + x.translated + ' | ' +
     x.repliesTranslated + ' / ' + x.replies + ' | ' + x.wrongLang + ' | ' + x.originalOk + ' / ' + x.original + ' |'));
+  // What went wrong, line by line, so the log alone is enough.
+  const notes = Object.entries(r.readers).filter(([, x]) => x.notes && x.notes.length);
+  if (notes.length) {
+    lines.push('', '## 확인할 것', '');
+    notes.forEach(([l, x]) => x.notes.slice(0, 8).forEach((n) => lines.push('- ' + LANG_NAMES[l] + ' 독자 — ' + n.replace(/\s+/g, ' '))));
+  }
   return lines.join('\n') + '\n';
 }
 
