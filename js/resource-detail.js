@@ -27,7 +27,10 @@
     if (!client) { notFound.hidden = false; return; }
 
     var params = new URLSearchParams(window.location.search);
-    var id = params.get('id');
+    // /resource/<id> (the address search engines are given), or the
+    // older resource.html?id=<id>; either may carry a language (/vi/…).
+    var fromPath = /\/resource\/([^\/?#]+)/.exec(window.location.pathname);
+    var id = (fromPath && decodeURIComponent(fromPath[1])) || params.get('id');
     // The language the list was filtered to when the visitor came here.
     // It holds until they change the language at the top of the page
     // themselves — that is a statement about what they want to read, and

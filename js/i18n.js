@@ -167,8 +167,15 @@
     var origin = window.location.origin;
     var params = new URLSearchParams(window.location.search);
     params.delete('lang');
+    // Which language to read a post or a file in is a preference, not
+    // another page: it stays out of the canonical address.
+    params.delete('pl');
     var qs = params.toString() ? '?' + params.toString() : '';
     var bare = barePath(window.location.pathname);
+    // The short addresses and the files they serve are one page each:
+    // the sitemap and api/render.js name the file.
+    if (bare === '/blog') bare = '/blog.html';
+    if (bare === '/community') bare = '/stories.html';
     function link(rel, href, hreflang) {
       var el = document.createElement('link');
       el.rel = rel; el.href = href; el.setAttribute('data-duru-lang', '');

@@ -4,7 +4,8 @@
   "type": "module",
   "description": "Static site for durukorean.com. Node is used only for the serverless functions under api/ and the scripts under scripts/; the pages themselves are plain HTML, CSS and browser JavaScript and need no build step. The runtime dependency is the Anthropic SDK, used by the default translation provider; the OpenAI, Google and DeepL providers speak plain HTTP and need nothing. Playwright is a build-time dependency only — it renders the downloads to PDF in the daily run and drives the browser tests. Nothing in devDependencies is served to a visitor.",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.127.0"
+    "@anthropic-ai/sdk": "^0.127.0",
+    "node-html-parser": "^7.1.0"
   },
   "devDependencies": {
     "playwright": "^1.63.0"

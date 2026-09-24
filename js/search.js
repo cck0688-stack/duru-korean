@@ -181,7 +181,7 @@
         `;
       } else if (result.type === 'resources') {
         html = `
-          <a href="resource.html?id=${escapeHTML(result.id)}" class="search-result-link">
+          <a href="/resource/${escapeHTML(result.id)}" class="search-result-link">
             <div class="search-result-type resources">${escapeHTML(t('resources.cat.' + result.category, result.category || 'PDF'))}</div>
             <h3>${highlightMatch(result.title, query)}</h3>
             <p>${highlightMatch(result.excerpt, query)}</p>

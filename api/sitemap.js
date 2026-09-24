@@ -10,8 +10,9 @@
 // anyone touching this file. Only what the public may read is listed:
 // the anon key reads through the same row-level security a visitor does.
 //
-// Pages marked noindex (resource.html, review.html, setup-check.html) and
-// pages that belong to one signed-in person are left out on purpose.
+// Every published download is listed at /resource/<id>. Pages marked
+// noindex (review.html, setup-check.html) and pages that belong to one
+// signed-in person are left out on purpose.
 
 const SITE = 'https://www.durukorean.com';
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
@@ -47,14 +48,33 @@ export function entries(bare, lastmod) {
     alternates + '\n  </url>').join('\n');
 }
 
-export function build(posts) {
+export function build(posts, resources) {
   const body = PAGES.map((p) => entries(p)).concat(
     (posts || []).filter((p) => p && p.slug)
-      .map((p) => entries('/blog/post/' + encodeURIComponent(p.slug), p.updated_at || p.created_at))
+      .map((p) => entries('/blog/post/' + encodeURIComponent(p.slug), p.updated_at || p.created_at)),
+    (resources || []).filter((r) => r && r.id)
+      .map((r) => entries('/resource/' + encodeURIComponent(r.id), r.updated_at || r.first_published_at || r.created_at))
   ).join('\n');
   return '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" ' +
     'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + body + '\n</urlset>\n';
+}
+
+// Published downloads, each at its own address (api/render.js fills
+// the page in). The read policy returns published ones only.
+async function publishedResources() {
+  try {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/resources?select=id,updated_at,first_published_at,created_at' +
+      '&order=created_at.desc&limit=5000', {
+      headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY },
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!res.ok) return [];
+    const rows = await res.json();
+    return Array.isArray(rows) ? rows : [];
+  } catch (e) {
+    return [];
+  }
 }
 
 async function publishedPosts() {
@@ -74,7 +94,8 @@ async function publishedPosts() {
 }
 
 export default async function handler(req, res) {
-  const xml = build(await publishedPosts());
+  const [posts, resources] = await Promise.all([publishedPosts(), publishedResources()]);
+  const xml = build(posts, resources);
   res.setHeader('Content-Type', 'application/xml; charset=utf-8');
   res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400');
   res.status(200).send(xml);

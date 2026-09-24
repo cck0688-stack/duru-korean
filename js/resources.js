@@ -175,7 +175,9 @@
       var chips = files.map(function (f) { return f.lang; });
       var shown = chips.slice(0, 3);
       var more = chips.length - shown.length;
-      var href = 'resource.html?id=' + encodeURIComponent(r.id) + '&pl=' + encodeURIComponent(state.lang);
+      // The download's own address (api/render.js fills it in for
+      // search engines and link previews).
+      var href = '/resource/' + encodeURIComponent(r.id) + '?pl=' + encodeURIComponent(state.lang);
       var level = r.learning_level && r.learning_level !== 'Any level' ? R.levelLabel(r.learning_level) : '';
       var meta = [R.categoryLabel(r.category), level, Object.keys(formats).join('/') || 'PDF'].filter(Boolean).join(' · ');
       var desc = R.localized(r, 'description', lang);
@@ -285,7 +287,7 @@
           suggestEl.hidden = false;
         });
       }
-      listEl.querySelectorAll('a[href*="resource.html"]').forEach(function (a) {
+      listEl.querySelectorAll('a[href*="/resource/"]').forEach(function (a) {
         a.addEventListener('click', function () {
           saveState({ scrollY: window.scrollY, shown: all.length });
           try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}
@@ -596,7 +598,7 @@
         }, Promise.resolve()).then(function () { return rid; });
       }).then(function (rid) {
         picked = [];
-        window.location.href = 'resource.html?id=' + encodeURIComponent(rid);
+        window.location.href = '/resource/' + encodeURIComponent(rid);
       }).catch(function (err) {
         btn.disabled = false;
         setMsg(t('resources.errSaveFailed', 'Could not save resource: {msg}').replace('{msg}', err.message), 'error');
