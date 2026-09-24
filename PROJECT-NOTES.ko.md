@@ -1143,3 +1143,10 @@ Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
 - 매시간 도는 `publish-missing.yml` 이 끝에 `scripts/indexnow.mjs` 를 실행해, 지난 75분 동안 게시된 블로그 글과 자료의 모든 언어 주소를 IndexNow로 보냅니다. 빙, 네이버, 얀덱스 등이 함께 받습니다.
 - 키는 사이트 루트의 `<32자리>.txt` 파일입니다 (비밀이 아님, 사이트 확인용). 이 파일을 지우면 IndexNow가 거절합니다.
 - 처음 한 번 전체를 보내려면 GitHub Actions → Finish publishing languages → Run workflow 에서 "Send every public page…" 를 체크하고 실행합니다.
+
+## 자료 하나 지우기 (Delete a download)
+
+- GitHub → Actions → **Delete a download** → Run workflow → 자료 제목을 정확히 입력.
+- 자료 페이지의 "Delete this download" 버튼과 같은 일을 합니다 (자료, 언어별 파일·버전·출처·검토 기록, PDF와 표지).
+- 제목이 정확히 1개 자료와 맞을 때만 지웁니다. `dry_run`을 켜면 찾기만 하고 지우지 않습니다.
+- 2026-09-24: 파일이 하나도 없던 "약국에서 쓰는 핵심 어휘"를 이 방법으로 지웠습니다.
