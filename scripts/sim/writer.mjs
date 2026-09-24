@@ -47,12 +47,50 @@ const SAFETY = [
   '- Never mention being an AI, a model, a simulation or a persona.'
 ].join('\n');
 
-const HUMAN = [
-  'Write like a real person typing on a phone in a forum: first person, natural, a little informal,',
-  'specific rather than generic. Vary how you start — not every message opens with a greeting.',
-  'No hashtags, no bullet lists, at most one emoji and often none. Learners of Korean often drop in a',
-  'Korean word or phrase they are practising; do that sometimes, not always.'
-].join('\n');
+// How people actually type in each language's own online spaces:
+// how they laugh, the emoticons and short forms they use. A Brazilian
+// laughs "kkkk", a Mexican "jajaja", a Vietnamese ":))" — nobody but a
+// Korean speaker types "ㅋㅋㅋ", and a post that does reads as written by
+// someone who is not who it says it is.
+export const LOCAL_STYLE = {
+  en: 'Laugh with "lol", "haha" or "lmao"; short forms like "tbh", "ngl", "idk", "btw", "rn", "omg"; ' +
+      'emoticons like ":)" ":D" or one emoji such as 😅 😭 🙏; lowercase starts and missing full stops are normal.',
+  vi: 'Laugh with "haha", "hihi", "=))", ":))" or "kkk"; particles like "nha", "nè", "á", "ạ", "hen", "luôn"; ' +
+      'short forms like "k" (không), "đc" (được), "mn" (mọi người), "ko", "vs" (với), "j" (gì), "cx" (cũng); ' +
+      'emoticons ":3", "^^", ":((", "T.T".',
+  es: 'Laugh with "jajaja", "jaja", "jsjs" or "xD"; short forms like "q" (que), "xq"/"pq" (porque), "tmb" (también), ' +
+      '"x" (por), "bn" (bien), "ntp", "porfa"; often drops the opening ¿ and ¡ and some accents; emoticons ":)" ":(" "<3".',
+  id: 'Laugh with "wkwkwk", "wkwk", "haha" or "awokawok"; particles "sih", "dong", "deh", "kok", "nih", "loh", "ya"; ' +
+      'short forms "yg" (yang), "gk"/"ga" (tidak), "bgt" (banget), "udh" (sudah), "blm" (belum), "aja", "gmn" (gimana), ' +
+      '"tp" (tapi), "bs" (bisa), "kak"/"gan"/"min" to address people; emoticons ":D", "^^", "🙏", "😭".',
+  'pt-BR': 'Laugh with "kkkk", "kkkkk", "rsrs" or "hahaha"; short forms "vc" (você), "tb"/"tbm" (também), "pq" (porque), ' +
+      '"q" (que), "mto" (muito), "blz" (beleza), "tmj", "mds" (meu deus), "né", "aff"; emoticons ":)", ":(", "<3", "😂", "🥲".',
+  ko: 'Laugh with "ㅋㅋㅋ" or "ㅎㅎ"; "ㅠㅠ"/"ㅜㅜ" for sad; short forms like "넘" (너무), "진짜", "ㄹㅇ", "ㄱㅅ" (감사); ' +
+      'casual endings (-요 or 반말 with friends), "~" at the end of a line.',
+  ja: 'Laugh with "w", "www" or "笑"; kaomoji like "(^^)", "(^_^;)", "(´;ω;`)", "( ˘ω˘ )"; "〜" and "！" at the end; ' +
+      'casual forms ("〜だよね", "〜かな", "〜してみた") mixed with polite ones; "ｗ" at the end of a line.',
+  zh: 'Laugh with "哈哈哈", "hhh" or "233"; particles "啦", "嘛", "呀", "哦", "吧", "~"; net slang like "绝了", "yyds", ' +
+      '"真的会谢", "太难了", "冲鸭"; emoticons "QAQ", "orz", "[捂脸]", "😂"; commas used freely instead of full stops.'
+};
+
+export function human(lang) {
+  return [
+    'Write like a real person typing on a phone in a forum in your own language: first person, informal,',
+    'specific rather than generic, a little messy. Vary how you start — not every message opens with a',
+    'greeting, and most do not. Real forum posts ramble a little, repeat a word, fix a thought mid-sentence,',
+    'and have the odd typo. Never polished, never balanced like an essay.',
+    '',
+    'How people who write in your language type online — use this, naturally, not all of it at once:',
+    LOCAL_STYLE[lang] || LOCAL_STYLE.en,
+    lang === 'ko' ? '' : 'Never use Korean-style laughter or crying (ㅋㅋ, ㅎㅎ, ㅠㅠ, ㅜㅜ) — that is not how people in your language type.',
+    '',
+    'Learners of Korean often drop in a Korean word or phrase they are practising (in Hangul); do that',
+    'sometimes, not always.',
+    'Never: hashtags, bullet lists, headings, em dashes (—), semicolons, "Great question!", "I hope this helps",',
+    '"feel free to", "journey", "delve", closing summaries, or thanking everyone at the end.'
+  ].filter((x) => x !== null).join('\n');
+}
+
 
 function strict(properties) {
   return { type: 'object', properties, required: Object.keys(properties), additionalProperties: false };
@@ -131,13 +169,36 @@ function wrongLanguage(body, lang) {
   return got && got !== lang ? got : null;
 }
 
+export function fitted(body, min, max) {
+  const cut = [...body].slice(0, max).join('');
+  const re = /[.!?。！？…)\]]+["'”’)]?\s|\n/g;
+  let end = -1, m;
+  while ((m = re.exec(cut + ' '))) end = m.index + m[0].trimEnd().length;
+  const out = end > 0 ? cut.slice(0, end).trim() : '';
+  return chars(out) >= min ? out : body;
+}
+
 async function screened(cfg, make, min, max, what, lang) {
   let why = '';
   for (let i = 0; i < 3; i += 1) {
-    const body = String((await make(why)) || '').trim();
+    let body = String((await make(why)) || '').trim();
+    // A little long: end it at the last whole sentence that fits, the
+    // way a person would stop typing, rather than ask all over again.
+    if (chars(body) > max) body = fitted(body, min, max);
     const n = chars(body);
     if (n < min || n > max) { why = 'The last one was ' + n + ' characters; it must be between ' + min + ' and ' + max + '.'; continue; }
+    if (lang && lang !== 'ko' && /[ㅋㅎㅠㅜ]{2,}/.test(body)) {
+      why = 'The last one used Korean-style laughter or crying (ㅋㅋ, ㅎㅎ, ㅠㅠ). People who write in ' +
+        LANG_NAMES[lang] + ' do not type that; use how they laugh instead.';
+      continue;
+    }
+    // A semicolon between clauses, not the one inside a kaomoji (^_^;).
+    if (/—|;\s+[^\s)]|I hope this helps|feel free to|Great question/i.test(body)) {
+      why = 'The last one sounded written, not typed: no em dashes, no semicolons, no stock phrases.';
+      continue;
+    }
     const other = lang && wrongLanguage(body, lang);
+    if (other && process.env.SIM_DEBUG) console.log('  (다른 언어로 판정: ' + other + ') ' + body);
     if (other) {
       why = 'The last one was written in ' + (LANG_NAMES[other] || other) + '. Write every sentence in ' +
         LANG_NAMES[lang] + ' only; a Korean word or two inside is fine, other languages are not.';
@@ -195,7 +256,7 @@ export async function writePost(cfg, persona, recent) {
     persona.topic === 'ask' ? 'Ask one clear question that other learners could actually answer.' : '',
     'Length: about ' + target + ' characters, and never under 50 or over 400.',
     '',
-    HUMAN, '', SAFETY,
+    human(persona.lang), '', SAFETY,
     '',
     'Posts already on the board — write about something different:',
     recent.slice(0, 30).map((r) => '- ' + r.slice(0, 80)).join('\n') || '(none yet)'
@@ -225,7 +286,7 @@ export async function writeReply(cfg, persona, thread, target, category) {
     role,
     'Length: 20 to 300 characters. Short replies are fine.',
     '',
-    HUMAN, '', SAFETY
+    human(persona.lang), '', SAFETY
   ].join('\n');
   const schema = strict({ body: { type: 'string' } });
   return screened(cfg, async (why) => parse(await cfg.provider.chat(cfg, system + (why ? '\n\n' + why : ''),

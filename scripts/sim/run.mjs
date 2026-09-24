@@ -123,7 +123,7 @@ export async function tick() {
   const since = new Date(Date.now() - THREAD_DAYS * 86400000).toISOString();
   const stories = await anon('stories?select=id,user_id,display_name,body,lang,category,parent_id,created_at' +
     '&created_at=gte.' + since + '&order=created_at.asc&limit=5000');
-  const unposted = personas.filter((p) => !p.posted_at && p.joined_on <= now.date);
+  const unposted = personas.filter((p) => !p.posted_at && p.joined_on === now.date);
   const ticksLeft = Math.max(1, (24 - now.hour) * TICKS_PER_HOUR - Math.floor(now.minute / 20));
   const postsNow = Math.min(unposted.length, Math.ceil(unposted.length / ticksLeft));
   const recent = stories.filter((s) => !s.parent_id).map((s) => s.body).reverse();
@@ -142,7 +142,10 @@ export async function tick() {
   }
 
   /* 3. who is online */
-  const members = personas.filter((p) => p.joined_on <= now.date);
+  // Only today's twenty are about: each writes the one post they came
+  // to write, and it is they who answer and heart. Yesterday's people
+  // do not come back — another day, other people.
+  const members = personas.filter((p) => p.joined_on === now.date);
   const online = shuffle(members).slice(0, ONLINE);
 
   /* 4. replies */
