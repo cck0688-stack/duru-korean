@@ -13,6 +13,18 @@
 # to anything else — or deleting it — stops every tick at once. That is
 # the stop button.
 #
+# ── Sample posts on the live site ─────────────────────────────────
+#
+# A second job, "live", writes to the real Community as well, every
+# twenty minutes, through the bot account (DURU_BOT_EMAIL). Every row
+# it writes is marked is_sample and shows a "Sample" badge on the page;
+# sample writers only talk among themselves. It refuses to write until
+# supabase/schema.sql §39 has been run on the live project.
+#
+# To stop only the live one: add the variable SIM_LIVE with the value
+# off. SIM_ENABLED set to anything but "true" stops both. To remove
+# every sample post: `delete from public.stories where is_sample;`
+#
 # ── Secrets (Settings → Secrets and variables → Actions → Secrets) ─
 #
 #   SIM_SUPABASE_URL            the TEST project's URL
@@ -39,7 +51,7 @@ on:
       task:
         description: 'What to run'
         type: choice
-        options: [tick, verify, both]
+        options: [tick, verify, both, live]
         default: tick
 
 concurrency:
@@ -124,3 +136,34 @@ jobs:
             sim-report.json
             sim-shots/
           if-no-files-found: ignore
+
+  live:
+    if: vars.SIM_ENABLED == 'true' && vars.SIM_LIVE != 'off' && (github.event_name != 'schedule' || github.event.schedule != '50 21 * * *') && (github.event_name != 'workflow_dispatch' || inputs.task == 'live' || inputs.task == 'both')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    concurrency:
+      group: community-sim-live
+      cancel-in-progress: false
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Sample posts on the live Community
+        run: node scripts/sim/live.mjs
