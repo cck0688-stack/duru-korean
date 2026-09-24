@@ -785,5 +785,7 @@
   "visits.total": "방문",
   "stories.sample": "예시 글",
   "stories.sampleNote": "예시 글입니다. 이 표시는 관리자에게만 보입니다.",
-  "resources.more": "더 보기 ({n}개 남음)"
+  "resources.more": "더 보기 ({n}개 남음)",
+  "view.grid": "박스로 보기",
+  "view.list": "목록으로 보기"
 }

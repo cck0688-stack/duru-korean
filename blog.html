@@ -70,6 +70,14 @@
         </svg>
         <span data-i18n="blog.allPosts">All posts</span>
       </button>
+      <div class="topic-bar-left view-toggle" data-list="blogList" data-key="blog" role="group" aria-label="View">
+        <button type="button" data-view="grid" aria-pressed="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/></svg>
+        </button>
+        <button type="button" data-view="list" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.8" cy="6" r="1.1"/><circle cx="3.8" cy="12" r="1.1"/><circle cx="3.8" cy="18" r="1.1"/></svg>
+        </button>
+      </div>
       <div class="topic-bar-side">
         <label class="dl-lang" for="blogLang">
           <span data-i18n="resources.langPick">Pick a language</span>
@@ -184,6 +192,7 @@
 <script src="js/blog.js"></script>
 <script>window.DURU_PAGE_TITLE_KEY = 'blogPage.title';</script>
 <script src="js/newsletter.js"></script>
+<script src="js/view-toggle.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/langbar.js"></script>
 </body>

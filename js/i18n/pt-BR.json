@@ -785,5 +785,7 @@
   "visits.total": "Visitas",
   "stories.sample": "Exemplo",
   "stories.sampleNote": "Publicação de exemplo. Só administradores veem esta marca.",
-  "resources.more": "Ver mais (faltam {n})"
+  "resources.more": "Ver mais (faltam {n})",
+  "view.grid": "Ver em blocos",
+  "view.list": "Ver em lista"
 }

@@ -785,5 +785,7 @@
   "visits.total": "Visits",
   "stories.sample": "Sample",
   "stories.sampleNote": "A sample post. Only admins see this mark.",
-  "resources.more": "Show more ({n} left)"
+  "resources.more": "Show more ({n} left)",
+  "view.grid": "Box view",
+  "view.list": "List view"
 }

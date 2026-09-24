@@ -785,5 +785,7 @@
   "visits.total": "訪問",
   "stories.sample": "サンプル",
   "stories.sampleNote": "サンプル投稿です。この表示は管理者にだけ見えます。",
-  "resources.more": "もっと見る (残り{n}件)"
+  "resources.more": "もっと見る (残り{n}件)",
+  "view.grid": "ボックス表示",
+  "view.list": "リスト表示"
 }

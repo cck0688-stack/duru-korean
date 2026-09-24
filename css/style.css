@@ -4266,3 +4266,95 @@ section { position: relative; }
   margin: 26px 0 0;
 }
 .list-more .btn { min-width: 220px; }
+
+/* ---- Boxes or a list (js/view-toggle.js) ---- */
+
+/* On the left of the bar, as the language picker is on the right, so
+   "All …" stays on the centre of the column. */
+.topic-bar-left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (max-width: 860px) {
+  .topic-bar-left { position: static; transform: none; order: 2; }
+}
+
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid rgba(22, 48, 43, 0.18);
+  border-radius: 999px;
+  background: #fff;
+  padding: 3px;
+  gap: 2px;
+}
+.view-toggle button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-dim);
+  cursor: pointer;
+}
+.view-toggle button svg { width: 18px; height: 18px; }
+.view-toggle button:hover { color: var(--ink); }
+.view-toggle button[aria-pressed="true"] { background: var(--bg); color: var(--cream); }
+.view-toggle button:focus-visible { outline: 2px solid var(--accent-red); outline-offset: 2px; }
+
+/* The list: one line per entry, many to a screen. The same cards, with
+   the picture and the summary put away. */
+.resource-grid--list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(22, 48, 43, 0.1);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+.resource-grid--list .res-card {
+  display: block;
+  border: 0;
+  border-bottom: 1px solid rgba(22, 48, 43, 0.08);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 11px 16px;
+}
+.resource-grid--list .res-card:last-child { border-bottom: 0; }
+.resource-grid--list .res-card:hover { background: var(--paper); box-shadow: none; }
+.resource-grid--list .res-thumb,
+.resource-grid--list .post-photo,
+.resource-grid--list .res-card-desc,
+.resource-grid--list .aud-badges,
+.resource-grid--list .res-view { display: none; }
+.resource-grid--list .res-card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+.resource-grid--list .res-card-body h3 {
+  flex: 1 1 320px;
+  min-width: 0;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.resource-grid--list .res-meta { margin: 0; font-size: 12.5px; white-space: nowrap; }
+.resource-grid--list .res-card-foot { margin: 0; padding: 0; border: 0; }
+.resource-grid--list .res-decide { flex-basis: 100%; }
+.resource-grid--list .res-draft { margin: 0; }
+
+@media (max-width: 600px) {
+  .resource-grid--list .res-card-body h3 { flex-basis: 100%; }
+  .resource-grid--list .res-meta { white-space: normal; flex: 1 1 auto; min-width: 0; }
+}
+
+.resource-grid--list .res-card--photo { padding: 11px 16px; overflow: visible; }
+.resource-grid--list .res-card--photo .res-card-body { padding: 0; }

@@ -785,5 +785,7 @@
   "visits.total": "Lượt truy cập",
   "stories.sample": "Bài mẫu",
   "stories.sampleNote": "Bài mẫu. Chỉ quản trị viên thấy dấu này.",
-  "resources.more": "Xem thêm (còn {n})"
+  "resources.more": "Xem thêm (còn {n})",
+  "view.grid": "Xem dạng ô",
+  "view.list": "Xem dạng danh sách"
 }

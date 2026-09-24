@@ -785,5 +785,7 @@
   "visits.total": "访问",
   "stories.sample": "示例",
   "stories.sampleNote": "示例帖子。此标记仅管理员可见。",
-  "resources.more": "查看更多（还有 {n} 份）"
+  "resources.more": "查看更多（还有 {n} 份）",
+  "view.grid": "卡片视图",
+  "view.list": "列表视图"
 }
