@@ -697,6 +697,7 @@
   "review.published": "Published.",
   "review.publishing": "Publishing…",
   "review.ready": "Nothing is blocking this.",
+  "review.readyOnApprove": "Có thể đăng. Khi duyệt, hệ thống ghi nhận bạn đã kiểm tra các mục bên dưới.",
   "review.realText": "text is selectable",
   "review.refresh": "Refresh",
   "review.refused": "The database refused: ",

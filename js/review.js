@@ -224,7 +224,10 @@
             '</b> ' + esc(row.objective) + '</p>'
           : '') +
 
-        (blocks.length
+        (blocks.length === 1 && blocks[0] === 'rights-unchecked'
+          ? '<p class="review-ready">' + esc(t('review.readyOnApprove',
+              'Ready. Approving records that you have checked the items below.')) + '</p>'
+          : blocks.length
           ? '<div class="review-blocks"><b>' +
             esc(t('review.blocked', 'This cannot go out yet')) + '</b><ul>' +
             blocks.map(function (b) { return '<li>' + esc(blockText(b)) + '</li>'; }).join('') +
@@ -248,8 +251,13 @@
         sourcesHTML(row) +
 
         '<div class="review-actions">' +
+          // Only what a press cannot settle keeps the button shut: a
+          // missing PDF, a failed check, a source marked unusable. An
+          // unchecked source is settled by the press itself — Approve
+          // records that the person pressing it has checked it (the
+          // confirmation says so), through clear_resource_source().
           '<button type="button" class="btn btn-primary review-approve" data-id="' + esc(row.id) + '"' +
-            (blocks.length ? ' disabled' : '') + '>' +
+            (blocks.some(function (b) { return b !== 'rights-unchecked'; }) ? ' disabled' : '') + '>' +
             esc(t('review.approve', 'Approve and publish')) + '</button>' +
           '<button type="button" class="btn btn-ghost review-changes" data-id="' + esc(row.id) + '">' +
             esc(t('review.changes', 'Needs changes')) + '</button>' +
@@ -392,11 +400,31 @@
         b.addEventListener('click', function () {
           var row = find(b.dataset.id);
           if (!row) return;
-          if (!window.confirm(t('review.confirmPublish',
-            'Publish this in every language it has been made in?'))) return;
+          var unchecked = (row.resource_sources || []).filter(function (x) {
+            return x.rights_status === 'unchecked' || x.rights_status === 'needs-human';
+          });
+          if (!window.confirm(unchecked.length
+            ? t('admin.confirmPublish', 'Publish “{title}”? Publishing records that you have checked what it says.')
+                .replace('{title}', row.title)
+            : t('review.confirmPublish', 'Publish this in every language it has been made in?'))) return;
           said[row.id] = null;
           b.disabled = true;
-          approve(row);
+          // Each unchecked item is marked checked, in the person's name,
+          // before the database is asked to publish.
+          var chain = Promise.resolve();
+          unchecked.forEach(function (x) {
+            chain = chain.then(function () {
+              return client.rpc('clear_resource_source', {
+                p_source_id: x.id,
+                p_note: t('admin.checkedNote', 'Checked and published from the list by an admin.')
+              }).then(function (out) {
+                if (out.error) throw out.error;
+                x.rights_status = 'cleared';
+              });
+            });
+          });
+          chain.then(function () { return approve(row); })
+            .catch(function (err) { b.disabled = false; says(row.id, (err && err.message) || String(err), 'bad'); });
         });
       });
 

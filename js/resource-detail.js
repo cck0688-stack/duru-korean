@@ -222,6 +222,10 @@
         prev.hidden = !(have && R.PREVIEWABLE[chosen.file_type]);
         note.hidden = true;
       }
+      // A sheet still waiting for review can be published from here, by
+      // the same path as the list's Publish: the drafts are copied to the
+      // public bucket and the database's own gate is called for each one.
+      $('resApproveBtn').hidden = !(isAdmin && resource && R.isPending(resource));
     }
 
     $('resPdfLang').addEventListener('change', function () {
@@ -260,6 +264,27 @@
           if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
         })
         .then(function () { btn.disabled = false; });
+    });
+
+    $('resApproveBtn').addEventListener('click', function () {
+      var btn = this;
+      var title = R.localized(resource, 'title', R.siteLang());
+      if (!window.confirm(t('admin.confirmPublish', 'Publish “{title}”? Publishing records that you have checked what it says.')
+        .replace('{title}', title))) return;
+      btn.disabled = true;
+      var say = window.DURU_NOTIFY || { success: function () {}, error: function (m) { window.alert(m); } };
+      R.publishResource(client, resource.id, t('admin.checkedNote', 'Checked and published from the list by an admin.'))
+        .then(function (refused) {
+          if (refused.length) {
+            say.error(t('admin.refused', 'Not published: {why}').replace('{why}', refused.join(' · ')));
+            btn.disabled = false;
+            return;
+          }
+          say.success(t('admin.published', 'Published.'));
+          chosen = null;
+          return load().then(function () { btn.disabled = false; });
+        })
+        .catch(function (err) { btn.disabled = false; say.error((err && err.message) || String(err)); });
     });
 
     /* ---------------- Editor (admin) ---------------- */

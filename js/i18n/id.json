@@ -697,6 +697,7 @@
   "review.published": "Published.",
   "review.publishing": "Publishing…",
   "review.ready": "Nothing is blocking this.",
+  "review.readyOnApprove": "Siap. Dengan menyetujui, tercatat bahwa Anda sudah memeriksa butir di bawah.",
   "review.realText": "text is selectable",
   "review.refresh": "Refresh",
   "review.refused": "The database refused: ",

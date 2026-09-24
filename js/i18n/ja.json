@@ -697,6 +697,7 @@
   "review.published": "Published.",
   "review.publishing": "Publishing…",
   "review.ready": "Nothing is blocking this.",
+  "review.readyOnApprove": "公開できます。承認すると、下の確認項目を確認したものとして記録されます。",
   "review.realText": "text is selectable",
   "review.refresh": "Refresh",
   "review.refused": "The database refused: ",

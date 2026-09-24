@@ -697,6 +697,7 @@
   "review.published": "Published.",
   "review.publishing": "Publishing…",
   "review.ready": "Nothing is blocking this.",
+  "review.readyOnApprove": "可以发布。批准即记录为您已核实下列各项。",
   "review.realText": "text is selectable",
   "review.refresh": "Refresh",
   "review.refused": "The database refused: ",

@@ -697,6 +697,7 @@
   "review.published": "Published.",
   "review.publishing": "Publishing…",
   "review.ready": "Nothing is blocking this.",
+  "review.readyOnApprove": "Listo. Al aprobar, queda registrado que revisaste los puntos de abajo.",
   "review.realText": "text is selectable",
   "review.refresh": "Refresh",
   "review.refused": "The database refused: ",
