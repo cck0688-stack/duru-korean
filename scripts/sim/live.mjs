@@ -192,6 +192,9 @@ export async function tick() {
   // Rows saved before the detector stopped calling any post with a
   // quoted Korean word "Korean" are corrected, and their translations
   // (made from the wrong source) are dropped so they are made again.
+  for (const st of stories) {
+    log('  · ' + (st.parent_id ? '  답글 ' : '글 ') + st.display_name + ' [' + st.lang + '] 감지=' + DETECT.detect(st.body));
+  }
   if (!DRY) {
     for (const st of stories) {
       const writer = byNick.get(st.display_name);

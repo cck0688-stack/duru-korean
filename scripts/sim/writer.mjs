@@ -74,7 +74,7 @@ const CONTACT = [
 
 // Where someone is from is never shown, nicknames included: no country,
 // city or country code in them (maynang_hanoi, solecito_kr).
-const PLACES = ['korea', 'kr', 'kor', 'vn', 'vie', 'viet', 'vietnam', 'br', 'bra', 'brasil', 'brazil', 'es', 'esp',
+const PLACES = ['korea', 'coreia', 'corea', 'coree', 'seul', 'kr', 'kor', 'vn', 'vie', 'viet', 'vietnam', 'br', 'bra', 'brasil', 'brazil', 'es', 'esp',
   'spain', 'mx', 'mex', 'mexico', 'ar', 'arg', 'co', 'col', 'cl', 'pe', 'id', 'ind', 'indo', 'indonesia', 'jp', 'jpn',
   'japan', 'nihon', 'cn', 'chn', 'china', 'tw', 'hk', 'us', 'usa', 'uk', 'ph', 'th', 'in', 'my', 'sg', 'au', 'ca',
   'pt', 'hanoi', 'saigon', 'hcm', 'hcmc', 'danang', 'hue', 'seoul', 'busan', 'incheon', 'daegu', 'jeju', 'jakarta',
