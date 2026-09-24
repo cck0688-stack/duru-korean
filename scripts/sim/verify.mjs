@@ -118,13 +118,32 @@ export async function verify() {
   };
 
   /* ---------- in the browser ---------- */
-  const { chromium } = await import('playwright');
   const site = await startSite();
+  try {
+    await checkPages({ base: site.base, anon, langs: READ_LANGS, threads: THREADS, out: OUT, report });
+  } finally {
+    site.server.close();
+  }
+
+  fs.writeFileSync(OUT + '/sim-report.json', JSON.stringify(report, null, 2));
+  fs.writeFileSync(OUT + '/sim-report.md', markdown(report));
+  log(markdown(report));
+  return report;
+}
+
+// The pages themselves, in a real browser: the topic filters, and for a
+// reader in each language, the translations, the replies' translations
+// and "Show original". `base` is the site to open; `anon` reads the same
+// database the pages read; `only`, when given, limits the threads looked
+// at to those root ids.
+export async function checkPages({ base, anon, langs, threads, out, report, only = null }) {
+  const { chromium } = await import('playwright');
+  const failures = report.failures;
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
   try {
     // The three topics, once: the filter does not depend on the language.
     {
-      const page = await openCommunity(browser, site.base, 'en');
+      const page = await openCommunity(browser, base, 'en');
       for (const topic of TOPICS) {
         const expected = (await anon('stories?select=id&parent_id=is.null&category=eq.' + topic + '&limit=10000')).length;
         await page.click('.cat-card[data-filter="' + topic + '"]');
@@ -144,16 +163,22 @@ export async function verify() {
       await page.context().close();
     }
 
-    for (const L of READ_LANGS) {
-      const page = await openCommunity(browser, site.base, L);
+    for (const L of langs) {
+      const page = await openCommunity(browser, base, L);
       const r = { threads: 0, translated: 0, replies: 0, repliesTranslated: 0, wrongLang: 0, original: 0, originalOk: 0, notes: [] };
       // The list is redrawn every time a translation lands, so a card is
       // found again by its post id each time rather than held on to.
       const rootIds = await page.$$eval('#storyList > .story-card', (e) => e.map((c) => c.dataset.story));
       for (const rootId of rootIds) {
-        if (r.threads >= THREADS) break;
+        if (r.threads >= threads) break;
+        if (only && !only.has(rootId)) continue;                           // not one of the threads being checked
         const card = '#storyList > .story-card[data-story="' + rootId + '"]';
-        const rows = await page.$$eval(card + ' .story-body', (e) => e.map((b) => b.getAttribute('lang')));
+        // Whether the thread has anything in another language is read from
+        // the language each entry was written in (its chip), not from the
+        // text showing: a translation made earlier and kept is already on
+        // screen by the time the page is looked at.
+        const rows = await page.$$eval(card + ' .story-lang, ' + card + ' .story-body',
+          (e) => e.map((b) => b.getAttribute('lang')));
         if (!rows.some((code) => code && code !== L)) continue;              // nothing to translate here
         r.threads += 1;
         await page.locator(card).scrollIntoViewIfNeeded();
@@ -194,24 +219,19 @@ export async function verify() {
       report.readers[L] = r;
       // What a reader in L sees, for the person who cannot open the test
       // project in a browser: kept with the report.
-      fs.mkdirSync(OUT + '/sim-shots', { recursive: true });
+      fs.mkdirSync(out + '/sim-shots', { recursive: true });
       await page.evaluate(() => window.scrollTo(0, document.getElementById('storyList').offsetTop - 120));
       await page.waitForTimeout(800);
-      await page.screenshot({ path: OUT + '/sim-shots/community-' + L + '.png', fullPage: false });
+      await page.screenshot({ path: out + '/sim-shots/community-' + L + '.png', fullPage: false });
       await page.context().close();
     }
   } finally {
     await browser.close();
-    site.server.close();
   }
 
-  fs.writeFileSync(OUT + '/sim-report.json', JSON.stringify(report, null, 2));
-  fs.writeFileSync(OUT + '/sim-report.md', markdown(report));
-  log(markdown(report));
-  return report;
 }
 
-async function openCommunity(browser, base, L) {
+export async function openCommunity(browser, base, L) {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
   const page = await ctx.newPage();
   if (process.env.SIM_SUPABASE_JS) {
@@ -224,7 +244,7 @@ async function openCommunity(browser, base, L) {
   return page;
 }
 
-async function waitTranslated(page, card, L, ms) {
+export async function waitTranslated(page, card, L, ms) {
   const until = Date.now() + ms;
   while (Date.now() < until) {
     const left = await page.$$eval(card + ' .story-body', (e, want) =>
@@ -235,15 +255,15 @@ async function waitTranslated(page, card, L, ms) {
   return false;
 }
 
-function markdown(r) {
+export function markdown(r) {
   const d = r.db;
-  const lines = ['# Community 다국어 검증 — ' + r.when.slice(0, 16).replace('T', ' ') + ' UTC', ''];
+  const lines = ['# Community 다국어 검증' + (r.site ? ' (' + r.site + ')' : '') + ' — ' + r.when.slice(0, 16).replace('T', ' ') + ' UTC', ''];
   lines.push(r.failures.length ? '**결과: 실패 ' + r.failures.length + '건**' : '**결과: 모두 통과**', '');
   r.failures.forEach((f) => lines.push('- ❌ ' + f));
   lines.push('', '## 커뮤니티', '',
     '회원 ' + d.community.members + '명 · 글 쓴 회원 ' + d.community.posted + '명 · 원문 글 ' + d.community.posts +
     '건 · 답글 ' + d.community.replies + '건 · 3시간 넘은 질문 중 답이 달린 비율 ' + d.community.askAnswered, '');
-  lines.push('## 원문 저장', '', '확인 ' + d.original.checked + '건 · 그대로 ' + d.original.kept + '건 · 바뀜 ' + d.original.altered + '건', '');
+  if (d.original) lines.push('## 원문 저장', '', '확인 ' + d.original.checked + '건 · 그대로 ' + d.original.kept + '건 · 바뀜 ' + d.original.altered + '건', '');
   lines.push('## 작성 언어 감지', '', '| 쓴 언어 | 글 | 맞음 | 감지 못함 (쓴 언어로 저장) | 다른 언어로 감지 |', '|---|---|---|---|---|');
   Object.entries(d.detection).forEach(([l, x]) => {
     if (!x.n) return;

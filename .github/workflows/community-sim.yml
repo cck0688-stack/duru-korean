@@ -1,46 +1,40 @@
-# DURU KOREAN — Community simulation (TEST PROJECT ONLY)
+# DURU KOREAN — Community simulation
 #
-# Invented members who write in the site's eight languages, talking to
-# each other around the clock in a SEPARATE Supabase project, so the
-# multilingual community can be watched working under real use without
-# a single row landing in the live site. See scripts/sim/lib.mjs for
-# the two locks that make pointing it at the live project impossible.
+# Invented members who write in the site's eight languages. Three jobs:
+#
+#   live         every twenty minutes: sample writers post, reply and
+#                heart on the REAL Community, through the bot account.
+#                Every row is marked is_sample (a star admins alone
+#                see); sample writers only talk among themselves.
+#   verify-live  every day at 06:50 Seoul time: the check that the
+#                multilingual Community does its job, on the live site's
+#                sample threads (scripts/sim/verify-live.mjs). It only
+#                reads; its report is on the run's summary page and a
+#                download.
+#   sim          the old separate TEST project (sign-ups included). Off
+#                unless the variable SIM_TEST is "on" and the TEST
+#                secrets still point at a project; see scripts/sim/lib.mjs
+#                for the two locks that keep it off the live project.
 #
 # ── On and off ────────────────────────────────────────────────────
 #
 # Nothing runs until the repository variable SIM_ENABLED is "true"
 # (Settings → Secrets and variables → Actions → Variables). Setting it
-# to anything else — or deleting it — stops every tick at once. That is
-# the stop button.
-#
-# ── Sample posts on the live site ─────────────────────────────────
-#
-# A second job, "live", writes to the real Community as well, every
-# twenty minutes, through the bot account (DURU_BOT_EMAIL). Every row
-# it writes is marked is_sample (a "Sample" badge admins alone see);
-# sample writers only talk among themselves. It refuses to write until
-# supabase/schema.sql §39 has been run on the live project.
-#
-# To stop only the live one: add the variable SIM_LIVE with the value
-# off. SIM_ENABLED set to anything but "true" stops both. To remove
-# every sample post: `delete from public.stories where is_sample;`
+# to anything else — or deleting it — stops every job at once. That is
+# the stop button. SIM_LIVE = off stops only the live writing.
+# To remove every sample post: `delete from public.stories where is_sample;`
 #
 # ── Secrets (Settings → Secrets and variables → Actions → Secrets) ─
 #
-#   SIM_SUPABASE_URL            the TEST project's URL
-#   SIM_SUPABASE_ANON_KEY       the TEST project's anon / publishable key
-#   SIM_PASSWORD_SECRET         any long random string
-#   SIM_TRANSLATE_CACHE_SECRET  optional; the value put in the TEST
-#                               project's app_secrets as translate_cache
-#   OPENAI_API_KEY              already set for the blog and worksheets
+#   SUPABASE_URL, SUPABASE_ANON_KEY     the live project (already set)
+#   DURU_BOT_EMAIL, DURU_BOT_PASSWORD   the bot account (already set)
+#   OPENAI_API_KEY / CLAUDE_CODE_OAUTH_TOKEN   for the writing
 #
-# ── Schedule ──────────────────────────────────────────────────────
-#
-# Every twenty minutes: sign-ups (twenty a day), posts, replies,
-# hearts. Once a day at 06:50 Seoul time: the verification, whose
-# report appears on the run's summary page and as a download.
+#   Only for the test project (sim job, SIM_TEST = on):
+#   SIM_SUPABASE_URL, SIM_SUPABASE_ANON_KEY, SIM_PASSWORD_SECRET,
+#   SIM_TRANSLATE_CACHE_SECRET
 
-name: Community simulation (test project)
+name: Community simulation
 
 on:
   schedule:
@@ -51,8 +45,8 @@ on:
       task:
         description: 'What to run'
         type: choice
-        options: [tick, verify, both, live]
-        default: tick
+        options: [live, verify, both, test-tick, test-verify]
+        default: live
 
 concurrency:
   group: community-sim
@@ -60,7 +54,7 @@ concurrency:
 
 jobs:
   sim:
-    if: vars.SIM_ENABLED == 'true'
+    if: vars.SIM_ENABLED == 'true' && vars.SIM_TEST == 'on' && (github.event_name == 'schedule' || inputs.task == 'test-tick' || inputs.task == 'test-verify')
     runs-on: ubuntu-latest
     timeout-minutes: 40
     env:
@@ -101,9 +95,8 @@ jobs:
             if [ "$CRON" = "50 21 * * *" ]; then verify=true; else tick=true; fi
           else
             case "$TASK" in
-              tick) tick=true ;;
-              verify) verify=true ;;
-              both) tick=true; verify=true ;;
+              test-tick) tick=true ;;
+              test-verify) verify=true ;;
             esac
           fi
           echo "tick=$tick" >> "$GITHUB_OUTPUT"
@@ -167,3 +160,44 @@ jobs:
 
       - name: Sample posts on the live Community
         run: node scripts/sim/live.mjs
+
+  verify-live:
+    if: vars.SIM_ENABLED == 'true' && ((github.event_name == 'schedule' && github.event.schedule == '50 21 * * *') || (github.event_name == 'workflow_dispatch' && (inputs.task == 'verify' || inputs.task == 'both')))
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install the browser for the verification
+        run: npx playwright install --with-deps chromium
+
+      - name: Verify on the live site
+        run: |
+          set +e
+          node scripts/sim/verify-live.mjs
+          code=$?
+          [ -f sim-report.md ] && cat sim-report.md >> "$GITHUB_STEP_SUMMARY"
+          exit $code
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: community-live-report
+          path: |
+            sim-report.md
+            sim-report.json
+            sim-shots/
+          if-no-files-found: ignore

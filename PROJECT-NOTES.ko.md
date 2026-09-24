@@ -1019,6 +1019,11 @@ SQL 실행   /project/ejiwgvlinlffkyycuyym/sql/new
 
 ### 커뮤니티 다국어 시뮬레이션 (시험 프로젝트 전용)
 
+> **2026-09-24부터 꺼져 있습니다.** 가상 회원 활동은 실제 사이트의 예시 글(아래 §39)로,
+> 매일 06:50 검증은 실제 사이트 기준(`scripts/sim/verify-live.mjs`)으로 옮겼습니다.
+> 시험 프로젝트(duru-test)는 지워도 됩니다. 다시 켜려면 시험 프로젝트를 새로 만들고
+> 아래 "켜는 법"을 따른 뒤 Variables 에 `SIM_TEST` = `on` 을 추가합니다.
+
 가상 회원들이 사이트의 8개 언어로 **24시간** 서로 글을 쓰고, 답하고,
 하트를 누릅니다. 다국어 커뮤니티가 실제로 쓰일 때 제대로 도는지 보기
 위한 것이고, **운영 중인 사이트와 완전히 분리된 시험용 Supabase
@@ -1064,7 +1069,7 @@ SQL 실행   /project/ejiwgvlinlffkyycuyym/sql/new
 **끄는 법**: Variables 의 `SIM_ENABLED` 를 `false` 로 바꾸면 다음 차례부터
 전부 멈춥니다.
 
-**보는 법**: GitHub → Actions → "Community simulation (test project)" →
+**보는 법**: GitHub → Actions → "Community simulation" →
 06:50 실행 → 요약 페이지의 검증 결과표, 그리고 아래 Artifacts 의
 `community-sim-report` 에 언어별 커뮤니티 화면 캡처. 시험 프로젝트의
 Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
@@ -1077,6 +1082,12 @@ Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
 - 예시 작성자끼리만 답글과 하트를 주고받습니다. 실제 회원 글에는 답하지도, 하트를 누르지도 않습니다.
 - §39 를 운영 DB에 실행하기 전에는 아무것도 쓰지 않습니다.
 - 모두 지우기: `delete from public.stories where is_sample;`
+
+**매일 06:50 검증 (실제 사이트)** — `scripts/sim/verify-live.mjs`
+- 실제 사이트(https://www.durukorean.com)를 로그인하지 않은 방문자로 열어, 최근 10일의 예시 글타래만 봅니다. 실제 회원 글은 열지 않고, 아무것도 쓰지 않습니다.
+- 확인: 작성 언어 감지(작성자 언어와 저장된 언어), 8개 언어 번역 보기, 댓글 번역, 원문 보기, 주제 필터, 한 사람당 글 1건·정해진 주제·50~400자, 질문에 답이 달렸는지.
+- 보는 법: GitHub → Actions → "Community simulation" → 06:50 실행(verify-live) → 요약 페이지의 결과표, Artifacts 의 `community-live-report` 에 언어별 화면 캡처.
+- 바로 돌리기: Run workflow → task = `verify`.
 
 ### API 대신 Claude 구독으로 쓰기 (블로그·자료실·커뮤니티 시뮬레이션)
 

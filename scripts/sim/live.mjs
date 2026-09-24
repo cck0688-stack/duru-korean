@@ -18,9 +18,10 @@
 //   - Hearts go through the anonymous heart path, one reader id per
 //     sample writer.
 //
-// The test-project simulation (run.mjs) is untouched and keeps running
-// on its own; this one only ever talks to the project named in
-// js/supabase-config.js, and refuses any other.
+// The daily check of what these threads look like to readers of each
+// language is verify-live.mjs. The test-project simulation (run.mjs) is
+// separate and off unless SIM_TEST is on; this one only ever talks to
+// the project named in js/supabase-config.js, and refuses any other.
 //
 //   SUPABASE_URL, SUPABASE_ANON_KEY    the live project (already set)
 //   DURU_BOT_EMAIL, DURU_BOT_PASSWORD  the bot account (already set)
@@ -62,7 +63,7 @@ export function liveEnv(env = process.env) {
   return { url, anon, email, password };
 }
 
-function client(env, token) {
+export function client(env, token) {
   return async function call(p, init = {}) {
     let last;
     for (let i = 0; i < 3; i += 1) {
@@ -93,7 +94,7 @@ function client(env, token) {
   };
 }
 
-async function signInBot(env) {
+export async function signInBot(env) {
   const res = await fetch(env.url + '/auth/v1/token?grant_type=password', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', apikey: env.anon },
