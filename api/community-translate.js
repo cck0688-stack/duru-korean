@@ -114,6 +114,25 @@ function prompt(fromName, code, count) {
   ].join('\n');
 }
 
+// Now and then a model hands a line back exactly as it came instead of
+// translating it — seen with Portuguese posts shown to Indonesian readers,
+// which quote a word or two of Indonesian. Kept, that would sit under the
+// "translated" mark in the source language for every reader after. A line
+// counts when it has a dozen letters or more (a "kkkk" or an emoji line
+// rightly stays as it is); more than half of those unchanged is an echo.
+export function echoed(source, out) {
+  const norm = (x) => String(x == null ? '' : x).replace(/\s+/g, ' ').trim().toLowerCase();
+  const letters = (x) => (String(x).match(/\p{L}/gu) || []).length;
+  let long = 0;
+  let same = 0;
+  source.forEach((line, i) => {
+    if (letters(line) < 12) return;
+    long += 1;
+    if (norm(line) === norm(out[i])) same += 1;
+  });
+  return long > 0 && same * 2 > long;
+}
+
 function bad(res, status, message) {
   res.status(status).json({ error: message });
 }
@@ -230,7 +249,9 @@ export default async function handler(req, res) {
 
     const hash = hashText(text);
     const kept = row.mt && row.mt[to];
-    if (kept && kept.body && kept.hash === hash) {
+    const keptEcho = kept && kept.body &&
+      echoed(linesOf(text).filter((l) => l.trim()), linesOf(String(kept.body)).filter((l) => l.trim()));
+    if (kept && kept.body && kept.hash === hash && !keptEcho) {
       items[row.id] = { body: String(kept.body), from: from, cached: true };
       continue;
     }
@@ -254,7 +275,7 @@ export default async function handler(req, res) {
     const lines = linesOf(job.text);
     const units = lines.filter((l) => l.trim());
     try {
-      const out = await translate({
+      const ask = (again) => translate({
         // A post written before the language column existed says
         // nothing about itself. An empty `from` is DeepL's way of
         // spelling "detect it", and the sentence below is how the
@@ -266,9 +287,21 @@ export default async function handler(req, res) {
           job.from ? LANGUAGES[job.from]
             : 'an unknown language, which you should work out from the text itself',
           to, units.length
-        )
+        ) + (again
+          ? '\n\nThe last answer gave the lines back untranslated. Every line must be written in ' +
+            LANGUAGES[to] + ', even where the writer quotes a word of it; copy nothing across.'
+          : '')
       }, cfg);
-      const got = out.translations[to];
+      let got = (await ask(false)).translations[to];
+      if (Array.isArray(got) && got.length === units.length && echoed(units, got)) {
+        got = (await ask(true)).translations[to];
+        if (Array.isArray(got) && got.length === units.length && echoed(units, got)) {
+          // Better the author's words with the button to try again than
+          // the author's words labelled as a translation, kept for good.
+          items[job.id] = { error: 'failed' };
+          return;
+        }
+      }
       if (!Array.isArray(got) || got.length !== units.length) {
         items[job.id] = { error: 'mismatched' };
         return;
