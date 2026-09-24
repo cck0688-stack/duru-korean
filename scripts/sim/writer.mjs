@@ -121,6 +121,7 @@ export async function inventPeople(cfg, langs) {
     '- nickname: what they chose to be called on the forum, written in their own language and script',
     '  (Korean in Hangul, Japanese in Japanese, Chinese in Chinese characters, the others in Latin script',
     '  as people really write them). A forum handle, 2–16 characters, not a famous person, not a full real name.',
+    '  No country, city, region or nationality in it, and no country codes like _kr or _vn.',
     '  Every nickname must be different.',
     '- voice: one English sentence for the writer only — their Korean level, what they are into, how they write',
     '  (e.g. "Beginner, loves K-dramas, writes short excited messages with small typos").',
