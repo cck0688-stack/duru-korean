@@ -146,7 +146,12 @@ export async function checkPages({ base, anon, langs, threads, out, report, only
       const page = await openCommunity(browser, base, 'en');
       for (const topic of TOPICS) {
         const expected = (await anon('stories?select=id&parent_id=is.null&category=eq.' + topic + '&limit=10000')).length;
-        await page.click('.cat-card[data-filter="' + topic + '"]');
+        // A click before the page has wired its cards up follows the link
+        // instead; wait for the card to say it is chosen, then for the
+        // list to settle.
+        const card = '.cat-card[data-filter="' + topic + '"]';
+        await page.click(card);
+        await page.waitForSelector(card + '[aria-pressed="true"]', { timeout: 15000 }).catch(() => {});
         await page.waitForTimeout(1500);
         const cats = await page.$$eval('#storyList > .story-card .story-cat', (e) => e.map((x) => x.className));
         const stray = cats.filter((c) => !c.includes('story-cat--' + topic)).length;
@@ -157,7 +162,8 @@ export async function checkPages({ base, anon, langs, threads, out, report, only
         if (stray) failures.push('주제 필터 ' + topic + ': 다른 주제 글 ' + stray + '건이 섞여 있습니다');
         if (pressed !== 'true') failures.push('주제 필터 ' + topic + ': 선택 표시가 없습니다');
         if (expected && shownCount !== expected) failures.push('주제 필터 ' + topic + ': 화면 ' + countText.trim() + ' / DB ' + expected + '건');
-        await page.click('.cat-card[data-filter="' + topic + '"]');          // step back out
+        await page.click(card);                                              // step back out
+        await page.waitForSelector(card + '[aria-pressed="false"]', { timeout: 15000 }).catch(() => {});
         await page.waitForTimeout(800);
       }
       await page.context().close();

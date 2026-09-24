@@ -147,5 +147,10 @@
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/community-translate.js": {
+      "includeFiles": "js/lang-detect.js"
+    }
+  }
 }

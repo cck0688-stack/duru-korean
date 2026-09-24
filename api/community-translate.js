@@ -69,6 +69,7 @@
 //                                values ('translate_cache', '<the string>')
 //                                on conflict (name) do update set value = excluded.value;
 
+import fs from 'node:fs';
 import { LANGUAGES, TranslateError, asFast, resolveProvider, translate } from './_providers.js';
 
 export const config = { maxDuration: 60 };
@@ -112,6 +113,38 @@ function prompt(fromName, code, count) {
     '',
     'Target language: ' + LANGUAGES[code] + ' (' + code + '). Return one entry, with that code.'
   ].join('\n');
+}
+
+// The site's own language detector (js/lang-detect.js, the one the
+// composer uses), loaded once. vercel.json ships the file with this
+// function; without it the language check below is simply skipped.
+let DETECT;
+function detector() {
+  if (DETECT === undefined) {
+    try {
+      const win = {};
+      new Function('window', fs.readFileSync(new URL('../js/lang-detect.js', import.meta.url), 'utf8'))(win);
+      DETECT = win.DURU_LANGDETECT || null;
+    } catch (err) {
+      DETECT = null;
+    }
+  }
+  return DETECT;
+}
+
+// For the tests: null turns the check off, undefined loads the real one.
+export function useDetector(d) { DETECT = d; }
+
+// Still in the language it was written in: an answer that is the post
+// again, reworded or not. Only that — the detector is a guess, so it is
+// asked one narrow question (is this the source language?) rather than
+// trusted to name the target. Korean quoted in the text is set aside
+// first, as learners quote it all the time.
+export function stillSource(from, to, text) {
+  const d = detector();
+  if (!d || !from || from === to) return false;
+  const bare = to === 'ko' ? String(text) : String(text).replace(/[가-힣ᄀ-ᇿ㄰-㆏]+/g, ' ');
+  return d.detect(bare) === from;
 }
 
 // Now and then a model hands a line back exactly as it came instead of
@@ -250,7 +283,8 @@ export default async function handler(req, res) {
     const hash = hashText(text);
     const kept = row.mt && row.mt[to];
     const keptEcho = kept && kept.body &&
-      echoed(linesOf(text).filter((l) => l.trim()), linesOf(String(kept.body)).filter((l) => l.trim()));
+      (echoed(linesOf(text).filter((l) => l.trim()), linesOf(String(kept.body)).filter((l) => l.trim())) ||
+       stillSource(from, to, kept.body));
     if (kept && kept.body && kept.hash === hash && !keptEcho) {
       items[row.id] = { body: String(kept.body), from: from, cached: true };
       continue;
@@ -275,6 +309,13 @@ export default async function handler(req, res) {
     const lines = linesOf(job.text);
     const units = lines.filter((l) => l.trim());
     try {
+      const wrong = (got) => Array.isArray(got) && got.length === units.length &&
+        (echoed(units, got) || stillSource(job.from, to, got.join('\n')));
+      // The second ask goes to the full profile rather than the fast one:
+      // a post that came back in its own language once needs the model
+      // to think, not to hurry.
+      let full = cfg;
+      try { full = resolveProvider(process.env); } catch (err) { /* the fast one, then */ }
       const ask = (again) => translate({
         // A post written before the language column existed says
         // nothing about itself. An empty `from` is DeepL's way of
@@ -288,14 +329,15 @@ export default async function handler(req, res) {
             : 'an unknown language, which you should work out from the text itself',
           to, units.length
         ) + (again
-          ? '\n\nThe last answer gave the lines back untranslated. Every line must be written in ' +
-            LANGUAGES[to] + ', even where the writer quotes a word of it; copy nothing across.'
+          ? '\n\nThe last answer was not in ' + LANGUAGES[to] + ': it gave the lines back in the ' +
+            'language they were written in. Every line must be written in ' + LANGUAGES[to] +
+            ', even where the writer quotes a word of it; copy nothing across.'
           : '')
-      }, cfg);
+      }, again ? full : cfg);
       let got = (await ask(false)).translations[to];
-      if (Array.isArray(got) && got.length === units.length && echoed(units, got)) {
+      if (wrong(got)) {
         got = (await ask(true)).translations[to];
-        if (Array.isArray(got) && got.length === units.length && echoed(units, got)) {
+        if (wrong(got)) {
           // Better the author's words with the button to try again than
           // the author's words labelled as a translation, kept for good.
           items[job.id] = { error: 'failed' };

@@ -229,6 +229,9 @@
       if (!kept || !kept.body || !L) return null;
       if (kept.hash !== L.hashText(row.body || '')) return null;
       if (echoed(row.body, kept.body)) return null;
+      // Or one still in the language the post was written in.
+      if (row.lang && row.lang !== code &&
+          L.detect(code === 'ko' ? kept.body : String(kept.body).replace(/[가-힣ᄀ-ᇿ㄰-㆏]+/g, ' ')) === row.lang) return null;
       return { lang: code, body: String(kept.body), from: row.lang || null };
     }
 
