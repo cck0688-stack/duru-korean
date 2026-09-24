@@ -9,10 +9,14 @@
 //
 // ── How it decides ────────────────────────────────────────────────
 //
-// Writing systems settle most of it outright. Hangul is Korean, kana is
-// Japanese, and Han characters with no kana and no Hangul are Chinese.
-// Nothing else on this site is written in those scripts, so one
-// character is enough.
+// Writing systems settle most of it, by share rather than by presence.
+// Learners quote Korean all the time — a Vietnamese post about the word
+// "그리움" is still Vietnamese — so one Hangul character used to be
+// enough to call a post Korean, and was wrong on exactly the posts this
+// site exists for. Now a script decides only when it makes up a good
+// part of the letters: Hangul is Korean, kana (with the Han characters
+// around it) is Japanese, Han with no kana is Chinese. Otherwise the
+// Latin passes below decide, and the quoted Korean is ignored.
 //
 // The Latin languages are the hard part, and they are separated in two
 // passes. First the letters: Vietnamese, Spanish and Portuguese each
@@ -33,12 +37,14 @@
   var HANGUL = /[가-힣ᄀ-ᇿ㄰-㆏]/;
   var KANA = /[぀-ゟ゠-ヿ]/;
   var HAN = /[㐀-䶿一-鿿]/;
+  var LETTER = /[A-Za-zÀ-ɏḀ-ỿ]/;
 
   // Letters only one of these languages writes with. Vietnamese is the
   // easiest to be sure of — it stacks two marks on one vowel, which no
   // other language here does.
   var MARKS = [
-    { code: 'vi', re: /[ăâđêôơư]|[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i },
+    // â, ê and ô are left out: Portuguese writes them too (você, câmera).
+    { code: 'vi', re: /[ăđơư]|[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i },
     { code: 'pt-BR', re: /[ãõ]|ç[aou]/i },
     { code: 'es', re: /[ñ¿¡]/ }
   ];
@@ -81,14 +87,35 @@
   function detect(text) {
     var s = String(text || '');
     if (!s.trim()) return null;
-    if (HANGUL.test(s)) return 'ko';
-    if (KANA.test(s)) return 'ja';
-    if (HAN.test(s)) return 'zh';
-
-    for (var i = 0; i < MARKS.length; i += 1) {
-      if (MARKS[i].re.test(s)) return MARKS[i].code;
+    var letters = 0, hangul = 0, kana = 0, han = 0;
+    for (var c = 0; c < s.length; c += 1) {
+      var ch = s.charAt(c);
+      if (HANGUL.test(ch)) hangul += 1;
+      else if (KANA.test(ch)) kana += 1;
+      else if (HAN.test(ch)) han += 1;
+      else if (!LETTER.test(ch)) continue;
+      letters += 1;
     }
-    return byWords(s);
+    if (!letters) return null;
+    var enough = letters * 0.4;
+    if (kana && kana + han >= enough) return 'ja';
+    if (hangul >= enough) return 'ko';
+    if (han >= enough && !kana) return 'zh';
+
+    // The Latin passes look at the text with the quoted Korean, Japanese
+    // or Chinese taken out, so it cannot tip them either way.
+    var latin = s.replace(/[가-힣ᄀ-ᇿ㄰-㆏぀-ゟ゠-ヿ㐀-䶿一-鿿]+/g, ' ');
+    for (var i = 0; i < MARKS.length; i += 1) {
+      if (MARKS[i].re.test(latin)) return MARKS[i].code;
+    }
+    var found = byWords(latin);
+    if (found) return found;
+    // Nothing in the Latin part says which; a script that is there at
+    // all is still the best remaining guess.
+    if (hangul) return 'ko';
+    if (kana) return 'ja';
+    if (han) return 'zh';
+    return null;
   }
 
   // A fingerprint of the text a translation was made from, so that an

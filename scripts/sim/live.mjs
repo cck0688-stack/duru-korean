@@ -30,7 +30,7 @@ import { resolveProvider } from '../../api/_providers.js';
 import { withPatience } from '../lib/patiently.mjs';
 import { useSubscription, subscriptionAccount } from '../lib/claude-code.mjs';
 import { liveProject, DETECT, LANGS, TOPICS, seoulNow, pick, between, shuffle, log } from './lib.mjs';
-import { inventPeople, writePost, writeReply } from './writer.mjs';
+import { inventPeople, writePost, writeReply, placeless } from './writer.mjs';
 import { balanced, chooseThread, threadOf } from './run.mjs';
 
 const PER_DAY = 20;
@@ -141,6 +141,21 @@ export async function tick() {
   const personas = await call('sample_personas?select=*&order=created_at.asc&limit=5000');
   const byNick = new Map(personas.map((p) => [p.nickname, p]));
 
+  /* 0. names with a place in them are put right, posts included */
+  if (!DRY) {
+    for (const p of personas) {
+      const clean = placeless(p.nickname);
+      if (!clean || clean === p.nickname || byNick.has(clean)) continue;
+      try {
+        await call('sample_personas?id=eq.' + p.id, { method: 'PATCH', body: JSON.stringify({ nickname: clean }) });
+        await call('stories?is_sample=is.true&display_name=eq.' + encodeURIComponent(p.nickname),
+          { method: 'PATCH', body: JSON.stringify({ display_name: clean }) });
+        log('  이름 고침: ' + p.nickname + ' → ' + clean);
+        byNick.delete(p.nickname); p.nickname = clean; byNick.set(clean, p);
+      } catch (err) { log('  이름 고침 실패 · ' + p.nickname + ' — ' + err.message); }
+    }
+  }
+
   /* 1. new sample writers — twenty a day */
   const joinedToday = personas.filter((p) => p.joined_on === now.date).length;
   const due = flag('signups') ?? Math.max(0, PER_DAY - joinedToday);
@@ -172,6 +187,23 @@ export async function tick() {
   // Every sample row belongs to the bot account; for who-said-what the
   // writer is the display name, so give each row its writer's id.
   const stories = raw.map((s) => ({ ...s, user_id: (byNick.get(s.display_name) || {}).id || s.user_id }));
+
+  // The language shown beside a post is the language it is written in.
+  // Rows saved before the detector stopped calling any post with a
+  // quoted Korean word "Korean" are corrected, and their translations
+  // (made from the wrong source) are dropped so they are made again.
+  if (!DRY) {
+    for (const st of stories) {
+      const writer = byNick.get(st.display_name);
+      const right = DETECT.detect(st.body) || (writer && writer.lang) || st.lang;
+      if (!right || right === st.lang) continue;
+      try {
+        await call('stories?id=eq.' + st.id, { method: 'PATCH', body: JSON.stringify({ lang: right, mt: {} }) });
+        log('  언어 고침: ' + st.display_name + ' ' + st.lang + ' → ' + right);
+        st.lang = right;
+      } catch (err) { log('  언어 고침 실패 — ' + err.message); }
+    }
+  }
 
   const unposted = personas.filter((p) => !p.posted_at && p.joined_on <= now.date);
   const ticksLeft = Math.max(1, (24 - now.hour) * TICKS_PER_HOUR - Math.floor(now.minute / 20));

@@ -2656,7 +2656,7 @@ section { position: relative; }
 }
 .story-reply {
   display: grid;
-  grid-template-columns: 30px 1fr;
+  grid-template-columns: 16px 30px 1fr;
   gap: 12px;
   padding: 12px 14px;
   border-radius: 12px;
@@ -2684,11 +2684,18 @@ section { position: relative; }
 }
 .story-reply .story-reply { background: rgba(255, 255, 255, 0.55); }
 .story-reply > div { min-width: 0; }
+.story-reply-mark {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 5px;
+  color: var(--ink-dim);
+  opacity: 0.75;
+}
 
 /* On a phone each level of indent costs the thread width it does not
    have, so replies to replies drop the avatar column and its gap. */
 @media (max-width: 480px) {
-  .story-reply .story-reply { grid-template-columns: 1fr; padding: 10px 12px; }
+  .story-reply .story-reply { grid-template-columns: 14px 1fr; gap: 8px; padding: 10px 12px; }
   .story-reply .story-reply > .story-avatar { display: none; }
 }
 

@@ -433,7 +433,14 @@
       return '<div class="story-replies">' +
         '<span class="story-replies-label">' + escapeHTML(label) + '</span>' +
         list.map(function (r) {
+          // The ㄴ-shaped mark says "this answers the one above" before a
+          // word of it is read.
           return '<div class="story-reply">' +
+            '<span class="story-reply-mark" aria-hidden="true">' +
+              '<svg viewBox="0 0 20 20" width="16" height="16"><path d="M5 3v7.5a3 3 0 0 0 3 3h8"' +
+              ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
+              '<path d="M13 10.5l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1.8"' +
+              ' stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
             '<span class="story-avatar" aria-hidden="true">' + escapeHTML(initial(r.display_name)) + '</span>' +
             '<div>' +
               '<div class="story-reply-head"><strong>' + escapeHTML(r.display_name) + '</strong>' + sampleHTML(r) +

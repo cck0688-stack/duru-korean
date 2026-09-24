@@ -8,7 +8,7 @@
 // as well. A screen that fails twice drops the message rather than
 // posting something that got through on the third try.
 
-import { LANG_NAMES, chars, pick } from './lib.mjs';
+import { LANG_NAMES, DETECT, chars, pick } from './lib.mjs';
 
 const WORDS = ['apple', 'river', 'maple', 'cloud', 'tiger', 'lemon', 'ocean', 'pencil', 'garden', 'rocket',
   'forest', 'candle', 'silver', 'harbor', 'violet', 'meadow', 'window', 'bridge', 'coffee', 'summer',
@@ -72,6 +72,30 @@ const CONTACT = [
   /kakao|카톡|line id|whatsapp|instagram|telegram|wechat|微信|zalo/i
 ];
 
+// Where someone is from is never shown, nicknames included: no country,
+// city or country code in them (maynang_hanoi, solecito_kr).
+const PLACES = ['korea', 'kr', 'kor', 'vn', 'vie', 'viet', 'vietnam', 'br', 'bra', 'brasil', 'brazil', 'es', 'esp',
+  'spain', 'mx', 'mex', 'mexico', 'ar', 'arg', 'co', 'col', 'cl', 'pe', 'id', 'ind', 'indo', 'indonesia', 'jp', 'jpn',
+  'japan', 'nihon', 'cn', 'chn', 'china', 'tw', 'hk', 'us', 'usa', 'uk', 'ph', 'th', 'in', 'my', 'sg', 'au', 'ca',
+  'pt', 'hanoi', 'saigon', 'hcm', 'hcmc', 'danang', 'hue', 'seoul', 'busan', 'incheon', 'daegu', 'jeju', 'jakarta',
+  'bandung', 'surabaya', 'bali', 'rio', 'sp', 'saopaulo', 'madrid', 'barcelona', 'bogota', 'lima', 'cdmx', 'tokyo',
+  'osaka', 'kyoto', 'beijing', 'shanghai', 'guangzhou', 'shenzhen', 'london', 'manila', 'sydney', 'toronto'];
+const PLACE_WORDS = /서울|부산|한국|대구|제주|인천|東京|大阪|日本|北京|上海|中国|台湾|香港/;
+
+export function placeless(nickname) {
+  // Words and the separators between them, kept as they were written, so
+  // "Mây Nắng" stays "Mây Nắng" and only the place goes.
+  const bits = String(nickname || '').trim().split(/([_.\-\s]+)/);
+  const kept = [];
+  for (let i = 0; i < bits.length; i += 2) {
+    const word = bits[i];
+    if (!word || PLACES.includes(word.toLowerCase())) continue;
+    if (kept.length) kept.push(bits[i - 1] || '');
+    kept.push(word.replace(PLACE_WORDS, ''));
+  }
+  return kept.join('').replace(/^[_.\-\s]+|[_.\-\s]+$/g, '');
+}
+
 export function looksUnsafe(text) {
   return CONTACT.some((re) => re.test(text));
 }
@@ -98,12 +122,27 @@ async function moderated(cfg, text) {
   }
 }
 
-async function screened(cfg, make, min, max, what) {
+// A writer writes in their own language. The site's own detector reads
+// the text the way it will when the row is saved; if it says another
+// language, the text is sent back. (Korean words quoted inside are fine
+// — the detector looks past them.)
+function wrongLanguage(body, lang) {
+  const got = DETECT.detect(body);
+  return got && got !== lang ? got : null;
+}
+
+async function screened(cfg, make, min, max, what, lang) {
   let why = '';
   for (let i = 0; i < 3; i += 1) {
     const body = String((await make(why)) || '').trim();
     const n = chars(body);
     if (n < min || n > max) { why = 'The last one was ' + n + ' characters; it must be between ' + min + ' and ' + max + '.'; continue; }
+    const other = lang && wrongLanguage(body, lang);
+    if (other) {
+      why = 'The last one was written in ' + (LANG_NAMES[other] || other) + '. Write every sentence in ' +
+        LANG_NAMES[lang] + ' only; a Korean word or two inside is fine, other languages are not.';
+      continue;
+    }
     if (looksUnsafe(body)) { why = 'The last one contained contact details or a link. Leave all of that out.'; continue; }
     if (await moderated(cfg, body)) { why = 'The last one was not appropriate for a friendly learners\' forum.'; continue; }
     return body;
@@ -122,6 +161,8 @@ export async function inventPeople(cfg, langs) {
     '  (Korean in Hangul, Japanese in Japanese, Chinese in Chinese characters, the others in Latin script',
     '  as people really write them). A forum handle, 2–16 characters, not a famous person, not a full real name.',
     '  No country, city, region or nationality in it, and no country codes like _kr or _vn.',
+    '  Make them feel like real forum handles people pick: a word or two they like, a nickname, maybe a',
+    '  number — varied in style, not all in the same pattern.',
     '  Every nickname must be different.',
     '- voice: one English sentence for the writer only — their Korean level, what they are into, how they write',
     '  (e.g. "Beginner, loves K-dramas, writes short excited messages with small typos").',
@@ -137,7 +178,7 @@ export async function inventPeople(cfg, langs) {
   return langs.map((lang, i) => {
     const p = people.find((x) => x && x.lang === lang && !x.used) || people[i] || {};
     p.used = true;
-    const nick = String(p.nickname || '').trim().slice(0, 40);
+    const nick = placeless(String(p.nickname || '').trim().slice(0, 40));
     return { lang, nickname: nick && !looksUnsafe(nick) ? nick : null, voice: String(p.voice || '').slice(0, 300) };
   });
 }
@@ -161,7 +202,7 @@ export async function writePost(cfg, persona, recent) {
   ].join('\n');
   const schema = strict({ body: { type: 'string' } });
   return screened(cfg, async (why) => parse(await cfg.provider.chat(cfg, system + (why ? '\n\n' + why : ''),
-    'Write the post.', schema), '글').body, 50, 400, '글');
+    'Write the post.', schema), '글').body, 50, 400, '글', persona.lang);
 }
 
 /* ---------------- replies ---------------- */
@@ -188,5 +229,5 @@ export async function writeReply(cfg, persona, thread, target, category) {
   ].join('\n');
   const schema = strict({ body: { type: 'string' } });
   return screened(cfg, async (why) => parse(await cfg.provider.chat(cfg, system + (why ? '\n\n' + why : ''),
-    'The thread so far:\n\n' + shown + '\n\nWrite your reply.', schema), '답글').body, 20, 300, '답글');
+    'The thread so far:\n\n' + shown + '\n\nWrite your reply.', schema), '답글').body, 20, 300, '답글', persona.lang);
 }
