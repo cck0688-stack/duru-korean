@@ -51,7 +51,7 @@
 import { resolveProvider, translate, LANGUAGES, TranslateError } from '../api/_providers.js';
 import { pickSubject, writeSheet, reviewSheet, problemsWith, translateSheet, slugify, SHELVES } from './lib/sheets.mjs';
 import { withPatience } from './lib/patiently.mjs';
-import { subscriptionConfig } from './lib/claude-code.mjs';
+import { subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
@@ -301,7 +301,7 @@ export async function run() {
   // Which account pays: the owner's Claude subscription when its token
   // is here (see lib/claude-code.mjs), otherwise an API key as before.
   // SHEET_PROVIDER=api forces the API even with the token present.
-  const onSubscription = !!process.env.CLAUDE_CODE_OAUTH_TOKEN && process.env.SHEET_PROVIDER !== 'api';
+  const onSubscription = useSubscription(process.env, 'SHEET_PROVIDER');
   let cfg, writer;
   if (onSubscription) {
     const sub = subscriptionConfig(process.env);

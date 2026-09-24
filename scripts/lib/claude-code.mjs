@@ -96,13 +96,29 @@ export const claudeCode = {
   }
 };
 
+// Whether this run should use the subscription: the token is here, and
+// nobody has asked for the API instead — AI_PROVIDER=api for every
+// run, or the run's own switch (SHEET_PROVIDER, BLOG_PROVIDER,
+// SIM_PROVIDER) for one of them.
+export function useSubscription(env = process.env, own) {
+  if (!env.CLAUDE_CODE_OAUTH_TOKEN) return false;
+  if (String(env.AI_PROVIDER || '').toLowerCase() === 'api') return false;
+  if (own && String(env[own] || '').toLowerCase() === 'api') return false;
+  return true;
+}
+
+// One model on the subscription, shaped like resolveProvider()'s answer.
+export function subscriptionAccount(model) {
+  return { name: 'claude-code', provider: claudeCode, label: claudeCode.label,
+           model: model || 'sonnet', apiKey: '', baseUrl: '' };
+}
+
 // The writer and the translator on the subscription. The larger model
 // writes and reviews, as it does on OpenAI; the translations, seven per
 // sheet, go to the faster one so the allowance lasts.
 export function subscriptionConfig(env = process.env) {
-  const base = { name: 'claude-code', provider: claudeCode, label: claudeCode.label, apiKey: '', baseUrl: '' };
   return {
-    writer: { ...base, model: env.SHEET_MODEL || 'opus' },
-    translator: { ...base, model: env.SHEET_TRANSLATE_MODEL || 'sonnet' }
+    writer: subscriptionAccount(env.SHEET_MODEL || 'opus'),
+    translator: subscriptionAccount(env.SHEET_TRANSLATE_MODEL || 'sonnet')
   };
 }

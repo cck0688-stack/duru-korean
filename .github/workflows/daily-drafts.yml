@@ -60,12 +60,20 @@ jobs:
 
       - run: npm ci
 
+      # The Claude Code command line, for when the subscription writes.
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Write the drafts
         env:
           DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
           DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # The owner's Claude subscription, when set: the text is written there
+          # instead of on the API key (scripts/lib/claude-code.mjs).
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}

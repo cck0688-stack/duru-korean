@@ -109,6 +109,7 @@ jobs:
           SHEET_MODEL: ${{ vars.SHEET_MODEL }}
           SHEET_PROVIDER: ${{ vars.SHEET_PROVIDER }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           # Through the environment, never interpolated into the command

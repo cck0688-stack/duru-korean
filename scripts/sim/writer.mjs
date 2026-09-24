@@ -76,12 +76,17 @@ export function looksUnsafe(text) {
   return CONTACT.some((re) => re.test(text));
 }
 
+// OpenAI's moderation endpoint is free, so it stays in the screen
+// whoever writes the text — the subscription included — as long as an
+// OpenAI key is around.
 async function moderated(cfg, text) {
-  if (cfg.name !== 'openai' || !cfg.apiKey) return false;
+  const key = cfg.name === 'openai' ? cfg.apiKey : process.env.OPENAI_API_KEY;
+  if (!key) return false;
+  const base = (cfg.name === 'openai' && cfg.baseUrl) || 'https://api.openai.com/v1';
   try {
-    const res = await fetch(cfg.baseUrl.replace(/\/$/, '') + '/moderations', {
+    const res = await fetch(base.replace(/\/$/, '') + '/moderations', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + cfg.apiKey },
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + key },
       body: JSON.stringify({ model: 'omni-moderation-latest', input: text }),
       signal: AbortSignal.timeout(30000)
     });

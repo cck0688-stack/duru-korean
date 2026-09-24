@@ -25,6 +25,7 @@
 
 import { resolveProvider } from '../../api/_providers.js';
 import { withPatience } from '../lib/patiently.mjs';
+import { useSubscription, subscriptionAccount } from '../lib/claude-code.mjs';
 import {
   simEnv, assertSimDatabase, rest, signUp, signIn, DETECT, LANGS, TOPICS,
   seoulNow, pick, between, shuffle, log
@@ -59,9 +60,14 @@ function balanced(personas, n, key, values) {
 export async function tick() {
   const env = simEnv();
   await assertSimDatabase(env);
-  const cfg = withPatience(resolveProvider(process.env), log);
+  // On the owner's Claude subscription when its token is here (see
+  // lib/claude-code.mjs); otherwise an API key, as before.
+  const cfg = withPatience(useSubscription(process.env, 'SIM_PROVIDER')
+    ? subscriptionAccount(process.env.SIM_MODEL || 'sonnet')
+    : resolveProvider(process.env), log);
   cfg.effort = 'low';
-  cfg.timeoutMs = 120000;
+  cfg.timeoutMs = 180000;
+  log('작성: ' + cfg.label + ' / ' + cfg.model);
 
   const anon = rest(env);
   const now = seoulNow();

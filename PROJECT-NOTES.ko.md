@@ -1068,3 +1068,25 @@ SQL 실행   /project/ejiwgvlinlffkyycuyym/sql/new
 06:50 실행 → 요약 페이지의 검증 결과표, 그리고 아래 Artifacts 의
 `community-sim-report` 에 언어별 커뮤니티 화면 캡처. 시험 프로젝트의
 Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
+
+### API 대신 Claude 구독으로 쓰기 (블로그·자료실·커뮤니티 시뮬레이션)
+
+세 가지 자동 작업 — 매일 블로그 초안, 매일 자료실 학습지, 커뮤니티
+시뮬레이션 — 은 GitHub 비밀값 **`CLAUDE_CODE_OAUTH_TOKEN`** 이 있으면
+사장님의 **Claude 구독**으로 글을 씁니다 (쓴 만큼 과금되는 API 대신
+요금제 사용량 안에서). 없으면 지금처럼 OpenAI API 키로 씁니다.
+
+- 토큰 만들기 (내 컴퓨터에서 한 번): `npm install -g @anthropic-ai/claude-code`
+  → `claude setup-token` → 브라우저에서 로그인 → 나온 `sk-ant-oat…` 를
+  GitHub Secrets 에 `CLAUDE_CODE_OAUTH_TOKEN` 으로.
+- 쓰는 모델: 학습지 작성·검수 Opus, 학습지 번역 Sonnet, 블로그 Sonnet,
+  커뮤니티 Sonnet. (Variables 의 `SHEET_MODEL`, `SHEET_TRANSLATE_MODEL`,
+  `BLOG_MODEL`, `SIM_MODEL` 로 바꿀 수 있습니다.)
+- 다시 API 로: Variables 에 `AI_PROVIDER` = `api` (전부), 또는
+  `SHEET_PROVIDER` / `BLOG_PROVIDER` / `SIM_PROVIDER` = `api` (하나만).
+- 사용량 한도에 닿으면 그날은 멈추고 다음 실행에서 이어갑니다.
+
+**사이트에서 방문자가 누르는 번역**(블로그·커뮤니티의 "번역 보기")은
+여전히 API 로 돕니다. 방문자에게 제공하는 기능이라 개인 구독으로
+돌릴 수 없고, 비용도 작습니다. 커뮤니티 시뮬레이션의 안전 검사
+(OpenAI moderation)도 무료라 그대로 씁니다.

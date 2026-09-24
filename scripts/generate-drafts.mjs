@@ -27,6 +27,7 @@
 
 import { resolveProvider } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
+import { useSubscription, subscriptionAccount } from './lib/claude-code.mjs';
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
@@ -133,7 +134,11 @@ async function main() {
   try {
     // Asks again when a connection drops or a model runs out of time,
     // thinking less each time — see lib/patiently.mjs.
-    cfg = withPatience(resolveProvider(process.env), log);
+    // On the owner's Claude subscription when its token is here (see
+    // lib/claude-code.mjs); otherwise an API key, as before.
+    cfg = withPatience(useSubscription(process.env, 'BLOG_PROVIDER')
+      ? Object.assign(subscriptionAccount(process.env.BLOG_MODEL || 'sonnet'), { timeoutMs: 300000 })
+      : resolveProvider(process.env), log);
   } catch (err) {
     log('글을 쓸 수 없습니다:', err.message);
     process.exit(1);
