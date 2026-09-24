@@ -8,7 +8,9 @@
 //
 // It only toggles a class on the list; the cards are the same markup,
 // so nothing about loading, paging or filtering changes. The choice is
-// remembered per page, in this browser.
+// remembered per page for as long as the site stays open — moving to
+// another menu and back keeps it — and forgotten when the site is
+// closed, so the next visit opens in boxes again (sessionStorage).
 //
 //   <div class="view-toggle" data-list="blogList" data-key="blog">
 //     <button data-view="grid">…</button><button data-view="list">…</button>
@@ -31,7 +33,11 @@
     // share one, the community's entries are shaped differently.
     var listClass = box.dataset.listClass || 'resource-grid--list';
     var view = 'grid';
-    try { if (localStorage.getItem(key) === 'list') view = 'list'; } catch (e) {}
+    try {
+      if (sessionStorage.getItem(key) === 'list') view = 'list';
+      // An older version kept the choice for good; that is dropped.
+      localStorage.removeItem(key);
+    } catch (e) {}
 
     function paint() {
       list.classList.toggle(listClass, view === 'list');
@@ -50,7 +56,7 @@
       var b = e.target.closest('button[data-view]');
       if (!b) return;
       view = b.dataset.view;
-      try { localStorage.setItem(key, view); } catch (err) {}
+      try { sessionStorage.setItem(key, view); } catch (err) {}
       paint();
     });
     document.addEventListener('duru:langchange', paint);
