@@ -208,10 +208,27 @@
       return L.detect(row.body || '');
     }
 
+    // A stored "translation" that is the author's own lines handed back
+    // unchanged (a model does that now and then) is not one; the server
+    // is asked again, and it no longer keeps such answers. The same rule
+    // as echoed() in api/community-translate.js.
+    function echoed(source, out) {
+      function lines(x) { return String(x || '').split('\n').filter(function (l) { return l.trim(); }); }
+      function norm(x) { return String(x || '').replace(/\s+/g, ' ').trim().toLowerCase(); }
+      var a = lines(source), b = lines(out), long = 0, same = 0;
+      a.forEach(function (line, i) {
+        if ((line.match(/\p{L}/gu) || []).length < 12) return;
+        long += 1;
+        if (norm(line) === norm(b[i])) same += 1;
+      });
+      return long > 0 && same * 2 > long;
+    }
+
     function cachedFor(row, code) {
       var kept = row && row.mt && row.mt[code];
       if (!kept || !kept.body || !L) return null;
       if (kept.hash !== L.hashText(row.body || '')) return null;
+      if (echoed(row.body, kept.body)) return null;
       return { lang: code, body: String(kept.body), from: row.lang || null };
     }
 
