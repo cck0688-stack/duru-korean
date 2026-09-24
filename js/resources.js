@@ -313,7 +313,11 @@
       var size = Math.max(PAGE_SIZE, upTo || 0);
       loading = true;
       paintMore();
+      // Newest first: the download published most recently is at the
+      // top (schema §40 keeps first_published_at filled in); one not out
+      // yet sorts by when it was made, after everything that is.
       return filtered(cardSelect(lang), { count: 'exact' }, lang)
+        .order('first_published_at', { ascending: false, nullsFirst: false })
         .order('created_at', { ascending: false })
         .range(from, from + size - 1)
         .then(function (res) {

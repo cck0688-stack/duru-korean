@@ -491,7 +491,7 @@
     // What a card needs, and only in the language being read: the
     // title and summary in it, and one short field per language to know
     // which languages the post can be read in. No bodies.
-    var LIGHT = 'id,slug,category,post_date,created_at,published,lang,title,excerpt,tags,audiences,' +
+    var LIGHT = 'id,slug,category,post_date,created_at,published,published_at,lang,title,excerpt,tags,audiences,' +
       'image_url,image_alt,image_credit,image_credit_url,image_source';
     function lightSelect(lang) {
       var own = ',tr_t:i18n->' + lang + '->>title,tr_e:i18n->' + lang + '->>excerpt' +
@@ -535,7 +535,11 @@
       var size = Math.max(PAGE_SIZE, upTo || 0);
       loading = true;
       paintMore();
+      // Newest first: what was published most recently is at the top.
+      // A draft has no publish moment yet and sorts by the day it was
+      // written, after everything that is out.
       return filtered(client.from('posts').select(lightSelect(lang), { count: 'exact' }), lang)
+        .order('published_at', { ascending: false, nullsFirst: false })
         .order('post_date', { ascending: false })
         .order('created_at', { ascending: false })
         .range(from, from + size - 1)
@@ -1062,15 +1066,23 @@
     // list. Drafts are neighbours only to an admin (the read policy);
     // a post turned down is nobody's neighbour.
     function loadNeighbours(post) {
-      if (!post.post_date) return Promise.resolve();
+      if (!post.post_date && !post.published_at) return Promise.resolve();
       var lang = readLang || listLang;
       var d = post.post_date, c = post.created_at;
+      // The same order as the list: by when a post went out, newest
+      // first; a draft (no publish moment) by the day it was written.
+      var P = post.published_at;
       function side(newer) {
         var q = client.from('posts').select(lightSelect(lang));
         if (!noRejected) q = q.is('rejected_at', null);
-        q = q.or(newer
-          ? 'post_date.gt.' + d + ',and(post_date.eq.' + d + ',created_at.gt.' + c + ')'
-          : 'post_date.lt.' + d + ',and(post_date.eq.' + d + ',created_at.lt.' + c + ')');
+        if (P) {
+          q = newer ? q.gt('published_at', P) : q.or('published_at.lt.' + P + ',published_at.is.null');
+          q = q.order('published_at', { ascending: newer, nullsFirst: false });
+        } else {
+          q = q.is('published_at', null).or(newer
+            ? 'post_date.gt.' + d + ',and(post_date.eq.' + d + ',created_at.gt.' + c + ')'
+            : 'post_date.lt.' + d + ',and(post_date.eq.' + d + ',created_at.lt.' + c + ')');
+        }
         return q.order('post_date', { ascending: newer }).order('created_at', { ascending: newer }).limit(1)
           .then(function (res) {
             var row = !res.error && res.data && res.data[0];

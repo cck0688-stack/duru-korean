@@ -2195,3 +2195,51 @@ create policy "sample_personas: admin all"
   on public.sample_personas for all
   using (public.is_admin())
   with check (public.is_admin());
+
+-- 40. newest first means most recently published -------------------
+-- The blog and the downloads list what went out most recently at the
+-- top. A post written on Tuesday and approved on Friday is Friday's
+-- news, so the lists sort by when something was published, not by when
+-- it was drafted. These keep that moment filled in however a row gets
+-- published — the review screen, the list's Publish button, the editor,
+-- a script — and fill it in for rows published before it was recorded.
+create or replace function public.stamp_post_published()
+returns trigger language plpgsql as $$
+begin
+  if new.published and new.published_at is null then
+    new.published_at := now();
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists posts_stamp_published on public.posts;
+create trigger posts_stamp_published
+  before insert or update of published on public.posts
+  for each row execute function public.stamp_post_published();
+
+update public.posts
+   set published_at = coalesce(approved_at, post_date::timestamptz, created_at)
+ where published and published_at is null;
+
+create or replace function public.stamp_resource_published()
+returns trigger language plpgsql as $$
+begin
+  if new.published and new.first_published_at is null then
+    new.first_published_at := now();
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists resources_stamp_published on public.resources;
+create trigger resources_stamp_published
+  before insert or update of published on public.resources
+  for each row execute function public.stamp_resource_published();
+
+update public.resources
+   set first_published_at = created_at
+ where published and first_published_at is null;
+
+create index if not exists posts_published_at_idx on public.posts (published_at desc);
+create index if not exists resources_first_published_idx on public.resources (first_published_at desc);

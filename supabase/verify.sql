@@ -240,6 +240,10 @@ with checks(item, ok) as (
      and exists (select 1 from pg_tables
                  where schemaname='public' and tablename='sample_personas' and rowsecurity)),
 
+    ('newest first: publishing records its moment on posts and downloads',
+     exists (select 1 from pg_trigger where tgname = 'posts_stamp_published')
+     and exists (select 1 from pg_trigger where tgname = 'resources_stamp_published')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')
