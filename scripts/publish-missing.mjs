@@ -61,12 +61,25 @@ async function copyToPublic(token, draftKey, target) {
   const got = await fetch(SUPABASE_URL + '/storage/v1/object/resource-drafts/' + from, { headers: headers(token) });
   if (!got.ok) throw new Error('초안 내려받기 실패 (' + got.status + ')');
   const bytes = Buffer.from(await got.arrayBuffer());
-  const put = await fetch(SUPABASE_URL + '/storage/v1/object/resources/' + target, {
+  const upload = () => fetch(SUPABASE_URL + '/storage/v1/object/resources/' + target, {
     method: 'POST',
     headers: headers(token, { 'Content-Type': 'application/pdf', 'x-upsert': 'true' }),
     body: bytes
   });
-  if (!put.ok) throw new Error('공개 버킷 올리기 실패 (' + put.status + '): ' + (await put.text()).slice(0, 160));
+  let put = await upload();
+  if (!put.ok) {
+    const why = await put.text();
+    // A copy left there by an earlier attempt that stopped halfway. The
+    // bucket lets an admin add and delete but not overwrite, so the
+    // leftover is removed and the copy made again.
+    if (/row-level security|Duplicate|already exists|403|409/i.test(why + put.status)) {
+      await fetch(SUPABASE_URL + '/storage/v1/object/resources/' + target, { method: 'DELETE', headers: headers(token) });
+      put = await upload();
+      if (put.ok) return bytes.length;
+      throw new Error('공개 버킷 올리기 실패 (' + put.status + '): ' + (await put.text()).slice(0, 160));
+    }
+    throw new Error('공개 버킷 올리기 실패 (' + put.status + '): ' + why.slice(0, 160));
+  }
   return bytes.length;
 }
 

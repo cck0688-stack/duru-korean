@@ -277,7 +277,18 @@
       return client.storage.from(DRAFTS).download(key)
         .then(function (got) {
           if (got.error) throw got.error;
-          return client.storage.from(BUCKET).upload(target, got.data, { contentType: 'application/pdf', upsert: true });
+          var bucket = client.storage.from(BUCKET);
+          return bucket.upload(target, got.data, { contentType: 'application/pdf', upsert: true })
+            .then(function (up) {
+              if (!up.error) return up;
+              // A copy left by an earlier attempt that stopped halfway:
+              // the bucket lets an admin add and delete, not overwrite,
+              // so the leftover goes and the copy is made again.
+              if (!/row-level security|Duplicate|already exists|403|409/i.test(String(up.error.message || up.error.statusCode || ''))) return up;
+              return bucket.remove([target]).then(function () {
+                return bucket.upload(target, got.data, { contentType: 'application/pdf', upsert: true });
+              });
+            });
         })
         .then(function (up) {
           if (up.error) throw up.error;

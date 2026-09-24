@@ -4358,3 +4358,15 @@ section { position: relative; }
 
 .resource-grid--list .res-card--photo { padding: 11px 16px; overflow: visible; }
 .resource-grid--list .res-card--photo .res-card-body { padding: 0; }
+
+/* The entry a notification pointed at, lit up for a moment. */
+.story-focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  animation: story-focus 3.5s ease-out;
+}
+@keyframes story-focus {
+  0%, 40% { background-color: #fff3d6; }
+  100% { background-color: inherit; }
+}
+@media (prefers-reduced-motion: reduce) { .story-focus { animation: none; } }

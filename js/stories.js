@@ -436,7 +436,7 @@
         list.map(function (r) {
           // The ㄴ-shaped mark says "this answers the one above" before a
           // word of it is read.
-          return '<div class="story-reply">' +
+          return '<div class="story-reply" data-story="' + escapeHTML(r.id) + '">' +
             '<span class="story-reply-mark" aria-hidden="true">' +
               '<svg viewBox="0 0 20 20" width="16" height="16"><path d="M5 3v7.5a3 3 0 0 0 3 3h8"' +
               ' fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
@@ -588,6 +588,7 @@
           confirmDelete(row);
         });
       });
+      relight();
     }
 
     function find(id) {
@@ -931,6 +932,66 @@
         });
     }
 
+    // ?story=<id> — where a notification sends someone: "a new reply to
+    // your post". The thread it belongs to may be pages down, or on
+    // another topic's shelf, so it is fetched on its own, put at the top
+    // of the list if it is not already there, and the reply is scrolled
+    // to and lit up for a moment.
+    var focusId = new URLSearchParams(location.search).get('story');
+    var focusDone = false;
+    var pinned = null;       // the thread brought in for it, kept on top
+    var litUntil = 0;        // the entry stays lit through a redraw
+
+    function relight() {
+      if (!focusId || Date.now() > litUntil) return;
+      var el = listEl.querySelector('[data-story="' + String(focusId).replace(/"/g, '') + '"]');
+      if (el) el.classList.add('story-focus');
+    }
+
+    function maybeFocus() {
+      if (!focusId || focusDone) return;
+      focusDone = true;
+      var chain = [];
+      function up(id, depth) {
+        return client.from('stories').select('*').eq('id', id).maybeSingle().then(function (res) {
+          var row = res && res.data;
+          if (!row) return null;
+          chain.push(row);
+          if (!row.parent_id || depth > 20) return row;
+          return up(row.parent_id, depth + 1);
+        });
+      }
+      up(focusId, 0).then(function (root) {
+        if (!root) return;
+        var shown = stories.some(function (x) { return x.id === root.id; });
+        if (shown) return true;
+        // Not on this page: bring the whole thread in, at the top.
+        pinned = root;
+        return loadReplies([root]).then(function (replies) {
+          stories = [root].concat(stories);
+          var have = Object.create(null);
+          rows.forEach(function (r) { have[r.id] = true; });
+          var fresh = replies.filter(function (r) { return !have[r.id]; });
+          fileReplies(rows.filter(function (r) { return r.parent_id; }).concat(fresh));
+          rows = stories.concat(rows.filter(function (r) { return r.parent_id; })).concat(fresh);
+          renderList();
+          return true;
+        });
+      }).then(function (found) {
+        if (!found) return;
+        var el = listEl.querySelector('[data-story="' + String(focusId).replace(/"/g, '') + '"]');
+        if (!el) return;
+        litUntil = Date.now() + 4000;
+        relight();
+        if (window.DURU_SCROLL_TO) window.DURU_SCROLL_TO(el, false);
+        else el.scrollIntoView({ block: 'center' });
+        setTimeout(function () {
+          var now = listEl.querySelector('.story-focus');
+          if (now) now.classList.remove('story-focus');
+        }, 4000);
+      }).catch(function (err) { console.warn('DURU: could not open the reply:', err && err.message); });
+    }
+
     function loadStories(more) {
       if (legacy) return loadEverything();
       if (loading) return Promise.resolve();
@@ -957,13 +1018,17 @@
           noteColumns(page[0]);
           sayIfNotMigrated(page);
           total = typeof res.count === 'number' ? res.count : (from + page.length);
-          stories = more ? stories.concat(page) : page;
+          // The thread a notification opened stays on top through a
+          // reload, and is not listed twice when its page comes round.
+          if (pinned) page = page.filter(function (x) { return x.id !== pinned.id; });
+          stories = more ? stories.concat(page) : (pinned ? [pinned].concat(page) : page);
           loadedPages = more ? loadedPages + 1 : 1;
 
           return loadReplies(stories).then(function (replies) {
             fileReplies(replies);
             rows = stories.concat(replies);
             renderList();
+            maybeFocus();
           });
         });
     }
@@ -985,6 +1050,7 @@
           total = stories.length;
           loadedPages = 1;
           renderList();
+          maybeFocus();
         });
     }
 

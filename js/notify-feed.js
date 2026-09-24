@@ -31,6 +31,16 @@
     return /^[a-z0-9._~\-]+\.html(\?[^"'<>\s]*)?$/i.test(s) ? s : 'index.html';
   }
 
+  // A reply or a new story opens Community at that entry (stories.js
+  // reads ?story= and scrolls to it); anything else follows the link the
+  // trigger wrote.
+  function hrefFor(row) {
+    if ((row.kind === 'reply' || row.kind === 'story') && /^[0-9a-f-]{36}$/i.test(String(row.content_id || ''))) {
+      return 'stories.html?story=' + row.content_id;
+    }
+    return safeLink(row.link);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var client = window.DURU_SUPABASE_CLIENT;
     if (!client) return;
@@ -93,7 +103,7 @@
       rows.forEach(function (row) {
         var a = document.createElement('a');
         a.className = 'notify-item' + (row.is_read ? '' : ' unread');
-        a.href = safeLink(row.link);
+        a.href = hrefFor(row);
         a.dataset.id = row.id;
         a.innerHTML =
           '<span class="notify-kind">' +
@@ -104,8 +114,14 @@
                 : t('notify.newPost', 'New post')) +
           '</span>' +
           '<span class="notify-text">' + escapeHTML(row.title) + '</span>';
-        a.addEventListener('click', function () {
-          if (!row.is_read) markRead([row.id]);
+        // Marked read first, then followed: a page that is leaving can
+        // drop the request that would have marked it.
+        a.addEventListener('click', function (e) {
+          if (row.is_read || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+          e.preventDefault();
+          var go = function () { window.location.href = a.href; };
+          var timer = setTimeout(go, 700);
+          markRead([row.id], function () { clearTimeout(timer); go(); });
         });
         listEl.appendChild(a);
       });
@@ -114,7 +130,7 @@
     function load() {
       if (!currentUser) return;
       client.from('notifications')
-        .select('id, kind, title, link, is_read, created_at')
+        .select('id, kind, title, link, content_id, is_read, created_at')
         .order('created_at', { ascending: false })
         .limit(PAGE_SIZE)
         .then(function (res) {
@@ -125,10 +141,13 @@
         });
     }
 
-    function markRead(ids) {
+    function markRead(ids, then) {
       if (!ids.length) return;
       client.from('notifications').update({ is_read: true }).in('id', ids)
-        .then(function (res) { if (!res.error) load(); });
+        .then(function (res) {
+          if (then) return then();
+          if (!res.error) load();
+        });
     }
 
     bell.addEventListener('click', function () {
