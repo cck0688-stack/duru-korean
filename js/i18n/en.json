@@ -784,5 +784,6 @@
   "visits.today": "Today",
   "visits.total": "Visits",
   "stories.sample": "Sample",
-  "stories.sampleNote": "A sample post. Only admins see this mark."
+  "stories.sampleNote": "A sample post. Only admins see this mark.",
+  "resources.more": "Show more ({n} left)"
 }

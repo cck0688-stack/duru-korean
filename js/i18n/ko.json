@@ -784,5 +784,6 @@
   "visits.today": "오늘",
   "visits.total": "방문",
   "stories.sample": "예시 글",
-  "stories.sampleNote": "예시 글입니다. 이 표시는 관리자에게만 보입니다."
+  "stories.sampleNote": "예시 글입니다. 이 표시는 관리자에게만 보입니다.",
+  "resources.more": "더 보기 ({n}개 남음)"
 }

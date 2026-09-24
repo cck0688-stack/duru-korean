@@ -784,5 +784,6 @@
   "visits.today": "Hari ini",
   "visits.total": "Kunjungan",
   "stories.sample": "Contoh",
-  "stories.sampleNote": "Unggahan contoh. Hanya admin yang melihat tanda ini."
+  "stories.sampleNote": "Unggahan contoh. Hanya admin yang melihat tanda ini.",
+  "resources.more": "Lihat lainnya ({n} lagi)"
 }

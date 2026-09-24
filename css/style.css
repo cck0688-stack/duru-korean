@@ -4257,3 +4257,12 @@ section { position: relative; }
   background: var(--paper-alt);
   cursor: help;
 }
+
+/* "Show more" under the blog and the downloads: the lists load a page
+   at a time, like the community's. */
+.list-more {
+  display: flex;
+  justify-content: center;
+  margin: 26px 0 0;
+}
+.list-more .btn { min-width: 220px; }

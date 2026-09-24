@@ -784,5 +784,6 @@
   "visits.today": "Hoje",
   "visits.total": "Visitas",
   "stories.sample": "Exemplo",
-  "stories.sampleNote": "Publicação de exemplo. Só administradores veem esta marca."
+  "stories.sampleNote": "Publicação de exemplo. Só administradores veem esta marca.",
+  "resources.more": "Ver mais (faltam {n})"
 }

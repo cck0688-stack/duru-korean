@@ -784,5 +784,6 @@
   "visits.today": "Hôm nay",
   "visits.total": "Lượt truy cập",
   "stories.sample": "Bài mẫu",
-  "stories.sampleNote": "Bài mẫu. Chỉ quản trị viên thấy dấu này."
+  "stories.sampleNote": "Bài mẫu. Chỉ quản trị viên thấy dấu này.",
+  "resources.more": "Xem thêm (còn {n})"
 }

@@ -75,6 +75,9 @@
   // list filter use this, so a Korean post with translations shows up
   // for a reader browsing in Spanish.
   function readableLangs(post) {
+    // A row from the list carries its languages already: the list asks
+    // the database for card fields only, not every translation's body.
+    if (post && post._langs) return post._langs;
     var have = {};
     postLangs(post).forEach(function (c) { have[c] = true; });
     if (MT) {
@@ -364,7 +367,18 @@
     // Set from ?tag= and never changed after load: a tag filter is a
     // distinct URL, so it stays shareable and survives a reload.
     var activeTag = new URLSearchParams(location.search).get('tag') || '';
+    // The cards on screen: one page of them, then the next on "Show
+    // more". Never every post — the blog grows every day, and each post
+    // carries its body in eight languages.
     var posts = [];
+    var PAGE_SIZE = 20;
+    var total = 0;           // how many match, in the database
+    var loading = false;
+    var listToken = 0;       // a newer request makes an older answer moot
+    var noRejected = false;  // a database without §38's rejected_at yet
+    var current = null;      // the post open on its own page, in full
+    var moreEl = document.getElementById('blogMore');
+    var moreBtn = document.getElementById('blogMoreBtn');
 
     var saved = null;
     try { saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null'); } catch (e) {}
@@ -442,32 +456,113 @@
     // Which languages the posts passing the category and tag filters are
     // written in — used to point somewhere useful when the chosen one
     // has nothing.
+    // Asked of the database — one count per language, only when the
+    // chosen language turned out empty.
     function langsPresent() {
-      var seen = {};
-      posts.filter(matchesFilters).forEach(function (p) {
-        readableLangs(p).forEach(function (c) { seen[c] = true; });
+      var codes = R.LANGS.map(function (l) { return l.code; });
+      return Promise.all(codes.map(function (c) {
+        return filtered(client.from('posts').select('id', { count: 'exact', head: true }), c)
+          .then(function (res) { return !res.error && res.count > 0; }, function () { return false; });
+      })).then(function (has) { return codes.filter(function (c, i) { return has[i]; }); });
+    }
+
+    // The filters the reader has set, applied by the database. `lang`
+    // names the language to list; a post is in it when it is written in
+    // it, has a human translation with a body in it, or a stored
+    // machine translation of its body in it.
+    function langOr(lang) {
+      return 'lang.eq.' + lang + (lang === 'en' ? ',lang.is.null' : '') +
+        ',i18n->' + lang + '->>body.neq.,mt->' + lang + '->sentences.not.is.null';
+    }
+
+    function filtered(q, lang) {
+      // A draft that was turned down is kept for the record — so the
+      // morning run does not write the same piece again — and shown
+      // nowhere. Visitors never get drafts at all: the read policy.
+      if (!noRejected) q = q.is('rejected_at', null);
+      // Everything waiting, whatever language it is in.
+      if (pendingOnly) q = q.eq('published', false);
+      else q = q.or(langOr(lang || listLang));
+      if (activeFilter !== 'all') q = q.eq('category', activeFilter);
+      if (activeTag) q = q.contains('tags', [activeTag]);
+      return q;
+    }
+
+    // What a card needs, and only in the language being read: the
+    // title and summary in it, and one short field per language to know
+    // which languages the post can be read in. No bodies.
+    var LIGHT = 'id,slug,category,post_date,created_at,published,lang,title,excerpt,tags,audiences,' +
+      'image_url,image_alt,image_credit,image_credit_url,image_source';
+    function lightSelect(lang) {
+      var own = ',tr_t:i18n->' + lang + '->>title,tr_e:i18n->' + lang + '->>excerpt' +
+        ',mt_t:mt->' + lang + '->>title,mt_e:mt->' + lang + '->>excerpt,mt_g:mt->' + lang + '->tags' +
+        ',mt_f:mt->' + lang + '->>from,mt_h:mt->' + lang + '->>headHash';
+      var each = R.LANGS.map(function (l, i) {
+        return ',hi' + i + ':i18n->' + l.code + '->>title,hm' + i + ':mt->' + l.code + '->>hash';
+      }).join('');
+      return LIGHT + (noRejected ? '' : ',rejected_at') + own + each;
+    }
+
+    // Back into the shape the rest of this file reads: i18n and mt for
+    // the one language, and the languages the post is readable in.
+    function hydrate(row, lang) {
+      var p = {};
+      Object.keys(row).forEach(function (k) {
+        if (!/^(tr_|mt_|hi\d|hm\d)/.test(k)) p[k] = row[k];
       });
-      return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return seen[c]; });
+      p.i18n = {};
+      p.mt = {};
+      if (row.tr_t || row.tr_e) p.i18n[lang] = { title: row.tr_t || '', excerpt: row.tr_e || '' };
+      if (row.mt_f) {
+        p.mt[lang] = { title: row.mt_t || '', excerpt: row.mt_e || '', tags: row.mt_g || [],
+                       from: row.mt_f, headHash: row.mt_h };
+      }
+      var have = {};
+      have[row.lang || 'en'] = true;
+      R.LANGS.forEach(function (l, i) { if (row['hi' + i] || row['hm' + i]) have[l.code] = true; });
+      p._langs = R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return have[c]; });
+      p._light = true;
+      return p;
+    }
+
+    // One page of cards, or the next page on "Show more". `upTo` asks
+    // for that many at once — the way back from a post, to the place
+    // the reader left.
+    function loadList(more, upTo) {
+      var token = ++listToken;
+      var lang = listLang;
+      var from = more ? posts.length : 0;
+      var size = Math.max(PAGE_SIZE, upTo || 0);
+      loading = true;
+      paintMore();
+      return filtered(client.from('posts').select(lightSelect(lang), { count: 'exact' }), lang)
+        .order('post_date', { ascending: false })
+        .order('created_at', { ascending: false })
+        .range(from, from + size - 1)
+        .then(function (res) {
+          if (token !== listToken) return;
+          loading = false;
+          if (res.error) {
+            // §38 not run yet: no rejected_at to leave out.
+            if (!noRejected && /rejected_at/.test(res.error.message)) {
+              noRejected = true;
+              return loadList(more, upTo);
+            }
+            console.error('Failed to load posts:', res.error.message);
+            renderCards();
+            return;
+          }
+          var rows = (res.data || []).map(function (r) { return hydrate(r, lang); });
+          posts = more ? posts.concat(rows) : rows;
+          total = typeof res.count === 'number' ? res.count : posts.length;
+          renderCards();
+          paintPendingCount();
+        });
     }
 
     // Not live, and not turned down: what "Not published" lists.
     function isPending(p) {
       return !p.published && !p.rejected_at;
-    }
-
-    function matchesFilters(p) {
-      // A draft that was turned down is kept for the record — so the
-      // morning run does not write the same piece again — and shown
-      // nowhere.
-      if (p.rejected_at) return false;
-      if (pendingOnly && !isPending(p)) return false;
-      if (activeFilter !== 'all' && p.category !== activeFilter) return false;
-      if (activeTag) {
-        return (p.tags || []).some(function (tag) {
-          return tag.toLowerCase() === activeTag.toLowerCase();
-        });
-      }
-      return true;
     }
 
     /* ---------------- The eight topics ---------------- */
@@ -526,15 +621,21 @@
       }
       if (allBtn) allBtn.setAttribute('aria-pressed', activeFilter === 'all' ? 'true' : 'false');
       if (pendingBtn) {
-        var n = posts.filter(isPending).length;
         pendingBtn.hidden = !isAdmin;
         pendingBtn.setAttribute('aria-pressed', pendingOnly ? 'true' : 'false');
-        if (pendingN) pendingN.textContent = n ? String(n) : '';
       }
     }
 
-    function readableHere(p) {
-      return readableLangs(p).indexOf(listLang) !== -1;
+    // How many are waiting: a count from the database, not from the
+    // page of cards that happens to be loaded.
+    function paintPendingCount() {
+      if (!pendingBtn || !isAdmin) return;
+      var q = client.from('posts').select('id', { count: 'exact', head: true }).eq('published', false);
+      if (!noRejected) q = q.is('rejected_at', null);
+      q.then(function (res) {
+        if (res.error) return;
+        if (pendingN) pendingN.textContent = res.count ? String(res.count) : '';
+      });
     }
 
     // "3 posts", "1 post", "Nothing yet" — one is not three, and a
@@ -572,22 +673,31 @@
     }
 
     function renderCards() {
-      var shown = posts.filter(function (p) {
-        // Everything waiting, whatever language it is in.
-        return matchesFilters(p) && (pendingOnly || readableLangs(p).indexOf(listLang) !== -1);
-      });
+      // The database did the filtering (listQuery); what is here is
+      // what matches, one page at a time.
+      var shown = posts;
       renderTagBanner();
-      renderLanding(shown.length);
+      renderLanding(total);
       listEl.innerHTML = shown.map(cardHTML).join('');
+      paintMore();
 
       if (shown.length) {
         emptyEl.hidden = true;
+      } else if (loading) {
+        emptyEl.hidden = true;
       } else {
         emptyEl.hidden = false;
+        emptyText.textContent = activeFilter === 'all'
+          ? t('blog.emptyNote', 'No posts yet — the first one is on its way.')
+          : t('blog.emptyTopic', 'No posts in this topic yet.');
+        suggestEl.innerHTML = '';
+        suggestEl.hidden = true;
         // Nothing in this language: name the ones that do have a post,
         // as buttons, rather than leaving a dead end.
-        var others = langsPresent().filter(function (c) { return c !== listLang; });
-        if (others.length) {
+        if (!pendingOnly) langsPresent().then(function (found) {
+          if (posts.length) return;
+          var others = found.filter(function (c) { return c !== listLang; });
+          if (!others.length) return;
           emptyText.textContent = t('blog.noneInLang', 'Nothing here in {lang} yet.')
             .replace('{lang}', R.langLabel(listLang));
           suggestEl.innerHTML = '<span class="res-lang-suggest-label">' +
@@ -597,19 +707,23 @@
                 escapeHTML(R.langLabel(c)) + '</button>';
             }).join('');
           suggestEl.hidden = false;
-        } else {
-          // An empty topic and an empty blog are not the same thing:
-          // one says come back, the other says try another shelf.
-          emptyText.textContent = activeFilter === 'all'
-            ? t('blog.emptyNote', 'No posts yet — the first one is on its way.')
-            : t('blog.emptyTopic', 'No posts in this topic yet.');
-          suggestEl.innerHTML = '';
-          suggestEl.hidden = true;
-        }
+        });
       }
 
       wireCardLinks(listEl);
     }
+
+    function paintMore() {
+      if (!moreEl || !moreBtn) return;
+      var left = total - posts.length;
+      moreEl.hidden = !(left > 0);
+      if (moreEl.hidden) return;
+      moreBtn.disabled = loading;
+      moreBtn.textContent = loading
+        ? t('community.more.loading', 'Loading…')
+        : t('community.more', 'Show more ({n} left)').replace('{n}', left);
+    }
+    if (moreBtn) moreBtn.addEventListener('click', function () { loadList(true); });
 
     // Leaving the list remembers where it was, so coming back lands on
     // the same post rather than at the top.
@@ -617,7 +731,7 @@
       if (!root) return;
       root.querySelectorAll('a[href*="/blog/post/"]').forEach(function (a) {
         a.addEventListener('click', function () {
-          saveState({ scrollY: window.scrollY });
+          saveState({ scrollY: window.scrollY, shown: posts.length });
           try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}
         });
       });
@@ -677,6 +791,7 @@
     }
 
     function findPost(id) {
+      if (current && String(current.id) === String(id)) return current;
       return posts.filter(function (p) { return String(p.id) === String(id); })[0];
     }
 
@@ -748,27 +863,7 @@
         '</div>' + translationStatusHTML(post);
       }
 
-      var currentIdx = posts.filter(function (p) { return p.published || isAdmin; }).findIndex(function (p) { return p.id === post.id; });
-      var prevPost = currentIdx > 0 ? posts.filter(function (p) { return p.published || isAdmin; })[currentIdx - 1] : null;
-      var nextPost = currentIdx >= 0 && currentIdx < posts.length - 1 ? posts.filter(function (p) { return p.published || isAdmin; })[currentIdx + 1] : null;
-
-      var navHTML = '';
-      if (prevPost || nextPost) {
-        navHTML = '<div class="blog-nav">';
-        if (prevPost) {
-          navHTML += '<a href="' + B.postHref(prevPost.slug) + '" class="blog-nav-prev">' +
-            '<span class="blog-nav-label">' + escapeHTML(t('blog.prevPost', '← Previous')) + '</span>' +
-            '<span class="blog-nav-title">' + escapeHTML(readField(prevPost, 'title', readLang)) + '</span>' +
-            '</a>';
-        }
-        if (nextPost) {
-          navHTML += '<a href="' + B.postHref(nextPost.slug) + '" class="blog-nav-next">' +
-            '<span class="blog-nav-label">' + escapeHTML(t('blog.nextPost', 'Next →')) + '</span>' +
-            '<span class="blog-nav-title">' + escapeHTML(readField(nextPost, 'title', readLang)) + '</span>' +
-            '</a>';
-        }
-        navHTML += '</div>';
-      }
+      var navHTML = '<div class="blog-nav-slot">' + navHTMLFor(post, readLang) + '</div>';
 
       singleEl.innerHTML =
         '<a class="blog-back" href="/blog">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
@@ -939,6 +1034,70 @@
       });
     }
 
+    // The posts either side of this one. They are asked for on their
+    // own (loadNeighbours), not found in a list of every post, and drawn
+    // into their slot when they arrive.
+    function navHTMLFor(post, lang) {
+      var nav = post._nav || {};
+      var prevPost = nav.prev || null;
+      var nextPost = nav.next || null;
+      if (!prevPost && !nextPost) return '';
+      var html = '<div class="blog-nav">';
+      if (prevPost) {
+        html += '<a href="' + B.postHref(prevPost.slug) + '" class="blog-nav-prev">' +
+          '<span class="blog-nav-label">' + escapeHTML(t('blog.prevPost', '← Previous')) + '</span>' +
+          '<span class="blog-nav-title">' + escapeHTML(readField(prevPost, 'title', lang)) + '</span>' +
+          '</a>';
+      }
+      if (nextPost) {
+        html += '<a href="' + B.postHref(nextPost.slug) + '" class="blog-nav-next">' +
+          '<span class="blog-nav-label">' + escapeHTML(t('blog.nextPost', 'Next →')) + '</span>' +
+          '<span class="blog-nav-title">' + escapeHTML(readField(nextPost, 'title', lang)) + '</span>' +
+          '</a>';
+      }
+      return html + '</div>';
+    }
+
+    // Previous is the newer post, next the older one — the order of the
+    // list. Drafts are neighbours only to an admin (the read policy);
+    // a post turned down is nobody's neighbour.
+    function loadNeighbours(post) {
+      if (!post.post_date) return Promise.resolve();
+      var lang = readLang || listLang;
+      var d = post.post_date, c = post.created_at;
+      function side(newer) {
+        var q = client.from('posts').select(lightSelect(lang));
+        if (!noRejected) q = q.is('rejected_at', null);
+        q = q.or(newer
+          ? 'post_date.gt.' + d + ',and(post_date.eq.' + d + ',created_at.gt.' + c + ')'
+          : 'post_date.lt.' + d + ',and(post_date.eq.' + d + ',created_at.lt.' + c + ')');
+        return q.order('post_date', { ascending: newer }).order('created_at', { ascending: newer }).limit(1)
+          .then(function (res) {
+            var row = !res.error && res.data && res.data[0];
+            return row ? hydrate(row, lang) : null;
+          });
+      }
+      return Promise.all([side(true), side(false)]).then(function (both) {
+        post._nav = { prev: both[0], next: both[1] };
+        var slot = current === post && singleEl && singleEl.querySelector('.blog-nav-slot');
+        if (slot) slot.innerHTML = navHTMLFor(post, readLang || lang);
+      }).catch(function () {});
+    }
+
+    // The one post the address names, in full — body, every
+    // translation, the study words — and nothing else.
+    function loadSingle(slug) {
+      return client.from('posts').select('*').eq('slug', slug).maybeSingle().then(function (res) {
+        if (res.error) console.error('Failed to load the post:', res.error.message);
+        var post = !res.error && res.data;
+        if (!post || (post.rejected_at && !isAdmin)) { current = null; renderNotFound(); return; }
+        current = post;
+        renderSingle(post);
+        loadNeighbours(post);
+        return post;
+      });
+    }
+
     function renderNotFound() {
       if (!singleEl) return;
       singleEl.hidden = false;
@@ -957,40 +1116,36 @@
     /* ---------------- Loading ---------------- */
 
     function loadPosts() {
-      // Admins additionally receive drafts, because the RLS policy lets
-      // them; nothing here asks for them explicitly.
-      // Newest day first, and within a day the draft written last. The
-      // day is post_date — when the piece was written, not when an
-      // admin got round to approving it.
-      return client.from('posts').select('*')
-        .order('post_date', { ascending: false })
-        .order('draft_created_at', { ascending: false })
-        .then(function (res) {
-          if (res.error) { console.error('Failed to load posts:', res.error.message); return; }
-          posts = res.data || [];
-          buildLangSelect();
-          var slug = currentSlug();
-          if (slug) {
-            var match = posts.filter(function (p) { return p.slug === slug; })[0];
-            if (match) renderSingle(match); else renderNotFound();
-            // Opened from a card or a link: start at the title, not at the
-            // banner and the topic cards above it. Once more when the page
-            // has finished loading, in case fonts or pictures above the
-            // article moved it — unless the reader has scrolled by then.
-            var title = singleEl && singleEl.querySelector('h1');
-            if (title && window.DURU_SCROLL_TO) {
-              window.DURU_SCROLL_TO(title);
-              var placed = window.pageYOffset;
-              window.addEventListener('load', function () {
-                if (Math.abs(window.pageYOffset - placed) < 4) window.DURU_SCROLL_TO(title);
-              }, { once: true });
-            }
-          } else {
-            markActiveFilter();
-            renderCards();
-            restoreScroll();
+      var slug = currentSlug();
+      buildLangSelect();
+      if (slug) {
+        return loadSingle(slug).then(function () {
+          // Opened from a card or a link: start at the title, not at the
+          // banner and the topic cards above it. Once more when the page
+          // has finished loading, in case fonts or pictures above the
+          // article moved it — unless the reader has scrolled by then.
+          var title = singleEl && singleEl.querySelector('h1');
+          if (title && window.DURU_SCROLL_TO) {
+            window.DURU_SCROLL_TO(title);
+            var placed = window.pageYOffset;
+            window.addEventListener('load', function () {
+              if (Math.abs(window.pageYOffset - placed) < 4) window.DURU_SCROLL_TO(title);
+            }, { once: true });
           }
         });
+      }
+      current = null;
+      markActiveFilter();
+      // Coming back from a post: as many cards as were showing, so the
+      // saved scroll position lands on the same card.
+      var upTo = 0;
+      var back = false;
+      try {
+        back = sessionStorage.getItem(RETURN_KEY) === '1';
+        var st = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null');
+        if (back && st && st.shown) upTo = Math.min(200, st.shown);
+      } catch (e) {}
+      return loadList(false, upTo).then(restoreScroll);
     }
 
     /* ---------------- Editor ---------------- */
@@ -1912,7 +2067,7 @@
       markActiveFilter();
       saveState();
       syncURL();
-      renderCards();
+      return loadList(false);
     }
 
     if (filtersEl) {
@@ -1924,8 +2079,11 @@
         // of it, which is what they expect from something that looks
         // pressed.
         activeFilter = card.dataset.filter === activeFilter ? 'all' : card.dataset.filter;
-        applyFilters();
-        if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST('blogList');
+        // Scrolled once the cards for the topic are there, so it lands
+        // on the newest of them rather than on an empty list.
+        applyFilters().then(function () {
+          if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST('blogList');
+        });
       });
     }
 
@@ -1951,7 +2109,7 @@
       if (langSel) langSel.value = code;
       saveState();
       if (window.DURU_I18N && window.DURU_I18N.setLang) window.DURU_I18N.setLang(code);
-      else renderCards();          // no dictionary engine: list only
+      else loadList(false);        // no dictionary engine: list only
     }
 
     if (langSel) {
@@ -1975,8 +2133,9 @@
     if (pendingBtn) {
       pendingBtn.addEventListener('click', function () {
         pendingOnly = !pendingOnly;
-        renderCards();
-        if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST('blogList');
+        loadList(false).then(function () {
+          if (window.DURU_SCROLL_TO_LIST) window.DURU_SCROLL_TO_LIST('blogList');
+        });
       });
     }
 
@@ -2018,7 +2177,7 @@
         }
         Object.keys(patch).forEach(function (k) { post[k] = patch[k]; });
         say(publish ? t('admin.published', 'Published.') : t('admin.rejected', 'Rejected.'), 'ok');
-        setTimeout(function () { renderCards(); markActiveFilter(); }, 600);
+        setTimeout(function () { loadList(false); markActiveFilter(); }, 600);
       });
     });
 
@@ -2054,13 +2213,14 @@
       paintCategoryBar();
       var slug = currentSlug();
       if (slug) {
-        var match = posts.filter(function (p) { return p.slug === slug; })[0];
         // Switching the site's language re-picks the reading language
         // too, but only on the way in — a reader who chose one on this
-        // page keeps it until they leave.
-        if (match) renderSingle(match);
+        // page keeps it until they leave. The neighbours' titles are
+        // asked for again, in the new language.
+        if (current) { renderSingle(current); loadNeighbours(current); }
       } else {
-        renderCards();
+        // The cards carry one language's titles: ask again.
+        loadList(false);
       }
       if (overlay && !overlay.hidden) labelEditor();
     });
