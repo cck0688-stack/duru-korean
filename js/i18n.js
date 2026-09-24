@@ -33,6 +33,152 @@
   ];
   var VALID_CODES = LANGS.map(function (l) { return l.code; });
 
+  /* ---------------- Language in the address ----------------
+   *
+   * Every page exists once, and is reachable under each language:
+   * /vi/free-resources.html, /ko/blog, /pt-BR/community and so on
+   * (vercel.json serves the same file for all of them). The address is
+   * what search engines index and what people share, so it has to say
+   * the language — a ?lang= parameter or a choice in localStorage is
+   * invisible to both.
+   *
+   * The plain address without a prefix (/, /blog.html) is the
+   * "no language chosen yet" entry: English for a first-time visitor and
+   * for crawlers, and the visitor's saved language otherwise, in which
+   * case the address is corrected to carry it.
+   */
+  var LANG_PATH = new RegExp('^/(' + VALID_CODES.map(function (c) {
+    return c.replace(/[-]/g, '\\-');
+  }).join('|') + ')(?=/|$)');
+
+  function pathLang(path) {
+    var m = LANG_PATH.exec(path == null ? window.location.pathname : path);
+    return m ? m[1] : null;
+  }
+
+  // "/vi/blog/post/x" -> "/blog/post/x"; "/vi" -> "/"; "/index.html" -> "/".
+  function barePath(path) {
+    var out = String(path || '/').replace(LANG_PATH, '') || '/';
+    if (out.charAt(0) !== '/') out = '/' + out;
+    return out === '/index.html' ? '/' : out;
+  }
+
+  function langPath(path, code) {
+    var bare = barePath(path);
+    return code ? '/' + code + bare : bare;
+  }
+
+  // Pages, not files: links to scripts, styles, pictures, downloads and
+  // the api keep the address they were given.
+  function isPagePath(path) {
+    if (/^\/(api|js|css|assets|supabase|node_modules)(\/|$)/.test(barePath(path))) return false;
+    var last = path.split('/').pop();
+    return !last || /\.html$/i.test(last) || last.indexOf('.') === -1;
+  }
+
+  // The language the links on this page carry: the one in the address,
+  // or none on a plain address.
+  function linkLang() {
+    return pathLang();
+  }
+
+  function localizeHref(raw, code) {
+    if (!raw || /^(#|mailto:|tel:|javascript:|data:|blob:)/i.test(raw)) return null;
+    var u;
+    try { u = new URL(raw, document.baseURI); } catch (e) { return null; }
+    if (u.origin !== window.location.origin || !isPagePath(u.pathname)) return null;
+    // An older ?lang= on the link says which language it is for; it
+    // becomes the prefix rather than being lost.
+    var asked = u.searchParams.get('lang');
+    if (isValidLang(asked)) code = asked;
+    u.searchParams.delete('lang');
+    var path = langPath(u.pathname, code);
+    var out = path + u.search + u.hash;
+    return out;
+  }
+
+  function localizeLinks(root) {
+    var code = linkLang();
+    var scope = root || document;
+    var list = [];
+    if (scope.nodeType === 1 && scope.matches && scope.matches('a[href]')) list.push(scope);
+    if (scope.querySelectorAll) list = list.concat(Array.prototype.slice.call(scope.querySelectorAll('a[href]')));
+    list.forEach(function (a) {
+      if (a.hasAttribute('data-no-lang')) return;
+      var raw = a.getAttribute('href');
+      var next = localizeHref(raw, code);
+      if (next != null && next !== raw) a.setAttribute('href', next);
+    });
+  }
+
+  // Links added later — blog cards, search results, the list of
+  // downloads — are put in the page's language as they arrive.
+  function watchLinks() {
+    if (!window.MutationObserver || !document.body) return;
+    new MutationObserver(function (records) {
+      records.forEach(function (r) {
+        if (r.type === 'attributes') { localizeLinks(r.target); return; }
+        r.addedNodes.forEach(function (n) { if (n.nodeType === 1) localizeLinks(n); });
+      });
+    }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
+  }
+
+  // Pages that rewrite their own address (a blog shelf, a community
+  // topic) build it from the plain path; the language is put back in.
+  var rawReplace = window.history && history.replaceState ? history.replaceState.bind(history) : null;
+
+  function wrapHistory() {
+    if (!window.history || !history.replaceState) return;
+    ['pushState', 'replaceState'].forEach(function (name) {
+      var orig = history[name];
+      history[name] = function (state, title, url) {
+        if (typeof url === 'string' && url) {
+          var next = localizeHref(url, linkLang());
+          if (next != null) url = next;
+        }
+        return orig.call(history, state, title, url);
+      };
+    });
+  }
+
+  // Put the chosen language into the address, without a reload, and
+  // drop a ?lang= that brought the visitor here.
+  function syncAddress(code) {
+    var loc = window.location;
+    var params = new URLSearchParams(loc.search);
+    params.delete('lang');
+    var qs = params.toString();
+    var next = langPath(loc.pathname, code) + (qs ? '?' + qs : '') + loc.hash;
+    if (next !== loc.pathname + loc.search + loc.hash) {
+      try { (rawReplace || history.replaceState.bind(history))(history.state, '', next); } catch (e) {}
+    }
+  }
+
+  // What search engines read: the one address for this page in this
+  // language, and every other language's address for it.
+  function paintHead(code) {
+    var head = document.head;
+    if (!head) return;
+    Array.prototype.slice.call(head.querySelectorAll('link[data-duru-lang]')).forEach(function (l) { l.remove(); });
+    var origin = window.location.origin;
+    var params = new URLSearchParams(window.location.search);
+    params.delete('lang');
+    var qs = params.toString() ? '?' + params.toString() : '';
+    var bare = barePath(window.location.pathname);
+    function link(rel, href, hreflang) {
+      var el = document.createElement('link');
+      el.rel = rel; el.href = href; el.setAttribute('data-duru-lang', '');
+      if (hreflang) el.hreflang = hreflang;
+      head.appendChild(el);
+    }
+    link('canonical', origin + (pathLang() ? langPath(bare, code) : bare) + qs);
+    VALID_CODES.forEach(function (c) { link('alternate', origin + langPath(bare, c) + qs, c); });
+    link('alternate', origin + bare + qs, 'x-default');
+  }
+
+  // At once, not on page ready: a page may set its own address before then.
+  wrapHistory();
+
   var dictCache = {};
   var currentLang = DEFAULT_LANG;
   var currentDict = {};
@@ -118,6 +264,11 @@
       currentDict = dict;
       applyDict(dict, document);
       if (opts.persist !== false) setStoredLang(code);
+      // A language someone chose goes into the address; the plain
+      // address stays plain only for a first-time visitor on English.
+      if (opts.persist !== false || pathLang()) syncAddress(code);
+      paintHead(code);
+      localizeLinks(document);
       updateSwitcherUI(code);
       window.DURU_I18N.lang = code;
       // Says that `lang` above is a language this engine actually
@@ -204,12 +355,14 @@
   }
 
   function init() {
-    // Priority: explicit ?lang= link (shareable), then a returning
-    // visitor's saved choice, then English. A country/IP guess is
-    // deliberately never part of this chain.
-    var lang = getUrlLang() || getStoredLang() || DEFAULT_LANG;
+    // Priority: the language in the address (/vi/…), then an older
+    // ?lang= link, then a returning visitor's saved choice, then English.
+    // A country/IP guess is deliberately never part of this chain.
+    var fromAddress = pathLang() || getUrlLang();
+    var lang = fromAddress || getStoredLang() || DEFAULT_LANG;
+    watchLinks();
     buildSwitcher(lang);
-    setLang(lang, { persist: !!getUrlLang() || !!getStoredLang() });
+    setLang(lang, { persist: !!fromAddress || !!getStoredLang() });
   }
 
   window.DURU_I18N = {
@@ -218,6 +371,11 @@
     t: t,
     apply: function (root) { applyDict(currentDict, root); },
     setLang: setLang,
+    // The address helpers, for scripts that build links themselves.
+    pathLang: function () { return pathLang(); },
+    barePath: barePath,
+    langPath: langPath,
+    url: function (path) { return localizeHref(path, linkLang()) || path; },
     // The languages the site publishes, each under its own name.
     // js/langbar.js needs them to say "Stay in 한국어" rather than
     // "Stay in ko"; a copy, so nothing outside can reorder the list.

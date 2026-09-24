@@ -40,7 +40,10 @@
   }
   window.DURU_SUPABASE_CLIENT = client;
 
-  const REDIRECT_URL = window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + 'my-learning.html';
+  // Always the plain address: the list of return addresses Supabase
+  // accepts need not know about /vi/ and the rest, and the language the
+  // visitor chose is remembered anyway and put back on arrival.
+  const REDIRECT_URL = window.location.origin + '/my-learning.html';
 
   /* ---------------- Modal markup ---------------- */
 

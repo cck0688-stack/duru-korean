@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /review.html
+Disallow: /setup-check.html
+Disallow: /admin-roles.html
+
+Sitemap: https://www.durukorean.com/sitemap.xml

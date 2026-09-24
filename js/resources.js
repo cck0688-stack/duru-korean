@@ -221,7 +221,7 @@
           suggestEl.hidden = true;
         }
       }
-      listEl.querySelectorAll('a[href^="resource.html"]').forEach(function (a) {
+      listEl.querySelectorAll('a[href*="resource.html"]').forEach(function (a) {
         a.addEventListener('click', function () {
           saveState({ scrollY: window.scrollY });
           try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}

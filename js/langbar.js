@@ -97,6 +97,9 @@
   }
 
   function askedFor() {
+    // A language in the address (/vi/…) or an older ?lang= link: the
+    // visitor came for that language on purpose.
+    if (/^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/.test(window.location.pathname)) return true;
     try { return !!new URLSearchParams(window.location.search).get('lang'); } catch (e) { return false; }
   }
 

@@ -14,6 +14,13 @@
 (function () {
   'use strict';
 
+  // The language in the address this page was opened under (/vi/…), so
+  // that the addresses built here stay in it.
+  function langPrefix() {
+    var m = /^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/.exec(window.location.pathname);
+    return m ? '/' + m[1] : '';
+  }
+
   var CATEGORIES = [
     { id: 'ask' },
     { id: 'share' },
@@ -57,7 +64,7 @@
     // is served from two depths, so <base href="/"> on it keeps every
     // relative link and fetch working from either.
     href: function (cat) {
-      return cat ? '/community/' + encodeURIComponent(cat) : '/community';
+      return langPrefix() + (cat ? '/community/' + encodeURIComponent(cat) : '/community');
     },
 
     // …and back again. A rewrite happens on the server, so the browser
@@ -66,6 +73,9 @@
     // string still answers for stories.html?cat=, which is how the page
     // is opened locally and from an older link.
     route: function (pathname, search) {
+      // /vi/blog/post/x is /blog/post/x in Vietnamese: the language is
+      // js/i18n.js's business, the route is what follows it.
+      pathname = String(pathname || '').replace(/^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/, '') || '/';
       var m = /^\/community\/([^/]+)\/?$/.exec(pathname || '');
       if (m) return { cat: decodeURIComponent(m[1]) };
       return { cat: new URLSearchParams(search || '').get('cat') || '' };

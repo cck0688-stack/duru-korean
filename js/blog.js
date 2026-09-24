@@ -615,7 +615,7 @@
     // the same post rather than at the top.
     function wireCardLinks(root) {
       if (!root) return;
-      root.querySelectorAll('a[href^="/blog/post/"]').forEach(function (a) {
+      root.querySelectorAll('a[href*="/blog/post/"]').forEach(function (a) {
         a.addEventListener('click', function () {
           saveState({ scrollY: window.scrollY });
           try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}

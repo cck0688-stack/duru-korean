@@ -106,7 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
     links.forEach((a) => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
 
     const pathMatches = Array.from(links).filter((a) => {
-      const [hrefPath] = a.getAttribute('href').split('#');
+      // A link may carry the language (/vi/blog.html); the page it
+      // names is the last part.
+      const hrefPath = a.getAttribute('href').split('#')[0].split('?')[0].split('/').pop();
       return hrefPath === path || (path === 'index.html' && hrefPath === '');
     });
     if (!pathMatches.length) return;

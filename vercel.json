@@ -1,43 +1,111 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/blog/post/:slug", "destination": "/blog.html?post=:slug" },
-    { "source": "/blog/:cat", "destination": "/blog.html?cat=:cat" },
-    { "source": "/community", "destination": "/stories.html" },
-    { "source": "/community/:cat", "destination": "/stories.html?cat=:cat" }
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/blog/post/:slug",
+      "destination": "/blog.html?post=:slug"
+    },
+    {
+      "source": "/blog/:cat",
+      "destination": "/blog.html?cat=:cat"
+    },
+    {
+      "source": "/community",
+      "destination": "/stories.html"
+    },
+    {
+      "source": "/community/:cat",
+      "destination": "/stories.html?cat=:cat"
+    },
+    {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/blog/post/:slug",
+      "destination": "/blog.html?post=:slug"
+    },
+    {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/blog/:cat",
+      "destination": "/blog.html?cat=:cat"
+    },
+    {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/community",
+      "destination": "/stories.html"
+    },
+    {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/community/:cat",
+      "destination": "/stories.html?cat=:cat"
+    },
+    {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/:path*",
+      "destination": "/:path*"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
       ]
     },
     {
       "source": "/(.*).html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/css/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/js/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     }
   ]

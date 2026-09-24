@@ -22,6 +22,13 @@
 (function () {
   'use strict';
 
+  // The language in the address this page was opened under (/vi/…), so
+  // that the addresses built here stay in it.
+  function langPrefix() {
+    var m = /^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/.exec(window.location.pathname);
+    return m ? '/' + m[1] : '';
+  }
+
   var CATEGORIES = [
     {
       id: 'travel',
@@ -142,10 +149,10 @@
     // <base href="/"> on that page keeps every relative link and fetch
     // working from any of these depths.
     href: function (cat) {
-      return cat ? '/blog/' + encodeURIComponent(cat) : '/blog';
+      return langPrefix() + (cat ? '/blog/' + encodeURIComponent(cat) : '/blog');
     },
     postHref: function (slug, lang) {
-      return '/blog/post/' + encodeURIComponent(slug) +
+      return langPrefix() + '/blog/post/' + encodeURIComponent(slug) +
         (lang ? '?pl=' + encodeURIComponent(lang) : '');
     },
     // …and back again. A rewrite happens on the server, so the browser
@@ -154,6 +161,9 @@
     // still answers for blog.html?cat=…, which is how the page is
     // opened locally and from an older link.
     route: function (pathname, search) {
+      // /vi/blog/post/x is /blog/post/x in Vietnamese: the language is
+      // js/i18n.js's business, the route is what follows it.
+      pathname = String(pathname || '').replace(/^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/, '') || '/';
       var out = { post: '', cat: '' };
       var m = /^\/blog\/post\/([^/]+)\/?$/.exec(pathname || '');
       if (m) { out.post = decodeURIComponent(m[1]); return out; }
