@@ -324,6 +324,12 @@
         }
       }
 
+      // With "Confirm email" off in Supabase the account is signed in at
+      // once (the auth listener closes this window); no link was sent.
+      if (data && data.session) {
+        document.getElementById('signupForm').reset();
+        return;
+      }
       setMessage('signup', 'success',
         t('auth.signupSuccess', 'We sent a verification link to {email}. Confirm your email, then log in. Did not get it? Use "Forgot password?" from the log in tab to resend, or check your spam folder.').replace('{email}', email));
       document.getElementById('signupForm').reset();
