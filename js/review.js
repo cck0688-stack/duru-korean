@@ -340,41 +340,15 @@
       says(row.id, t('review.publishing', 'Publishing…'));
 
       var refused = [];
-      var chain = Promise.resolve();
-      files.forEach(function (file) {
-        chain = chain.then(function () {
-          var key = file.draft_key.replace(/^resource-drafts\//, '');
-          // The row's id, never its slug: the slug is Korean and Storage
-          // refuses a key with anything outside ASCII in it.
-          var target = 'auto/' + row.id + '/' + file.lang + '-v' + file.version + '.pdf';
-          return client.storage.from(DRAFTS).download(key)
-            .then(function (got) {
-              if (got.error) throw got.error;
-              return client.storage.from(R.BUCKET).upload(target, got.data, {
-                contentType: 'application/pdf', upsert: true
-              });
-            })
-            .then(function (up) {
-              if (up.error) throw up.error;
-              return client.rpc('publish_resource_file', {
-                p_file_id: file.id, p_storage_key: target, p_file_size: file.file_size || 0
-              });
-            })
-            .then(function (out) {
-              if (out.error) throw out.error;
-              // The database hands back what is still blocking. An
-              // empty list means it went out.
-              var stillBlocked = out.data || [];
-              if (stillBlocked.length) {
-                refused.push(file.lang + ': ' + stillBlocked.map(blockText).join(', '));
-              }
-            });
-        });
-      });
+      // Every language, each tried three times; one that fails is named
+      // and the rest still go out (resource-common.js, publishFiles).
+      var chain = R.publishFiles(client, row.id, files, refused);
 
       return chain.then(function () {
         if (refused.length) {
-          says(row.id, t('review.refused', 'The database refused: ') + refused.join(' · '), 'bad');
+          says(row.id, t('review.refused', 'The database refused: ') + refused.map(function (x) {
+            return x.replace(/\b(no-file|failed-check|rights-unchecked|rights-forbidden)\b/g, blockText);
+          }).join(' · '), 'bad');
           return load();
         }
         says(row.id, t('review.published', 'Published.'), 'ok');

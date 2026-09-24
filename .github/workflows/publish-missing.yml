@@ -1,0 +1,43 @@
+# DURU KOREAN — finish publishing languages that were left behind
+#
+# A download an admin approved goes out in every language it was made
+# in. When a copy failed partway, the rest used to stay hidden; this
+# publishes them, through the same database function the review screen
+# uses (so nothing whose check failed or whose sources are not cleared
+# gets out), and only for downloads an admin already published.
+#
+# Every hour, and on demand. Its log also lists the downloads that do not
+# exist in all eight languages at all.
+#
+# Secrets: DURU_BOT_EMAIL, DURU_BOT_PASSWORD, SUPABASE_URL,
+# SUPABASE_ANON_KEY — the same ones the daily runs use.
+
+name: Finish publishing languages
+
+on:
+  schedule:
+    - cron: '35 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: publish-missing
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Publish the languages still waiting
+        run: node scripts/publish-missing.mjs

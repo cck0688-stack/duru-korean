@@ -263,6 +263,52 @@
   //
   // A download made by hand has no drafts; for it, Publish is what the
   // switch on its own page always did.
+  // Copy each language's draft to the public bucket and ask the
+  // database to publish it — every language, not as many as get through
+  // before the first hiccup. Each is tried three times; one that still
+  // fails is named in `refused` and the others go out regardless. (A
+  // chain that stopped at the first error is how sheets ended up public
+  // in one or two languages out of eight.)
+  function publishFiles(client, resourceId, files, refused) {
+    function once(file) {
+      var key = file.draft_key.replace(/^resource-drafts\//, '');
+      // The row's id, never its slug: Storage refuses non-ASCII keys.
+      var target = 'auto/' + resourceId + '/' + file.lang + '-v' + (file.version || 1) + '.pdf';
+      return client.storage.from(DRAFTS).download(key)
+        .then(function (got) {
+          if (got.error) throw got.error;
+          return client.storage.from(BUCKET).upload(target, got.data, { contentType: 'application/pdf', upsert: true });
+        })
+        .then(function (up) {
+          if (up.error) throw up.error;
+          return client.rpc('publish_resource_file', {
+            p_file_id: file.id, p_storage_key: target, p_file_size: file.file_size || 0
+          });
+        })
+        .then(function (out) {
+          if (out.error) throw out.error;
+          return out.data || [];
+        });
+    }
+    function tried(file, left) {
+      return once(file).catch(function (err) {
+        if (left <= 1) throw err;
+        return new Promise(function (ok) { setTimeout(ok, 1200); }).then(function () { return tried(file, left - 1); });
+      });
+    }
+    var chain = Promise.resolve();
+    (files || []).forEach(function (file) {
+      chain = chain.then(function () {
+        return tried(file, 3).then(function (blocked) {
+          if (blocked.length) refused.push(file.lang + ': ' + blocked.join(', '));
+        }, function (err) {
+          refused.push(file.lang + ': ' + ((err && err.message) || String(err)));
+        });
+      });
+    });
+    return chain.then(function () { return refused; });
+  }
+
   function publishResource(client, id, note) {
     return client.from('resources').select('*, resource_files(*), resource_sources(*)')
       .eq('id', id).maybeSingle()
@@ -298,27 +344,7 @@
             });
           });
 
-        drafts.forEach(function (file) {
-          chain = chain.then(function () {
-            var key = file.draft_key.replace(/^resource-drafts\//, '');
-            var target = 'auto/' + r.id + '/' + file.lang + '-v' + (file.version || 1) + '.pdf';
-            return client.storage.from(DRAFTS).download(key)
-              .then(function (got) {
-                if (got.error) throw got.error;
-                return client.storage.from(BUCKET).upload(target, got.data, { contentType: 'application/pdf', upsert: true });
-              })
-              .then(function (up) {
-                if (up.error) throw up.error;
-                return client.rpc('publish_resource_file', {
-                  p_file_id: file.id, p_storage_key: target, p_file_size: file.file_size || 0
-                });
-              })
-              .then(function (out) {
-                if (out.error) throw out.error;
-                if ((out.data || []).length) refused.push(file.lang + ': ' + out.data.join(', '));
-              });
-          });
-        });
+        chain = chain.then(function () { return publishFiles(client, r.id, drafts, refused); });
         return chain.then(function () { return refused; });
       });
   }
@@ -356,7 +382,7 @@
 
   window.DURU_RES = {
     BUCKET: BUCKET, DRAFTS: DRAFTS, COVERS: COVERS,
-    publishResource: publishResource, rejectResource: rejectResource, isPending: isPending, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
+    publishResource: publishResource, publishFiles: publishFiles, rejectResource: rejectResource, isPending: isPending, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
     MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX, ACCEPT: ACCEPT, PREVIEWABLE: PREVIEWABLE,
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,
