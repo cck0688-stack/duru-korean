@@ -1,0 +1,48 @@
+# DURU KOREAN — delete one download, on demand
+#
+# The same as "Delete this download" on the download's page: the row and
+# everything attached to it, then its PDFs and cover. Only when exactly
+# one download has the exact title given (scripts/delete-resource.mjs).
+#
+# Secrets: DURU_BOT_EMAIL, DURU_BOT_PASSWORD, SUPABASE_URL,
+# SUPABASE_ANON_KEY — the same ones the daily runs use.
+
+name: Delete a download
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Exact title of the download to delete'
+        required: true
+        type: string
+      dry_run:
+        description: 'Only show what would be deleted'
+        type: boolean
+        default: false
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      TITLE: ${{ inputs.title }}
+      DRY_RUN: ${{ inputs.dry_run }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Delete the download
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            node scripts/delete-resource.mjs "$TITLE" --dry-run
+          else
+            node scripts/delete-resource.mjs "$TITLE"
+          fi
