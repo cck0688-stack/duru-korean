@@ -4364,3 +4364,48 @@ section { position: relative; }
   100% { background-color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) { .story-focus { animation: none; } }
+
+/* ---- Community as a list (js/view-toggle.js) ----
+   One line per post: who, where and when, and how it begins. Pressing
+   the line opens the post in full (stories.js adds .story-open). */
+.story-list--list {
+  gap: 0;
+  border: 1px solid rgba(22, 48, 43, 0.1);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+.story-list--list .story-card {
+  border: 0;
+  border-bottom: 1px solid rgba(22, 48, 43, 0.08);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 11px 16px;
+  cursor: pointer;
+}
+.story-list--list .story-card:last-child { border-bottom: 0; }
+.story-list--list .story-card:hover { background: var(--paper); }
+.story-list--list .story-card:not(.story-open) .story-head { margin-bottom: 4px; }
+.story-list--list .story-card:not(.story-open) .story-avatar { width: 28px; height: 28px; font-size: 12px; }
+.story-list--list .story-card:not(.story-open) .story-head h3 { font-size: 14.5px; }
+.story-list--list .story-card:not(.story-open) .story-head > div {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 12px;
+}
+.story-list--list .story-card:not(.story-open) .story-body {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  color: var(--ink-dim);
+  margin-left: 40px;
+}
+.story-list--list .story-card:not(.story-open) .story-body p { margin: 0; display: inline; }
+.story-list--list .story-card:not(.story-open) .story-body p + p::before { content: ' '; }
+.story-list--list .story-card:not(.story-open) .story-actions,
+.story-list--list .story-card:not(.story-open) .story-replies,
+.story-list--list .story-card:not(.story-open) .story-mt { display: none; }
+.story-list--list .story-card.story-open { cursor: default; background: #fff; padding: 18px 20px; }
+@media (max-width: 600px) {
+  .story-list--list .story-card:not(.story-open) .story-body { margin-left: 0; }
+}

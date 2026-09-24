@@ -27,11 +27,14 @@
     var list = document.getElementById(box.dataset.list);
     if (!list) return;
     var key = 'duru_view:' + (box.dataset.key || box.dataset.list);
+    // The class that makes the list a list: the downloads and the blog
+    // share one, the community's entries are shaped differently.
+    var listClass = box.dataset.listClass || 'resource-grid--list';
     var view = 'grid';
     try { if (localStorage.getItem(key) === 'list') view = 'list'; } catch (e) {}
 
     function paint() {
-      list.classList.toggle('resource-grid--list', view === 'list');
+      list.classList.toggle(listClass, view === 'list');
       box.querySelectorAll('button[data-view]').forEach(function (b) {
         var on = b.dataset.view === view;
         b.setAttribute('aria-pressed', on ? 'true' : 'false');

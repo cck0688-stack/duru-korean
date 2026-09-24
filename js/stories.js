@@ -499,6 +499,20 @@
       if (!busy[want.id]) refocus = null;
     }
 
+    // In the list view a post is one line; pressing the line opens it
+    // in full where it is, pressing again folds it back. Buttons and
+    // links inside keep doing what they do.
+    listEl.addEventListener('click', function (e) {
+      if (!listEl.classList.contains('story-list--list')) return;
+      if (e.target.closest('button, a, select, textarea, input, label')) return;
+      var card = e.target.closest('.story-card');
+      if (!card) return;
+      var on = card.classList.toggle('story-open');
+      // Remembered, so a redraw (a translation arriving, a heart) does
+      // not fold it back while it is being read.
+      if (on) openIds[card.dataset.story] = true; else delete openIds[card.dataset.story];
+    });
+
     function renderList() {
       listEl.innerHTML = '';
       var list = shown();
@@ -945,11 +959,20 @@
     var focusDone = false;
     var pinned = null;       // the thread brought in for it, kept on top
     var litUntil = 0;        // the entry stays lit through a redraw
+    var openIds = Object.create(null);   // rows opened in the list view
 
     function relight() {
+      Object.keys(openIds).forEach(function (id) {
+        var c = listEl.querySelector('.story-card[data-story="' + id.replace(/"/g, '') + '"]');
+        if (c) c.classList.add('story-open');
+      });
       if (!focusId || Date.now() > litUntil) return;
       var el = listEl.querySelector('[data-story="' + String(focusId).replace(/"/g, '') + '"]');
-      if (el) el.classList.add('story-focus');
+      if (!el) return;
+      el.classList.add('story-focus');
+      // In the list view the post is folded to one line; open it.
+      var card = el.closest('.story-card');
+      if (card) card.classList.add('story-open');
     }
 
     function maybeFocus() {
