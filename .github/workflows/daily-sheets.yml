@@ -37,12 +37,12 @@ name: Daily worksheets
 
 on:
   schedule:
-    # 22:00 UTC is 07:00 the next morning in Seoul. GitHub's scheduler
+    # 19:00 UTC is 04:00 the next morning in Seoul. GitHub's scheduler
     # runs late when it is busy, which is harmless here: the run reads
     # what is already on the shelf rather than the date, so a late
     # start, a missed day or a half-finished run leaves no hole that
     # the next one does not fill.
-    - cron: '0 22 * * *'
+    - cron: '0 19 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

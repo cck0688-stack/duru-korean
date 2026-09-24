@@ -4241,20 +4241,14 @@ section { position: relative; }
 .res-decide-msg.ok { color: #1f6b45; font-weight: 700; }
 .res-decide-msg.bad { color: var(--accent-red); }
 
-/* A sample post's badge: next to the writer's name, small, plain. */
+/* A sample post's mark (admins only): a small star beside the name. */
 .story-sample {
   display: inline-block;
-  margin-left: 6px;
-  padding: 1px 7px;
-  border: 1px solid var(--ink-dim);
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-  vertical-align: middle;
-  color: var(--ink-dim);
-  background: var(--paper-alt);
+  margin-left: 4px;
+  font-size: 13px;
+  line-height: 1;
+  vertical-align: 1px;
+  color: var(--accent);
   cursor: help;
 }
 

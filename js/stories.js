@@ -420,10 +420,14 @@
     // carries is_sample, so the samples can be found and removed at once.
     function sampleHTML(row) {
       if (!row || !row.is_sample || !isAdmin) return '';
-      return ' <span class="story-sample" title="' +
-        escapeHTML(t('stories.sampleNote', 'A sample post. Only admins see this mark.')) + '">' +
-        escapeHTML(t('stories.sample', 'Sample')) + '</span>';
+      // A star, not a word: it sits beside the name on every card and
+      // reply, and a word took more room than the name. What it means
+      // is on hover and read out by a screen reader.
+      var note = t('stories.sampleNote', 'A sample post. Only admins see this mark.');
+      return ' <span class="story-sample" role="img" title="' + escapeHTML(note) +
+        '" aria-label="' + escapeHTML(note) + '">★</span>';
     }
+
 
     function repliesHTML(parent) {
       var list = childrenOf[parent.id] || [];
