@@ -7,7 +7,8 @@
 # gets out), and only for downloads an admin already published.
 #
 # Every hour, and on demand. Its log also lists the downloads that do not
-# exist in all eight languages at all.
+# exist in all eight languages at all. The same hourly run then tells
+# search engines (IndexNow) about everything published in the last hour.
 #
 # Secrets: DURU_BOT_EMAIL, DURU_BOT_PASSWORD, SUPABASE_URL,
 # SUPABASE_ANON_KEY — the same ones the daily runs use.
@@ -18,6 +19,11 @@ on:
   schedule:
     - cron: '35 * * * *'
   workflow_dispatch:
+    inputs:
+      indexnow_all:
+        description: 'Send every public page, post and download to IndexNow (once, to start)'
+        type: boolean
+        default: false
 
 concurrency:
   group: publish-missing
@@ -41,3 +47,12 @@ jobs:
 
       - name: Publish the languages still waiting
         run: node scripts/publish-missing.mjs
+
+      # IndexNow: tells Bing, Naver, Yandex and the others about what was
+      # published in the last hour (scripts/indexnow.mjs). Its failure
+      # does not fail the publishing above.
+      - name: Tell search engines about new pages
+        continue-on-error: true
+        env:
+          INDEXNOW_ALL: ${{ inputs.indexnow_all }}
+        run: node scripts/indexnow.mjs

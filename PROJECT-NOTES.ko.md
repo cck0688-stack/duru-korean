@@ -1137,3 +1137,9 @@ Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
 - 실패하면 원래 페이지를 그대로 보냅니다. 서버 CDN이 10분 동안 저장해 둡니다.
 - 언어 표시 없는 기본 페이지(영어)에는 같은 태그를 파일에 직접 넣었습니다 (`<!-- share and search -->` 부분).
 - 사이트맵에 공개된 자료도 모두 들어갑니다.
+
+### IndexNow (빙·네이버 등에 새 페이지 바로 알리기)
+
+- 매시간 도는 `publish-missing.yml` 이 끝에 `scripts/indexnow.mjs` 를 실행해, 지난 75분 동안 게시된 블로그 글과 자료의 모든 언어 주소를 IndexNow로 보냅니다. 빙, 네이버, 얀덱스 등이 함께 받습니다.
+- 키는 사이트 루트의 `<32자리>.txt` 파일입니다 (비밀이 아님, 사이트 확인용). 이 파일을 지우면 IndexNow가 거절합니다.
+- 처음 한 번 전체를 보내려면 GitHub Actions → Finish publishing languages → Run workflow 에서 "Send every public page…" 를 체크하고 실행합니다.
