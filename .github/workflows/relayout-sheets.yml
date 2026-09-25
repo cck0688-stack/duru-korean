@@ -1,0 +1,82 @@
+# DURU KOREAN — set the worksheets already made in the current layout
+#
+# On demand. Reads each worksheet the engine made back out of its PDF,
+# renders it again in the current layout (no half-empty pages, answers
+# under the questions) and replaces the file only when the new one says
+# exactly the same thing. See scripts/relayout-sheets.mjs.
+#
+# Start with dry_run on: it does everything but replace, and the log
+# says, file by file, how many pages it would have and whether it
+# matched.
+#
+# Secrets: the ones the daily worksheet run uses.
+
+name: Relayout worksheets
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Change nothing, just report what would be replaced'
+        type: boolean
+        default: true
+      limit:
+        description: 'Only the first N downloads (empty = all)'
+        type: string
+        default: ''
+      only:
+        description: 'Only this download (its id)'
+        type: string
+        default: ''
+
+concurrency:
+  group: relayout-sheets
+  cancel-in-progress: false
+
+jobs:
+  relayout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install the browser that renders the PDFs
+        run: npx playwright install --with-deps chromium
+
+      - name: Install the PDF text reader
+        run: pip install --quiet pymupdf
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Set the worksheets again
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+          SHEET_PROVIDER: ${{ vars.SHEET_PROVIDER }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          # Through the environment, never pasted into the command line.
+          DRY_RUN: ${{ inputs.dry_run }}
+          LIMIT: ${{ inputs.limit }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          args=()
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
+          if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          node scripts/relayout-sheets.mjs "${args[@]}"

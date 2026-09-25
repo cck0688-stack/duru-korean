@@ -103,7 +103,7 @@ const COMMON = [
 // as "that model is not available". Per-shelf schemas are smaller,
 // strictly valid, and give the model a clearer target than a form with
 // twenty fields it is meant to leave blank.
-function sheetSchema(category, isStrict) {
+export function sheetSchema(category, isStrict) {
   const str = { type: 'string' };
   const strs = { type: 'array', items: str };
 
