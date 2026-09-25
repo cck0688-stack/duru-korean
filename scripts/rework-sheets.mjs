@@ -180,24 +180,41 @@ export async function prepareOne(cfgs, browser, token, r, outDir, work) {
   const latin = (t) => (String(t || '').match(/[A-Za-z]/g) || []).length;
   const hangul = (t) => (String(t || '').match(/[\uac00-\ud7a3]/g) || []).length;
   if (latin(en.title) > hangul(en.title)) en = { ...en, title: orig.title };
-  const fixes = diffSheets(orig, en);
 
-  const editions = { [SOURCE]: en };
-  const translations = {};
-  await pool(TARGETS, 3, async (lang) => {
-    const got = await translateChecked(cfgs, en, lang);
-    editions[lang] = got.edition;
-    translations[lang] = got.record;
-  });
-
-  // Every edition rendered once here, so a sheet that would not fit or
-  // fails a check is known before anyone reads it.
-  const pages = {};
-  for (const [lang, sheet] of Object.entries(editions)) {
-    if (!sheet) continue;
-    const out = await renderSheet(sheet, { category: r.category, lang, browser });
-    pages[lang] = { pages: out.check.pages, ok: out.check.ok, why: out.check.why };
+  // Every edition made and rendered once here, so a sheet that would not
+  // fit or fails a check is known before anyone reads it.
+  const translateAll = async (source) => {
+    const editions = { [SOURCE]: source };
+    const translations = {};
+    await pool(TARGETS, 3, async (lang) => {
+      const got = await translateChecked(cfgs, source, lang);
+      editions[lang] = got.edition;
+      translations[lang] = got.record;
+    });
+    const pages = {};
+    for (const [lang, sheet] of Object.entries(editions)) {
+      if (!sheet) continue;
+      const out = await renderSheet(sheet, { category: r.category, lang, browser });
+      pages[lang] = { pages: out.check.pages, ok: out.check.ok, why: out.check.why };
+    }
+    return { editions, translations, pages };
+  };
+  let made = await translateAll(en);
+  // Two pages in every language: when a longer translation runs onto a
+  // third page, the English is cut a little, read again, translated again.
+  const longer = Object.entries(made.pages).filter(([, p]) => p.pages > 2).map(([l]) => l);
+  if (longer.length && !longer.includes(SOURCE)) {
+    log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다');
+    const short = await shortenSheet(cfgs.writer, en, 2, longer);
+    const again = await proofread(cfgs, short);
+    if (latin(again.sheet.title) > hangul(again.sheet.title)) again.sheet = { ...again.sheet, title: orig.title };
+    shortened.push({ from: 2, longer, cut: diffSheets(en, again.sheet) });
+    checked = { ...again, rounds: checked.rounds.concat(again.rounds) };
+    en = again.sheet;
+    made = await translateAll(en);
   }
+  const { editions, translations, pages } = made;
+  const fixes = diffSheets(orig, en);
 
   const dir = path.join(outDir, r.id);
   writeJSON(path.join(dir, 'orig.en.json'), orig);

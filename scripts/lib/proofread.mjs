@@ -311,11 +311,17 @@ export function normalizeLevel(raw) {
 
 // A sheet that does not fit on two pages even set compact (the owner's
 // rule, 2026-09-25): made shorter by the editor, keeping what it teaches.
-export async function shortenSheet(cfg, sheet, pages) {
+// `longer`: the translations that ran onto a third page while the
+// English itself fits — then only a little is cut, so they fit too.
+export async function shortenSheet(cfg, sheet, pages, longer = []) {
   const category = sheet.category || 'etc';
   const system = [
-    '당신은 한국어 교재 편집자입니다. 이 학습지는 인쇄하면 A4 ' + pages + '쪽입니다. A4 2쪽 안에 들어가도록 줄이세요.',
+    longer.length
+      ? '당신은 한국어 교재 편집자입니다. 이 학습지의 영어판은 A4 2쪽이지만, 글이 더 긴 번역판(' + longer.join(', ') +
+        ')은 3쪽이 됩니다. 번역판도 2쪽에 들어가도록 영어판을 조금(전체의 10~15% 정도) 줄이세요.'
+      : '당신은 한국어 교재 편집자입니다. 이 학습지는 인쇄하면 A4 ' + pages + '쪽입니다. A4 2쪽 안에 들어가도록 줄이세요.',
     '',
+    '- summary 와 objective 가 길면 먼저 한두 문장으로 짧게 고쳐 쓰세요(뜻은 그대로).',
     '- 학습 목표와 그것을 연습하는 핵심은 남기세요.',
     '- 줄이는 순서: 같은 말을 되풀이하는 설명과 문단, 목표에 꼭 필요하지 않은 예시·표의 줄, 비슷한 문제.',
     '  낱말·표현 표는 8~10개, 문제는 5~6개면 충분합니다.',

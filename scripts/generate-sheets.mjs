@@ -205,18 +205,41 @@ async function makeOne(cfg, category, context, browser) {
   // is the one nothing can go wrong in.
   // Each translation is checked: the Korean in it by machine (it must
   // come through untouched), every line by the reader.
-  const editions = { [SOURCE_LANG]: sheet };
-  for (const lang of LANGS) {
-    if (lang === SOURCE_LANG) continue;
-    const got = await translateChecked({ translator: cfg, writer }, sheet, lang);
-    if (got.record.failed) throw new Error(lang + ' 번역에서 한국어가 바뀌어 저장하지 않습니다');
-    editions[lang] = got.edition;
-  }
+  const makeAll = async (source) => {
+    const editions = { [SOURCE_LANG]: source };
+    for (const lang of LANGS) {
+      if (lang === SOURCE_LANG) continue;
+      const got = await translateChecked({ translator: cfg, writer }, source, lang);
+      if (got.record.failed) throw new Error(lang + ' 번역에서 한국어가 바뀌어 저장하지 않습니다');
+      editions[lang] = got.edition;
+    }
+    const rendered = {};
+    for (const [lang, edition] of Object.entries(editions)) {
+      rendered[lang] = await renderSheet(edition, { category, lang, browser });
+    }
+    return { editions, rendered };
+  };
+  let { editions, rendered } = await makeAll(sheet);
 
-  const rendered = {};
-  for (const [lang, edition] of Object.entries(editions)) {
-    const out = await renderSheet(edition, { category, lang, browser });
-    rendered[lang] = out;
+  // Two pages in every language: a longer translation that runs onto a
+  // third page gets the English cut a little, read again by both
+  // reviewers, and everything translated again.
+  const longer = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang);
+  if (longer.length && !longer.includes(SOURCE_LANG)) {
+    log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다');
+    const short = await shortenSheet(writer, sheet, 2, longer);
+    short.level = normalizeLevel(short.level);
+    const again = problemsWith(short, { existing: context.existing }).concat(markProblems(short));
+    const [first, second] = again.length ? [{ problems: [] }, { problems: [] }]
+      : await Promise.all([reviewSheet(writer, short), auditSheet(writer, short)]);
+    if (!again.concat(first.problems, second.problems).length) {
+      sheet = short;
+      ({ editions, rendered } = await makeAll(sheet));
+    } else {
+      log('    줄인 판이 검수를 통과하지 못해 줄이기 전 판을 둡니다');
+    }
+  }
+  for (const [lang, out] of Object.entries(rendered)) {
     if (!out.check.ok) log('    ! ' + lang + ': ' + out.check.why.join('; '));
   }
 
