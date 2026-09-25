@@ -90,6 +90,9 @@ function reading(s, L) {
 // underlined — "지금 커피를 **마시는** 사람이…" (the owner, 2026-09-25).
 // `marks` are copied from the sentence by the writer; one that is not
 // in it marks nothing, so a wrong mark can hide nothing and add nothing.
+// A mark starts a word — "산" marks "산 사람", not the 산 inside 산책 —
+// and the longest one wins where two start at the same place.
+const HANGUL = /[\uac00-\ud7a3]/;
 export function markedHTML(text, marks) {
   const s = String(text == null ? '' : text);
   const want = list(marks).map((m) => String(m || '').trim()).filter((m) => m && s.includes(m))
@@ -98,7 +101,7 @@ export function markedHTML(text, marks) {
   let out = '';
   let i = 0;
   while (i < s.length) {
-    const hit = want.find((m) => s.startsWith(m, i));
+    const hit = (i === 0 || !HANGUL.test(s[i - 1])) && want.find((m) => s.startsWith(m, i));
     if (hit) { out += '<b class="mark">' + esc(hit) + '</b>'; i += hit.length; } else { out += esc(s[i]); i += 1; }
   }
   return out;
@@ -118,7 +121,9 @@ function grammar(s, L) {
       '</td></tr>').join('') + '</tbody></table></section>' +
     (list(s.watchOut).length
       ? '<section><h2>' + esc(L.watchOut) + '</h2>' +
-        list(s.watchOut).map((w) => '<div class="note" style="margin-bottom:8px">' + esc(w) + '</div>').join('') +
+        // The wrong form and the right one, underlined: "맛있은 음식 (X) → 맛있는 음식 (O)".
+        list(s.watchOut).map((w, i) => '<div class="note" style="margin-bottom:8px">' +
+          markedHTML(w, list(s.watchOutMark)[i]) + '</div>').join('') +
         '</section>'
       : '') +
     practice(s, L);

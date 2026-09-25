@@ -126,7 +126,9 @@ const FIELDS = {
   forms: 'forms: 표의 한 줄이 한 항목. form = 왼쪽 굵은 글씨, when = 그 아래 작은 기울임 설명, means = 가운데 칸, ' +
          'example = 오른쪽 칸의 한국어 문장, exampleMeaning = 그 아래 작은 글씨. watchOut: 주의할 점 상자 하나가 한 항목. ' +
          'mark = example 문장 안에서 그 줄의 문형(form)이 쓰인 어절을 example 에 적힌 그대로 (예: "지금 커피를 마시는 사람이…" → ["마시는"]). ' +
-         '둘 이상이면 모두. 학습지에서 굵은 글씨와 밑줄로 표시할 곳입니다 — 글자를 바꾸는 것이 아닙니다.',
+         '둘 이상이면 모두. 학습지에서 굵은 글씨와 밑줄로 표시할 곳입니다 — 글자를 바꾸는 것이 아닙니다. ' +
+         'watchOutMark = watchOut 과 같은 순서·같은 개수로, 각 항목에서 틀린 말(X)과 맞는 말(O)의 핵심 어절을 그 항목에 ' +
+         '적힌 그대로 (예: "맛있은 음식 (X) → 맛있는 음식 (O): …" → ["맛있은", "맛있는"]).',
   dialogue: 'setting: 대화 위의 상자 (없으면 빈 문자열). dialogue: 대화 한 줄 = who (왼쪽 이름), korean, meaning (그 아래). ' +
             'words: 대화 아래 표현 표 (korean, roman, meaning, example, exampleMeaning).',
   letters: 'letters: 표의 한 줄 = letter, sound, as (sound 아래 작은 글씨). words: 낱말 표.',

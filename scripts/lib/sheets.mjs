@@ -118,7 +118,8 @@ export function sheetSchema(category, isStrict) {
       forms: { type: 'array', items: strict({
         form: str, when: str, means: str, example: str, exampleMeaning: str, mark: strs
       }, ['form', 'when', 'means', 'example', 'exampleMeaning', 'mark'], isStrict) },
-      watchOut: strs
+      watchOut: strs,
+      watchOutMark: { type: 'array', items: strs }
     },
     dialogue: {
       setting: str,
@@ -220,7 +221,9 @@ export async function writeSheet(cfg, opts) {
     ...(shelf.shape === 'forms'
       ? ['forms 의 mark 에는 example 문장 안에서 이 문형이 쓰인 어절을, example 에 적힌 그대로 베껴 넣으세요',
          '  (예: example "지금 커피를 마시는 사람이 제 친구예요." → mark ["마시는"]). 둘 이상이면 모두.',
-         '  학습지에서 굵은 글씨와 밑줄로 표시됩니다.']
+         '  학습지에서 굵은 글씨와 밑줄로 표시됩니다.',
+         'watchOutMark 는 watchOut 과 같은 순서, 같은 개수. 각 항목에서 틀린 말(X)과 맞는 말(O)의 핵심 어절을',
+         '  그 항목에 적힌 그대로 (예: "맛있은 음식 (X) → 맛있는 음식 (O): …" → ["맛있은", "맛있는"]).']
       : []),
     '',
     'checkThese 에는 게시 전에 사람이 확인해야 할 것을 적으세요.'
