@@ -1,16 +1,18 @@
 {
   "answers": [
-    "- 저는 백화점에 가요. - 오늘 식당에서 점심을 먹어요. - 우리는 3시에 서울역에 도착해요. - 고양이가 소파에 있어요. - 지훈 씨가 회사에서 일해요.",
-    "- 주말에 공원에서 사진을 찍어요. - 내일 시장에 가요.",
-    "- 카페에서 친구를 만나요. - 동생이 방에 있어요. - 은행에 가요.",
-    "- 우리 집에 놀러 오세요. - 교실에 사람이 없어요."
+    "① 에 ② 에서 ③ 에",
+    "① 에 ② 에서",
+    "① 주말에 공원에서 사진을 찍어요. ② 내일 시장에 가요.",
+    "① 카페에서 친구를 만나요. ② 동생이 방에 있어요. ③ 형이 회사에 다녀요.",
+    "① 우리 집에 놀러 오세요. ② 교실에 사람이 없어요."
   ],
   "checkThese": [],
   "exercises": [
-    "Fill in each blank with 에 or 에서: 빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 백화점( ) 가요. - 오늘 식당( ) 점심을 먹어요. - 우리는 3시에 서울역( ) 도착해요. - 고양이가 소파( ) 있어요. - 지훈 씨가 회사( ) 일해요.",
-    "Correct the wrong particle and rewrite each sentence: 틀린 조사를 고치세요. - 주말에 공원에 사진을 찍어요. - 내일 시장에서 가요.",
-    "Make a sentence in the 해요 style using the words given, adding 에 or 에서 after the place: 주어진 낱말에 ‘에’ 또는 ‘에서’를 넣어 ‘-아요/어요’ 문장을 만드세요. (예: 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.) - 카페 / 친구를 만나다 - 동생이 / 방 / 있다 - 은행 / 가다",
-    "Choose the correct sentence in each pair and write only that sentence: 둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요. a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
+    "Fill in each blank with 에 or 에서: ① 저는 백화점( ) 가요. ② 오늘 식당( ) 점심을 먹어요. ③ 우리는 3시에 서울역( ) 도착해요.",
+    "Fill in each blank with 에 or 에서: ① 고양이가 소파( ) 있어요. ② 지훈 씨가 회사( ) 일해요.",
+    "Correct the wrong particle and rewrite each sentence: ① 주말에 공원에 사진을 찍어요. ② 내일 시장에서 가요.",
+    "Make a sentence in the 해요 style, adding 에 or 에서 after the place (e.g. 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.): ① 카페 / 친구를 만나다 ② 동생이 / 방 / 있다 ③ 형이 / 회사 / 다니다",
+    "Choose the correct sentence in each pair and write it: ① a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. ② a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
   ],
   "forms": [
     {
@@ -47,8 +49,8 @@
   "keyword": "장소 조사 ‘에’ vs ‘에서’",
   "level": "Beginner (high)",
   "minutes": 15,
-  "objective": "Learners will correctly produce short sentences using '에' with motion/existence verbs (e.g., 가다, 오다, 다니다, 도착하다, 있다) and '에서' with activity verbs (e.g., 먹다, 공부하다, 일하다, 운동하다), and self-correct frequent errors such as '학교에서 다녀요(X) → 학교에 다녀요(O)' and '도서관에 공부해요(X) → 도서관에서 공부해요(O)'.",
-  "summary": "Beginner-focused practice choosing the correct Korean location particles: use '에' for destination/existence with verbs like 가다, 오다, 다니다, 도착하다, 있다; use '에서' for the place where an action happens with verbs like 공부하다, 일하다, 운동하다, 만나다, 먹다. Includes common error correction with short, natural sentences.",
+  "objective": "Learners can use 에 with motion and existence verbs (가다, 오다, 다니다, 도착하다, 있다) and 에서 with activity verbs (먹다, 공부하다, 일하다, 운동하다), and fix common errors such as 학교에서 다녀요 (X) → 학교에 다녀요 (O).",
+  "summary": "Choose the right location particle: 에 for where you go or where something is (가다, 오다, 다니다, 도착하다, 있다), 에서 for where an action happens (공부하다, 일하다, 만나다, 먹다). Includes fixing common mistakes.",
   "tags": [],
   "task": {
     "title": "",

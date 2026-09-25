@@ -484,5 +484,101 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T14:42:41.879Z"
+  "preparedAt": "2026-09-25T14:42:41.879Z",
+  "retranslated": {
+    "at": "2026-09-25T23:34:57.406Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 26,
+            "problem": "\"voiceless\" is translated as 不送气, which means \"unaspirated\" and is a different phonetic term. It should be 清音 or 不带声.",
+            "fix": "收音[k]（清音、不爆破）"
+          },
+          {
+            "line": 28,
+            "problem": "\"voiceless\" is translated as 不送气, which means \"unaspirated\" and is a different phonetic term. It should be 清音 or 不带声.",
+            "fix": "收音[t]（清音、不爆破）"
+          },
+          {
+            "line": 30,
+            "problem": "\"voiceless\" is translated as 不送气, which means \"unaspirated\" and is a different phonetic term. It should be 清音 or 不带声.",
+            "fix": "收音[p]（清音、不爆破）"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 3,
+            "problem": "\"unaufgelöst\" is the wrong term for phonetic \"unreleased\" (it means unresolved/undissolved); the standard term is \"ungelöst\" / \"ohne Verschlusslösung\".",
+            "fix": "Lernende können die ungelösten Endlaute [k], [t], [p] für die Batchim ㄱ, ㄷ, ㅂ produzieren und einfache Wörter, die diese enthalten, lesen und auswählen."
+          },
+          {
+            "line": 26,
+            "problem": "\"unaufgelöst\" is the wrong term for \"unreleased\"; should be \"ungelöst\".",
+            "fix": "Endlaut [k] (stimmlos, ungelöst)"
+          },
+          {
+            "line": 28,
+            "problem": "\"unaufgelöst\" is the wrong term for \"unreleased\"; should be \"ungelöst\".",
+            "fix": "Endlaut [t] (stimmlos, ungelöst)"
+          },
+          {
+            "line": 30,
+            "problem": "\"unaufgelöst\" is the wrong term for \"unreleased\"; should be \"ungelöst\".",
+            "fix": "Endlaut [p] (stimmlos, ungelöst)"
+          }
+        ]
+      }
+    }
+  }
 }

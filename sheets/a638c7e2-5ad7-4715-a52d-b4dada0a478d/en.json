@@ -18,11 +18,11 @@
     "Choose the natural answer for each blank. A: 이번 주말에 뭐 해요? B: 친구하고 영화를 ( 볼게요 / 볼 거예요 ). A: 아, 저도 그 영화 보고 싶었어요! B: 그래요? 그럼 같이 봐요. 표는 제가 ( 예매할게요 / 예매할 거예요 )."
   ],
   "answers": [
-    "(a) 기다릴게요 (b) 받을게요 (✗ 발을게요. 받다 is a regular verb.) (c) 놀게요 (✗ 놀을게요)",
+    "(a) 기다릴게요 (b) 받을게요 (c) 놀게요",
     "실을게요 / 주울게요",
-    "입을께요 → 입을게요 (It is pronounced [이블께요], but it is always written 게.)",
-    "(a) 배울 거예요 (The subject is a third person, 동생.) (b) 출발할 거예요 (It is a question.)",
-    "볼 거예요 / 예매할게요 (The first is a plan B is just reporting. The second is a promise B makes after hearing what A said.)"
+    "입을께요 → 입을게요",
+    "(a) 배울 거예요 (b) 출발할 거예요",
+    "볼 거예요 / 예매할게요"
   ],
   "checkThese": [],
   "forms": [
@@ -88,9 +88,9 @@
     }
   ],
   "watchOut": [
-    "Don't use -(으)ㄹ게요 when the subject is someone else. It is only for your own promise. ✗ 지수 씨가 이따가 전화할게요. → ✓ 지수 씨가 이따가 전화할 거예요.",
-    "Don't use -(으)ㄹ게요 in questions. ✗ 일을 언제 끝낼게요? → ✓ 언제 끝낼 거예요?",
-    "It is pronounced [께요] but written 게요. ✗ 할께요 → ✓ 할게요"
+    "지수 씨가 이따가 전화할게요 (X) → 지수 씨가 이따가 전화할 거예요 (O): Don't use -(으)ㄹ게요 when the subject is someone else. It is only for your own promise.",
+    "일을 언제 끝낼게요? (X) → 일을 언제 끝낼 거예요? (O): Don't use -(으)ㄹ게요 in questions.",
+    "할께요 (X) → 할게요 (O): It is pronounced [할께요] but always written 게요."
   ],
   "watchOutMark": [
     [

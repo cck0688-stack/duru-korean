@@ -1,8 +1,8 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
   "keyword": "받침",
-  "summary": "S'entraîner à lire et à produire les occlusives finales non relâchées pour les batchim ㄱ/ㄷ/ㅂ. Les apprenants les associent à des sons finaux anglais similaires (back/bat/cap) mais sans relâchement, puis lisent et choisissent des mots simples contenant ces batchim.",
-  "objective": "Les apprenants débutants produiront les occlusives finales non relâchées [k], [t], [p] pour les batchim ㄱ, ㄷ, ㅂ ; les associeront à des terminaisons anglaises similaires (« back/bat/cap » sans relâchement) ; et liront et sélectionneront avec précision des mots coréens simples contenant ces batchim.",
+  "summary": "Entraîne-toi à prononcer les occlusives finales non relâchées pour les batchim ㄱ/ㄷ/ㅂ : comme la fin de back/bat/cap, mais sans relâchement. Puis lis et choisis des mots simples contenant ces batchim.",
+  "objective": "Les apprenants peuvent produire les finales non relâchées [k], [t], [p] pour les batchim ㄱ, ㄷ, ㅂ, et lire et choisir des mots simples qui les contiennent.",
   "level": "Débutant",
   "minutes": 15,
   "tags": [
@@ -13,15 +13,15 @@
     "beginner"
   ],
   "task": {
-    "title": "Prononcez-le : arrêtez le son final",
-    "line": "Lisez à voix haute : 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. À chaque batchim ㄱ/ㄷ/ㅂ, bloquez l'air avec l'arrière de la langue (ㄱ), la pointe de la langue (ㄷ), ou les lèvres (ㅂ), et arrêtez le son sans le relâcher."
+    "title": "Dis-le : arrête le son final",
+    "line": "Lis à voix haute : 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. À chaque batchim ㄱ/ㄷ/ㅂ, bloque l'air avec l'arrière de la langue (ㄱ), la pointe de la langue (ㄷ) ou les lèvres (ㅂ), et arrête-toi sans relâcher le son."
   },
   "exercises": [
-    "Choisissez le mot dont le son final est [k] : (국 / 곧 / 밥)",
+    "Choisis le mot dont le son final est [k] : (국 / 곧 / 밥)",
     "Quel est le son final de ce mot ? 곧 (k / t / p)",
     "Quelle terminaison de mot anglais se rapproche le plus du son final de 받 dans 받다 ? (back / bat / cap)",
-    "Choisissez la romanisation correcte : 벽 (byeok / byeog / byuk)",
-    "Lisez la phrase à voix haute, en arrêtant 「집」 sans relâcher le son final. Puis choisissez son son final : 우리 집 좋아요. (k / t / p)"
+    "Choisis la romanisation correcte : 벽 (byeok / byeog / byuk)",
+    "Lis la phrase à voix haute, en arrêtant 「집」 sans relâcher le son final. Puis choisis son son final : 우리 집 좋아요. (k / t / p)"
   ],
   "answers": [
     "국",
@@ -34,18 +34,18 @@
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "son final [k] (sourd, non relâché)",
-      "as": "comme la fin de « back » (occlusive ; sans relâchement)"
+      "sound": "finale [k] (sourde, non relâchée)",
+      "as": "comme la fin de « back » (occlusion ; pas de relâchement)"
     },
     {
       "letter": "ㄷ",
-      "sound": "son final [t] (sourd, non relâché)",
-      "as": "comme la fin de « bat » (occlusive ; sans relâchement)"
+      "sound": "finale [t] (sourde, non relâchée)",
+      "as": "comme la fin de « bat » (occlusion ; pas de relâchement)"
     },
     {
       "letter": "ㅂ",
-      "sound": "son final [p] (sourd, non relâché)",
-      "as": "comme la fin de « cap » (occlusive ; sans relâchement)"
+      "sound": "finale [p] (sourde, non relâchée)",
+      "as": "comme la fin de « cap » (occlusion ; pas de relâchement)"
     }
   ],
   "words": [
@@ -54,14 +54,14 @@
       "roman": "guk",
       "meaning": "soupe",
       "example": "국도 드세요.",
-      "exampleMeaning": "Prenez aussi de la soupe."
+      "exampleMeaning": "Prends aussi de la soupe."
     },
     {
       "korean": "속",
       "roman": "sok",
-      "meaning": "l'intérieur",
-      "example": "가방 속 봤어요?",
-      "exampleMeaning": "As-tu regardé à l'intérieur du sac ?"
+      "meaning": "dedans / à l'intérieur",
+      "example": "가방 속에 있어요.",
+      "exampleMeaning": "C'est dans le sac."
     },
     {
       "korean": "벽",

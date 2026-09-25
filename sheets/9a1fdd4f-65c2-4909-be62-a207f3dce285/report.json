@@ -414,5 +414,192 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T19:18:59.447Z"
+  "preparedAt": "2026-09-25T19:18:59.447Z",
+  "retranslated": {
+    "at": "2026-09-25T23:32:36.210Z",
+    "translations": {
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "Added 'tidak beraturan' changes the meaning to 'most irregular ㅂ-adjectives'. The English says most ㅂ-adjectives (in general) change ㅂ to 우, because a few are regular.",
+            "fix": "Kata yang menjelaskan diletakkan sebelum kata benda dalam bahasa Korea: kata kerja menggunakan -는 (sekarang), -(으)ㄴ (lampau), atau -(으)ㄹ (akan datang), dan kata sifat menggunakan -(으)ㄴ. Kata 있다/없다 menggunakan -는, batang kata yang berakhiran ㄹ menghilangkan ㄹ-nya, dan sebagian besar kata sifat yang berakhiran ㅂ mengubah ㅂ menjadi 우."
+          },
+          {
+            "line": 6,
+            "problem": "Only 'is doing' (sedang dilakukan) is translated. The habitual 'does' meaning is left out.",
+            "fix": "(kata benda) yang dilakukan / sedang dilakukan seseorang"
+          }
+        ]
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 36,
+            "problem": "'brackets' refers to the round brackets ( ) around the word; 'corchetes' means square brackets [ ], which misleads students. Use 'paréntesis'.",
+            "fix": "Cambia el verbo entre paréntesis para que encaje en la oración: 어제 도서관에서 (읽다 → ____) 책은 정말 재미있었어요."
+          },
+          {
+            "line": 37,
+            "problem": "'corchetes' means square brackets; the word is in round brackets. Use 'paréntesis'.",
+            "fix": "Cambia el verbo entre paréntesis para que encaje en la oración: 내일 면접 때 (입다 → ____) 옷을 미리 골라 놨어요."
+          },
+          {
+            "line": 38,
+            "problem": "'corchetes' means square brackets; the word is in round brackets. Use 'paréntesis'.",
+            "fix": "Cambia el verbo entre paréntesis para que encaje en la oración: 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요."
+          },
+          {
+            "line": 39,
+            "problem": "'corchetes' means square brackets; the word is in round brackets. Use 'paréntesis'.",
+            "fix": "Cambia el adjetivo entre paréntesis para que encaje en la oración: 집에서 (가깝다 → ____) 병원이 어디예요?"
+          },
+          {
+            "line": 40,
+            "problem": "'corchetes' means square brackets; the word is in round brackets. Use 'paréntesis'.",
+            "fix": "Cambia la palabra entre paréntesis para que encaje en la oración: 저기 (멋있다 → ____) 모자를 쓴 사람이 우리 선생님이에요."
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"básico\" means beginner/basic level, not the lower part of intermediate.",
+            "fix": "Intermediário (inicial)"
+          },
+          {
+            "line": 20,
+            "problem": "The word order copies the English and is unnatural in Portuguese.",
+            "fix": "Palavras com 있다 / 없다 + -는"
+          },
+          {
+            "line": 21,
+            "problem": "\"in English\" is missing. The English says these words work like adjectives in English, not in general.",
+            "fix": "Palavras terminadas em 있다 ou 없다 (맛있다, 재미없다, 있다, 없다) recebem -는 (não -은) para modificar um substantivo no presente, mesmo quando funcionam como adjetivos em inglês."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "The English 'most ㅂ-adjectives' (most adjectives whose stem ends in ㅂ) became '대부분의 ㅂ 불규칙 형용사' ('most ㅂ-irregular adjectives'). This wrongly suggests some ㅂ-irregular adjectives keep ㅂ. All ㅂ-irregular adjectives change ㅂ to 우; only some adjectives ending in ㅂ (e.g. 좁다) are regular.",
+            "fix": "한국어에서는 꾸며주는 말이 명사 앞에 옵니다: 동사는 -는(현재), -(으)ㄴ(과거), -(으)ㄹ(미래)을 쓰고, 형용사는 -(으)ㄴ을 씁니다. 있다/없다로 끝나는 단어는 -는을 쓰고, ㄹ 받침으로 끝나는 어간은 ㄹ이 탈락하며, ㅂ으로 끝나는 대부분의 형용사는 ㅂ이 우로 바뀝니다."
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"Intermédiaire (bas)\" is not natural French for a level label.",
+            "fix": "Intermédiaire (niveau inférieur)"
+          },
+          {
+            "line": 3,
+            "problem": "\"Terminaison propositive\" is the wrong term. \"Propositive\" names the Korean \"let's…\" sentence type, not a noun-modifying (determinative) ending.",
+            "fix": "Les apprenants seront capables de former la terminaison déterminative correcte (-는, -(으)ㄴ, -(으)ㄹ) pour les verbes, les adjectifs et les radicaux irréguliers."
+          },
+          {
+            "line": 20,
+            "problem": "The English word \"words\" was left untranslated.",
+            "fix": "Mots en 있다 / 없다 + -는"
+          },
+          {
+            "line": 24,
+            "problem": "The English \"ㄹ-stem\" was left untranslated.",
+            "fix": "Radical en ㄹ + -는 / -ㄴ / -ㄹ"
+          },
+          {
+            "line": 28,
+            "problem": "The English \"ㅂ-irregular adjective\" was left untranslated.",
+            "fix": "Adjectif irrégulier en ㅂ + -ㄴ"
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"初级\" means beginner level. The source says intermediate (low), the lower band of intermediate.",
+            "fix": "中级(低阶)"
+          },
+          {
+            "line": 6,
+            "problem": "Only \"is doing\" (正在做) is translated. The habitual/general \"does\" is missing, although -는 also covers regular actions.",
+            "fix": "(某人)做/正在做…的(名词)"
+          },
+          {
+            "line": 19,
+            "problem": "\"除了小包\" means \"besides/in addition to a small bag\", which changes the meaning of \"instead of a small one\".",
+            "fix": "有没有大一点的包,不要小的?"
+          },
+          {
+            "line": 21,
+            "problem": "\"in English\" is left out. The point is that these words work like adjectives in English, not that they simply function as adjectives.",
+            "fix": "以 있다 或 없다 结尾的词(맛있다、재미없다、있다、없다)在描述名词的现在时态时使用 -는(而不是 -은),即使它们在英语中的作用类似形容词。"
+          },
+          {
+            "line": 31,
+            "problem": "\"不懂的单词\" (words you don't understand) does not match \"difficult words\", and 어려운 is the modifier form being taught here.",
+            "fix": "难的单词请问老师。"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [],
+        "rejectedFixes": [
+          {
+            "line": 20,
+            "problem": "Incorrect German compound spelling: the Korean elements must be hyphenated to 'Wörter' (Durchkopplung). As written, '있다 / 없다 Wörter' is broken German.",
+            "fix": "있다-/없다-Wörter + -는"
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 3,
+        "lost": [
+          "동사",
+          "동사",
+          "동사",
+          "형용사",
+          "있다 / 없다",
+          "는 / -ㄴ / -ㄹ",
+          "사는 / 산 / 살",
+          "만드는 / 만든 / 만들"
+        ],
+        "fixes": [],
+        "failed": true
+      }
+    }
+  }
 }

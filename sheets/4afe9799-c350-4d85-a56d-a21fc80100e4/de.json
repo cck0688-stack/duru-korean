@@ -1,8 +1,8 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
   "keyword": "받침",
-  "summary": "Übe das Lesen und Bilden von ungelösten (nicht gelösten) Endkonsonanten für die Batchim ㄱ/ㄷ/ㅂ. Die Lernenden verbinden jeden mit ähnlichen englischen Wortend-Lauten (back/bat/cap), jedoch ohne Lösung des Verschlusses, und lesen und wählen dann einfache Wörter mit diesen Batchim aus.",
-  "objective": "Anfänger-Lernende sollen die ungelösten Endlaute [k], [t], [p] für die Batchim ㄱ, ㄷ, ㅂ bilden; sie mit ähnlichen englischen Endlauten verbinden („back/bat/cap“ ohne Lösung des Verschlusses); und einfache koreanische Wörter mit diesen Batchim korrekt lesen und auswählen können.",
+  "summary": "Übe die Endlaute ohne Verschlusslösung für die Batchim ㄱ/ㄷ/ㅂ: wie am Ende von back/bat/cap, aber ohne den Verschluss zu lösen. Lies dann einfache Wörter mit diesen Batchim und wähle sie aus.",
+  "objective": "Lernende können die ungelösten Endlaute [k], [t], [p] für die Batchim ㄱ, ㄷ, ㅂ produzieren und einfache Wörter, die diese enthalten, lesen und auswählen.",
   "level": "Anfänger",
   "minutes": 15,
   "tags": [
@@ -13,15 +13,15 @@
     "beginner"
   ],
   "task": {
-    "title": "Sag es: den Endlaut stoppen",
-    "line": "Lies laut vor: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. Blockiere bei jedem ㄱ/ㄷ/ㅂ-Batchim den Luftstrom mit dem Zungenrücken (ㄱ), der Zungenspitze (ㄷ) oder den Lippen (ㅂ) und stoppe den Laut, ohne ihn zu lösen."
+    "title": "Sag es: Stoppe den Endlaut",
+    "line": "Lies laut: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. Blockiere bei jedem ㄱ/ㄷ/ㅂ-Batchim die Luft mit dem Zungenrücken (ㄱ), der Zungenspitze (ㄷ) oder den Lippen (ㅂ) und stoppe, ohne den Laut zu lösen."
   },
   "exercises": [
     "Wähle das Wort, dessen Endlaut [k] ist: (국 / 곧 / 밥)",
     "Was ist der Endlaut dieses Wortes? 곧 (k / t / p)",
     "Welche englische Wortendung kommt dem Endlaut von 받 in 받다 am nächsten? (back / bat / cap)",
     "Wähle die richtige Umschrift: 벽 (byeok / byeog / byuk)",
-    "Lies den Satz laut vor und stoppe bei 「집」 den Endlaut, ohne ihn zu lösen. Wähle dann seinen Endlaut aus: 우리 집 좋아요. (k / t / p)"
+    "Lies den Satz laut, wobei du bei 「집」 den Endlaut stoppst, ohne ihn zu lösen. Wähle danach seinen Endlaut: 우리 집 좋아요. (k / t / p)"
   ],
   "answers": [
     "국",
@@ -35,17 +35,17 @@
     {
       "letter": "ㄱ",
       "sound": "Endlaut [k] (stimmlos, ungelöst)",
-      "as": "wie das Ende von „back“ (Verschluss; keine Lösung)"
+      "as": "wie am Ende von „back“ (Verschlusslaut; keine Lösung)"
     },
     {
       "letter": "ㄷ",
       "sound": "Endlaut [t] (stimmlos, ungelöst)",
-      "as": "wie das Ende von „bat“ (Verschluss; keine Lösung)"
+      "as": "wie am Ende von „bat“ (Verschlusslaut; keine Lösung)"
     },
     {
       "letter": "ㅂ",
       "sound": "Endlaut [p] (stimmlos, ungelöst)",
-      "as": "wie das Ende von „cap“ (Verschluss; keine Lösung)"
+      "as": "wie am Ende von „cap“ (Verschlusslaut; keine Lösung)"
     }
   ],
   "words": [
@@ -54,14 +54,14 @@
       "roman": "guk",
       "meaning": "Suppe",
       "example": "국도 드세요.",
-      "exampleMeaning": "Iss auch etwas Suppe."
+      "exampleMeaning": "Nimm auch etwas Suppe."
     },
     {
       "korean": "속",
       "roman": "sok",
-      "meaning": "innen; drinnen",
-      "example": "가방 속 봤어요?",
-      "exampleMeaning": "Hast du in die Tasche hineingeschaut?"
+      "meaning": "innen",
+      "example": "가방 속에 있어요.",
+      "exampleMeaning": "Es ist in der Tasche."
     },
     {
       "korean": "벽",
@@ -80,7 +80,7 @@
     {
       "korean": "받다",
       "roman": "batda",
-      "meaning": "bekommen; erhalten",
+      "meaning": "erhalten; bekommen",
       "example": "편지 받고 기뻤어요.",
       "exampleMeaning": "Ich habe mich gefreut, den Brief zu bekommen."
     },
@@ -96,7 +96,7 @@
       "roman": "datda",
       "meaning": "schließen",
       "example": "문 닫고 나가세요.",
-      "exampleMeaning": "Mach die Tür zu, wenn du hinausgehst."
+      "exampleMeaning": "Schließ die Tür, wenn du rausgehst."
     },
     {
       "korean": "밥",
@@ -117,7 +117,7 @@
       "roman": "ip",
       "meaning": "Mund",
       "example": "입 크게 벌리세요.",
-      "exampleMeaning": "Mach deinen Mund weit auf."
+      "exampleMeaning": "Öffne deinen Mund weit."
     }
   ],
   "category": "hangul"

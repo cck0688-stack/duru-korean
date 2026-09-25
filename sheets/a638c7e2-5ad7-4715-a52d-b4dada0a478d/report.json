@@ -447,5 +447,274 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T18:58:02.419Z"
+  "preparedAt": "2026-09-25T18:58:02.419Z",
+  "retranslated": {
+    "at": "2026-09-25T23:34:05.394Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 31,
+            "problem": "\"Corchetes\" means square brackets [ ], but the verbs in the exercise are in round brackets ( ). The English \"brackets\" means parentheses here, so the Spanish should say \"paréntesis\".",
+            "fix": "Cambia el verbo entre paréntesis a la forma -(으)ㄹ게요. (a) 천천히 오세요. 제가 여기서 ( 기다리다 ). (b) 택배는 제가 ( 받다 ). (c) 요리하는 동안 제가 아이들하고 ( 놀다 )."
+          }
+        ]
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "초급 (상)"
+          },
+          {
+            "line": 2,
+            "problem": "Not translated; the English explanation is left as is (only the comma placement changed).",
+            "fix": "-(으)ㄹ게요와 -(으)ㄹ 거예요는 둘 다 '~하겠다(I will)'라는 뜻이지만, -(으)ㄹ게요는 듣는 사람의 말에 반응하여 하는 약속이나 결정에만 씁니다. 전달하는 계획, 다른 사람의 계획, 질문에는 -(으)ㄹ 거예요를 쓰세요."
+          },
+          {
+            "line": 3,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "학습자는 -(으)ㄹ게요를 올바르게 만들 수 있고(께가 아니라 게로 씀), -(으)ㄹ게요와 -(으)ㄹ 거예요 중에서 알맞은 것을 고를 수 있다."
+          },
+          {
+            "line": 4,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "-ㄹ게요 (받침 없는 어간)"
+          },
+          {
+            "line": 5,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "동사 어간이 모음으로 끝납니다."
+          },
+          {
+            "line": 6,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "말하는 사람이 듣는 사람에게 하는 약속이나 결정. 예: 연락하다 → 연락할게요, 가다 → 갈게요"
+          },
+          {
+            "line": 7,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "내일 다시 연락할게요."
+          },
+          {
+            "line": 8,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "-을게요 (받침 있는 어간)"
+          },
+          {
+            "line": 9,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "동사 어간이 ㄹ 이외의 자음(받침)으로 끝납니다."
+          },
+          {
+            "line": 10,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "뜻은 같습니다. '을'을 붙이고 어간은 바꾸지 않습니다. 예: 먹다 → 먹을게요, 닫다 → 닫을게요, 잡다 → 잡을게요"
+          },
+          {
+            "line": 11,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "A: 음식이 조금 남았어요. B: 남은 건 제가 먹을게요."
+          },
+          {
+            "line": 12,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "ㄹ 어간 + -게요"
+          },
+          {
+            "line": 13,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "동사 어간이 ㄹ로 끝납니다."
+          },
+          {
+            "line": 14,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "ㄹ을 그대로 두고 게요만 붙입니다. '을'을 붙이지 마세요. 예: 만들다 → 만들게요 (✗ 만들을게요), 열다 → 열게요"
+          },
+          {
+            "line": 15,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "오늘 저녁은 제가 만들게요."
+          },
+          {
+            "line": 16,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "ㄷ 불규칙: ㄷ → ㄹ + -을게요"
+          },
+          {
+            "line": 17,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "걷다, 묻다(질문하다)와 같은 ㄷ 불규칙 동사입니다."
+          },
+          {
+            "line": 18,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "'을' 앞에서 ㄷ이 ㄹ로 바뀝니다. 예: 걷다 → 걸을게요, 묻다 → 물을게요"
+          },
+          {
+            "line": 19,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "A: 택시 부를까요? B: 아니요, 가까우니까 걸어갈게요."
+          },
+          {
+            "line": 20,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "ㅂ 불규칙: ㅂ → 우 + -ㄹ게요"
+          },
+          {
+            "line": 21,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "돕다, 굽다와 같은 ㅂ 불규칙 동사입니다."
+          },
+          {
+            "line": 22,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "ㅂ이 탈락하고 우가 붙은 다음 ㄹ게요가 붙습니다. 예: 돕다 → 도울게요"
+          },
+          {
+            "line": 23,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "이사할 때 제가 도와줄게요."
+          },
+          {
+            "line": 24,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "-(으)ㄹ 거예요 (비교)"
+          },
+          {
+            "line": 25,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "다른 사람의 계획, 질문, 그리고 듣는 사람과 관계없는 자신의 계획에 씁니다."
+          },
+          {
+            "line": 26,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "단순히 전달하는 계획이나 의도입니다. 듣는 사람에게 하는 약속이 아닙니다."
+          },
+          {
+            "line": 27,
+            "problem": "Not translated; the English text is copied unchanged.",
+            "fix": "A: 이번 주말에 뭐 해요? B: 집에서 쉴 거예요."
+          },
+          {
+            "line": 28,
+            "problem": "Explanation not translated; the English text is copied unchanged.",
+            "fix": "지수 씨가 이따가 전화할게요 (X) → 지수 씨가 이따가 전화할 거예요 (O): 주어가 다른 사람일 때는 -(으)ㄹ게요를 쓰지 마세요. -(으)ㄹ게요는 자신의 약속에만 씁니다."
+          },
+          {
+            "line": 29,
+            "problem": "Explanation not translated; the English text is copied unchanged.",
+            "fix": "일을 언제 끝낼게요? (X) → 일을 언제 끝낼 거예요? (O): 질문에는 -(으)ㄹ게요를 쓰지 마세요."
+          },
+          {
+            "line": 30,
+            "problem": "Explanation not translated; the English text is copied unchanged.",
+            "fix": "할께요 (X) → 할게요 (O): [할께요]로 발음하지만 항상 게요로 씁니다."
+          },
+          {
+            "line": 31,
+            "problem": "Instruction not translated; the English text is copied unchanged.",
+            "fix": "괄호 안의 동사를 -(으)ㄹ게요 형태로 바꾸세요. (a) 천천히 오세요. 제가 여기서 ( 기다리다 ). (b) 택배는 제가 ( 받다 ). (c) 요리하는 동안 제가 아이들하고 ( 놀다 )."
+          },
+          {
+            "line": 32,
+            "problem": "Instruction and glosses not translated; the English text is copied unchanged.",
+            "fix": "두 동사를 모두 -(으)ㄹ게요 형태로 바꾸세요. 싣다 = 물건을 차 등에 올려놓다, 줍다 = 바닥에 있는 것을 집어 들다. A: 캠핑 끝났네요. 짐도 많고 바닥에 쓰레기도 있어요. B: 짐은 제가 차에 ( 싣다 ). 쓰레기도 제가 ( 줍다 )."
+          },
+          {
+            "line": 33,
+            "problem": "Instruction not translated; the English text is copied unchanged.",
+            "fix": "B의 대답에서 맞춤법이 틀린 단어가 하나 있습니다. 찾아서 고치세요. A: 밖에 바람이 많이 불어요. B: 그럼 두꺼운 코트를 입을께요."
+          },
+          {
+            "line": 34,
+            "problem": "Instruction not translated; the English text is copied unchanged.",
+            "fix": "각 대화에서 자연스러운 답을 고르세요. (a) A: 동생은 방학에 뭐 해요? B: 동생은 수영을 ( 배울게요 / 배울 거예요 ). (b) A: 내일 몇 시에 ( 출발할게요 / 출발할 거예요 )? B: 아침 8시요."
+          },
+          {
+            "line": 35,
+            "problem": "Instruction not translated; the English text is copied unchanged.",
+            "fix": "각 빈칸에 알맞은 자연스러운 답을 고르세요. A: 이번 주말에 뭐 해요? B: 친구하고 영화를 ( 볼게요 / 볼 거예요 ). A: 아, 저도 그 영화 보고 싶었어요! B: 그래요? 그럼 같이 봐요. 표는 제가 ( 예매할게요 / 예매할 거예요 )."
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "「reported plans」(単に伝えるだけの予定)を「伝聞の予定」(人から聞いた予定)と訳しており、意味が変わっている。26行目の説明とも合わない。",
+            "fix": "-(으)ㄹ게요 と -(으)ㄹ 거예요 はどちらも「〜します」という意味ですが、-(으)ㄹ게요 は聞き手に対する約束や、その場で決めたことにのみ使います。単に伝えるだけの予定、他の人の予定、質問には -(으)ㄹ 거예요 を使います。"
+          },
+          {
+            "line": 31,
+            "problem": "問題文では丸括弧( )が使われているのに、指示文では角括弧[ ]と書かれていて食い違っている。",
+            "fix": "( )の中の動詞を -(으)ㄹ게요 の形に変えなさい。(a) 천천히 오세요. 제가 여기서 ( 기다리다 )。(b) 택배는 제가 ( 받다 )。(c) 요리하는 동안 제가 아이들하고 ( 놀다 )。"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"Beginner (high)\" means the upper part of the beginner level. \"高级\" is the term for the advanced level, so \"初级（高级）\" reads as \"beginner (advanced)\", which contradicts itself.",
+            "fix": "初级（高）"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 32,
+            "problem": "\"beladen\" takes the vehicle as its object (\"das Auto beladen\"). Here 싣다 is about the luggage being loaded into the car, so the right gloss is \"einladen\".",
+            "fix": "Setze beide Verben in die -(으)ㄹ게요-Form. 싣다 = einladen, 줍다 = aufheben. A: 캠핑 끝났네요. 짐도 많고 바닥에 쓰레기도 있어요. B: 짐은 제가 차에 ( 싣다 ). 쓰레기도 제가 ( 줍다 )."
+          },
+          {
+            "line": 33,
+            "problem": "\"B's Antwort\" uses an apostrophe that isn't standard German. The correct form is \"Bs Antwort\".",
+            "fix": "In Bs Antwort ist ein Wort falsch geschrieben. Finde es und korrigiere es. A: 밖에 바람이 많이 불어요. B: 그럼 두꺼운 코트를 입을께요."
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 2,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }
