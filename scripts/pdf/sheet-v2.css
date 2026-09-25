@@ -93,6 +93,10 @@ td + td, th + th { border-left: 1px dotted #cfd6cf; }
 table:not(.letters) th:nth-child(2):not(:last-child) { width: 33%; }
 table:not(.letters) th:nth-child(3):last-child { width: 41%; }
 table:not(.letters) th:first-child { width: 26%; }
+/* The owner's call (2026-09-25): the head row and the word column are
+   centred; the meaning and the example read from the left. */
+table:not(.letters) th { text-align: center; }
+table:not(.letters):not(.forms) td:first-child { text-align: center; }
 /* The grammar table has no head row to size it by: the form and its
    note, what it means, the example — the example gets the room. */
 table.forms { table-layout: fixed; }
