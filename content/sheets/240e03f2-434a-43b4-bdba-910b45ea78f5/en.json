@@ -1,8 +1,8 @@
 {
   "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
   "keyword": "도로명주소",
-  "summary": "Learn to quickly locate and say the road name ending with ro/gil plus the building number, and, when present, apartment building/unit numbers (dong/ho) in Korean written addresses from print, texts, or map apps.",
-  "objective": "By the end of this worksheet, learners can 1) spot and read the road name that ends with ro/gil plus the building number, and 2) find and say apartment dong and ho quickly and accurately.",
+  "summary": "Quickly find and say the road name (ending in 로/길) with the building number, and apartment 동·호, in Korean addresses.",
+  "objective": "Learners can 1) find and read the road name ending in 로/길 plus the building number, and 2) find and say apartment 동 and 호 quickly and accurately.",
   "level": "Beginner (high)",
   "minutes": 15,
   "tags": [],
@@ -13,9 +13,9 @@
   "exercises": [
     "Write the road name + building number and the 동/층/호 (write 없음 if there is none): 광주 북구 무지개로 58",
     "Write the road name + building number and the 동/층/호 (write 없음 if there is none): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
-    "Write how to say this address from the road name through 호, reading the numbers with Sino-Korean numbers (write them in Hangul). Leave out the region and the parentheses at the end: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
+    "Write how to say it from the road name to 호, with Sino-Korean numbers in Hangul; leave out the region and the parentheses: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
     "Write the road name + building number and the 동/층/호 (write 없음 if there is none): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
-    "This address is written in the everyday informal style. Write how to say it from the road name to the end, including the building name before 호 and leaving out the region, reading the numbers with Sino-Korean numbers (write them in Hangul): 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
+    "Informal style: write how to say it from the road name to the end, with the building name before 호 and Sino-Korean numbers in Hangul; leave out the region: 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
   ],
   "answers": [
     "무지개로 58; 없음",
@@ -37,8 +37,7 @@
       "heading": "Finding 로/길 (ro/gil) and the building number",
       "paragraphs": [
         "Road names usually end in ‘…로’ (ro) or ‘…길’ (gil), including ‘…번길’ (beon-gil). The number right after the road name is the building number.",
-        "Examples: ‘세종대로 110’, ‘햇살로17길 12’.",
-        "How to read them: ‘세종대로 백십’, ‘햇살로 십칠길 십이’. Read the numbers clearly with Sino-Korean place units (천/백/십)."
+        "Examples: ‘세종대로 110’ is read ‘세종대로 백십’, and ‘햇살로17길 12’ is read ‘햇살로 십칠길 십이’. Read the numbers with Sino-Korean place units (천/백/십)."
       ]
     },
     {
@@ -54,17 +53,16 @@
       "heading": "Tips for finding them quickly",
       "paragraphs": [
         "1) First, find the end of the road name, the last ‘로’ or ‘길/번길’. For branch roads like ‘…로17길’ or ‘…로45번길’, the number stuck to the word is part of the road name. The number after the space is the building number.",
-        "2) Look for ‘동’, ‘층’ and ‘호’ right after the comma (in the informal style, after the building name). The words in the parentheses at the end are the neighborhood and building name, not the unit. If there is no 동·층·호, say ‘없음’ (none).",
-        "3) When speaking, say ‘road name + building number’ first, then ‘동·호’."
+        "2) Look for ‘동’, ‘층’ and ‘호’ right after the comma (in the informal style, after the building name). The words in the parentheses at the end are the neighborhood and building name, not the unit. If there is no 동·층·호, say ‘없음’ (none)."
       ]
     },
     {
       "heading": "Practice instructions",
       "paragraphs": [
-        "Answer format for finding: ‘road name building number; 동·층·호’ or ‘road name building number; 없음’ (none). For reading: say only the road name + building number and then the 동·호 (plus the building name if it is written before 동·호, as in the informal style); leave out the region and the parentheses at the end. Write the numbers in Hangul, e.g. ‘세종대로 백십’."
+        "Finding: write ‘road name building number; 동·층·호’, or ‘road name building number; 없음’ (none). Reading: say the road name + building number first, then 동·호 (with the building name if it comes before 동·호); leave out the region and the parentheses at the end. Write the numbers in Hangul, e.g. ‘세종대로 백십’."
       ]
     }
   ],
-  "note": "The example addresses were made for practice. Apart from ‘세종대로 110’, the road names, buildings and units are made up and do not refer to real places.",
+  "note": "Apart from ‘세종대로 110’, the example addresses are made up for practice and do not refer to real places.",
   "category": "etc"
 }

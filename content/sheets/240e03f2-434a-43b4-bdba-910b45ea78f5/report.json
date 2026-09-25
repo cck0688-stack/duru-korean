@@ -496,6 +496,67 @@
       "before": "Reading Road-Name Addresses (도로명주소): Finding 로/길 + Building Number and Apartment 동·호",
       "after": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
       "why": "The fixer translated the Korean title into English (over-applying \"explanations in English\"); titles stay Korean. Applied to every language."
+    },
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "Learn to quickly locate and say the road name ending with ro/gil plus the building number, and, when present, apartment building/unit numbers (dong/ho) in Korean written addresses from print, texts, or map apps.",
+      "after": "Quickly find and say the road name (ending in 로/길) with the building number, and apartment 동·호, in Korean addresses.",
+      "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "By the end of this worksheet, learners can 1) spot and read the road name that ends with ro/gil plus the building number, and 2) find and say apartment dong and ho quickly and accurately.",
+      "after": "Learners can 1) find and read the road name ending in 로/길 plus the building number, and 2) find and say apartment 동 and 호 quickly and accurately.",
+      "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "sections[1].paragraphs[1]",
+      "before": "Examples: ‘세종대로 110’, ‘햇살로17길 12’.",
+      "after": "Examples: ‘세종대로 110’ is read ‘세종대로 백십’, and ‘햇살로17길 12’ is read ‘햇살로 십칠길 십이’. Read the numbers with Sino-Korean place units (천/백/십).",
+      "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "sections[1].paragraphs[2]",
+      "before": "How to read them",
+      "why": "merged into the examples line"
+    },
+    {
+      "op": "drop",
+      "path": "sections[3].paragraphs[2]",
+      "before": "When speaking",
+      "why": "the same rule is in the practice instructions"
+    },
+    {
+      "op": "replace",
+      "path": "sections[4].paragraphs[0]",
+      "before": "Answer format for finding: ‘road name building number; 동·층·호’ or ‘road name building number; 없음’ (none). For reading: say only the road name + building number and then the 동·호 (plus the building name if it is written before 동·호, as in the informal style); leave out the region and the parentheses at the end. Write the numbers in Hangul, e.g. ‘세종대로 백십’.",
+      "after": "Finding: write ‘road name building number; 동·층·호’, or ‘road name building number; 없음’ (none). Reading: say the road name + building number first, then 동·호 (with the building name if it comes before 동·호); leave out the region and the parentheses at the end. Write the numbers in Hangul, e.g. ‘세종대로 백십’.",
+      "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "exercises[2]",
+      "before": "Write how to say this address from the road name through 호, reading the numbers with Sino-Korean numbers (write them in Hangul). Leave out the region and the parentheses at the end:",
+      "after": "Write how to say it from the road name to 호, with Sino-Korean numbers in Hangul; leave out the region and the parentheses:",
+      "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "exercises[4]",
+      "before": "This address is written in the everyday informal style. Write how to say it from the road name to the end, including the building name before 호 and leaving out the region, reading the numbers with Sino-Korean numbers (write them in Hangul):",
+      "after": "Informal style: write how to say it from the road name to the end, with the building name before 호 and Sino-Korean numbers in Hangul; leave out the region:",
+      "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "note",
+      "before": "The example addresses were made for practice. Apart from ‘세종대로 110’, the road names, buildings and units are made up and do not refer to real places.",
+      "after": "Apart from ‘세종대로 110’, the example addresses are made up for practice and do not refer to real places.",
+      "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
     }
   ]
 }
