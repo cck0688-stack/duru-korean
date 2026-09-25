@@ -175,5 +175,21 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T15:32:50.248Z"
+  "preparedAt": "2026-09-25T15:32:50.248Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "A practical reading sheet on the Korean pharmacy medicine envelope (약 봉투). Learners read three short envelope labels. They learn the dosage words that appear on almost every envelope (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) and how to say them aloud with native Korean counters (하루 세 번, 한 알). They also learn two common warnings: 졸음이 올 수 있어요 and 운전 주의.",
+      "after": "Read three short medicine envelope (약 봉투) labels. Learn the dosage words on almost every envelope (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분), how to say them aloud (하루 세 번, 한 알), and two common warnings.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "After reading a pharmacy medicine envelope, learners can find four things: how many times a day to take the medicine, when to take it (식전 / 식후 30분 / 취침 전), how much to take each time (1포, 1알/1정), and for how many days (○일분). They can also recognize the warnings 졸음이 올 수 있어요 and 운전 주의.",
+      "after": "Learners can find how many times a day, when (식전 / 식후 30분 / 취침 전), how much (1포, 1알/1정) and for how many days (○일분) to take a medicine, and recognize the warnings 졸음이 올 수 있어요 and 운전 주의.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    }
+  ]
 }

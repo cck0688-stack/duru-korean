@@ -18,11 +18,11 @@
     "Apoteker bertanya: '어디가 아파서 오셨어요?' Kamu sakit kepala dan pilek. Jawablah dalam bahasa Korea."
   ],
   "answers": [
-    "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+    "아니요, 없어요. (없어요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
-    "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+    "네, 아스피린 알레르기가 있어요.",
     "Tiga kali sehari, 30 menit setelah setiap makan.",
-    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
+    "머리가 아프고 콧물이 나요."
   ],
   "checkThese": [],
   "setting": "Sebuah apotek kecil di lingkungan (동네 약국) di Korea pada suatu sore hari kerja. Pelanggan sedang flu tetapi tidak pergi ke dokter, jadi tidak punya resep. Mereka berbicara dengan apoteker di meja kasir.",

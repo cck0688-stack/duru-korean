@@ -1,8 +1,8 @@
 {
   "title": "약국에서 증상 말하고 약 사기",
   "keyword": "약국에서 증상 말하고 약 사기",
-  "summary": "A short, realistic conversation at a Korean pharmacy. A customer without a prescription describes a headache, fever and runny nose, answers the pharmacist's questions, and gets instructions for taking cold medicine.",
-  "objective": "By the end, learners can buy an over-the-counter medicine at a Korean pharmacy: say one symptom with '머리가 아파요 / 콧물이 나요 / 열이 나요', answer the pharmacist's questions (처방전 있으세요? 언제부터요? 알레르기 있으세요?), and understand the dosing instruction '하루 세 번, 식후 30분에 드세요'.",
+  "summary": "A short conversation at a Korean pharmacy: a customer without a prescription describes cold symptoms, answers the pharmacist's questions and learns how to take the medicine.",
+  "objective": "Learners can say their symptoms (머리가 아파요 / 열이 나요 / 콧물이 나요), answer the pharmacist's questions (처방전 있으세요? 언제부터 아프셨어요? 알레르기 있으세요?), and understand '하루 세 번, 식후 30분에 드세요'.",
   "level": "Beginner (high)",
   "minutes": 20,
   "tags": [],
@@ -14,18 +14,18 @@
     "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean.",
     "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean.",
     "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean.",
-    "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?",
+    "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English: how often and when do you take it?",
     "The pharmacist asks: '어디가 아파서 오셨어요?' You have a headache and a runny nose. Answer in Korean."
   ],
   "answers": [
-    "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+    "아니요, 없어요. (없어요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
-    "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+    "네, 아스피린 알레르기가 있어요.",
     "Three times a day, 30 minutes after each meal.",
-    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
+    "머리가 아프고 콧물이 나요."
   ],
   "checkThese": [],
-  "setting": "A small neighborhood pharmacy (동네 약국) in Korea on a weekday evening. The customer has a cold but did not go to a doctor, so they have no prescription. They talk to the pharmacist at the counter.",
+  "setting": "",
   "dialogue": [
     {
       "who": "약사",
@@ -71,11 +71,6 @@
       "who": "약사",
       "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
       "meaning": "Then take this cold medicine. Take it three times a day, 30 minutes after meals."
-    },
-    {
-      "who": "손님",
-      "korean": "네, 알겠습니다. 감사합니다.",
-      "meaning": "Okay, I understand. Thank you."
     }
   ],
   "words": [
@@ -120,13 +115,6 @@
       "meaning": "allergy",
       "example": "저는 땅콩 알레르기가 있어요.",
       "exampleMeaning": "I'm allergic to peanuts."
-    },
-    {
-      "korean": "하루",
-      "roman": "haru",
-      "meaning": "(per) day",
-      "example": "하루에 몇 번 먹어요?",
-      "exampleMeaning": "How many times a day do I take it?"
     },
     {
       "korean": "식후",

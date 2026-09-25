@@ -451,6 +451,38 @@
       "before": "간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.",
       "after": "① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ 주문이 취소되고 처음 화면으로 돌아가요.",
       "why": "The first number of a multi-part answer was being stripped by the pipeline (unnumbered); fixed at the source too. ④ in Korean: an answer with Korean in it is not translated, so its English half stayed English in every language."
+    },
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "Read and understand 12 very common buttons/text on cafe and fast-food self-order kiosks. Learners match each label with its function and follow a simple order flow on their own.",
+      "after": "Read 12 common buttons on cafe and fast-food self-order kiosks, match each one with its function, and follow a simple order flow.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "sections[3].paragraphs[2]",
+      "before": "단품/세트",
+      "why": "repeats buttons 3 and 4"
+    },
+    {
+      "op": "drop",
+      "path": "sections[3].paragraphs[1]",
+      "before": "HOT/ICE",
+      "why": "repeats button 5"
+    },
+    {
+      "op": "drop",
+      "path": "sections[0]",
+      "before": "How to use this worksheet",
+      "why": "general advice only; the summary says the same"
+    },
+    {
+      "op": "replace",
+      "path": "note",
+      "before": "The examples are based on expressions and order flows commonly seen on real kiosks. This worksheet focuses on reading, and screen designs may differ from store to store.",
+      "after": "Based on labels and order flows common on real kiosks. Screen designs may differ from store to store.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
     }
   ]
 }

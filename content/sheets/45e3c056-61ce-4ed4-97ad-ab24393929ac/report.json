@@ -571,6 +571,27 @@
       "before": "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인",
       "after": "출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인",
       "why": "Most Korean ATMs ask for the transaction first (출금/입금/조회/이체) and then for the card or passbook; the sheet taught the reverse as the rule."
+    },
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "Read and distinguish 12 very common Korean bank ATM buttons/labels and understand what each one does. Build confidence to navigate a full ATM flow on your own.",
+      "after": "Read 12 common Korean ATM buttons, learn what each one does, and follow a full ATM flow on your own.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "By the end, learners can accurately read 12 frequent ATM buttons/labels in Korean (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) and follow the basic ATM flow (choose service → card in → enter PIN → choose amount/account → receipt option → take cash/card; some machines ask for the card first) independently.",
+      "after": "Learners can read 12 common ATM buttons in Korean and follow the basic ATM flow (choose service → card in → enter PIN → choose amount/account → receipt option → take cash/card) on their own.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "note",
+      "before": "This worksheet is based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine.",
+      "after": "Based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
     }
   ]
 }

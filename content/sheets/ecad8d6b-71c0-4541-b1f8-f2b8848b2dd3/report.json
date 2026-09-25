@@ -593,6 +593,81 @@
       "before": "약국에서 약 사기",
       "after": "Buy medicine at a pharmacy",
       "why": "Task title in the learner language."
+    },
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "A short, realistic conversation at a Korean pharmacy. A customer without a prescription describes a headache, fever and runny nose, answers the pharmacist's questions, and gets instructions for taking cold medicine.",
+      "after": "A short conversation at a Korean pharmacy: a customer without a prescription describes cold symptoms, answers the pharmacist's questions and learns how to take the medicine.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "By the end, learners can buy an over-the-counter medicine at a Korean pharmacy: say one symptom with '머리가 아파요 / 콧물이 나요 / 열이 나요', answer the pharmacist's questions (처방전 있으세요? 언제부터요? 알레르기 있으세요?), and understand the dosing instruction '하루 세 번, 식후 30분에 드세요'.",
+      "after": "Learners can say their symptoms (머리가 아파요 / 열이 나요 / 콧물이 나요), answer the pharmacist's questions (처방전 있으세요? 언제부터 아프셨어요? 알레르기 있으세요?), and understand '하루 세 번, 식후 30분에 드세요'.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing. The question now matches the dialogue (언제부터 아프셨어요?)."
+    },
+    {
+      "op": "replace",
+      "path": "setting",
+      "before": "A small neighborhood pharmacy (동네 약국) in Korea on a weekday evening. The customer has a cold but did not go to a doctor, so they have no prescription. They talk to the pharmacist at the counter.",
+      "after": "A neighborhood pharmacy (동네 약국) in Korea. The customer has a cold but has not seen a doctor, so there is no prescription.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "words[6]",
+      "before": "하루",
+      "why": "하루 is taught in the dialogue and exercise 4 (하루 세 번); eight words remain."
+    },
+    {
+      "op": "replace",
+      "path": "answers[0]",
+      "before": "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+      "after": "아니요, 없어요. (없어요.)",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)",
+      "after": "머리가 아프고 콧물이 나요. (머리가 아파요. 콧물도 나요.)",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "dialogue[9]",
+      "before": "네, 알겠습니다. 감사합니다.",
+      "why": "closing thanks; the dialogue ends on the dosing instruction the exercises ask about"
+    },
+    {
+      "op": "replace",
+      "path": "setting",
+      "before": "A neighborhood pharmacy (동네 약국) in Korea. The customer has a cold but has not seen a doctor, so there is no prescription.",
+      "after": "",
+      "why": "the summary already sets the scene"
+    },
+    {
+      "op": "replace",
+      "path": "exercises[3]",
+      "before": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?",
+      "after": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English: how often and when do you take it?",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "answers[2]",
+      "before": "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+      "after": "네, 아스피린 알레르기가 있어요.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "머리가 아프고 콧물이 나요. (머리가 아파요. 콧물도 나요.)",
+      "after": "머리가 아프고 콧물이 나요.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
     }
   ]
 }

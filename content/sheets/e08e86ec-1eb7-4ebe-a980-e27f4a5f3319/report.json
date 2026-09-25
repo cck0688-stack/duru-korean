@@ -422,6 +422,27 @@
       "before": "A one-page worksheet for beginners. Say each expression out loud several times.",
       "after": "For beginners: say each expression out loud several times.",
       "why": "The sheet is two pages; the note said one."
+    },
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "Useful short phrases for receiving and sending parcels in Korea at a counter or with a delivery driver. Focus on checking recipient, asking/confirming tracking number, accepting or refusing a parcel, and requesting shipment.",
+      "after": "Short phrases for receiving and sending parcels in Korea: checking the recipient, asking for the tracking number, accepting or refusing a parcel, and sending one.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "Be able to understand and say 10 short sentences used when receiving and sending parcels in Korea at a counter or with a courier (recipient confirmation, asking for tracking number, accepting/refusing, sending requests).",
+      "after": "Understand and say 10 short sentences for receiving and sending parcels at a counter or with a courier.",
+      "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "sections[0].paragraphs[5]",
+      "before": "6) 여기 서명할게요. (I'll sign here.) — 'I'll sign here.' Used when signing. 서명 = signature.",
+      "after": "6) 여기 서명할게요. (I'll sign here.) — Used when signing. 서명 = signature.",
+      "why": "The meaning was printed twice."
     }
   ]
 }
