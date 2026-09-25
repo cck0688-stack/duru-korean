@@ -143,10 +143,13 @@ export function sheetSchema(category, isStrict) {
 
   const shape = shapes[(SHELVES[category] || SHELVES.etc).shape] || shapes.sections;
 
+  // The line above the questions: what they ask the learner to do.
+  const task = strict({ title: str, line: str }, ['title', 'line'], isStrict);
+
   const properties = Object.assign({
     title: str, keyword: str, summary: str, objective: str, level: str,
     minutes: { type: 'integer' }, tags: strs,
-    exercises: strs, answers: strs, checkThese: strs
+    task, exercises: strs, answers: strs, checkThese: strs
   }, shape);
 
   return strict(properties, Object.keys(properties), isStrict);
@@ -210,6 +213,8 @@ export async function writeSheet(cfg, opts) {
     'keyword 는 내려받은 파일 이름에 쓸 영어 낱말 하나(또는 둘을 붙인 것)입니다. 소문자, 띄어쓰기 없이, 12자 이내.',
     '  예: bank, subway, openhours, pharmacy. 주제를 가장 짧게 말하는 낱말로.',
     'exercises 는 4~6개, answers 는 그와 정확히 같은 개수.',
+    'task 는 문제 위 안내 상자입니다(영어). title 은 문제들이 시키는 일을 3~5 낱말로 (예: Choose the right word,',
+    '  Fill in the blanks), line 은 어떻게 풀지 한 문장. 문제마다 하는 일이 다르면 모두를 아우르는 말로.',
     '',
     '이 갈래에서 추가로 채울 것: ' + shelf.shape,
     '',
@@ -412,6 +417,10 @@ export function explanatoryText(sheet) {
   EXPLAINS.forEach(([key]) => {
     push(null, (s, v) => { s[key] = v; }, sheet[key]);
   });
+  if (sheet.task) {
+    push(null, (s, v) => { s.task.title = v; }, sheet.task.title);
+    push(null, (s, v) => { s.task.line = v; }, sheet.task.line);
+  }
 
   (sheet.words || []).forEach((w, i) => {
     push(null, (s, v) => { s.words[i].meaning = v; }, w.meaning);

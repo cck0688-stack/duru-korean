@@ -200,13 +200,15 @@ function credits(sources, L) {
 
 // The owner's worksheet design (2026-09-25), drawn as a mockup of the
 // ㅈ·ㅊ·ㅉ sheet: logo and an ink landscape at the top of every page,
-// numbered serif section titles, soft boxes, a copyright bar. 'v1' is
-// the plain layout every sheet had before it.
+// numbered serif section titles, soft boxes, a copyright bar. The
+// default since the owner approved it; 'v1' is the plain layout every
+// sheet had before it, kept for comparison.
 export const DESIGNS = ['v1', 'v2'];
-const designOf = (opts) => (DESIGNS.includes(opts.design) ? opts.design : 'v1');
+const designOf = (opts) => (DESIGNS.includes(opts.design) ? opts.design : 'v2');
 
-// The letters a title is about, in red: "— ㅈ·ㅊ·ㅉ 소리 익히기". Only
-// bare jamo, which is what a sheet about letters names them by.
+// The letters a Hangul sheet is about, in red: "— ㅈ·ㅊ·ㅉ 소리 익히기".
+// Only bare jamo, which is what a sheet about letters names them by;
+// on other shelves a jamo in a title is part of an ending ("-(으)ㄴ").
 function titleHTML(title) {
   return esc(title).replace(/[\u3131-\u3163](?:[·・\s]*[\u3131-\u3163])*/g,
     (m) => '<span class="jamo">' + m + '</span>');
@@ -225,7 +227,8 @@ export async function sheetHTML(sheet, opts = {}) {
     '<title>' + esc(sheet.title) + '</title>' +
     '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2"' : '') + '>' +
     (v2 ? '' : masthead(sheet, L)) +
-    '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' + (v2 ? titleHTML(sheet.title) : esc(sheet.title)) + '</h1>' +
+    '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' +
+    (v2 && (opts.category || sheet.category) === 'hangul' ? titleHTML(sheet.title) : esc(sheet.title)) + '</h1>' +
     (sheet.summary ? '<p class="summary">' + esc(sheet.summary) + '</p>' : '') +
     (sheet.objective
       ? (v2
@@ -284,6 +287,18 @@ const RIGHTS = "For personal and educational use only. Commercial use, redistrib
   "without the author's permission is prohibited.";
 const RIGHTS_KO = '저작자의 승인 없이 상업적 목적으로 사용할 수 없습니다.';
 let logo = null;
+
+// Everything the page header and footer print, for a comparison of what
+// two editions of a sheet say (scripts/pdf/pdftext.py) to set aside —
+// it is printed on every page, and not part of the sheet.
+export function frameText(sheet, lang) {
+  const L = labelsFor(lang);
+  const out = ['www.durukorean.com', 'durukorean.com', '© DURU KOREAN.', RIGHTS, RIGHTS_KO,
+    'DURU KOREAN · FREE DOWNLOADS'];
+  if (sheet.level) out.push(L.level + ' · ' + sheet.level);
+  if (sheet.minutes) out.push(sheet.minutes + ' ' + L.minutes);
+  return out;
+}
 
 async function frameV2(sheet, L, fonts) {
   if (!logo) logo = 'data:image/jpeg;base64,' + (await fs.readFile(path.join(HERE, 'assets', 'sheet-logo.jpg'))).toString('base64');

@@ -37,7 +37,7 @@ import { resolveProvider } from '../api/_providers.js';
 import { sheetSchema, unnumbered, MAKING_OF, SHELVES } from './lib/sheets.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionAccount, useSubscription } from './lib/claude-code.mjs';
-import { renderSheet, labelsFor } from './pdf/render.mjs';
+import { renderSheet, labelsFor, frameText } from './pdf/render.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co').replace(/\/+$/, '');
@@ -151,6 +151,7 @@ function prompt(category, lang) {
     'title = 맨 위 큰 제목. summary = 제목 아래 문단. objective = 학습 목표 상자 안의 글.',
     'exercises = 문제들, answers = 정답들 (같은 개수, 같은 순서).',
     FIELDS[shape] || FIELDS.sections,
+    'task = 문제 위 안내 상자(제목과 한 줄). 원래 PDF 에 없으면 title 과 line 모두 빈 문자열.',
     '해당하는 글이 없는 칸은 빈 문자열이나 빈 배열로 두세요. tags 와 checkThese 는 빈 배열.'
   ].join('\n');
 }
@@ -210,12 +211,16 @@ export async function relayout(token, cfg, browser, r) {
       const drop = [];
       const edition = { ...sheet };
       if (dropNote && edition.note) { drop.push(edition.note); edition.note = ''; }
+      // The line above the questions is only kept if the old sheet had
+      // one: a read-back that writes one has added to the sheet.
+      const had = (x) => x && it.text.toLowerCase().includes(String(x).toLowerCase());
+      if (!(edition.task && had(edition.task.title))) edition.task = null;
       const out = await renderSheet(edition, { category: r.category, lang, browser });
       const fresh = path.join(WORK, r.id + '-' + lang + '-new.pdf');
       fs.writeFileSync(fresh, out.pdf);
       const L = labelsFor(lang);
       const cmp = py({ op: 'compare', old: it.old, new: fresh, title: sheet.title || r.title, drop,
-        labels: Object.values(L).filter((x) => typeof x === 'string') });
+        labels: Object.values(L).filter((x) => typeof x === 'string'), frame: frameText(sheet, lang) });
       const same = cmp.hist <= SAME.hist && cmp.ratio >= SAME.ratio;
       if (same && out.check && out.check.ok) {
         result = { out, cmp };

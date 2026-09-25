@@ -91,7 +91,7 @@ function reading(s, L) {
 // wrong. The last part is what people actually keep the sheet for.
 function grammar(s, L) {
   return '<section><h2>' + esc(L.pattern) + '</h2>' +
-    '<table><tbody>' + list(s.forms).map((f) =>
+    '<table class="forms"><tbody>' + list(s.forms).map((f) =>
       '<tr><td><div class="word" lang="ko">' + esc(f.form) + '</div>' +
       (f.when ? '<div class="rom">' + esc(f.when) + '</div>' : '') + '</td>' +
       '<td>' + esc(f.means) + '</td>' +

@@ -28,6 +28,14 @@
 
 body { font-size: 12.5px; color: var(--ink); }
 
+/* Korean wraps between words, not inside one: "있어/요" at a line end
+   reads as a mistake. Everywhere on a sheet whose own language is
+   written with spaces; on a Japanese or Chinese sheet (no spaces to
+   wrap at) only the Korean. A word longer than the line still breaks. */
+html:not([lang="ja"]):not([lang="zh"]) body, [lang="ko"], .word, .ex-kr, .passage {
+  word-break: keep-all; overflow-wrap: break-word;
+}
+
 /* The header is Chromium's; the body starts with the title. */
 .mast { display: none; }
 
@@ -58,7 +66,7 @@ body { counter-reset: sec; }
 section { margin-bottom: 16px; }
 section > h2 {
   display: flex; align-items: center; gap: 12px;
-  font-family: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif; font-weight: 700;
+  font-family: 'Cormorant Garamond', 'Noto Sans KR', serif; font-weight: 700;
   font-size: 20px; letter-spacing: .12em; color: var(--ink);
   border: 0; padding: 0; margin: 2px 0 10px;
 }
@@ -81,6 +89,16 @@ td { padding: 7px 14px; border-top: 1px solid #ebeee9; vertical-align: middle; }
 tbody tr:first-child td { border-top: 0; }
 td + td, th + th { border-left: 1px dotted #cfd6cf; }
 .word { font-size: 17px; color: var(--green); }
+/* Words tables: the example sentence gets the room, the meaning less. */
+table:not(.letters) th:nth-child(2):not(:last-child) { width: 33%; }
+table:not(.letters) th:nth-child(3):last-child { width: 41%; }
+table:not(.letters) th:first-child { width: 26%; }
+/* The grammar table has no head row to size it by: the form and its
+   note, what it means, the example — the example gets the room. */
+table.forms { table-layout: fixed; }
+table.forms td:nth-child(1) { width: 36%; }
+table.forms td:nth-child(2) { width: 22%; }
+table.forms td:nth-child(3) { width: 42%; }
 .rom { font-size: 10.5px; color: var(--soft); font-style: italic; }
 .ex-kr { font-size: 13.5px; }
 .ex-tr { font-size: 11px; color: var(--grey); }
@@ -141,9 +159,14 @@ td + td, th + th { border-left: 1px dotted #cfd6cf; }
 .answers { margin-top: 20px; padding-top: 14px; border-top: 1.5px dashed #c9cfc9; }
 .answers h2 {
   display: flex; align-items: center; gap: 12px; border: 0; padding: 0; margin: 0 0 12px;
-  font-family: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif; font-weight: 700;
+  font-family: 'Cormorant Garamond', 'Noto Sans KR', serif; font-weight: 700;
   font-size: 19px; letter-spacing: .12em; color: var(--ink);
 }
+/* Cormorant has Latin and Vietnamese only. A title in Korean, Japanese
+   or Chinese takes the sheet's own embedded sans rather than whatever
+   the machine that made the PDF happens to have. */
+html[lang="ja"] section > h2, html[lang="ja"] .answers h2 { font-family: 'Cormorant Garamond', 'Noto Sans JP', 'Noto Sans KR', serif; }
+html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormorant Garamond', 'Noto Sans SC', 'Noto Sans KR', serif; }
 .answers h2::before {
   content: '✓'; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--red); color: #fff;
   font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0;
