@@ -23,7 +23,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { bodyFor, esc } from './templates.mjs';
+import { bodyFor, esc, SPROUT } from './templates.mjs';
 
 // Imported when a PDF is actually rendered, not when this file loads.
 // Playwright is a build-time dependency — it makes the files, it is not
@@ -45,6 +45,11 @@ const FONT_CSS =
   '&family=Noto+Sans+JP:wght@400;700' +
   '&family=Noto+Sans+SC:wght@400;700' +
   '&display=swap';
+// The owner's design (v2) adds an italic for the notes under a letter
+// and a serif for the section titles.
+const FONT_CSS_V2 = FONT_CSS
+  .replace('Inter:wght@400;600;700', 'Inter:ital,wght@0,400;0,600;0,700;1,400')
+  .replace('&display=swap', '&family=Cormorant+Garamond:wght@600;700&display=swap');
 
 // Column headings and section titles, in the language of the sheet.
 // Deliberately not the site dictionary: these live with the templates
@@ -110,14 +115,14 @@ const LABELS = {
 
 export function labelsFor(lang) { return LABELS[lang] || LABELS.en; }
 
-let cachedFonts = null;
+const cachedFonts = new Map();
 
 // The stylesheet Google Fonts serves, with every font file it points at
 // pulled in and inlined. Done once per process; a run that makes fifty
 // sheets fetches nothing after the first.
-async function embeddedFonts() {
-  if (cachedFonts) return cachedFonts;
-  const res = await fetch(FONT_CSS, {
+async function embeddedFonts(url = FONT_CSS) {
+  if (cachedFonts.has(url)) return cachedFonts.get(url);
+  const res = await fetch(url, {
     headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36' }
   });
   if (!res.ok) throw new Error('could not fetch the font stylesheet: ' + res.status);
@@ -133,8 +138,30 @@ async function embeddedFonts() {
   }));
   for (const [u, data] of files) css = css.split(u).join(data);
 
-  cachedFonts = css;
+  cachedFonts.set(url, css);
   return css;
+}
+
+// The @font-face rules a page header or footer needs. Chromium draws
+// those apart from the page, so the page's fonts are not theirs; they
+// get only the rules whose unicode-range covers a character they print
+// — a few slices of Korean for the title, not the whole family.
+export function fontsFor(css, text) {
+  const wanted = [...new Set([...String(text)].map((c) => c.codePointAt(0)))];
+  const covers = (range) => range.split(',').some((part) => {
+    const m = /U\+([0-9a-f?]+)(?:-([0-9a-f]+))?/i.exec(part.trim());
+    if (!m) return false;
+    const lo = parseInt(m[1].replace(/\?/g, '0'), 16);
+    const hi = parseInt((m[2] || m[1]).replace(/\?/g, 'f'), 16);
+    return wanted.some((c) => c >= lo && c <= hi);
+  });
+  return (String(css).match(/@font-face\s*{[^}]*}/g) || []).filter((rule) => {
+    const family = /font-family:\s*['"]?([^;'"]+)/.exec(rule);
+    if (!family || !/^(Inter|Noto Sans (KR|JP|SC))$/.test(family[1].trim())) return false;
+    if (/font-style:\s*italic/.test(rule)) return false;
+    const range = /unicode-range:\s*([^;]+)/.exec(rule);
+    return !range || covers(range[1]);
+  }).join('\n');
 }
 
 function masthead(sheet, L) {
@@ -152,11 +179,11 @@ function answersPage(sheet, L) {
   if (!answers.length) return '';
   // Numbered the same way the questions are — "1)" — so the two halves
   // of the sheet read as one list, not as "1." over here and "1)" there.
-  return '<div class="answers"><h2>' + esc(L.answers) + '</h2>' +
-    answers.map((a, i) => '<div class="a"><span class="n">' + (i + 1) + ')</span>' +
+  const list = answers.map((a, i) => '<div class="a"><span class="n">' + (i + 1) + ')</span>' +
       esc(typeof a === 'string' ? a : a.answer) +
-      (a && a.why ? ' <span class="ex-tr">— ' + esc(a.why) + '</span>' : '') + '</div>').join('') +
-    '</div>';
+      (a && a.why ? ' <span class="ex-tr">— ' + esc(a.why) + '</span>' : '') + '</div>').join('');
+  return '<div class="answers"><h2>' + esc(L.answers) + '</h2>' +
+    (L.design === 'v2' ? '<div class="answer-box">' + list + '</div>' : list) + '</div>';
 }
 
 // Section 5.4: the sources used to check facts are shown, separately
@@ -171,20 +198,40 @@ function credits(sources, L) {
       (s.credit_text ? ' · ' + esc(s.credit_text) : '')).join('<br>') + '</div>';
 }
 
+// The owner's worksheet design (2026-09-25), drawn as a mockup of the
+// ㅈ·ㅊ·ㅉ sheet: logo and an ink landscape at the top of every page,
+// numbered serif section titles, soft boxes, a copyright bar. 'v1' is
+// the plain layout every sheet had before it.
+export const DESIGNS = ['v1', 'v2'];
+const designOf = (opts) => (DESIGNS.includes(opts.design) ? opts.design : 'v1');
+
+// The letters a title is about, in red: "— ㅈ·ㅊ·ㅉ 소리 익히기". Only
+// bare jamo, which is what a sheet about letters names them by.
+function titleHTML(title) {
+  return esc(title).replace(/[\u3131-\u3163](?:[·・\s]*[\u3131-\u3163])*/g,
+    (m) => '<span class="jamo">' + m + '</span>');
+}
+
 export async function sheetHTML(sheet, opts = {}) {
   const lang = opts.lang || 'en';
-  const L = labelsFor(lang);
-  const fonts = opts.fonts != null ? opts.fonts : await embeddedFonts();
-  const css = await fs.readFile(path.join(HERE, 'sheet.css'), 'utf8');
+  const design = designOf(opts);
+  const v2 = design === 'v2';
+  const L = { ...labelsFor(lang), design };
+  const fonts = opts.fonts != null ? opts.fonts : await embeddedFonts(v2 ? FONT_CSS_V2 : FONT_CSS);
+  let css = await fs.readFile(path.join(HERE, 'sheet.css'), 'utf8');
+  if (v2) css += '\n' + await fs.readFile(path.join(HERE, 'sheet-v2.css'), 'utf8');
 
   return '<!doctype html><html lang="' + esc(lang) + '"><head><meta charset="utf-8">' +
     '<title>' + esc(sheet.title) + '</title>' +
-    '<style>' + fonts + '</style><style>' + css + '</style></head><body>' +
-    masthead(sheet, L) +
-    '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' + esc(sheet.title) + '</h1>' +
+    '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2"' : '') + '>' +
+    (v2 ? '' : masthead(sheet, L)) +
+    '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' + (v2 ? titleHTML(sheet.title) : esc(sheet.title)) + '</h1>' +
     (sheet.summary ? '<p class="summary">' + esc(sheet.summary) + '</p>' : '') +
     (sheet.objective
-      ? '<div class="objective"><b>' + esc(L.objective) + '</b><br>' + esc(sheet.objective) + '</div>'
+      ? (v2
+        ? '<div class="objective"><span class="obj-icon">' + SPROUT + '</span><div class="obj-text"><b>' +
+          esc(L.objective) + '</b><div class="obj-line">' + esc(sheet.objective) + '</div></div></div>'
+        : '<div class="objective"><b>' + esc(L.objective) + '</b><br>' + esc(sheet.objective) + '</div>')
       : '') +
     bodyFor(opts.category || sheet.category || 'etc', sheet, L) +
     credits(opts.sources, L) +
@@ -192,11 +239,103 @@ export async function sheetHTML(sheet, opts = {}) {
     '</body></html>';
 }
 
+// What is printed around the sheet on every page. Chromium's header
+// and footer rather than the stylesheet's: a CSS `position: fixed`
+// footer looks like it should repeat on every page and does not — it
+// drew once and landed halfway down page two. These repeat, and can
+// count the pages, which is worth having on something that gets
+// printed and handed out in a pile.
+function frameV1(sheet) {
+  return {
+    margin: { top: '17mm', bottom: '18mm', left: '15mm', right: '15mm' },
+    headerTemplate: '<span></span>',
+    footerTemplate:
+      '<div style="width:100%;font-size:7.5pt;color:#9aa5a1;' +
+      'font-family:Inter,sans-serif;padding:0 15mm;display:flex;' +
+      'justify-content:space-between;border-top:1px solid #e8ecea;padding-top:4px;">' +
+      '<span>durukorean.com</span>' +
+      '<span>' + esc(sheet.title) + '</span>' +
+      '<span><span class="pageNumber"></span> / <span class="totalPages"></span></span>' +
+      '</div>'
+  };
+}
+
+// The owner's design. The logo is a JPEG made for print
+// (assets/sheet-logo.jpg, from the site's logo): a PDF carries a JPEG
+// as it is, where the site's transparent WebP would be stored
+// uncompressed and make every download a few hundred KB heavier.
+const LANDSCAPE =
+  '<svg viewBox="0 0 300 90" style="position:absolute;right:-15mm;top:-4mm;width:92mm;height:26mm" aria-hidden="true">' +
+  '<defs><linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9c7c1"/>' +
+  '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>' +
+  '<linearGradient id="near" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fa69e"/>' +
+  '<stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient></defs>' +
+  '<circle cx="262" cy="20" r="12" fill="#f2c4ba"/>' +
+  '<path d="M140 90 L180 54 L195 63 L226 20 L247 43 L263 35 L286 56 L300 74 L300 90 Z" fill="url(#far)"/>' +
+  '<path d="M200 90 L232 60 L245 67 L268 46 L290 66 L300 80 L300 90 Z" fill="url(#near)"/>' +
+  '<g fill="none" stroke="#d9c9ae" stroke-width="1.6" stroke-linecap="round">' +
+  '<path d="M20 80 C60 74 92 82 128 72 C150 66 158 56 172 58 C186 60 186 74 174 75 C164 76 163 66 171 65"/>' +
+  '<path d="M150 70 C168 76 190 72 206 64 C216 59 226 60 228 67 C230 74 220 76 217 70"/>' +
+  '<path d="M60 86 C100 84 130 88 160 82"/></g></svg>';
+const LOCK = '<svg viewBox="0 0 24 24" style="width:11px;height:11px;flex:none" aria-hidden="true">' +
+  '<rect x="4" y="10" width="16" height="11" rx="2" fill="#b83a2a"/>' +
+  '<path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="#b83a2a" stroke-width="2.4"/></svg>';
+const RIGHTS = "For personal and educational use only. Commercial use, redistribution, or reproduction " +
+  "without the author's permission is prohibited.";
+const RIGHTS_KO = '저작자의 승인 없이 상업적 목적으로 사용할 수 없습니다.';
+let logo = null;
+
+async function frameV2(sheet, L, fonts) {
+  if (!logo) logo = 'data:image/jpeg;base64,' + (await fs.readFile(path.join(HERE, 'assets', 'sheet-logo.jpg'))).toString('base64');
+  const pills = [];
+  if (sheet.level) pills.push([esc(L.level) + ' · ' + esc(sheet.level), '#eef1ea', '#b9c6bd']);
+  if (sheet.minutes) pills.push([esc(String(sheet.minutes)) + ' ' + esc(L.minutes), '#f8e9e5', '#e5c2b9']);
+  const font = "font-family:Inter,'Noto Sans KR','Noto Sans JP','Noto Sans SC',sans-serif;";
+  // The header and the footer are drawn apart from the page, without
+  // its fonts: each gets the few it prints with.
+  const style = (text) => '<style>' + fontsFor(fonts, text) + '</style>';
+  const box = 'width:100%;padding:0 15mm;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;' + font;
+  const headText = 'www.durukorean.com' + pills.map((p) => p[0]).join('');
+  const footText = 'durukorean.com0123456789/|© DURU KOREAN.' + sheet.title + RIGHTS + RIGHTS_KO;
+  return {
+    margin: { top: '44mm', bottom: '27mm', left: '15mm', right: '15mm' },
+    headerTemplate: style(headText) +
+      '<div style="' + box + 'color:#16302b;">' +
+      '<div style="position:relative;height:18mm;display:flex;align-items:flex-end;">' +
+      '<img src="' + logo + '" style="height:15.5mm;display:block;position:relative;z-index:1" alt="DURU KOREAN">' +
+      LANDSCAPE + '</div>' +
+      '<div style="border-top:0.8px solid #dba79c;margin-top:2.2mm;"></div>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;padding:2.2mm 0;">' +
+      '<span style="color:#b83a2a;font-size:12px;font-weight:700;letter-spacing:.13em;">www.durukorean.com</span>' +
+      '<span style="display:flex;gap:2.2mm;">' + pills.map(([t, bg, line]) =>
+        '<span style="font-size:10px;font-weight:600;padding:1.1mm 3.4mm;border-radius:999px;background:' + bg +
+        ';border:0.8px solid ' + line + ';white-space:nowrap;">' + t + '</span>').join('') + '</span></div>' +
+      '<div style="border-top:2px solid #16302b;"></div></div>',
+    footerTemplate: style(footText) +
+      '<div style="' + box + 'color:#16302b;">' +
+      '<div style="border-top:1px solid #16302b;display:flex;justify-content:space-between;align-items:center;' +
+      'padding-top:1.8mm;font-size:9.5px;">' +
+      '<span>durukorean.com</span>' +
+      '<span>' + esc(sheet.title) + '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;' +
+      '<span class="pageNumber"></span> / <span class="totalPages"></span></span></div>' +
+      '<div style="margin-top:2mm;background:#f8e9e5;border-radius:3mm;padding:1.6mm 4mm;display:flex;' +
+      'align-items:center;gap:2.4mm;font-size:8px;line-height:1.35;color:#5b6b66;">' + LOCK +
+      '<span><b style="color:#b83a2a;font-weight:600;">© DURU KOREAN.</b> ' + esc(RIGHTS) +
+      '<br>' + esc(RIGHTS_KO) + '</span></div></div>'
+  };
+}
+
 // Renders one sheet and hands back the bytes plus everything the
 // version row wants written down: page count, size, hash, and what the
 // technical checks made of it.
 export async function renderSheet(sheet, opts = {}) {
-  const html = await sheetHTML(sheet, opts);
+  const design = designOf(opts);
+  const fonts = opts.fonts != null ? opts.fonts
+    : await embeddedFonts(design === 'v2' ? FONT_CSS_V2 : FONT_CSS);
+  const html = await sheetHTML(sheet, { ...opts, fonts });
+  const frame = design === 'v2'
+    ? await frameV2(sheet, labelsFor(opts.lang || 'en'), fonts)
+    : frameV1(sheet);
   const chromium = opts.browser ? null : await browserEngine();
   const browser = opts.browser || await chromium.launch(
     { executablePath: process.env.CHROMIUM_PATH || undefined });
@@ -205,25 +344,11 @@ export async function renderSheet(sheet, opts = {}) {
   try {
     await page.setContent(html, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
-    // The footer is Chromium's rather than the stylesheet's. A CSS
-    // `position: fixed` footer looks like it should repeat on every
-    // page and does not — it drew once and landed halfway down page
-    // two. This one repeats, and can count the pages, which is worth
-    // having on something that gets printed and handed out in a pile.
     const print = () => page.pdf({
       format: 'A4',
       printBackground: true,
-      margin: { top: '17mm', bottom: '18mm', left: '15mm', right: '15mm' },
       displayHeaderFooter: true,
-      headerTemplate: '<span></span>',
-      footerTemplate:
-        '<div style="width:100%;font-size:7.5pt;color:#9aa5a1;' +
-        'font-family:Inter,sans-serif;padding:0 15mm;display:flex;' +
-        'justify-content:space-between;border-top:1px solid #e8ecea;padding-top:4px;">' +
-        '<span>durukorean.com</span>' +
-        '<span>' + esc(sheet.title) + '</span>' +
-        '<span><span class="pageNumber"></span> / <span class="totalPages"></span></span>' +
-        '</div>'
+      ...frame
     });
     let pdf = await print();
     let used = html;
@@ -244,7 +369,7 @@ export async function renderSheet(sheet, opts = {}) {
         const tight = await print();
         if (pages(tight) < withAnswers) {
           pdf = tight;
-          used = html.replace('<body>', '<body class="fit">');
+          used = html.replace(/<body(?: class="([^"]*)")?>/, (m, c) => '<body class="' + (c ? c + ' ' : '') + 'fit">');
         } else {
           await page.evaluate(() => document.body.classList.remove('fit'));
         }

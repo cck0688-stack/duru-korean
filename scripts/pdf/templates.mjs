@@ -23,10 +23,27 @@ export function esc(s) {
 
 const list = (x) => (Array.isArray(x) ? x : []);
 
-// A numbered question with room to answer it. `lines` is how much room.
-function question(text, i, lines = 1) {
-  return '<div class="q"><div class="q-ask"><span class="n">' + (i + 1) + ')</span>' +
+// A sprout, for the boxes that say what a sheet or a task is for.
+export const SPROUT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/>' +
+  '<path class="leaf" d="M12 13C12 8.6 9 6 4.5 6c0 4.4 3 7 7.5 7z"/>' +
+  '<path class="leaf" d="M12 11c0-4.4 3-7 7.5-7 0 4.4-3 7-7.5 7z"/></svg>';
+
+// A numbered question with room to answer it. `lines` is how much room;
+// a question that asked for more than one line is marked, so a design
+// that sets short questions on a single card can still leave room for
+// the ones that are written out.
+function question(text, i, lines = 1, design) {
+  // The owner's design sets the number in a disc, where "1)" reads as a typo.
+  return '<div class="q' + (lines > 1 ? ' q-lines' : '') + '"><div class="q-ask"><span class="n">' + (i + 1) +
+    (design === 'v2' ? '' : ')') + '</span>' +
     esc(text) + '</div>' + '<div class="rule"></div>'.repeat(Math.max(1, lines)) + '</div>';
+}
+
+// "j (plain): soft and relaxed" — the name of the sound in bold, when
+// the line starts with one.
+function soundHTML(sound) {
+  const m = /^([^:：]{1,40})([:：])(.*)$/s.exec(String(sound || ''));
+  return m ? '<b>' + esc(m[1] + m[2]) + '</b>' + esc(m[3]) : esc(sound);
 }
 
 function wordRows(words, heads) {
@@ -111,11 +128,11 @@ function reallife(s, L) {
 // The boxes are square because Hangul is written in squares.
 function hangul(s, L) {
   return '<section><h2>' + esc(L.letters) + '</h2>' +
-    '<table><thead><tr><th style="width:26%">' + esc(L.letter) + '</th><th>' + esc(L.sound) +
+    '<table class="letters"><thead><tr><th style="width:26%">' + esc(L.letter) + '</th><th>' + esc(L.sound) +
     '</th><th>' + esc(L.practice) + '</th></tr></thead><tbody>' +
     list(s.letters).map((l) =>
       '<tr><td><div class="word" lang="ko" style="font-size:24px">' + esc(l.letter) + '</div></td>' +
-      '<td>' + esc(l.sound) + (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</td>' +
+      '<td><div class="sound">' + soundHTML(l.sound) + '</div>' + (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</td>' +
       '<td><div class="boxes">' + '<div class="box"></div>'.repeat(8) + '</div></td></tr>').join('') +
     '</tbody></table></section>' +
     (list(s.words).length
@@ -144,9 +161,15 @@ function etc(s, L) {
 function practice(s, L) {
   const qs = list(s.exercises);
   if (!qs.length) return '';
-  return '<section><h2>' + esc(L.yourTurn) + '</h2>' +
+  // What the questions ask the learner to do, said once above them —
+  // "Choose the right word". Optional; the owner's design shows it.
+  const task = s.task && s.task.title && L.design === 'v2'
+    ? '<div class="task"><span class="obj-icon">' + SPROUT + '</span><div><b>' + esc(s.task.title) + '</b>' +
+      (s.task.line ? '<span>' + esc(s.task.line) + '</span>' : '') + '</div></div>'
+    : '';
+  return '<section><h2>' + esc(L.yourTurn) + '</h2>' + task +
     qs.map((q, i) => question(typeof q === 'string' ? q : q.ask, i,
-      (typeof q === 'object' && q.lines) || 1)).join('') +
+      (typeof q === 'object' && q.lines) || 1, L.design)).join('') +
     '</section>';
 }
 

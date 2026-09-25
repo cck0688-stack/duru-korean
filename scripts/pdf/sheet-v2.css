@@ -1,0 +1,172 @@
+/* DURU KOREAN — the worksheet as the owner drew it (design 2, 2026-09-25)
+ *
+ * Laid over sheet.css, which keeps the rules about how a page breaks
+ * and what stays whole. This file is only how it looks: the logo and
+ * an ink landscape at the top of every page and the copyright bar at
+ * the foot (both drawn by render.mjs as Chromium's page header and
+ * footer), numbered sections with serif titles, tables and rows in
+ * soft rounded boxes, two large dashed squares to write each letter
+ * in, each question on its own card, and the answers in a pink box in
+ * two columns.
+ *
+ * The paper stays white. The mockup is on cream, but a cream page is
+ * ink on every inch of a printed sheet, and Chromium leaves the page
+ * margins white anyway — the tint would stop in a frame 15mm from the
+ * edge. */
+
+:root {
+  --ink: #16302b;
+  --green: #1d4a3f;
+  --red: #b83a2a;
+  --grey: #5b6b66;
+  --soft: #8b9793;
+  --line: #d9ded6;
+  --sage: #eef1ea;
+  --pink: #f8e9e5;
+  --card: #ffffff;
+}
+
+body { font-size: 12.5px; color: var(--ink); }
+
+/* The header is Chromium's; the body starts with the title. */
+.mast { display: none; }
+
+h1 { font-size: 30px; line-height: 1.22; margin: 2px 0 8px; letter-spacing: -.01em; }
+h1 .jamo { color: var(--red); }
+.summary { font-size: 13px; line-height: 1.6; color: var(--grey); margin: 0 0 14px; }
+
+/* What this is for: a sprout in a circle, a rule, then the objective. */
+.objective {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--sage); border: 1px solid #cfd9cf;
+  border-radius: 10px; padding: 14px 18px; margin: 0 0 22px; font-size: 12.5px; line-height: 1.6;
+}
+.obj-icon {
+  flex: none; width: 44px; height: 44px; border-radius: 50%; background: #dfe6d8;
+  display: flex; align-items: center; justify-content: center;
+}
+.obj-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--green); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.obj-icon svg .leaf { fill: var(--green); stroke-width: 1; }
+.objective b {
+  display: block; color: var(--ink); font-size: 11.5px; letter-spacing: .16em; margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.obj-line { border-left: 1.5px solid #5f766e; padding-left: 14px; margin-left: 10px; }
+
+/* Numbered sections: a red disc, the title in serif capitals, a rule. */
+body { counter-reset: sec; }
+section { margin-bottom: 16px; }
+section > h2 {
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif; font-weight: 700;
+  font-size: 20px; letter-spacing: .12em; color: var(--ink);
+  border: 0; padding: 0; margin: 2px 0 10px;
+}
+section > h2::before {
+  counter-increment: sec; content: counter(sec);
+  flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--red); color: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; letter-spacing: 0;
+  font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1;
+  display: flex; align-items: center; justify-content: center;
+}
+section > h2::after { content: ''; flex: 1 1 auto; height: 1px; background: #3f5f57; opacity: .7; }
+
+/* Tables in a soft box, the head row tinted, columns split by dots. */
+table { border-collapse: separate; border-spacing: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--card); }
+th {
+  background: var(--sage); color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: .14em;
+  padding: 8px 14px; border-bottom: 1px solid var(--line);
+}
+td { padding: 7px 14px; border-top: 1px solid #ebeee9; vertical-align: middle; }
+tbody tr:first-child td { border-top: 0; }
+td + td, th + th { border-left: 1px dotted #cfd6cf; }
+.word { font-size: 17px; color: var(--green); }
+.rom { font-size: 10.5px; color: var(--soft); font-style: italic; }
+.ex-kr { font-size: 13.5px; }
+.ex-tr { font-size: 11px; color: var(--grey); }
+
+/* Letters: each on its own card, two big squares to write in. */
+.letters { border: 0; background: transparent; border-spacing: 0 8px; margin-top: -8px; }
+/* The head row is one rounded bar: its outline drawn inside each cell,
+   so the three cells meet without a seam. */
+.letters thead th {
+  background: var(--sage); border: 0;
+  box-shadow: inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line);
+}
+.letters thead th:first-child {
+  border-radius: 10px 0 0 10px;
+  box-shadow: inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line), inset 1px 0 0 var(--line);
+}
+.letters thead th:last-child {
+  border-radius: 0 10px 10px 0;
+  box-shadow: inset 0 1px 0 var(--line), inset 0 -1px 0 var(--line), inset -1px 0 0 var(--line);
+}
+.letters tbody td { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 13px 14px; vertical-align: middle; }
+.letters tbody td:first-child { border-left: 1px solid var(--line); border-radius: 10px 0 0 10px; text-align: center; }
+.letters tbody td:last-child { border-right: 1px solid var(--line); border-radius: 0 10px 10px 0; }
+.letters th:first-child { width: 17% !important; text-align: center; }
+.letters th:last-child { width: 26%; text-align: center; }
+.letters .word { font-size: 40px !important; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.letters .sound { font-size: 12.5px; }
+.letters .sound b { font-weight: 700; }
+.letters .rom { font-size: 11px; margin-top: 8px; line-height: 1.5; color: #7d8a86; }
+.letters .boxes { display: flex; gap: 16px; justify-content: center; }
+.letters .box { width: 76px; height: 76px; border: 1.3px dashed #a9b3ae; border-radius: 4px; }
+.letters .box:nth-child(n+3) { display: none; }
+
+/* Your turn: an optional instruction box, then each question on a card. */
+.task {
+  display: flex; align-items: center; gap: 16px; background: var(--sage); border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px 18px; margin-bottom: 10px; break-inside: avoid;
+}
+.task b { display: block; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+.task b + span { display: block; font-size: 12.5px; color: var(--ink); }
+.q {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 8px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 8px 14px;
+  break-inside: avoid;
+}
+.q-ask { margin: 0; font-size: 12.5px; display: flex; align-items: center; gap: 16px; }
+.q-ask .n {
+  flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--pink); color: var(--red);
+  font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; margin: 0;
+}
+/* A choose-the-word question needs no line to write on; one that asked
+   for lines (a sentence to write) keeps them, under the question. */
+.q:not(.q-lines) .rule { display: none; }
+.q.q-lines { display: block; }
+.q.q-lines .rule { margin-left: 42px; }
+
+/* Answers: a dashed cut line, a check in a red disc, a pink box. */
+.answers { margin-top: 20px; padding-top: 14px; border-top: 1.5px dashed #c9cfc9; }
+.answers h2 {
+  display: flex; align-items: center; gap: 12px; border: 0; padding: 0; margin: 0 0 12px;
+  font-family: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif; font-weight: 700;
+  font-size: 19px; letter-spacing: .12em; color: var(--ink);
+}
+.answers h2::before {
+  content: '✓'; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--red); color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.answers h2::after { content: ''; flex: 1 1 auto; height: 1px; background: #3f5f57; opacity: .7; }
+.answer-box {
+  background: var(--pink); border-radius: 10px; padding: 14px 22px;
+  columns: 2; column-gap: 44px; column-rule: 1px dashed #e0c3bb;
+}
+.answers .a { font-size: 13px; margin-bottom: 6px; break-inside: avoid; }
+.answers .n { color: var(--red); font-weight: 700; margin-right: 8px; }
+/* When the answers would otherwise take a page of their own, render.mjs
+   tries this tighter setting and keeps it if it saves the page. The
+   pink box is in two columns already. */
+.fit section { margin-bottom: 12px; }
+.fit .objective { padding: 10px 16px; margin-bottom: 16px; }
+.fit td { padding: 5px 14px; }
+.fit .letters tbody td { padding: 9px 14px; }
+.fit .letters .box { width: 64px; height: 64px; }
+.fit .q { padding: 6px 14px; margin-bottom: 6px; }
+.fit .answers { columns: auto; margin-top: 16px; padding-top: 12px; }
+.fit .answer-box { padding: 10px 22px; }
+
+.note { background: #fbf3ea; border-left-color: #cf8a52; border-radius: 0 8px 8px 0; }
+.credits { color: var(--soft); }
