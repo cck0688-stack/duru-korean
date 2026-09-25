@@ -104,8 +104,7 @@
     "Never put the past marker -았/었- before -아서/어서. The second clause already shows the time. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). With -(으)니까, the past is fine: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
     "ㄹ-stem verbs and adjectives drop the ㄹ before 니까, and you do not add 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). With -아서/어서 the ㄹ stays: 멀어서, 알아서",
     "Most ㅂ-stem adjectives change ㅂ to 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
-    "When you thank someone or apologize, use -아서/어서, not -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
-    "Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O). After a vowel, 라서 is the usual form: 의사라서. 니까 works the same way: 이니까 after a consonant, 니까 after a vowel."
+    "When you thank someone or apologize, use -아서/어서, not -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)"
   ],
   "watchOutMark": [
     [
@@ -131,10 +130,6 @@
     [
       "기다리게 하니까",
       "기다리게 해서"
-    ],
-    [
-      "학생라서",
-      "학생이라서"
     ]
   ],
   "category": "grammar"

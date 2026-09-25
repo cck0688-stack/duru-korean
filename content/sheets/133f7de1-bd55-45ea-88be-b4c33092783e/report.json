@@ -691,6 +691,14 @@
       "before": "Write the contact place and phone number exactly as written in the notices: 두 공지의 문의처는 어디입니까?",
       "after": "Write the contact exactly as in the notices (place and phone number): 두 공지의 문의처는 어디입니까?",
       "why": "Three pages in es/id/pt-BR/fr/de: tightened so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "sections[3].paragraphs[1]",
+      "before": "유의사항",
+      "after": null,
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

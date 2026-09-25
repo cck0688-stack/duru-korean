@@ -443,6 +443,22 @@
       "before": "6) 여기 서명할게요. (I'll sign here.) — 'I'll sign here.' Used when signing. 서명 = signature.",
       "after": "6) 여기 서명할게요. (I'll sign here.) — Used when signing. 서명 = signature.",
       "why": "The meaning was printed twice."
+    },
+    {
+      "op": "drop",
+      "path": "sections[3].paragraphs[1]",
+      "before": "운송장 번호 알려 주세요",
+      "after": null,
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "sections[2].paragraphs[0]",
+      "before": "name and address",
+      "after": null,
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

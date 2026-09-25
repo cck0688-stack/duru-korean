@@ -867,6 +867,38 @@
       "before": "After reading a four-paragraph story about a pharmacy visit, learners can find four things on a Korean medicine bag: how many times a day to take the medicine (1일 3회 = 하루에 세 번), when to take it (식전, 식후 30분, 자기 전), how many days the supply lasts (3일분), and what the warning means (졸음 주의, 운전 주의).",
       "after": "Learners can find four things on a Korean medicine bag: how many times a day (1일 3회 = 하루에 세 번), when (식전, 식후 30분, 자기 전), for how many days (3일분), and what the warning means (졸음 주의, 운전 주의).",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "set",
+      "path": "answers[1]",
+      "before": "자기 전에만 먹어야 해요. 그러니까 점심 먹고 나서 먹으면 안 돼요.",
+      "after": "자기 전에만 먹어요. 점심 먹고 나서 먹으면 안 돼요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "set",
+      "path": "answers[2]",
+      "before": "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일 동안 먹으니까 모두 아홉 번(9번) 먹어요.",
+      "after": "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일이니까 모두 아홉 번 먹어요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "set",
+      "path": "answers[3]",
+      "before": "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 마리아 씨는 사흘 동안 운전하지 않고 버스를 타기로 했어요.",
+      "after": "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 사흘 동안 버스를 타기로 했어요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "set",
+      "path": "answers[4]",
+      "before": "아침 7시 30분에 먹어요. (밥 먹기 30분 전에 먹어야 해요.)",
+      "after": "아침 7시 30분에 먹어요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

@@ -262,6 +262,22 @@
       "before": "Both -아서/어서 and -(으)니까 give a reason (\"because, so\"). This sheet shows how to form each one with verbs, adjectives and nouns (including ㄹ- and ㅂ-irregular stems). It also covers the two rules learners break most: only -(으)니까 can come before a command or suggestion (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), and a past-tense marker never goes before -아서/어서 (no -았/었어서).",
       "after": "Both -아서/어서 and -(으)니까 give a reason (\"because, so\"). Learn to form each one, and the two rules learners break most: only -(으)니까 can come before a command or suggestion, and no past-tense marker goes before -아서/어서 (no -았/었어서).",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "watchOut[5]",
+      "before": "학생라서",
+      "after": null,
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "watchOutMark[5]",
+      "before": "학생라서",
+      "after": null,
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

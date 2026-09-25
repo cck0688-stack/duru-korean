@@ -483,6 +483,14 @@
       "before": "The examples are based on expressions and order flows commonly seen on real kiosks. This worksheet focuses on reading, and screen designs may differ from store to store.",
       "after": "Based on labels and order flows common on real kiosks. Screen designs may differ from store to store.",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "sections[2].paragraphs[1]",
+      "before": "뒤로가기",
+      "after": null,
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

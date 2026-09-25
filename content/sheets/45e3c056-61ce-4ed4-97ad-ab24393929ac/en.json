@@ -22,7 +22,7 @@
     "아니요",
     "이체(계좌이체); 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인",
     "출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인",
-    "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회",
+    "(a) 공과금 납부 (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금 (f) 잔액조회",
     "(a) 영수증 출력 (b) 확인 (c) 취소 (d) 처음으로(초기화면)",
     "언어 선택"
   ],
@@ -63,8 +63,7 @@
     {
       "heading": "Reading tips and term notes",
       "paragraphs": [
-        "Square brackets […] show another label with the same meaning. If you see either one, it is the same function.",
-        "확인, 취소 and 처음으로 appear on almost every screen. Their position differs by bank, so always read the text."
+        "Square brackets […] show another label with the same meaning. If you see either one, it is the same function."
       ]
     }
   ],

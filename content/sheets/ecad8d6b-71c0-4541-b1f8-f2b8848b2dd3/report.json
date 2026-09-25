@@ -668,6 +668,22 @@
       "before": "머리가 아프고 콧물이 나요. (머리가 아파요. 콧물도 나요.)",
       "after": "머리가 아프고 콧물이 나요.",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "set",
+      "path": "answers[0]",
+      "before": "아니요, 없어요. (없어요.)",
+      "after": "아니요, 없어요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "set",
+      "path": "answers[1]",
+      "before": "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
+      "after": "오늘 아침부터요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

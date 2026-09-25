@@ -104,8 +104,7 @@
     "Jangan pernah meletakkan penanda lampau -았/었- sebelum -아서/어서. Klausa kedua sudah menunjukkan waktunya. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Dengan -(으)니까, bentuk lampau boleh digunakan: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
     "Kata kerja dan kata sifat berbatang ㄹ menghilangkan ㄹ sebelum 니까, dan tidak ditambahkan 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Dengan -아서/어서, ㄹ tetap ada: 멀어서, 알아서",
     "Sebagian besar kata sifat berbatang ㅂ mengubah ㅂ menjadi 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
-    "Saat berterima kasih atau meminta maaf, gunakan -아서/어서, bukan -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
-    "Untuk kata benda: periksa apakah ada konsonan akhir (받침). 학생라서 (X) → 학생이라서 (O). Setelah huruf vokal, bentuk yang umum adalah 라서: 의사라서. 니까 juga berlaku sama: 이니까 setelah konsonan, 니까 setelah vokal."
+    "Saat berterima kasih atau meminta maaf, gunakan -아서/어서, bukan -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)"
   ],
   "watchOutMark": [
     [
@@ -131,10 +130,6 @@
     [
       "기다리게 하니까",
       "기다리게 해서"
-    ],
-    [
-      "학생라서",
-      "학생이라서"
     ]
   ],
   "category": "grammar"

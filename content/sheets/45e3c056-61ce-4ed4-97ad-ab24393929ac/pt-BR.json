@@ -22,7 +22,7 @@
     "아니요",
     "이체(계좌이체); 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인",
     "출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인",
-    "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회",
+    "(a) 공과금 납부 (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금 (f) 잔액조회",
     "(a) 영수증 출력 (b) 확인 (c) 취소 (d) 처음으로(초기화면)",
     "언어 선택"
   ],
@@ -63,8 +63,7 @@
     {
       "heading": "Dicas de leitura e notas sobre os termos",
       "paragraphs": [
-        "Colchetes […] mostram outro rótulo com o mesmo significado. Se você vir qualquer um dos dois, é a mesma função.",
-        "확인, 취소 e 처음으로 aparecem em quase todas as telas. A posição varia de acordo com o banco, então sempre leia o texto."
+        "Colchetes […] mostram outro rótulo com o mesmo significado. Se você vir qualquer um dos dois, é a mesma função."
       ]
     }
   ],

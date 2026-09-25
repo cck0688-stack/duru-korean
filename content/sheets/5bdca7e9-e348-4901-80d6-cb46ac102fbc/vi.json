@@ -104,8 +104,7 @@
     "Không bao giờ đặt tiếp vĩ tố quá khứ -았/었- trước -아서/어서. Vế sau đã thể hiện thời gian rồi. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Với -(으)니까 thì dùng thì quá khứ vẫn được: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
     "Động từ và tính từ có gốc ㄹ thì bỏ ㄹ trước 니까, và không thêm 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Với -아서/어서 thì ㄹ vẫn giữ nguyên: 멀어서, 알아서",
     "Hầu hết tính từ có gốc ㅂ đổi ㅂ thành 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
-    "Khi cảm ơn hoặc xin lỗi ai đó, hãy dùng -아서/어서, không dùng -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
-    "Danh từ: kiểm tra xem có phụ âm cuối (받침) hay không. 학생라서 (X) → 학생이라서 (O). Sau nguyên âm, 라서 là dạng thường dùng: 의사라서. 니까 cũng hoạt động tương tự: 이니까 sau phụ âm, 니까 sau nguyên âm."
+    "Khi cảm ơn hoặc xin lỗi ai đó, hãy dùng -아서/어서, không dùng -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)"
   ],
   "watchOutMark": [
     [
@@ -131,10 +130,6 @@
     [
       "기다리게 하니까",
       "기다리게 해서"
-    ],
-    [
-      "학생라서",
-      "학생이라서"
     ]
   ],
   "category": "grammar"

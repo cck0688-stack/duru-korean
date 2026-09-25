@@ -592,6 +592,22 @@
       "before": "This worksheet is based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine.",
       "after": "Based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine.",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "sections[3].paragraphs[1]",
+      "before": "확인, 취소",
+      "after": null,
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "set",
+      "path": "answers[3]",
+      "before": "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회",
+      "after": "(a) 공과금 납부 (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금 (f) 잔액조회",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

@@ -682,6 +682,30 @@
       "before": "Be able to understand and say 6–8 short questions and answers to order one drink at a cafe in Korea, choosing hot/iced, size (regular/large), and for here/to go.",
       "after": "Understand and say the short questions and answers for ordering one drink at a Korean cafe: hot/iced, size, and for here/to go.",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
+    },
+    {
+      "op": "set",
+      "path": "answers[2]",
+      "before": "매장이요. / 매장에서 마실게요. / 여기서 마실게요. / 먹고 갈게요.",
+      "after": "매장이요. / 여기서 마실게요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "set",
+      "path": "answers[4]",
+      "before": "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요.",
+      "after": "아이스 라떼 라지로 한 잔 주세요. 포장이요.",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
+    },
+    {
+      "op": "set",
+      "path": "setting",
+      "before": "At the counter of a chain café in Seoul",
+      "after": "",
+      "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
+      "all_languages": true
     }
   ],
   "retranslated": {

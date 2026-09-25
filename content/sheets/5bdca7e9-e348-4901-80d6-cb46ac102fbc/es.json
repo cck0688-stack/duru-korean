@@ -104,8 +104,7 @@
     "Nunca pongas la marca de pasado -았/었- antes de -아서/어서. La segunda cláusula ya muestra el tiempo. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Con -(으)니까, el pasado sí es correcto: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
     "Los verbos y adjetivos con raíz en ㄹ eliminan la ㄹ antes de 니까, y no se agrega 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Con -아서/어서 la ㄹ se mantiene: 멀어서, 알아서",
     "La mayoría de los adjetivos con raíz en ㅂ cambian la ㅂ por 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
-    "Cuando agradeces o te disculpas con alguien, usa -아서/어서, no -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
-    "Sustantivos: fíjate si hay una consonante final (받침). 학생라서 (X) → 학생이라서 (O). Después de una vocal, la forma habitual es 라서: 의사라서. 니까 funciona igual: 이니까 después de consonante, 니까 después de vocal."
+    "Cuando agradeces o te disculpas con alguien, usa -아서/어서, no -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)"
   ],
   "watchOutMark": [
     [
@@ -131,10 +130,6 @@
     [
       "기다리게 하니까",
       "기다리게 해서"
-    ],
-    [
-      "학생라서",
-      "학생이라서"
     ]
   ],
   "category": "grammar"
