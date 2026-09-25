@@ -34,6 +34,10 @@ PAGE_NO = re.compile(r'^\s*\d+\s*/\s*\d+\s*$')
 # edition has it once, which is the point of setting it again.
 ITEM_NO = re.compile(r'^(\d{1,2})[.)]\s*(?:\1[.)]\s*)*')
 SPACE = re.compile(r'\s+')
+# Curly and straight quotes are the same quote: a read-back that writes
+# one for the other has not changed what the sheet says.
+QUOTES = str.maketrans({'‘': "'", '’': "'", '‚': "'", '‛': "'", '′': "'",
+                        '“': '"', '”': '"', '„': '"', '‟': '"', '″': '"'})
 
 
 def pages(path):
@@ -49,24 +53,25 @@ def bare(text, title, drop, labels):
             continue
         lines.append(ITEM_NO.sub(r'\1)', s))
     # Lower case: headings are printed in capitals by the stylesheet.
-    out = SPACE.sub('', ''.join(lines)).casefold()
+    out = SPACE.sub('', ''.join(lines)).casefold().translate(QUOTES)
     # Text left out of the new edition on purpose (a note that should
     # never have been printed).
     for d in drop or []:
-        d = SPACE.sub('', d or '').casefold()
+        d = SPACE.sub('', d or '').casefold().translate(QUOTES)
         if d:
             out = out.replace(d, '', 1)
+    # The title is printed at the top and again in every page's footer,
+    # and there are fewer pages now. Before the headings: a heading word
+    # ("소리") inside the title would otherwise break it up.
+    t = SPACE.sub('', title or '').casefold().translate(QUOTES)
+    if t:
+        out = out.replace(t, '')
     # The template's own headings and table heads: a table that now runs
     # onto the next page prints its head again there.
     for lab in sorted(labels or [], key=len, reverse=True):
-        lab = SPACE.sub('', lab or '').casefold()
+        lab = SPACE.sub('', lab or '').casefold().translate(QUOTES)
         if len(lab) > 1:
             out = out.replace(lab, '')
-    # The title is printed at the top and again in every page's footer,
-    # and there are fewer pages now.
-    t = SPACE.sub('', title or '').casefold()
-    if t:
-        out = out.replace(t, '')
     return out
 
 

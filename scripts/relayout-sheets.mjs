@@ -139,6 +139,7 @@ function prompt(category, lang) {
     '',
     '가장 중요한 것: 글자를 한 자도 바꾸지 마세요. 번역, 맞춤법 고침, 다듬기, 요약, 보태기, 빼기 모두 안 됩니다.',
     'PDF 의 줄바꿈 때문에 끊긴 낱말과 문장만 이어 붙이세요.',
+    '따옴표 모양(‘ ’ “ ” 「 」)과 문장 부호(。 , 、)도 원래 모양 그대로 두세요. 다른 언어로 된 문장을 한국어로 옮기지 마세요.',
     '',
     '틀(편집)이 넣은 것은 빼세요:',
     '- 맨 위 "DURU KOREAN · FREE DOWNLOADS" 와 수준·시간 표시 (level 과 minutes 칸에 값만 넣으세요. minutes 는 숫자).',
@@ -288,7 +289,7 @@ export async function run() {
   cfg.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 240000;
   log('새 편집으로 다시 찍기' + (DRY ? ' (연습 — 아무것도 바꾸지 않습니다)' : '') + ' · 읽기: ' + cfg.label + ' / ' + cfg.model);
 
-  const token = await signIn();
+  let token = await signIn();
   let rows = await rest(token, 'resources?select=id,title,category,status,' +
     'resource_files(id,lang,version,published,storage_key,draft_key,page_count)' +
     '&origin=eq.auto&status=neq.rejected&publish_location=eq.free-resources&order=created_at.asc&limit=5000');
@@ -304,6 +305,10 @@ export async function run() {
     for (const r of rows) {
       log('· ' + r.title + ' [' + r.category + ', ' + r.status + ']');
       try {
+        // A session lasts an hour and the whole run does not; a fresh one
+        // for every download (the first full run lost its last thirteen
+        // to "exp claim timestamp check failed").
+        token = await signIn();
         const got = await relayout(token, cfg, browser, r);
         done += got.done; kept += got.kept;
         if (got.done && !DRY && r.status === 'published') {
