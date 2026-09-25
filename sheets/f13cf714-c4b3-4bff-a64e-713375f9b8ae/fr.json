@@ -1,29 +1,25 @@
 {
   "title": "병원 예약 확인·변경 문자 읽기",
-  "keyword": "병원 예약 문자",
-  "summary": "Lisez un SMS réaliste d'un hôpital concernant un rendez-vous afin d'identifier la date et l'heure, le service et le médecin, le lieu, la préparation nécessaire, et comment modifier ou annuler le rendez-vous.",
-  "objective": "À la fin de la leçon, les apprenants pourront lire un SMS d'hôpital et trouver avec précision la date et l'heure du rendez-vous, le service et le médecin, le lieu de la clinique, les éléments à préparer, et la méthode exacte pour modifier ou annuler le rendez-vous.",
-  "level": "Débutant avancé (초급 상)",
+  "keyword": "",
+  "summary": "Lire un SMS réaliste d'un hôpital concernant un rendez-vous afin d'identifier la date/l'heure, le service/le médecin, le lieu, la préparation nécessaire, et comment modifier ou annuler le rendez-vous.",
+  "objective": "À la fin, les apprenants pourront lire un SMS d'hôpital et trouver avec précision la date/l'heure du rendez-vous, le service/médecin, le lieu de la clinique, les éléments à préparer, et la méthode exacte pour modifier ou annuler.",
+  "level": "Débutant (niveau avancé)",
   "minutes": 15,
-  "tags": [
-    "병원",
-    "예약",
-    "문자 읽기"
-  ],
+  "tags": [],
   "task": {
-    "title": "병원 문자 확인하기",
-    "line": "병원에서 온 예약 문자를 읽고 필요한 정보를 찾아 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "예약 날짜와 시간을 그대로 쓰세요.",
-    "진료과와 의사 이름을 쓰세요.",
-    "진료는 몇 층에서 하나요?",
-    "가지고 가야 하는 물건은 무엇인가요?",
-    "예약을 변경하려면, 그리고 취소하려면 이 문자에 각각 어떤 숫자로 답장해야 하나요?"
+    "Répondez en coréen : 예약 날짜와 시간을 그대로 쓰세요.",
+    "Répondez en coréen : 진료과와 의사 이름을 쓰세요.",
+    "Répondez en coréen : 진료는 몇 층에서 하나요?",
+    "Répondez en coréen : 가지고 가야 하는 물건은 무엇인가요?",
+    "Répondez avec des chiffres : 예약을 변경하려면, 그리고 취소하려면 각각 이 문자에 어떤 숫자로 답장해야 하나요?"
   ],
   "answers": [
     "7월 18일(목) 오후 2:30",
-    "내과, 김수진",
+    "내과, 김수진 (또는 내과, 김수진 원장)",
     "3층",
     "신분증",
     "변경: 1, 취소: 2"
@@ -38,16 +34,16 @@
     {
       "korean": "진료과",
       "roman": "jillyogwa",
-      "meaning": "le service médical ou la clinique que l'on consulte",
+      "meaning": "le service médical/la clinique que vous visitez",
       "example": "진료과는 내과입니다.",
-      "exampleMeaning": "Le service est la médecine interne."
+      "exampleMeaning": "Le service est la Médecine interne."
     },
     {
       "korean": "원장",
       "roman": "wonjang",
-      "meaning": "le directeur de la clinique ; le médecin en chef",
-      "example": "오늘 진료는 김수진 원장님이 하십니다.",
-      "exampleMeaning": "La consultation d'aujourd'hui est avec le docteur Kim Sujin (directeur)."
+      "meaning": "médecin-chef ; médecin responsable",
+      "example": "오늘 진료는 김수진 원장이 합니다.",
+      "exampleMeaning": "La consultation d'aujourd'hui est avec le Docteur Kim Sujin, médecin-chef."
     },
     {
       "korean": "지참",
@@ -89,7 +85,7 @@
       "roman": "dapjang",
       "meaning": "réponse (à un SMS/message)",
       "example": "이 문자에 1로 답장해 주세요.",
-      "exampleMeaning": "Veuillez répondre à ce SMS par 1."
+      "exampleMeaning": "Veuillez répondre à ce message par 1."
     }
   ],
   "category": "reading"

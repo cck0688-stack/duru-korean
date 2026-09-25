@@ -1,8 +1,8 @@
 {
   "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
-  "keyword": "단어 첫소리 ㄷ·ㅌ·ㄸ",
-  "summary": "Übe, die koreanischen Anfangskonsonanten ㄷ (einfach), ㅌ (aspiriert) und ㄸ (gespannt) zu unterscheiden und zu lesen. Hilfreiche englische Lautvergleiche werden bereitgestellt, damit Anfänger die Laute zuordnen und einfache Wörter richtig lesen können.",
-  "objective": "Lernende erkennen und sprechen ㄷ (einfach), ㅌ (aspiriert) und ㄸ (gespannt) am Wortanfang aus, verbinden sie mit klaren englischen Hinweisen (ㄷ = leichtes t zwischen d und t, ㅌ ≈ t in „top“, ㄸ ≈ t in „stop“, aber straffer) und lesen einfache Wörter mit diesen Anfangslauten korrekt.",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Übe, die koreanischen Anfangskonsonanten ㄷ (einfach), ㅌ (aspiriert) und ㄸ (angespannt) zu unterscheiden und zu lesen. Hilfreiche englische Lautvergleiche werden bereitgestellt, damit Anfänger die Laute zuordnen und einfache Wörter korrekt lesen können.",
+  "objective": "Die Lernenden erkennen und sprechen ㄷ (einfach), ㅌ (aspiriert) und ㄸ (angespannt) am Wortanfang aus, verbinden sie mit klaren englischen Lautvergleichen (ㄷ ≈ zwischen englischem d und t mit leichtem Luftstoß, ㅌ ≈ t wie in „top“, ㄸ ≈ angespanntes t ohne Luftstoß, ähnlich dem t in „stop“) und lesen einfache Wörter mit diesen Anfangskonsonanten korrekt.",
   "level": "Anfänger",
   "minutes": 15,
   "tags": [],
@@ -11,35 +11,35 @@
     "line": ""
   },
   "exercises": [
-    "각 단어의 첫 자음(초성)을 쓰세요. Schreibe den ersten Konsonanten (Anfangslaut) jedes Wortes: 두부 / 토끼 / 또",
-    "ㄸ(된소리)로 시작하는 말을 고르세요. Wähle das Wort, das mit ㄸ (gespannt) beginnt: 돈 / 토마토 / 떡",
-    "첫소리가 같은 두 단어를 고르세요. Wähle die zwei Wörter, die mit demselben Anfangslaut beginnen: 달 / 두부 / 딸",
-    "ㅌ(거센소리)로 시작하는 말을 고르세요. Wähle das Wort, das mit ㅌ (aspiriert) beginnt: 달 / 타다 / 딸",
-    "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요. Sieh dir die Romanisierung an und schreibe nur den ersten Konsonanten (초성) in Hangeul: tteok"
+    "Wähle das Wort, das mit ㄸ (angespannt) beginnt: 두부 / 토끼 / 또",
+    "Schau dir die Umschrift an und schreibe nur den ersten Konsonanten in Hangul: dubu",
+    "Wähle das Wort, das „Tochter“ bedeutet: 달 / 딸",
+    "Wähle das Wort, das mit ㅌ (aspiriert) beginnt: 달 / 토마토 / 딸",
+    "Schau dir die Umschrift an und schreibe nur den ersten Konsonanten in Hangul: tteok"
   ],
   "answers": [
-    "ㄷ / ㅌ / ㄸ",
-    "떡",
-    "달, 두부",
-    "타다",
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
     "ㄸ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄷ",
-      "sound": "einfaches (entspanntes) t, ein leichter Lufthauch (schwächer als ㅌ), tiefere Tonhöhe",
-      "as": "zwischen dem englischen d und t, weicher als das t in „top“"
+      "sound": "einfaches t, leichter Luftstoß (schwächer als ㅌ)",
+      "as": "zwischen englischem d und t; am Wortanfang klingt es oft wie ein weiches t"
     },
     {
       "letter": "ㅌ",
-      "sound": "aspiriertes t, starker Lufthauch",
+      "sound": "aspiriertes t, starker Luftstoß",
       "as": "wie das t in „top“"
     },
     {
       "letter": "ㄸ",
-      "sound": "gespanntes t, straff und kurz",
-      "as": "nahe am t in „stop“ (ohne Lufthauch), aber straffer"
+      "sound": "angespanntes t, straff und kurz",
+      "as": "angespanntes „tt“ ohne Luftstoß; am ehesten vergleichbar mit dem t in „stop“"
     }
   ],
   "words": [
@@ -97,7 +97,7 @@
       "roman": "tteok",
       "meaning": "Reiskuchen",
       "example": "떡이 맛있어요.",
-      "exampleMeaning": "Der Reiskuchen ist lecker."
+      "exampleMeaning": "Reiskuchen ist lecker."
     },
     {
       "korean": "또",

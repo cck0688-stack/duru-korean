@@ -1,18 +1,36 @@
 {
+  "title": "약국에서 증상 말하고 약 사기",
+  "keyword": "약국에서 증상 말하고 약 사기",
+  "summary": "Percakapan singkat dan realistis di sebuah apotek Korea. Seorang pelanggan tanpa resep menjelaskan sakit kepala, demam, dan pilek, menjawab pertanyaan apoteker, dan mendapat petunjuk cara minum obat flu.",
+  "objective": "Pada akhirnya, pelajar dapat membeli obat bebas di apotek Korea: menyebutkan satu gejala dengan '머리가 아파요 / 콧물이 나요 / 열이 나요', menjawab pertanyaan apoteker (처방전 있으세요? 언제부터요? 알레르기 있으세요?), dan memahami petunjuk dosis '하루 세 번, 식후 30분에 드세요'.",
+  "level": "Pemula (tinggi)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "약국에서 약 사기",
+    "line": "Kamu demam dan pilek sejak kemarin. Sampaikan gejalamu kepada apoteker, jawab pertanyaan mereka, dan ulangi cara minum obatnya."
+  },
+  "exercises": [
+    "Apoteker bertanya: '처방전 있으세요?' Kamu tidak punya resep. Jawablah dalam bahasa Korea.",
+    "Apoteker bertanya: '언제부터 아프셨어요?' Kamu mulai merasa sakit pagi ini (오늘 아침). Jawablah dalam bahasa Korea.",
+    "Apoteker bertanya: '알레르기 있으세요?' Kamu alergi terhadap aspirin (아스피린). Jawablah dalam bahasa Korea.",
+    "Apoteker berkata: '하루 세 번, 식후 30분에 드세요.' Dalam bahasa Inggris, berapa kali sehari kamu harus minum obat ini, dan kapan?",
+    "Apoteker bertanya: '어디가 아파서 오셨어요?' Kamu sakit kepala dan pilek. Jawablah dalam bahasa Korea."
+  ],
   "answers": [
-    "나요",
-    "아파요",
     "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
     "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
-    "Tiga kali sehari, 30 menit setelah setiap makan."
+    "Tiga kali sehari, 30 menit setelah setiap makan.",
+    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
   ],
   "checkThese": [],
+  "setting": "Sebuah apotek kecil di lingkungan (동네 약국) di Korea pada suatu sore hari kerja. Pelanggan sedang flu tetapi tidak pergi ke dokter, jadi tidak punya resep. Mereka berbicara dengan apoteker di meja kasir.",
   "dialogue": [
     {
       "who": "약사",
       "korean": "어서 오세요. 어디가 아파서 오셨어요?",
-      "meaning": "Selamat datang. Ada keluhan apa? (Di mana yang sakit?)"
+      "meaning": "Selamat datang. Ada keluhan apa? (Di bagian mana yang sakit?)"
     },
     {
       "who": "손님",
@@ -60,23 +78,6 @@
       "meaning": "Baik, saya mengerti. Terima kasih."
     }
   ],
-  "exercises": [
-    "Pilih kata yang tepat untuk melengkapi kalimat: 콧물이 ( 아파요 / 나요 ).",
-    "Pilih kata yang tepat untuk melengkapi kalimat: 머리가 ( 아파요 / 나요 ).",
-    "Apoteker bertanya: '처방전 있으세요?' Anda tidak memilikinya. Jawablah dalam bahasa Korea.",
-    "Apoteker bertanya: '언제부터 아프셨어요?' Anda mulai merasa sakit sejak pagi ini (오늘 아침). Jawablah dalam bahasa Korea.",
-    "Apoteker bertanya: '알레르기 있으세요?' Anda alergi terhadap aspirin (아스피린). Jawablah dalam bahasa Korea.",
-    "Apoteker berkata: '하루 세 번, 식후 30분에 드세요.' Dalam bahasa Indonesia, berapa kali sehari Anda harus meminum obat ini, dan kapan?"
-  ],
-  "keyword": "약국에서 증상 말하고 약 사기",
-  "level": "Pemula (tingkat atas)",
-  "minutes": 20,
-  "objective": "Pada akhirnya, pembelajar dapat membeli obat bebas di apotek Korea: menyebutkan satu gejala dengan '머리가 아파요 / 콧물이 나요 / 열이 나요', menjawab pertanyaan apoteker (처방전 있으세요? 언제부터요? 알레르기 있으세요?), dan memahami petunjuk dosis '하루 세 번, 식후 30분에 드세요'.",
-  "setting": "Sebuah apotek kecil di lingkungan sekitar (동네 약국) di Korea pada suatu sore hari kerja. Pelanggan sedang flu tetapi tidak pergi ke dokter, sehingga tidak memiliki resep. Mereka berbicara dengan apoteker di meja kasir.",
-  "summary": "Percakapan singkat yang realistis di apotek Korea. Seorang pelanggan tanpa resep menjelaskan sakit kepala, demam, dan hidung meler, menjawab pertanyaan apoteker, dan mendapatkan petunjuk cara meminum obat flu.",
-  "tags": [],
-  "task": null,
-  "title": "약국에서 증상 말하고 약 사기",
   "words": [
     {
       "korean": "머리",
@@ -90,28 +91,28 @@
       "roman": "yeori nada",
       "meaning": "demam",
       "example": "아이가 밤에 열이 났어요.",
-      "exampleMeaning": "Anak saya demam tadi malam."
+      "exampleMeaning": "Anakku demam semalam."
     },
     {
       "korean": "콧물",
       "roman": "konmul",
-      "meaning": "hidung meler",
+      "meaning": "pilek / ingus",
       "example": "콧물이 계속 나요.",
-      "exampleMeaning": "Hidung saya terus meler."
+      "exampleMeaning": "Hidungku terus meler."
     },
     {
       "korean": "처방전",
       "roman": "cheobangjeon",
       "meaning": "resep (dari dokter)",
       "example": "처방전 없이 살 수 있어요?",
-      "exampleMeaning": "Apakah saya bisa membeli ini tanpa resep?"
+      "exampleMeaning": "Bisakah saya membeli ini tanpa resep?"
     },
     {
       "korean": "언제부터",
       "roman": "eonjebuteo",
       "meaning": "sejak kapan",
       "example": "언제부터 목이 아팠어요?",
-      "exampleMeaning": "Sejak kapan tenggorokan Anda sakit?"
+      "exampleMeaning": "Sejak kapan tenggorokanmu sakit?"
     },
     {
       "korean": "알레르기",
@@ -119,13 +120,6 @@
       "meaning": "alergi",
       "example": "저는 땅콩 알레르기가 있어요.",
       "exampleMeaning": "Saya alergi kacang."
-    },
-    {
-      "korean": "감기약",
-      "roman": "gamgiyak",
-      "meaning": "obat flu",
-      "example": "감기약 좀 주세요.",
-      "exampleMeaning": "Tolong berikan obat flu."
     },
     {
       "korean": "하루",

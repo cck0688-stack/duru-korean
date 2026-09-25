@@ -1,29 +1,25 @@
 {
   "title": "병원 예약 확인·변경 문자 읽기",
-  "keyword": "병원 예약 문자",
-  "summary": "Membaca SMS rumah sakit yang realistis tentang janji temu untuk mengetahui tanggal/waktu, departemen/dokter, lokasi, persiapan, dan cara mengubah atau membatalkan.",
-  "objective": "Pada akhirnya, pelajar dapat membaca SMS rumah sakit dan menemukan dengan tepat tanggal/waktu janji temu, departemen/dokter, lokasi klinik, barang yang perlu disiapkan, serta cara pasti untuk mengubah atau membatalkan.",
-  "level": "Pemula Tingkat Atas (초급 상)",
+  "keyword": "",
+  "summary": "Membaca SMS rumah sakit yang realistis tentang janji temu untuk mengenali tanggal/waktu, departemen/dokter, lokasi, persiapan, dan cara mengubah atau membatalkan.",
+  "objective": "Pada akhirnya, pembelajar dapat membaca SMS rumah sakit dan menemukan dengan tepat tanggal/waktu janji temu, departemen/dokter, lokasi klinik, barang yang perlu disiapkan, serta cara pasti untuk mengubah atau membatalkan.",
+  "level": "Pemula (tingkat atas)",
   "minutes": 15,
-  "tags": [
-    "병원",
-    "예약",
-    "문자 읽기"
-  ],
+  "tags": [],
   "task": {
-    "title": "병원 문자 확인하기",
-    "line": "병원에서 온 예약 문자를 읽고 필요한 정보를 찾아 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "예약 날짜와 시간을 그대로 쓰세요.",
-    "진료과와 의사 이름을 쓰세요.",
-    "진료는 몇 층에서 하나요?",
-    "가지고 가야 하는 물건은 무엇인가요?",
-    "예약을 변경하려면, 그리고 취소하려면 이 문자에 각각 어떤 숫자로 답장해야 하나요?"
+    "Jawab dalam bahasa Korea: 예약 날짜와 시간을 그대로 쓰세요.",
+    "Jawab dalam bahasa Korea: 진료과와 의사 이름을 쓰세요.",
+    "Jawab dalam bahasa Korea: 진료는 몇 층에서 하나요?",
+    "Jawab dalam bahasa Korea: 가지고 가야 하는 물건은 무엇인가요?",
+    "Jawab dengan angka: 예약을 변경하려면, 그리고 취소하려면 각각 이 문자에 어떤 숫자로 답장해야 하나요?"
   ],
   "answers": [
     "7월 18일(목) 오후 2:30",
-    "내과, 김수진",
+    "내과, 김수진 (또는 내과, 김수진 원장)",
     "3층",
     "신분증",
     "변경: 1, 취소: 2"
@@ -40,33 +36,33 @@
       "roman": "jillyogwa",
       "meaning": "departemen medis/klinik yang Anda kunjungi",
       "example": "진료과는 내과입니다.",
-      "exampleMeaning": "Departemennya adalah Penyakit Dalam (Internal Medicine)."
+      "exampleMeaning": "Departemennya adalah Penyakit Dalam."
     },
     {
       "korean": "원장",
       "roman": "wonjang",
       "meaning": "direktur klinik; dokter kepala",
-      "example": "오늘 진료는 김수진 원장님이 하십니다.",
-      "exampleMeaning": "Konsultasi hari ini dengan Direktur Kim Sujin."
+      "example": "오늘 진료는 김수진 원장이 합니다.",
+      "exampleMeaning": "Konsultasi hari ini bersama Direktur Kim Sujin."
     },
     {
       "korean": "지참",
       "roman": "jicham",
-      "meaning": "membawa sesuatu; membawa (barang yang diperlukan)",
+      "meaning": "membawa sesuatu (barang yang wajib dibawa)",
       "example": "신분증을 지참해 주세요.",
-      "exampleMeaning": "Mohon bawa kartu identitas Anda."
+      "exampleMeaning": "Mohon membawa kartu identitas Anda."
     },
     {
       "korean": "링크",
       "roman": "ringkeu",
       "meaning": "tautan (URL)",
       "example": "링크를 눌러 예약을 바꿨어요.",
-      "exampleMeaning": "Saya mengubah janji temu dengan mengklik tautan."
+      "exampleMeaning": "Saya mengubah janji temu dengan mengklik tautan tersebut."
     },
     {
       "korean": "변경",
       "roman": "byeongyeong",
-      "meaning": "mengubah (memodifikasi sesuatu yang sudah ditetapkan)",
+      "meaning": "mengubah (memodifikasi sesuatu yang sudah ditentukan)",
       "example": "시간 변경을 원합니다.",
       "exampleMeaning": "Saya ingin mengubah waktunya."
     },
@@ -87,7 +83,7 @@
     {
       "korean": "답장",
       "roman": "dapjang",
-      "meaning": "balasan (untuk SMS/pesan)",
+      "meaning": "membalas (pesan/SMS)",
       "example": "이 문자에 1로 답장해 주세요.",
       "exampleMeaning": "Mohon balas SMS ini dengan angka 1."
     }

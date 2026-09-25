@@ -1,44 +1,44 @@
 {
   "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
-  "keyword": "받침",
-  "summary": "Übe das Lesen und Aussprechen der Endkonsonanten ㅇ, ㄴ, ㅁ. Verbinde sie mit ähnlichen englischen Endungen (-ng, -n, -m) und lies einfache Wörter, die diese Batchim enthalten.",
-  "objective": "Die Lernenden unterscheiden die Endlaute ㅇ, ㄴ, ㅁ nach ihrem Klang, verbinden sie mit ähnlichen englischen Endungen (-ng, -n, -m) für eine korrekte Aussprache und lesen einfache Wörter, die diese Batchim enthalten.",
-  "level": "Anfänger (A1)",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
+  "summary": "Übe das Lesen und Aussprechen der Endkonsonanten ㅇ, ㄴ, ㅁ. Verknüpfe sie mit ähnlichen englischen Endungen (-ng, -n, -m) und lies einfache Wörter, die diese Batchim enthalten.",
+  "objective": "Die Lernenden unterscheiden die Endkonsonanten ㅇ, ㄴ, ㅁ anhand des Klangs, verbinden sie zur korrekten Aussprache mit ähnlichen englischen Endungen (-ng, -n, -m) und lesen einfache Wörter, die diese Batchim enthalten.",
+  "level": "Anfänger",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "받침 소리 구별하기",
-    "line": "Lies jedes Wort laut vor und ordne es nach seinem Endlaut: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
-    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
-    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)",
-    "뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜",
-    "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+    "Wähle das Wort, dessen Endlaut [-ng] ist: 방 / 반 / 밤",
+    "Schreibe die Endung im englischen Stil (-ng/-n/-m) in jede Lücke: 손(__) 방(__) 봄(__)",
+    "Sortiere diese Wörter nach ihrem Endlaut (ㅇ/ㄴ/ㅁ): 공 / 눈 / 산 / 봄",
+    "Wähle das Wort, das der Bedeutung entspricht: „Hand“ → 손 / 송 / 솜",
+    "Fülle die Lücke mit dem richtigen Endkonsonanten (ㅇ/ㄴ/ㅁ): 이르_ (Bedeutung: Name)"
   ],
   "answers": [
     "방",
     "손(-n), 방(-ng), 봄(-m)",
-    "ㅇ, ㄴ, ㅁ",
+    "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄",
     "손",
-    "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+    "ㅁ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅇ",
-      "sound": "ng (끝소리)",
+      "sound": "ng (Endlaut)",
       "as": "wie die englische Endung -ng (sing)"
     },
     {
       "letter": "ㄴ",
-      "sound": "n (끝소리)",
+      "sound": "n (Endlaut)",
       "as": "wie die englische Endung -n (sun)"
     },
     {
       "letter": "ㅁ",
-      "sound": "m (끝소리)",
+      "sound": "m (Endlaut)",
       "as": "wie die englische Endung -m (gum)"
     }
   ],
@@ -83,14 +83,14 @@
       "roman": "san",
       "meaning": "Berg",
       "example": "산에 가요.",
-      "exampleMeaning": "Ich gehe auf den Berg."
+      "exampleMeaning": "Ich gehe zum Berg."
     },
     {
       "korean": "밤",
       "roman": "bam",
-      "meaning": "Nacht (auch: Kastanie)",
+      "meaning": "Nacht (auch Kastanie)",
       "example": "밤에 자요.",
-      "exampleMeaning": "Ich schlafe nachts."
+      "exampleMeaning": "Ich schlafe in der Nacht."
     },
     {
       "korean": "봄",
@@ -104,7 +104,7 @@
       "roman": "ireum",
       "meaning": "Name",
       "example": "이름이 뭐예요?",
-      "exampleMeaning": "Wie heißt du?"
+      "exampleMeaning": "Wie heißt du? (Wie ist dein Name?)"
     }
   ],
   "category": "hangul"

@@ -1,9 +1,9 @@
 {
   "title": "모음 ㅓ·ㅗ·ㅜ 연습",
   "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
-  "summary": "Latihan singkat untuk mengenali dan melafalkan vokal bahasa Korea ㅓ, ㅗ, dan ㅜ. Menampilkan tiga kata sederhana untuk masing-masing vokal serta contoh kalimat singkat.",
-  "objective": "Pelajar akan dapat mengenali dan melafalkan dengan benar vokal bahasa Korea ㅓ, ㅗ, dan ㅜ dalam kata-kata sederhana.",
-  "level": "초급 (A1)",
+  "summary": "Latihan singkat untuk mengenali vokal Korea ㅓ, ㅗ, dan ㅜ. Menampilkan tiga kata sederhana untuk setiap vokal beserta contoh kalimat singkat.",
+  "objective": "Peserta didik akan dapat mengenali vokal Korea ㅓ, ㅗ, dan ㅜ dalam kata-kata sederhana.",
+  "level": "Pemula",
   "minutes": 10,
   "tags": [],
   "task": {
@@ -12,36 +12,36 @@
   },
   "exercises": [
     "Vokal apa yang ada pada suku kata '서'? (Tulis ㅓ, ㅗ, atau ㅜ)",
-    "Baca dengan suara keras: 거기 / 고기. Tuliskan vokal pada suku kata pertama dari masing-masing kata. Untuk kata yang mana bibirmu membulat?",
-    "Baca dengan suara keras: 소 / 수. Kedua vokal membuat bibir membulat. Untuk yang mana mulutmu lebih tertutup?",
+    "Vokal apa yang muncul pada kata '포도'? (Tulis ㅓ, ㅗ, atau ㅜ)",
+    "Vokal apa (ㅓ, ㅗ, atau ㅜ) yang muncul pada kata '우유'?",
     "Cocokkan kata-kata berikut dengan vokal (ㅓ, ㅗ, atau ㅜ) yang terkandung di dalamnya (tulis tiga simbol secara berurutan): 엄마 / 오이 / 수박",
-    "Dalam pasangan minimal '서 / 소 / 수', suku kata mana yang mengandung ㅜ?",
-    "Kelompokkan kata-kata berikut ke dalam kelompok ㅓ, ㅗ, dan ㅜ berdasarkan vokal pada suku kata pertamanya: 먹다, 주다, 고기, 서점, 포도, 우유"
+    "Dalam kumpulan minimal '서 / 소 / 수', suku kata mana yang mengandung ㅜ?",
+    "Perhatikan suku kata pertama dari setiap kata dan tuliskan vokalnya: 먹다, 고기, 주다"
   ],
   "answers": [
     "ㅓ",
-    "거기: ㅓ / 고기: ㅗ — you round your lips for 고기",
-    "수 (ㅜ)",
+    "ㅗ",
+    "ㅜ",
     "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
     "수",
-    "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅓ",
       "sound": "mendekati 'eo' (vokal tengah-terbuka)",
-      "as": "seperti 'uh' pada kata bahasa Inggris 'cup' (perkiraan)"
+      "as": "seperti 'uh' pada kata Inggris 'cup' (kira-kira)"
     },
     {
       "letter": "ㅗ",
       "sound": "mendekati 'o' (vokal belakang bulat)",
-      "as": "seperti 'o' pada kata bahasa Inggris 'go' (perkiraan)"
+      "as": "seperti 'o' pada kata Inggris 'go' (kira-kira)"
     },
     {
       "letter": "ㅜ",
       "sound": "mendekati 'u' (vokal belakang bulat)",
-      "as": "seperti 'oo' pada kata bahasa Inggris 'food' (perkiraan)"
+      "as": "seperti 'oo' pada kata Inggris 'food' (kira-kira)"
     }
   ],
   "words": [
@@ -70,8 +70,8 @@
       "korean": "오이",
       "roman": "oi",
       "meaning": "mentimun",
-      "example": "오이가 맛있어요.",
-      "exampleMeaning": "Mentimunnya enak."
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "Mentimunnya segar."
     },
     {
       "korean": "포도",
@@ -98,15 +98,15 @@
       "korean": "수박",
       "roman": "subak",
       "meaning": "semangka",
-      "example": "수박이 커요.",
-      "exampleMeaning": "Semangkanya besar."
+      "example": "수박이 달아요.",
+      "exampleMeaning": "Semangkanya manis."
     },
     {
       "korean": "주다",
       "roman": "juda",
       "meaning": "memberi",
-      "example": "선물을 줘요.",
-      "exampleMeaning": "Saya memberi hadiah."
+      "example": "선물을 주세요.",
+      "exampleMeaning": "Tolong berikan saya hadiah."
     }
   ],
   "category": "hangul"

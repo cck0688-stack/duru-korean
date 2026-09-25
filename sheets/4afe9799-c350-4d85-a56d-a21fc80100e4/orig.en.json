@@ -1,4 +1,19 @@
 {
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "keyword": "받침",
+  "summary": "Practice reading and producing unreleased final stops for batchim ㄱ/ㄷ/ㅂ. Learners link each to similar English word-final sounds (back/bat/cap) but with no release, then read and choose simple words that contain these batchim.",
+  "objective": "Beginner learners will produce unreleased final stops [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ; connect them to similar English endings (“back/bat/cap” with no release); and accurately read and select simple Korean words that contain these batchim.",
+  "level": "Beginner",
+  "minutes": 15,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "끝소리 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
+    "아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p)",
+    "영어 끝소리와 가장 가까운 것은? 집 (back / bat / cap)",
+    "로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk)",
+    "문장에서 밑줄 친 낱말의 끝소리를 고르세요: 밥 주세요. → 밥 (k / t / p)"
+  ],
   "answers": [
     "국",
     "t",
@@ -7,14 +22,6 @@
     "p"
   ],
   "checkThese": [],
-  "exercises": [
-    "끝소리 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
-    "아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p)",
-    "영어 끝소리와 가장 가까운 것은? 집 (back / bat / cap)",
-    "로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk)",
-    "문장에서 밑줄 친 낱말의 끝소리를 고르세요: 밥 주세요. → 밥 (k / t / p)"
-  ],
-  "keyword": "받침 ㄱ·ㄷ·ㅂ",
   "letters": [
     {
       "letter": "ㄱ",
@@ -32,13 +39,6 @@
       "as": "like the end of “cap” (stop; no release)"
     }
   ],
-  "level": "Beginner",
-  "minutes": 15,
-  "objective": "Beginner learners will produce unreleased final stops [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ; connect them to similar English endings (“back/bat/cap” with no release); and accurately read and select simple Korean words that contain these batchim.",
-  "summary": "Practice reading and producing unreleased final stops for batchim ㄱ/ㄷ/ㅂ. Learners link each to similar English word-final sounds (back/bat/cap) but with no release, then read and choose simple words that contain these batchim.",
-  "tags": [],
-  "task": null,
-  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
   "words": [
     {
       "korean": "국",

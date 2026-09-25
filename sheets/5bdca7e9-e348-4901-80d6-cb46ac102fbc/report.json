@@ -21,22 +21,24 @@
     {
       "round": 1,
       "mechanical": [],
-      "review": [
-        "학습 목표와 연습 문제가 맞지 않음: objective에는 '-아서/어서를 명령·제안 앞에 쓴 문장 고치기'가 있는데, 고치기 문제는 6번 하나뿐이고 이 문제는 과거 시제(-았/었어서) 오류만 다룸. 명령·제안 앞 -아서/어서 오류를 고치는 문제를 추가해야 함. 예: '틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 비가 와서 우산을 가져가세요.' → 정답 '비가 오니까 우산을 가져가세요.'",
-        "4번 지시문 '-아서/어서 계열의 명사 형태를 쓰세요'는 자연스러운 한국어 지시문이 아니고 무엇을 쓰라는 것인지 불분명함. '빈칸에 명사 + -(이)라서 형태를 쓰세요'로 고칠 것. 또는 지시문을 다른 문제처럼 '알맞은 형태'로 바꾼다면 '휴가니까'도 정답에 함께 넣어야 함."
-      ],
-      "audit": []
-    },
-    {
-      "round": 2,
-      "mechanical": [],
       "review": [],
       "audit": [
-        "answers[3] (4번 정답): 휴가라서 (휴가여서) → 휴가라서"
+        "exercises[0]: 빈칸에 알맞은 형태를 쓰세요: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요? → Fill in the blank with the correct form: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+        "exercises[1]: 빈칸에 알맞은 형태를 쓰세요: 선물을 (주다) ____ 고마워요. → Fill in the blank with the correct form: 선물을 (주다) ____ 고마워요.",
+        "exercises[2]: 빈칸에 알맞은 형태를 쓰세요: 밖이 (덥다) ____ 안에 있읍시다. → Fill in the blank with the correct form: 밖이 (덥다) ____ 안에 있읍시다.",
+        "exercises[3]: 빈칸에 -아서/어서 계열의 명사 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요. → Fill in the blank with the noun form of -아서/어서: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+        "exercises[4]: 빈칸에 알맞은 형태를 쓰세요: 내일은 (휴일) ____ 같이 영화 볼까요? → Fill in the blank with the correct form: 내일은 (휴일) ____ 같이 영화 볼까요?",
+        "exercises[5]: 틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 어제 잠을 못 잤어서 오늘 너무 피곤해요. → Find the mistake and rewrite the whole sentence correctly: 어제 잠을 못 잤어서 오늘 너무 피곤해요.",
+        "forms[0].form: V/A + 아서 (어간 끝 모음이 ㅏ, ㅗ) → V/A + 아서 (stem's last vowel is ㅏ or ㅗ)",
+        "forms[1].form: V/A + 어서 (그 밖의 모음) → V/A + 어서 (any other last vowel)",
+        "forms[4].form: V/A + 니까 (모음 어간, ㄹ 어간) → V/A + 니까 (vowel stem or ㄹ stem)",
+        "forms[5].form: V/A + 으니까 (받침 있는 어간) → V/A + 으니까 (stem ending in a consonant)",
+        "watchOut[5]: Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O), 의사이라서 (X) → 의사라서 (O). 니까 works the same way: 이니까 after a consonant, 니까 after a vowel. → Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O). After a vowel, 라서 is the usual form: 의사라서. 니까 works the same way: 이니까 after a consonant, 니까 after a vowel.",
+        "watchOutMark[5]: [\"학생라서\", \"학생이라서\", \"의사이라서\", \"의사라서\"] → [\"학생라서\", \"학생이라서\"]"
       ]
     },
     {
-      "round": 3,
+      "round": 2,
       "mechanical": [],
       "review": [],
       "audit": []
@@ -44,54 +46,118 @@
   ],
   "fixes": [
     {
-      "at": "answers[4]",
-      "before": "휴가라서 (휴가여서)",
-      "after": "휴가라서"
+      "at": "exercises[1]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+      "after": "Fill in the blank with the correct form: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 선물을 (주다) ____ 고마워요.",
+      "after": "Fill in the blank with the correct form: 선물을 (주다) ____ 고마워요."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 밖이 (덥다) ____ 안에 있읍시다.",
+      "after": "Fill in the blank with the correct form: 밖이 (덥다) ____ 안에 있읍시다."
     },
     {
       "at": "exercises[4]",
       "before": "빈칸에 -아서/어서 계열의 명사 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
-      "after": "빈칸에 명사 + -(이)라서 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요."
+      "after": "Fill in the blank with the noun form of -아서/어서: 다들 (휴가) ____ 사무실에 사람이 별로 없어요."
     },
     {
-      "at": "objective",
-      "before": "Choose between -아서/어서 and -(으)니까 for a reason clause, build the correct form (including nouns and ㄹ/ㅂ irregular stems), and fix sentences that use -아서/어서 before a command/suggestion or with a past-tense marker.",
-      "after": "Choose between -아서/어서 and -(으)니까 for a reason clause (including before a command/suggestion), build the correct form (including nouns and ㄹ/ㅂ irregular stems), and fix sentences that use a past-tense marker before -아서/어서."
+      "at": "exercises[5]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 내일은 (휴일) ____ 같이 영화 볼까요?",
+      "after": "Fill in the blank with the correct form: 내일은 (휴일) ____ 같이 영화 볼까요?"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 어제 잠을 못 잤어서 오늘 너무 피곤해요.",
+      "after": "Find the mistake and rewrite the whole sentence correctly: 어제 잠을 못 잤어서 오늘 너무 피곤해요."
+    },
+    {
+      "at": "forms[1].form",
+      "before": "V/A + 아서 (어간 끝 모음이 ㅏ, ㅗ)",
+      "after": "V/A + 아서 (stem's last vowel is ㅏ or ㅗ)"
+    },
+    {
+      "at": "forms[2].form",
+      "before": "V/A + 어서 (그 밖의 모음)",
+      "after": "V/A + 어서 (any other last vowel)"
+    },
+    {
+      "at": "forms[5].form",
+      "before": "V/A + 니까 (모음 어간, ㄹ 어간)",
+      "after": "V/A + 니까 (vowel stem or ㄹ stem)"
+    },
+    {
+      "at": "forms[6].form",
+      "before": "V/A + 으니까 (받침 있는 어간)",
+      "after": "V/A + 으니까 (stem ending in a consonant)"
+    },
+    {
+      "at": "level",
+      "before": "Beginner-high (초급 후반)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "watchOut[6]",
+      "before": "Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O), 의사이라서 (X) → 의사라서 (O). 니까 works the same way: 이니까 after a consonant, 니까 after a vowel.",
+      "after": "Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O). After a vowel, 라서 is the usual form: 의사라서. 니까 works the same way: 이니까 after a consonant, 니까 after a vowel."
+    },
+    {
+      "at": "watchOutMark[6][3]",
+      "before": "의사이라서",
+      "after": ""
+    },
+    {
+      "at": "watchOutMark[6][4]",
+      "before": "의사라서",
+      "after": ""
     }
   ],
+  "shortened": [],
   "translations": {
     "es": {
       "lang": "es",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": [
         {
-          "line": 3,
-          "problem": "\"forma la forma correcta\" repeats the same word as a verb and then a noun, which sounds unnatural in Spanish; \"build\" should be \"construye\".",
-          "fix": "Elige entre -아서/어서 y -(으)니까 para una cláusula de razón (incluso antes de una orden/sugerencia), construye la forma correcta (incluyendo sustantivos y raíces irregulares en ㄹ/ㅂ), y corrige oraciones que usan un marcador de pasado antes de -아서/어서."
+          "line": 41,
+          "problem": "\"forma sustantiva de -아서/어서\" suggests a nominalized form of the ending; the English \"noun form\" means the form of -아서/어서 used after nouns (이라서/라서).",
+          "fix": "Completa el espacio en blanco con la forma de -아서/어서 para sustantivos: 다들 (휴가) ____ 사무실에 사람이 별로 없어요."
         }
       ]
     },
-    "id": {
-      "lang": "id",
-      "tries": 2,
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
-    "vi": {
-      "lang": "vi",
-      "tries": 3,
-      "lost": [
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 명사",
-        "라서 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 34,
+          "problem": "\"berkata dasar ㄹ\" is unnatural Indonesian (\"berkata\" normally means \"to say\"). It also says the stem is ㄹ, not that the stem ends in ㄹ.",
+          "fix": "Kata kerja dan kata sifat yang kata dasarnya berakhiran ㄹ menghilangkan ㄹ sebelum 니까, dan tidak ditambahkan 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Dengan -아서/어서, ㄹ tetap dipakai: 멀어서, 알아서"
+        },
+        {
+          "line": 35,
+          "problem": "\"berkata dasar ㅂ\" is unnatural Indonesian. It also says the stem is ㅂ, not that the stem ends in ㅂ.",
+          "fix": "Sebagian besar kata sifat yang kata dasarnya berakhiran ㅂ mengubah ㅂ menjadi 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "ko": {
       "lang": "ko",
@@ -99,83 +165,39 @@
       "lost": [],
       "fixes": []
     },
-    "pt-BR": {
-      "lang": "pt-BR",
-      "tries": 3,
-      "lost": [],
-      "fixes": []
-    },
     "zh": {
       "lang": "zh",
-      "tries": 3,
-      "lost": [
-        "어간 끝 모음이 ㅏ",
-        "그 밖의 모음",
-        "이라서 / 라서",
-        "모음 어간",
-        "ㄹ 어간",
-        "받침 있는 어간",
-        "이니까 / 니까",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 명사",
-        "라서 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Beginner (high)\" means the upper part of the beginner level, but the translation says 中高级 (upper-intermediate), which is a different level.",
+          "fix": "初级（高）"
+        }
+      ]
     },
     "ja": {
       "lang": "ja",
-      "tries": 3,
-      "lost": [
-        "이라서 / 라서",
-        "이니까 / 니까",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "빈칸에 명사",
-        "라서 형태를 쓰세요",
-        "빈칸에 알맞은 형태를 쓰세요",
-        "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 2,
+      "lost": [],
+      "fixes": []
     },
     "fr": {
       "lang": "fr",
-      "tries": 3,
-      "lost": [
-        "어간 끝 모음이 ㅏ",
-        "그 밖의 모음",
-        "모음 어간",
-        "ㄹ 어간",
-        "받침 있는 어간"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "de": {
       "lang": "de",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": [
         {
           "line": 3,
-          "problem": "\"Grundsatz\" means \"principle\", not \"reason clause\"; wrong term.",
-          "fix": "Wähle zwischen -아서/어서 und -(으)니까 für einen Begründungssatz (auch vor einem Befehl/Vorschlag), bilde die richtige Form (einschließlich Nomen und ㄹ/ㅂ-unregelmäßiger Stämme) und korrigiere Sätze, in denen ein Vergangenheitsmarker vor -아서/어서 verwendet wird."
-        },
-        {
-          "line": 27,
-          "problem": "The causal \"so\" is dropped. The two clauses are just placed side by side (a comma splice with a question), so the reason link the example is meant to show is lost.",
-          "fix": "Gerade sind viele Leute hier, sollen wir also ein anderes Mal wiederkommen?"
-        },
-        {
-          "line": 31,
-          "problem": "The causal \"so\" is dropped, so the sentence no longer shows the reason connection that is being taught.",
-          "fix": "Ich bin gerade in einer Besprechung, deshalb ruf bitte später an."
+          "problem": "\"reason clause\" is translated as \"Grundsatz\", which means \"principle\" in German, not a clause giving a reason. The right grammar term is \"Kausalsatz\" (or \"Begründungssatz\").",
+          "fix": "Wähle zwischen -아서/어서 und -(으)니까 für einen Kausalsatz, bilde die richtige Form (einschließlich Nomen und unregelmäßiger ㄹ/ㅂ-Stämme) und korrigiere Sätze, in denen -아서/어서 vor einem Befehl/Vorschlag oder mit einem Vergangenheitsmarker verwendet wird."
         }
       ]
     }
@@ -191,22 +213,22 @@
       "ok": true,
       "why": []
     },
-    "id": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
     "vi": {
       "pages": 2,
       "ok": true,
       "why": []
     },
-    "ko": {
-      "pages": 2,
+    "id": {
+      "pages": 3,
       "ok": true,
       "why": []
     },
     "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -232,5 +254,5 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T12:09:27.137Z"
+  "preparedAt": "2026-09-25T15:33:20.299Z"
 }

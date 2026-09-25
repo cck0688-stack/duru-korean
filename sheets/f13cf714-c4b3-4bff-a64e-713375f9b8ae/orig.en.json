@@ -1,4 +1,19 @@
 {
+  "title": "병원 예약 확인·변경 문자 읽기",
+  "keyword": "",
+  "summary": "Read a realistic hospital SMS about an appointment to identify date/time, department/doctor, location, preparation, and how to change or cancel.",
+  "objective": "By the end, learners can read a hospital SMS and accurately find the appointment date/time, department/doctor, clinic location, preparation items, and the exact method to change or cancel.",
+  "level": "Beginner High (초급 상)",
+  "minutes": 15,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "예약 날짜와 시간을 그대로 쓰세요.",
+    "진료과와 의사 이름을 쓰세요.",
+    "진료는 몇 층에서 하나요?",
+    "가지고 가야 하는 물건은 무엇인가요?",
+    "예약을 변경하려면, 이 문자에 어떤 숫자로 답장해야 하나요?"
+  ],
   "answers": [
     "7월 18일(목) 오후 2:30",
     "내과, 김수진",
@@ -7,26 +22,11 @@
     "1"
   ],
   "checkThese": [],
-  "exercises": [
-    "예약 날짜와 시간을 그대로 쓰세요.",
-    "진료과와 의사 이름을 쓰세요.",
-    "진료는 몇 층에서 하나요?",
-    "가지고 가야 하는 물건은 무엇인가요?",
-    "예약을 변경하려면, 이 문자에 어떤 숫자로 답장해야 하나요?"
-  ],
-  "keyword": "",
-  "level": "Beginner High (초급 상)",
-  "minutes": 15,
-  "objective": "By the end, learners can read a hospital SMS and accurately find the appointment date/time, department/doctor, clinic location, preparation items, and the exact method to change or cancel.",
   "passage": [
     "[한마음내과] 홍민수 님, 예약이 확인되었습니다. 오시는 날짜와 시간: 7월 18일(목) 오후 2:30. 진료과: 내과, 의사: 김수진 원장. 진료는 3층에서 합니다. 주소: 서울 마포구 ○○로 12.",
     "준비 안내: 신분증을 꼭 가져오세요. 10분 일찍 도착해 주세요.",
     "예약 변경·취소: 변경은 이 문자에 1로 답장해 주세요. 취소는 2로 답장해 주세요. 또는 아래 링크에서 직접 하실 수 있습니다: hmhosp.kr/apt"
   ],
-  "summary": "Read a realistic hospital SMS about an appointment to identify date/time, department/doctor, location, preparation, and how to change or cancel.",
-  "tags": [],
-  "task": null,
-  "title": "병원 예약 확인·변경 문자 읽기",
   "words": [
     {
       "korean": "진료과",

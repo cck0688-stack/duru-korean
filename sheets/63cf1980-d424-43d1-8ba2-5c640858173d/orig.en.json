@@ -1,20 +1,4 @@
 {
-  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
-  "keyword": "ㅈ·ㅊ·ㅉ",
-  "summary": "Learn how ㅈ, ㅊ and ㅉ sound at the start of a word. They differ in breath and tension. Use them to pick the right verb in sets like 자다/차다/짜다 and 지다/치다/찌다.",
-  "objective": "Beginner learners will tell apart and say word-initial ㅈ (plain), ㅊ (aspirated) and ㅉ (tense), then choose the right word in the sets 자다/차다/짜다 and 지다/치다/찌다.",
-  "level": "Beginner",
-  "minutes": 15,
-  "tags": [],
-  "task": null,
-  "exercises": [
-    "Choose the right word: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
-    "Choose the right word: 국에 소금을 많이 넣었어요. 국이 너무 (자요 / 차요 / 짜요).",
-    "Choose the right word: 운동장에서 공을 (자요 / 차요 / 짜요).",
-    "Choose the right word: 저는 매일 피아노를 (져요 / 쳐요 / 쪄요).",
-    "Which word means \"to lose (a game)\"? (지다 / 치다 / 찌다)",
-    "Hold a tissue in front of your mouth and say 자, 차, 짜. Which one makes the tissue move the most?"
-  ],
   "answers": [
     "자요",
     "짜요",
@@ -24,6 +8,15 @@
     "차 (ㅊ has a strong puff of air)"
   ],
   "checkThese": [],
+  "exercises": [
+    "Choose the right word: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
+    "Choose the right word: 국에 소금을 많이 넣었어요. 국이 너무 (자요 / 차요 / 짜요).",
+    "Choose the right word: 운동장에서 공을 (자요 / 차요 / 짜요).",
+    "Choose the right word: 저는 매일 피아노를 (져요 / 쳐요 / 쪄요).",
+    "Which word means \"to lose (a game)\"? (지다 / 치다 / 찌다)",
+    "Hold a tissue in front of your mouth and say 자, 차, 짜. Which one makes the tissue move the most?"
+  ],
+  "keyword": "ㅈㅊㅉ 소리",
   "letters": [
     {
       "letter": "ㅈ",
@@ -41,6 +34,13 @@
       "as": "No exact English match. Think of the \"tch\" in \"pitch,\" but tighten your throat and tongue and let out no breath."
     }
   ],
+  "level": "Beginner",
+  "minutes": 15,
+  "objective": "Beginner learners will tell apart and say word-initial ㅈ (plain), ㅊ (aspirated) and ㅉ (tense), then choose the right word in the sets 자다/차다/짜다 and 지다/치다/찌다.",
+  "summary": "Learn how ㅈ, ㅊ and ㅉ sound at the start of a word. They differ in breath and tension. Use them to pick the right verb in sets like 자다/차다/짜다 and 지다/치다/찌다.",
+  "tags": [],
+  "task": null,
+  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
   "words": [
     {
       "korean": "자다",

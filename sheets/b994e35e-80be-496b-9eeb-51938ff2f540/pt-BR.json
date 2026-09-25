@@ -1,77 +1,71 @@
 {
   "title": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
-  "keyword": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
+  "keyword": "vocab",
   "summary": "Dez palavras essenciais em coreano para separar o lixo doméstico e colocá-lo para coleta em apartamentos/casas, com frases de exemplo claras e naturais e uma pequena prática.",
   "objective": "Os alunos vão entender e usar com confiança 10 palavras-chave relacionadas ao descarte de lixo doméstico e reciclagem, além de conseguir formar frases curtas para o uso no dia a dia.",
-  "level": "Iniciante-Avançado (A2)",
+  "level": "Iniciante (avançado)",
   "minutes": 15,
-  "tags": [],
+  "tags": [
+    "쓰레기",
+    "분리수거",
+    "재활용",
+    "생활 어휘",
+    "주거"
+  ],
   "task": {
-    "title": "우리 집 쓰레기 버리는 날 알려 주기",
-    "line": "Conte ao seu vizinho o que é descartado no dia de coleta do seu prédio, em 3 frases."
+    "title": "우리 집 쓰레기 분류해 말하기",
+    "line": "Escolha 5 itens que você descarta em casa e diga em coreano onde cada um deve ir, por exemplo: '이 캔은 헹군 다음 재활용으로 버려요.' As regras podem variar de acordo com a região, então verifique o aviso do seu prédio ou da administração local."
   },
   "exercises": [
-    "빈칸에 알맞은 말을 쓰세요: 음료를 다 마셨다면 라벨을 떼고 _____은 따로 모아 주세요. (garrafa PET transparente)",
-    "빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 _____를 꼭 하세요. (remoção do rótulo)",
-    "빈칸에 알맞은 말을 쓰세요: 오늘은 우리 동네 재활용 _____이에요.",
-    "빈칸에 알맞은 말을 쓰세요: 플라스틱과 종이는 함께 버리지 말고 _____하세요. (separar)",
-    "알맞은 것을 고르세요: 일반쓰레기는 (종량제봉투 / 재활용 / 음식물쓰레기)에 넣어서 배출해야 해요.",
-    "빈칸에 알맞은 말을 쓰세요: 쓰레기는 저녁 8시 이후에 _____해 주세요. (colocar para coleta)",
-    "알맞은 것을 고르세요: 먹고 남은 반찬은 (음식물쓰레기 / 스티로폼 / 투명 페트병)(으)로 버려요.",
-    "빈칸에 알맞은 말을 쓰세요: 택배 상자 안에 있던 하얀 _____은 테이프를 떼고 버려요. (isopor)",
-    "알맞은 것을 고르세요: 깨끗한 종이 상자와 캔은 (재활용 / 음식물쓰레기 / 일반쓰레기)(으)로 버려요.",
-    "알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(이)에요.",
-    "'수거일'과 '배출'을 사용해서 우리 집 쓰레기 버리는 날에 대해 짧은 문장을 쓰세요."
+    "Preencha as lacunas: 생수를 다 마신 _____은 라벨을 떼고 찌그러뜨려 주세요. 택배 상자 안의 흰 _____은 테이프를 떼고 버리세요.",
+    "Preencha as lacunas: 페트병에 붙은 비닐을 떼는 것을 _____라고 해요. 그다음 페트병은 _____으로 버리세요.",
+    "Preencha as lacunas: 오늘은 우리 동네 재활용 _____이에요. 관리사무소 안내에 따라 캔은 헹군 다음 재활용 수거함에 _____하세요.",
+    "Preencha as lacunas: 플라스틱, 종이, 캔을 섞지 말고 _____해서 버리세요. 먹다 남은 김치는 _____에 버려요.",
+    "Preencha as lacunas: 다 쓴 칫솔 같은 _____는 _____에 넣어요."
   ],
   "answers": [
-    "투명 페트병",
-    "라벨 제거",
-    "수거일",
-    "분리",
-    "종량제봉투",
-    "배출",
-    "음식물쓰레기",
-    "스티로폼",
-    "재활용",
-    "일반쓰레기",
-    "예: 우리 집 음식물쓰레기 수거일은 월요일과 목요일이에요. 그래서 일요일 저녁과 수요일 저녁에 음식물쓰레기를 배출해요."
+    "투명 페트병 / 스티로폼",
+    "라벨 제거 / 재활용",
+    "수거일 / 배출",
+    "분리 / 음식물 쓰레기",
+    "일반 쓰레기 / 종량제 봉투"
   ],
   "checkThese": [],
   "words": [
     {
-      "korean": "일반쓰레기",
-      "roman": "ilbansseuregi",
+      "korean": "일반 쓰레기",
+      "roman": "ilban sseuregi",
       "meaning": "lixo comum; lixo não reciclável",
-      "example": "사용한 휴지는 일반쓰레기예요.",
-      "exampleMeaning": "Lenços de papel usados são lixo comum."
+      "example": "더러운 휴지는 일반 쓰레기에 버리세요.",
+      "exampleMeaning": "Por favor, jogue lenços de papel sujos no lixo comum."
     },
     {
       "korean": "재활용",
       "roman": "jaehwaryong",
       "meaning": "reciclagem; categoria de recicláveis",
-      "example": "플라스틱은 재활용으로 버려야 해요.",
-      "exampleMeaning": "O plástico deve ser descartado como reciclável."
+      "example": "플라스틱은 재활용으로 버리세요.",
+      "exampleMeaning": "Por favor, jogue plástico na reciclagem."
     },
     {
-      "korean": "음식물쓰레기",
-      "roman": "eumsingmulsseuregi",
+      "korean": "음식물 쓰레기",
+      "roman": "eumsingmul sseuregi",
       "meaning": "lixo orgânico (restos de comida)",
-      "example": "남은 밥은 음식물쓰레기에 버려요.",
+      "example": "남은 밥은 음식물 쓰레기에 버려요.",
       "exampleMeaning": "Eu jogo o arroz que sobrou no lixo orgânico."
     },
     {
-      "korean": "종량제봉투",
-      "roman": "jongnyangjebongtu",
-      "meaning": "saco de lixo pago e designado (saco \"pague pelo que jogar fora\")",
-      "example": "쓰레기는 종량제봉투에 담아 주세요.",
-      "exampleMeaning": "Por favor, coloque o lixo em um saco designado e pago."
+      "korean": "종량제 봉투",
+      "roman": "jongnyangje bongtu",
+      "meaning": "saco de lixo pago designado (saco de lixo pague-para-jogar)",
+      "example": "쓰레기는 종량제 봉투에 담아 주세요.",
+      "exampleMeaning": "Por favor, coloque o lixo em um saco pago designado."
     },
     {
       "korean": "배출",
       "roman": "baechul",
       "meaning": "colocar (o lixo) para coleta",
-      "example": "쓰레기는 몇 시에 배출해요?",
-      "exampleMeaning": "Que horas colocamos o lixo para coleta?"
+      "example": "쓰레기는 지정 장소에 배출하세요.",
+      "exampleMeaning": "Por favor, coloque o lixo no local designado."
     },
     {
       "korean": "수거일",
@@ -83,16 +77,16 @@
     {
       "korean": "분리",
       "roman": "bulli",
-      "meaning": "separação; triagem (de itens)",
-      "example": "종이와 플라스틱을 분리해야 해요.",
-      "exampleMeaning": "Você precisa separar papel e plástico."
+      "meaning": "separação; classificação (de itens)",
+      "example": "종이와 플라스틱을 분리하세요.",
+      "exampleMeaning": "Por favor, separe papel e plástico."
     },
     {
       "korean": "라벨 제거",
       "roman": "rabel jegeo",
-      "meaning": "remoção do rótulo; retirar o rótulo",
+      "meaning": "remoção do rótulo; tirar o rótulo",
       "example": "병은 라벨 제거 후 버리세요.",
-      "exampleMeaning": "Retire o rótulo da garrafa antes de jogá-la fora."
+      "exampleMeaning": "Remova o rótulo da garrafa antes de jogá-la fora."
     },
     {
       "korean": "투명 페트병",
@@ -105,8 +99,8 @@
       "korean": "스티로폼",
       "roman": "seutiropom",
       "meaning": "isopor (poliestireno expandido)",
-      "example": "스티로폼도 재활용이 돼요?",
-      "exampleMeaning": "O isopor também pode ser reciclado?"
+      "example": "스티로폼은 내용물을 비우고 배출하세요.",
+      "exampleMeaning": "Esvazie o conteúdo e coloque o isopor para coleta."
     }
   ],
   "category": "vocab"

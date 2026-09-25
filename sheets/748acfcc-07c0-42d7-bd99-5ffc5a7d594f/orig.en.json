@@ -1,4 +1,19 @@
 {
+  "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12 읽기",
+  "keyword": "키오스크 버튼",
+  "summary": "Read and understand 12 very common buttons/text on cafe and fast-food self-order kiosks. Learners match each label with its function and follow a simple order flow on their own.",
+  "objective": "By the end, learners can recognize 12 frequent kiosk buttons/labels and follow a basic flow—dine in/take out → pick menu → choose options → choose payment method → get receipt/order number—without help.",
+  "level": "초급 하 (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "상황: 가게에서 먹고 싶어요. 어떤 버튼을 누르나요?",
+    "상황: 버거만 사고 싶어요. 감자튀김과 음료는 필요 없어요. 어떤 버튼을 누르나요?",
+    "상황: 아이스 아메리카노를 마시고 싶어요. 온도 버튼에서 무엇을 누르나요?",
+    "상황: 메뉴를 다 골랐어요. 이제 결제 화면으로 가려고 해요. 어떤 버튼을 누르나요?",
+    "상황: 지금 주문을 그만하고 싶어요. 어떤 버튼을 누르나요?"
+  ],
   "answers": [
     "매장",
     "단품",
@@ -7,18 +22,6 @@
     "취소"
   ],
   "checkThese": [],
-  "exercises": [
-    "상황: 가게에서 먹고 싶어요. 어떤 버튼을 누르나요?",
-    "상황: 버거만 사고 싶어요. 감자튀김과 음료는 필요 없어요. 어떤 버튼을 누르나요?",
-    "상황: 아이스 아메리카노를 마시고 싶어요. 온도 버튼에서 무엇을 누르나요?",
-    "상황: 메뉴를 다 골랐어요. 이제 결제 화면으로 가려고 해요. 어떤 버튼을 누르나요?",
-    "상황: 지금 주문을 그만하고 싶어요. 어떤 버튼을 누르나요?"
-  ],
-  "keyword": "키오스크",
-  "level": "초급 하 (A2)",
-  "minutes": 15,
-  "note": "예문은 실제 키오스크에서 흔히 보는 표현과 사용 흐름을 기준으로 만들었습니다. 본 자료는 읽기 중심이며, 매장별 화면 디자인은 다를 수 있습니다.",
-  "objective": "By the end, learners can recognize 12 frequent kiosk buttons/labels and follow a basic flow—dine in/take out → pick menu → choose options → choose payment method → get receipt/order number—without help.",
   "sections": [
     {
       "heading": "이 자료, 이렇게 보세요",
@@ -60,9 +63,6 @@
       ]
     }
   ],
-  "summary": "Read and understand 12 very common buttons/text on cafe and fast-food self-order kiosks. Learners match each label with its function and follow a simple order flow on their own.",
-  "tags": [],
-  "task": null,
-  "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12 읽기",
+  "note": "예문은 실제 키오스크에서 흔히 보는 표현과 사용 흐름을 기준으로 만들었습니다. 본 자료는 읽기 중심이며, 매장별 화면 디자인은 다를 수 있습니다.",
   "category": "etc"
 }

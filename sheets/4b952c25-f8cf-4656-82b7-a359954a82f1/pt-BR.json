@@ -1,22 +1,4 @@
 {
-  "title": "가온모바일 'LTE 라이트 29' 요금제 안내",
-  "keyword": "",
-  "summary": "Leia um aviso realista de plano de celular coreano e identifique detalhes importantes, como a mensalidade, a franquia de dados, os limites de voz/SMS, o prazo de contrato e a política aplicada após o esgotamento dos dados.",
-  "objective": "Depois de ler um aviso de plano de celular com 3 a 5 parágrafos, o aluno consegue identificar corretamente a mensalidade, a franquia de dados, as quantidades incluídas de voz/SMS, o prazo de contrato (ou a ausência dele) e a política pós-esgotamento de dados (limitação de velocidade/cobrança extra).",
-  "level": "Intermediário Baixo (중급 초반)",
-  "minutes": 15,
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "exercises": [
-    "이 요금제의 월정액은 얼마인가요?",
-    "데이터는 얼마를 제공하나요?",
-    "데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
-    "통화/문자는 얼마나 포함되어 있나요?",
-    "약정 기간은 어떻게 되나요?"
-  ],
   "answers": [
     "29,000원",
     "월 15GB",
@@ -25,11 +7,29 @@
     "12개월"
   ],
   "checkThese": [],
-  "passage": [
-    "가온모바일 'LTE 라이트 29' 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
-    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
-    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 초과하면 통화와 문자에 별도 요금이 부과됩니다."
+  "exercises": [
+    "Responda em coreano: 이 요금제의 월정액은 얼마인가요?",
+    "Responda em coreano: 데이터는 얼마를 제공하나요?",
+    "Responda em coreano: 데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+    "Responda em coreano: 통화/문자는 얼마나 포함되어 있나요?",
+    "Responda em coreano: 약정 기간은 어떻게 되나요?"
   ],
+  "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "level": "Intermediário (inferior)",
+  "minutes": 15,
+  "objective": "Após ler um aviso de plano de celular de 3 a 5 parágrafos, o aluno consegue identificar corretamente a mensalidade, o pacote de dados, as quantidades incluídas de chamada/SMS, o prazo de contrato (ou a ausência dele) e a política pós-dados (limite de velocidade/cobrança extra).",
+  "passage": [
+    "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
+    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
+    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
+  ],
+  "summary": "Leia um aviso realista de plano de celular coreano e identifique detalhes importantes, como a mensalidade, o pacote de dados, os limites de chamada/SMS, o prazo de contrato e a política após o uso dos dados.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
   "words": [
     {
       "korean": "월정액",
@@ -43,12 +43,12 @@
       "roman": "yakjeong",
       "meaning": "prazo de contrato; o período fixo que você se compromete a manter o plano",
       "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
-      "exampleMeaning": "É um contrato de 12 meses, então não é fácil trocar facilmente."
+      "exampleMeaning": "É um contrato de 12 meses, então é difícil trocar de plano com facilidade."
     },
     {
       "korean": "소진",
       "roman": "sojin",
-      "meaning": "esgotar (os seus dados)",
+      "meaning": "os dados acabarem (esgotamento dos seus dados)",
       "example": "데이터가 소진되어 속도가 느려졌어요.",
       "exampleMeaning": "Meus dados acabaram, então a velocidade ficou lenta."
     },
@@ -57,21 +57,21 @@
       "roman": "mujehan",
       "meaning": "ilimitado (sem limite definido de uso)",
       "example": "주말에는 무제한 이용이 가능해요.",
-      "exampleMeaning": "Aos finais de semana, é possível usar de forma ilimitada."
+      "exampleMeaning": "Nos fins de semana, o uso ilimitado está disponível."
     },
     {
       "korean": "추가 요금",
       "roman": "chuga yogeum",
       "meaning": "cobrança extra além do plano",
       "example": "추가 요금이 없어서 안심이에요.",
-      "exampleMeaning": "Estou aliviado(a) porque não há cobrança extra."
+      "exampleMeaning": "Estou aliviado porque não há cobrança extra."
     },
     {
       "korean": "기본 제공",
       "roman": "gibon jegong",
-      "meaning": "franquia incluída fornecida pelo plano",
+      "meaning": "quantidade incluída fornecida pelo plano",
       "example": "통화 200분이 기본 제공입니다.",
-      "exampleMeaning": "200 minutos de ligações estão incluídos."
+      "exampleMeaning": "200 minutos de chamadas estão incluídos."
     }
   ],
   "category": "reading"

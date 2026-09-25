@@ -25,7 +25,14 @@
       "audit": []
     }
   ],
-  "fixes": [],
+  "fixes": [
+    {
+      "at": "level",
+      "before": "Beginner (late)",
+      "after": "Beginner (high)"
+    }
+  ],
+  "shortened": [],
   "translations": {
     "es": {
       "lang": "es",
@@ -33,14 +40,9 @@
       "lost": [],
       "fixes": [
         {
-          "line": 1,
-          "problem": "'Late' beginner means the final stage of the beginner level; 'nivel avanzado' reads as 'advanced level', contradicting 'Principiante'.",
-          "fix": "Principiante (etapa final)"
-        },
-        {
           "line": 27,
-          "problem": "The sentence to be translated into Korean was left in English instead of being given in Spanish.",
-          "fix": "Traduce al coreano con dos frases cortas: \"Tengo fiebre. Deme un medicamento para el resfriado, por favor.\""
+          "problem": "The sentence to translate was left in English. A Spanish-speaking learner should get it in Spanish.",
+          "fix": "Traduce al coreano con dos oraciones cortas: \"Tengo fiebre. Deme medicamento para el resfriado, por favor.\""
         }
       ]
     },
@@ -50,16 +52,17 @@
       "lost": [],
       "fixes": [
         {
-          "line": 2,
-          "problem": "'untuk mengatakan apa yang salah' is a literal translation of 'what is wrong'. In Indonesian it means 'what is incorrect', not 'what is ailing you'.",
-          "fix": "Lembar kerja ini mengajarkan 10 kata inti untuk apotek di Korea: 5 gejala (두통, 열, 기침, 콧물, 배탈) dan 5 jenis obat (감기약, 소화제, 진통제, 연고, 밴드). Setiap kata disertai satu kalimat pendek yang alami. Kamu kemudian menggunakan kata-kata itu dalam pola sederhana: '○○이/가 있어요' atau '○○이/가 나요' untuk mengatakan apa yang sakit, dan '○○ 주세요' untuk meminta obat. Catatan: orang Korea biasanya mengatakan 열이 나요 (bukan hanya 열이 있어요), dan 기침·콧물 juga digunakan dengan 나요. Untuk sakit perut, katakan 배탈이 났어요."
-        },
-        {
           "line": 27,
-          "problem": "The sentence learners must translate was left in English instead of being translated into Indonesian.",
-          "fix": "Terjemahkan ke dalam bahasa Korea dengan dua kalimat pendek: \"Saya demam. Tolong berikan saya obat flu.\""
+          "problem": "The sentence the learner must translate into Korean was left in English instead of being translated into Indonesian, so Indonesian learners get an English prompt.",
+          "fix": "Terjemahkan ke dalam bahasa Korea dengan dua kalimat pendek: \"Saya demam. Tolong beri saya obat flu.\""
         }
       ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "pt-BR": {
       "lang": "pt-BR",
@@ -67,43 +70,14 @@
       "lost": [],
       "fixes": [
         {
-          "line": 2,
-          "problem": "\"For an upset stomach\" is rendered as \"Para dor de estômago\" (stomach ache), which is a different term from 배탈 and inconsistent with line 12's \"estômago embrulhado\".",
-          "fix": "Esta folha de exercícios ensina 10 palavras essenciais para uma farmácia coreana: 5 sintomas (두통, 열, 기침, 콧물, 배탈) e 5 tipos de remédio (감기약, 소화제, 진통제, 연고, 밴드). Cada palavra vem com uma frase curta e natural. Depois, você usa essas palavras em padrões simples: '○○이/가 있어요' ou '○○이/가 나요' para dizer o que está sentindo, e '○○ 주세요' para pedir o remédio. Observação: os coreanos costumam dizer 열이 나요 (não apenas 열이 있어요), e 기침·콧물 também combinam com 나요. Para estômago embrulhado, diga 배탈이 났어요."
+          "line": 27,
+          "problem": "The sentence the learner must translate was left in English instead of being translated into Portuguese.",
+          "fix": "Traduza para o coreano em duas frases curtas: \"Estou com febre. Por favor, me dê remédio para resfriado.\""
         }
       ]
     },
     "ko": {
       "lang": "ko",
-      "tries": 1,
-      "lost": [],
-      "fixes": [
-        {
-          "line": 2,
-          "problem": "The note is reversed. The English says Koreans usually say 열이 나요, and not only 열이 있어요. The Korean says people usually say 열이 있어요 and can also say 열이 나요, which gets the preference backwards.",
-          "fix": "이 활동지는 한국 약국에서 자주 쓰는 핵심 단어 10개를 배웁니다: 증상 5개(두통, 열, 기침, 콧물, 배탈)와 약 5종류(감기약, 소화제, 진통제, 연고, 밴드). 각 단어에는 짧고 자연스러운 예문이 하나씩 붙어 있습니다. 그런 다음 '○○이/가 있어요'나 '○○이/가 나요' 같은 간단한 표현으로 어디가 아픈지 말하고, '○○ 주세요'로 약을 요청해 봅니다. 참고: 한국 사람들은 '열이 있어요'라고만 하지 않고 보통 '열이 나요'라고 말하며, 기침·콧물도 '나요'와 함께 씁니다. 배탈이 났을 때는 '배탈이 났어요'라고 말합니다."
-        },
-        {
-          "line": 29,
-          "problem": "The Korean adds hanja (症狀) after 증상, which isn't in the English. The English puts the Korean terms in parentheses after the English words: symptoms (증상) and medicines (약).",
-          "fix": "다음 네 단어를 증상(symptoms)과 약(medicines), 두 그룹으로 분류하세요: 콧물, 소화제, 기침, 연고"
-        }
-      ]
-    },
-    "vi": {
-      "lang": "vi",
-      "tries": 2,
-      "lost": [],
-      "fixes": []
-    },
-    "fr": {
-      "lang": "fr",
-      "tries": 1,
-      "lost": [],
-      "fixes": []
-    },
-    "de": {
-      "lang": "de",
       "tries": 1,
       "lost": [],
       "fixes": []
@@ -114,17 +88,53 @@
       "lost": [],
       "fixes": [
         {
-          "line": 27,
-          "problem": "The sentence to translate was left in English inside the quotation marks. A Chinese-speaking learner needs it in Chinese to know what to translate into Korean.",
-          "fix": "请用两句简短的韩语翻译：“我发烧了。请给我感冒药。”"
+          "line": 1,
+          "problem": "'Beginner (high)' was rendered as 中高级 (intermediate-high), which changes the level. It should mean the high end of the beginner level.",
+          "fix": "初级(高)"
+        },
+        {
+          "line": 3,
+          "problem": "'ask for the right medicine' means to request the medicine, but 询问 means 'inquire about'. It should say 要, as line 2 does.",
+          "fix": "学习者可以用10个药店核心单词,通过'두통이 있어요'或'열이 나요'这样的简短句子向药剂师说明自己的症状,并用'○○ 주세요'来要合适的药。"
         }
       ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "ja": {
       "lang": "ja",
       "tries": 3,
+      "lost": [
+        "기침·콧물"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
       "lost": [],
-      "fixes": []
+      "fixes": [
+        {
+          "line": 15,
+          "problem": "Missing article: 'Erkältungsmedikament' is a countable noun and cannot stand without an article, so the German sounds wrong.",
+          "fix": "Könnte ich bitte ein Erkältungsmedikament bekommen?"
+        },
+        {
+          "line": 26,
+          "problem": "Wrong gender: in grammar terms, 'Partikel' is feminine (die Partikel), so 'den richtigen Partikel' is incorrect.",
+          "fix": "Wähle in jeder Lücke die richtige Partikel (이 / 가): 기침( ) 나요. 그리고 콧물( ) 나요."
+        },
+        {
+          "line": 27,
+          "problem": "The sentence to translate was left in English instead of German, so German learners get an English prompt.",
+          "fix": "Übersetze ins Koreanische mit zwei kurzen Sätzen: \"Ich habe Fieber. Bitte geben Sie mir ein Erkältungsmedikament.\""
+        }
+      ]
     }
   },
   "pages": {
@@ -143,6 +153,11 @@
       "ok": true,
       "why": []
     },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
     "pt-BR": {
       "pages": 2,
       "ok": true,
@@ -153,7 +168,7 @@
       "ok": true,
       "why": []
     },
-    "vi": {
+    "zh": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -163,21 +178,16 @@
       "ok": true,
       "why": []
     },
-    "de": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
-    "zh": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
     "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
       "pages": 2,
       "ok": true,
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T11:36:47.321Z"
+  "preparedAt": "2026-09-25T15:10:33.625Z"
 }

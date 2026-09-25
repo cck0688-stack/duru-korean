@@ -12,15 +12,15 @@
     "Complétez le blanc avec un mot de la liste (두통 / 배탈 / 콧물) : 머리가 너무 아파요. ____이 있어요.",
     "Complétez le blanc avec le bon médicament : 손가락을 조금 베었어요. 상처에 붙이게 ____ 주세요.",
     "Choisissez la bonne particule dans chaque blanc (이 / 가) : 기침( ) 나요. 그리고 콧물( ) 나요.",
-    "Traduisez en coréen avec deux courtes phrases : « J'ai de la fièvre. Donnez-moi un médicament contre le rhume, s'il vous plaît. »",
+    "Traduisez en coréen avec deux phrases courtes : « J'ai de la fièvre. Donnez-moi un médicament contre le rhume, s'il vous plaît. »",
     "Complétez la conversation avec un mot. 약사: 어디가 아프세요? / 손님: 어제 상한 우유를 마시고 ____이 났어요.",
     "Classez ces quatre mots en deux groupes, symptômes (증상) et médicaments (약) : 콧물, 소화제, 기침, 연고"
   ],
-  "keyword": "약국 증상 약",
-  "level": "Débutant (avancé)",
+  "keyword": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
+  "level": "Débutant (niveau avancé)",
   "minutes": 20,
-  "objective": "Les apprenants peuvent indiquer leur symptôme à un pharmacien avec 10 mots essentiels de pharmacie dans de courtes phrases comme '두통이 있어요' ou '열이 나요', et demander le bon médicament avec '○○ 주세요'.",
-  "summary": "Cette fiche enseigne 10 mots essentiels pour une pharmacie coréenne : 5 symptômes (두통, 열, 기침, 콧물, 배탈) et 5 types de médicaments (감기약, 소화제, 진통제, 연고, 밴드). Chaque mot est accompagné d'une courte phrase naturelle. Vous utilisez ensuite ces mots dans des structures simples : '○○이/가 있어요' ou '○○이/가 나요' pour dire ce qui ne va pas, et '○○ 주세요' pour demander un médicament. Remarque : les Coréens disent généralement 열이 나요 (et pas seulement 열이 있어요), et 기침·콧물 s'utilisent aussi avec 나요. Pour un mal d'estomac, on dit 배탈이 났어요.",
+  "objective": "Les apprenants peuvent expliquer leur symptôme à un pharmacien avec 10 mots essentiels de pharmacie dans des phrases courtes comme '두통이 있어요' ou '열이 나요', et demander le bon médicament avec '○○ 주세요'.",
+  "summary": "Cette fiche enseigne 10 mots essentiels pour la pharmacie en Corée : 5 symptômes (두통, 열, 기침, 콧물, 배탈) et 5 types de médicaments (감기약, 소화제, 진통제, 연고, 밴드). Chaque mot est accompagné d'une phrase courte et naturelle. Vous utilisez ensuite ces mots dans des structures simples : '○○이/가 있어요' ou '○○이/가 나요' pour dire ce qui ne va pas, et '○○ 주세요' pour demander un médicament. Remarque : les Coréens disent généralement 열이 나요 (et pas seulement 열이 있어요), et 기침·콧물 s'utilisent aussi avec 나요. Pour un mal de ventre, on dit 배탈이 났어요.",
   "tags": [],
   "task": null,
   "title": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
@@ -49,14 +49,14 @@
     {
       "korean": "콧물",
       "roman": "konmul",
-      "meaning": "nez qui coule (mucus nasal)",
+      "meaning": "nez qui coule (mucosités nasales)",
       "example": "콧물이 나고 목도 아파요.",
       "exampleMeaning": "J'ai le nez qui coule, et j'ai aussi mal à la gorge."
     },
     {
       "korean": "배탈",
       "roman": "baetal",
-      "meaning": "mal de ventre, troubles digestifs",
+      "meaning": "mal de ventre, trouble digestif",
       "example": "회를 먹고 배탈이 났어요.",
       "exampleMeaning": "J'ai eu mal au ventre après avoir mangé du poisson cru."
     },
@@ -65,7 +65,7 @@
       "roman": "gamgiyak",
       "meaning": "médicament contre le rhume",
       "example": "감기약 좀 주세요.",
-      "exampleMeaning": "Pourriez-vous me donner un médicament contre le rhume, s'il vous plaît ?"
+      "exampleMeaning": "Pourrais-je avoir un médicament contre le rhume, s'il vous plaît ?"
     },
     {
       "korean": "소화제",
@@ -77,9 +77,9 @@
     {
       "korean": "진통제",
       "roman": "jintongje",
-      "meaning": "antidouleur",
+      "meaning": "analgésique",
       "example": "이가 아파서 진통제를 사러 왔어요.",
-      "exampleMeaning": "J'ai mal aux dents, alors je suis venu(e) acheter un antidouleur."
+      "exampleMeaning": "J'ai mal aux dents, alors je suis venu acheter un analgésique."
     },
     {
       "korean": "연고",
@@ -91,7 +91,7 @@
     {
       "korean": "밴드",
       "roman": "baendeu",
-      "meaning": "pansement adhésif (comme un sparadrap)",
+      "meaning": "pansement adhésif (type Band-Aid)",
       "example": "칼에 손가락을 베었어요. 밴드 하나 주세요.",
       "exampleMeaning": "Je me suis coupé le doigt avec un couteau. Donnez-moi un pansement, s'il vous plaît."
     }

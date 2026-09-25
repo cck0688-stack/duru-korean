@@ -1,9 +1,9 @@
 {
   "title": "택배 받기·보내기: 기본 표현",
-  "keyword": "택배",
-  "summary": "Các cụm từ ngắn hữu ích khi nhận và gửi bưu kiện ở Hàn Quốc tại quầy hoặc với nhân viên giao hàng. Tập trung vào việc xác nhận người nhận, hỏi/xác nhận mã vận đơn, chấp nhận hoặc từ chối bưu kiện, và yêu cầu gửi hàng.",
-  "objective": "Có thể hiểu và nói 10 câu ngắn được dùng khi nhận và gửi bưu kiện ở Hàn Quốc tại quầy hoặc với nhân viên giao hàng (xác nhận người nhận, hỏi mã vận đơn, chấp nhận/từ chối, yêu cầu gửi hàng).",
-  "level": "초급 (A1)",
+  "keyword": "",
+  "summary": "Các cụm từ ngắn hữu ích để nhận và gửi bưu kiện ở Hàn Quốc tại quầy hoặc với nhân viên giao hàng. Tập trung vào việc xác nhận người nhận, hỏi/xác nhận mã vận đơn, chấp nhận hoặc từ chối nhận bưu kiện, và yêu cầu gửi hàng.",
+  "objective": "Có thể hiểu và nói được 10 câu ngắn dùng khi nhận và gửi bưu kiện ở Hàn Quốc tại quầy hoặc với người giao hàng (xác nhận người nhận, hỏi mã vận đơn, chấp nhận/từ chối, yêu cầu gửi hàng).",
+  "level": "Sơ cấp",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,83 +11,61 @@
     "line": ""
   },
   "exercises": [
-    "배달 기사(또는 창구 직원)가 '수취인 성함이 어떻게 되세요?'라고 물었습니다. 한국어로 답하세요. (예시 이름: 김민수)",
-    "‘I want to send a package.’를 한국어로 어떻게 말하나요?",
-    "‘What is the tracking number?’를 한국어로 어떻게 묻나요?",
-    "택배 상자가 망가졌습니다(The box is damaged). 짧게 거절 의사를 말하세요.",
-    "직원이 '서명해 주세요.'라고 말했습니다. 서명하겠다고 응답하세요."
+    "Trả lời bằng tiếng Hàn (dùng tên 김민수): 수취인 성함이 어떻게 되세요?",
+    "Nói bằng tiếng Hàn: 'Tôi muốn gửi một kiện hàng.'",
+    "Hỏi bằng tiếng Hàn: 'Mã vận đơn là gì?'",
+    "Bưu kiện bị hư hỏng. Hãy từ chối nhận ngắn gọn bằng tiếng Hàn.",
+    "Trả lời bằng tiếng Hàn rằng bạn sẽ ký tên: 서명해 주세요."
   ],
   "answers": [
-    "예시 답안: 김민수입니다. / 저는 김민수입니다.",
-    "예시 답안: 택배로 보내고 싶습니다. / 택배를 보내고 싶어요(싶습니다). / 택배 보내고 싶어요. / 이거 택배로 보내려고요.",
-    "예시 답안: 운송장 번호가 어떻게 되나요? / 운송장 번호가 뭐예요?",
-    "예시 답안: 이건 받을 수 없어요.",
-    "예시 답안: 여기 서명할게요. / 네, 서명할게요."
+    "예시 답안 (Sample answer): 저는 김민수입니다. / Also correct: 김민수입니다.",
+    "예시 답안 (Sample answer): 택배로 보내고 싶습니다. / Also correct: 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
+    "예시 답안 (Sample answer): 운송장 번호가 어떻게 되나요? / Also correct: 운송장 번호가 뭐예요?",
+    "예시 답안 (Sample answer): 이건 받을 수 없어요. / Also correct: 받을 수 없어요. / 파손돼서 못 받겠어요.",
+    "예시 답안 (Sample answer): 여기 서명할게요. / Also correct: 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "중요 표현 (10개)",
+      "heading": "Các cụm từ chính (10 câu)",
       "paragraphs": [
-        "1) 택배 받으러 왔습니다. (taekbae badeureo watseumnida) — Tôi đến để nhận bưu kiện. — 창구에서 본인이 직접 물건을 찾을 때 씁니다. (Dùng câu này tại quầy khi bạn tự đến nhận bưu kiện của mình.)",
-        "2) 수취인 성함이 어떻게 되세요? (suchwiin seonghami eotteoke doeseyo?) — Tên của người nhận là gì? — 직원이나 기사님이 확인할 때 물어봅니다. (Nhân viên hoặc tài xế giao hàng hỏi câu này để xác nhận.)",
-        "3) 저는 [이름]입니다. (jeoneun [ireum]imnida) — Tôi là [tên]. — 예: 저는 김민수입니다. (수취인 대답) (Ví dụ: Tôi là Kim Minsu. — câu trả lời của người nhận)",
-        "4) 운송장 번호가 어떻게 되나요? (unsongjang beonhoga eotteoke doenayo?) — Mã vận đơn là gì? — 운송장(송장) 번호를 묻는 말입니다. (Câu hỏi để hỏi mã vận đơn/mã theo dõi.)",
-        "5) 운송장 번호 알려 주세요. (unsongjang beonho allyeo juseyo) — Vui lòng cho tôi biết mã vận đơn. — 상대에게 번호를 부탁할 때 씁니다. (Dùng câu này để nhờ người khác cho biết mã số.)",
-        "6) 여기 서명할게요. (yeogi seomyeonghalgeyo) — Tôi sẽ ký vào đây. — 서명하겠다는 뜻, 사인할 때 씁니다. (Có nghĩa là bạn sẽ ký tên; dùng khi ký.)",
-        "7) 이건 받을 수 없어요. (igeon badeul su eopseoyo) — Tôi không thể nhận cái này. — 물건을 거절할 때 쓰는 표현입니다. (Đây là cách diễn đạt dùng để từ chối một món đồ.)",
-        "8) 택배로 보내고 싶습니다. (taekbaero bonaego sipseumnida) — Tôi muốn gửi cái này qua dịch vụ chuyển phát. — 물건을 보내러 왔을 때 말합니다. (Nói câu này khi bạn đến để gửi một món đồ.)",
-        "9) 보낼 물건은 이거예요. (bonael mulgeoneun igeoyeyo) — Đây là món đồ tôi muốn gửi. — 보내려는 물건을 보여 줄 때 씁니다. (Dùng câu này khi cho xem món đồ bạn muốn gửi.)",
-        "10) 착불로 보내 주세요. (chakbullo bonae juseyo) — Vui lòng gửi theo hình thức người nhận trả cước phí. — 받는 사람이 배송비를 내는 방식으로 보내달라고 요청할 때. (Dùng khi yêu cầu gửi theo cách người nhận sẽ trả phí vận chuyển.)"
+        "1) 택배 받으러 왔습니다. (Tôi đến để nhận bưu kiện.) — Dùng khi bạn tự đến quầy để nhận bưu kiện. 택배 = bưu kiện, hàng chuyển phát nhanh.",
+        "2) 수취인 성함이 어떻게 되세요? (Tên người nhận là gì ạ?) — Nhân viên hoặc người giao hàng hỏi để xác nhận tên người nhận. 수취인 = người nhận; 성함 = tên (cách nói lịch sự).",
+        "3) 저는 [이름]입니다. (Tôi là [tên].) — Câu trả lời của người nhận, ví dụ: 저는 김민수입니다.",
+        "4) 운송장 번호가 어떻게 되나요? (Mã vận đơn là gì ạ?) — Hỏi mã vận đơn (số phiếu gửi hàng, 송장). 운송장 = phiếu vận chuyển, tờ giấy gửi hàng có ghi mã vận đơn.",
+        "5) 운송장 번호 알려 주세요. (Xin hãy cho tôi biết mã vận đơn.) — Dùng để hỏi ai đó về mã vận đơn.",
+        "6) 여기 서명할게요. (Tôi sẽ ký vào đây.) — 'Tôi sẽ ký vào đây.' Dùng khi ký nhận. 서명 = chữ ký.",
+        "7) 이건 받을 수 없어요. (Tôi không thể nhận cái này.) — Dùng để từ chối bưu kiện, ví dụ khi nó bị 파손 (hư hỏng).",
+        "8) 택배로 보내고 싶습니다. (Tôi muốn gửi một kiện hàng.) — Nói khi bạn đến để gửi hàng.",
+        "9) 보낼 물건은 이거예요. (Đây là món đồ tôi muốn gửi.) — Dùng khi cho xem món đồ bạn muốn gửi. 물건 = đồ vật, món đồ.",
+        "10) 착불로 보내 주세요. (Xin hãy gửi theo hình thức người nhận trả cước.) — Yêu cầu gửi hàng sao cho người nhận trả phí vận chuyển khi hàng đến. 착불 = cước phí do người nhận trả (thu cước khi giao hàng)."
       ]
     },
     {
-      "heading": "어휘 (Vocabulary)",
+      "heading": "Các đoạn hội thoại ngắn",
       "paragraphs": [
-        "택배 (taekbae) — bưu kiện, dịch vụ chuyển phát bưu kiện",
-        "수취인 (suchwiin) — người nhận, người nhận bưu kiện",
-        "성함 (seongham) — tên (cách nói lịch sự của 이름)",
-        "운송장 / 송장 (unsongjang / songjang) — vận đơn, nhãn vận chuyển; 운송장 번호 = mã vận đơn",
-        "서명 (seomyeong) — chữ ký (= 사인)",
-        "착불 (chakbul) — cước phí vận chuyển do người nhận trả (người nhận trả cước)",
-        "창구 (changgu) — quầy, cửa sổ phục vụ",
-        "기사님 (gisanim) — tài xế giao hàng (cách nói lịch sự)",
-        "물건 (mulgeon) — món đồ, vật"
+        "Ví dụ 1 (nhận hàng): Người giao hàng: '수취인 성함이 어떻게 되세요?' (Tên người nhận là gì ạ?) / Tôi: '저는 김민수입니다.' (Tôi là Kim Min-su.)",
+        "Ví dụ 2 (gửi hàng): Tôi: '택배로 보내고 싶습니다.' (Tôi muốn gửi một kiện hàng.) / Nhân viên: '보내실 물건이 뭐예요?' (Bạn muốn gửi món đồ gì ạ?) / Tôi: '보낼 물건은 이거예요.' (Đây là món đồ tôi muốn gửi.)"
       ]
     },
     {
-      "heading": "짧은 대화 예",
+      "heading": "Mẹo",
       "paragraphs": [
-        "예1 (받을 때): 기사: '수취인 성함이 어떻게 되세요?' / 나: '저는 김민수입니다.'",
-        "예2 (보낼 때): 나: '택배로 보내고 싶습니다.' / 직원: '보내실 물건 주시겠어요?' / 나: '보낼 물건은 이거예요.'"
+        "Hãy chuẩn bị sẵn tên và địa chỉ từ trước (ví dụ: lưu trong ghi chú điện thoại).",
+        "Trước khi nhận bưu kiện, hãy nhanh chóng kiểm tra bao bì, và từ chối ngay nếu có vấn đề.",
+        "Để nói lịch sự, thêm '요' vào sau đuôi câu thân mật (-아/어, -지, v.v.): 받을 수 없어 → 받을 수 없어요. Không phải đuôi câu nào cũng thêm '요' được (không nói 받을 수 없다요)."
       ]
     },
     {
-      "heading": "더 연습하기 (More practice)",
+      "heading": "Luyện nói thêm",
       "paragraphs": [
-        "말하기 (Speaking)",
-        "가) 창구에 택배를 찾으러 왔습니다. 직원에게 뭐라고 말하나요? (Bạn đến quầy để nhận một bưu kiện. Bạn sẽ nói gì với nhân viên?)",
-        "나) 상대에게 운송장 번호를 알려 달라고 부탁하세요. (Hãy nhờ người kia cho bạn biết mã vận đơn.)",
-        "다) 직원이 '보내실 물건 주시겠어요?'라고 합니다. 물건을 보여 주며 답하세요. (Nhân viên nói '보내실 물건 주시겠어요?'. Hãy đưa món đồ ra và trả lời.)",
-        "라) 받는 사람이 배송비를 내도록 보내고 싶습니다. 직원에게 말하세요. (Bạn muốn gửi hàng theo cách người nhận trả cước phí. Hãy nói với nhân viên.)",
-        "듣고 이해하기 (Listening: choose the meaning)",
-        "마) 기사님: '수취인 성함이 어떻게 되세요?' — (a) What is the recipient's name? (b) Where is the box?",
-        "바) 직원: '운송장 번호 알려 주세요.' — (a) Please sign here. (b) Please tell me the tracking number.",
-        "사) 직원: '착불로 보내 드릴까요?' — (a) Shall I send it so the recipient pays? (b) Shall I send it today?",
-        "아) 직원: '서명해 주세요.' — (a) Please pay. (b) Please sign.",
-        "정답 (Answers): 가) 택배 받으러 왔습니다. / 택배 찾으러 왔습니다. 나) 운송장 번호 알려 주세요. 다) 보낼 물건은 이거예요. 라) 착불로 보내 주세요. 마) (a) 바) (b) 사) (a) 아) (b)"
-      ]
-    },
-    {
-      "heading": "팁",
-      "paragraphs": [
-        "이름과 주소는 미리 준비해 두세요(휴대폰 메모 등). (Hãy chuẩn bị sẵn tên và địa chỉ trước, ví dụ ghi chú trong điện thoại.)",
-        "포장이 손상되었으면 받기 전에 기사님이나 직원에게 말하세요. 처리 방법은 택배사마다 다릅니다. (Nếu bao bì bị hư hỏng, hãy nói với tài xế hoặc nhân viên trước khi nhận. Cách xử lý khác nhau tùy theo công ty chuyển phát.)",
-        "해요체(-어요/-아요)와 -습니다체 모두 공손한 말입니다. 예: '서명할게요', '받으러 왔습니다'. (Cả đuôi câu -어요/-아요 và đuôi -습니다 đều là cách nói lịch sự.)",
-        "초급 학습자용 한 장짜리 학습지입니다. 각 표현을 소리 내어 여러 번 말해 보세요."
+        "Bạn đang ở quầy để nhận bưu kiện của mình. Bạn sẽ nói gì? → 택배 받으러 왔습니다.",
+        "Bạn muốn nhân viên cho bạn biết mã vận đơn. → 운송장 번호 알려 주세요.",
+        "Nhân viên hỏi bạn muốn gửi gì. Hãy cho xem món đồ đó. → 보낼 물건은 이거예요.",
+        "Bạn muốn người nhận trả phí vận chuyển. → 착불로 보내 주세요."
       ]
     }
   ],
-  "note": "",
+  "note": "Bảng bài tập một trang dành cho người mới bắt đầu. Hãy đọc to từng câu vài lần.",
   "category": "etc"
 }

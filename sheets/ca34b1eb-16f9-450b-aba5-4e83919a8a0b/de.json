@@ -10,42 +10,45 @@
   "checkThese": [],
   "exercises": [
     "Halte ein Taschentuch vor deinen Mund und sag 불, 풀 und 뿔. Bei welchem Wort sollte sich das Taschentuch am meisten bewegen? Schreib dieses Wort auf.",
-    "Schreib die revidierte Romanisierung für jedes Wort: 발, 팔, 뿔.",
+    "Schreib die Revised Romanization für jedes Wort: 발, 팔, 뿔.",
     "Du bist in einer Bäckerei und möchtest Brot. Welches Wort sagst du: 방 oder 빵?",
-    "Welches Wort bedeutet ‚Arm‘: 발 oder 팔?",
-    "Welcher Satz bedeutet ‚Es regnet.‘: 비가 와요 oder 피가 와요?",
+    "Welches Wort bedeutet 'Arm': 발 oder 팔?",
+    "Welcher Satz bedeutet 'Es regnet.': 비가 와요 oder 피가 와요?",
     "Sortiere diese Wörter nach ihrem Anfangsbuchstaben (ㅂ, ㅍ oder ㅃ): 풀, 방, 뿔, 팔, 발, 빵."
   ],
-  "keyword": "hangul",
+  "keyword": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "letters": [
     {
       "letter": "ㅂ",
-      "sound": "einfaches b/p: weich, mit nur wenig Luft",
-      "as": "Nahe am p in „spin“ (wenig Luft). Klingt oft wie ein weiches b."
+      "sound": "einfaches b/p: weich, mit einem leichten Lufthauch",
+      "as": "Zwischen dem englischen b und dem p in „pin“: ein leichter Lufthauch, weicher als ㅍ. Klingt oft wie ein weiches b."
     },
     {
       "letter": "ㅍ",
-      "sound": "aspiriertes p: starker Luftstoß",
-      "as": "Nahe am p in „pin“ (starker Luftstoß)."
+      "sound": "aspiriertes p: starker Lufthauch",
+      "as": "Nahe am p in „pin“ (starker Lufthauch)."
     },
     {
       "letter": "ㅃ",
-      "sound": "angespanntes pp: Lippen fest zusammengepresst, Kehle angespannt, kein Luftstoß",
-      "as": "Im Englischen gibt es keine genaue Entsprechung. Wie das p in „spin“, aber härter und angespannter ausgesprochen, ohne Luftstoß."
+      "sound": "angespanntes pp: Lippen fest zusammengepresst, Kehle angespannt, kein Lufthauch",
+      "as": "Keine genaue englische Entsprechung. Wie das p in „spin“, aber härter und angespannter gesprochen, ohne Luftausstoß."
     }
   ],
   "level": "Anfänger",
   "minutes": 15,
-  "objective": "Unterscheide und sprich das wortanfängliche ㅂ, ㅍ und ㅃ aus. Wähle das richtige Wort aus Minimalpaar-Gruppen wie 불/풀/뿔, 발/팔 und 방/빵.",
-  "summary": "Dieses Arbeitsblatt behandelt die drei koreanischen „p/b“-Buchstaben am Wortanfang: das einfache ㅂ, das aspirierte ㅍ und das angespannte ㅃ. Jeder Buchstabe hat einen englischen Merkhinweis und eine Reihe einfacher Wörter. Du lernst, die Buchstaben anhand von Minimalpaaren wie 불/풀/뿔, 발/팔 und 방/빵 zu unterscheiden. Die Übungen umfassen einen Taschentuch-Test, Lesen, Sortieren und die Auswahl des richtigen Wortes.",
+  "objective": "Unterscheide das wortanfängliche ㅂ, ㅍ und ㅃ und sprich es richtig aus. Wähle das richtige Wort aus Minimalpaar-Gruppen wie 불/풀/뿔, 발/팔 und 방/빵.",
+  "summary": "Dieses Arbeitsblatt behandelt die drei koreanischen „p/b“-Laute am Wortanfang: einfaches ㅂ, aspiriertes ㅍ und angespanntes ㅃ. Jeder Buchstabe hat einen englischen Merkhinweis und eine Reihe einfacher Wörter. Du lernst, die Laute anhand von Minimalpaaren wie 불/풀/뿔, 발/팔 und 방/빵 zu unterscheiden. Die Übungen umfassen einen Taschentuch-Test, Lesen, Sortieren und die Auswahl des richtigen Wortes.",
   "tags": [],
-  "task": null,
+  "task": {
+    "title": "",
+    "line": ""
+  },
   "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "words": [
     {
       "korean": "불",
       "roman": "bul",
-      "meaning": "Licht (eine Lampe oder das Licht in einem Raum)",
+      "meaning": "Licht (z. B. eine Lampe oder Zimmerlicht)",
       "example": "불 좀 꺼 주세요.",
       "exampleMeaning": "Bitte mach das Licht aus."
     },
@@ -68,7 +71,7 @@
       "roman": "bal",
       "meaning": "Fuß",
       "example": "많이 걸어서 발이 아파요.",
-      "exampleMeaning": "Meine Füße tun weh, weil ich viel gelaufen bin."
+      "exampleMeaning": "Mir tun die Füße weh, weil ich viel gelaufen bin."
     },
     {
       "korean": "팔",

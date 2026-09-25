@@ -1,38 +1,40 @@
 {
-  "answers": [
-    "자동발매기",
-    "지하철 = subway, 승차권 = ticket (paper)",
-    "환승",
-    "출구",
-    "개찰구",
-    "교통카드",
-    "갈아타 (환승하도 정답)",
-    "안내판",
-    "역무원"
-  ],
-  "checkThese": [],
-  "exercises": [
-    "Écrivez le mot coréen pour « distributeur de billets ».",
-    "Écrivez le sens en français de chaque mot : 지하철 / 승차권",
-    "Écrivez le mot coréen pour « correspondance » (nom).",
-    "Complétez le blanc avec un mot de la liste : 몇 번 ___로 나가요?",
-    "Complétez le blanc : ___를 지나서 오른쪽으로 가세요. (indice : portillon)",
-    "Complétez le blanc : ___에 돈을 충전했어요. (indice : carte de transport)",
-    "Complétez le blanc : 2호선으로 ___세요. (indice : changer de train)",
-    "Choisissez le mot qui signifie « panneau d'information » : 안내판 / 개찰구 / 출구 / 자동발매기",
-    "Complétez le blanc : 길을 몰라요. ___에게 물어볼까요? (indice : personnel de la station)"
-  ],
-  "keyword": "지하철 이용 어휘",
-  "level": "초급 (A1)",
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "keyword": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "summary": "Cette fiche enseigne 10 mots coréens essentiels pour utiliser le métro : acheter un billet, passer le portillon, changer de ligne et trouver les sorties. Chaque mot est accompagné d'une courte phrase d'exemple pratique.",
+  "objective": "Apprenez 10 mots de vocabulaire clés sur le métro (achat de billet, portillon, correspondance, sortie) avec des phrases d'exemple courtes que vous pourrez utiliser immédiatement.",
+  "level": "Débutant",
   "minutes": 10,
-  "objective": "Apprenez 10 mots de vocabulaire clés sur le métro (achat de billet, portillon, correspondance, sortie) avec de courtes phrases d'exemple que vous pourrez utiliser immédiatement.",
-  "summary": "Cette fiche enseigne 10 mots coréens essentiels pour prendre le métro : acheter un billet, passer le portillon, faire une correspondance et trouver une sortie. Chaque mot est accompagné d'une courte phrase d'exemple pratique.",
   "tags": [],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "Demander au personnel de la station",
+    "line": "Imaginez que vous êtes perdu dans une station. Demandez à un(e) 역무원 où changer de ligne et comment aller à votre sortie, par exemple : « 실례합니다. 2호선은 어디에서 갈아타요? 3번 출구는 어디예요? »"
   },
-  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "exercises": [
+    "Écrivez le mot coréen pour « distributeur de billets ». (Premiers sons : ㅈㄷㅂㅁㄱ)",
+    "Écrivez le mot coréen pour « billet (papier) ». (Premiers sons : ㅅㅊㄱ)",
+    "Complétez le blanc : ___하는 곳이 어디예요? (Où est l'endroit pour changer de ligne ?)",
+    "Complétez le blanc : 2번 ___로 나오세요. (Sortez par la sortie 2.)",
+    "Complétez le blanc : ___를 찍고 들어가요. (Je tapote ma carte de transport et j'entre.)",
+    "Complétez le blanc : ___를 지나서 들어가요. (Entrez en passant par le portillon.)",
+    "Complétez le blanc : 여기에서 버스로 ___ 수 있어요? (Est-ce que je peux changer pour un bus ici ?)",
+    "Complétez le blanc : 출구 번호는 ___에 있어요. (Le numéro de la sortie est sur le panneau d'information.)",
+    "Complétez le blanc : 표를 잃어버렸어요. ___에게 말하세요. (J'ai perdu mon billet. Parlez-en au personnel de la station.)",
+    "Complétez le blanc : 공항까지 ___로 가요. (Je vais à l'aéroport en métro.)"
+  ],
+  "answers": [
+    "자동발매기",
+    "승차권",
+    "환승",
+    "출구",
+    "교통카드",
+    "개찰구",
+    "갈아탈",
+    "안내판",
+    "역무원",
+    "지하철"
+  ],
+  "checkThese": [],
   "words": [
     {
       "korean": "지하철",
@@ -46,7 +48,7 @@
       "roman": "gaechalgu",
       "meaning": "portillon",
       "example": "개찰구에서 카드를 찍으세요.",
-      "exampleMeaning": "Veuillez badger votre carte au portillon."
+      "exampleMeaning": "Veuillez tapoter votre carte au portillon."
     },
     {
       "korean": "교통카드",
@@ -72,16 +74,16 @@
     {
       "korean": "환승",
       "roman": "hwanseung",
-      "meaning": "correspondance (changement de train)",
+      "meaning": "correspondance (changer de train)",
       "example": "여기에서 환승해요.",
-      "exampleMeaning": "Je fais la correspondance ici."
+      "exampleMeaning": "Je change de ligne ici."
     },
     {
       "korean": "갈아타다",
       "roman": "garatada",
-      "meaning": "faire une correspondance / changer de train",
+      "meaning": "changer de train / faire une correspondance",
       "example": "다음 역에서 갈아타세요.",
-      "exampleMeaning": "Veuillez faire la correspondance à la prochaine station."
+      "exampleMeaning": "Veuillez changer de ligne à la prochaine station."
     },
     {
       "korean": "출구",
@@ -93,7 +95,7 @@
     {
       "korean": "안내판",
       "roman": "annaepan",
-      "meaning": "panneau d'information",
+      "meaning": "panneau d'information / panneau indicateur",
       "example": "안내판을 봐요.",
       "exampleMeaning": "Regardez le panneau d'information."
     },

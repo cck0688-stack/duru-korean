@@ -1,90 +1,73 @@
 {
   "title": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
-  "keyword": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
-  "summary": "Membaca dan membedakan 12 tombol/label ATM bank Korea yang sangat umum serta memahami fungsi masing-masing. Membangun kepercayaan diri untuk menjalankan seluruh alur ATM sendiri.",
-  "objective": "Pada akhirnya, pelajar dapat membaca dengan tepat 12 tombol/label ATM yang sering muncul dalam bahasa Korea (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) dan mengikuti alur dasar ATM (masukkan kartu → pilih layanan → masukkan PIN → pilih jumlah/rekening → pilihan cetak struk → ambil uang tunai/kartu; urutan langkah awal bisa berbeda tergantung mesin) secara mandiri.",
-  "level": "Pemula (A1+~A2-)",
+  "keyword": "",
+  "summary": "Membaca dan membedakan 12 tombol/label ATM bank Korea yang sangat umum serta memahami fungsi masing-masing. Membangun kepercayaan diri untuk menjalani alur ATM secara mandiri.",
+  "objective": "Pada akhir pelajaran, pembelajar dapat membaca dengan tepat 12 tombol/label ATM yang sering muncul dalam bahasa Korea (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) dan mengikuti alur dasar ATM (masukkan kartu → pilih layanan, atau di beberapa mesin pilih layanan dulu → masukkan PIN → pilih jumlah/rekening → pilihan cetak struk → ambil uang tunai/kartu) secara mandiri.",
+  "level": "Pemula",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "Menarik uang di ATM sendirian",
-    "line": "Bacalah label pada layar dan ucapkan urutan langkah dari penarikan tunai hingga pengambilan kartu."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "Situasi: Anda perlu uang dan ingin menarik 50.000 won dari ATM. Tombol mana yang harus ditekan?",
-    "Di layar muncul 'Apakah Anda memerlukan struk? Ya/Tidak'. Anda ingin mendapatkan struk kertas. Apa yang harus ditekan?",
-    "Situasi: Anda ingin tahu berapa sisa uang di buku tabungan Anda. Tombol mana yang harus ditekan?",
-    "Pasangkan label dengan artinya dalam bahasa Inggris: 통장정리 / 무통장 입금 / 언어 선택 / 처음으로 — choose language / go to start / update passbook / cash deposit without card/passbook",
-    "Susun urutan alur contoh [출금] di atas: 금액 선택 / 카드 넣기 / 출금 / 비밀번호 입력",
-    "Pilih arti dari label '취소': menghentikan transaksi yang sedang berlangsung / kembali ke layar awal / menyelesaikan input dan melanjutkan",
-    "Anda ingin mengirim uang ke rekening teman. Tuliskan label yang harus dicari di layar.",
-    "Isi bagian kosong dengan label yang tepat: Untuk membayar tagihan listrik, tekan tombol [    ].",
-    "Anda ingin memasukkan uang tunai ke buku tabungan Anda menggunakan kartu. Pilih tombol yang tepat: 입금 / 출금 / 잔액조회",
-    "Anda sudah selesai memasukkan jumlah uang. Apa yang harus ditekan untuk lanjut ke layar berikutnya? 확인 / 취소 / 처음으로",
-    "Tombol '영수증 출력' berfungsi untuk apa? Pilih jawaban yang tepat: menerima struk kertas / mencetak riwayat transaksi ke buku tabungan / kembali ke layar awal"
+    "Baca pesan di layar dan pilih 예 atau 아니요: 화면에 '영수증이 필요하십니까? 예/아니요'가 나왔어요. 종이 영수증이 필요 없어요. 무엇을 누르나요?",
+    "Pertama tuliskan label Korea dari tombol yang Anda tekan, lalu urutkan langkah-langkah berikutnya sesuai urutan alur 이체 pada lembar kerja ini: 상황: 다른 사람 계좌로 돈을 보내야 해요. (확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력)",
+    "Urutkan langkah-langkah 출금 sesuai urutan yang ditunjukkan di lembar kerja ini: 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인",
+    "Cocokkan setiap situasi dengan label tombol Korea yang sesuai: (a) 고지서로 전기요금을 내고 싶어요. (b) 카드로 내 계좌에 현금을 넣고 싶어요. (c) 카드나 통장 없이 계좌번호로 돈을 넣고 싶어요. (d) 통장에 그동안의 거래 내역을 찍고 싶어요. (e) 현금을 뽑고 싶어요. (f) 계좌에 남은 돈을 확인하고 싶어요.",
+    "Tombol mana yang Anda tekan? Jawab dengan label Korea: (a) 거래가 끝난 후에 메뉴에서 종이 영수증을 뽑고 싶어요. (b) 화면에 '금액을 선택하세요.'가 나와서 금액을 골랐어요. 다음으로 가고 싶어요. (c) 거래를 그만하고 싶어요. (d) 첫 화면으로 돌아가고 싶어요.",
+    "Tuliskan label Korea untuk romanisasi ini: eoneo seontaek"
   ],
   "answers": [
-    "출금 또는 현금인출 (둘 다 정답)",
-    "예",
-    "잔액조회",
-    "통장정리 – update passbook / 무통장 입금 – cash deposit without card/passbook / 언어 선택 – choose language / 처음으로 – go to start",
-    "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택",
-    "지금 하던 거래를 그만둔다",
-    "이체 또는 계좌이체 (둘 다 정답)",
-    "공과금 납부 또는 지로 (둘 다 정답)",
-    "입금",
-    "확인",
-    "종이 영수증을 받는다"
+    "아니요",
+    "이체(계좌이체); 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인",
+    "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인",
+    "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회",
+    "(a) 영수증 출력 (b) 확인 (c) 취소 (d) 처음으로(초기화면)",
+    "언어 선택"
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "12 tombol: membaca label (romanisasi) dan kegunaannya",
+      "heading": "12 tombol: membaca label (romanisasi) dan fungsinya",
       "paragraphs": [
-        "출금[현금인출] (chulgeum [hyeongeum inchul]): ditekan saat ingin mengambil uang tunai. (withdraw cash)",
-        "입금 (ipgeum): ditekan saat ingin memasukkan uang ke rekening bank. (deposit)",
-        "이체[계좌이체] (iche [gyejwa iche]): ditekan saat ingin mengirim uang ke rekening lain. (transfer)",
-        "잔액조회 (janaek johoe): ditekan saat ingin memeriksa sisa saldo di rekening. (check balance)",
-        "통장정리 (tongjang jeongni): mencetak riwayat transaksi ke buku tabungan. (update passbook)",
-        "무통장 입금 (mutongjang ipgeum): menyetor uang ke rekening menggunakan nomor rekening tanpa buku tabungan/kartu. (cash deposit without card/passbook)",
-        "공과금 납부[지로] (gonggwageum napbu [jiro]): membayar tagihan seperti listrik, air, dll. (pay bills)",
-        "영수증 출력 (yeongsujeung chullyeok): mencetak struk kertas. (print receipt)",
-        "언어 선택 (eoneo seontaek): memilih bahasa seperti bahasa Korea/Inggris, dll. (choose language)",
-        "확인 (hwagin): menyelesaikan input dan melanjutkan. (confirm)",
-        "취소 (chwiso): menghentikan proses yang sedang dilakukan dan membatalkan transaksi. (cancel transaction)",
-        "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): kembali ke layar awal. (go to start/home)"
+        "출금[현금인출] (chulgeum [hyeongeum inchul]): Tekan untuk menarik uang tunai.",
+        "입금 (ipgeum): Tekan untuk memasukkan uang ke rekening bank (setor).",
+        "이체[계좌이체] (iche [gyejwa iche]): Tekan untuk mengirim uang ke rekening lain (transfer).",
+        "잔액조회 (janaek johoe): Tekan untuk memeriksa berapa sisa uang di rekening (cek saldo).",
+        "통장정리 (tongjang jeongni): Mencetak riwayat transaksi ke dalam buku tabungan (memperbarui buku tabungan).",
+        "무통장 입금 (mutongjang ipgeum): Menyetor uang tunai ke nomor rekening tanpa menggunakan kartu atau buku tabungan.",
+        "공과금 납부[지로] (gonggwageum napbu [jiro]): Membayar tagihan seperti listrik dan air.",
+        "영수증 출력 (yeongsujeung chullyeok): Memberikan struk kertas (cetak struk).",
+        "언어 선택 (eoneo seontaek): Memilih bahasa, seperti bahasa Korea atau Inggris.",
+        "확인 (hwagin): Menyelesaikan input Anda dan melanjutkan (konfirmasi).",
+        "취소 (chwiso): Membatalkan transaksi yang sedang berlangsung (batal).",
+        "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): Kembali ke layar pertama (kembali ke awal/beranda)."
       ]
     },
     {
-      "heading": "mengikuti alur dasar",
+      "heading": "Mengikuti alur dasar",
       "paragraphs": [
-        "Masukkan kartu (atau masukkan nomor rekening/uang tunai) → pilih layanan → masukkan PIN → pilih jumlah/rekening → pilih struk → ambil uang tunai/kartu (urutan bisa berbeda tergantung mesin. Banyak mesin yang meminta memilih layanan lebih dulu baru memasukkan kartu.)",
-        "Penarikan: masukkan kartu → 출금 → masukkan PIN → pilih jumlah → 확인 → pilih struk → ambil uang tunai/kartu",
-        "Transfer: masukkan kartu → 이체 → masukkan PIN → masukkan rekening penerima → masukkan jumlah yang dikirim → 확인 → pilih struk → ambil kartu",
-        "Setor tanpa buku tabungan: 무통장 입금 → masukkan rekening penerima → masukkan jumlah atau masukkan uang tunai → 확인 → pilih struk"
+        "Di beberapa mesin, Anda memilih layanan terlebih dahulu baru kemudian memasukkan kartu.",
+        "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
+        "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기"
       ]
     },
     {
-      "heading": "Kalimat panduan yang sering muncul di layar",
+      "heading": "Pesan umum yang muncul di layar",
       "paragraphs": [
-        "Pilih jumlah uang.",
-        "Pilih rekening.",
-        "Apakah Anda memerlukan struk? Ya/Tidak",
-        "Masukkan kata sandi (PIN).",
-        "Apakah Anda ingin kembali ke layar awal? Ya/Tidak",
-        "Masukkan kembali."
+        "금액을 선택하세요. (Silakan pilih jumlahnya.)",
+        "영수증이 필요하십니까? 예/아니요 (Apakah Anda memerlukan struk? Ya/Tidak)"
       ]
     },
     {
       "heading": "Tips membaca dan catatan istilah",
       "paragraphs": [
-        "대괄호 […]는 같은 뜻의 다른 라벨입니다. 둘 중 하나만 보여도 같은 기능입니다.",
-        "확인, 취소, 처음으로는 거의 모든 화면에 나옵니다. 위치는 은행마다 다르니 글자를 꼭 읽으세요.",
-        "통장정리는 통장에 그동안의 거래 내역을 자동으로 인쇄하는 기능입니다.",
-        "지로(공과금 납부)는 전기·수도 등 각종 요금을 내는 메뉴입니다."
+        "Tanda kurung siku […] menunjukkan label lain dengan arti yang sama. Jika Anda melihat salah satunya, fungsinya tetap sama.",
+        "확인, 취소, dan 처음으로 muncul di hampir setiap layar. Posisinya berbeda-beda tergantung bank, jadi selalu baca teksnya."
       ]
     }
   ],
-  "note": "Lembar kerja ini disusun berdasarkan teks tombol ATM yang sebenarnya. Tampilan layar bisa sedikit berbeda tergantung bank dan mesin.",
+  "note": "Lembar kerja ini disusun berdasarkan label tombol pada ATM sungguhan. Tata letak layar bisa sedikit berbeda tergantung bank dan mesin.",
   "category": "etc"
 }

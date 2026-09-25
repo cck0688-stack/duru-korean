@@ -1,8 +1,8 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
-  "keyword": "약 봉투",
-  "summary": "Ein praktisches Leseblatt zum koreanischen Medikamenten-Umschlag (약 봉투). Die Lernenden lesen drei kurze Umschlag-Etiketten. Sie lernen die Dosierungswörter, die auf fast jedem Umschlag stehen (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분), und wie man sie mit einheimischen koreanischen Zahlen laut ausspricht (하루 세 번, 한 알). Außerdem lernen sie zwei häufige Warnhinweise: 졸음이 올 수 있어요 und 운전 주의.",
-  "objective": "Nachdem sie einen Medikamenten-Umschlag gelesen haben, können die Lernenden vier Dinge herausfinden: wie oft am Tag man das Medikament einnehmen soll, wann man es einnimmt (식전 / 식후 30분 / 취침 전), wie viel man jedes Mal einnimmt (1포, 1알/1정), und für wie viele Tage (○일분). Sie können außerdem die Warnhinweise 졸음이 올 수 있어요 und 운전 주의 erkennen.",
+  "keyword": "",
+  "summary": "Ein praktisches Lesearbeitsblatt zum koreanischen Apotheken-Medikamentenumschlag (약 봉투). Die Lernenden lesen drei kurze Umschlag-Etiketten. Sie lernen die Dosierungswörter, die auf fast jedem Umschlag vorkommen (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분), und wie man sie mit einheimischen koreanischen Zählwörtern laut ausspricht (하루 세 번, 한 알). Außerdem lernen sie zwei häufige Warnhinweise: 졸음이 올 수 있어요 und 운전 주의.",
+  "objective": "Nachdem sie einen Apotheken-Medikamentenumschlag gelesen haben, können die Lernenden vier Dinge herausfinden: wie oft am Tag man das Medikament einnehmen soll, wann man es einnimmt (식전 / 식후 30분 / 취침 전), wie viel man jedes Mal einnimmt (1포, 1알/1정), und für wie viele Tage (○일분). Sie können außerdem die Warnhinweise 졸음이 올 수 있어요 und 운전 주의 erkennen.",
   "level": "Anfänger (hoch)",
   "minutes": 20,
   "tags": [],
@@ -11,12 +11,12 @@
     "line": ""
   },
   "exercises": [
-    "Schauen Sie sich Umschlag A an. 이 약은 하루에 몇 번 먹어요?",
-    "Schauen Sie sich Umschlag A an. 이 약은 언제 먹어요? Schreiben Sie die Wörter vom Umschlag auf und was sie bedeuten.",
-    "Schauen Sie sich Umschlag B an. Auf dem Umschlag steht 1회 1정. 한 번에 몇 알 먹어요? Antworten Sie so, wie man es laut sagen würde.",
-    "Schauen Sie sich Umschlag C an. 이 약은 며칠 동안 먹어요?",
-    "Schauen Sie sich Umschlag C an. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
-    "Schauen Sie sich Umschlag A an. 이 약을 먹고 운전해도 괜찮아요? Welche Wörter auf dem Umschlag sagen Ihnen das, und was bedeuten sie?"
+    "Schau dir Umschlag A an. 이 약은 하루에 몇 번 먹어요?",
+    "Schau dir Umschlag A an. 이 약은 언제 먹어요? Schreibe die Wörter vom Umschlag auf und was sie bedeuten.",
+    "Schau dir Umschlag B an. Auf dem Umschlag steht 1회 1정. 한 번에 몇 알 먹어요? Beantworte es so, wie man es laut sagen würde.",
+    "Schau dir Umschlag C an. 이 약은 며칠 동안 먹어요?",
+    "Schau dir Umschlag C an. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
+    "Schau dir Umschlag A an. 이 약을 먹고 운전해도 괜찮아요? Welche Wörter auf dem Umschlag verraten es dir, und was bedeuten sie?"
   ],
   "answers": [
     "하루 세 번 (1일 3회 = 3 times a day)",
@@ -32,22 +32,22 @@
       "heading": "약 봉투 A (UMSCHLAG A)",
       "paragraphs": [
         "이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의.",
-        "In Korea packt die Apotheke oft eine Einzeldosis Tabletten in ein kleines Päckchen namens 포. Man öffnet ein Päckchen und nimmt alles ein, was darin ist."
+        "In Korea steckt die Apotheke oft eine Dosis Tabletten in ein kleines Päckchen namens 포. Man öffnet ein Päckchen und nimmt alles ein, was darin ist."
       ]
     },
     {
       "heading": "봉투에 나오는 말 (WÖRTER AUF DEM UMSCHLAG)",
       "paragraphs": [
-        "WIE OFT AM TAG — 1일 3회 (iril samhoe) = 3-mal am Tag. 일 bedeutet „Tag\" und 회 bedeutet „Mal\". Im gesprochenen Koreanisch sagt man dazu 하루 세 번.",
-        "WIE VIEL JEDES MAL — 1회 1포 = jedes Mal ein Päckchen. 1정 = eine Tablette. Auf dem Umschlag steht 정, aber im Gespräch sagt man 알: 1정 = 1알 = 한 알. Zwei Tabletten = 2알 = 두 알.",
-        "WANN — 식전 (sikjeon) = vor einer Mahlzeit. 식후 (sikhu) = nach einer Mahlzeit. 식후 30분 = 30 Minuten nach einer Mahlzeit. 취침 전 (chwichim jeon) = vor dem Schlafengehen. Im Gespräch kann man auch 밥 먹기 전, 밥 먹고 나서 und 자기 전 sagen.",
-        "WIE VIELE TAGE — 3일분 (samilbun) = Vorrat für 3 Tage. 분 bedeutet hier „Menge/Anteil\" und hat nichts mit Minuten zu tun. 7일분 = Medikamente für 7 Tage."
+        "WIE OFT AM TAG — 1일 3회 (iril samhoe) = 3 Mal am Tag. 일 bedeutet 'Tag' und 회 bedeutet 'Mal(e)'. Man sagt dazu 하루 세 번.",
+        "WIE VIEL JEDES MAL — 1회 1포 = ein Päckchen jedes Mal. 1정 = eine Tablette. Auf dem Umschlag steht 정, aber man sagt 알: 1정 = 1알 = 한 알. Zwei Tabletten = 2알 = 두 알.",
+        "WANN — 식전 (sikjeon) = vor einer Mahlzeit. 식후 (sikhu) = nach einer Mahlzeit. 식후 30분 = 30 Minuten nach einer Mahlzeit. 취침 전 (chwichim jeon) = vor dem Schlafengehen. Im Gespräch kann man 밥 먹기 전, 밥 먹고 나서 und 자기 전 sagen.",
+        "WIE VIELE TAGE — 3일분 (sam-ilbun) = eine 3-Tage-Versorgung. 분 bedeutet hier 'Menge/Anteil' und hat nichts mit Minuten zu tun. 7일분 = Medikamente für 7 Tage."
       ]
     },
     {
       "heading": "소리 내어 읽기 (LAUT LESEN)",
       "paragraphs": [
-        "Auf dem Umschlag werden sino-koreanische Wörter und Zahlen verwendet. Im Gespräch verwendet man einheimische koreanische Zahlen (한, 두, 세) mit den Zähleinheiten 번 und 알.",
+        "Auf dem Umschlag stehen sinokoreanische Wörter und Zahlen. Beim Sprechen verwendet man einheimische koreanische Zählwörter.",
         "1일 3회 → 하루 세 번 먹어요. 1회 2알 → 한 번에 두 알 먹어요. 취침 전 → 자기 전에 먹어요."
       ]
     },
@@ -69,11 +69,11 @@
     {
       "heading": "약국에서 물어보기 (IN DER APOTHEKE FRAGEN)",
       "paragraphs": [
-        "Wenn Sie den Umschlag nicht lesen können, fragen Sie den Apotheker:",
+        "Wenn du den Umschlag nicht lesen kannst, frage den Apotheker:",
         "이 약은 언제 먹어요? — Wann nehme ich das ein? 하루에 몇 번 먹어요? — Wie oft am Tag? 한 번에 몇 알 먹어요? — Wie viele nehme ich jedes Mal?"
       ]
     }
   ],
-  "note": "Alle Umschläge sind erfundene Beispiele zum Leseüben. Sie sind keine medizinische Beratung. Bei echten Medikamenten befolgen Sie immer die Anweisungen Ihres Apothekers oder Arztes.",
+  "note": "Alle Umschläge sind erfundene Beispiele zum Leseüben. Sie sind kein medizinischer Rat. Bei echten Medikamenten sollte man immer den Anweisungen des Apothekers oder Arztes folgen.",
   "category": "etc"
 }

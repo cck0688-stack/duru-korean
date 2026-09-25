@@ -1,44 +1,44 @@
 {
   "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
-  "keyword": "받침",
-  "summary": "Luyện đọc và phát âm các phụ âm cuối ㅇ, ㄴ, ㅁ. Liên hệ chúng với các âm cuối tương tự trong tiếng Anh (-ng, -n, -m) và đọc các từ đơn giản có chứa những phụ âm cuối (batchim) này.",
-  "objective": "Người học sẽ phân biệt các phụ âm cuối ㅇ, ㄴ, ㅁ bằng âm thanh, liên hệ chúng với các âm cuối tương tự trong tiếng Anh (-ng, -n, -m) để phát âm chính xác, và đọc các từ đơn giản có chứa những phụ âm cuối này.",
-  "level": "Trình độ cơ bản (A1)",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
+  "summary": "Luyện đọc và phát âm các phụ âm cuối ㅇ, ㄴ, ㅁ. Liên hệ chúng với các âm cuối tương tự trong tiếng Anh (-ng, -n, -m) và đọc các từ đơn giản có chứa những batchim này.",
+  "objective": "Người học sẽ phân biệt các phụ âm cuối ㅇ, ㄴ, ㅁ qua âm thanh, liên hệ chúng với các âm cuối tương tự trong tiếng Anh (-ng, -n, -m) để phát âm chính xác, và đọc các từ đơn giản có chứa những batchim này.",
+  "level": "Sơ cấp",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "받침 소리 구별하기",
-    "line": "Đọc to từng từ và phân loại theo âm cuối: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
-    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
-    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)",
-    "뜻에 맞는 낱말을 고르세요: 'hand' (tay) → 손 / 송 / 솜",
-    "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+    "Chọn từ có âm cuối là [-ng]: 방 / 반 / 밤",
+    "Điền âm cuối kiểu tiếng Anh (-ng/-n/-m) vào mỗi chỗ trống: 손(__) 방(__) 봄(__)",
+    "Sắp xếp các từ sau theo âm cuối (ㅇ/ㄴ/ㅁ): 공 / 눈 / 산 / 봄",
+    "Chọn từ đúng với nghĩa: 'tay' → 손 / 송 / 솜",
+    "Điền phụ âm cuối đúng (ㅇ/ㄴ/ㅁ) vào chỗ trống: 이르_ (nghĩa là: tên)"
   ],
   "answers": [
     "방",
     "손(-n), 방(-ng), 봄(-m)",
-    "ㅇ, ㄴ, ㅁ",
+    "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄",
     "손",
-    "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+    "ㅁ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅇ",
-      "sound": "ng (끝소리)",
+      "sound": "ng (âm cuối)",
       "as": "giống âm cuối -ng trong tiếng Anh (sing)"
     },
     {
       "letter": "ㄴ",
-      "sound": "n (끝소리)",
+      "sound": "n (âm cuối)",
       "as": "giống âm cuối -n trong tiếng Anh (sun)"
     },
     {
       "letter": "ㅁ",
-      "sound": "m (끝소리)",
+      "sound": "m (âm cuối)",
       "as": "giống âm cuối -m trong tiếng Anh (gum)"
     }
   ],
@@ -48,14 +48,14 @@
       "roman": "bang",
       "meaning": "phòng",
       "example": "방이 커요.",
-      "exampleMeaning": "Phòng rất rộng."
+      "exampleMeaning": "Căn phòng rộng."
     },
     {
       "korean": "공",
       "roman": "gong",
       "meaning": "quả bóng",
       "example": "공을 차요.",
-      "exampleMeaning": "Tôi đá bóng."
+      "exampleMeaning": "Tôi đá quả bóng."
     },
     {
       "korean": "빵",
@@ -76,7 +76,7 @@
       "roman": "nun",
       "meaning": "tuyết; mắt (ở đây là: tuyết)",
       "example": "눈이 와요.",
-      "exampleMeaning": "Trời đang có tuyết."
+      "exampleMeaning": "Trời đang có tuyết rơi."
     },
     {
       "korean": "산",

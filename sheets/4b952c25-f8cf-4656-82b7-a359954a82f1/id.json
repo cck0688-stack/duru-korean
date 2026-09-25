@@ -1,22 +1,4 @@
 {
-  "title": "가온모바일 'LTE 라이트 29' 요금제 안내",
-  "keyword": "",
-  "summary": "Membaca pengumuman paket seluler Korea yang realistis dan mengidentifikasi detail penting seperti biaya bulanan, kuota data, batas telepon/SMS, jangka waktu kontrak, dan kebijakan setelah data habis.",
-  "objective": "Setelah membaca pengumuman paket seluler sepanjang 3–5 paragraf, pembelajar dapat menemukan dengan tepat biaya bulanan, kuota data, jumlah telepon/SMS yang termasuk, jangka waktu kontrak (atau tanpa kontrak), dan kebijakan setelah data habis (pembatasan kecepatan/biaya tambahan).",
-  "level": "Menengah Rendah (중급 초반)",
-  "minutes": 15,
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "exercises": [
-    "이 요금제의 월정액은 얼마인가요?",
-    "데이터는 얼마를 제공하나요?",
-    "데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
-    "통화/문자는 얼마나 포함되어 있나요?",
-    "약정 기간은 어떻게 되나요?"
-  ],
   "answers": [
     "29,000원",
     "월 15GB",
@@ -25,37 +7,55 @@
     "12개월"
   ],
   "checkThese": [],
-  "passage": [
-    "가온모바일 'LTE 라이트 29' 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
-    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
-    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 초과하면 통화와 문자에 별도 요금이 부과됩니다."
+  "exercises": [
+    "Jawab dalam bahasa Korea: 이 요금제의 월정액은 얼마인가요?",
+    "Jawab dalam bahasa Korea: 데이터는 얼마를 제공하나요?",
+    "Jawab dalam bahasa Korea: 데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+    "Jawab dalam bahasa Korea: 통화/문자는 얼마나 포함되어 있나요?",
+    "Jawab dalam bahasa Korea: 약정 기간은 어떻게 되나요?"
   ],
+  "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "level": "Menengah (rendah)",
+  "minutes": 15,
+  "objective": "Setelah membaca pemberitahuan paket seluler sepanjang 3–5 paragraf, pembelajar dapat menemukan dengan tepat biaya bulanan, kuota data, jumlah telepon/SMS yang termasuk, masa kontrak (atau tanpa kontrak), dan kebijakan setelah data habis (pembatasan kecepatan/biaya tambahan).",
+  "passage": [
+    "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
+    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
+    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
+  ],
+  "summary": "Baca sebuah pemberitahuan paket seluler Korea yang realistis dan temukan detail-detail penting seperti biaya bulanan, kuota data, batas telepon/SMS, masa kontrak, dan kebijakan setelah data habis.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
   "words": [
     {
       "korean": "월정액",
       "roman": "woljeong-aek",
-      "meaning": "biaya bulanan tetap untuk paket ini",
+      "meaning": "biaya bulanan tetap untuk paket tersebut",
       "example": "이 요금제의 월정액은 29,000원이에요.",
       "exampleMeaning": "Biaya bulanan untuk paket ini adalah 29.000 won."
     },
     {
       "korean": "약정",
       "roman": "yakjeong",
-      "meaning": "jangka waktu kontrak; periode tertentu yang disepakati untuk tetap menggunakan suatu paket",
+      "meaning": "masa kontrak; jangka waktu tertentu yang disepakati untuk tetap menggunakan suatu paket",
       "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
-      "exampleMeaning": "Ini kontrak 12 bulan, jadi sulit untuk beralih dengan mudah."
+      "exampleMeaning": "Ini kontrak 12 bulan, jadi sulit untuk berganti dengan mudah."
     },
     {
       "korean": "소진",
       "roman": "sojin",
-      "meaning": "habis (data Anda habis)",
+      "meaning": "habis (kuota data Anda)",
       "example": "데이터가 소진되어 속도가 느려졌어요.",
       "exampleMeaning": "Data saya habis, jadi kecepatannya jadi lambat."
     },
     {
       "korean": "무제한",
       "roman": "mujehan",
-      "meaning": "tak terbatas (tidak ada batas penggunaan yang ditetapkan)",
+      "meaning": "tak terbatas (tidak ada batas penggunaan yang ditentukan)",
       "example": "주말에는 무제한 이용이 가능해요.",
       "exampleMeaning": "Pada akhir pekan, penggunaan tak terbatas tersedia."
     },
@@ -69,7 +69,7 @@
     {
       "korean": "기본 제공",
       "roman": "gibon jegong",
-      "meaning": "kuota yang disediakan oleh paket",
+      "meaning": "kuota yang disertakan yang disediakan oleh paket tersebut",
       "example": "통화 200분이 기본 제공입니다.",
       "exampleMeaning": "200 menit telepon termasuk di dalamnya."
     }

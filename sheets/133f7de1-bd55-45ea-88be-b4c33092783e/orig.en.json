@@ -1,4 +1,19 @@
 {
+  "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
+  "keyword": "",
+  "summary": "Read two short apartment notices (water shut-off and power outage due to inspection) and practice scanning for date/time, place, reason, and what residents should do. Focus on eight frequent labels/words.",
+  "objective": "Learners will be able to read short building notices about water/power outages and inspections and quickly find date, time, affected area, and what residents should do; and recognize 8 frequent labels/words (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Beginner High (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "공지 A의 단수는 몇 시에 끝납니까? 공지문에 쓰인 형식(예: 14:00)으로 쓰세요.",
+    "공지 B의 사유를 그대로 쓰세요.",
+    "공지 A의 장소를 그대로 쓰세요.",
+    "공지 B에서 주민이 해야 하는 일을 한 가지, 공지문에 쓰인 문장으로 그대로 쓰세요.",
+    "두 공지 모두에서 연락할 곳은 어디입니까? 공지문에 쓰인 형식으로 쓰세요."
+  ],
   "answers": [
     "14:00",
     "전기설비 점검에 따른 단전",
@@ -7,18 +22,6 @@
     "관리사무소 02-000-0000"
   ],
   "checkThese": [],
-  "exercises": [
-    "공지 A의 단수는 몇 시에 끝납니까? 공지문에 쓰인 형식(예: 14:00)으로 쓰세요.",
-    "공지 B의 사유를 그대로 쓰세요.",
-    "공지 A의 장소를 그대로 쓰세요.",
-    "공지 B에서 주민이 해야 하는 일을 한 가지, 공지문에 쓰인 문장으로 그대로 쓰세요.",
-    "두 공지 모두에서 연락할 곳은 어디입니까? 공지문에 쓰인 형식으로 쓰세요."
-  ],
-  "keyword": "",
-  "level": "Beginner High (A2)",
-  "minutes": 15,
-  "note": "이 자료의 공지문은 학습용 예시입니다. 실제 일정이나 연락처가 아닙니다.",
-  "objective": "Learners will be able to read short building notices about water/power outages and inspections and quickly find date, time, affected area, and what residents should do; and recognize 8 frequent labels/words (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "sections": [
     {
       "heading": "학습 안내",
@@ -75,13 +78,11 @@
     {
       "heading": "연습 안내",
       "paragraphs": [
-        "아래 문제를 푸세요. 모든 답은 공지문 A 또는 B에서 찾아, 공지문에 쓰인 형식으로 그대로 쓰세요. 숫자와 기호(예: ~, :)도 그대로 적으세요."
+        "아래 문제를 푸세요. 모든 답은 공지문 A 또는 B에서 찾아, 공지문에 쓰인 형식으로 그대로 쓰세요. 숫자와 기호(예: ~, :)도 그대로 적으세요.",
+        "이 자료의 공지문은 학습용 예시입니다. 실제 일정이나 연락처가 아닙니다."
       ]
     }
   ],
-  "summary": "Read two short apartment notices (water shut-off and power outage due to inspection) and practice scanning for date/time, place, reason, and what residents should do. Focus on eight frequent labels/words.",
-  "tags": [],
-  "task": null,
-  "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
+  "note": "",
   "category": "etc"
 }

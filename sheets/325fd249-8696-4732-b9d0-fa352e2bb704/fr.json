@@ -1,8 +1,8 @@
 {
   "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
-  "keyword": "단어 첫소리 ㄷ·ㅌ·ㄸ",
-  "summary": "S'exercer à distinguer et à lire les consonnes coréennes initiales ㄷ (simple), ㅌ (aspirée) et ㄸ (tendue). Des repères sonores en anglais sont fournis pour aider les débutants à associer les sons et à lire correctement des mots simples.",
-  "objective": "Les apprenants identifieront et prononceront ㄷ (simple), ㅌ (aspirée) et ㄸ (tendue) en position initiale, les relieront à des repères clairs en anglais (ㄷ = un t léger entre d et t, ㅌ ≈ le t de « top », ㄸ ≈ le t de « stop » mais plus tendu), et liront correctement des mots simples contenant ces initiales.",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Entraîne-toi à distinguer et à lire les consonnes coréennes initiales ㄷ (simple), ㅌ (aspirée) et ㄸ (tendue). Des repères sonores en anglais sont fournis pour aider les débutants à associer les sons et à lire correctement des mots simples.",
+  "objective": "Les apprenants identifieront et prononceront ㄷ (simple), ㅌ (aspirée) et ㄸ (tendue) en position initiale, en les associant à des repères clairs en anglais (ㄷ ≈ entre le d et le t anglais avec un léger souffle, ㅌ ≈ le t de « top », ㄸ ≈ un t tendu sans souffle, proche du t de « stop »), et liront correctement des mots simples contenant ces consonnes initiales.",
   "level": "Débutant",
   "minutes": 15,
   "tags": [],
@@ -11,25 +11,25 @@
     "line": ""
   },
   "exercises": [
-    "각 단어의 첫 자음(초성)을 쓰세요. Écrivez la première consonne (초성) de chaque mot : 두부 / 토끼 / 또",
-    "ㄸ(된소리)로 시작하는 말을 고르세요. Choisissez le mot qui commence par ㄸ (tendue) : 돈 / 토마토 / 떡",
-    "첫소리가 같은 두 단어를 고르세요. Choisissez les deux mots qui commencent par le même son : 달 / 두부 / 딸",
-    "ㅌ(거센소리)로 시작하는 말을 고르세요. Choisissez le mot qui commence par ㅌ (aspirée) : 달 / 타다 / 딸",
-    "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요. Regardez la romanisation et écrivez seulement la première consonne (초성) en hangeul : tteok"
+    "Choisis le mot qui commence par ㄸ (tendue) : 두부 / 토끼 / 또",
+    "Regarde la romanisation et écris uniquement la première consonne en hangeul : dubu",
+    "Choisis le mot qui signifie « fille » : 달 / 딸",
+    "Choisis le mot qui commence par ㅌ (aspirée) : 달 / 토마토 / 딸",
+    "Regarde la romanisation et écris uniquement la première consonne en hangeul : tteok"
   ],
   "answers": [
-    "ㄷ / ㅌ / ㄸ",
-    "떡",
-    "달, 두부",
-    "타다",
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
     "ㄸ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄷ",
-      "sound": "t simple (relâché), un léger souffle d'air (plus léger que ㅌ), ton plus bas",
-      "as": "entre le d et le t anglais, plus doux que le t de « top »"
+      "sound": "t simple, léger souffle d'air (plus faible que ㅌ)",
+      "as": "entre le d et le t anglais ; en début de mot, cela ressemble souvent à un t doux"
     },
     {
       "letter": "ㅌ",
@@ -39,7 +39,7 @@
     {
       "letter": "ㄸ",
       "sound": "t tendu, serré et court",
-      "as": "proche du t de « stop » (sans souffle), mais plus tendu"
+      "as": "« tt » tendu sans souffle d'air ; l'équivalent anglais le plus proche est le t de « stop »"
     }
   ],
   "words": [
@@ -102,7 +102,7 @@
     {
       "korean": "또",
       "roman": "tto",
-      "meaning": "encore",
+      "meaning": "encore / à nouveau",
       "example": "또 만나요.",
       "exampleMeaning": "À bientôt."
     }

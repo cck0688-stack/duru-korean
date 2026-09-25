@@ -15,64 +15,93 @@
     "zh"
   ],
   "dropped": [],
-  "passed": false,
-  "unresolved": [
-    "학습 목표와 문제가 맞지 않음: 목표에는 낱말 8개(일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의)를 알아보는 것이 들어 있습니다. 그런데 문제 1~7은 일시, 장소, 사유, 문의, 단수만 다룹니다. ‘점검’, ‘작업’, ‘단전’을 묻는 문제는 없습니다. 반복되는 문제 하나(예: 문제 2나 6처럼 ‘~줄을 보고 쓰세요’ 틀)를 다음 문제로 바꾸세요. 예1: ‘공지 A에서 어떤 작업을 합니까? ‘작업’ 줄을 보고 쓰세요.’ (정답: 물 공급 중단 및 배관 교체). 예2: ‘‘단전’은 무엇의 공급을 잠시 멈추는 것입니까?’ (정답: 전기)."
-  ],
+  "passed": true,
+  "unresolved": [],
   "rounds": [
     {
       "round": 1,
       "mechanical": [],
       "review": [
-        "공지 B의 '사유: 전기설비 점검에 따른 단전'은 이유를 쓸 자리에 결과인 '단전'을 넣은 설명입니다. 앞에서 사유를 '왜 하는지(이유)'라고 정의한 것과 맞지 않습니다. '전기설비 정기 점검'처럼 이유만 쓰고, 2번 정답도 같은 말로 바꾸세요.",
-        "공지 B는 장소가 '102동 1층~10층 공용부'인데 유의사항은 '가전제품 플러그를 뽑아 주세요'입니다. 공용부만 단전되면 세대 안의 가전제품은 영향이 없어 내용이 서로 맞지 않습니다. 장소를 '102동 전체(각 세대 포함)'로 바꾸거나, 유의사항을 공용부에 맞는 내용(예: 엘리베이터 운행 중지 안내)으로 고치세요.",
-        "학습 목표에는 날짜 찾기와 낱말 8개(일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의) 알아보기가 들어 있지만, 문제는 시간·사유·장소·유의사항·문의를 베껴 쓰는 것뿐입니다. 날짜를 묻는 문제(예: '공지 B의 단전은 며칠 무슨 요일입니까?')를 넣고, 점검·작업·단수·단전의 뜻을 확인하는 문제(예: '물이 안 나오는 것은 단수와 단전 중 무엇입니까?')로 일부를 바꾸세요. 그러면 5문제가 모두 '그대로 쓰세요' 형태로 반복되는 문제도 함께 해결됩니다."
+        "Exercise 1: The format example '(예: 14:00)' is the same as the correct answer '14:00', so learners can copy it without reading the notice. Change the example to a time that is not in either notice (e.g. '예: 08:00') or use a hint like '예: 00:00'.",
+        "Notice B 사유 / Exercise 2 answer: '전기설비 점검에 따른 단전' gives the outage (단전) as the reason for the outage. 사유 should say why, so change it to '전기설비 정기 점검' or similar and update the exercise 2 answer to match.",
+        "Notice B contradicts itself: 장소 limits the outage to '102동 1층~10층 공용부' (shared areas only), but 유의사항 tells residents to unplug their home appliances. Change 장소 to something like '102동 1층~10층 전체 세대', or change 유의사항 to fit a shared-area outage (e.g. '단전 시간에는 엘리베이터를 이용할 수 없습니다').",
+        "Notice B 유의사항 / Exercise 4 answer: The notice mixes 단전 and 정전, but 정전 is never taught in the word list, so high-beginner learners have to copy an unlearned word. Change it to '단전 전에 가전제품 플러그를 뽑아 주세요.' or add 정전 to the word list.",
+        "The exercises do not match the objective: no question asks for a date (일시 date/weekday), and four target words (점검, 작업, 단수, 단전) are never practised. Add a date question (e.g. '공지 B의 단전은 며칠 무슨 요일입니까?') plus a question using 작업 or a word-to-meaning matching item."
       ],
       "audit": [
-        "sections[3] 예시 공지 B — 단전 안내, paragraphs[2] (장소): 장소: 102동 1층~10층 공용부 → 장소: 102동 전체"
+        "exercises[0]: 공지 A의 단수는 몇 시에 끝납니까? 공지문에 쓰인 형식(예: 14:00)으로 쓰세요. → Answer in the format used in the notice (e.g., 14:00): 공지 A의 단수는 몇 시에 끝납니까?",
+        "exercises[1]: 공지 B의 사유를 그대로 쓰세요. → Copy exactly as written in the notice: 공지 B의 사유는 무엇입니까?",
+        "exercises[2]: 공지 A의 장소를 그대로 쓰세요. → Copy exactly as written in the notice: 공지 A의 장소는 어디입니까?",
+        "exercises[3]: 공지 B에서 주민이 해야 하는 일을 한 가지, 공지문에 쓰인 문장으로 그대로 쓰세요. → Copy the sentence exactly as written in the notice: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
+        "exercises[4]: 두 공지 모두에서 연락할 곳은 어디입니까? 공지문에 쓰인 형식으로 쓰세요. → Write the contact place and phone number exactly as written in the notices: 두 공지의 문의처는 어디입니까?",
+        "sections[0] 학습 안내 paragraphs: 아파트나 건물에서 단수, 단전, 점검 안내 공지문을 빨리 읽고, 필요한 정보를 찾는 연습을 합니다. / 특히 ‘일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의’ 같은 표시(라벨)를 보고 필요한 줄만 골라 읽는 방법을 익힙니다. → In this lesson, you practice reading apartment and building notices about water shut-offs (단수), power outages (단전), and inspections (점검) quickly, and finding the information you need. / You will learn to look for labels such as 일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의 and read only the lines you need.",
+        "sections[1] 자주 쓰는 표시/낱말 paragraphs: 일시: 언제 하는지(날짜와 시간) … 문의: 연락할 곳(전화번호, 부서/사무실) → 일시 (ilsi): date and time / 장소 (jangso): place, affected area / 사유 (sayu): reason / 점검 (jeomgeom): inspection, check / 작업 (jageop): work (construction or repair) / 단수 (dansu): water shut-off / 단전 (danjeon): power outage (planned cut) / 문의 (munui): inquiries, contact (phone number, office)",
+        "sections[1] heading: 자주 쓰는 표시/낱말 → Frequent labels and words",
+        "sections[4] 빠르게 찾는 방법 paragraphs: 라벨(일시, 장소, 사유, 작업, 유의사항, 문의)을 먼저 보고, 필요한 줄만 정확히 읽으세요. / 숫자와 기호(예: 09:30, ~, 층, 동)를 눈에 익히세요. 시간은 보통 24시간 표기입니다. / 무엇을 해야 하는지는 ‘유의사항’ 줄에서 ‘-세요’ 같은 부탁 표현을 찾으세요. → First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need. / Get used to numbers and symbols such as 09:30, ~ (from–to), 층 (floor), 동 (building number). These notices use 24-hour time. / To find what residents should do, look in the 유의사항 (precautions) line for request endings like -세요.",
+        "sections[5] 연습 안내 paragraphs: 아래 문제를 푸세요. 모든 답은 공지문 A 또는 B에서 찾아, 공지문에 쓰인 형식으로 그대로 쓰세요. 숫자와 기호(예: ~, :)도 그대로 적으세요. / 이 자료의 공지문은 학습용 예시입니다. 실제 일정이나 연락처가 아닙니다. → Solve the exercises below. Find every answer in notice A or B and copy it exactly as written, including numbers and symbols (e.g., ~, :). / The notices here are learning examples, not real schedules or contact numbers.",
+        "sections[3] 공지 B 장소: 장소: 102동 1층~10층 공용부 → 장소: 102동 1층~10층 전체 세대"
       ]
     },
     {
       "round": 2,
       "mechanical": [],
-      "review": [
-        "1번 문제: 형식 예시로 든 '(예: 14:00)'이 정답 '14:00'과 똑같습니다. 공지를 읽지 않아도 답을 쓸 수 있으므로, 예시를 정답이 아닌 시각으로 바꿔야 합니다. 예: '(예: 10:00)'.",
-        "학습 목표와 문제가 맞지 않습니다. 목표에는 '영향 지역(affected area)'을 찾는 것과 8개 라벨(일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의)을 알아보는 것이 들어 있습니다. 그런데 '장소'(몇 동인지)와 '문의'(어디에 연락하는지), '작업', '점검'을 묻는 문제는 하나도 없습니다. 몇 개는 같은 틀(공지 B에서 '그대로 쓰세요')이 되풀이됩니다. 두 가지 문제를 더하거나 바꿔 넣어야 합니다. 예: '공지 A의 단수는 어디에서 합니까? (101동 전체)', '단전에 대해 궁금하면 어디에 연락합니까? (관리사무소)'."
-      ],
+      "review": [],
       "audit": [
-        "exercises 1번: 공지문에 쓰인 형식(예: 14:00)으로 쓰세요. → 공지문에 쓰인 형식(예: 18:00)으로 쓰세요."
+        "sections[0].heading: 학습 안내 → Lesson guide",
+        "sections[2].heading: 예시 공지 A — 단수 안내 → Sample notice A — 단수 안내 (water shut-off notice)",
+        "sections[3].heading: 예시 공지 B — 단전 안내 → Sample notice B — 단전 안내 (power outage notice)",
+        "sections[4].heading: 빠르게 찾는 방법 → How to scan quickly",
+        "sections[5].heading: 연습 안내 → Practice guide"
       ]
     },
     {
       "round": 3,
       "mechanical": [],
-      "review": [
-        "공지 B의 '유의사항: 정전 전에 가전제품 플러그를 뽑아 주세요.'에 쓰인 '정전'은 '자주 쓰는 표시/낱말'에도 없고 제목·라벨·문제에서는 모두 '단전'을 씁니다. 그런데 4번 문제는 이 문장을 그대로 옮겨 쓰게 합니다. '단전 전에 가전제품 플러그를 뽑아 주세요.'로 고치고 정답 4도 똑같이 바꾸거나, 낱말 목록에 '정전: 전기가 끊김'을 추가하세요.",
-        "학습 목표에는 8개 라벨(일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의)을 알아보게 한다고 되어 있고, '연습 안내'에서도 '자주 쓰는 표시/낱말'을 보고 답을 쓰라고 합니다. 그런데 1~5번은 시간·장소·날짜·문장·연락처만 찾게 하고, 사유·점검·작업·단수·단전의 뜻을 묻는 문제는 하나도 없습니다. 이 낱말을 확인하는 문제를 한두 개 추가하세요(예: '공지 B의 사유는 무엇입니까?', '‘단수’는 무엇을 멈추는 것입니까?', '공지 A는 물과 전기 중 무엇이 안 나옵니까?').",
-        "'빠르게 찾는 방법' 둘째 문단에서 눈에 익힐 기호의 예로 '층'을 들었지만 공지 A와 B 어디에도 '층'이 나오지 않습니다. 빼거나 실제로 쓰인 기호(예: '(월)')로 바꾸세요.",
-        "'자주 쓰는 표시/낱말'의 '장소: 어디에서 하는지(영향 지역)'에서 '영향 지역'은 자연스러운 한국어가 아닙니다. '(영향을 받는 곳)'이나 '(단수·단전이 되는 곳)'으로 고치세요."
-      ],
+      "review": [],
       "audit": []
     },
     {
-      "round": 4,
+      "round": 1,
       "mechanical": [],
-      "review": [
-        "학습 목표와 문제가 맞지 않음: 목표에는 낱말 8개(일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의)를 알아보는 것이 들어 있습니다. 그런데 문제 1~7은 일시, 장소, 사유, 문의, 단수만 다룹니다. ‘점검’, ‘작업’, ‘단전’을 묻는 문제는 없습니다. 반복되는 문제 하나(예: 문제 2나 6처럼 ‘~줄을 보고 쓰세요’ 틀)를 다음 문제로 바꾸세요. 예1: ‘공지 A에서 어떤 작업을 합니까? ‘작업’ 줄을 보고 쓰세요.’ (정답: 물 공급 중단 및 배관 교체). 예2: ‘‘단전’은 무엇의 공급을 잠시 멈추는 것입니까?’ (정답: 전기)."
-      ],
+      "review": [],
       "audit": []
     }
   ],
   "fixes": [
     {
-      "at": "answers[2]",
-      "before": "전기설비 점검에 따른 단전",
-      "after": "101동 전체"
+      "at": "level",
+      "before": "Beginner High (A2)",
+      "after": "Beginner (high)"
     },
     {
-      "at": "answers[3]",
-      "before": "101동 전체",
-      "after": "10월 15일(목)"
+      "at": "exercises[1]",
+      "before": "공지 A의 단수는 몇 시에 끝납니까? 공지문에 쓰인 형식(예: 14:00)으로 쓰세요.",
+      "after": "Answer in the format used in the notice (e.g., 08:00): 공지 A의 단수는 몇 시에 끝납니까?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "공지 B의 사유를 그대로 쓰세요.",
+      "after": "Copy exactly as written in the notice: 공지 B의 사유는 무엇입니까?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "공지 A의 장소를 그대로 쓰세요.",
+      "after": "Copy exactly as written in the notice: 공지 A의 장소는 어디입니까?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "공지 B에서 주민이 해야 하는 일을 한 가지, 공지문에 쓰인 문장으로 그대로 쓰세요.",
+      "after": "Copy the sentence exactly as written in the notice: 공지 B에서 주민이 해야 하는 일은 무엇입니까?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "두 공지 모두에서 연락할 곳은 어디입니까? 공지문에 쓰인 형식으로 쓰세요.",
+      "after": "Write the contact place and phone number exactly as written in the notices: 두 공지의 문의처는 어디입니까?"
+    },
+    {
+      "at": "answers[2]",
+      "before": "전기설비 점검에 따른 단전",
+      "after": "전기설비 정기 점검"
     },
     {
       "at": "answers[4]",
@@ -80,223 +109,449 @@
       "after": "단전 전에 가전제품 플러그를 뽑아 주세요."
     },
     {
-      "at": "answers[5]",
-      "before": "관리사무소 02-000-0000",
-      "after": "관리사무소"
+      "at": "sections[1].heading",
+      "before": "학습 안내",
+      "after": "Frequent labels and words"
     },
     {
-      "at": "answers[6]",
+      "at": "sections[1].paragraphs[1]",
+      "before": "아파트나 건물에서 단수, 단전, 점검 안내 공지문을 빨리 읽고, 필요한 정보를 찾는 연습을 합니다.",
+      "after": "일시 (ilsi): date and time"
+    },
+    {
+      "at": "sections[1].paragraphs[2]",
+      "before": "특히 ‘일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의’ 같은 표시(라벨)를 보고 필요한 줄만 골라 읽는 방법을 익힙니다.",
+      "after": "장소 (jangso): place, affected area"
+    },
+    {
+      "at": "sections[1].paragraphs[3]",
       "before": "",
-      "after": "전기설비 정기 점검"
+      "after": "사유 (sayu): reason"
     },
     {
-      "at": "answers[7]",
+      "at": "sections[1].paragraphs[4]",
       "before": "",
-      "after": "물"
+      "after": "점검 (jeomgeom): inspection, check"
     },
     {
-      "at": "exercises[1]",
-      "before": "공지 A의 단수는 몇 시에 끝납니까? 공지문에 쓰인 형식(예: 14:00)으로 쓰세요.",
-      "after": "공지 A의 단수는 몇 시에 끝납니까? 공지문에 쓰인 형식(예: 18:00)으로 쓰세요."
-    },
-    {
-      "at": "exercises[2]",
-      "before": "공지 B의 사유를 그대로 쓰세요.",
-      "after": "공지 A의 단수는 어디에서 합니까? 공지문의 ‘장소’ 줄을 보고 쓰세요."
-    },
-    {
-      "at": "exercises[3]",
-      "before": "공지 A의 장소를 그대로 쓰세요.",
-      "after": "공지 B의 단전은 몇 월 며칠 무슨 요일입니까? 공지문에 쓰인 형식(예: 10월 12일(월))으로 쓰세요."
-    },
-    {
-      "at": "exercises[5]",
-      "before": "두 공지 모두에서 연락할 곳은 어디입니까? 공지문에 쓰인 형식으로 쓰세요.",
-      "after": "공지 B의 단전에 대해 궁금하면 어디에 연락합니까? 전화번호 말고 연락할 곳의 이름을 쓰세요."
-    },
-    {
-      "at": "exercises[6]",
+      "at": "sections[1].paragraphs[5]",
       "before": "",
-      "after": "공지 B의 사유는 무엇입니까? 공지문의 ‘사유’ 줄을 보고 쓰세요."
+      "after": "작업 (jageop): work (construction or repair)"
     },
     {
-      "at": "exercises[7]",
+      "at": "sections[1].paragraphs[6]",
       "before": "",
-      "after": "‘단수’는 무엇의 공급을 잠시 멈추는 것입니까? ‘자주 쓰는 표시/낱말’을 보고 한 낱말로 쓰세요."
+      "after": "단수 (dansu): water shut-off"
+    },
+    {
+      "at": "sections[1].paragraphs[7]",
+      "before": "",
+      "after": "단전 (danjeon): power outage (planned cut)"
+    },
+    {
+      "at": "sections[1].paragraphs[8]",
+      "before": "",
+      "after": "문의 (munui): inquiries, contact (phone number, office)"
+    },
+    {
+      "at": "sections[2].heading",
+      "before": "자주 쓰는 표시/낱말",
+      "after": "Sample notice A — 단수 안내 (water shut-off notice)"
+    },
+    {
+      "at": "sections[2].paragraphs[1]",
+      "before": "일시: 언제 하는지(날짜와 시간)",
+      "after": "[공지 A] 단수 안내"
     },
     {
       "at": "sections[2].paragraphs[2]",
       "before": "장소: 어디에서 하는지(영향 지역)",
-      "after": "장소: 어디에서 하는지(영향을 받는 곳)"
+      "after": "일시: 2026년 10월 12일(월) 09:30~14:00"
+    },
+    {
+      "at": "sections[2].paragraphs[3]",
+      "before": "사유: 왜 하는지(이유)",
+      "after": "장소: 101동 전체"
+    },
+    {
+      "at": "sections[2].paragraphs[4]",
+      "before": "점검: 상태를 확인하거나 검사함",
+      "after": "사유: 건물 내부 배관 교체 작업"
+    },
+    {
+      "at": "sections[2].paragraphs[5]",
+      "before": "작업: 공사를 하거나 고치는 일",
+      "after": "작업: 물 공급 중단 및 배관 교체"
+    },
+    {
+      "at": "sections[2].paragraphs[6]",
+      "before": "단수: 물 공급을 잠시 멈춤",
+      "after": "유의사항: 단수 전에 물을 미리 받아 두세요."
+    },
+    {
+      "at": "sections[2].paragraphs[7]",
+      "before": "단전: 전기 공급을 잠시 멈춤",
+      "after": "문의: 관리사무소 02-000-0000"
+    },
+    {
+      "at": "sections[2].paragraphs[8]",
+      "before": "문의: 연락할 곳(전화번호, 부서/사무실)",
+      "after": ""
+    },
+    {
+      "at": "sections[3].heading",
+      "before": "예시 공지 A — 단수 안내",
+      "after": "Sample notice B — 단전 안내 (power outage notice)"
+    },
+    {
+      "at": "sections[3].paragraphs[1]",
+      "before": "[공지 A] 단수 안내",
+      "after": "[공지 B] 단전 안내"
+    },
+    {
+      "at": "sections[3].paragraphs[2]",
+      "before": "일시: 2026년 10월 12일(월) 09:30~14:00",
+      "after": "일시: 2026년 10월 15일(목) 13:00~16:00"
+    },
+    {
+      "at": "sections[3].paragraphs[3]",
+      "before": "장소: 101동 전체",
+      "after": "장소: 102동 1층~10층 전체 세대"
+    },
+    {
+      "at": "sections[3].paragraphs[4]",
+      "before": "사유: 건물 내부 배관 교체 작업",
+      "after": "사유: 전기설비 정기 점검"
+    },
+    {
+      "at": "sections[3].paragraphs[5]",
+      "before": "작업: 물 공급 중단 및 배관 교체",
+      "after": "작업: 변전실 점검 및 전력 차단"
+    },
+    {
+      "at": "sections[3].paragraphs[6]",
+      "before": "유의사항: 단수 전에 물을 미리 받아 두세요.",
+      "after": "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요."
+    },
+    {
+      "at": "sections[4].heading",
+      "before": "예시 공지 B — 단전 안내",
+      "after": "How to scan quickly"
+    },
+    {
+      "at": "sections[4].paragraphs[1]",
+      "before": "[공지 B] 단전 안내",
+      "after": "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need."
+    },
+    {
+      "at": "sections[4].paragraphs[2]",
+      "before": "일시: 2026년 10월 15일(목) 13:00~16:00",
+      "after": "Get used to numbers and symbols such as 09:30, ~ (from–to), 층 (floor), 동 (building number). These notices use 24-hour time."
     },
     {
       "at": "sections[4].paragraphs[3]",
       "before": "장소: 102동 1층~10층 공용부",
-      "after": "장소: 102동 전체"
+      "after": "To find what residents should do, look in the 유의사항 (precautions) line for request endings like -세요."
     },
     {
       "at": "sections[4].paragraphs[4]",
       "before": "사유: 전기설비 점검에 따른 단전",
-      "after": "사유: 전기설비 정기 점검"
+      "after": ""
+    },
+    {
+      "at": "sections[4].paragraphs[5]",
+      "before": "작업: 변전실 점검 및 전력 차단",
+      "after": ""
     },
     {
       "at": "sections[4].paragraphs[6]",
       "before": "유의사항: 정전 전에 가전제품 플러그를 뽑아 주세요.",
-      "after": "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요."
+      "after": ""
+    },
+    {
+      "at": "sections[4].paragraphs[7]",
+      "before": "문의: 관리사무소 02-000-0000",
+      "after": ""
+    },
+    {
+      "at": "sections[5].heading",
+      "before": "빠르게 찾는 방법",
+      "after": "Practice guide"
+    },
+    {
+      "at": "sections[5].paragraphs[1]",
+      "before": "라벨(일시, 장소, 사유, 작업, 유의사항, 문의)을 먼저 보고, 필요한 줄만 정확히 읽으세요.",
+      "after": "The notices here are learning examples, not real schedules or contact numbers."
     },
     {
       "at": "sections[5].paragraphs[2]",
       "before": "숫자와 기호(예: 09:30, ~, 층, 동)를 눈에 익히세요. 시간은 보통 24시간 표기입니다.",
-      "after": "숫자와 기호(예: 09:30, ~, (월), 동)를 눈에 익히세요. 시간은 보통 24시간 표기입니다."
+      "after": ""
+    },
+    {
+      "at": "sections[5].paragraphs[3]",
+      "before": "무엇을 해야 하는지는 ‘유의사항’ 줄에서 ‘-세요’ 같은 부탁 표현을 찾으세요.",
+      "after": ""
+    },
+    {
+      "at": "sections[6].heading",
+      "before": "연습 안내",
+      "after": ""
     },
     {
       "at": "sections[6].paragraphs[1]",
       "before": "아래 문제를 푸세요. 모든 답은 공지문 A 또는 B에서 찾아, 공지문에 쓰인 형식으로 그대로 쓰세요. 숫자와 기호(예: ~, :)도 그대로 적으세요.",
-      "after": "아래 문제를 푸세요. 답은 공지문 A 또는 B에서 찾거나, ‘자주 쓰는 표시/낱말’을 보고 쓰세요. 공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요. 숫자와 기호(예: ~, :)도 그대로 적으세요."
+      "after": ""
+    },
+    {
+      "at": "sections[6].paragraphs[2]",
+      "before": "이 자료의 공지문은 학습용 예시입니다. 실제 일정이나 연락처가 아닙니다.",
+      "after": ""
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "sections[1].heading",
+          "before": "Lesson guide",
+          "after": "Frequent labels and words"
+        },
+        {
+          "at": "sections[1].paragraphs[1]",
+          "before": "In this lesson, you practice reading apartment and building notices about water shut-offs (단수), power outages (단전), and inspections (점검) quickly, and finding the information you need.",
+          "after": "일시 (ilsi): date and time"
+        },
+        {
+          "at": "sections[1].paragraphs[2]",
+          "before": "You will learn to look for labels such as 일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의 and read only the lines you need.",
+          "after": "장소 (jangso): place, affected area"
+        },
+        {
+          "at": "sections[1].paragraphs[3]",
+          "before": "",
+          "after": "사유 (sayu): reason"
+        },
+        {
+          "at": "sections[1].paragraphs[4]",
+          "before": "",
+          "after": "점검 (jeomgeom): inspection, check"
+        },
+        {
+          "at": "sections[1].paragraphs[5]",
+          "before": "",
+          "after": "작업 (jageop): work (construction or repair)"
+        },
+        {
+          "at": "sections[1].paragraphs[6]",
+          "before": "",
+          "after": "단수 (dansu): water shut-off"
+        },
+        {
+          "at": "sections[1].paragraphs[7]",
+          "before": "",
+          "after": "단전 (danjeon): power outage (planned cut)"
+        },
+        {
+          "at": "sections[1].paragraphs[8]",
+          "before": "",
+          "after": "문의 (munui): inquiries, contact (phone number, office)"
+        },
+        {
+          "at": "sections[2].heading",
+          "before": "Frequent labels and words",
+          "after": "Sample notice A — 단수 안내 (water shut-off notice)"
+        },
+        {
+          "at": "sections[2].paragraphs[1]",
+          "before": "일시 (ilsi): date and time",
+          "after": "[공지 A] 단수 안내"
+        },
+        {
+          "at": "sections[2].paragraphs[2]",
+          "before": "장소 (jangso): place, affected area",
+          "after": "일시: 2026년 10월 12일(월) 09:30~14:00"
+        },
+        {
+          "at": "sections[2].paragraphs[3]",
+          "before": "사유 (sayu): reason",
+          "after": "장소: 101동 전체"
+        },
+        {
+          "at": "sections[2].paragraphs[4]",
+          "before": "점검 (jeomgeom): inspection, check",
+          "after": "사유: 건물 내부 배관 교체 작업"
+        },
+        {
+          "at": "sections[2].paragraphs[5]",
+          "before": "작업 (jageop): work (construction or repair)",
+          "after": "작업: 물 공급 중단 및 배관 교체"
+        },
+        {
+          "at": "sections[2].paragraphs[6]",
+          "before": "단수 (dansu): water shut-off",
+          "after": "유의사항: 단수 전에 물을 미리 받아 두세요."
+        },
+        {
+          "at": "sections[2].paragraphs[7]",
+          "before": "단전 (danjeon): power outage (planned cut)",
+          "after": "문의: 관리사무소 02-000-0000"
+        },
+        {
+          "at": "sections[2].paragraphs[8]",
+          "before": "문의 (munui): inquiries, contact (phone number, office)",
+          "after": ""
+        },
+        {
+          "at": "sections[3].heading",
+          "before": "Sample notice A — 단수 안내 (water shut-off notice)",
+          "after": "Sample notice B — 단전 안내 (power outage notice)"
+        },
+        {
+          "at": "sections[3].paragraphs[1]",
+          "before": "[공지 A] 단수 안내",
+          "after": "[공지 B] 단전 안내"
+        },
+        {
+          "at": "sections[3].paragraphs[2]",
+          "before": "일시: 2026년 10월 12일(월) 09:30~14:00",
+          "after": "일시: 2026년 10월 15일(목) 13:00~16:00"
+        },
+        {
+          "at": "sections[3].paragraphs[3]",
+          "before": "장소: 101동 전체",
+          "after": "장소: 102동 1층~10층 전체 세대"
+        },
+        {
+          "at": "sections[3].paragraphs[4]",
+          "before": "사유: 건물 내부 배관 교체 작업",
+          "after": "사유: 전기설비 정기 점검"
+        },
+        {
+          "at": "sections[3].paragraphs[5]",
+          "before": "작업: 물 공급 중단 및 배관 교체",
+          "after": "작업: 변전실 점검 및 전력 차단"
+        },
+        {
+          "at": "sections[3].paragraphs[6]",
+          "before": "유의사항: 단수 전에 물을 미리 받아 두세요.",
+          "after": "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요."
+        },
+        {
+          "at": "sections[4].heading",
+          "before": "Sample notice B — 단전 안내 (power outage notice)",
+          "after": "How to scan quickly"
+        },
+        {
+          "at": "sections[4].paragraphs[1]",
+          "before": "[공지 B] 단전 안내",
+          "after": "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need."
+        },
+        {
+          "at": "sections[4].paragraphs[2]",
+          "before": "일시: 2026년 10월 15일(목) 13:00~16:00",
+          "after": "Get used to numbers and symbols such as 09:30, ~ (from–to), 층 (floor), 동 (building number). These notices use 24-hour time."
+        },
+        {
+          "at": "sections[4].paragraphs[3]",
+          "before": "장소: 102동 1층~10층 전체 세대",
+          "after": "To find what residents should do, look in the 유의사항 (precautions) line for request endings like -세요."
+        },
+        {
+          "at": "sections[4].paragraphs[4]",
+          "before": "사유: 전기설비 정기 점검",
+          "after": ""
+        },
+        {
+          "at": "sections[4].paragraphs[5]",
+          "before": "작업: 변전실 점검 및 전력 차단",
+          "after": ""
+        },
+        {
+          "at": "sections[4].paragraphs[6]",
+          "before": "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
+          "after": ""
+        },
+        {
+          "at": "sections[4].paragraphs[7]",
+          "before": "문의: 관리사무소 02-000-0000",
+          "after": ""
+        },
+        {
+          "at": "sections[5].heading",
+          "before": "How to scan quickly",
+          "after": "Practice guide"
+        },
+        {
+          "at": "sections[5].paragraphs[1]",
+          "before": "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need.",
+          "after": "The notices here are learning examples, not real schedules or contact numbers."
+        },
+        {
+          "at": "sections[5].paragraphs[2]",
+          "before": "Get used to numbers and symbols such as 09:30, ~ (from–to), 층 (floor), 동 (building number). These notices use 24-hour time.",
+          "after": ""
+        },
+        {
+          "at": "sections[5].paragraphs[3]",
+          "before": "To find what residents should do, look in the 유의사항 (precautions) line for request endings like -세요.",
+          "after": ""
+        },
+        {
+          "at": "sections[6].heading",
+          "before": "Practice guide",
+          "after": ""
+        },
+        {
+          "at": "sections[6].paragraphs[1]",
+          "before": "Solve the exercises below. Find every answer in notice A or B and copy it exactly as written, including numbers and symbols (e.g., ~, :).",
+          "after": ""
+        },
+        {
+          "at": "sections[6].paragraphs[2]",
+          "before": "The notices here are learning examples, not real schedules or contact numbers.",
+          "after": ""
+        }
+      ]
     }
   ],
   "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
     "vi": {
       "lang": "vi",
-      "tries": 3,
-      "lost": [
-        "이 자료의 공지문은 학습용 예시입니다",
-        "실제 일정이나 연락처가 아닙니다",
-        "학습 안내",
-        "아파트나 건물에서 단수",
-        "단전",
-        "점검 안내 공지문을 빨리 읽고",
-        "필요한 정보를 찾는 연습을 합니다",
-        "특히",
-        "같은 표시",
-        "라벨",
-        "를 보고 필요한 줄만 골라 읽는 방법을 익힙니다",
-        "자주 쓰는 표시/낱말",
-        "예시 공지",
-        "단수 안내",
-        "공지",
-        "단수 안내",
-        "예시 공지",
-        "단전 안내",
-        "공지",
-        "단전 안내",
-        "빠르게 찾는 방법",
-        "라벨",
-        "을 먼저 보고",
-        "필요한 줄만 정확히 읽으세요",
-        "숫자와 기호",
-        "예",
-        "를 눈에 익히세요",
-        "시간은 보통",
-        "시간 표기입니다",
-        "무엇을 해야 하는지는",
-        "줄에서",
-        "같은 부탁 표현을 찾으세요",
-        "연습 안내",
-        "아래 문제를 푸세요",
-        "답은 공지문",
-        "또는",
-        "에서 찾거나",
-        "자주 쓰는 표시/낱말",
-        "을 보고 쓰세요",
-        "공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요",
-        "숫자와 기호",
-        "예",
-        "도 그대로 적으세요",
-        "공지",
-        "의 단수는 몇 시에 끝납니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "의 단수는 어디에서 합니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "공지",
-        "의 단전은 몇 월 며칠 무슨 요일입니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "에서 주민이 해야 하는 일을 한 가지",
-        "공지문에 쓰인 문장으로 그대로 쓰세요",
-        "공지",
-        "의 단전에 대해 궁금하면 어디에 연락합니까",
-        "전화번호 말고 연락할 곳의 이름을 쓰세요",
-        "공지",
-        "의 사유는 무엇입니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "는 무엇의 공급을 잠시 멈추는 것입니까",
-        "자주 쓰는 표시/낱말",
-        "을 보고 한 낱말로 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "es": {
       "lang": "es",
-      "tries": 3,
-      "lost": [
-        "이 자료의 공지문은 학습용 예시입니다",
-        "실제 일정이나 연락처가 아닙니다",
-        "학습 안내",
-        "아파트나 건물에서 단수",
-        "점검 안내 공지문을 빨리 읽고",
-        "필요한 정보를 찾는 연습을 합니다",
-        "특히",
-        "같은 표시",
-        "라벨",
-        "를 보고 필요한 줄만 골라 읽는 방법을 익힙니다",
-        "자주 쓰는 표시/낱말",
-        "언제 하는지",
-        "날짜와 시간",
-        "어디에서 하는지",
-        "영향을 받는 곳",
-        "왜 하는지",
-        "이유",
-        "상태를 확인하거나 검사함",
-        "공사를 하거나 고치는 일",
-        "물 공급을 잠시 멈춤",
-        "전기 공급을 잠시 멈춤",
-        "연락할 곳",
-        "전화번호",
-        "부서/사무실",
-        "를 눈에 익히세요",
-        "시간은 보통",
-        "시간 표기입니다",
-        "무엇을 해야 하는지는",
-        "줄에서",
-        "같은 부탁 표현을 찾으세요",
-        "연습 안내",
-        "아래 문제를 푸세요",
-        "답은 공지문",
-        "또는",
-        "에서 찾거나",
-        "을 보고 쓰세요",
-        "공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요",
-        "도 그대로 적으세요",
-        "의 단수는 몇 시에 끝납니까",
-        "공지문에 쓰인 형식",
-        "으로 쓰세요",
-        "의 단수는 어디에서 합니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "의 단전은 몇 월 며칠 무슨 요일입니까",
-        "공지문에 쓰인 형식",
-        "으로 쓰세요",
-        "에서 주민이 해야 하는 일을 한 가지",
-        "공지문에 쓰인 문장으로 그대로 쓰세요",
-        "의 단전에 대해 궁금하면 어디에 연락합니까",
-        "전화번호 말고 연락할 곳의 이름을 쓰세요",
-        "의 사유는 무엇입니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "는 무엇의 공급을 잠시 멈추는 것입니까",
-        "을 보고 한 낱말로 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"高级\" reads as \"advanced level\", so \"初级(高级)\" is self-contradictory. The English \"Beginner (high)\" means the upper part of the beginner level.",
+          "fix": "初级(高)"
+        }
+      ]
     },
     "ko": {
       "lang": "ko",
@@ -304,374 +559,44 @@
       "lost": [],
       "fixes": []
     },
-    "id": {
-      "lang": "id",
-      "tries": 3,
-      "lost": [
-        "이 자료의 공지문은 학습용 예시입니다",
-        "실제 일정이나 연락처가 아닙니다",
-        "학습 안내",
-        "아파트나 건물에서 단수",
-        "점검 안내 공지문을 빨리 읽고",
-        "필요한 정보를 찾는 연습을 합니다",
-        "특히",
-        "같은 표시",
-        "라벨",
-        "를 보고 필요한 줄만 골라 읽는 방법을 익힙니다",
-        "자주 쓰는 표시/낱말",
-        "언제 하는지",
-        "날짜와 시간",
-        "단수 안내",
-        "단수 안내",
-        "단전 안내",
-        "단전 안내",
-        "빠르게 찾는 방법",
-        "라벨",
-        "을 먼저 보고",
-        "필요한 줄만 정확히 읽으세요",
-        "숫자와 기호",
-        "예",
-        "를 눈에 익히세요",
-        "시간은 보통",
-        "시간 표기입니다",
-        "무엇을 해야 하는지는",
-        "줄에서",
-        "같은 부탁 표현을 찾으세요",
-        "연습 안내",
-        "아래 문제를 푸세요",
-        "답은 공지문",
-        "또는",
-        "에서 찾거나",
-        "을 보고 쓰세요",
-        "공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요",
-        "숫자와 기호",
-        "예",
-        "도 그대로 적으세요",
-        "의 단수는 몇 시에 끝납니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "의 단수는 어디에서 합니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "의 단전은 몇 월 며칠 무슨 요일입니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "에서 주민이 해야 하는 일을 한 가지",
-        "공지문에 쓰인 문장으로 그대로 쓰세요",
-        "의 단전에 대해 궁금하면 어디에 연락합니까",
-        "전화번호 말고 연락할 곳의 이름을 쓰세요",
-        "의 사유는 무엇입니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "는 무엇의 공급을 잠시 멈추는 것입니까",
-        "을 보고 한 낱말로 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
-    },
-    "zh": {
-      "lang": "zh",
-      "tries": 3,
-      "lost": [
-        "학습 안내",
-        "아파트나 건물에서 단수",
-        "단전",
-        "점검 안내 공지문을 빨리 읽고",
-        "필요한 정보를 찾는 연습을 합니다",
-        "특히",
-        "같은 표시",
-        "라벨",
-        "를 보고 필요한 줄만 골라 읽는 방법을 익힙니다",
-        "자주 쓰는 표시/낱말",
-        "예시 공지",
-        "단수 안내",
-        "공지",
-        "단수 안내",
-        "예시 공지",
-        "단전 안내",
-        "공지",
-        "단전 안내",
-        "빠르게 찾는 방법",
-        "라벨",
-        "을 먼저 보고",
-        "필요한 줄만 정확히 읽으세요",
-        "숫자와 기호",
-        "예",
-        "를 눈에 익히세요",
-        "시간은 보통",
-        "시간 표기입니다",
-        "무엇을 해야 하는지는",
-        "줄에서",
-        "같은 부탁 표현을 찾으세요",
-        "연습 안내",
-        "아래 문제를 푸세요",
-        "답은 공지문",
-        "또는",
-        "에서 찾거나",
-        "자주 쓰는 표시/낱말",
-        "을 보고 쓰세요",
-        "공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요",
-        "숫자와 기호",
-        "예",
-        "도 그대로 적으세요",
-        "공지",
-        "의 단수는 몇 시에 끝납니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "의 단수는 어디에서 합니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "공지",
-        "의 단전은 몇 월 며칠 무슨 요일입니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "에서 주민이 해야 하는 일을 한 가지",
-        "공지문에 쓰인 문장으로 그대로 쓰세요",
-        "공지",
-        "의 단전에 대해 궁금하면 어디에 연락합니까",
-        "전화번호 말고 연락할 곳의 이름을 쓰세요",
-        "공지",
-        "의 사유는 무엇입니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "는 무엇의 공급을 잠시 멈추는 것입니까",
-        "자주 쓰는 표시/낱말",
-        "을 보고 한 낱말로 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
-    },
     "fr": {
       "lang": "fr",
-      "tries": 3,
-      "lost": [
-        "학습 안내",
-        "아파트나 건물에서 단수",
-        "단전",
-        "점검 안내 공지문을 빨리 읽고",
-        "필요한 정보를 찾는 연습을 합니다",
-        "특히",
-        "같은 표시",
-        "라벨",
-        "를 보고 필요한 줄만 골라 읽는 방법을 익힙니다",
-        "자주 쓰는 표시/낱말",
-        "예시 공지",
-        "단수 안내",
-        "공지",
-        "단수 안내",
-        "예시 공지",
-        "단전 안내",
-        "공지",
-        "단전 안내",
-        "빠르게 찾는 방법",
-        "라벨",
-        "을 먼저 보고",
-        "필요한 줄만 정확히 읽으세요",
-        "숫자와 기호",
-        "예",
-        "를 눈에 익히세요",
-        "시간은 보통",
-        "시간 표기입니다",
-        "무엇을 해야 하는지는",
-        "줄에서",
-        "같은 부탁 표현을 찾으세요",
-        "연습 안내",
-        "아래 문제를 푸세요",
-        "답은 공지문",
-        "또는",
-        "에서 찾거나",
-        "자주 쓰는 표시/낱말",
-        "을 보고 쓰세요",
-        "공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요",
-        "숫자와 기호",
-        "예",
-        "도 그대로 적으세요",
-        "공지",
-        "의 단수는 몇 시에 끝납니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "의 단수는 어디에서 합니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "공지",
-        "의 단전은 몇 월 며칠 무슨 요일입니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "에서 주민이 해야 하는 일을 한 가지",
-        "공지문에 쓰인 문장으로 그대로 쓰세요",
-        "공지",
-        "의 단전에 대해 궁금하면 어디에 연락합니까",
-        "전화번호 말고 연락할 곳의 이름을 쓰세요",
-        "공지",
-        "의 사유는 무엇입니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "는 무엇의 공급을 잠시 멈추는 것입니까",
-        "자주 쓰는 표시/낱말",
-        "을 보고 한 낱말로 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "ja": {
       "lang": "ja",
       "tries": 3,
-      "lost": [
-        "학습 안내",
-        "아파트나 건물에서 단수",
-        "점검 안내 공지문을 빨리 읽고",
-        "필요한 정보를 찾는 연습을 합니다",
-        "특히",
-        "같은 표시",
-        "라벨",
-        "를 보고 필요한 줄만 골라 읽는 방법을 익힙니다",
-        "자주 쓰는 표시/낱말",
-        "언제 하는지",
-        "날짜와 시간",
-        "어디에서 하는지",
-        "영향을 받는 곳",
-        "왜 하는지",
-        "이유",
-        "상태를 확인하거나 검사함",
-        "공사를 하거나 고치는 일",
-        "물 공급을 잠시 멈춤",
-        "전기 공급을 잠시 멈춤",
-        "연락할 곳",
-        "전화번호",
-        "부서/사무실",
-        "예시 공지",
-        "단수 안내",
-        "예시 공지",
-        "단전 안내",
-        "빠르게 찾는 방법",
-        "연습 안내",
-        "아래 문제를 푸세요",
-        "답은 공지문",
-        "또는",
-        "에서 찾거나",
-        "을 보고 쓰세요",
-        "공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요",
-        "숫자와 기호",
-        "예",
-        "도 그대로 적으세요",
-        "의 단수는 몇 시에 끝납니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "의 단수는 어디에서 합니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "의 단전은 몇 월 며칠 무슨 요일입니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "에서 주민이 해야 하는 일을 한 가지",
-        "공지문에 쓰인 문장으로 그대로 쓰세요",
-        "의 단전에 대해 궁금하면 어디에 연락합니까",
-        "전화번호 말고 연락할 곳의 이름을 쓰세요",
-        "의 사유는 무엇입니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "는 무엇의 공급을 잠시 멈추는 것입니까",
-        "을 보고 한 낱말로 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
-    },
-    "pt-BR": {
-      "lang": "pt-BR",
-      "tries": 3,
       "lost": [],
-      "fixes": []
+      "fixes": [
+        {
+          "line": 39,
+          "problem": "The English asks for both the contact place and the phone number. The Japanese only says 「問い合わせ先」, so the phone number is not clearly required.",
+          "fix": "2つの案内文に書かれている問い合わせ先(場所と電話番号)を、そのまま書いてください:두 공지의 문의처는 어디입니까?"
+        }
+      ]
     },
     "de": {
       "lang": "de",
-      "tries": 3,
-      "lost": [
-        "학습 안내",
-        "아파트나 건물에서 단수",
-        "점검 안내 공지문을 빨리 읽고",
-        "필요한 정보를 찾는 연습을 합니다",
-        "특히",
-        "같은 표시",
-        "라벨",
-        "를 보고 필요한 줄만 골라 읽는 방법을 익힙니다",
-        "자주 쓰는 표시/낱말",
-        "언제 하는지",
-        "날짜와 시간",
-        "어디에서 하는지",
-        "영향을 받는 곳",
-        "왜 하는지",
-        "이유",
-        "상태를 확인하거나 검사함",
-        "공사를 하거나 고치는 일",
-        "물 공급을 잠시 멈춤",
-        "전기 공급을 잠시 멈춤",
-        "연락할 곳",
-        "전화번호",
-        "부서/사무실",
-        "무엇을 해야 하는지는",
-        "줄에서",
-        "같은 부탁 표현을 찾으세요",
-        "연습 안내",
-        "아래 문제를 푸세요",
-        "답은 공지문",
-        "또는",
-        "에서 찾거나",
-        "을 보고 쓰세요",
-        "공지문에서 찾은 답은 공지문에 쓰인 형식으로 그대로 쓰세요",
-        "숫자와 기호",
-        "예",
-        "도 그대로 적으세요",
-        "공지",
-        "의 단수는 몇 시에 끝납니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "의 단수는 어디에서 합니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "공지",
-        "의 단전은 몇 월 며칠 무슨 요일입니까",
-        "공지문에 쓰인 형식",
-        "예",
-        "으로 쓰세요",
-        "공지",
-        "에서 주민이 해야 하는 일을 한 가지",
-        "공지문에 쓰인 문장으로 그대로 쓰세요",
-        "공지",
-        "의 단전에 대해 궁금하면 어디에 연락합니까",
-        "전화번호 말고 연락할 곳의 이름을 쓰세요",
-        "공지",
-        "의 사유는 무엇입니까",
-        "공지문의",
-        "줄을 보고 쓰세요",
-        "는 무엇의 공급을 잠시 멈추는 것입니까",
-        "을 보고 한 낱말로 쓰세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     }
   },
   "pages": {
     "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
       "pages": 3,
       "ok": true,
       "why": []
     },
     "vi": {
-      "pages": 3,
+      "pages": 2,
       "ok": true,
       "why": []
     },
@@ -680,18 +605,18 @@
       "ok": true,
       "why": []
     },
-    "ko": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
-    "id": {
-      "pages": 3,
+    "pt-BR": {
+      "pages": 2,
       "ok": true,
       "why": []
     },
     "zh": {
-      "pages": 3,
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
       "ok": true,
       "why": []
     },
@@ -701,12 +626,7 @@
       "why": []
     },
     "ja": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
-    "pt-BR": {
-      "pages": 3,
+      "pages": 2,
       "ok": true,
       "why": []
     },
@@ -716,5 +636,5 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T10:50:33.621Z"
+  "preparedAt": "2026-09-25T14:32:07.673Z"
 }

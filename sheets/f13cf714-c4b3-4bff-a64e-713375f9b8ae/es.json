@@ -1,29 +1,25 @@
 {
   "title": "병원 예약 확인·변경 문자 읽기",
-  "keyword": "병원 예약 문자",
-  "summary": "Lee un mensaje de texto realista de un hospital sobre una cita para identificar la fecha/hora, el departamento/médico, la ubicación, la preparación necesaria y cómo cambiar o cancelar la cita.",
-  "objective": "Al final, los estudiantes podrán leer un mensaje de texto de un hospital y encontrar con precisión la fecha/hora de la cita, el departamento/médico, la ubicación de la clínica, los elementos de preparación y el método exacto para cambiar o cancelar la cita.",
-  "level": "Nivel Alto Principiante (초급 상)",
+  "keyword": "",
+  "summary": "Leer un SMS realista de un hospital sobre una cita para identificar la fecha/hora, el departamento/médico, la ubicación, la preparación y cómo cambiar o cancelar.",
+  "objective": "Al final, los estudiantes podrán leer un SMS de un hospital y encontrar con precisión la fecha/hora de la cita, el departamento/médico, la ubicación de la clínica, los artículos de preparación y el método exacto para cambiar o cancelar.",
+  "level": "Principiante (alto)",
   "minutes": 15,
-  "tags": [
-    "병원",
-    "예약",
-    "문자 읽기"
-  ],
+  "tags": [],
   "task": {
-    "title": "병원 문자 확인하기",
-    "line": "병원에서 온 예약 문자를 읽고 필요한 정보를 찾아 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "예약 날짜와 시간을 그대로 쓰세요.",
-    "진료과와 의사 이름을 쓰세요.",
-    "진료는 몇 층에서 하나요?",
-    "가지고 가야 하는 물건은 무엇인가요?",
-    "예약을 변경하려면, 그리고 취소하려면 이 문자에 각각 어떤 숫자로 답장해야 하나요?"
+    "Responde en coreano: 예약 날짜와 시간을 그대로 쓰세요.",
+    "Responde en coreano: 진료과와 의사 이름을 쓰세요.",
+    "Responde en coreano: 진료는 몇 층에서 하나요?",
+    "Responde en coreano: 가지고 가야 하는 물건은 무엇인가요?",
+    "Responde con números: 예약을 변경하려면, 그리고 취소하려면 각각 이 문자에 어떤 숫자로 답장해야 하나요?"
   ],
   "answers": [
     "7월 18일(목) 오후 2:30",
-    "내과, 김수진",
+    "내과, 김수진 (또는 내과, 김수진 원장)",
     "3층",
     "신분증",
     "변경: 1, 취소: 2"
@@ -46,13 +42,13 @@
       "korean": "원장",
       "roman": "wonjang",
       "meaning": "director de la clínica; médico jefe",
-      "example": "오늘 진료는 김수진 원장님이 하십니다.",
+      "example": "오늘 진료는 김수진 원장이 합니다.",
       "exampleMeaning": "La consulta de hoy es con la Directora Kim Sujin."
     },
     {
       "korean": "지참",
       "roman": "jicham",
-      "meaning": "traer algo contigo; llevar (artículo requerido)",
+      "meaning": "llevar algo contigo; traer (artículo necesario)",
       "example": "신분증을 지참해 주세요.",
       "exampleMeaning": "Por favor, trae tu identificación."
     },
@@ -82,12 +78,12 @@
       "roman": "wichi",
       "meaning": "ubicación; dónde está algo",
       "example": "병원 위치를 확인했어요.",
-      "exampleMeaning": "Revisé la ubicación del hospital."
+      "exampleMeaning": "Verifiqué la ubicación del hospital."
     },
     {
       "korean": "답장",
       "roman": "dapjang",
-      "meaning": "responder (a un mensaje de texto)",
+      "meaning": "respuesta (a un mensaje de texto)",
       "example": "이 문자에 1로 답장해 주세요.",
       "exampleMeaning": "Por favor, responde a este mensaje con el número 1."
     }

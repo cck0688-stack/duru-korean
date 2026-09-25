@@ -1,44 +1,44 @@
 {
   "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
-  "keyword": "받침",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
   "summary": "Practice reading and pronouncing the final consonants ㅇ, ㄴ, ㅁ. Link them to similar English endings (-ng, -n, -m) and read simple words that contain these batchim.",
   "objective": "Learners will distinguish final ㅇ, ㄴ, ㅁ by sound, connect them to similar English endings (-ng, -n, -m) for accurate pronunciation, and read simple words that contain these batchim.",
-  "level": "Beginner (A1)",
+  "level": "Beginner",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "받침 소리 구별하기",
-    "line": "Read each word aloud and sort it by its final sound: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
-    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
-    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)",
-    "뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜",
-    "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+    "Choose the word whose final sound is [-ng]: 방 / 반 / 밤",
+    "Write the English-style ending (-ng/-n/-m) in each blank: 손(__) 방(__) 봄(__)",
+    "Sort these words by their final sound (ㅇ/ㄴ/ㅁ): 공 / 눈 / 산 / 봄",
+    "Choose the word that matches the meaning: 'hand' → 손 / 송 / 솜",
+    "Fill in the blank with the correct final consonant (ㅇ/ㄴ/ㅁ): 이르_ (meaning: name)"
   ],
   "answers": [
     "방",
     "손(-n), 방(-ng), 봄(-m)",
-    "ㅇ, ㄴ, ㅁ",
+    "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄",
     "손",
-    "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+    "ㅁ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅇ",
-      "sound": "ng (끝소리)",
+      "sound": "ng (final sound)",
       "as": "like English ending -ng (sing)"
     },
     {
       "letter": "ㄴ",
-      "sound": "n (끝소리)",
+      "sound": "n (final sound)",
       "as": "like English ending -n (sun)"
     },
     {
       "letter": "ㅁ",
-      "sound": "m (끝소리)",
+      "sound": "m (final sound)",
       "as": "like English ending -m (gum)"
     }
   ],

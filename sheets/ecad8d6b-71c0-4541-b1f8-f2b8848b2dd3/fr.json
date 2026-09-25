@@ -1,13 +1,31 @@
 {
+  "title": "약국에서 증상 말하고 약 사기",
+  "keyword": "약국에서 증상 말하고 약 사기",
+  "summary": "Un dialogue court et réaliste dans une pharmacie coréenne. Un client sans ordonnance décrit un mal de tête, de la fièvre et un nez qui coule, répond aux questions du pharmacien, et reçoit des instructions pour prendre un médicament contre le rhume.",
+  "objective": "À la fin, les apprenants pourront acheter un médicament sans ordonnance dans une pharmacie coréenne : exprimer un symptôme avec '머리가 아파요 / 콧물이 나요 / 열이 나요', répondre aux questions du pharmacien (처방전 있으세요? 언제부터요? 알레르기 있으세요?), et comprendre l'instruction de posologie '하루 세 번, 식후 30분에 드세요'.",
+  "level": "Débutant (niveau supérieur)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "약국에서 약 사기",
+    "line": "Vous avez de la fièvre et le nez qui coule depuis hier. Décrivez vos symptômes au pharmacien, répondez à ses questions, et répétez comment prendre le médicament."
+  },
+  "exercises": [
+    "Le pharmacien demande : '처방전 있으세요?' Vous n'en avez pas. Répondez en coréen.",
+    "Le pharmacien demande : '언제부터 아프셨어요?' Vous avez commencé à vous sentir malade ce matin (오늘 아침). Répondez en coréen.",
+    "Le pharmacien demande : '알레르기 있으세요?' Vous êtes allergique à l'aspirine (아스피린). Répondez en coréen.",
+    "Le pharmacien dit : '하루 세 번, 식후 30분에 드세요.' En français, combien de fois par jour devez-vous prendre le médicament, et quand ?",
+    "Le pharmacien demande : '어디가 아파서 오셨어요?' Vous avez mal à la tête et le nez qui coule. Répondez en coréen."
+  ],
   "answers": [
-    "나요",
-    "아파요",
     "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
     "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
-    "Trois fois par jour, 30 minutes après chaque repas."
+    "Trois fois par jour, 30 minutes après chaque repas.",
+    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
   ],
   "checkThese": [],
+  "setting": "Une petite pharmacie de quartier (동네 약국) en Corée, un soir de semaine. Le client a un rhume mais n'est pas allé chez le médecin, donc il n'a pas d'ordonnance. Il parle au pharmacien au comptoir.",
   "dialogue": [
     {
       "who": "약사",
@@ -17,7 +35,7 @@
     {
       "who": "손님",
       "korean": "머리가 아프고 열이 나요.",
-      "meaning": "J'ai mal à la tête et de la fièvre."
+      "meaning": "J'ai mal à la tête et j'ai de la fièvre."
     },
     {
       "who": "약사",
@@ -37,7 +55,7 @@
     {
       "who": "손님",
       "korean": "어제 저녁부터요. 콧물도 조금 나요.",
-      "meaning": "Depuis hier soir. Mon nez coule aussi un peu."
+      "meaning": "Depuis hier soir. Mon nez coule un peu aussi."
     },
     {
       "who": "약사",
@@ -60,23 +78,6 @@
       "meaning": "D'accord, j'ai compris. Merci."
     }
   ],
-  "exercises": [
-    "Choisissez le bon mot pour compléter la phrase : 콧물이 ( 아파요 / 나요 ).",
-    "Choisissez le bon mot pour compléter la phrase : 머리가 ( 아파요 / 나요 ).",
-    "Le pharmacien demande : '처방전 있으세요?' Vous n'en avez pas. Répondez en coréen.",
-    "Le pharmacien demande : '언제부터 아프셨어요?' Vous avez commencé à vous sentir malade ce matin (오늘 아침). Répondez en coréen.",
-    "Le pharmacien demande : '알레르기 있으세요?' Vous êtes allergique à l'aspirine (아스피린). Répondez en coréen.",
-    "Le pharmacien dit : '하루 세 번, 식후 30분에 드세요.' En français, combien de fois par jour faut-il prendre le médicament, et quand ?"
-  ],
-  "keyword": "약국에서 증상 말하고 약 사기",
-  "level": "Débutant (niveau avancé)",
-  "minutes": 20,
-  "objective": "À la fin, les apprenants pourront acheter un médicament en vente libre dans une pharmacie coréenne : exprimer un symptôme avec '머리가 아파요 / 콧물이 나요 / 열이 나요', répondre aux questions du pharmacien (처방전 있으세요? 언제부터요? 알레르기 있으세요?), et comprendre l'instruction de posologie '하루 세 번, 식후 30분에 드세요'.",
-  "setting": "Une petite pharmacie de quartier (동네 약국) en Corée, un soir de semaine. Le client a un rhume mais n'est pas allé chez le médecin, donc il n'a pas d'ordonnance. Il parle au pharmacien au comptoir.",
-  "summary": "Une courte conversation réaliste dans une pharmacie coréenne. Un client sans ordonnance décrit un mal de tête, de la fièvre et un nez qui coule, répond aux questions du pharmacien et reçoit des instructions pour prendre un médicament contre le rhume.",
-  "tags": [],
-  "task": null,
-  "title": "약국에서 증상 말하고 약 사기",
   "words": [
     {
       "korean": "머리",
@@ -121,13 +122,6 @@
       "exampleMeaning": "Je suis allergique aux cacahuètes."
     },
     {
-      "korean": "감기약",
-      "roman": "gamgiyak",
-      "meaning": "médicament contre le rhume",
-      "example": "감기약 좀 주세요.",
-      "exampleMeaning": "Un médicament contre le rhume, s'il vous plaît."
-    },
-    {
       "korean": "하루",
       "roman": "haru",
       "meaning": "par jour",
@@ -144,7 +138,7 @@
     {
       "korean": "드세요",
       "roman": "deuseyo",
-      "meaning": "veuillez le prendre (forme polie)",
+      "meaning": "veuillez prendre (un médicament), forme polie",
       "example": "따뜻한 물이랑 같이 드세요.",
       "exampleMeaning": "Prenez-le avec de l'eau tiède."
     }

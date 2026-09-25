@@ -1,13 +1,31 @@
 {
+  "title": "약국에서 증상 말하고 약 사기",
+  "keyword": "약국에서 증상 말하고 약 사기",
+  "summary": "A short, realistic conversation at a Korean pharmacy. A customer without a prescription describes a headache, fever and runny nose, answers the pharmacist's questions, and gets instructions for taking cold medicine.",
+  "objective": "By the end, learners can buy an over-the-counter medicine at a Korean pharmacy: say one symptom with '머리가 아파요 / 콧물이 나요 / 열이 나요', answer the pharmacist's questions (처방전 있으세요? 언제부터요? 알레르기 있으세요?), and understand the dosing instruction '하루 세 번, 식후 30분에 드세요'.",
+  "level": "Beginner (high)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "약국에서 약 사기",
+    "line": "You have had a fever and a runny nose since yesterday. Tell the pharmacist your symptoms, answer their questions, and repeat back how to take the medicine."
+  },
+  "exercises": [
+    "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean.",
+    "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean.",
+    "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean.",
+    "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?",
+    "The pharmacist asks: '어디가 아파서 오셨어요?' You have a headache and a runny nose. Answer in Korean."
+  ],
   "answers": [
-    "나요",
-    "아파요",
     "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
     "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
-    "Three times a day, 30 minutes after each meal."
+    "Three times a day, 30 minutes after each meal.",
+    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
   ],
   "checkThese": [],
+  "setting": "A small neighborhood pharmacy (동네 약국) in Korea on a weekday evening. The customer has a cold but did not go to a doctor, so they have no prescription. They talk to the pharmacist at the counter.",
   "dialogue": [
     {
       "who": "약사",
@@ -60,23 +78,6 @@
       "meaning": "Okay, I understand. Thank you."
     }
   ],
-  "exercises": [
-    "Choose the right word to finish the sentence: 콧물이 ( 아파요 / 나요 ).",
-    "Choose the right word to finish the sentence: 머리가 ( 아파요 / 나요 ).",
-    "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean.",
-    "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean.",
-    "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean.",
-    "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?"
-  ],
-  "keyword": "약국에서 증상 말하고 약 사기",
-  "level": "Beginner (high)",
-  "minutes": 20,
-  "objective": "By the end, learners can buy an over-the-counter medicine at a Korean pharmacy: say one symptom with '머리가 아파요 / 콧물이 나요 / 열이 나요', answer the pharmacist's questions (처방전 있으세요? 언제부터요? 알레르기 있으세요?), and understand the dosing instruction '하루 세 번, 식후 30분에 드세요'.",
-  "setting": "A small neighborhood pharmacy (동네 약국) in Korea on a weekday evening. The customer has a cold but did not go to a doctor, so they have no prescription. They talk to the pharmacist at the counter.",
-  "summary": "A short, realistic conversation at a Korean pharmacy. A customer without a prescription describes a headache, fever and runny nose, answers the pharmacist's questions, and gets instructions for taking cold medicine.",
-  "tags": [],
-  "task": null,
-  "title": "약국에서 증상 말하고 약 사기",
   "words": [
     {
       "korean": "머리",
@@ -119,13 +120,6 @@
       "meaning": "allergy",
       "example": "저는 땅콩 알레르기가 있어요.",
       "exampleMeaning": "I'm allergic to peanuts."
-    },
-    {
-      "korean": "감기약",
-      "roman": "gamgiyak",
-      "meaning": "cold medicine",
-      "example": "감기약 좀 주세요.",
-      "exampleMeaning": "Some cold medicine, please."
     },
     {
       "korean": "하루",

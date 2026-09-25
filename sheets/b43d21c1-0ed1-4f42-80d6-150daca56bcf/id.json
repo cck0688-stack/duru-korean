@@ -1,0 +1,137 @@
+{
+  "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "summary": "Berlatih memesan di kafe dalam situasi nyata yang singkat di Korea. Kamu akan mendengar dan mengucapkan panas/dingin, memilih ukuran (reguler/besar), dan mengatakan untuk diminum di tempat/dibawa pulang dengan ungkapan-ungkapan alami.",
+  "objective": "Mampu memahami dan mengucapkan 6–8 pertanyaan dan jawaban singkat untuk memesan satu minuman di kafe di Korea, dengan memilih panas/dingin, ukuran (reguler/besar), dan untuk diminum di tempat/dibawa pulang.",
+  "level": "Pemula (tingkat tinggi)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "카페에서 주문해 보기",
+    "line": "Pesan satu minuman, dengan memilih suhu, ukuran, dan untuk diminum di tempat/dibawa pulang — misalnya: 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+  },
+  "exercises": [
+    "Pelanggan ingin minuman dingin. Pilih jawaban yang paling alami: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
+    "Pelanggan ingin ukuran yang lebih besar. Jawab dengan pola ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
+    "Pelanggan akan minum di tempat. Lengkapi jawaban pelanggan: 직원: 매장이세요, 포장이세요? 손님: ______",
+    "Isi bagian yang kosong (panas): _____ 아메리카노 한 잔 주세요.",
+    "Sebelum staf bertanya apa pun, pesan satu latte dingin ukuran besar untuk dibawa pulang sekaligus: 직원: 어서 오세요. 손님: ______"
+  ],
+  "answers": [
+    "아이스로요.",
+    "라지로 주세요.",
+    "매장이요. / 매장에서 마실게요. / 여기서 마실게요. / 먹고 갈게요.",
+    "핫 / 따뜻한",
+    "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
+  ],
+  "checkThese": [],
+  "setting": "서울의 프랜차이즈 카페 카운터",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "어서 오세요. 주문 도와드릴까요?",
+      "meaning": "Selamat datang. Mau pesan apa?"
+    },
+    {
+      "who": "손님",
+      "korean": "아메리카노 한 잔 주세요.",
+      "meaning": "Tolong satu Americano."
+    },
+    {
+      "who": "직원",
+      "korean": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+      "meaning": "Panas atau dingin?"
+    },
+    {
+      "who": "손님",
+      "korean": "아이스로 주세요.",
+      "meaning": "Yang dingin, ya."
+    },
+    {
+      "who": "직원",
+      "korean": "사이즈는 레귤러로 하실까요, 라지로 하실까요?",
+      "meaning": "Reguler atau besar?"
+    },
+    {
+      "who": "손님",
+      "korean": "레귤러요.",
+      "meaning": "Yang reguler."
+    },
+    {
+      "who": "직원",
+      "korean": "매장이세요, 포장이세요?",
+      "meaning": "Untuk diminum di sini atau dibawa pulang?"
+    },
+    {
+      "who": "손님",
+      "korean": "포장이요.",
+      "meaning": "Dibawa pulang."
+    }
+  ],
+  "words": [
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "dingin (minuman dingin)",
+      "example": "아이스 아메리카노요.",
+      "exampleMeaning": "Tolong satu Americano dingin."
+    },
+    {
+      "korean": "핫",
+      "roman": "hat",
+      "meaning": "panas (minuman panas)",
+      "example": "핫 라떼로 할게요.",
+      "exampleMeaning": "Saya mau satu latte panas."
+    },
+    {
+      "korean": "따뜻하다 / 따뜻한",
+      "roman": "ttatteutada / ttatteutan",
+      "meaning": "panas, hangat (minuman panas)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "Tolong satu Americano panas."
+    },
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "ukuran (ukuran minuman)",
+      "example": "사이즈는 어떻게 하세요?",
+      "exampleMeaning": "Mau ukuran berapa?"
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "untuk di tempat, diminum di dalam",
+      "example": "매장에서 먹고 갈게요.",
+      "exampleMeaning": "Saya akan minum di sini."
+    },
+    {
+      "korean": "레귤러",
+      "roman": "regyulleo",
+      "meaning": "reguler (ukuran minuman)",
+      "example": "레귤러로 주세요.",
+      "exampleMeaning": "Tolong yang reguler."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "besar (ukuran minuman)",
+      "example": "라지 하나요.",
+      "exampleMeaning": "Tolong satu yang besar."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "dibawa pulang, take away",
+      "example": "포장해 주세요.",
+      "exampleMeaning": "Tolong dibungkus untuk dibawa pulang."
+    },
+    {
+      "korean": "한 잔",
+      "roman": "han jan",
+      "meaning": "satu gelas (satu minuman)",
+      "example": "아메리카노 한 잔 부탁드려요.",
+      "exampleMeaning": "Tolong satu Americano."
+    }
+  ],
+  "category": "reallife"
+}

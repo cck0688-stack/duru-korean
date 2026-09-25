@@ -22,28 +22,40 @@
       "round": 1,
       "mechanical": [],
       "review": [
-        "words '최종' exampleMeaning: 'We decided the final schedule as 10 a.m. tomorrow.'는 틀린 영어입니다(decide A as B는 쓰지 않음). 'We set the final schedule for 10 a.m. tomorrow.'로 고쳐야 합니다.",
-        "words '모레' exampleMeaning: 'I'm free the day after tomorrow afternoon.'는 틀린 영어입니다. 'I'm free in the afternoon the day after tomorrow.'로 고쳐야 합니다.",
-        "3번 문제('처음 판매자가 제안한 날짜와 시간')의 정답이 '내일 오후 7시' 하나뿐입니다. 지문의 '모레(5월 19일 일요일)'로 내일이 5월 18일(토)임을 알 수 있으므로 '5월 18일(토) 오후 7시'도 맞는 답입니다. 정답을 '내일(5월 18일 토요일) 오후 7시'로 적고 두 표현을 모두 정답으로 인정해야 합니다."
+        "words '최종' exampleMeaning: \"We decided the final schedule as 10 a.m. tomorrow.\"는 'decide A as B'라는 쓰지 않는 영어 구문이라 부자연스럽고 틀린 번역입니다. \"We set the final schedule for 10 a.m. tomorrow.\" (또는 \"We finalized the schedule for 10 a.m. tomorrow.\")로 고쳐야 합니다."
       ],
       "audit": [
-        "words[2] (모레) exampleMeaning: I’m free the day after tomorrow afternoon. → I’m free in the afternoon the day after tomorrow.",
-        "words[4] (최종) exampleMeaning: We decided the final schedule as 10 a.m. tomorrow. → We set the final schedule for 10 a.m. tomorrow."
+        "exercises[0]: 지문에서 두 사람이 최종으로 만나기로 한 날짜와 시간을 쓰세요. → Answer in Korean: 두 사람이 최종으로 만나기로 한 날짜와 시간은 언제예요?",
+        "exercises[1]: 지문에서 최종으로 만나기로 한 정확한 장소를 쓰세요. → Answer in Korean: 두 사람이 최종으로 만나기로 한 정확한 장소는 어디예요?",
+        "exercises[2]: 처음 판매자가 제안한 날짜와 시간은 언제였나요? → Answer in Korean: 처음 판매자가 제안한 날짜와 시간은 언제였나요?",
+        "exercises[3]: 다음 중 판매자가 처음 제안한 만나는 장소는 무엇이었나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞 → Choose the correct answer: 판매자가 처음 제안한 만나는 장소는 어디였나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
+        "exercises[4]: 두 사람은 최종으로 일요일에 만나기로 했다. (O/X) → True or false? Write O or X: 두 사람은 최종으로 일요일에 만나기로 했다.",
+        "words[4].exampleMeaning: We decided the final schedule as 10 a.m. tomorrow. → We set the final schedule for 10 a.m. tomorrow."
       ]
     },
     {
       "round": 2,
       "mechanical": [],
       "review": [
-        "5번 문제('두 사람은 최종으로 일요일에 만나기로 했다. (O/X)')가 1번 문제와 같은 내용을 다시 묻습니다. 1번에서 '5월 19일(일) 오후 6시'를 이미 썼기 때문에 5번에서는 새로 연습하는 것이 없습니다. 지문에 나오는 다른 내용을 묻는 문제로 바꾸세요. 예: '구매자는 처음 약속 시간에 야근 때문에 갈 수 없었다. (O/X)', '두 사람은 최종으로 강남역에서 만나기로 했다. (O/X)'(정답 X).",
-        "4번 문제는 A/B/C 중에서 고르는 선택형인데, 정답에는 '강남역 5번 출구 앞'이라는 글자만 적혀 있고 기호가 없습니다. 문제 형식에 맞게 'A) 강남역 5번 출구 앞'으로 고치세요."
+        "Question 5 (O/X, '두 사람은 최종으로 일요일에 만나기로 했다') repeats Question 1. Question 1's answer '5월 19일(일)' already shows it's Sunday, so Question 5 checks nothing new. Replace it with an O/X item about a change in the chat, for example: '판매자는 처음에 교대역에서 만나자고 했다.' (answer X).",
+        "Question 4 is multiple choice, but its answer is written as text ('강남역 5번 출구 앞') instead of the option letter. Change the answer to 'A' or 'A) 강남역 5번 출구 앞' so the answer format matches the question.",
+        "The English translation of the 모레 example ('I'm free the day after tomorrow afternoon.') is ungrammatical. Change it to 'I'm free the afternoon of the day after tomorrow.' or 'I'm free in the afternoon the day after tomorrow.'"
       ],
       "audit": [
+        "answers[2] (exercise 3): 내일 오후 7시 → 내일(5월 18일 토요일) 오후 7시 (\"5월 18일(토) 오후 7시\"도 정답)",
         "objective: Learners will read a 3–4 paragraph used-goods chat → Learners will read a short used-goods chat (6 messages)"
       ]
     },
     {
       "round": 3,
+      "mechanical": [],
+      "review": [
+        "Problems 4 and 5 test the same fact: where the seller first suggested meeting (강남역 5번 출구 앞, not 교대역). Answering one also answers the other, so one problem is wasted. Rewrite problem 5 so it checks something else in the chat, such as a schedule change or who made which proposal. Examples: '구매자는 내일 오후 8시를 제안했다.' (O), '판매자는 오후 8시에 만날 수 있다고 했다.' (X), or '장소를 교대역으로 바꾸자고 한 사람은 판매자이다.' (X). Update the matching entry in answers to fit."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
       "mechanical": [],
       "review": [],
       "audit": []
@@ -53,7 +65,7 @@
     {
       "at": "answers[3]",
       "before": "내일 오후 7시",
-      "after": "내일(5월 18일 토요일) 오후 7시 ('내일 오후 7시', '5월 18일(토) 오후 7시' 모두 정답)"
+      "after": "내일(5월 18일 토요일) 오후 7시 (\"5월 18일(토) 오후 7시\"도 정답)"
     },
     {
       "at": "answers[4]",
@@ -61,9 +73,39 @@
       "after": "A) 강남역 5번 출구 앞"
     },
     {
+      "at": "answers[5]",
+      "before": "O",
+      "after": "X"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "지문에서 두 사람이 최종으로 만나기로 한 날짜와 시간을 쓰세요.",
+      "after": "Answer in Korean: 두 사람이 최종으로 만나기로 한 날짜와 시간은 언제예요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "지문에서 최종으로 만나기로 한 정확한 장소를 쓰세요.",
+      "after": "Answer in Korean: 두 사람이 최종으로 만나기로 한 정확한 장소는 어디예요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "처음 판매자가 제안한 날짜와 시간은 언제였나요?",
+      "after": "Answer in Korean: 처음 판매자가 제안한 날짜와 시간은 언제였나요?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "다음 중 판매자가 처음 제안한 만나는 장소는 무엇이었나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
+      "after": "Choose the correct answer: 판매자가 처음 제안한 만나는 장소는 어디였나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞"
+    },
+    {
       "at": "exercises[5]",
       "before": "두 사람은 최종으로 일요일에 만나기로 했다. (O/X)",
-      "after": "구매자는 처음 약속 시간에 야근 때문에 갈 수 없었다. (O/X)"
+      "after": "True or false? Write O or X: 장소를 교대역으로 바꾸자고 한 사람은 판매자이다."
+    },
+    {
+      "at": "level",
+      "before": "초중급(A2)",
+      "after": "Intermediate (low)"
     },
     {
       "at": "objective",
@@ -73,7 +115,7 @@
     {
       "at": "words[3].exampleMeaning",
       "before": "I’m free the day after tomorrow afternoon.",
-      "after": "I’m free in the afternoon the day after tomorrow."
+      "after": "I’m free the afternoon of the day after tomorrow."
     },
     {
       "at": "words[5].exampleMeaning",
@@ -81,7 +123,14 @@
       "after": "We set the final schedule for 10 a.m. tomorrow."
     }
   ],
+  "shortened": [],
   "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
     "id": {
       "lang": "id",
       "tries": 1,
@@ -90,7 +139,7 @@
     },
     "es": {
       "lang": "es",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
@@ -98,7 +147,13 @@
       "lang": "pt-BR",
       "tries": 1,
       "lost": [],
-      "fixes": []
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"básico\" means \"basic\", which is a different level from \"low intermediate\". The level label is mistranslated.",
+          "fix": "Intermediário (baixo)"
+        }
+      ]
     },
     "ko": {
       "lang": "ko",
@@ -110,41 +165,51 @@
       "lang": "ja",
       "tries": 1,
       "lost": [],
-      "fixes": [
-        {
-          "line": 13,
-          "problem": "「明日の午前10時に…決めました」 can be read as the decision being made at 10 a.m. tomorrow, which also clashes with the past tense. The English means the final plan is set for 10 a.m. tomorrow.",
-          "fix": "最終的な予定は明日の午前10時に決まりました。"
-        }
-      ]
-    },
-    "vi": {
-      "lang": "vi",
-      "tries": 2,
-      "lost": [],
       "fixes": []
     },
     "fr": {
       "lang": "fr",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
-      "fixes": []
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "\"le jour après-demain\" is unnatural French; \"après-demain\" already means \"the day after tomorrow\".",
+          "fix": "après-demain"
+        },
+        {
+          "line": 6,
+          "problem": "\"en soirée/le soir\" repeats \"evening\" and leaves out \"night\".",
+          "fix": "heures supplémentaires la nuit/le soir"
+        }
+      ]
     },
     "zh": {
       "lang": "zh",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
-      "fixes": []
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Intermediate (low)\" means lower-intermediate; \"初级\" means beginner level, which contradicts \"中级\" and changes the meaning.",
+          "fix": "中级(偏低)"
+        }
+      ]
     },
     "de": {
       "lang": "de",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": []
     }
   },
   "pages": {
     "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -174,11 +239,6 @@
       "ok": true,
       "why": []
     },
-    "vi": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
     "fr": {
       "pages": 2,
       "ok": true,
@@ -195,5 +255,5 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T10:56:57.705Z"
+  "preparedAt": "2026-09-25T14:40:35.087Z"
 }

@@ -20,27 +20,65 @@
   "rounds": [
     {
       "round": 1,
-      "mechanical": [
-        "watchOutMark[5] 가 비어 있습니다 (틀린 말과 맞는 말)"
-      ],
+      "mechanical": [],
       "review": [
-        "문제 1(허락을 묻는 질문으로 바꾸기): forms에서 '-아/어도 돼요?'와 '-아/어도 될까요?'를 둘 다 가르쳤으므로 '창문을 열어도 될까요?'도 맞습니다. 그런데 정답은 '창문을 열어도 돼요?' 하나뿐입니다. 정답을 '창문을 열어도 돼요? / 창문을 열어도 될까요?'로 바꾸어 두 답을 모두 인정해야 합니다.",
-        "문제 1·2: 제시어가 forms 예문과 같은 '창문을 열다'이고, 문제 2의 정답 '네, 창문을 열어도 돼요.'는 forms 2의 예문을 그대로 옮긴 것입니다. 학습자가 활용을 연습하지 않고 예문을 베끼게 됩니다. 문제 2도 문제 1의 답을 이어 쓰는 구조라 같은 문장 틀이 반복됩니다. 두 문제의 동사를 예문에 없는 것으로 바꾸세요. 예: '사진을 찍다 → 사진을 찍어도 돼요?/될까요?', '여기 앉아도 돼요? → 네, 앉아도 돼요.'",
-        "문제 4(우산을 안 써도 돼요 / 쓰면 안 돼요): watchOut 1번에 '우산을 안 써도 돼요(비 안 옴)'로 정답이 그대로 나와 있고, watchOut 4번에도 같은 문장이 있습니다. 문제 4의 문맥을 바꾸세요. 예: '오늘은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).'",
-        "watchOut 4번 '부정 위치: ‘안’은 동사 앞. 예: 우산을 안 써도 돼요(써 안 돼요 X)': 틀린 예로 든 '써 안 돼요'는 학습자가 실제로 저지를 법한 오류가 아닙니다. 또 같은 학습지에서 '쓰면 안 돼요'는 '안'이 '되다' 앞에 오므로 '‘안’은 동사 앞'이라는 규칙이 오히려 헷갈리게 합니다. 이렇게 고치세요: '‘하지 않아도 됨’을 말할 때는 ‘안’을 본동사 앞에 씁니다: 우산을 안 써도 돼요 (O) / 우산을 써도 안 돼요 (X: 뜻이 달라짐)'. watchOutMark[3]도 여기에 맞추세요.",
-        "forms 4번 when '하지 않아도 되는, 필요 없음 표현': 관형형 '되는' 뒤에 명사구 '필요 없음 표현'이 이어져 문장이 어색합니다. 다른 항목처럼 '어떤 일을 할 필요가 없다고 말할 때'로 고치세요."
+        "1번 문제/정답: forms에서 허락 질문으로 '-아/어도 돼요?'와 '-아/어도 될까요?'를 둘 다 가르쳤는데, 정답에는 '창문을 열어도 돼요?'만 있습니다. 정답을 '창문을 열어도 돼요? / 창문을 열어도 될까요?'로 둘 다 인정하도록 고쳐야 합니다.",
+        "1번과 2번 문제: 2번 문제에 '창문을 열어도 돼요?'가 그대로 나와서 1번 정답이 드러납니다. 게다가 이 문장은 forms 예문과도 같습니다. 2번 질문을 다른 낱말로 바꿔야 합니다(예: '여기에 앉아도 돼요?' → '네, 앉아도 돼요.').",
+        "4번 문제: 주의사항 1번의 예문 '우산을 안 써도 돼요(비 안 옴) vs 우산을 쓰면 안 돼요(금지)'가 4번 문제와 같은 낱말, 같은 상황입니다. 그래서 학습지를 읽으면 정답이 바로 보여 구분 연습이 되지 않습니다. 4번이나 주의사항 예문 중 하나를 다른 낱말로 바꿔야 합니다(예: 4번 → '내일은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).').",
+        "forms 4번 'when': '하지 않아도 되는, 필요 없음 표현'은 문장이 완성되지 않은 어색한 한국어입니다. '어떤 일을 할 필요가 없다고 말할 때'로 고쳐야 합니다.",
+        "주의사항 4번(watchOutMark 4번 포함): 틀린 예 '써 안 돼요'는 학습자가 실제로 하는 오류가 아니라서 '안'의 위치 설명이 되지 않습니다. 실제로 헷갈리는 형태는 '우산을 써도 안 돼요'입니다. 이 문장은 틀린 문장이 아니라 뜻이 다른 문장(써도 해결이 안 된다는 뜻)입니다. 그래서 설명을 '안은 동사 바로 앞: 안 써도 돼요(필요 없음) ≠ 써도 안 돼요(다른 뜻)'처럼 고치고, 표시(mark)도 함께 바꿔야 합니다."
       ],
       "audit": [
-        "answers 1번: 창문을 열어도 돼요? → 창문을 열어도 돼요? (창문을 열어도 될까요?)",
-        "forms 4번 when: 하지 않아도 되는, 필요 없음 표현 → 하지 않아도 될 때(필요 없음을 말할 때)",
-        "forms 1번 mark: [\"열어도\"] → [\"열어도\", \"될까요?\"]",
-        "forms 2번 mark: [\"열어도\"] → [\"열어도\", \"돼요\"]",
-        "forms 3번 mark: [\"피우면\"] → [\"피우면\", \"안 돼요\"]",
-        "forms 4번 mark: [\"안 해도\"] → [\"안 해도\", \"돼요\"]"
+        "exercises[0]: 허락을 묻는 질문으로 바꾸세요: 창문을 열다 → Change into a question asking for permission: 창문을 열다",
+        "answers[0]: 창문을 열어도 돼요? → 창문을 열어도 돼요? (창문을 열어도 될까요?)",
+        "exercises[1]: 질문에 허락으로 대답하세요: 창문을 열어도 돼요? → Answer the question by giving permission: 창문을 열어도 돼요?",
+        "exercises[2]: 금지 문장으로 쓰세요: 도서관이에요. 여기에서 떠들다 → Write a sentence saying this is not allowed: 도서관이에요. 여기에서 떠들다",
+        "exercises[3]: 괄호에서 고르세요: 오늘 비가 안 와요. 우산을 (안 써도 돼요 / 쓰면 안 돼요). → Choose the correct option in the parentheses: 오늘 비가 안 와요. 우산을 (안 써도 돼요 / 쓰면 안 돼요).",
+        "exercises[4]: 문장을 올바르게 고치세요(금지): 수업에 늦으면 돼요. → Correct the sentence so it says this is not allowed: 수업에 늦으면 돼요.",
+        "forms[0].when: 상대에게 허락을 물을 때(정중: 될까요) → When asking someone for permission (more polite: 될까요?)",
+        "forms[1].when: 상대에게 허락을 줄 때 → When giving someone permission",
+        "forms[2].when: 규칙·금지·주의를 말할 때 → When stating rules, prohibitions, or warnings",
+        "forms[3].when: 하지 않아도 되는, 필요 없음 표현 → When saying something is not necessary (you don't have to do it)",
+        "watchOut[0..4]: ‘안 V-아/어도 돼요’(하지 않아도 됨) ≠ ‘V-(으)면 안 돼요’(하면 안 됨). 예: 우산을 안 써도 돼요(비 안 옴) vs 우산을 쓰면 안 돼요(금지). / 맞춤법: ‘돼요’가 맞습니다(‘되요’ X). / 정중도: ‘…돼요?’보다 ‘…될까요?’가 더 공손합니다. / 부정 위치: ‘안’은 동사 앞. 예: 우산을 안 써도 돼요(써 안 돼요 X). / 활용 주의: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도. → ‘안 V-아/어도 돼요’ (don't have to) ≠ ‘V-(으)면 안 돼요’ (must not). e.g. 우산을 안 써도 돼요 (it's not raining; no need) vs 우산을 쓰면 안 돼요 (not allowed). / Spelling: ‘돼요’ is correct (‘되요’ X). / Politeness: ‘…될까요?’ is more polite than ‘…돼요?’. / Position of 안: put 안 right before the verb. e.g. 우산을 안 써도 돼요 (써 안 돼요 X). / Conjugation: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도 (ㄷ irregular)."
       ]
     },
     {
       "round": 2,
+      "mechanical": [],
+      "review": [
+        "task 항목이 비어 있음: title과 line이 모두 빈 문자열이라 배포 시 빈 칸으로 나옴. 허락·금지 표현을 실제로 쓰는 과제를 넣어야 함(예: 제목 '도서관 규칙 만들기', 지시문 '도서관에서 해도 되는 일 2개와 하면 안 되는 일 2개를 -아/어도 돼요, -(으)면 안 돼요로 쓰세요.').",
+        "1번 문제: 문제 '창문을 열다'의 정답 '창문을 열어도 될까요?'가 forms 1번 예문과 똑같음. forms 2번 예문 '네, 창문을 열어도 돼요.'도 같은 낱말이라 학습자가 연습 없이 예문을 베끼게 됨. 1번 문제를 새 동사로 바꿔야 함(예: '화장실에 가다' → '화장실에 가도 돼요? / 가도 될까요?', 또는 '사진을 찍다' → '사진을 찍어도 돼요?').",
+        "같은 낱말 반복: '창문을 열다'가 forms 1·2번과 1번 문제에 세 번 나오고, '우산을 쓰다'도 watchOut 1·4번에 두 번 나옴. forms 2번 예문을 다른 동사로 바꾸고(예: '네, 여기에서 사진을 찍어도 돼요.'), watchOut 4번 예시도 다른 동사로 바꿔야 함."
+      ],
+      "audit": [
+        "exercises[0]: 허락을 묻는 질문으로 바꾸세요: 창문을 열다 → Change into a question asking for permission: 창문을 열다",
+        "exercises[1]: 질문에 허락으로 대답하세요: 여기에 앉아도 돼요? → Answer the question by giving permission: 여기에 앉아도 돼요?",
+        "exercises[2]: 금지 문장으로 쓰세요: 도서관이에요. 여기에서 떠들다 → Write a sentence of prohibition: 도서관이에요. 여기에서 떠들다",
+        "exercises[3]: 괄호에서 고르세요: 내일은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요). → Choose the correct option in the parentheses: 내일은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).",
+        "exercises[4]: 문장을 올바르게 고치세요(금지): 수업에 늦으면 돼요. → Correct the sentence so it expresses prohibition: 수업에 늦으면 돼요.",
+        "forms[0].when: 상대에게 허락을 물을 때(정중: 될까요) → When asking someone for permission (될까요 is more polite)",
+        "forms[1].when: 상대에게 허락을 줄 때 → When giving someone permission",
+        "forms[2].when: 규칙·금지·주의를 말할 때 → When stating rules, prohibitions, or warnings",
+        "forms[3].when: 어떤 일을 할 필요가 없다고 말할 때 → When saying that something is not necessary to do",
+        "watchOut[0]: ‘안 V-아/어도 돼요’(하지 않아도 됨) ≠ ‘V-(으)면 안 돼요’(하면 안 됨). 예: 우산을 안 써도 돼요(비 안 옴) vs 우산을 쓰면 안 돼요(금지). → ‘안 V-아/어도 돼요’ (don’t have to) ≠ ‘V-(으)면 안 돼요’ (must not). E.g. 우산을 안 써도 돼요 (you don’t need an umbrella; it isn’t raining) vs 우산을 쓰면 안 돼요 (you are not allowed to use an umbrella).",
+        "watchOut[1]: 맞춤법: ‘돼요’가 맞습니다(‘되요’ X). → Spelling: ‘돼요’ is correct (‘되요’ is wrong).",
+        "watchOut[2]: 정중도: ‘…돼요?’보다 ‘…될까요?’가 더 공손합니다. → Politeness: ‘…될까요?’ is more polite than ‘…돼요?’.",
+        "watchOut[3]: 부정 위치: ‘안’은 동사 바로 앞. 예: 우산을 안 써도 돼요(필요 없음) ≠ 우산을 써도 안 돼요(다른 뜻: 써도 해결이 안 됨). → Position of 안: put ‘안’ directly before the verb. E.g. 우산을 안 써도 돼요 (you don’t need to use an umbrella) ≠ 우산을 써도 안 돼요 (different meaning: even with an umbrella, it doesn’t work/help).",
+        "watchOut[4]: 활용 주의: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도. → Watch the conjugation: 하다→해도, 마시다→마셔도, 쓰다→써도 (ㅡ drops), 듣다→들어도 (ㄷ irregular)."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "title: 허락·금지 말하기: -아/어도 되다, -(으)면 안 되다, ‘안 V-아/어도 되다’ 구분 → Permission and Prohibition: -아/어도 되다, -(으)면 안 되다, and distinguishing ‘안 V-아/어도 되다’",
+        "task.title: 도서관 규칙 만들기 → Make Library Rules",
+        "task.line: 도서관에서 해도 되는 일 2개와 하면 안 되는 일 2개를 -아/어도 돼요, -(으)면 안 돼요로 쓰세요. → Write 2 things you may do and 2 things you must not do in the library, using -아/어도 돼요 and -(으)면 안 돼요."
+      ]
+    },
+    {
+      "round": 4,
       "mechanical": [],
       "review": [],
       "audit": []
@@ -50,123 +88,177 @@
     {
       "at": "answers[1]",
       "before": "창문을 열어도 돼요?",
-      "after": "사진을 찍어도 돼요? / 사진을 찍어도 될까요?"
+      "after": "화장실에 가도 돼요? / 화장실에 가도 될까요?"
     },
     {
       "at": "answers[2]",
       "before": "네, 열어도 돼요. (네, 창문을 열어도 돼요.)",
-      "after": "네, 앉아도 돼요. (네, 여기 앉아도 돼요.)"
+      "after": "네, 앉아도 돼요. (네, 여기에 앉아도 돼요.)"
     },
     {
       "at": "answers[4]",
       "before": "오늘 비가 안 와요. 우산을 안 써도 돼요.",
-      "after": "오늘은 토요일이에요. 학교에 안 가도 돼요."
+      "after": "내일은 토요일이에요. 학교에 안 가도 돼요."
     },
     {
       "at": "exercises[1]",
       "before": "허락을 묻는 질문으로 바꾸세요: 창문을 열다",
-      "after": "허락을 묻는 질문으로 바꾸세요: 사진을 찍다"
+      "after": "Change into a question asking for permission: 화장실에 가다"
     },
     {
       "at": "exercises[2]",
       "before": "질문에 허락으로 대답하세요: 창문을 열어도 돼요?",
-      "after": "질문에 허락으로 대답하세요: 여기 앉아도 돼요?"
+      "after": "Answer the question by giving permission: 여기에 앉아도 돼요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "금지 문장으로 쓰세요: 도서관이에요. 여기에서 떠들다",
+      "after": "Write a sentence of prohibition: 도서관이에요. 여기에서 떠들다"
     },
     {
       "at": "exercises[4]",
       "before": "괄호에서 고르세요: 오늘 비가 안 와요. 우산을 (안 써도 돼요 / 쓰면 안 돼요).",
-      "after": "괄호에서 고르세요: 오늘은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요)."
+      "after": "Choose the correct option in the parentheses: 내일은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요)."
     },
     {
-      "at": "forms[1].mark[2]",
-      "before": "",
-      "after": "될까요?"
+      "at": "exercises[5]",
+      "before": "문장을 올바르게 고치세요(금지): 수업에 늦으면 돼요.",
+      "after": "Correct the sentence so it expresses prohibition: 수업에 늦으면 돼요."
     },
     {
-      "at": "forms[2].mark[2]",
-      "before": "",
-      "after": "돼요"
+      "at": "forms[1].when",
+      "before": "상대에게 허락을 물을 때(정중: 될까요)",
+      "after": "When asking someone for permission (될까요 is more polite)"
     },
     {
-      "at": "forms[3].mark[2]",
-      "before": "",
-      "after": "안 돼요"
+      "at": "forms[2].when",
+      "before": "상대에게 허락을 줄 때",
+      "after": "When giving someone permission"
+    },
+    {
+      "at": "forms[2].example",
+      "before": "네, 창문을 열어도 돼요.",
+      "after": "네, 여기에서 사진을 찍어도 돼요."
+    },
+    {
+      "at": "forms[2].exampleMeaning",
+      "before": "Yes, you may open the window.",
+      "after": "Yes, you may take pictures here."
+    },
+    {
+      "at": "forms[2].mark[1]",
+      "before": "열어도",
+      "after": "찍어도"
+    },
+    {
+      "at": "forms[3].when",
+      "before": "규칙·금지·주의를 말할 때",
+      "after": "When stating rules, prohibitions, or warnings"
     },
     {
       "at": "forms[4].when",
       "before": "하지 않아도 되는, 필요 없음 표현",
-      "after": "어떤 일을 할 필요가 없다고 말할 때"
+      "after": "When saying that something is not necessary to do"
     },
     {
-      "at": "forms[4].mark[2]",
+      "at": "level",
+      "before": "Beginner (A2)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "task.title",
       "before": "",
-      "after": "돼요"
+      "after": "Make Library Rules"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "Write 2 things you may do and 2 things you must not do in the library, using -아/어도 돼요 and -(으)면 안 돼요."
+    },
+    {
+      "at": "title",
+      "before": "허락·금지 말하기: -아/어도 되다, -(으)면 안 되다, ‘안 V-아/어도 되다’ 구분",
+      "after": "Permission and Prohibition: -아/어도 되다, -(으)면 안 되다, and distinguishing ‘안 V-아/어도 되다’"
+    },
+    {
+      "at": "watchOut[1]",
+      "before": "‘안 V-아/어도 돼요’(하지 않아도 됨) ≠ ‘V-(으)면 안 돼요’(하면 안 됨). 예: 우산을 안 써도 돼요(비 안 옴) vs 우산을 쓰면 안 돼요(금지).",
+      "after": "‘안 V-아/어도 돼요’ (don’t have to) ≠ ‘V-(으)면 안 돼요’ (must not). E.g. 우산을 안 써도 돼요 (you don’t need an umbrella; it isn’t raining) vs 우산을 쓰면 안 돼요 (you are not allowed to use an umbrella)."
+    },
+    {
+      "at": "watchOut[2]",
+      "before": "맞춤법: ‘돼요’가 맞습니다(‘되요’ X).",
+      "after": "Spelling: ‘돼요’ is correct (‘되요’ is wrong)."
+    },
+    {
+      "at": "watchOut[3]",
+      "before": "정중도: ‘…돼요?’보다 ‘…될까요?’가 더 공손합니다.",
+      "after": "Politeness: ‘…될까요?’ is more polite than ‘…돼요?’."
     },
     {
       "at": "watchOut[4]",
       "before": "부정 위치: ‘안’은 동사 앞. 예: 우산을 안 써도 돼요(써 안 돼요 X).",
-      "after": "‘하지 않아도 됨’을 말할 때는 ‘안’을 본동사 앞에 씁니다: 우산을 안 써도 돼요 (O) / 우산을 써도 안 돼요 (X: 뜻이 달라짐)"
+      "after": "Position of 안: put ‘안’ directly before the verb. E.g. 약을 안 먹어도 돼요 (you don’t need to take medicine) ≠ 약을 먹어도 안 돼요 (different meaning: even if you take medicine, it doesn’t help)."
+    },
+    {
+      "at": "watchOut[5]",
+      "before": "활용 주의: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도.",
+      "after": "Watch the conjugation: 하다→해도, 마시다→마셔도, 쓰다→써도 (ㅡ drops), 듣다→들어도 (ㄷ irregular)."
+    },
+    {
+      "at": "watchOutMark[4][1]",
+      "before": "써 안 돼요",
+      "after": "안 먹어도 돼요"
     },
     {
       "at": "watchOutMark[4][2]",
-      "before": "써 안 돼요",
-      "after": "써도 안 돼요"
-    },
-    {
-      "at": "watchOutMark[5][1]",
-      "before": "",
-      "after": "해도"
-    },
-    {
-      "at": "watchOutMark[5][2]",
-      "before": "",
-      "after": "마셔도"
-    },
-    {
-      "at": "watchOutMark[5][3]",
-      "before": "",
-      "after": "써도"
-    },
-    {
-      "at": "watchOutMark[5][4]",
-      "before": "",
-      "after": "들어도"
+      "before": "안 써도 돼요",
+      "after": "먹어도 안 돼요"
     }
   ],
+  "shortened": [],
   "translations": {
     "es": {
       "lang": "es",
-      "tries": 3,
-      "lost": [
-        "상대에게 허락을 물을 때",
-        "정중",
-        "상대에게 허락을 줄 때",
-        "규칙·금지·주의를 말할 때",
-        "어떤 일을 할 필요가 없다고 말할 때",
-        "하지 않아도 됨",
-        "하면 안 됨",
-        "예",
-        "비 안 옴",
-        "금지",
-        "맞춤법",
-        "가 맞습니다",
-        "정중도",
-        "보다",
-        "가 더 공손합니다",
-        "하지 않아도 됨",
-        "을 말할 때는",
-        "을 본동사 앞에 씁니다",
-        "뜻이 달라짐",
-        "활용 주의"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "id": {
       "lang": "id",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 24,
+          "problem": "\"Politeness\" was translated as \"Formalidade\" (formality), a different concept in Korean grammar. ‘…될까요?’ and ‘…돼요?’ are the same speech level (해요체); the point is that ‘…될까요?’ is more polite, not more formal.",
+          "fix": "Cortesia: ‘…될까요?’ é mais educado do que ‘…돼요?’."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "「上級」means 'advanced level', so 初級(上級) reads as 'Beginner (advanced)', a different level from 'Beginner (high)', the upper part of the beginner level.",
+          "fix": "初級(上)"
+        }
+      ]
     },
     "ko": {
       "lang": "ko",
@@ -174,103 +266,27 @@
       "lost": [],
       "fixes": []
     },
-    "vi": {
-      "lang": "vi",
-      "tries": 3,
-      "lost": [
-        "상대에게 허락을 물을 때",
-        "정중",
-        "상대에게 허락을 줄 때",
-        "규칙·금지·주의를 말할 때",
-        "어떤 일을 할 필요가 없다고 말할 때",
-        "하지 않아도 됨",
-        "하면 안 됨",
-        "예",
-        "비 안 옴",
-        "금지",
-        "맞춤법",
-        "가 맞습니다",
-        "정중도",
-        "보다",
-        "가 더 공손합니다",
-        "하지 않아도 됨",
-        "을 말할 때는",
-        "을 본동사 앞에 씁니다",
-        "뜻이 달라짐",
-        "활용 주의",
-        "허락을 묻는 질문으로 바꾸세요",
-        "질문에 허락으로 대답하세요",
-        "금지 문장으로 쓰세요",
-        "괄호에서 고르세요",
-        "문장을 올바르게 고치세요",
-        "금지"
-      ],
-      "fixes": [],
-      "failed": true
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 12,
+          "problem": "« C'est bon de… » means 'it's good/pleasant to…' in French and does not express permission ('It's okay to…').",
+          "fix": "Tu peux… / Tu as le droit de…"
+        }
+      ]
     },
-    "ja": {
-      "lang": "ja",
-      "tries": 2,
+    "de": {
+      "lang": "de",
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
     "zh": {
       "lang": "zh",
-      "tries": 3,
-      "lost": [
-        "상대에게 허락을 물을 때",
-        "정중",
-        "상대에게 허락을 줄 때",
-        "규칙·금지·주의를 말할 때",
-        "어떤 일을 할 필요가 없다고 말할 때",
-        "하지 않아도 됨",
-        "하면 안 됨",
-        "예",
-        "비 안 옴",
-        "금지",
-        "맞춤법",
-        "가 맞습니다",
-        "정중도",
-        "보다",
-        "가 더 공손합니다",
-        "하지 않아도 됨",
-        "을 말할 때는",
-        "을 본동사 앞에 씁니다",
-        "뜻이 달라짐"
-      ],
-      "fixes": [],
-      "failed": true
-    },
-    "pt-BR": {
-      "lang": "pt-BR",
-      "tries": 3,
-      "lost": [],
-      "fixes": []
-    },
-    "fr": {
-      "lang": "fr",
-      "tries": 3,
-      "lost": [
-        "상대에게 허락을 물을 때",
-        "정중",
-        "상대에게 허락을 줄 때",
-        "규칙·금지·주의를 말할 때",
-        "어떤 일을 할 필요가 없다고 말할 때",
-        "예",
-        "맞춤법",
-        "가 맞습니다",
-        "정중도",
-        "보다",
-        "가 더 공손합니다",
-        "을 말할 때는",
-        "을 본동사 앞에 씁니다"
-      ],
-      "fixes": [],
-      "failed": true
-    },
-    "de": {
-      "lang": "de",
-      "tries": 3,
+      "tries": 2,
       "lost": [],
       "fixes": []
     }
@@ -291,12 +307,12 @@
       "ok": true,
       "why": []
     },
-    "ko": {
+    "vi": {
       "pages": 2,
       "ok": true,
       "why": []
     },
-    "vi": {
+    "pt-BR": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -306,12 +322,7 @@
       "ok": true,
       "why": []
     },
-    "zh": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
-    "pt-BR": {
+    "ko": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -325,7 +336,12 @@
       "pages": 2,
       "ok": true,
       "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
     }
   },
-  "preparedAt": "2026-09-25T11:19:05.184Z"
+  "preparedAt": "2026-09-25T14:57:11.252Z"
 }

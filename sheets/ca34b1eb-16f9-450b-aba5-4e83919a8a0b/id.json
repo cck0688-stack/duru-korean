@@ -9,43 +9,46 @@
   ],
   "checkThese": [],
   "exercises": [
-    "Pegang selembar tisu di depan mulutmu lalu ucapkan 불, 풀, dan 뿔. Kata mana yang membuat tisu bergerak paling banyak? Tuliskan kata itu.",
+    "Pegang tisu di depan mulutmu dan ucapkan 불, 풀, dan 뿔. Kata mana yang membuat tisu bergerak paling banyak? Tuliskan kata tersebut.",
     "Tuliskan Romanisasi yang Disempurnakan (Revised Romanization) untuk setiap kata: 발, 팔, 뿔.",
-    "Kamu sedang di toko roti dan ingin membeli roti. Kata mana yang kamu ucapkan: 방 atau 빵?",
+    "Kamu sedang berada di toko roti dan ingin membeli roti. Kata mana yang kamu ucapkan: 방 atau 빵?",
     "Kata mana yang berarti 'lengan': 발 atau 팔?",
     "Kalimat mana yang berarti 'Sedang hujan.': 비가 와요 atau 피가 와요?",
-    "Kelompokkan kata-kata ini berdasarkan huruf awalnya (ㅂ, ㅍ, atau ㅃ): 풀, 방, 뿔, 팔, 발, 빵."
+    "Kelompokkan kata-kata berikut berdasarkan huruf pertamanya (ㅂ, ㅍ, atau ㅃ): 풀, 방, 뿔, 팔, 발, 빵."
   ],
-  "keyword": "hangul",
+  "keyword": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "letters": [
     {
       "letter": "ㅂ",
       "sound": "b/p biasa: lembut, dengan sedikit hembusan udara",
-      "as": "Mirip dengan p pada kata \"spin\" (sedikit hembusan udara). Sering terdengar seperti b yang lembut."
+      "as": "Di antara b bahasa Inggris dan p pada kata 'pin': hembusan udara ringan, lebih lembut daripada ㅍ. Sering terdengar seperti b yang lembut."
     },
     {
       "letter": "ㅍ",
-      "sound": "p aspirasi: hembusan udara yang kuat",
-      "as": "Mirip dengan p pada kata \"pin\" (hembusan udara yang kuat)."
+      "sound": "p aspirasi: hembusan udara kuat",
+      "as": "Mirip dengan p pada kata 'pin' (hembusan udara kuat)."
     },
     {
       "letter": "ㅃ",
       "sound": "pp tegang: bibir ditekan rapat, tenggorokan tegang, tanpa hembusan udara",
-      "as": "Tidak ada padanan pasti dalam bahasa Inggris. Mirip p pada kata \"spin\", tetapi diucapkan lebih keras dan lebih rapat, tanpa hembusan udara."
+      "as": "Tidak ada padanan persis dalam bahasa Inggris. Mirip p pada kata 'spin', tetapi diucapkan lebih keras dan lebih ketat, tanpa hembusan udara."
     }
   ],
   "level": "Pemula",
   "minutes": 15,
   "objective": "Bedakan dan lafalkan ㅂ, ㅍ, dan ㅃ di awal kata. Pilih kata yang tepat dari kumpulan pasangan minimal seperti 불/풀/뿔, 발/팔, dan 방/빵.",
-  "summary": "Lembar kerja ini membahas tiga huruf 'p/b' bahasa Korea di awal kata: ㅂ biasa, ㅍ aspirasi, dan ㅃ tegang. Setiap huruf memiliki petunjuk dalam bahasa Inggris dan sekumpulan kata-kata mudah. Kamu akan belajar membedakan huruf-huruf ini menggunakan pasangan minimal seperti 불/풀/뿔, 발/팔, dan 방/빵. Latihannya meliputi tes tisu, membaca, mengelompokkan, dan memilih kata yang tepat.",
+  "summary": "Lembar kerja ini membahas tiga huruf 'p/b' bahasa Korea di awal kata: ㅂ biasa, ㅍ aspirasi, dan ㅃ tegang. Setiap huruf memiliki petunjuk dalam bahasa Inggris dan sejumlah kata sederhana. Kamu akan belajar membedakan huruf-huruf ini menggunakan pasangan minimal seperti 불/풀/뿔, 발/팔, dan 방/빵. Latihannya meliputi tes tisu, membaca, mengelompokkan, dan memilih kata yang tepat.",
   "tags": [],
-  "task": null,
+  "task": {
+    "title": "",
+    "line": ""
+  },
   "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "words": [
     {
       "korean": "불",
       "roman": "bul",
-      "meaning": "lampu (lampu atau cahaya ruangan)",
+      "meaning": "lampu (cahaya lampu atau ruangan)",
       "example": "불 좀 꺼 주세요.",
       "exampleMeaning": "Tolong matikan lampunya."
     },
@@ -54,42 +57,42 @@
       "roman": "pul",
       "meaning": "lem",
       "example": "풀 좀 빌려 주세요.",
-      "exampleMeaning": "Bolehkah aku pinjam lem?"
+      "exampleMeaning": "Bolehkah saya pinjam lem?"
     },
     {
       "korean": "뿔",
       "roman": "ppul",
       "meaning": "tanduk (hewan)",
       "example": "이 소는 뿔이 길어요.",
-      "exampleMeaning": "Sapi ini memiliki tanduk yang panjang."
+      "exampleMeaning": "Sapi ini bertanduk panjang."
     },
     {
       "korean": "발",
       "roman": "bal",
       "meaning": "kaki",
       "example": "많이 걸어서 발이 아파요.",
-      "exampleMeaning": "Kakiku sakit karena banyak berjalan."
+      "exampleMeaning": "Kaki saya sakit karena banyak berjalan."
     },
     {
       "korean": "팔",
       "roman": "pal",
       "meaning": "lengan",
       "example": "어제 팔을 다쳤어요.",
-      "exampleMeaning": "Aku melukai lenganku kemarin."
+      "exampleMeaning": "Lengan saya terluka kemarin."
     },
     {
       "korean": "방",
       "roman": "bang",
       "meaning": "kamar",
       "example": "제 방은 작아요.",
-      "exampleMeaning": "Kamarku kecil."
+      "exampleMeaning": "Kamar saya kecil."
     },
     {
       "korean": "빵",
       "roman": "ppang",
       "meaning": "roti",
       "example": "아침에 빵을 먹어요.",
-      "exampleMeaning": "Aku makan roti di pagi hari."
+      "exampleMeaning": "Saya makan roti di pagi hari."
     },
     {
       "korean": "비",
@@ -103,7 +106,7 @@
       "roman": "pi",
       "meaning": "darah",
       "example": "손가락에서 피가 나요.",
-      "exampleMeaning": "Jariku berdarah."
+      "exampleMeaning": "Jari saya berdarah."
     }
   ],
   "category": "hangul"

@@ -84,7 +84,7 @@
       "example": "지금은 회의 중이니까 나중에 전화하세요.",
       "exampleMeaning": "I'm in a meeting right now, so please call later.",
       "mark": [
-        "중이니까"
+        "회의 중이니까"
       ]
     }
   ],
@@ -126,8 +126,8 @@
       "추워서"
     ],
     [
-      "하니까",
-      "해서"
+      "기다리게 하니까",
+      "기다리게 해서"
     ],
     [
       "학생라서",

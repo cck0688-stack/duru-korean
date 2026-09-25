@@ -1,4 +1,23 @@
 {
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "summary": "Practice distinguishing and reading the Korean vowels ㅐ, ㅔ, ㅖ through minimal pairs and common words. Includes quick spelling choices to reinforce accurate vowel recognition.",
+  "objective": "Learners will tell ㅐ, ㅔ, and ㅖ apart by spelling, and read simple words that contain these vowels correctly.",
+  "level": "Beginner",
+  "minutes": 12,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Choose the word that matches the meaning: dog -> 개 / 게",
+    "Choose the correct spelling: (pear) 배 / 베",
+    "Choose the correct spelling: (lemon) 레몬 / 래몬",
+    "Choose the correct spelling: (egg) 계란 / 게란",
+    "Fill in the blank with the correct vowel: ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ",
+    "Fill in the blank with the correct vowel: ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ"
+  ],
   "answers": [
     "개",
     "배",
@@ -8,20 +27,11 @@
     "ㅖ"
   ],
   "checkThese": [],
-  "exercises": [
-    "뜻에 맞는 낱말을 고르세요. dog -> 개 / 게",
-    "뜻에 맞는 낱말을 고르세요. pear -> 배 / 베",
-    "맞는 철자를 고르세요. (lemon) 레몬 / 래몬",
-    "맞는 철자를 고르세요. (egg) 계란 / 게란",
-    "빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ",
-    "빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ"
-  ],
-  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
   "letters": [
     {
       "letter": "ㅐ",
       "sound": "ae",
-      "as": "like the vowel in \"bed\" — in standard Korean slightly more open than ㅔ, but most Koreans today pronounce ㅐ and ㅔ the same; tell them apart by spelling"
+      "as": "like the vowel in \"bed\" (in modern standard Korean, ㅐ and ㅔ sound almost the same; tell them apart mostly by spelling and meaning, e.g., 개 dog / 게 crab)"
     },
     {
       "letter": "ㅔ",
@@ -31,19 +41,9 @@
     {
       "letter": "ㅖ",
       "sound": "ye",
-      "as": "like \"ye\" in \"yes\""
+      "as": "like \"ye\" in \"yes\" (after a consonant it may be pronounced like ㅔ, e.g., 계란 [게란])"
     }
   ],
-  "level": "Beginner (초급)",
-  "minutes": 12,
-  "objective": "Learners will read ㅐ and ㅔ as the same sound and learn which one each word uses by its spelling, and will pronounce ㅖ as [ye] in 예 and 례 (in other syllables such as 계, ㅖ may also be read [e], so 계란 can be read [계란] or [게란]) when reading simple words that contain these vowels.",
-  "summary": "Practice reading the Korean vowels ㅐ, ㅔ, ㅖ in common words. Since most speakers pronounce ㅐ and ㅔ the same, learn each word's spelling. Read ㅖ as [ye] in 예 and 례; in other syllables such as 계, ㅖ may also be read [e] (계란 → [계란] or [게란]). Includes quick meaning and spelling choices to reinforce correct spelling.",
-  "tags": [],
-  "task": {
-    "title": "소리 내어 읽기",
-    "line": "다음 낱말을 소리 내어 읽어 보세요: 개, 배, 책, 게, 레몬, 예, 예쁘다, 계란"
-  },
-  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
   "words": [
     {
       "korean": "개",

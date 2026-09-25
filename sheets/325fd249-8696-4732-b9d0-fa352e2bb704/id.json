@@ -1,8 +1,8 @@
 {
   "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
-  "keyword": "단어 첫소리 ㄷ·ㅌ·ㄸ",
-  "summary": "Berlatih membedakan dan membaca konsonan awal kata dalam bahasa Korea: ㄷ (biasa/polos), ㅌ (aspirasi), dan ㄸ (tegang). Disediakan referensi bunyi dalam bahasa Inggris agar pemula dapat menghubungkan bunyi-bunyi tersebut dan membaca kata-kata sederhana dengan tepat.",
-  "objective": "Peserta belajar akan mengenali dan melafalkan ㄷ (polos), ㅌ (aspirasi), dan ㄸ (tegang) di posisi awal kata, menghubungkannya dengan petunjuk bunyi bahasa Inggris yang jelas (ㄷ = t ringan antara d dan t, ㅌ ≈ t pada “top”, ㄸ ≈ t pada “stop” tapi lebih rapat), serta membaca dengan benar kata-kata sederhana yang mengandung konsonan awal ini.",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Latih cara membedakan dan membaca konsonan awal kata bahasa Korea ㄷ (biasa), ㅌ (aspirasi), dan ㄸ (tegas). Referensi bunyi bahasa Inggris disediakan agar pemula dapat menghubungkan bunyi-bunyi tersebut dan membaca kata-kata sederhana dengan tepat.",
+  "objective": "Pembelajar akan mengenali dan melafalkan ㄷ (biasa), ㅌ (aspirasi), dan ㄸ (tegas) di posisi awal kata, menghubungkannya dengan referensi bunyi bahasa Inggris yang jelas (ㄷ ≈ antara d dan t dalam bahasa Inggris dengan sedikit hembusan napas, ㅌ ≈ t pada \"top\", ㄸ ≈ t tegas tanpa hembusan napas, mirip dengan t pada \"stop\"), dan membaca dengan benar kata-kata sederhana yang mengandung konsonan awal ini.",
   "level": "Pemula",
   "minutes": 15,
   "tags": [],
@@ -11,35 +11,35 @@
     "line": ""
   },
   "exercises": [
-    "각 단어의 첫 자음(초성)을 쓰세요. Tuliskan konsonan awal dari setiap kata: 두부 / 토끼 / 또",
-    "ㄸ(된소리)로 시작하는 말을 고르세요. Pilih kata yang diawali dengan ㄸ (tegang): 돈 / 토마토 / 떡",
-    "첫소리가 같은 두 단어를 고르세요. Pilih dua kata yang diawali dengan bunyi yang sama: 달 / 두부 / 딸",
-    "ㅌ(거센소리)로 시작하는 말을 고르세요. Pilih kata yang diawali dengan ㅌ (aspirasi): 달 / 타다 / 딸",
-    "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요. Lihat romanisasinya, lalu tuliskan hanya konsonan awalnya dalam Hangeul: tteok"
+    "Pilih kata yang diawali dengan ㄸ (tegas): 두부 / 토끼 / 또",
+    "Lihat romanisasinya dan tuliskan hanya konsonan awalnya dalam Hangul: dubu",
+    "Pilih kata yang berarti 'anak perempuan': 달 / 딸",
+    "Pilih kata yang diawali dengan ㅌ (aspirasi): 달 / 토마토 / 딸",
+    "Lihat romanisasinya dan tuliskan hanya konsonan awalnya dalam Hangul: tteok"
   ],
   "answers": [
-    "ㄷ / ㅌ / ㄸ",
-    "떡",
-    "달, 두부",
-    "타다",
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
     "ㄸ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄷ",
-      "sound": "t polos (lax), hembusan udara ringan (lebih ringan dari ㅌ), nada lebih rendah",
-      "as": "di antara d dan t dalam bahasa Inggris, lebih lembut daripada t pada “top”"
+      "sound": "t biasa, dengan sedikit hembusan napas (lebih lemah daripada ㅌ)",
+      "as": "di antara d dan t dalam bahasa Inggris; di awal kata sering terdengar seperti t yang lembut"
     },
     {
       "letter": "ㅌ",
-      "sound": "t beraspirasi, hembusan udara yang kuat",
-      "as": "seperti t pada “top”"
+      "sound": "t beraspirasi, dengan hembusan napas yang kuat",
+      "as": "seperti t pada \"top\""
     },
     {
       "letter": "ㄸ",
-      "sound": "t tegang, rapat dan pendek",
-      "as": "mendekati t pada “stop” (tanpa hembusan udara), tapi lebih rapat"
+      "sound": "t tegas, rapat dan pendek",
+      "as": "\"tt\" tegas tanpa hembusan napas; yang paling mendekati dalam bahasa Inggris adalah t pada \"stop\""
     }
   ],
   "words": [
@@ -95,7 +95,7 @@
     {
       "korean": "떡",
       "roman": "tteok",
-      "meaning": "kue beras (tteok)",
+      "meaning": "kue beras",
       "example": "떡이 맛있어요.",
       "exampleMeaning": "Kue berasnya enak."
     },

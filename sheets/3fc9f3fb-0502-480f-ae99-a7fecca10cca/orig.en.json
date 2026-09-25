@@ -22,7 +22,8 @@
       "example": "창문을 열어도 될까요?",
       "exampleMeaning": "May I open the window?",
       "mark": [
-        "열어도"
+        "열어도",
+        "될까요?"
       ]
     },
     {
@@ -32,7 +33,8 @@
       "example": "네, 창문을 열어도 돼요.",
       "exampleMeaning": "Yes, you may open the window.",
       "mark": [
-        "열어도"
+        "열어도",
+        "돼요."
       ]
     },
     {
@@ -42,7 +44,9 @@
       "example": "여기에서 담배를 피우면 안 돼요.",
       "exampleMeaning": "You must not smoke here.",
       "mark": [
-        "피우면"
+        "피우면",
+        "안",
+        "돼요."
       ]
     },
     {
@@ -52,11 +56,13 @@
       "example": "오늘은 숙제를 안 해도 돼요.",
       "exampleMeaning": "You don’t have to do homework today.",
       "mark": [
-        "안 해도"
+        "안",
+        "해도",
+        "돼요."
       ]
     }
   ],
-  "keyword": "",
+  "keyword": "-아/어도 되다·-(으)면 안 되다",
   "level": "Beginner (A2)",
   "minutes": 15,
   "objective": "By the end, learners can ask for/give permission using -아/어도 되다, state prohibitions using -(으)면 안 되다, and accurately distinguish ‘안 V-아/어도 되다 (don’t have to)’ from ‘V-(으)면 안 되다 (must not)’.",
@@ -77,18 +83,27 @@
       "쓰면 안 돼요"
     ],
     [
-      "돼요",
-      "되요"
+      "되요",
+      "돼요"
     ],
     [
       "돼요?",
       "될까요?"
     ],
     [
-      "안 써도 돼요",
-      "써 안 돼요"
+      "써 안 돼요",
+      "안 써도 돼요"
     ],
-    []
+    [
+      "하다",
+      "해도",
+      "마시다",
+      "마셔도",
+      "쓰다",
+      "써도",
+      "듣다",
+      "들어도"
+    ]
   ],
   "category": "grammar"
 }

@@ -1,40 +1,32 @@
 {
-  "answers": [
-    "포장",
-    "라지",
-    "아이스",
-    "당도",
-    "샷 추가",
-    "얼음",
-    "매장",
-    "따뜻한",
-    "사이즈",
-    "스몰"
-  ],
-  "checkThese": [],
-  "exercises": [
-    "손님: 가져갈 거예요. ___으로 주세요. (to go)",
-    "손님: 아주 많이 마시고 싶어요. ___로 할게요. (big size)",
-    "손님: 오늘은 덥네요. ___로 주세요. (iced)",
-    "직원: ___는 어떻게 해 드릴까요? 손님: 30%요. (sweetness level)",
-    "손님: 진하게 마시고 싶어요. 에스프레소 ___ 가능해요? (add a shot)",
-    "손님: ___ 없이 주세요. (ice)",
-    "직원: 포장이세요? 손님: 아니요, ___에서 먹고 갈게요. (for here)",
-    "손님: 오늘은 추워요. ___ 라테로 주세요. (hot)",
-    "직원: 음료 ___는 어떤 걸로 드릴까요? (size)",
-    "손님: 조금만 마실 거예요. 라테 ___ 한 잔이요. (small)"
-  ],
-  "keyword": "카페 주문 어휘",
+  "title": "카페 주문 필수 어휘 10",
+  "keyword": "카페 주문 필수 어휘 10",
+  "summary": "Essential Korean words for ordering drinks at a cafe: size options, iced/hot, ice and sweetness levels, extra shot, and for here/to go. Includes 10 high-frequency words with natural example sentences and a short fill-in practice.",
+  "objective": "Students will be able to understand and say 10 core words to ask and answer about size, ice and sweetness adjustments, extra shots, and for here/to go when ordering at a cafe.",
   "level": "Beginner",
   "minutes": 15,
-  "objective": "Students will be able to understand and say 10 core words to ask and answer about size, ice and sweetness adjustments, extra shots, and for here/to go when ordering at a cafe.",
-  "summary": "Essential Korean words for ordering drinks at a cafe: size options, iced/hot, ice and sweetness levels, extra shot, and for here/to go. Includes 10 high-frequency words with natural example sentences and a short fill-in practice.",
   "tags": [],
   "task": {
     "title": "",
     "line": ""
   },
-  "title": "카페 주문 필수 어휘 10",
+  "exercises": [
+    "Fill in the blank: 직원: 드시고 가세요? 손님: 네, 저는 ___에서 먹고 갈 거예요. 친구 커피는 ___으로 부탁해요. (for here / to go)",
+    "Fill in the blank: 직원: ___는 어떻게 하실까요? 손님: 저는 ___로, 동생은 ___로 주세요. (size / large / small)",
+    "Fill in the blank: 직원: 뜨거운 거랑 차가운 거 중에 뭘로 드릴까요? 손님: 저는 ___ 녹차, 동생은 ___ 초코로 할게요. (hot / iced)",
+    "Fill in the blank: 직원: 시럽 넣어 드릴까요? 손님: 네, 그런데 너무 단 건 싫어요. ___를 낮춰 주세요. (sweetness level)",
+    "Fill in the blank: 직원: 더 필요하신 건 없으세요? 손님: 진하게 마시고 싶어서요. 라떼에 ___해 주세요. (add a shot)",
+    "Fill in the blank: 직원: 아이스 라떼 맞죠? 손님: 네, 이가 시려서요. ___ 좀 빼 주세요. (ice)"
+  ],
+  "answers": [
+    "매장 / 포장",
+    "사이즈 / 라지 / 스몰",
+    "따뜻한(또는 뜨거운) / 아이스(또는 차가운)",
+    "당도",
+    "샷 추가",
+    "얼음"
+  ],
+  "checkThese": [],
   "words": [
     {
       "korean": "사이즈",
@@ -54,15 +46,15 @@
       "korean": "라지",
       "roman": "raji",
       "meaning": "large (cup size)",
-      "example": "라지 한 잔 주세요.",
-      "exampleMeaning": "One large, please."
+      "example": "라지 사이즈 있어요?",
+      "exampleMeaning": "Do you have a large size?"
     },
     {
       "korean": "아이스",
       "roman": "aiseu",
       "meaning": "iced",
-      "example": "아이스 라테로 주세요.",
-      "exampleMeaning": "Iced latte, please."
+      "example": "아이스로 할게요.",
+      "exampleMeaning": "I'll have it iced."
     },
     {
       "korean": "따뜻한",
@@ -75,15 +67,15 @@
       "korean": "얼음",
       "roman": "eoreum",
       "meaning": "ice (ice amount)",
-      "example": "얼음은 적게 해 주세요.",
-      "exampleMeaning": "Please put less ice."
+      "example": "얼음 많이 들어가요?",
+      "exampleMeaning": "Does it come with a lot of ice?"
     },
     {
       "korean": "당도",
       "roman": "dangdo",
       "meaning": "sweetness level",
-      "example": "당도는 50%로 해 주세요.",
-      "exampleMeaning": "Please make the sweetness 50%."
+      "example": "당도 조절돼요?",
+      "exampleMeaning": "Can I adjust the sweetness?"
     },
     {
       "korean": "샷 추가",
@@ -102,7 +94,7 @@
     {
       "korean": "매장",
       "roman": "maejang",
-      "meaning": "for here (drink in)",
+      "meaning": "store; 매장에서 = for here (eat/drink in)",
       "example": "매장에서 마실게요.",
       "exampleMeaning": "I’ll drink it here."
     }

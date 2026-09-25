@@ -1,8 +1,8 @@
 {
   "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
-  "keyword": "단어 첫소리 ㄷ·ㅌ·ㄸ",
-  "summary": "Luyện phân biệt và đọc các phụ âm đầu tiếng Hàn ㄷ (âm thường), ㅌ (âm bật hơi) và ㄸ (âm căng). Có kèm theo các gợi ý âm thanh tiếng Anh hữu ích để người mới bắt đầu có thể liên kết các âm và đọc chính xác các từ đơn giản.",
-  "objective": "Người học sẽ nhận biết và phát âm ㄷ (âm thường), ㅌ (âm bật hơi) và ㄸ (âm căng) ở vị trí đầu từ, liên kết chúng với các gợi ý rõ ràng bằng tiếng Anh (ㄷ = âm t nhẹ, nằm giữa d và t, ㅌ ≈ âm t trong “top”, ㄸ ≈ âm t trong “stop” nhưng căng hơn), và đọc đúng các từ đơn giản chứa các phụ âm đầu này.",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Luyện phân biệt và đọc các phụ âm đầu tiếng Hàn ㄷ (âm thường), ㅌ (âm bật hơi), và ㄸ (âm căng). Có kèm theo gợi ý phát âm tiếng Anh để người mới học liên hệ âm thanh và đọc đúng các từ đơn giản.",
+  "objective": "Người học sẽ nhận biết và phát âm ㄷ (âm thường), ㅌ (âm bật hơi), và ㄸ (âm căng) ở đầu từ, liên hệ với các gợi ý rõ ràng trong tiếng Anh (ㄷ ≈ giữa âm d và t trong tiếng Anh với hơi bật nhẹ, ㅌ ≈ âm t trong \"top\", ㄸ ≈ âm t căng, không bật hơi, gần giống âm t trong \"stop\"), và đọc đúng các từ đơn giản có chứa những phụ âm đầu này.",
   "level": "Sơ cấp",
   "minutes": 15,
   "tags": [],
@@ -11,35 +11,35 @@
     "line": ""
   },
   "exercises": [
-    "Viết phụ âm đầu (âm đầu) của mỗi từ. 각 단어의 첫 자음(초성)을 쓰세요: 두부 / 토끼 / 또",
-    "Chọn từ bắt đầu bằng ㄸ (âm căng). ㄸ(된소리)로 시작하는 말을 고르세요: 돈 / 토마토 / 떡",
-    "Chọn hai từ có âm đầu giống nhau. 첫소리가 같은 두 단어를 고르세요: 달 / 두부 / 딸",
-    "Chọn từ bắt đầu bằng ㅌ (âm bật hơi). ㅌ(거센소리)로 시작하는 말을 고르세요: 달 / 타다 / 딸",
-    "Nhìn vào phần phiên âm La-tinh và chỉ viết phụ âm đầu bằng tiếng Hàn (Hangul). 로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: tteok"
+    "Chọn từ bắt đầu bằng ㄸ (âm căng): 두부 / 토끼 / 또",
+    "Nhìn vào phiên âm La-tinh và chỉ viết phụ âm đầu bằng Hangul: dubu",
+    "Chọn từ có nghĩa là 'con gái': 달 / 딸",
+    "Chọn từ bắt đầu bằng ㅌ (âm bật hơi): 달 / 토마토 / 딸",
+    "Nhìn vào phiên âm La-tinh và chỉ viết phụ âm đầu bằng Hangul: tteok"
   ],
   "answers": [
-    "ㄷ / ㅌ / ㄸ",
-    "떡",
-    "달, 두부",
-    "타다",
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
     "ㄸ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄷ",
-      "sound": "âm t thường (nhẹ), một luồng hơi nhẹ (nhẹ hơn ㅌ), cao độ thấp hơn",
-      "as": "nằm giữa âm d và t trong tiếng Anh, mềm hơn âm t trong “top”"
+      "sound": "âm t thường, hơi bật nhẹ (yếu hơn ㅌ)",
+      "as": "nằm giữa âm d và t trong tiếng Anh; ở đầu từ thường nghe giống âm t nhẹ"
     },
     {
       "letter": "ㅌ",
-      "sound": "âm t bật hơi, luồng hơi mạnh",
-      "as": "giống âm t trong “top”"
+      "sound": "âm t bật hơi, hơi bật mạnh",
+      "as": "giống âm t trong từ \"top\""
     },
     {
       "letter": "ㄸ",
       "sound": "âm t căng, chặt và ngắn",
-      "as": "gần giống âm t trong “stop” (không bật hơi), nhưng căng hơn"
+      "as": "âm \"tt\" căng, không bật hơi; gần giống nhất với âm t trong từ \"stop\""
     }
   ],
   "words": [
@@ -102,7 +102,7 @@
     {
       "korean": "또",
       "roman": "tto",
-      "meaning": "lại, một lần nữa",
+      "meaning": "lại",
       "example": "또 만나요.",
       "exampleMeaning": "Hẹn gặp lại."
     }

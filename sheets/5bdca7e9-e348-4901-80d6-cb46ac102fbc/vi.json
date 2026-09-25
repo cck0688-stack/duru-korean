@@ -1,38 +1,49 @@
 {
+  "title": "이유 말하기: -아서/어서와 -(으)니까",
+  "keyword": "-아서/어서, -(으)니까",
+  "summary": "Cả -아서/어서 và -(으)니까 đều diễn đạt lý do (\"vì, nên\"). Trang này hướng dẫn cách chia mỗi dạng với động từ, tính từ và danh từ (bao gồm cả gốc bất quy tắc ㄹ và ㅂ). Trang cũng nêu hai quy tắc mà người học hay sai nhất: chỉ -(으)니까 mới được dùng trước câu mệnh lệnh hoặc đề nghị (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), và đuôi thì quá khứ không bao giờ đứng trước -아서/어서 (không có -았/었어서).",
+  "objective": "Chọn giữa -아서/어서 và -(으)니까 cho mệnh đề nêu lý do, chia đúng dạng (bao gồm danh từ và gốc bất quy tắc ㄹ/ㅂ), và sửa các câu dùng -아서/어서 trước câu mệnh lệnh/đề nghị hoặc với đuôi thì quá khứ.",
+  "level": "Sơ cấp (cao)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Điền vào chỗ trống với dạng đúng: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+    "Điền vào chỗ trống với dạng đúng: 선물을 (주다) ____ 고마워요.",
+    "Điền vào chỗ trống với dạng đúng: 밖이 (덥다) ____ 안에 있읍시다.",
+    "Điền vào chỗ trống với dạng danh từ của -아서/어서: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+    "Điền vào chỗ trống với dạng đúng: 내일은 (휴일) ____ 같이 영화 볼까요?",
+    "Tìm lỗi sai và viết lại toàn bộ câu cho đúng: 어제 잠을 못 잤어서 오늘 너무 피곤해요."
+  ],
   "answers": [
     "사니까",
     "줘서 (주어서)",
     "더우니까",
-    "휴가라서",
+    "휴가라서 (휴가여서)",
     "휴일이니까",
     "어제 잠을 못 자서 오늘 너무 피곤해요."
   ],
   "checkThese": [],
-  "exercises": [
-    "Hãy điền dạng thích hợp vào chỗ trống: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
-    "Hãy điền dạng thích hợp vào chỗ trống: 선물을 (주다) ____ 고마워요.",
-    "Hãy điền dạng thích hợp vào chỗ trống: 밖이 (덥다) ____ 안에 있읍시다.",
-    "Hãy điền dạng danh từ + -(이)라서 vào chỗ trống: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
-    "Hãy điền dạng thích hợp vào chỗ trống: 내일은 (휴일) ____ 같이 영화 볼까요?",
-    "Tìm chỗ sai và viết lại toàn bộ câu cho đúng: 어제 잠을 못 잤어서 오늘 너무 피곤해요."
-  ],
   "forms": [
     {
-      "form": "V/A + 아서 (어간 끝 모음이 ㅏ, ㅗ)",
-      "when": "Nguyên âm cuối của thân từ là ㅏ hoặc ㅗ. 가다 → 가서, 작다 → 작아서, 보다 → 봐서",
-      "means": "vì / nên (một lý do hay nguyên nhân đơn giản)",
+      "form": "V/A + 아서 (nguyên âm cuối của gốc từ là ㅏ hoặc ㅗ)",
+      "when": "Nguyên âm cuối của gốc từ là ㅏ hoặc ㅗ. 가다 → 가서, 작다 → 작아서, 보다 → 봐서",
+      "means": "vì / nên (lý do hoặc nguyên nhân đơn thuần)",
       "example": "방이 작아서 좀 불편해요.",
-      "exampleMeaning": "Phòng nhỏ nên hơi bất tiện một chút.",
+      "exampleMeaning": "Phòng nhỏ nên hơi bất tiện.",
       "mark": [
         "작아서"
       ]
     },
     {
-      "form": "V/A + 어서 (그 밖의 모음)",
-      "when": "Bất kỳ nguyên âm cuối nào khác. 먹다 → 먹어서, 마시다 → 마셔서, 어렵다 → 어려워서",
+      "form": "V/A + 어서 (các nguyên âm cuối còn lại)",
+      "when": "Các nguyên âm cuối còn lại. 먹다 → 먹어서, 마시다 → 마셔서, 어렵다 → 어려워서",
       "means": "vì / nên",
       "example": "커피를 많이 마셔서 잠이 안 와요.",
-      "exampleMeaning": "Tôi uống nhiều cà phê quá nên không ngủ được.",
+      "exampleMeaning": "Tôi uống nhiều cà phê nên không ngủ được.",
       "mark": [
         "마셔서"
       ]
@@ -49,30 +60,30 @@
     },
     {
       "form": "N + 이라서 / 라서",
-      "when": "Danh từ. Sau phụ âm cuối (받침): 이라서 (학생이라서). Sau nguyên âm: 라서 (친구라서). 이어서/여서 cũng được dùng.",
+      "when": "Danh từ. Sau phụ âm cuối: 이라서 (학생이라서). Sau nguyên âm: 라서 (친구라서). 이어서/여서 cũng được dùng.",
       "means": "vì là N",
       "example": "아직 학생이라서 돈이 별로 없어요.",
-      "exampleMeaning": "Tôi vẫn còn là sinh viên nên không có nhiều tiền.",
+      "exampleMeaning": "Tôi vẫn còn là học sinh/sinh viên nên không có nhiều tiền.",
       "mark": [
         "학생이라서"
       ]
     },
     {
-      "form": "V/A + 니까 (모음 어간, ㄹ 어간)",
-      "when": "Thân từ kết thúc bằng nguyên âm: 가다 → 가니까. Thân từ kết thúc bằng ㄹ: bỏ ㄹ rồi thêm 니까 (멀다 → 머니까).",
-      "means": "vì / bởi vì. Có thể đứng trước mệnh lệnh hoặc đề nghị.",
+      "form": "V/A + 니까 (gốc kết thúc bằng nguyên âm hoặc gốc ㄹ)",
+      "when": "Gốc kết thúc bằng nguyên âm: 가다 → 가니까. Gốc kết thúc bằng ㄹ: bỏ ㄹ rồi thêm 니까 (멀다 → 머니까).",
+      "means": "vì / bởi vì. Có thể đứng trước câu mệnh lệnh hoặc đề nghị.",
       "example": "그 식당은 머니까 택시를 탑시다.",
-      "exampleMeaning": "Nhà hàng đó xa nên mình bắt taxi đi.",
+      "exampleMeaning": "Nhà hàng đó xa nên chúng ta đi taxi đi.",
       "mark": [
         "머니까"
       ]
     },
     {
-      "form": "V/A + 으니까 (받침 있는 어간)",
-      "when": "Thân từ kết thúc bằng phụ âm: 먹다 → 먹으니까, 많다 → 많으니까. Bất quy tắc ㅂ: ㅂ → 우 + 니까 (어렵다 → 어려우니까).",
-      "means": "vì / bởi vì. Có thể đứng trước mệnh lệnh hoặc đề nghị.",
+      "form": "V/A + 으니까 (gốc kết thúc bằng phụ âm)",
+      "when": "Gốc kết thúc bằng phụ âm: 먹다 → 먹으니까, 많다 → 많으니까. Bất quy tắc ㅂ: ㅂ → 우 + 니까 (어렵다 → 어려우니까).",
+      "means": "vì / bởi vì. Có thể đứng trước câu mệnh lệnh hoặc đề nghị.",
       "example": "지금은 사람이 많으니까 다음에 올까요?",
-      "exampleMeaning": "Bây giờ đông người quá, hay mình quay lại lúc khác nhé?",
+      "exampleMeaning": "Bây giờ đông người quá, hay là mình quay lại lúc khác nhé?",
       "mark": [
         "많으니까"
       ]
@@ -80,32 +91,21 @@
     {
       "form": "N + 이니까 / 니까",
       "when": "Danh từ. Sau phụ âm cuối: 이니까 (회의 중이니까). Sau nguyên âm: 니까 (친구니까).",
-      "means": "vì là N. Có thể đứng trước mệnh lệnh hoặc đề nghị.",
+      "means": "vì là N. Có thể đứng trước câu mệnh lệnh hoặc đề nghị.",
       "example": "지금은 회의 중이니까 나중에 전화하세요.",
-      "exampleMeaning": "Bây giờ tôi đang họp nên lát nữa hãy gọi lại nhé.",
+      "exampleMeaning": "Tôi đang họp nên hãy gọi lại sau nhé.",
       "mark": [
-        "중이니까"
+        "회의 중이니까"
       ]
     }
   ],
-  "keyword": "-아서/어서, -(으)니까",
-  "level": "Trình độ sơ cấp cao (초급 후반)",
-  "minutes": 15,
-  "objective": "Chọn giữa -아서/어서 và -(으)니까 cho mệnh đề chỉ lý do (kể cả khi đứng trước mệnh lệnh/đề nghị), tạo đúng dạng chia (kể cả với danh từ và thân từ bất quy tắc ㄹ/ㅂ), và sửa những câu dùng đuôi thì quá khứ trước -아서/어서.",
-  "summary": "Cả -아서/어서 và -(으)니까 đều diễn tả lý do (\"vì, nên\"). Trang này trình bày cách chia mỗi dạng với động từ, tính từ và danh từ (kể cả các thân từ bất quy tắc ㄹ và ㅂ). Nó cũng nêu hai quy tắc mà người học hay sai nhất: chỉ có -(으)니까 mới được đứng trước mệnh lệnh hoặc đề nghị (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), và đuôi thì quá khứ không bao giờ đứng trước -아서/어서 (không có -았/었어서).",
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "title": "이유 말하기: -아서/어서와 -(으)니까",
   "watchOut": [
-    "Nếu mệnh đề sau là mệnh lệnh hoặc đề nghị (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), dùng -(으)니까, không dùng -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
-    "Không bao giờ đặt đuôi thì quá khứ -았/었- trước -아서/어서. Mệnh đề sau đã thể hiện thời gian rồi. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Với -(으)니까 thì dùng thì quá khứ vẫn được: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
-    "Các động từ và tính từ có thân từ kết thúc bằng ㄹ sẽ bỏ ㄹ trước 니까, và không thêm 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Với -아서/어서 thì ㄹ vẫn giữ nguyên: 멀어서, 알아서",
-    "Hầu hết các tính từ có thân từ bất quy tắc ㅂ sẽ đổi ㅂ thành 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
-    "Khi cảm ơn hoặc xin lỗi ai đó, dùng -아서/어서, không dùng -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
-    "Với danh từ: kiểm tra xem có phụ âm cuối (받침) hay không. 학생라서 (X) → 학생이라서 (O), 의사이라서 (X) → 의사라서 (O). 니까 cũng hoạt động tương tự: 이니까 sau phụ âm, 니까 sau nguyên âm."
+    "Nếu vế sau là câu mệnh lệnh hoặc đề nghị (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), hãy dùng -(으)니까, không dùng -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
+    "Không bao giờ đặt đuôi thì quá khứ -았/었- trước -아서/어서. Vế sau đã thể hiện thời gian rồi. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Với -(으)니까 thì dùng thì quá khứ vẫn được: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
+    "Động từ và tính từ có gốc ㄹ sẽ bỏ ㄹ trước 니까, và không thêm 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Với -아서/어서 thì ㄹ vẫn giữ nguyên: 멀어서, 알아서",
+    "Hầu hết tính từ có gốc ㅂ sẽ đổi ㅂ thành 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
+    "Khi cảm ơn hoặc xin lỗi ai đó, hãy dùng -아서/어서, không dùng -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
+    "Với danh từ: kiểm tra xem có phụ âm cuối (받침) hay không. 학생라서 (X) → 학생이라서 (O). Sau nguyên âm, dạng thường dùng là 라서: 의사라서. 니까 cũng hoạt động tương tự: 이니까 sau phụ âm, 니까 sau nguyên âm."
   ],
   "watchOutMark": [
     [
@@ -129,14 +129,12 @@
       "추워서"
     ],
     [
-      "하니까",
-      "해서"
+      "기다리게 하니까",
+      "기다리게 해서"
     ],
     [
       "학생라서",
-      "학생이라서",
-      "의사이라서",
-      "의사라서"
+      "학생이라서"
     ]
   ],
   "category": "grammar"

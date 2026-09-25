@@ -1,0 +1,137 @@
+{
+  "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "summary": "Practica un pedido corto y realista en una cafetería en Corea. Escucharás y dirás caliente/frío, elegirás el tamaño (normal/grande) y dirás si es para tomar aquí o para llevar, con frases naturales.",
+  "objective": "Ser capaz de entender y decir de 6 a 8 preguntas y respuestas cortas para pedir una bebida en una cafetería en Corea, eligiendo caliente/frío, tamaño (normal/grande) y para tomar aquí/para llevar.",
+  "level": "Principiante (alto)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "카페에서 주문해 보기",
+    "line": "Pide una bebida, eligiendo la temperatura, el tamaño y si es para tomar aquí o para llevar — por ejemplo: 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+  },
+  "exercises": [
+    "El cliente quiere una bebida fría. Elige la respuesta más natural: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
+    "El cliente quiere el tamaño más grande. Responde usando ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
+    "El cliente lo va a tomar aquí. Completa la respuesta del cliente: 직원: 매장이세요, 포장이세요? 손님: ______",
+    "Completa el espacio en blanco (caliente): _____ 아메리카노 한 잔 주세요.",
+    "Antes de que el personal pregunte nada, pide un latte frío, de tamaño grande, para llevar, todo de una vez: 직원: 어서 오세요. 손님: ______"
+  ],
+  "answers": [
+    "아이스로요.",
+    "라지로 주세요.",
+    "매장이요. / 매장에서 마실게요. / 여기서 마실게요. / 먹고 갈게요.",
+    "핫 / 따뜻한",
+    "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
+  ],
+  "checkThese": [],
+  "setting": "서울의 프랜차이즈 카페 카운터",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "어서 오세요. 주문 도와드릴까요?",
+      "meaning": "Bienvenido/a. ¿Puedo ayudarle a pedir?"
+    },
+    {
+      "who": "손님",
+      "korean": "아메리카노 한 잔 주세요.",
+      "meaning": "Un americano, por favor."
+    },
+    {
+      "who": "직원",
+      "korean": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+      "meaning": "¿Caliente o frío?"
+    },
+    {
+      "who": "손님",
+      "korean": "아이스로 주세요.",
+      "meaning": "Frío, por favor."
+    },
+    {
+      "who": "직원",
+      "korean": "사이즈는 레귤러로 하실까요, 라지로 하실까요?",
+      "meaning": "¿Normal o grande?"
+    },
+    {
+      "who": "손님",
+      "korean": "레귤러요.",
+      "meaning": "Normal."
+    },
+    {
+      "who": "직원",
+      "korean": "매장이세요, 포장이세요?",
+      "meaning": "¿Para tomar aquí o para llevar?"
+    },
+    {
+      "who": "손님",
+      "korean": "포장이요.",
+      "meaning": "Para llevar."
+    }
+  ],
+  "words": [
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "frío (bebida fría)",
+      "example": "아이스 아메리카노요.",
+      "exampleMeaning": "Un americano frío, por favor."
+    },
+    {
+      "korean": "핫",
+      "roman": "hat",
+      "meaning": "caliente (bebida caliente)",
+      "example": "핫 라떼로 할게요.",
+      "exampleMeaning": "Tomaré un latte caliente."
+    },
+    {
+      "korean": "따뜻하다 / 따뜻한",
+      "roman": "ttatteutada / ttatteutan",
+      "meaning": "caliente, tibio (bebida caliente)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "Un americano caliente, por favor."
+    },
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "tamaño (tamaño de la bebida)",
+      "example": "사이즈는 어떻게 하세요?",
+      "exampleMeaning": "¿Qué tamaño desea?"
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "para tomar aquí, en el local",
+      "example": "매장에서 먹고 갈게요.",
+      "exampleMeaning": "Lo tomaré aquí."
+    },
+    {
+      "korean": "레귤러",
+      "roman": "regyulleo",
+      "meaning": "normal (tamaño de la bebida)",
+      "example": "레귤러로 주세요.",
+      "exampleMeaning": "Normal, por favor."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "grande (tamaño de la bebida)",
+      "example": "라지 하나요.",
+      "exampleMeaning": "Uno grande, por favor."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "para llevar",
+      "example": "포장해 주세요.",
+      "exampleMeaning": "Para llevar, por favor."
+    },
+    {
+      "korean": "한 잔",
+      "roman": "han jan",
+      "meaning": "una taza (una bebida)",
+      "example": "아메리카노 한 잔 부탁드려요.",
+      "exampleMeaning": "Un americano, por favor."
+    }
+  ],
+  "category": "reallife"
+}

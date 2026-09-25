@@ -1,9 +1,9 @@
 {
   "title": "모음 ㅓ·ㅗ·ㅜ 연습",
   "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
-  "summary": "Prática curta para reconhecer e pronunciar as vogais coreanas ㅓ, ㅗ e ㅜ. Mostra três palavras simples para cada vogal e frases de exemplo curtas.",
-  "objective": "O aluno será capaz de reconhecer e pronunciar corretamente as vogais coreanas ㅓ, ㅗ e ㅜ em palavras simples.",
-  "level": "초급 (A1)",
+  "summary": "Prática curta para reconhecer as vogais coreanas ㅓ, ㅗ e ㅜ. Mostra três palavras simples para cada vogal e frases de exemplo curtas.",
+  "objective": "O aluno será capaz de reconhecer as vogais coreanas ㅓ, ㅗ e ㅜ em palavras simples.",
+  "level": "Iniciante",
   "minutes": 10,
   "tags": [],
   "task": {
@@ -12,36 +12,36 @@
   },
   "exercises": [
     "Qual vogal está na sílaba '서'? (Escreva ㅓ, ㅗ ou ㅜ)",
-    "Leia em voz alta: 거기 / 고기. Escreva a vogal da primeira sílaba de cada palavra. Em qual palavra você arredonda os lábios?",
-    "Leia em voz alta: 소 / 수. As duas vogais arredondam os lábios. Em qual delas sua boca fica mais fechada?",
+    "Qual vogal aparece na palavra '포도'? (Escreva ㅓ, ㅗ ou ㅜ)",
+    "Qual vogal (ㅓ, ㅗ ou ㅜ) aparece na palavra '우유'?",
     "Relacione estas palavras com a vogal (ㅓ, ㅗ ou ㅜ) que elas contêm (escreva três símbolos em ordem): 엄마 / 오이 / 수박",
     "No conjunto mínimo '서 / 소 / 수', qual sílaba tem ㅜ?",
-    "Classifique estas palavras nos grupos ㅓ, ㅗ e ㅜ de acordo com a vogal da primeira sílaba: 먹다, 주다, 고기, 서점, 포도, 우유"
+    "Observe a primeira sílaba de cada palavra e escreva sua vogal: 먹다, 고기, 주다"
   ],
   "answers": [
     "ㅓ",
-    "거기: ㅓ / 고기: ㅗ — you round your lips for 고기",
-    "수 (ㅜ)",
+    "ㅗ",
+    "ㅜ",
     "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
     "수",
-    "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅓ",
-      "sound": "parecido com 'eo' (vogal média-aberta)",
-      "as": "como o 'ó' de 'só', mas sem arredondar os lábios (aproximado)"
+      "sound": "próximo de 'eo' (uma vogal média-aberta)",
+      "as": "como o 'uh' em 'cup' no inglês (aproximado)"
     },
     {
       "letter": "ㅗ",
-      "sound": "parecido com 'ô' (vogal arredondada posterior)",
-      "as": "como o 'ô' em 'avô' (aproximado)"
+      "sound": "próximo de 'o' (vogal posterior arredondada)",
+      "as": "como o 'o' em 'go' no inglês (aproximado)"
     },
     {
       "letter": "ㅜ",
-      "sound": "parecido com 'u' (vogal arredondada posterior)",
-      "as": "como o 'u' em 'tudo' (aproximado)"
+      "sound": "próximo de 'u' (vogal posterior arredondada)",
+      "as": "como o 'oo' em 'food' no inglês (aproximado)"
     }
   ],
   "words": [
@@ -50,7 +50,7 @@
       "roman": "eomma",
       "meaning": "mãe",
       "example": "엄마가 왔어요.",
-      "exampleMeaning": "A mamãe chegou."
+      "exampleMeaning": "A mãe chegou."
     },
     {
       "korean": "먹다",
@@ -70,8 +70,8 @@
       "korean": "오이",
       "roman": "oi",
       "meaning": "pepino",
-      "example": "오이가 맛있어요.",
-      "exampleMeaning": "O pepino é gostoso."
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "O pepino está fresco."
     },
     {
       "korean": "포도",
@@ -98,15 +98,15 @@
       "korean": "수박",
       "roman": "subak",
       "meaning": "melancia",
-      "example": "수박이 커요.",
-      "exampleMeaning": "A melancia é grande."
+      "example": "수박이 달아요.",
+      "exampleMeaning": "A melancia está doce."
     },
     {
       "korean": "주다",
       "roman": "juda",
       "meaning": "dar",
-      "example": "선물을 줘요.",
-      "exampleMeaning": "Eu dou um presente."
+      "example": "선물을 주세요.",
+      "exampleMeaning": "Por favor, me dê um presente."
     }
   ],
   "category": "hangul"

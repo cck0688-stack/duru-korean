@@ -1,8 +1,8 @@
 {
   "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
-  "keyword": "단어 첫소리 ㄷ·ㅌ·ㄸ",
-  "summary": "Practica distinguir y leer las consonantes iniciales coreanas ㄷ (simple), ㅌ (aspirada) y ㄸ (tensa). Se incluyen referencias sonoras útiles en inglés para que los principiantes puedan relacionar los sonidos y leer palabras sencillas con precisión.",
-  "objective": "Los estudiantes identificarán y pronunciarán ㄷ (simple), ㅌ (aspirada) y ㄸ (tensa) en posición inicial de palabra, las relacionarán con referencias claras en inglés (ㄷ = una t suave entre d y t, ㅌ ≈ la t de \"top\", ㄸ ≈ la t de \"stop\" pero más tensa), y leerán correctamente palabras sencillas que contengan estas consonantes iniciales.",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Practica cómo distinguir y leer las consonantes coreanas iniciales ㄷ (simple), ㅌ (aspirada) y ㄸ (tensa). Se ofrecen referencias de sonidos en inglés para ayudar a los principiantes a relacionar los sonidos y leer palabras sencillas con precisión.",
+  "objective": "Los estudiantes identificarán y pronunciarán ㄷ (simple), ㅌ (aspirada) y ㄸ (tensa) en posición inicial de palabra, las relacionarán con referencias claras del inglés (ㄷ ≈ entre la d y la t del inglés con un ligero soplo de aire, ㅌ ≈ la t de “top”, ㄸ ≈ una t tensa sin soplo de aire, cercana a la t de “stop”), y leerán correctamente palabras sencillas que contienen estas consonantes iniciales.",
   "level": "Principiante",
   "minutes": 15,
   "tags": [],
@@ -11,35 +11,35 @@
     "line": ""
   },
   "exercises": [
-    "각 단어의 첫 자음(초성)을 쓰세요. Escribe la primera consonante de cada palabra: 두부 / 토끼 / 또",
-    "ㄸ(된소리)로 시작하는 말을 고르세요. Elige la palabra que empieza con ㄸ (tensa): 돈 / 토마토 / 떡",
-    "첫소리가 같은 두 단어를 고르세요. Elige las dos palabras que empiezan con el mismo sonido: 달 / 두부 / 딸",
-    "ㅌ(거센소리)로 시작하는 말을 고르세요. Elige la palabra que empieza con ㅌ (aspirada): 달 / 타다 / 딸",
-    "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요. Mira la romanización y escribe solo la primera consonante en hangul: tteok"
+    "Elige la palabra que empieza con ㄸ (tensa): 두부 / 토끼 / 또",
+    "Mira la romanización y escribe solo la primera consonante en hangul: dubu",
+    "Elige la palabra que significa 'hija': 달 / 딸",
+    "Elige la palabra que empieza con ㅌ (aspirada): 달 / 토마토 / 딸",
+    "Mira la romanización y escribe solo la primera consonante en hangul: tteok"
   ],
   "answers": [
-    "ㄷ / ㅌ / ㄸ",
-    "떡",
-    "달, 두부",
-    "타다",
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
     "ㄸ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄷ",
-      "sound": "t simple (relajada), un ligero soplo de aire (más suave que ㅌ), tono más bajo",
-      "as": "entre la d y la t del inglés, más suave que la t de \"top\""
+      "sound": "t simple, con un ligero soplo de aire (más suave que ㅌ)",
+      "as": "entre la d y la t del inglés; al inicio de una palabra suele sonar como una t suave"
     },
     {
       "letter": "ㅌ",
-      "sound": "t aspirada, con un fuerte soplo de aire",
-      "as": "como la t de \"top\""
+      "sound": "t aspirada, con un soplo de aire fuerte",
+      "as": "como la t de “top”"
     },
     {
       "letter": "ㄸ",
-      "sound": "t tensa, corta y contenida",
-      "as": "cercana a la t de \"stop\" (sin soplo de aire), pero más tensa"
+      "sound": "t tensa, corta y firme",
+      "as": "“tt” tensa sin soplo de aire; el sonido en inglés más parecido es la t de “stop”"
     }
   ],
   "words": [
@@ -74,7 +74,7 @@
     {
       "korean": "타다",
       "roman": "tada",
-      "meaning": "montar / subirse",
+      "meaning": "montar",
       "example": "버스를 타요.",
       "exampleMeaning": "Monto en el autobús."
     },
@@ -97,7 +97,7 @@
       "roman": "tteok",
       "meaning": "pastel de arroz",
       "example": "떡이 맛있어요.",
-      "exampleMeaning": "El pastel de arroz es delicioso."
+      "exampleMeaning": "El pastel de arroz está rico."
     },
     {
       "korean": "또",

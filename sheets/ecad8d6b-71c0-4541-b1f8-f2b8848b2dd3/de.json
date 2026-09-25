@@ -1,18 +1,36 @@
 {
+  "title": "약국에서 증상 말하고 약 사기",
+  "keyword": "약국에서 증상 말하고 약 사기",
+  "summary": "Ein kurzes, realistisches Gespräch in einer koreanischen Apotheke. Ein Kunde ohne Rezept beschreibt Kopfschmerzen, Fieber und Schnupfen, beantwortet die Fragen des Apothekers und erhält Anweisungen zur Einnahme von Erkältungsmedikamenten.",
+  "objective": "Am Ende können die Lernenden in einer koreanischen Apotheke ein rezeptfreies Medikament kaufen: ein Symptom nennen mit '머리가 아파요 / 콧물이 나요 / 열이 나요', die Fragen des Apothekers beantworten (처방전 있으세요? 언제부터요? 알레르기 있으세요?) und die Dosierungsanweisung '하루 세 번, 식후 30분에 드세요' verstehen.",
+  "level": "Anfänger (fortgeschritten)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "약국에서 약 사기",
+    "line": "Sie haben seit gestern Fieber und Schnupfen. Beschreiben Sie dem Apotheker Ihre Symptome, beantworten Sie seine Fragen und wiederholen Sie, wie Sie das Medikament einnehmen sollen."
+  },
+  "exercises": [
+    "Der Apotheker fragt: '처방전 있으세요?' Sie haben keins. Antworten Sie auf Koreanisch.",
+    "Der Apotheker fragt: '언제부터 아프셨어요?' Sie fühlen sich seit heute Morgen (오늘 아침) krank. Antworten Sie auf Koreanisch.",
+    "Der Apotheker fragt: '알레르기 있으세요?' Sie sind allergisch gegen Aspirin (아스피린). Antworten Sie auf Koreanisch.",
+    "Der Apotheker sagt: '하루 세 번, 식후 30분에 드세요.' Wie oft am Tag sollten Sie das Medikament einnehmen, und wann? Antworten Sie auf Englisch.",
+    "Der Apotheker fragt: '어디가 아파서 오셨어요?' Sie haben Kopfschmerzen und Schnupfen. Antworten Sie auf Koreanisch."
+  ],
   "answers": [
-    "나요",
-    "아파요",
     "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
     "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
-    "Dreimal täglich, 30 Minuten nach jeder Mahlzeit."
+    "Dreimal täglich, 30 Minuten nach jeder Mahlzeit.",
+    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
   ],
   "checkThese": [],
+  "setting": "Eine kleine Nachbarschaftsapotheke (동네 약국) in Korea an einem Wochentagabend. Der Kunde hat eine Erkältung, war aber nicht beim Arzt und hat daher kein Rezept. Er spricht mit dem Apotheker am Tresen.",
   "dialogue": [
     {
       "who": "약사",
       "korean": "어서 오세요. 어디가 아파서 오셨어요?",
-      "meaning": "Willkommen. Was führt Sie zu uns? (Wo tut es weh?)"
+      "meaning": "Willkommen. Was führt Sie zu uns? (Wo haben Sie Schmerzen?)"
     },
     {
       "who": "손님",
@@ -42,7 +60,7 @@
     {
       "who": "약사",
       "korean": "알레르기 있으세요?",
-      "meaning": "Haben Sie irgendwelche Allergien?"
+      "meaning": "Haben Sie Allergien?"
     },
     {
       "who": "손님",
@@ -52,31 +70,14 @@
     {
       "who": "약사",
       "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
-      "meaning": "Dann nehmen Sie dieses Erkältungsmedikament. Nehmen Sie es dreimal täglich, 30 Minuten nach den Mahlzeiten ein."
+      "meaning": "Dann nehmen Sie dieses Erkältungsmedikament. Nehmen Sie es dreimal täglich, 30 Minuten nach den Mahlzeiten."
     },
     {
       "who": "손님",
       "korean": "네, 알겠습니다. 감사합니다.",
-      "meaning": "Okay, verstanden. Danke."
+      "meaning": "Okay, verstanden. Danke schön."
     }
   ],
-  "exercises": [
-    "Wählen Sie das richtige Wort, um den Satz zu vervollständigen: 콧물이 ( 아파요 / 나요 ).",
-    "Wählen Sie das richtige Wort, um den Satz zu vervollständigen: 머리가 ( 아파요 / 나요 ).",
-    "Der Apotheker fragt: '처방전 있으세요?' Sie haben keins. Antworten Sie auf Koreanisch.",
-    "Der Apotheker fragt: '언제부터 아프셨어요?' Sie fühlen sich seit heute Morgen (오늘 아침) krank. Antworten Sie auf Koreanisch.",
-    "Der Apotheker fragt: '알레르기 있으세요?' Sie sind allergisch gegen Aspirin (아스피린). Antworten Sie auf Koreanisch.",
-    "Der Apotheker sagt: '하루 세 번, 식후 30분에 드세요.' Wie oft am Tag sollten Sie das Medikament einnehmen, und wann? Antworten Sie auf Deutsch."
-  ],
-  "keyword": "약국에서 증상 말하고 약 사기",
-  "level": "Anfänger (fortgeschritten)",
-  "minutes": 20,
-  "objective": "Am Ende können die Lernenden in einer koreanischen Apotheke ein rezeptfreies Medikament kaufen: ein Symptom nennen mit '머리가 아파요 / 콧물이 나요 / 열이 나요', die Fragen des Apothekers beantworten (처방전 있으세요? 언제부터요? 알레르기 있으세요?) und die Dosierungsanweisung '하루 세 번, 식후 30분에 드세요' verstehen.",
-  "setting": "Eine kleine Nachbarschaftsapotheke (동네 약국) in Korea an einem Wochentagabend. Der Kunde ist erkältet, war aber nicht beim Arzt und hat daher kein Rezept. Er spricht mit dem Apotheker am Tresen.",
-  "summary": "Ein kurzes, realistisches Gespräch in einer koreanischen Apotheke. Ein Kunde ohne Rezept beschreibt Kopfschmerzen, Fieber und eine laufende Nase, beantwortet die Fragen des Apothekers und erhält Anweisungen zur Einnahme eines Erkältungsmedikaments.",
-  "tags": [],
-  "task": null,
-  "title": "약국에서 증상 말하고 약 사기",
   "words": [
     {
       "korean": "머리",
@@ -95,7 +96,7 @@
     {
       "korean": "콧물",
       "roman": "konmul",
-      "meaning": "laufende Nase",
+      "meaning": "Schnupfen",
       "example": "콧물이 계속 나요.",
       "exampleMeaning": "Meine Nase läuft ständig."
     },
@@ -111,7 +112,7 @@
       "roman": "eonjebuteo",
       "meaning": "seit wann",
       "example": "언제부터 목이 아팠어요?",
-      "exampleMeaning": "Seit wann tut Ihnen der Hals weh?"
+      "exampleMeaning": "Seit wann haben Sie Halsschmerzen?"
     },
     {
       "korean": "알레르기",
@@ -121,32 +122,25 @@
       "exampleMeaning": "Ich bin allergisch gegen Erdnüsse."
     },
     {
-      "korean": "감기약",
-      "roman": "gamgiyak",
-      "meaning": "Erkältungsmedikament",
-      "example": "감기약 좀 주세요.",
-      "exampleMeaning": "Ein Erkältungsmedikament, bitte."
-    },
-    {
       "korean": "하루",
       "roman": "haru",
-      "meaning": "pro Tag",
+      "meaning": "(pro) Tag",
       "example": "하루에 몇 번 먹어요?",
-      "exampleMeaning": "Wie oft am Tag soll ich es einnehmen?"
+      "exampleMeaning": "Wie oft am Tag soll ich es nehmen?"
     },
     {
       "korean": "식후",
       "roman": "sikhu",
-      "meaning": "nach dem Essen",
+      "meaning": "nach einer Mahlzeit",
       "example": "식후 30분에 먹으면 돼요?",
       "exampleMeaning": "Soll ich es 30 Minuten nach dem Essen einnehmen?"
     },
     {
       "korean": "드세요",
       "roman": "deuseyo",
-      "meaning": "bitte einnehmen (höfliche Form)",
+      "meaning": "bitte nehmen (Medikament), höfliche Form",
       "example": "따뜻한 물이랑 같이 드세요.",
-      "exampleMeaning": "Nehmen Sie es mit warmem Wasser ein."
+      "exampleMeaning": "Nehmen Sie es mit warmem Wasser."
     }
   ],
   "category": "reallife"

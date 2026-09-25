@@ -1,51 +1,47 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
-  "keyword": "ㅈ·ㅊ·ㅉ",
-  "summary": "Apprenez à distinguer les sons de ㅈ, ㅊ et ㅉ en début de mot. Ils diffèrent par le souffle et la tension. Utilisez-les pour choisir le bon verbe dans des séries comme 자다/차다/짜다 et 지다/치다/찌다.",
-  "objective": "Les apprenants débutants distingueront et prononceront les consonnes initiales ㅈ (simple), ㅊ (aspirée) et ㅉ (tendue), puis choisiront le bon mot dans les séries 자다/차다/짜다 et 지다/치다/찌다.",
+  "keyword": "ㅈㅊㅉ 소리",
+  "summary": "Apprends comment se prononcent ㅈ, ㅊ et ㅉ au début d'un mot. Elles diffèrent par le souffle et la tension. Utilise-les pour choisir le bon verbe dans des séries comme 자다/차다/짜다 et 지다/치다/찌다.",
+  "objective": "Les débutants apprendront à distinguer et à prononcer ㅈ (simple), ㅊ (aspiré) et ㅉ (tendu) en début de mot, puis à choisir le bon mot dans les séries 자다/차다/짜다 et 지다/치다/찌다.",
   "level": "Débutant",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "짝 활동: 자/차/짜 듣고 고르기",
-    "line": "짝이 자다·차다·짜다 중 하나를 말하면 듣고 뜻을 말해 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "Choisissez le bon mot : 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
-    "Choisissez le bon mot : 라면에 소금을 많이 넣었어요. 라면이 너무 (자요 / 차요 / 짜요).",
-    "Choisissez le bon mot : 축구할 때 발로 공을 (자요 / 차요 / 짜요).",
-    "Choisissez le bon mot : 주말에 친구와 테니스를 (져요 / 쳐요 / 쪄요).",
+    "Choisis le bon mot : 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
+    "Choisis le bon mot : 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
+    "Choisis le bon mot : 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
+    "Choisis le bon mot : 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
     "Quel mot signifie « perdre (un match) » ? (지다 / 치다 / 찌다)",
-    "Tenez un mouchoir devant votre bouche et dites 자, 차, 짜. Lequel fait bouger le mouchoir le plus ?",
-    "Choisissez le bon mot : 방학 동안 많이 먹어서 살이 3킬로그램 (졌어요 / 쳤어요 / 쪘어요).",
-    "Choisissez le bon mot : 어제 축구 경기에서 우리 팀이 (졌어요 / 쳤어요 / 쪘어요)."
+    "Tiens un mouchoir devant ta bouche et prononce 자, 차, 짜. Lequel fait le plus bouger le mouchoir ?"
   ],
   "answers": [
     "자요",
     "짜요",
-    "차요",
     "쳐요",
+    "쪄요",
     "지다",
-    "차 (ㅊ has a strong puff of air)",
-    "쪘어요",
-    "졌어요"
+    "차 (ㅊ has a strong puff of air)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
-      "sound": "j (simple) : doux et détendu, avec seulement un peu de souffle",
-      "as": "Proche du « j » de « jam », mais plus doux. En début de mot, il peut ressembler à un léger « ch » avec un peu d'air — moins que ㅊ, plus que ㅉ."
+      "sound": "j (simple) : doux et détendu, avec très peu de souffle",
+      "as": "Proche du « j » dans « jam » (anglais), mais plus doux. Au début d'un mot, cela peut ressembler à un « ch » léger avec très peu d'air."
     },
     {
       "letter": "ㅊ",
-      "sound": "ch (aspiré) : accompagné d'un souffle d'air marqué",
-      "as": "Proche du « ch » de « church » (en anglais). Expirez un souffle d'air net."
+      "sound": "ch (aspiré) : accompagné d'un souffle d'air puissant",
+      "as": "Proche du « ch » dans « church » (anglais). Expulse un souffle net et marqué."
     },
     {
       "letter": "ㅉ",
       "sound": "jj (tendu) : serré, net, et sans souffle d'air",
-      "as": "Il n'existe pas d'équivalent exact en anglais. Pensez au « tch » de « pitch » (en anglais), mais serrez la gorge et la langue et ne laissez sortir aucun souffle."
+      "as": "Il n'y a pas d'équivalent exact en anglais. Pense au « tch » de « pitch » (anglais), mais en serrant la gorge et la langue et sans laisser sortir d'air."
     }
   ],
   "words": [
@@ -73,14 +69,14 @@
     {
       "korean": "지다",
       "roman": "jida",
-      "meaning": "perdre (un match)",
+      "meaning": "perdre (un match ou une partie)",
       "example": "우리 팀이 졌어요.",
       "exampleMeaning": "Notre équipe a perdu."
     },
     {
       "korean": "치다",
       "roman": "chida",
-      "meaning": "frapper ; jouer (au tennis, au golf, du piano, de la guitare, de la batterie, etc.)",
+      "meaning": "frapper ; jouer (du piano, au tennis de table, au tennis, etc.)",
       "example": "피아노를 쳐요.",
       "exampleMeaning": "Je joue du piano."
     },

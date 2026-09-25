@@ -10,17 +10,17 @@
   "checkThese": [],
   "exercises": [
     "Điền vào chỗ trống bằng một từ trong danh sách. Bạn vừa ngồi xuống và muốn xem nhà hàng có món gì: ___ 좀 주세요.",
-    "Điền vào chỗ trống. Có ba người, và bạn muốn gọi bulgogi cho ba người: 불고기 ___ 주세요.",
-    "Điền vào chỗ trống bằng dạng quá khứ của 주문하다. Bạn đã gọi món 10 phút trước, nhưng thức ăn vẫn chưa được mang ra: 저기요, 저희 비빔밥 두 개 ___.",
-    "Điền vào hai chỗ trống bằng các từ trong danh sách. Bạn muốn món tteokbokki bớt cay, và bạn muốn hai cái đĩa nhỏ để chia nhau ăn: 떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요.",
-    "Điền vào ba chỗ trống bằng các từ trong danh sách. Tay bạn dính bẩn, và các món ăn kèm đã hết sạch: ___ 좀 주세요. 그리고 ___ 좀 ___ 주세요.",
-    "Điền vào hai chỗ trống bằng các từ trong danh sách. Bạn đang ở quầy thanh toán cùng một người bạn. Mỗi người tự trả tiền phần ăn của mình, và bạn muốn lấy hóa đơn: 저희 ___ 계산할게요. 그리고 ___도 주세요."
+    "Điền vào chỗ trống. Có ba người và bạn muốn gọi bulgogi cho ba người: 불고기 ___ 주세요.",
+    "Điền vào chỗ trống bằng dạng quá khứ của 주문하다. Bạn đã gọi món 10 phút trước nhưng đồ ăn vẫn chưa ra: 저기요, 저희 비빔밥 두 개 ___.",
+    "Điền vào hai chỗ trống bằng các từ trong danh sách. Bạn muốn tteokbokki bớt cay, và bạn muốn hai cái đĩa nhỏ để chia nhau ăn: 떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요.",
+    "Điền vào ba chỗ trống bằng các từ trong danh sách. Tay bạn dính bẩn, và tất cả món phụ đã hết: ___ 좀 주세요. 그리고 ___ 좀 ___ 주세요.",
+    "Điền vào hai chỗ trống bằng các từ trong danh sách. Bạn đang ở quầy thanh toán cùng một người bạn. Mỗi người tự trả tiền phần ăn của mình, và bạn muốn xin hóa đơn: 저희 ___ 계산할게요. 그리고 ___도 주세요."
   ],
-  "keyword": "식당 주문",
+  "keyword": "식당 어휘",
   "level": "Sơ cấp",
   "minutes": 15,
-  "objective": "Người học có thể dùng 10 từ vựng nhà hàng quan trọng (메뉴판, 인분, 주문하다, 반찬, 앞접시, 물티슈, 덜 맵게, 더 주세요, 따로 계산하다, 영수증) để đưa ra những yêu cầu ngắn gọn, lịch sự với nhân viên nhà hàng, từ lúc gọi món đến lúc thanh toán.",
-  "summary": "Mười từ bạn cần khi ăn ở nhà hàng Hàn Quốc, từ lúc ngồi xuống cho đến lúc thanh toán. Bạn sẽ học cách hỏi xin thực đơn, gọi món theo số phần ăn, xin thêm đĩa nhỏ, khăn ướt, thêm món ăn kèm hoặc bớt cay, thanh toán riêng và xin hóa đơn. Mỗi từ đi kèm một câu ví dụ thực tế. Phần bài tập yêu cầu bạn dùng các từ đó trong những tình huống mới.",
+  "objective": "Người học có thể dùng 10 từ quan trọng khi đi ăn nhà hàng (메뉴판, 인분, 주문하다, 반찬, 앞접시, 물티슈, 덜 맵게, 더 주세요, 따로 계산하다, 영수증) để đưa ra những yêu cầu ngắn gọn, lịch sự với nhân viên nhà hàng, từ lúc gọi món đến lúc thanh toán.",
+  "summary": "Mười từ bạn cần khi ăn ở nhà hàng Hàn Quốc, từ lúc ngồi xuống đến lúc thanh toán. Bạn sẽ học cách xin thực đơn, gọi món theo số phần ăn, xin đĩa nhỏ, khăn ướt, thêm món phụ hoặc bớt cay, thanh toán riêng và xin hóa đơn. Mỗi từ đi kèm một câu ví dụ thực tế. Phần bài tập yêu cầu bạn dùng các từ này trong những tình huống mới.",
   "tags": [],
   "task": null,
   "title": "식당에서 주문하고 부탁하기: 핵심 어휘 10",
@@ -35,9 +35,9 @@
     {
       "korean": "인분",
       "roman": "inbun",
-      "meaning": "phần ăn cho một người, dùng sau một con số (2인분 = phần ăn cho hai người)",
+      "meaning": "phần ăn cho một người, dùng sau một số đếm (2인분 = phần ăn cho hai người)",
       "example": "삼겹살 2인분 주세요.",
-      "exampleMeaning": "Cho tôi hai phần thịt ba chỉ."
+      "exampleMeaning": "Cho tôi hai phần ba chỉ heo."
     },
     {
       "korean": "주문하다",
@@ -49,16 +49,16 @@
     {
       "korean": "반찬",
       "roman": "banchan",
-      "meaning": "các món ăn kèm nhỏ được dọn cùng bữa ăn Hàn Quốc",
+      "meaning": "các món ăn phụ nhỏ được dọn kèm trong bữa ăn Hàn Quốc",
       "example": "이 반찬 이름이 뭐예요?",
-      "exampleMeaning": "Món ăn kèm này tên là gì vậy?"
+      "exampleMeaning": "Món phụ này tên là gì vậy?"
     },
     {
       "korean": "앞접시",
       "roman": "apjeopsi",
-      "meaning": "đĩa nhỏ để lấy phần ăn của mình từ món ăn chung",
+      "meaning": "đĩa nhỏ để gắp phần ăn của mình từ món ăn chung",
       "example": "앞접시 좀 주시겠어요?",
-      "exampleMeaning": "Cho chúng tôi xin thêm vài cái đĩa nhỏ được không?"
+      "exampleMeaning": "Cho chúng tôi xin vài cái đĩa nhỏ được không?"
     },
     {
       "korean": "물티슈",
@@ -72,12 +72,12 @@
       "roman": "deol maepge",
       "meaning": "bớt cay (yêu cầu về cách chế biến món ăn)",
       "example": "덜 맵게 할 수 있어요?",
-      "exampleMeaning": "Anh/chị có thể làm bớt cay được không?"
+      "exampleMeaning": "Anh/chị làm bớt cay được không?"
     },
     {
       "korean": "더 주세요",
       "roman": "deo juseyo",
-      "meaning": "cho thêm (xin thêm một phần hoặc bổ sung)",
+      "meaning": "cho thêm (xin thêm một phần hoặc đổ đầy lại)",
       "example": "밥 한 공기 더 주세요.",
       "exampleMeaning": "Cho tôi thêm một bát cơm nữa."
     },
@@ -93,7 +93,7 @@
       "roman": "yeongsujeung",
       "meaning": "hóa đơn",
       "example": "영수증은 괜찮아요.",
-      "exampleMeaning": "Tôi không cần hóa đơn, cảm ơn."
+      "exampleMeaning": "Tôi không cần hóa đơn đâu, cảm ơn."
     }
   ],
   "category": "vocab"

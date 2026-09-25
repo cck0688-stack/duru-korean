@@ -1,38 +1,40 @@
 {
-  "answers": [
-    "자동발매기",
-    "지하철 = subway, 승차권 = ticket (paper)",
-    "환승",
-    "출구",
-    "개찰구",
-    "교통카드",
-    "갈아타 (환승하도 정답)",
-    "안내판",
-    "역무원"
-  ],
-  "checkThese": [],
-  "exercises": [
-    "'ticket machine'에 해당하는 한국어 단어를 쓰세요.",
-    "각 단어의 영어 뜻을 쓰세요: 지하철 / 승차권",
-    "'transfer(명사)'에 해당하는 한국어 단어를 쓰세요.",
-    "목록에 있는 단어로 빈칸을 채우세요: 몇 번 ___로 나가요?",
-    "빈칸을 채우세요: ___를 지나서 오른쪽으로 가세요. (힌트: ticket gate)",
-    "빈칸을 채우세요: ___에 돈을 충전했어요. (힌트: transport card)",
-    "빈칸을 채우세요: 2호선으로 ___세요. (힌트: change trains)",
-    "'information sign / signboard'를 뜻하는 단어를 고르세요: 안내판 / 개찰구 / 출구 / 자동발매기",
-    "빈칸을 채우세요: 길을 몰라요. ___에게 물어볼까요? (힌트: station staff)"
-  ],
-  "keyword": "지하철 이용 어휘",
-  "level": "초급 (A1)",
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "keyword": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "summary": "이 활동지는 지하철을 이용할 때 필요한 핵심 한국어 단어 10개를 배웁니다: 표 사기, 개찰구 통과하기, 환승하기, 출구 찾기. 각 단어에는 바로 쓸 수 있는 짧은 예문이 있습니다.",
+  "objective": "지하철 핵심 단어 10개(표 구매, 개찰구, 환승, 출구)를 바로 사용할 수 있는 짧은 예문과 함께 배워보세요.",
+  "level": "초급",
   "minutes": 10,
-  "objective": "지하철 관련 핵심 단어 10개(표 구매, 개찰구, 환승, 출구)를 바로 쓸 수 있는 짧은 예문과 함께 배워 보세요.",
-  "summary": "이 학습지에서는 지하철 이용에 필요한 핵심 한국어 단어 10개를 배웁니다: 표 구매, 개찰구 통과, 환승, 출구 찾기. 각 단어에는 바로 활용할 수 있는 짧은 예문이 있습니다.",
   "tags": [],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "역무원에게 물어보세요",
+    "line": "역에서 길을 잃었다고 상상해 보세요. 역무원에게 어디에서 환승하는지, 출구는 어떻게 가는지 물어보세요. 예: '실례합니다. 2호선은 어디에서 갈아타요? 3번 출구는 어디예요?'"
   },
-  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "exercises": [
+    "'ticket machine'에 해당하는 한국어 단어를 써 보세요. (초성: ㅈㄷㅂㅁㄱ)",
+    "'ticket (paper)'에 해당하는 한국어 단어를 써 보세요. (초성: ㅅㅊㄱ)",
+    "빈칸을 채우세요: ___하는 곳이 어디예요? (Where is the place to transfer?)",
+    "빈칸을 채우세요: 2번 ___로 나오세요. (Come out through exit 2.)",
+    "빈칸을 채우세요: ___를 찍고 들어가요. (I tap my transport card and go in.)",
+    "빈칸을 채우세요: ___를 지나서 들어가요. (Go in through the ticket gate.)",
+    "빈칸을 채우세요: 여기에서 버스로 ___ 수 있어요? (Can I change to a bus here?)",
+    "빈칸을 채우세요: 출구 번호는 ___에 있어요. (The exit number is on the information sign.)",
+    "빈칸을 채우세요: 표를 잃어버렸어요. ___에게 말하세요. (I lost my ticket. Tell the station staff.)",
+    "빈칸을 채우세요: 공항까지 ___로 가요. (I go to the airport by subway.)"
+  ],
+  "answers": [
+    "자동발매기",
+    "승차권",
+    "환승",
+    "출구",
+    "교통카드",
+    "개찰구",
+    "갈아탈",
+    "안내판",
+    "역무원",
+    "지하철"
+  ],
+  "checkThese": [],
   "words": [
     {
       "korean": "지하철",
@@ -46,42 +48,42 @@
       "roman": "gaechalgu",
       "meaning": "개찰구",
       "example": "개찰구에서 카드를 찍으세요.",
-      "exampleMeaning": "개찰구에서 카드를 찍으세요."
+      "exampleMeaning": "개찰구에서 카드를 찍어 주세요."
     },
     {
       "korean": "교통카드",
       "roman": "gyotongkadeu",
       "meaning": "교통카드",
       "example": "교통카드를 준비했어요.",
-      "exampleMeaning": "교통카드를 준비했어요."
+      "exampleMeaning": "저는 교통카드를 준비했어요."
     },
     {
       "korean": "승차권",
       "roman": "seungchagwon",
-      "meaning": "승차권",
+      "meaning": "승차권 (종이 표)",
       "example": "승차권 한 장 주세요.",
-      "exampleMeaning": "승차권 한 장 주세요."
+      "exampleMeaning": "표 한 장 주세요."
     },
     {
       "korean": "자동발매기",
       "roman": "jadongbalmaegi",
       "meaning": "자동발매기",
       "example": "자동발매기에서 표를 사요.",
-      "exampleMeaning": "자동발매기에서 승차권을 사요."
+      "exampleMeaning": "저는 자동발매기에서 표를 사요."
     },
     {
       "korean": "환승",
       "roman": "hwanseung",
-      "meaning": "환승",
+      "meaning": "환승 (열차 갈아타기)",
       "example": "여기에서 환승해요.",
-      "exampleMeaning": "여기서 환승해요."
+      "exampleMeaning": "저는 여기에서 환승해요."
     },
     {
       "korean": "갈아타다",
       "roman": "garatada",
-      "meaning": "환승하다",
+      "meaning": "환승하다 / 갈아타다",
       "example": "다음 역에서 갈아타세요.",
-      "exampleMeaning": "다음 역에서 환승하세요."
+      "exampleMeaning": "다음 역에서 갈아타세요."
     },
     {
       "korean": "출구",
@@ -93,7 +95,7 @@
     {
       "korean": "안내판",
       "roman": "annaepan",
-      "meaning": "안내판",
+      "meaning": "안내판 / 표지판",
       "example": "안내판을 봐요.",
       "exampleMeaning": "안내판을 보세요."
     },

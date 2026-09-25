@@ -20,43 +20,456 @@
       "mechanical": [],
       "review": [],
       "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "task: task.title and task.line are both empty strings, so learners get no final real-life task. Fill them in with a task that fits the goal, e.g. title '약국에서 약 사기', line 'You have a sore throat and a cough since yesterday. Tell the pharmacist your symptoms, answer their questions, and repeat back how to take the medicine.'",
+        "exercises: The objective says learners will say a symptom with '머리가 아파요 / 콧물이 나요 / 열이 나요', but only exercise 1 practises a symptom, and it only covers 콧물이 나요. Nothing asks learners to say 머리가 아파요 or 열이 나요 themselves. Add an exercise such as 'The pharmacist asks: 어디가 아파서 오셨어요? You have a headache and a fever. Answer in Korean.' with the answer '머리가 아프고 열이 나요.'"
+      ],
+      "audit": []
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Task: The task asks learners to describe a sore throat and a cough, but the worksheet never teaches '기침' or '기침이 나요'. The objective, dialogue and word list only cover headache, fever and runny nose. '목' appears only in the 언제부터 example sentence and is not a word entry. Fix: change the task to taught symptoms (headache, fever, runny nose), or add two word entries: 목 (mok, throat) with '목이 아파요', and 기침 (gichim, cough) with '기침이 나요'. Each needs an example sentence and translation.",
+        "Exercise 6: The question '어디가 아파서 오셨어요?' and the answer '머리가 아프고 열이 나요.' copy the dialogue's opening lines word for word, so learners can answer without practising anything. Only Exercise 1 practises the '아파요 vs. 나요' choice, and it has one item. Fix: give Exercise 6 a new symptom combination, e.g. 'My throat hurts and I have a runny nose' → '목이 아프고 콧물이 나요.' Or add items to Exercise 1, such as 머리가 (아파요/나요), 열이 (아파요/나요), 목이 (아파요/나요)."
+      ],
+      "audit": [
+        "answers[5] (exercise 6): 머리가 아프고 열이 나요. → 머리가 아프고 열이 나요. (머리가 아파요. 그리고 열이 나요. / 머리가 아파요. 열도 나요.)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
     }
   ],
-  "fixes": [],
-  "translations": {
-    "es": {
-      "lang": "es",
-      "tries": 1,
-      "lost": [],
-      "fixes": []
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "나요",
+      "after": "아니요, 없어요. (없어요. / 아니요, 없는데요.)"
     },
+    {
+      "at": "answers[2]",
+      "before": "아파요",
+      "after": "오늘 아침부터요. (오늘 아침부터 아팠어요.)"
+    },
+    {
+      "at": "answers[3]",
+      "before": "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+      "after": "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)"
+    },
+    {
+      "at": "answers[4]",
+      "before": "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
+      "after": "Three times a day, 30 minutes after each meal."
+    },
+    {
+      "at": "answers[5]",
+      "before": "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+      "after": "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
+    },
+    {
+      "at": "answers[6]",
+      "before": "Three times a day, 30 minutes after each meal.",
+      "after": ""
+    },
+    {
+      "at": "exercises[1]",
+      "before": "Choose the right word to finish the sentence: 콧물이 ( 아파요 / 나요 ).",
+      "after": "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean."
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Choose the right word to finish the sentence: 머리가 ( 아파요 / 나요 ).",
+      "after": "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean.",
+      "after": "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean.",
+      "after": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean.",
+      "after": "The pharmacist asks: '어디가 아파서 오셨어요?' You have a headache and a runny nose. Answer in Korean."
+    },
+    {
+      "at": "exercises[6]",
+      "before": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?",
+      "after": ""
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "약국에서 약 사기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "You have had a fever and a runny nose since yesterday. Tell the pharmacist your symptoms, answer their questions, and repeat back how to take the medicine."
+    },
+    {
+      "at": "words[7].korean",
+      "before": "감기약",
+      "after": "하루"
+    },
+    {
+      "at": "words[7].roman",
+      "before": "gamgiyak",
+      "after": "haru"
+    },
+    {
+      "at": "words[7].meaning",
+      "before": "cold medicine",
+      "after": "(per) day"
+    },
+    {
+      "at": "words[7].example",
+      "before": "감기약 좀 주세요.",
+      "after": "하루에 몇 번 먹어요?"
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "Some cold medicine, please.",
+      "after": "How many times a day do I take it?"
+    },
+    {
+      "at": "words[8].korean",
+      "before": "하루",
+      "after": "식후"
+    },
+    {
+      "at": "words[8].roman",
+      "before": "haru",
+      "after": "sikhu"
+    },
+    {
+      "at": "words[8].meaning",
+      "before": "(per) day",
+      "after": "after a meal"
+    },
+    {
+      "at": "words[8].example",
+      "before": "하루에 몇 번 먹어요?",
+      "after": "식후 30분에 먹으면 돼요?"
+    },
+    {
+      "at": "words[8].exampleMeaning",
+      "before": "How many times a day do I take it?",
+      "after": "Should I take it 30 minutes after eating?"
+    },
+    {
+      "at": "words[9].korean",
+      "before": "식후",
+      "after": "드세요"
+    },
+    {
+      "at": "words[9].roman",
+      "before": "sikhu",
+      "after": "deuseyo"
+    },
+    {
+      "at": "words[9].meaning",
+      "before": "after a meal",
+      "after": "please take (medicine), polite form"
+    },
+    {
+      "at": "words[9].example",
+      "before": "식후 30분에 먹으면 돼요?",
+      "after": "따뜻한 물이랑 같이 드세요."
+    },
+    {
+      "at": "words[9].exampleMeaning",
+      "before": "Should I take it 30 minutes after eating?",
+      "after": "Take it with warm water."
+    },
+    {
+      "at": "words[10].korean",
+      "before": "드세요",
+      "after": ""
+    },
+    {
+      "at": "words[10].roman",
+      "before": "deuseyo",
+      "after": ""
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "please take (medicine), polite form",
+      "after": ""
+    },
+    {
+      "at": "words[10].example",
+      "before": "따뜻한 물이랑 같이 드세요.",
+      "after": ""
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "Take it with warm water.",
+      "after": ""
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "answers[2]",
+          "before": "아파요",
+          "after": "아니요, 없어요. (없어요. / 아니요, 없는데요.)"
+        },
+        {
+          "at": "answers[3]",
+          "before": "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+          "after": "오늘 아침부터요. (오늘 아침부터 아팠어요.)"
+        },
+        {
+          "at": "answers[4]",
+          "before": "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
+          "after": "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)"
+        },
+        {
+          "at": "answers[5]",
+          "before": "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+          "after": "Three times a day, 30 minutes after each meal."
+        },
+        {
+          "at": "answers[6]",
+          "before": "Three times a day, 30 minutes after each meal.",
+          "after": ""
+        },
+        {
+          "at": "exercises[2]",
+          "before": "Choose the right word to finish the sentence: 머리가 ( 아파요 / 나요 ).",
+          "after": "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean."
+        },
+        {
+          "at": "exercises[3]",
+          "before": "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean.",
+          "after": "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean."
+        },
+        {
+          "at": "exercises[4]",
+          "before": "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean.",
+          "after": "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean."
+        },
+        {
+          "at": "exercises[5]",
+          "before": "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean.",
+          "after": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?"
+        },
+        {
+          "at": "exercises[6]",
+          "before": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?",
+          "after": ""
+        },
+        {
+          "at": "words[7].korean",
+          "before": "감기약",
+          "after": "하루"
+        },
+        {
+          "at": "words[7].roman",
+          "before": "gamgiyak",
+          "after": "haru"
+        },
+        {
+          "at": "words[7].meaning",
+          "before": "cold medicine",
+          "after": "(per) day"
+        },
+        {
+          "at": "words[7].example",
+          "before": "감기약 좀 주세요.",
+          "after": "하루에 몇 번 먹어요?"
+        },
+        {
+          "at": "words[7].exampleMeaning",
+          "before": "Some cold medicine, please.",
+          "after": "How many times a day do I take it?"
+        },
+        {
+          "at": "words[8].korean",
+          "before": "하루",
+          "after": "식후"
+        },
+        {
+          "at": "words[8].roman",
+          "before": "haru",
+          "after": "sikhu"
+        },
+        {
+          "at": "words[8].meaning",
+          "before": "(per) day",
+          "after": "after a meal"
+        },
+        {
+          "at": "words[8].example",
+          "before": "하루에 몇 번 먹어요?",
+          "after": "식후 30분에 먹으면 돼요?"
+        },
+        {
+          "at": "words[8].exampleMeaning",
+          "before": "How many times a day do I take it?",
+          "after": "Should I take it 30 minutes after eating?"
+        },
+        {
+          "at": "words[9].korean",
+          "before": "식후",
+          "after": "드세요"
+        },
+        {
+          "at": "words[9].roman",
+          "before": "sikhu",
+          "after": "deuseyo"
+        },
+        {
+          "at": "words[9].meaning",
+          "before": "after a meal",
+          "after": "please take (medicine), polite form"
+        },
+        {
+          "at": "words[9].example",
+          "before": "식후 30분에 먹으면 돼요?",
+          "after": "따뜻한 물이랑 같이 드세요."
+        },
+        {
+          "at": "words[9].exampleMeaning",
+          "before": "Should I take it 30 minutes after eating?",
+          "after": "Take it with warm water."
+        },
+        {
+          "at": "words[10].korean",
+          "before": "드세요",
+          "after": ""
+        },
+        {
+          "at": "words[10].roman",
+          "before": "deuseyo",
+          "after": ""
+        },
+        {
+          "at": "words[10].meaning",
+          "before": "please take (medicine), polite form",
+          "after": ""
+        },
+        {
+          "at": "words[10].example",
+          "before": "따뜻한 물이랑 같이 드세요.",
+          "after": ""
+        },
+        {
+          "at": "words[10].exampleMeaning",
+          "before": "Take it with warm water.",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "exercises[1]",
+          "before": "Choose the right word to finish the sentence: 콧물이 ( 아파요 / 나요 ).",
+          "after": "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean."
+        },
+        {
+          "at": "exercises[2]",
+          "before": "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean.",
+          "after": "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean."
+        },
+        {
+          "at": "exercises[3]",
+          "before": "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean.",
+          "after": "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean."
+        },
+        {
+          "at": "exercises[4]",
+          "before": "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean.",
+          "after": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?"
+        },
+        {
+          "at": "exercises[5]",
+          "before": "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?",
+          "after": "The pharmacist asks: '어디가 아파서 오셨어요?' You have a headache and a runny nose. Answer in Korean."
+        },
+        {
+          "at": "exercises[6]",
+          "before": "The pharmacist asks: '어디가 아파서 오셨어요?' You have a headache and a runny nose. Answer in Korean.",
+          "after": ""
+        },
+        {
+          "at": "answers[1]",
+          "before": "나요",
+          "after": "아니요, 없어요. (없어요. / 아니요, 없는데요.)"
+        },
+        {
+          "at": "answers[2]",
+          "before": "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+          "after": "오늘 아침부터요. (오늘 아침부터 아팠어요.)"
+        },
+        {
+          "at": "answers[3]",
+          "before": "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
+          "after": "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)"
+        },
+        {
+          "at": "answers[4]",
+          "before": "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+          "after": "Three times a day, 30 minutes after each meal."
+        },
+        {
+          "at": "answers[5]",
+          "before": "Three times a day, 30 minutes after each meal.",
+          "after": "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
+        },
+        {
+          "at": "answers[6]",
+          "before": "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)",
+          "after": ""
+        }
+      ]
+    }
+  ],
+  "translations": {
     "vi": {
       "lang": "vi",
       "tries": 1,
       "lost": [],
       "fixes": []
     },
-    "pt-BR": {
-      "lang": "pt-BR",
-      "tries": 1,
-      "lost": [],
-      "fixes": [
-        {
-          "line": 49,
-          "problem": "Missing crase: 'alérgico(a) a aspirina' should be 'alérgico(a) à aspirina' (the preposition 'a' merges with the feminine article before 'aspirina').",
-          "fix": "O farmacêutico pergunta: '알레르기 있으세요?' Você é alérgico(a) à aspirina (아스피린). Responda em coreano."
-        }
-      ]
-    },
     "id": {
       "lang": "id",
       "tries": 1,
       "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
       "fixes": [
         {
-          "line": 50,
-          "problem": "\"In English\" was translated literally as \"Dalam bahasa Inggris\". On the English worksheet it means the learner's own language, so Indonesian learners should be asked to answer in Indonesian.",
-          "fix": "Apoteker berkata: '하루 세 번, 식후 30분에 드세요.' Dalam bahasa Indonesia, berapa kali sehari Anda harus meminum obat ini, dan kapan?"
+          "line": 48,
+          "problem": "'En inglés' was kept from the source, but the worksheet is for Spanish speakers and the answer key (line 50) is in Spanish. The answer language should be Spanish. The line also uses formal 'debe', while the other tasks address the learner as 'tú' ('Tienes', 'Eres', 'Responde').",
+          "fix": "El farmacéutico dice: '하루 세 번, 식후 30분에 드세요.' En español, ¿cuántas veces al día debes tomar el medicamento y cuándo?"
         }
       ]
     },
@@ -66,15 +479,15 @@
       "lost": [],
       "fixes": [
         {
-          "line": 50,
-          "problem": "The Korean quote was changed: the English line ends it with a full stop ('.'), but the Japanese line uses the Japanese full stop '。'. The Korean must stay character for character.",
-          "fix": "薬剤師が言います。「하루 세 번, 식후 30분에 드세요.」薬は一日何回、いつ飲めばいいですか?英語で答えてください。"
+          "line": 1,
+          "problem": "「上級レベル」は「上級」(advanced) の意味になり、「初級(上級レベル)」は矛盾した表現。英語の \"Beginner (high)\" は初級の上位という意味。",
+          "fix": "初級(上)"
         }
       ]
     },
-    "ko": {
-      "lang": "ko",
-      "tries": 2,
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
@@ -86,30 +499,42 @@
     },
     "zh": {
       "lang": "zh",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
-      "fixes": []
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'高级' means 'advanced', so '初级(高级)' is contradictory. 'Beginner (high)' means the upper part of the beginner level.",
+          "fix": "初级(上)"
+        },
+        {
+          "line": 36,
+          "problem": "'我的鼻子也有点流鼻涕' says 'nose' twice (鼻子 and 流鼻涕), which is unnatural Chinese.",
+          "fix": "从昨天晚上开始。我还有点流鼻涕。"
+        },
+        {
+          "line": 48,
+          "problem": "The Korean quote's full stop was changed from '.' to the Chinese '。'. The Korean must stay character for character.",
+          "fix": "药剂师说:'하루 세 번, 식후 30분에 드세요.' 请用英语说出一天该吃几次药,以及什么时候吃。"
+        }
+      ]
     },
     "de": {
       "lang": "de",
       "tries": 1,
       "lost": [],
-      "fixes": [
-        {
-          "line": 50,
-          "problem": "'In English' means the learner's own language, not Korean. In the German version it should be German, and the answer on line 51 is in German. 'Antworten Sie auf Englisch' is a literal carry-over and doesn't match the answer.",
-          "fix": "Der Apotheker sagt: '하루 세 번, 식후 30분에 드세요.' Wie oft am Tag sollten Sie das Medikament einnehmen, und wann? Antworten Sie auf Deutsch."
-        }
-      ]
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 3,
+      "lost": [],
+      "fixes": [],
+      "failed": true
     }
   },
   "pages": {
     "en": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
-    "es": {
       "pages": 3,
       "ok": true,
       "why": []
@@ -119,12 +544,12 @@
       "ok": true,
       "why": []
     },
-    "pt-BR": {
+    "id": {
       "pages": 3,
       "ok": true,
       "why": []
     },
-    "id": {
+    "es": {
       "pages": 3,
       "ok": true,
       "why": []
@@ -134,7 +559,7 @@
       "ok": true,
       "why": []
     },
-    "ko": {
+    "pt-BR": {
       "pages": 3,
       "ok": true,
       "why": []
@@ -153,7 +578,12 @@
       "pages": 3,
       "ok": true,
       "why": []
+    },
+    "ko": {
+      "pages": 3,
+      "ok": true,
+      "why": []
     }
   },
-  "preparedAt": "2026-09-25T11:46:18.188Z"
+  "preparedAt": "2026-09-25T15:19:26.103Z"
 }

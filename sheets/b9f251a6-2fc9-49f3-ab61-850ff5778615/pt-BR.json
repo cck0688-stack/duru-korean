@@ -1,34 +1,34 @@
 {
   "answers": [
-    "X (담배는 계산대 뒤에 있어요.)",
-    "음료수(아이스티, 콜라, 주스)가 있어요.",
-    "중앙에 있는 전자레인지에서 데울 수 있어요.",
-    "음료수는 오른쪽 냉장고에 있다는 뜻이에요.",
+    "왼쪽 냉장고 위 칸에 있어요.",
+    "과자 코너가 있어요.",
+    "X (아이스크림은 냉동고에 있어요.)",
+    "중앙에 있어요.",
     "저기요, 우유 어디에 있어요?"
   ],
   "checkThese": [],
   "exercises": [
-    "맞으면 O, 틀리면 X를 쓰세요: 담배는 계산대 옆 진열대에 있어요.",
-    "오른쪽 냉장고 안에는 무엇이 있어요?",
-    "즉석식품은 어디에서 데울 수 있어요?",
-    "안내문에 \"음료수 → 오른쪽 냉장고\"라고 쓰여 있어요. 이 안내문은 무슨 뜻이에요?",
-    "직원에게 우유 위치를 어떻게 물었나요? (본문의 문장 그대로 쓰세요)"
+    "Responda em coreano: 우유는 어디에 있어요?",
+    "Responda em coreano: 계산대 옆에는 무엇이 있어요?",
+    "Verdadeiro ou falso (O/X): 아이스크림은 오른쪽 냉장고 안에 있어요.",
+    "Responda em coreano: 즉석식품을 데우고 싶어요. 전자레인지는 어디에 있어요?",
+    "Responda em coreano, copiando a frase exata do texto: 직원에게 우유 위치를 어떻게 물었나요?"
   ],
-  "keyword": "편의점에서 물건을 찾아요",
-  "level": "초급 (A1–A2)",
+  "keyword": "",
+  "level": "Iniciante (avançado)",
   "minutes": 10,
-  "objective": "Os alunos serão capazes de ler um texto de 3 a 4 parágrafos e entender as indicações de um funcionário de loja de conveniência e os avisos da loja para encontrar onde está um item.",
+  "objective": "Os alunos serão capazes de ler um texto de 3 a 4 parágrafos e entender as indicações e descrições do funcionário da loja de conveniência sobre onde os itens estão localizados na loja.",
   "passage": [
     "편의점에 들어갔는데 필요한 물건을 못 찾았어요. 직원에게 물어봤어요. \"저기요, 우유 어디에 있어요?\" 직원이 친절하게 말했어요. \"우유는 왼쪽 냉장고 위 칸에 있어요.\"",
-    "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 나란히 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있어요. 아이스크림도 냉동고에 있어요.",
-    "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 중앙에 있는 전자레인지에서 데울 수 있어요. 담배는 계산대 뒤에 진열되어 있어요.",
-    "물건을 못 찾으면 직원에게 물어보세요. 자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요. 안내문을 보면 빠르게 물건 위치를 확인할 수 있어요. 예를 들어 안내문에 \"음료수 → 오른쪽 냉장고\"라고 쓰여 있으면 음료수는 오른쪽 냉장고에 있어요."
+    "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 차례대로 진열되어 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있어요. 아이스크림도 냉동고에 있어요.",
+    "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 전자레인지도 중앙에 있어요. 담배는 계산대 뒤에 진열되어 있어요.",
+    "물건을 못 찾으면 직원에게 물어보세요. 자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요. 안내문을 보면 물건 위치를 빨리 확인할 수 있어요."
   ],
-  "summary": "Leia um pequeno texto sobre como pedir e encontrar produtos em uma loja de conveniência. Entenda as respostas do funcionário e os avisos das prateleiras para localizar os produtos.",
+  "summary": "Leia um texto curto sobre como pedir e encontrar produtos em uma loja de conveniência. Entenda as respostas do funcionário e as descrições de onde os produtos estão localizados.",
   "tags": [],
   "task": {
-    "title": "편의점에서 물건 위치 묻기",
-    "line": "직원에게 \"~ 어디에 있어요?\"로 물건 위치를 물어보세요."
+    "title": "",
+    "line": ""
   },
   "title": "편의점에서 물건을 찾아요",
   "words": [
@@ -42,44 +42,44 @@
     {
       "korean": "냉동고",
       "roman": "naengdonggo",
-      "meaning": "freezer / seção de congelados",
-      "example": "냉동고에서 아이스크림을 꺼내요.",
-      "exampleMeaning": "Eu tiro o sorvete do freezer."
+      "meaning": "freezer / vitrine de congelados",
+      "example": "아이스크림은 냉동고에 있어요.",
+      "exampleMeaning": "O sorvete está no freezer."
     },
     {
       "korean": "진열대",
       "roman": "jinyeoldae",
       "meaning": "prateleira de exposição",
-      "example": "직원이 진열대를 정리해요.",
-      "exampleMeaning": "O funcionário organiza a prateleira de exposição."
+      "example": "과자가 진열대에 있어요.",
+      "exampleMeaning": "Os salgadinhos estão na prateleira de exposição."
     },
     {
       "korean": "계산대",
       "roman": "gyesandae",
-      "meaning": "caixa (balcão de pagamento)",
+      "meaning": "balcão do caixa",
       "example": "계산대에서 기다려요.",
-      "exampleMeaning": "Eu espero no caixa."
+      "exampleMeaning": "Eu espero no balcão do caixa."
     },
     {
       "korean": "즉석식품",
-      "roman": "jeukseoksikpum",
-      "meaning": "comida pronta (para consumo imediato)",
+      "roman": "jeukseok sikpum",
+      "meaning": "comida pronta para consumo",
       "example": "즉석식품을 전자레인지에 데워요.",
       "exampleMeaning": "Eu esquento a comida pronta no micro-ondas."
     },
     {
       "korean": "안내문",
       "roman": "annaemun",
-      "meaning": "aviso / cartaz informativo",
+      "meaning": "aviso / cartaz",
       "example": "안내문을 읽어 보세요.",
       "exampleMeaning": "Por favor, leia o aviso/cartaz."
     },
     {
       "korean": "칸",
       "roman": "kan",
-      "meaning": "compartimento / vão da prateleira",
-      "example": "위 칸에서 우유를 골라요.",
-      "exampleMeaning": "Eu pego o leite na prateleira de cima."
+      "meaning": "compartimento / prateleira",
+      "example": "우유는 위 칸에 있어요.",
+      "exampleMeaning": "O leite está no compartimento de cima."
     }
   ],
   "category": "reading"

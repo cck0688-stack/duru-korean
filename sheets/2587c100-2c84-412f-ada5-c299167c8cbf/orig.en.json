@@ -1,4 +1,20 @@
 {
+  "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
+  "keyword": "",
+  "summary": "A practical reading sheet on the Korean pharmacy medicine envelope (약 봉투). Learners read three short envelope labels. They learn the dosage words that appear on almost every envelope (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) and how to say them aloud with native Korean counters (하루 세 번, 한 알). They also learn two common warnings: 졸음이 올 수 있어요 and 운전 주의.",
+  "objective": "After reading a pharmacy medicine envelope, learners can find four things: how many times a day to take the medicine, when to take it (식전 / 식후 30분 / 취침 전), how much to take each time (1포, 1알/1정), and for how many days (○일분). They can also recognize the warnings 졸음이 올 수 있어요 and 운전 주의.",
+  "level": "Beginner (high)",
+  "minutes": 20,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "Look at Envelope A. 이 약은 하루에 몇 번 먹어요?",
+    "Look at Envelope A. 이 약은 언제 먹어요? Write the words from the envelope and what they mean.",
+    "Look at Envelope B. The envelope says 1회 1정. 한 번에 몇 알 먹어요? Answer the way people say it out loud.",
+    "Look at Envelope C. 이 약은 며칠 동안 먹어요?",
+    "Look at Envelope C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
+    "Look at Envelope A. 이 약을 먹고 운전해도 괜찮아요? Which words on the envelope tell you, and what do they mean?"
+  ],
   "answers": [
     "하루 세 번 (1일 3회 = 3 times a day)",
     "식후 30분 — 30 minutes after a meal (밥 먹고 30분 후)",
@@ -8,19 +24,6 @@
     "조심해야 해요. 봉투에 '졸음이 올 수 있어요. 운전 주의.'라고 쓰여 있어요. It may make you sleepy, so be careful about driving."
   ],
   "checkThese": [],
-  "exercises": [
-    "Look at Envelope A. 이 약은 하루에 몇 번 먹어요?",
-    "Look at Envelope A. 이 약은 언제 먹어요? Write the words from the envelope and what they mean.",
-    "Look at Envelope B. The envelope says 1회 1정. 한 번에 몇 알 먹어요? Answer the way people say it out loud.",
-    "Look at Envelope C. 이 약은 며칠 동안 먹어요?",
-    "Look at Envelope C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
-    "Look at Envelope A. 이 약을 먹고 운전해도 괜찮아요? Which words on the envelope tell you, and what do they mean?"
-  ],
-  "keyword": "약 봉투",
-  "level": "Beginner (high)",
-  "minutes": 20,
-  "note": "All envelopes are made-up examples for reading practice. They are not medical advice. For real medicine, always follow what your pharmacist or doctor tells you.",
-  "objective": "After reading a pharmacy medicine envelope, learners can find four things: how many times a day to take the medicine, when to take it (식전 / 식후 30분 / 취침 전), how much to take each time (1포, 1알/1정), and for how many days (○일분). They can also recognize the warnings 졸음이 올 수 있어요 and 운전 주의.",
   "sections": [
     {
       "heading": "약 봉투 A (ENVELOPE A)",
@@ -68,9 +71,6 @@
       ]
     }
   ],
-  "summary": "A practical reading sheet on the Korean pharmacy medicine envelope (약 봉투). Learners read three short envelope labels. They learn the dosage words that appear on almost every envelope (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) and how to say them aloud with native Korean counters (하루 세 번, 한 알). They also learn two common warnings: 졸음이 올 수 있어요 and 운전 주의.",
-  "tags": [],
-  "task": null,
-  "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
+  "note": "All envelopes are made-up examples for reading practice. They are not medical advice. For real medicine, always follow what your pharmacist or doctor tells you.",
   "category": "etc"
 }

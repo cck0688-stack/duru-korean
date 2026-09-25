@@ -1,45 +1,51 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
-  "keyword": "받침 ㄱ·ㄷ·ㅂ",
-  "summary": "Berlatih membaca dan mengenali bunyi akhir tak lepas (unreleased) untuk batchim ㄱ/ㄷ/ㅂ. Pelajar menghubungkan masing-masing dengan bunyi akhir kata bahasa Inggris yang mirip (back/bat/cap) tetapi tanpa pelepasan udara, lalu membaca dan memilih kata-kata sederhana yang mengandung batchim tersebut.",
-  "objective": "Pelajar pemula akan mengenali bunyi akhir tak lepas [k], [t], [p] untuk batchim ㄱ, ㄷ, ㅂ; menghubungkannya dengan akhiran bahasa Inggris yang mirip (\"back/bat/cap\" tanpa pelepasan udara); serta membaca dan memilih dengan tepat kata-kata sederhana dalam bahasa Korea yang mengandung batchim tersebut.",
+  "keyword": "받침",
+  "summary": "Berlatih membaca dan menghasilkan bunyi akhir yang tidak dilepas (unreleased) untuk batchim ㄱ/ㄷ/ㅂ. Peserta belajar menghubungkan masing-masing dengan bunyi akhir kata bahasa Inggris yang mirip (back/bat/cap) tetapi tanpa pelepasan udara, lalu membaca dan memilih kata-kata sederhana yang mengandung batchim ini.",
+  "objective": "Peserta belajar tingkat pemula akan menghasilkan bunyi akhir yang tidak dilepas [k], [t], [p] untuk batchim ㄱ, ㄷ, ㅂ; menghubungkannya dengan akhiran bahasa Inggris yang mirip (“back/bat/cap” tanpa pelepasan); serta membaca dan memilih dengan tepat kata-kata sederhana dalam bahasa Korea yang mengandung batchim ini.",
   "level": "Pemula",
   "minutes": 15,
-  "tags": [],
+  "tags": [
+    "hangul",
+    "batchim",
+    "final consonants",
+    "pronunciation",
+    "beginner"
+  ],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "Ucapkan: hentikan bunyi akhirnya",
+    "line": "Bacalah dengan suara keras: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. Pada setiap batchim ㄱ/ㄷ/ㅂ, tahan aliran udara dengan pangkal lidah (ㄱ), ujung lidah (ㄷ), atau bibir (ㅂ), lalu hentikan bunyinya tanpa melepaskannya."
   },
   "exercises": [
-    "끝소리가 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
-    "아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p)",
-    "「집」의 끝소리와 가장 가까운 영어 낱말의 끝소리는? (back / bat / cap)",
-    "로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk)",
-    "끝소리가 [p]인 낱말을 모두 고르세요. (집 / 속 / 입 / 곧)"
+    "Pilih kata yang bunyi akhirnya [k]: (국 / 곧 / 밥)",
+    "Apa bunyi akhir dari kata ini? 곧 (k / t / p)",
+    "Akhiran kata bahasa Inggris manakah yang paling mendekati bunyi akhir dari 받 dalam 받다? (back / bat / cap)",
+    "Pilih romanisasi yang benar untuk: 벽 (byeok / byeog / byuk)",
+    "Bacalah kalimat ini dengan suara keras, hentikan bunyi pada 「집」 tanpa melepaskan bunyi akhirnya. Lalu, pilih bunyi akhirnya: 우리 집 좋아요. (k / t / p)"
   ],
   "answers": [
     "국",
     "t",
-    "cap",
+    "bat",
     "byeok",
-    "집, 입"
+    "p"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "끝소리 [k] (무성·불파)",
-      "as": "seperti akhir kata \"back\" (berhenti; tanpa pelepasan)"
+      "sound": "bunyi akhir [k] (tak bersuara, tidak dilepas)",
+      "as": "seperti akhir kata “back” (berhenti; tanpa pelepasan)"
     },
     {
       "letter": "ㄷ",
-      "sound": "끝소리 [t] (무성·불파)",
-      "as": "seperti akhir kata \"bat\" (berhenti; tanpa pelepasan)"
+      "sound": "bunyi akhir [t] (tak bersuara, tidak dilepas)",
+      "as": "seperti akhir kata “bat” (berhenti; tanpa pelepasan)"
     },
     {
       "letter": "ㅂ",
-      "sound": "끝소리 [p] (무성·불파)",
-      "as": "seperti akhir kata \"cap\" (berhenti; tanpa pelepasan)"
+      "sound": "bunyi akhir [p] (tak bersuara, tidak dilepas)",
+      "as": "seperti akhir kata “cap” (berhenti; tanpa pelepasan)"
     }
   ],
   "words": [
@@ -47,71 +53,64 @@
       "korean": "국",
       "roman": "guk",
       "meaning": "sup",
-      "example": "국 주세요.",
-      "exampleMeaning": "Sup, tolong."
+      "example": "국도 드세요.",
+      "exampleMeaning": "Makan sup juga, ya."
     },
     {
       "korean": "속",
       "roman": "sok",
       "meaning": "di dalam",
-      "example": "가방 속 책이 무거워요.",
-      "exampleMeaning": "Buku di dalam tas itu berat."
+      "example": "가방 속 봤어요?",
+      "exampleMeaning": "Apakah kamu melihat ke dalam tas itu?"
     },
     {
       "korean": "벽",
       "roman": "byeok",
       "meaning": "dinding",
-      "example": "벽 색깔이 하얘요.",
-      "exampleMeaning": "Dindingnya berwarna putih."
+      "example": "저기 벽 보세요.",
+      "exampleMeaning": "Lihat dinding di sana itu."
     },
     {
       "korean": "곧",
       "roman": "got",
       "meaning": "segera",
       "example": "곧 갈게요.",
-      "exampleMeaning": "Aku akan segera pergi."
+      "exampleMeaning": "Saya akan segera pergi."
     },
     {
       "korean": "받다",
       "roman": "batda",
       "meaning": "menerima",
-      "example": "선물을 받고 싶어요.",
-      "exampleMeaning": "Aku ingin menerima hadiah."
+      "example": "편지 받고 기뻤어요.",
+      "exampleMeaning": "Saya senang bisa menerima surat itu."
     },
     {
-      "korean": "걷다",
-      "roman": "geotda",
-      "meaning": "berjalan",
-      "example": "공원에서 걷고 있어요.",
-      "exampleMeaning": "Aku sedang berjalan di taman."
+      "korean": "믿다",
+      "roman": "mitda",
+      "meaning": "percaya",
+      "example": "친구 말 믿고 기다렸어요.",
+      "exampleMeaning": "Saya percaya pada teman saya dan menunggu."
     },
     {
-      "korean": "옷",
-      "roman": "ot",
-      "meaning": "pakaian (batchim ㅅ diucapkan [t] di akhir kata: 옷 → [옫])",
-      "example": "옷 사러 가요.",
-      "exampleMeaning": "Aku akan membeli pakaian."
-    },
-    {
-      "korean": "낮",
-      "roman": "nat",
-      "meaning": "siang hari (batchim ㅈ diucapkan [t] di akhir kata: 낮 → [낟])",
-      "example": "낮 12시에 만나요.",
-      "exampleMeaning": "Ayo bertemu jam 12 siang."
+      "korean": "닫다",
+      "roman": "datda",
+      "meaning": "menutup",
+      "example": "문 닫고 나가세요.",
+      "exampleMeaning": "Tutup pintunya saat kamu keluar."
     },
     {
       "korean": "밥",
       "roman": "bap",
       "meaning": "nasi; makanan",
-      "example": "밥 먹었어요?",
-      "exampleMeaning": "Apakah kamu sudah makan?"
+      "example": "밥 주세요.",
+      "exampleMeaning": "Tolong nasinya."
     },
     {
       "korean": "집",
       "roman": "jip",
       "meaning": "rumah",
-      "example": "우리 집은 커요.",
-      "exampleMeaning": "Rumah kami besar."
+      "example": "우리 집 좋아요.",
+      "exampleMeaning": "Rumah kami bagus."
     },
     {
       "korean": "입",

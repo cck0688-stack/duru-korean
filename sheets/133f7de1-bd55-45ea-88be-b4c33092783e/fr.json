@@ -1,9 +1,9 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
   "keyword": "",
-  "summary": "Lisez deux courts avis d'immeuble (coupure d'eau et coupure d'électricité pour inspection) et entraînez-vous à repérer rapidement la date/l'heure, le lieu, la raison et ce que les résidents doivent faire. Concentrez-vous sur huit étiquettes/mots fréquents.",
-  "objective": "Les apprenants seront capables de lire de courts avis d'immeuble concernant les coupures d'eau/d'électricité et les inspections, de trouver rapidement la date, l'heure, la zone concernée et ce que les résidents doivent faire ; et de reconnaître 8 étiquettes/mots fréquents (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
-  "level": "Débutant avancé (A2)",
+  "summary": "Lire deux courtes annonces d'immeuble (coupure d'eau et coupure de courant pour inspection) et s'entraîner à repérer rapidement la date/l'heure, le lieu, le motif et ce que les résidents doivent faire. Se concentrer sur huit mots/étiquettes fréquents.",
+  "objective": "Les apprenants seront capables de lire de courtes annonces d'immeuble concernant des coupures d'eau/de courant et des inspections, de trouver rapidement la date, l'heure, la zone concernée et ce que les résidents doivent faire ; et de reconnaître 8 mots/étiquettes fréquents (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Débutant (niveau avancé)",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,84 +11,73 @@
     "line": ""
   },
   "exercises": [
-    "À quelle heure se termine la coupure d'eau de l'avis A ? Écrivez-la dans le format utilisé dans l'avis (par ex. 18:00).",
-    "Où a lieu la coupure d'eau de l'avis A ? Regardez la ligne « 장소 » de l'avis et écrivez la réponse.",
-    "Quel mois, quel jour et quel jour de la semaine a lieu la coupure d'électricité de l'avis B ? Écrivez-le dans le format utilisé dans l'avis (par ex. 10월 12일(월)).",
-    "Écrivez une chose que les résidents doivent faire selon l'avis B, en reprenant exactement la phrase telle qu'elle est écrite dans l'avis.",
-    "Qui contacter pour toute question sur la coupure d'électricité de l'avis B ? Écrivez le nom du lieu à contacter, pas le numéro de téléphone.",
-    "Quelle est la raison indiquée dans l'avis B ? Regardez la ligne « 사유 » de l'avis et écrivez la réponse.",
-    "Le mot « 단수 » signifie l'arrêt temporaire de l'approvisionnement en quoi ? Regardez « les étiquettes/mots fréquents » et écrivez un seul mot."
+    "Répondez dans le format utilisé dans l'annonce (par ex. 08:00) : 공지 A의 단수는 몇 시에 끝납니까?",
+    "Recopiez exactement ce qui est écrit dans l'annonce : 공지 B의 사유는 무엇입니까?",
+    "Recopiez exactement ce qui est écrit dans l'annonce : 공지 A의 장소는 어디입니까?",
+    "Recopiez la phrase exactement telle qu'elle est écrite dans l'annonce : 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
+    "Écrivez le lieu de contact et le numéro de téléphone exactement comme indiqués dans les annonces : 두 공지의 문의처는 어디입니까?"
   ],
   "answers": [
     "14:00",
-    "101동 전체",
-    "10월 15일(목)",
-    "단전 전에 가전제품 플러그를 뽑아 주세요.",
-    "관리사무소",
     "전기설비 정기 점검",
-    "물"
+    "101동 전체",
+    "단전 전에 가전제품 플러그를 뽑아 주세요.",
+    "관리사무소 02-000-0000"
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "Consignes d'apprentissage",
+      "heading": "Mots et étiquettes fréquents",
       "paragraphs": [
-        "Vous vous entraînez à lire rapidement des avis de coupure d'eau, de coupure d'électricité et d'inspection dans un appartement ou un immeuble, et à trouver les informations nécessaires.",
-        "Vous apprenez en particulier à repérer des étiquettes comme « 일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의 » et à ne lire que les lignes dont vous avez besoin."
+        "일시 (ilsi) : date et heure",
+        "장소 (jangso) : lieu, zone concernée",
+        "사유 (sayu) : motif",
+        "점검 (jeomgeom) : inspection, vérification",
+        "작업 (jageop) : travaux (construction ou réparation)",
+        "단수 (dansu) : coupure d'eau",
+        "단전 (danjeon) : coupure de courant (coupure planifiée)",
+        "문의 (munui) : renseignements, contact (numéro de téléphone, bureau)"
       ]
     },
     {
-      "heading": "Étiquettes/mots fréquents",
+      "heading": "Exemple d'annonce A — 단수 안내 (avis de coupure d'eau)",
       "paragraphs": [
-        "일시 : 언제 하는지(날짜와 시간)",
-        "장소 : 어디에서 하는지(영향을 받는 곳)",
-        "사유 : 왜 하는지(이유)",
-        "점검 : 상태를 확인하거나 검사함",
-        "작업 : 공사를 하거나 고치는 일",
-        "단수 : 물 공급을 잠시 멈춤",
-        "단전 : 전기 공급을 잠시 멈춤",
-        "문의 : 연락할 곳(전화번호, 부서/사무실)"
+        "[공지 A] 단수 안내",
+        "일시: 2026년 10월 12일(월) 09:30~14:00",
+        "장소: 101동 전체",
+        "사유: 건물 내부 배관 교체 작업",
+        "작업: 물 공급 중단 및 배관 교체",
+        "유의사항: 단수 전에 물을 미리 받아 두세요.",
+        "문의: 관리사무소 02-000-0000"
       ]
     },
     {
-      "heading": "Exemple d'avis A — Avis de coupure d'eau",
+      "heading": "Exemple d'annonce B — 단전 안내 (avis de coupure de courant)",
       "paragraphs": [
-        "[Avis A] Avis de coupure d'eau",
-        "일시 : 2026년 10월 12일(월) 09:30~14:00",
-        "장소 : 101동 전체",
-        "사유 : 건물 내부 배관 교체 작업",
-        "작업 : 물 공급 중단 및 배관 교체",
-        "유의사항 : 단수 전에 물을 미리 받아 두세요.",
-        "문의 : 관리사무소 02-000-0000"
+        "[공지 B] 단전 안내",
+        "일시: 2026년 10월 15일(목) 13:00~16:00",
+        "장소: 102동 1층~10층 전체 세대",
+        "사유: 전기설비 정기 점검",
+        "작업: 변전실 점검 및 전력 차단",
+        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
+        "문의: 관리사무소 02-000-0000"
       ]
     },
     {
-      "heading": "Exemple d'avis B — Avis de coupure d'électricité",
+      "heading": "Comment repérer rapidement l'information",
       "paragraphs": [
-        "[Avis B] Avis de coupure d'électricité",
-        "일시 : 2026년 10월 15일(목) 13:00~16:00",
-        "장소 : 102동 전체",
-        "사유 : 전기설비 정기 점검",
-        "작업 : 변전실 점검 및 전력 차단",
-        "유의사항 : 단전 전에 가전제품 플러그를 뽑아 주세요.",
-        "문의 : 관리사무소 02-000-0000"
+        "Regardez d'abord les étiquettes (일시, 장소, 사유, 작업, 유의사항, 문의), puis ne lisez que les lignes dont vous avez besoin.",
+        "Habituez-vous aux chiffres et symboles comme 09:30, ~ (de–à), 층 (étage), 동 (numéro de bâtiment). Ces annonces utilisent le format 24 heures.",
+        "Pour trouver ce que les résidents doivent faire, cherchez dans la ligne 유의사항 (précautions) des terminaisons de demande comme -세요."
       ]
     },
     {
-      "heading": "Comment trouver rapidement l'information",
+      "heading": "Guide de pratique",
       "paragraphs": [
-        "Regardez d'abord les étiquettes (일시, 장소, 사유, 작업, 유의사항, 문의), puis lisez précisément seulement les lignes dont vous avez besoin.",
-        "Familiarisez-vous avec les chiffres et symboles (par ex. 09:30, ~, (월), 동). L'heure est généralement indiquée sur 24 heures.",
-        "Pour savoir ce qu'il faut faire, cherchez des expressions de demande comme « -세요 » sur la ligne « 유의사항 »."
-      ]
-    },
-    {
-      "heading": "Consignes d'exercice",
-      "paragraphs": [
-        "Répondez aux questions ci-dessous. Trouvez les réponses dans l'avis A ou B, ou écrivez-les en vous basant sur « les étiquettes/mots fréquents ». Pour les réponses trouvées dans l'avis, écrivez-les exactement dans la forme utilisée dans l'avis. Recopiez aussi les chiffres et symboles (par ex. ~, :) tels quels."
+        "Les annonces ici sont des exemples pédagogiques, pas de vrais horaires ni de vrais numéros de contact."
       ]
     }
   ],
-  "note": "이 자료의 공지문은 학습용 예시입니다. 실제 일정이나 연락처가 아닙니다.",
+  "note": "",
   "category": "etc"
 }

@@ -10,17 +10,17 @@
   "checkThese": [],
   "exercises": [
     "Isi bagian kosong dengan kata dari daftar. Kamu baru saja duduk dan ingin melihat makanan apa saja yang tersedia: ___ 좀 주세요.",
-    "Isi bagian kosong. Ada tiga orang, dan kamu ingin bulgogi untuk tiga orang: 불고기 ___ 주세요.",
-    "Isi bagian kosong dengan bentuk lampau dari 주문하다. Kamu sudah memesan 10 menit yang lalu, tapi makananmu belum datang: 저기요, 저희 비빔밥 두 개 ___.",
-    "Isi kedua bagian kosong dengan kata dari daftar. Kamu ingin tteokbokki-mu kurang pedas, dan kamu ingin dua piring kecil untuk berbagi: 떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요.",
+    "Isi bagian kosong. Kalian bertiga, dan kamu ingin bulgogi untuk tiga orang: 불고기 ___ 주세요.",
+    "Isi bagian kosong dengan bentuk lampau dari 주문하다. Kamu sudah memesan 10 menit lalu, tapi makananmu belum datang: 저기요, 저희 비빔밥 두 개 ___.",
+    "Isi kedua bagian kosong dengan kata dari daftar. Kamu ingin tteokbokki yang tidak terlalu pedas, dan kamu ingin dua piring kecil untuk berbagi: 떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요.",
     "Isi ketiga bagian kosong dengan kata dari daftar. Tanganmu lengket, dan semua lauknya sudah habis: ___ 좀 주세요. 그리고 ___ 좀 ___ 주세요.",
-    "Isi kedua bagian kosong dengan kata dari daftar. Kamu sedang di kasir bersama teman. Kalian masing-masing membayar makanan sendiri, dan kamu ingin struk: 저희 ___ 계산할게요. 그리고 ___도 주세요."
+    "Isi kedua bagian kosong dengan kata dari daftar. Kamu sedang di kasir bersama seorang teman. Kalian masing-masing membayar makanan sendiri, dan kamu ingin struk: 저희 ___ 계산할게요. 그리고 ___도 주세요."
   ],
-  "keyword": "식당 주문",
+  "keyword": "식당 어휘",
   "level": "Pemula",
   "minutes": 15,
-  "objective": "Pembelajar dapat menggunakan 10 kata kunci restoran (메뉴판, 인분, 주문하다, 반찬, 앞접시, 물티슈, 덜 맵게, 더 주세요, 따로 계산하다, 영수증) untuk membuat permintaan singkat dan sopan kepada staf restoran, mulai dari memesan sampai membayar.",
-  "summary": "Sepuluh kata yang kamu perlukan di restoran Korea, dari mulai duduk sampai membayar. Kamu belajar meminta menu, memesan berdasarkan jumlah porsi, meminta piring kecil, tisu basah, tambahan lauk atau rasa yang kurang pedas, membayar sendiri-sendiri, dan meminta struk. Setiap kata dilengkapi satu contoh kalimat nyata. Latihannya mengajakmu menggunakan kata-kata tersebut dalam situasi baru.",
+  "objective": "Pelajar dapat menggunakan 10 kata kunci seputar restoran (메뉴판, 인분, 주문하다, 반찬, 앞접시, 물티슈, 덜 맵게, 더 주세요, 따로 계산하다, 영수증) untuk membuat permintaan singkat dan sopan kepada staf restoran, mulai dari memesan sampai membayar.",
+  "summary": "Sepuluh kata yang kamu butuhkan di restoran Korea, mulai dari duduk sampai membayar. Kamu belajar cara meminta menu, memesan berdasarkan jumlah porsi, meminta piring kecil, tisu basah, tambahan lauk atau rasa yang tidak terlalu pedas, membayar sendiri-sendiri, dan meminta struk. Setiap kata dilengkapi satu contoh kalimat nyata. Latihan-latihannya mengajakmu menggunakan kata-kata tersebut dalam situasi baru.",
   "tags": [],
   "task": null,
   "title": "식당에서 주문하고 부탁하기: 핵심 어휘 10",
@@ -56,7 +56,7 @@
     {
       "korean": "앞접시",
       "roman": "apjeopsi",
-      "meaning": "piring kecil untuk mengambil bagianmu dari makanan yang disajikan bersama",
+      "meaning": "piring kecil untuk mengambil bagianmu dari makanan yang disantap bersama",
       "example": "앞접시 좀 주시겠어요?",
       "exampleMeaning": "Boleh minta piring kecil?"
     },
@@ -70,9 +70,9 @@
     {
       "korean": "덜 맵게",
       "roman": "deol maepge",
-      "meaning": "kurang pedas (permintaan tentang cara memasak makanan)",
+      "meaning": "tidak terlalu pedas (permintaan soal cara memasak makanan)",
       "example": "덜 맵게 할 수 있어요?",
-      "exampleMeaning": "Bisa dibuat kurang pedas?"
+      "exampleMeaning": "Bisa dibuat tidak terlalu pedas?"
     },
     {
       "korean": "더 주세요",
@@ -93,7 +93,7 @@
       "roman": "yeongsujeung",
       "meaning": "struk",
       "example": "영수증은 괜찮아요.",
-      "exampleMeaning": "Tidak usah pakai struk, terima kasih."
+      "exampleMeaning": "Tidak usah struknya, terima kasih."
     }
   ],
   "category": "vocab"

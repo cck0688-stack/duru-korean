@@ -1,4 +1,23 @@
 {
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "summary": "S'entraîner à distinguer et à lire les voyelles coréennes ㅐ, ㅔ, ㅖ à travers des paires minimales et des mots courants. Inclut des choix d'orthographe rapides pour renforcer la reconnaissance précise des voyelles.",
+  "objective": "Les apprenants distingueront ㅐ, ㅔ et ㅖ par l'orthographe, et liront correctement des mots simples contenant ces voyelles.",
+  "level": "Débutant",
+  "minutes": 12,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Choisissez le mot qui correspond au sens : chien -> 개 / 게",
+    "Choisissez la bonne orthographe : (poire) 배 / 베",
+    "Choisissez la bonne orthographe : (citron) 레몬 / 래몬",
+    "Choisissez la bonne orthographe : (œuf) 계란 / 게란",
+    "Complétez avec la bonne voyelle : ㅊ_ㄱ (livre) : ㅐ / ㅔ / ㅖ",
+    "Complétez avec la bonne voyelle : ㅇ_쁘다 (être joli(e)) : ㅐ / ㅔ / ㅖ"
+  ],
   "answers": [
     "개",
     "배",
@@ -8,20 +27,11 @@
     "ㅖ"
   ],
   "checkThese": [],
-  "exercises": [
-    "뜻에 맞는 낱말을 고르세요. chien -> 개 / 게",
-    "뜻에 맞는 낱말을 고르세요. poire -> 배 / 베",
-    "맞는 철자를 고르세요. (citron) 레몬 / 래몬",
-    "맞는 철자를 고르세요. (œuf) 계란 / 게란",
-    "빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (livre): ㅐ / ㅔ / ㅖ",
-    "빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (être joli(e)): ㅐ / ㅔ / ㅖ"
-  ],
-  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
   "letters": [
     {
       "letter": "ㅐ",
       "sound": "ae",
-      "as": "comme la voyelle dans « lait » — en coréen standard, un peu plus ouverte que ㅔ, mais la plupart des Coréens aujourd'hui prononcent ㅐ et ㅔ de la même façon ; distinguez-les par l'orthographe"
+      "as": "comme la voyelle dans « lait » (en coréen standard moderne, ㅐ et ㅔ se prononcent presque de la même façon ; on les distingue surtout par l'orthographe et le sens, par exemple 개 chien / 게 crabe)"
     },
     {
       "letter": "ㅔ",
@@ -31,19 +41,9 @@
     {
       "letter": "ㅖ",
       "sound": "ye",
-      "as": "comme « ye » dans « yes »"
+      "as": "comme « ye » dans « yeah » (après une consonne, il peut se prononcer comme ㅔ, par exemple 계란 [게란])"
     }
   ],
-  "level": "Débutant (초급)",
-  "minutes": 12,
-  "objective": "Les apprenants liront ㅐ et ㅔ comme le même son et apprendront lequel des deux chaque mot utilise grâce à son orthographe, et prononceront ㅖ comme [ye] dans 예 et 례 (dans d'autres syllabes comme 계, ㅖ peut aussi se lire [e], donc 계란 peut se lire [계란] ou [게란]) en lisant des mots simples contenant ces voyelles.",
-  "summary": "Entraînez-vous à lire les voyelles coréennes ㅐ, ㅔ, ㅖ dans des mots courants. Comme la plupart des locuteurs prononcent ㅐ et ㅔ de la même façon, apprenez l'orthographe de chaque mot. Lisez ㅖ comme [ye] dans 예 et 례 ; dans d'autres syllabes comme 계, ㅖ peut aussi se lire [e] (계란 → [계란] ou [게란]). Comprend de courts exercices de choix de sens et d'orthographe pour renforcer l'orthographe correcte.",
-  "tags": [],
-  "task": {
-    "title": "소리 내어 읽기",
-    "line": "다음 낱말을 소리 내어 읽어 보세요: 개, 배, 책, 게, 레몬, 예, 예쁘다, 계란"
-  },
-  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
   "words": [
     {
       "korean": "개",

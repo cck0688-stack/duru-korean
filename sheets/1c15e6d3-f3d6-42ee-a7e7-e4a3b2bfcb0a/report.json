@@ -26,41 +26,40 @@
         "watchOutMark[5] 가 비어 있습니다 (틀린 말과 맞는 말)"
       ],
       "review": [
-        "exercises 2번: '상태을'은 조사가 틀렸습니다. '상태를'로 고쳐야 합니다.",
-        "exercises 1번: 제시어는 '엄마 / 먹다'뿐인데 정답은 '엄마가 밥을 먹고 있어요.'입니다. '밥'은 제시어에 없어서 학습지만 보고는 이 정답을 낼 수 없습니다. 제시어에 '밥'을 넣거나 정답을 '엄마가 먹고 있어요.'로 바꾸세요. 지시문 \"'먹다'로 진행하는 문장\"도 자연스러운 말이 아닙니다. \"엄마가 지금 먹는 중이라는 것을 나타내는 문장을 만드세요\"처럼 고치세요.",
-        "exercises 2·3·4·5번: 지시문에 정답 형태가 그대로 들어 있습니다('열려 있는', '앉아 있는지', '켜져 있지 않은', '놓여 있는'). 학습자는 글자를 옮겨 적기만 하면 되므로 -고 있다와 -아/어 있다 중 하나를 고르는 연습도, 활용(열다→열려, 켜다→켜져, 놓다→놓여) 연습도 되지 않습니다. 지시문에서 정답 형태를 빼고 '진행/상태' 같은 조건만 주세요. 가능하면 학습자가 문맥을 보고 둘 중 하나를 스스로 고르게 하세요.",
-        "exercises 전체: 정답 1·2·3이 forms의 예문과 글자까지 똑같습니다(엄마가 밥을 먹고 있어요 / 창문이 열려 있어요 / 학생이 의자에 앉아 있어요). 예문을 그대로 반복하는 것이라 연습이 얇습니다. 다른 낱말과 상황으로 바꾸세요.",
-        "exercises 구성이 objective·summary와 맞지 않습니다. summary는 두 의미 각각에 대해 긍정·부정·의문문을 보여 준다고 했는데, -고 있다는 1번 긍정문 하나뿐이고 -고 있다의 부정문(-고 있지 않다)과 의문문 문제는 없습니다. 문제를 추가하세요.",
-        "exercises 4번 정답: '방의 불이 켜져 있지 않아요'만 정답으로 되어 있습니다. '방의 불이 안 켜져 있어요'도 맞는 답이니 함께 인정하세요.",
-        "watchOut 2번: 열려 있다와 켜져 있다에서 '열려', '켜져'는 '수동형/사동형 분사'가 아닙니다. 피동사 '열리다'와 '-어지다' 형태 '켜지다'에 -아/어 있다가 붙은 것이고, 사동형이라는 말은 틀렸으며 한국어 문법에서 '분사'라는 용어도 쓰지 않습니다. 또 '문을 열어 있다'는 '상황에 따라 어색할 수 있는' 정도가 아니라 비문입니다. '타동사에는 -아/어 있다를 붙이지 않고, 자동사나 피동사(열리다, 켜지다, 놓이다)에 붙인다. *문을 열어 있다(×)'로 고치세요. '자연적'이라는 말도 '자연스러움'으로 고치세요.",
-        "watchOut 2·3번: 한국어 설명 속에 영어('transitive', 'learners often wrongly say')가 섞여 있습니다. '타동사', '학습자들이 자주 ~라고 잘못 말합니다'처럼 한국어로 통일하세요.",
-        "watchOut 3번: '앉고 있다'를 무조건 틀린 표현처럼 설명했는데 이것은 사실과 다릅니다. '앉고 있다'는 앉는 동작이 진행 중일 때 쓸 수 있습니다. '앉은 상태를 말할 때는 앉고 있다가 아니라 앉아 있다'로 범위를 한정하세요. 이 수준에서 자주 헷갈리는 예외, 곧 입다·신다·쓰다 같은 착용 동사는 -고 있다가 결과 상태를 나타낸다는 점(옷을 입고 있어요)도 덧붙이는 것이 좋습니다."
+        "Exercise 2 has a particle error: '상태을' should be '상태를'.",
+        "The exercises give away their answers. Exercises 2–5 already write the target form in the instruction ('열려 있는', '앉아 있는지', '켜져 있지 않은', '놓여 있는'), and every item is labelled '현재 진행' or '결과 상태'. Learners never have to choose between -고 있다 and -아/어 있다, which is the whole objective. Fix: give only the noun and the base verb (for example '창문 / 열리다'), and let learners pick the form from context or a picture description. Remove the target forms and labels from the instructions.",
+        "Answers 1, 2 and 3 are the same sentences as the examples in forms (엄마가 밥을 먹고 있어요 / 창문이 열려 있어요 / 학생이 의자에 앉아 있어요). The exercises just copy the examples, so the worksheet is thin. Change the exercises to use different nouns, verbs and situations.",
+        "Exercise 1 cannot be solved from the prompt alone. The prompt gives only '엄마 / 먹다', but the answer includes '밥을'. Either add '밥' to the prompt or accept '엄마가 먹고 있어요'. The instruction \"'먹다'로 진행하는 문장\" is also unnatural Korean. Change it to something like '엄마가 지금 먹는 중이라는 문장을 만드세요'.",
+        "The exercise mix does not cover the objective or summary. There is only one -고 있다 item (Exercise 1, affirmative only), and the negative and question items use only -아/어 있다. Add -고 있다 negatives and questions (for example '-고 있지 않아요', '-고 있어요?'), and balance the two forms.",
+        "watchOut 2 is inaccurate. '열리다, 켜지다' are passive (피동) verbs, not causative (사동), and '분사' is not a term used in Korean grammar. '문을 열어 있다' is not just 'sometimes awkward'; it is ungrammatical. The phrase \"'문이 열려 있다' 자연적\" also doesn't make sense. Fix: '-아/어 있다는 자동사·피동사와 쓴다. 타동사는 목적어와 함께 -아/어 있다를 쓸 수 없으므로 문을 열어 있다(X) → 문이 열려 있다(O).'",
+        "watchOut 2 and 3 mix English into the Korean text ('transitive 동사', 'learners often wrongly say ...'). Rewrite them fully in Korean (for example '타동사', '학습자들이 흔히 ~라고 잘못 말합니다').",
+        "watchOut 3 overstates the rule. '앉고 있다' is not always wrong; it can describe the act of sitting down while it is happening. Fix: '앉아 있는 상태를 말할 때 앉고 있다를 쓰면 안 됩니다. 앉고 있다는 앉는 동작이 진행 중일 때만 씁니다.'",
+        "The English in form 2's exampleMeaning is ungrammatical: 'The window is (in the state of) open (after being opened).' Change it to 'The window is open (it has been opened and stays open).'",
+        "The 'when' line for form 3 says the verbs express '앉아 있는 상태' only, even though it lists 서다 and 눕다. Change it to '앉아 있는/서 있는/누워 있는 상태', or make the description general, such as '그 자세가 유지되는 상태'.",
+        "The 'when' line for form 2 says '(결과·존재 상태)', which is not a clear term. Change it to '(동작이 끝난 뒤 결과가 지속되는 상태)'."
       ],
       "audit": [
-        "exercises 1번: 엄마 / 먹다 / 현재 진행 / 긍정문 → 지금 엄마가 '먹다'로 진행하는 문장을 만드세요. → 엄마 / 밥을 먹다 / 현재 진행 / 긍정문 → 엄마가 지금 밥을 먹는 중임을 나타내는 문장을 만드세요.",
-        "exercises 2번: 상태을 → 상태를",
-        "answers 4번: 방의 불이 켜져 있지 않아요. → 방의 불이 켜져 있지 않아요. (방의 불이 안 켜져 있어요.)",
-        "watchOut 2번: transitive 동사(예: 열다, 켜다)의 결과 상태는 보통 수동형/사동형 분사 형태(열려 있다, 켜져 있다)를 사용합니다. ('문이 열려 있다' 자연적, '문을 열어 있다'는 상황에 따라 어색할 수 있음) → -아/어 있다는 타동사에 붙지 않습니다. 타동사(예: 열다, 켜다)의 결과 상태는 피동사·자동사(열리다, 켜지다)에 붙여 '열려 있다', '켜져 있다'로 말합니다. ('문이 열려 있다'가 맞고, '문을 열어 있다'는 틀린 문장입니다.)",
-        "watchOut 3번: 자세 동사(앉다/서다/눕다)는 보통 -아/어 있다를 써서 상태를 말합니다. learners often wrongly say '앉고 있다' instead of '앉아 있다'. → 자세 동사(앉다/서다/눕다)는 보통 -아/어 있다를 써서 상태를 말합니다. 앉은 상태를 말할 때 '앉고 있다'라고 하면 틀리고, '앉아 있다'라고 해야 합니다.",
-        "forms 2번 when: 어떤 동작의 결과로 지금 그 상태가 남아 있을 때(결과·존재 상태). → 어떤 동작의 결과로 지금 그 상태가 남아 있을 때(결과·존재 상태). 자동사·피동사에만 붙음(열리다 → 열려 있다, 켜지다 → 켜져 있다)."
+        "exercises[0]: 엄마 / 먹다 / 현재 진행 / 긍정문 → 지금 엄마가 '먹다'로 진행하는 문장을 만드세요. → Make an affirmative sentence saying that Mom is eating a meal right now (action in progress): 엄마 / 밥 / 먹다",
+        "exercises[1]: 창문 / 열다 / 결과 상태 / 긍정문 → 창문이 '열려 있는' 상태을 나타내는 문장을 만드세요. → Make an affirmative sentence saying that the window is open (resulting state): 창문 / 열리다",
+        "exercises[2]: 학생 / 의자에 앉다 / 의문문 → 학생이 의자에 앉아 있는지 물어보는 문장을 만드세요. → Make a question asking whether the student is sitting on the chair: 학생 / 의자에 앉다",
+        "exercises[3]: 방의 불 / 켜다 / 결과 상태 / 부정문 → 방의 불이 켜져 있지 않은 상태를 나타내는 부정문을 만드세요. → Make a negative sentence saying that the light in the room is not on (resulting state): 방의 불 / 켜지다",
+        "answers[3]: 방의 불이 켜져 있지 않아요. → 방의 불이 켜져 있지 않아요. (방의 불이 안 켜져 있어요.)",
+        "exercises[4]: 책 / 책상 위에 놓다 / 결과 상태 / 긍정문 → 책이 책상 위에 놓여 있는 상태를 나타내는 문장을 만드세요. → Make an affirmative sentence saying that the book is lying on the desk (resulting state): 책 / 책상 위 / 놓이다",
+        "forms[0].when: 동작이 지금 진행되고 있을 때(행동의 '진행'을 말할 때). → Use it when an action is in progress right now. Attach -고 있다 to the verb stem, whether or not it ends in a final consonant (먹다 → 먹고 있다, 가다 → 가고 있다).",
+        "forms[0].exampleMeaning: Mom is (in the process of) eating. → Mom is eating (a meal).",
+        "forms[1].when: 어떤 동작의 결과로 지금 그 상태가 남아 있을 때(결과·존재 상태). → Use it when the result of a completed action continues as a state now. It is used with intransitive or passive verbs, not transitive ones: use -아 있다 after ㅏ/ㅗ stems and -어 있다 after other stems (열리다 → 열려 있다, 앉다 → 앉아 있다).",
+        "forms[2].form: 자리·자세 동사: 앉아 있다 / 서 있다 / 누워 있다 → Posture verbs: 앉아 있다 / 서 있다 / 누워 있다",
+        "forms[2].when: 앉다, 서다, 눕다 같은 '자세' 동사는 보통 -아/어 있다 형태로 쓰여 '앉아 있는 상태'를 표현함. → Posture verbs such as 앉다, 서다 and 눕다 usually take -아/어 있다 to describe the posture someone is in (눕다 → 누워 있다, ㅂ irregular).",
+        "watchOut[0]: 동작이 실제로 '진행' 중이면 -고 있다를 쓰고, 동작의 '결과로 남은 상태'이면 -아/어 있다를 쓰세요. → Use -고 있다 when an action is actually in progress. Use -아/어 있다 when a state remains as the result of an action.",
+        "watchOut[1]: transitive 동사(예: 열다, 켜다)의 결과 상태는 보통 수동형/사동형 분사 형태(열려 있다, 켜져 있다)를 사용합니다. ('문이 열려 있다' 자연적, '문을 열어 있다'는 상황에 따라 어색할 수 있음) → -아/어 있다 cannot be used with transitive verbs such as 열다 and 켜다. To describe the resulting state, use the passive (intransitive) verb: 열리다 → 열려 있다, 켜지다 → 켜져 있다. (X) 문을 열어 있다 → (O) 문이 열려 있다",
+        "watchOut[2]: 자세 동사(앉다/서다/눕다)는 보통 -아/어 있다를 써서 상태를 말합니다. learners often wrongly say '앉고 있다' instead of '앉아 있다'. → To describe the state of a posture (앉다/서다/눕다), use -아/어 있다. Learners often wrongly say 앉고 있다 when they mean 앉아 있다 ('is seated'). 앉고 있다 means 'is in the middle of sitting down.' (X) 앉고 있다 → (O) 앉아 있다",
+        "watchOut[3]: 부정문에서는 '-아/어 있지 않다' 또는 '-고 있지 않다' 형태를 사용합니다. 의미(진행 vs 상태)에 따라 올바른 형태를 선택하세요. → For negative sentences, use -고 있지 않다 (action in progress) or -아/어 있지 않다 (resulting state), depending on the meaning. Short negation with 안 is also possible (안 켜져 있어요).",
+        "watchOut[4]: 의문문은 어미만 바꿔 만들 수 있습니다(예: '앉아 있어요?' / '앉아 있나요?'). → To make a question, use rising intonation or change the ending (e.g., 앉아 있어요? / 앉아 있나요?).",
+        "title: -고 있다 vs -아/어 있다 구분하기 → Telling -고 있다 and -아/어 있다 Apart"
       ]
     },
     {
       "round": 2,
-      "mechanical": [],
-      "review": [
-        "2·4·5번 문제: 제시어로 타동사 '열다/켜다/놓다'를 줬는데, 정답은 피동사 형태(열려/켜져/놓여 있어요)입니다. '열리다·켜지다'는 규칙 설명에 나오지만 '놓이다'는 학습지 어디에도 없어서 5번은 학습지만으로 풀 수 없습니다. 제시어를 '열리다', '켜지다', '놓이다'로 바꾸거나, 규칙 설명에 놓다→놓이다 짝을 넣으세요.",
-        "4번 문제 지시문: '방의 불을 켠 상태가 아님'은 타동 표현이라 규칙 설명에서 틀렸다고 한 '불을 켜 있다' 쪽으로 학습자를 이끌 수 있습니다. '방의 불이 켜진 상태가 아님'으로 고치세요.",
-        "둘째 문형(-아/어 있다)의 예문 번역: 'The window is (in the state of) open (after being opened).'은 영어 문법에 맞지 않습니다('in the state of' 뒤에 형용사 open이 올 수 없음). 'The window is open (it has been opened and stays that way).'처럼 고치세요."
-      ],
-      "audit": [
-        "exercises 2번 (단서 동사): 교실 문 / 열다 / 긍정문 → 교실 문 / 열리다 / 긍정문",
-        "exercises 4번 (단서 동사): 방의 불 / 켜다 / 부정문 → 방의 불 / 켜지다 / 부정문",
-        "exercises 5번 (단서 동사): 책 / 책상 위에 놓다 / 긍정문 → 책 / 책상 위에 놓이다 / 긍정문"
-      ]
-    },
-    {
-      "round": 3,
       "mechanical": [],
       "review": [],
       "audit": []
@@ -70,315 +69,192 @@
     {
       "at": "answers[1]",
       "before": "엄마가 밥을 먹고 있어요.",
-      "after": "아빠가 신문을 읽고 있어요."
+      "after": "동생이 숙제를 하고 있어요."
     },
     {
       "at": "answers[2]",
       "before": "창문이 열려 있어요.",
-      "after": "교실 문이 열려 있어요."
+      "after": "강아지가 소파에 누워 있어요."
     },
     {
       "at": "answers[3]",
       "before": "학생이 의자에 앉아 있어요? (학생이 의자에 앉아 있나요?)",
-      "after": "아이가 소파에 앉아 있어요? (아이가 소파에 앉아 있나요?)"
+      "after": "지금 텔레비전을 보고 있어요? (지금 텔레비전을 보고 있나요?)"
     },
     {
       "at": "answers[4]",
       "before": "방의 불이 켜져 있지 않아요.",
-      "after": "방의 불이 켜져 있지 않아요. (방의 불이 안 켜져 있어요.)"
+      "after": "부엌 불이 켜져 있지 않아요. (부엌 불이 안 켜져 있어요.)"
     },
     {
-      "at": "answers[6]",
-      "before": "",
-      "after": "동생이 숙제를 하고 있지 않아요. (동생이 숙제를 안 하고 있어요.)"
-    },
-    {
-      "at": "answers[7]",
-      "before": "",
-      "after": "친구가 전화하고 있어요? (친구가 전화하고 있나요?)"
+      "at": "answers[5]",
+      "before": "책이 책상 위에 놓여 있어요.",
+      "after": "아빠가 지금 신문을 읽고 있지 않아요. (아빠가 지금 신문을 안 읽고 있어요.)"
     },
     {
       "at": "exercises[1]",
       "before": "엄마 / 먹다 / 현재 진행 / 긍정문 → 지금 엄마가 '먹다'로 진행하는 문장을 만드세요.",
-      "after": "아빠 / 신문을 읽다 / 긍정문 → 아빠가 지금 신문을 읽는 중임을 나타내는 문장을 만드세요."
+      "after": "Your younger sibling started homework ten minutes ago and is still working on it. Make a sentence saying what your sibling is doing right now: 동생 / 숙제 / 하다"
     },
     {
       "at": "exercises[2]",
       "before": "창문 / 열다 / 결과 상태 / 긍정문 → 창문이 '열려 있는' 상태을 나타내는 문장을 만드세요.",
-      "after": "교실 문 / 열리다 / 긍정문 → 누가 문을 연 뒤에 문이 지금도 그대로인 상태를 나타내는 문장을 만드세요."
+      "after": "The dog lay down on the sofa an hour ago and is still there. Make a sentence describing the dog: 강아지 / 소파 / 눕다"
     },
     {
       "at": "exercises[3]",
       "before": "학생 / 의자에 앉다 / 의문문 → 학생이 의자에 앉아 있는지 물어보는 문장을 만드세요.",
-      "after": "아이 / 소파에 앉다 / 의문문 → 아이가 지금 소파에 앉은 상태인지 물어보는 문장을 만드세요."
+      "after": "You call a friend and hear a TV in the background. Make a question asking whether your friend is watching TV right now: 텔레비전 / 보다"
     },
     {
       "at": "exercises[4]",
       "before": "방의 불 / 켜다 / 결과 상태 / 부정문 → 방의 불이 켜져 있지 않은 상태를 나타내는 부정문을 만드세요.",
-      "after": "방의 불 / 켜지다 / 부정문 → 방의 불이 켜진 상태가 아님을 나타내는 부정문을 만드세요."
+      "after": "Nobody has turned on the kitchen light, so the kitchen is dark. Make a negative sentence about the kitchen light: 부엌 불 / 켜지다"
     },
     {
       "at": "exercises[5]",
       "before": "책 / 책상 위에 놓다 / 결과 상태 / 긍정문 → 책이 책상 위에 놓여 있는 상태를 나타내는 문장을 만드세요.",
-      "after": "책 / 책상 위에 놓이다 / 긍정문 → 누가 책을 책상 위에 놓은 뒤 지금도 그대로인 상태를 나타내는 문장을 만드세요."
+      "after": "Dad is holding a newspaper, but he is looking out the window, not at the paper. Make a negative sentence about what Dad is doing right now: 아빠 / 신문 / 읽다"
     },
     {
-      "at": "exercises[6]",
-      "before": "",
-      "after": "동생 / 숙제를 하다 / 부정문 → 동생이 지금 숙제를 하는 중이 아님을 나타내는 부정문을 만드세요."
+      "at": "forms[1].when",
+      "before": "동작이 지금 진행되고 있을 때(행동의 '진행'을 말할 때).",
+      "after": "Use it when an action is in progress right now. Attach -고 있다 to the verb stem, whether or not it ends in a final consonant (먹다 → 먹고 있다, 가다 → 가고 있다)."
     },
     {
-      "at": "exercises[7]",
-      "before": "",
-      "after": "친구 / 전화하다 / 의문문 → 친구가 지금 전화하는 중인지 물어보는 문장을 만드세요."
+      "at": "forms[1].exampleMeaning",
+      "before": "Mom is (in the process of) eating.",
+      "after": "Mom is eating (a meal)."
     },
     {
       "at": "forms[2].when",
       "before": "어떤 동작의 결과로 지금 그 상태가 남아 있을 때(결과·존재 상태).",
-      "after": "어떤 동작의 결과로 지금 그 상태가 남아 있을 때(결과·존재 상태). 자동사·피동사에만 붙음(열리다 → 열려 있다, 켜지다 → 켜져 있다)."
+      "after": "Use it when the result of a completed action continues as a state now. It is used with intransitive or passive verbs, not transitive ones: use -아 있다 after ㅏ/ㅗ stems and -어 있다 after other stems (열리다 → 열려 있다, 앉다 → 앉아 있다)."
     },
     {
       "at": "forms[2].exampleMeaning",
       "before": "The window is (in the state of) open (after being opened).",
-      "after": "The window is open (it has been opened and stays that way)."
+      "after": "The window is open (it has been opened and stays open)."
+    },
+    {
+      "at": "forms[3].form",
+      "before": "자리·자세 동사: 앉아 있다 / 서 있다 / 누워 있다",
+      "after": "Posture verbs: 앉아 있다 / 서 있다 / 누워 있다"
+    },
+    {
+      "at": "forms[3].when",
+      "before": "앉다, 서다, 눕다 같은 '자세' 동사는 보통 -아/어 있다 형태로 쓰여 '앉아 있는 상태'를 표현함.",
+      "after": "Posture verbs such as 앉다, 서다 and 눕다 usually take -아/어 있다 to describe the posture someone is in (눕다 → 누워 있다, ㅂ irregular)."
+    },
+    {
+      "at": "level",
+      "before": "초중급 (A2–B1)",
+      "after": "Intermediate (low)"
+    },
+    {
+      "at": "title",
+      "before": "-고 있다 vs -아/어 있다 구분하기",
+      "after": "Telling -고 있다 and -아/어 있다 Apart"
     },
     {
       "at": "watchOut[1]",
       "before": "동작이 실제로 '진행' 중이면 -고 있다를 쓰고, 동작의 '결과로 남은 상태'이면 -아/어 있다를 쓰세요.",
-      "after": "동작이 실제로 '진행' 중이면 -고 있다를 쓰고, 동작의 '결과로 남은 상태'이면 -아/어 있다를 쓰세요. (창문이 열린 상태: '창문이 열고 있어요'가 아니라 '창문이 열려 있어요')"
+      "after": "Use -고 있다 when an action is actually in progress. Use -아/어 있다 when a state remains as the result of an action. If the window is already open: (X) 창문이 열리고 있어요 → (O) 창문이 열려 있어요"
     },
     {
       "at": "watchOut[2]",
       "before": "transitive 동사(예: 열다, 켜다)의 결과 상태는 보통 수동형/사동형 분사 형태(열려 있다, 켜져 있다)를 사용합니다. ('문이 열려 있다' 자연적, '문을 열어 있다'는 상황에 따라 어색할 수 있음)",
-      "after": "-아/어 있다는 타동사에 붙지 않습니다. 타동사(예: 열다, 켜다)의 결과 상태는 자동사·피동사(열리다, 켜지다)에 붙여 '열려 있다', '켜져 있다'로 말합니다. ('문이 열려 있다'가 맞고, '문을 열어 있다'는 틀린 문장입니다.)"
+      "after": "-아/어 있다 cannot be used with transitive verbs such as 열다 and 켜다. To describe the resulting state, use the passive (intransitive) verb: 열리다 → 열려 있다, 켜지다 → 켜져 있다. (X) 문을 열어 있다 → (O) 문이 열려 있다"
     },
     {
       "at": "watchOut[3]",
       "before": "자세 동사(앉다/서다/눕다)는 보통 -아/어 있다를 써서 상태를 말합니다. learners often wrongly say '앉고 있다' instead of '앉아 있다'.",
-      "after": "자세 동사(앉다/서다/눕다)는 보통 -아/어 있다를 써서 상태를 말합니다. 앉은 상태를 말할 때는 '앉고 있다'가 아니라 '앉아 있다'라고 해야 합니다. ('앉고 있다'는 앉는 동작이 진행 중일 때만 씁니다.) 단, 입다·신다·쓰다 같은 착용 동사는 -고 있다가 결과 상태를 나타냅니다(예: 옷을 입고 있어요)."
+      "after": "To describe the state of a posture (앉다/서다/눕다), use -아/어 있다. Learners often wrongly say 앉고 있다 when they mean 앉아 있다 ('is seated'). 앉고 있다 means 'is in the middle of sitting down.' (X) 앉고 있다 → (O) 앉아 있다"
     },
     {
       "at": "watchOut[4]",
       "before": "부정문에서는 '-아/어 있지 않다' 또는 '-고 있지 않다' 형태를 사용합니다. 의미(진행 vs 상태)에 따라 올바른 형태를 선택하세요.",
-      "after": "부정문에서는 '-아/어 있지 않다' 또는 '-고 있지 않다' 형태를 사용합니다. 의미(진행 vs 상태)에 따라 올바른 형태를 선택하세요. (불이 꺼진 상태: '불이 켜고 있지 않아요'가 아니라 '불이 켜져 있지 않아요')"
+      "after": "For negative sentences, use -고 있지 않다 (action in progress) or -아/어 있지 않다 (resulting state), depending on the meaning. Short negation with 안 is also possible (안 켜져 있어요). (X) 신문을 읽어 있지 않아요 → (O) 신문을 읽고 있지 않아요"
     },
     {
       "at": "watchOut[5]",
       "before": "의문문은 어미만 바꿔 만들 수 있습니다(예: '앉아 있어요?' / '앉아 있나요?').",
-      "after": "의문문은 어미만 바꿔 만들 수 있습니다(예: '앉아 있어요?' / '앉아 있나요?'). 앉은 상태를 물을 때도 '앉고 있어요?'가 아니라 '앉아 있어요?'라고 합니다."
+      "after": "To make a question, use rising intonation or change the ending (e.g., 앉아 있어요? / 앉아 있나요?). When asking about a posture state: (X) 의자에 앉고 있어요? → (O) 의자에 앉아 있어요?"
     },
     {
       "at": "watchOutMark[1][1]",
       "before": "",
-      "after": "열고 있어요"
+      "after": "창문이 열리고 있어요"
     },
     {
       "at": "watchOutMark[1][2]",
       "before": "",
-      "after": "열려 있어요"
+      "after": "창문이 열려 있어요"
     },
     {
       "at": "watchOutMark[4][1]",
       "before": "",
-      "after": "켜고 있지 않아요"
+      "after": "신문을 읽어 있지 않아요"
     },
     {
       "at": "watchOutMark[4][2]",
       "before": "",
-      "after": "켜져 있지 않아요"
+      "after": "신문을 읽고 있지 않아요"
     },
     {
       "at": "watchOutMark[5][1]",
       "before": "",
-      "after": "앉고 있어요?"
+      "after": "의자에 앉고 있어요?"
     },
     {
       "at": "watchOutMark[5][2]",
       "before": "",
-      "after": "앉아 있어요?"
+      "after": "의자에 앉아 있어요?"
     }
   ],
+  "shortened": [],
   "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
     "es": {
       "lang": "es",
-      "tries": 3,
-      "lost": [
-        "초중급",
-        "동작이 지금 진행되고 있을 때",
-        "행동의",
-        "진행",
-        "을 말할 때",
-        "어떤 동작의 결과로 지금 그 상태가 남아 있을 때",
-        "결과·존재 상태",
-        "자동사·피동사에만 붙음",
-        "자리·자세 동사",
-        "눕다 같은",
-        "자세",
-        "동사는 보통 -아/어 있다 형태로 쓰여",
-        "앉아 있는 상태",
-        "를 표현함",
-        "동작이 실제로",
-        "진행",
-        "중이면 -고 있다를 쓰고",
-        "동작의",
-        "결과로 남은 상태",
-        "이면 -아/어 있다를 쓰세요",
-        "창문이 열린 상태",
-        "가 아니라",
-        "아/어 있다는 타동사에 붙지 않습니다",
-        "타동사",
-        "예",
-        "의 결과 상태는 자동사·피동사",
-        "에 붙여",
-        "로 말합니다",
-        "가 맞고",
-        "는 틀린 문장입니다",
-        "자세 동사",
-        "는 보통 -아/어 있다를 써서 상태를 말합니다",
-        "앉은 상태를 말할 때는",
-        "가 아니라",
-        "라고 해야 합니다",
-        "는 앉는 동작이 진행 중일 때만 씁니다",
-        "단",
-        "입다·신다·쓰다 같은 착용 동사는 -고 있다가 결과 상태를 나타냅니다",
-        "예",
-        "부정문에서는",
-        "또는",
-        "형태를 사용합니다",
-        "의미",
-        "진행",
-        "상태",
-        "에 따라 올바른 형태를 선택하세요",
-        "불이 꺼진 상태",
-        "가 아니라",
-        "의문문은 어미만 바꿔 만들 수 있습니다",
-        "예",
-        "앉은 상태를 물을 때도",
-        "가 아니라",
-        "라고 합니다",
-        "아빠 / 신문을 읽다 / 긍정문",
-        "아빠가 지금 신문을 읽는 중임을 나타내는 문장을 만드세요",
-        "교실 문 / 열리다 / 긍정문",
-        "누가 문을 연 뒤에 문이 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "아이 / 소파에 앉다 / 의문문",
-        "아이가 지금 소파에 앉은 상태인지 물어보는 문장을 만드세요",
-        "방의 불 / 켜지다 / 부정문",
-        "방의 불이 켜진 상태가 아님을 나타내는 부정문을 만드세요",
-        "책 / 책상 위에 놓이다 / 긍정문",
-        "누가 책을 책상 위에 놓은 뒤 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "동생 / 숙제를 하다 / 부정문",
-        "동생이 지금 숙제를 하는 중이 아님을 나타내는 부정문을 만드세요",
-        "친구 / 전화하다 / 의문문",
-        "친구가 지금 전화하는 중인지 물어보는 문장을 만드세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
     "pt-BR": {
       "lang": "pt-BR",
-      "tries": 3,
-      "lost": [
-        "동작이 지금 진행되고 있을 때",
-        "행동의",
-        "진행",
-        "을 말할 때",
-        "어떤 동작의 결과로 지금 그 상태가 남아 있을 때",
-        "결과·존재 상태",
-        "자동사·피동사에만 붙음",
-        "자리·자세 동사",
-        "눕다 같은",
-        "자세",
-        "동사는 보통 -아/어 있다 형태로 쓰여",
-        "를 표현함",
-        "자세 동사",
-        "는 보통 -아/어 있다를 써서 상태를 말합니다",
-        "앉은 상태를 말할 때는",
-        "가 아니라",
-        "라고 해야 합니다",
-        "는 앉는 동작이 진행 중일 때만 씁니다",
-        "단",
-        "입다·신다·쓰다 같은 착용 동사는 -고 있다가 결과 상태를 나타냅니다",
-        "예",
-        "부정문에서는",
-        "또는",
-        "형태를 사용합니다",
-        "의미",
-        "진행",
-        "상태",
-        "에 따라 올바른 형태를 선택하세요",
-        "불이 꺼진 상태",
-        "가 아니라",
-        "의문문은 어미만 바꿔 만들 수 있습니다",
-        "예",
-        "앉은 상태를 물을 때도",
-        "가 아니라",
-        "라고 합니다",
-        "아빠 / 신문을 읽다 / 긍정문",
-        "아빠가 지금 신문을 읽는 중임을 나타내는 문장을 만드세요",
-        "교실 문 / 열리다 / 긍정문",
-        "누가 문을 연 뒤에 문이 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "아이 / 소파에 앉다 / 의문문",
-        "아이가 지금 소파에 앉은 상태인지 물어보는 문장을 만드세요",
-        "방의 불 / 켜지다 / 부정문",
-        "방의 불이 켜진 상태가 아님을 나타내는 부정문을 만드세요",
-        "책 / 책상 위에 놓이다 / 긍정문",
-        "누가 책을 책상 위에 놓은 뒤 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "동생 / 숙제를 하다 / 부정문",
-        "동생이 지금 숙제를 하는 중이 아님을 나타내는 부정문을 만드세요",
-        "친구 / 전화하다 / 의문문",
-        "친구가 지금 전화하는 중인지 물어보는 문장을 만드세요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 9,
+          "problem": "'radicais terminados em ㅏ/ㅗ' says the stem must end in the vowel ㅏ/ㅗ. The rule is about the vowel of the stem's last syllable, which can end in a consonant. As written, it contradicts the example 앉다 → 앉아 있다.",
+          "fix": "Use essa forma quando o resultado de uma ação já concluída continua como um estado no presente. É usada com verbos intransitivos ou na voz passiva, não com verbos transitivos: use -아 있다 depois de radicais cuja última vogal é ㅏ/ㅗ e -어 있다 nos demais casos (열리다 → 열려 있다, 앉다 → 앉아 있다)."
+        }
+      ]
     },
-    "vi": {
-      "lang": "vi",
-      "tries": 3,
-      "lost": [
-        "초중급",
-        "동작이 지금 진행되고 있을 때",
-        "행동의",
-        "을 말할 때",
-        "어떤 동작의 결과로 지금 그 상태가 남아 있을 때",
-        "결과·존재 상태",
-        "자동사·피동사에만 붙음",
-        "자리·자세 동사",
-        "눕다 같은",
-        "동사는 보통 -아/어 있다 형태로 쓰여",
-        "를 표현함",
-        "자세 동사",
-        "는 보통 -아/어 있다를 써서 상태를 말합니다",
-        "앉은 상태를 말할 때는",
-        "가 아니라",
-        "라고 해야 합니다",
-        "는 앉는 동작이 진행 중일 때만 씁니다",
-        "단",
-        "입다·신다·쓰다 같은 착용 동사는 -고 있다가 결과 상태를 나타냅니다",
-        "예",
-        "부정문에서는",
-        "또는",
-        "형태를 사용합니다",
-        "의미",
-        "진행",
-        "상태",
-        "에 따라 올바른 형태를 선택하세요",
-        "불이 꺼진 상태",
-        "가 아니라",
-        "의문문은 어미만 바꿔 만들 수 있습니다",
-        "예",
-        "앉은 상태를 물을 때도",
-        "가 아니라",
-        "라고 합니다",
-        "아빠가 지금 신문을 읽는 중임을 나타내는 문장을 만드세요",
-        "누가 문을 연 뒤에 문이 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "아이가 지금 소파에 앉은 상태인지 물어보는 문장을 만드세요",
-        "방의 불이 켜진 상태가 아님을 나타내는 부정문을 만드세요",
-        "누가 책을 책상 위에 놓은 뒤 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "동생이 지금 숙제를 하는 중이 아님을 나타내는 부정문을 만드세요",
-        "친구가 지금 전화하는 중인지 물어보는 문장을 만드세요"
-      ],
-      "fixes": [],
-      "failed": true
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"初级\" means the beginner level, so \"中级(初级)\" reads as \"Intermediate (beginner)\", which contradicts itself and gets the level wrong. The English means the lower part of intermediate.",
+          "fix": "中级(低)"
+        }
+      ]
     },
     "ko": {
       "lang": "ko",
@@ -386,156 +262,23 @@
       "lost": [],
       "fixes": []
     },
-    "id": {
-      "lang": "id",
-      "tries": 3,
-      "lost": [
-        "초중급",
-        "행동의",
-        "을 말할 때",
-        "결과·존재 상태",
-        "자동사·피동사에만 붙음",
-        "자리·자세 동사",
-        "눕다 같은",
-        "자세",
-        "동사는 보통 -아/어 있다 형태로 쓰여",
-        "앉아 있는 상태",
-        "를 표현함",
-        "중이면 -고 있다를 쓰고",
-        "동작의",
-        "이면 -아/어 있다를 쓰세요",
-        "가 아니라",
-        "아/어 있다는 타동사에 붙지 않습니다",
-        "의 결과 상태는 자동사·피동사",
-        "에 붙여",
-        "로 말합니다",
-        "자세 동사",
-        "는 보통 -아/어 있다를 써서 상태를 말합니다",
-        "앉은 상태를 말할 때는",
-        "가 아니라",
-        "라고 해야 합니다",
-        "는 앉는 동작이 진행 중일 때만 씁니다",
-        "단",
-        "입다·신다·쓰다 같은 착용 동사는 -고 있다가 결과 상태를 나타냅니다",
-        "부정문에서는",
-        "또는",
-        "형태를 사용합니다",
-        "의미",
-        "진행",
-        "에 따라 올바른 형태를 선택하세요",
-        "가 아니라",
-        "의문문은 어미만 바꿔 만들 수 있습니다",
-        "앉은 상태를 물을 때도",
-        "가 아니라",
-        "라고 합니다",
-        "아빠 / 신문을 읽다 / 긍정문",
-        "아빠가 지금 신문을 읽는 중임을 나타내는 문장을 만드세요",
-        "교실 문 / 열리다 / 긍정문",
-        "누가 문을 연 뒤에 문이 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "아이 / 소파에 앉다 / 의문문",
-        "아이가 지금 소파에 앉은 상태인지 물어보는 문장을 만드세요",
-        "방의 불 / 켜지다 / 부정문",
-        "방의 불이 켜진 상태가 아님을 나타내는 부정문을 만드세요",
-        "책 / 책상 위에 놓이다 / 긍정문",
-        "누가 책을 책상 위에 놓은 뒤 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "동생 / 숙제를 하다 / 부정문",
-        "동생이 지금 숙제를 하는 중이 아님을 나타내는 부정문을 만드세요",
-        "친구 / 전화하다 / 의문문",
-        "친구가 지금 전화하는 중인지 물어보는 문장을 만드세요"
-      ],
-      "fixes": [],
-      "failed": true
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     },
-    "zh": {
-      "lang": "zh",
-      "tries": 2,
+    "de": {
+      "lang": "de",
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
     "ja": {
       "lang": "ja",
       "tries": 3,
-      "lost": [
-        "초중급",
-        "동작이 지금 진행되고 있을 때",
-        "행동의",
-        "진행",
-        "을 말할 때",
-        "어떤 동작의 결과로 지금 그 상태가 남아 있을 때",
-        "결과·존재 상태",
-        "자동사·피동사에만 붙음",
-        "눕다 같은",
-        "동사는 보통 -아/어 있다 형태로 쓰여",
-        "를 표현함",
-        "아빠가 지금 신문을 읽는 중임을 나타내는 문장을 만드세요",
-        "누가 문을 연 뒤에 문이 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "아이가 지금 소파에 앉은 상태인지 물어보는 문장을 만드세요",
-        "방의 불이 켜진 상태가 아님을 나타내는 부정문을 만드세요",
-        "누가 책을 책상 위에 놓은 뒤 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "동생이 지금 숙제를 하는 중이 아님을 나타내는 부정문을 만드세요",
-        "친구가 지금 전화하는 중인지 물어보는 문장을 만드세요"
-      ],
-      "fixes": [],
-      "failed": true
-    },
-    "fr": {
-      "lang": "fr",
-      "tries": 3,
       "lost": [],
       "fixes": []
-    },
-    "de": {
-      "lang": "de",
-      "tries": 3,
-      "lost": [
-        "초중급",
-        "동작이 지금 진행되고 있을 때",
-        "행동의",
-        "진행",
-        "을 말할 때",
-        "어떤 동작의 결과로 지금 그 상태가 남아 있을 때",
-        "결과·존재 상태",
-        "자동사·피동사에만 붙음",
-        "자리·자세 동사",
-        "눕다 같은",
-        "자세",
-        "동사는 보통 -아/어 있다 형태로 쓰여",
-        "를 표현함",
-        "자세 동사",
-        "는 보통 -아/어 있다를 써서 상태를 말합니다",
-        "앉은 상태를 말할 때는",
-        "가 아니라",
-        "라고 해야 합니다",
-        "는 앉는 동작이 진행 중일 때만 씁니다",
-        "단",
-        "입다·신다·쓰다 같은 착용 동사는 -고 있다가 결과 상태를 나타냅니다",
-        "부정문에서는",
-        "또는",
-        "형태를 사용합니다",
-        "의미",
-        "진행",
-        "에 따라 올바른 형태를 선택하세요",
-        "의문문은 어미만 바꿔 만들 수 있습니다",
-        "앉은 상태를 물을 때도",
-        "가 아니라",
-        "라고 합니다",
-        "아빠 / 신문을 읽다 / 긍정문",
-        "아빠가 지금 신문을 읽는 중임을 나타내는 문장을 만드세요",
-        "교실 문 / 열리다 / 긍정문",
-        "누가 문을 연 뒤에 문이 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "아이 / 소파에 앉다 / 의문문",
-        "아이가 지금 소파에 앉은 상태인지 물어보는 문장을 만드세요",
-        "방의 불 / 켜지다 / 부정문",
-        "방의 불이 켜진 상태가 아님을 나타내는 부정문을 만드세요",
-        "책 / 책상 위에 놓이다 / 긍정문",
-        "누가 책을 책상 위에 놓은 뒤 지금도 그대로인 상태를 나타내는 문장을 만드세요",
-        "동생 / 숙제를 하다 / 부정문",
-        "동생이 지금 숙제를 하는 중이 아님을 나타내는 부정문을 만드세요",
-        "친구 / 전화하다 / 의문문",
-        "친구가 지금 전화하는 중인지 물어보는 문장을 만드세요"
-      ],
-      "fixes": [],
-      "failed": true
     }
   },
   "pages": {
@@ -544,22 +287,12 @@
       "ok": true,
       "why": []
     },
-    "es": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
-    "pt-BR": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
     "vi": {
       "pages": 2,
       "ok": true,
       "why": []
     },
-    "ko": {
+    "es": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -569,12 +302,17 @@
       "ok": true,
       "why": []
     },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
     "zh": {
       "pages": 2,
       "ok": true,
       "why": []
     },
-    "ja": {
+    "ko": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -588,7 +326,12 @@
       "pages": 2,
       "ok": true,
       "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
     }
   },
-  "preparedAt": "2026-09-25T09:44:20.591Z"
+  "preparedAt": "2026-09-25T13:50:50.505Z"
 }

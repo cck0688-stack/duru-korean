@@ -1,90 +1,73 @@
 {
   "title": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
-  "keyword": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
-  "summary": "Lies und unterscheide 12 sehr gebräuchliche Tasten/Bezeichnungen am koreanischen Bankautomaten und verstehe, was jede davon bewirkt. Baue Selbstvertrauen auf, um den gesamten Ablauf am Geldautomaten eigenständig zu bewältigen.",
-  "objective": "Am Ende können die Lernenden 12 häufige Tasten/Bezeichnungen am Geldautomaten auf Koreanisch korrekt lesen (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) und eigenständig dem grundlegenden Ablauf am Geldautomaten folgen (Karte einführen → Dienst auswählen → PIN eingeben → Betrag/Konto auswählen → Beleg-Option wählen → Bargeld/Karte entnehmen; die Reihenfolge der ersten Schritte kann je nach Automat variieren).",
-  "level": "초급 중 (A1+~A2-)",
+  "keyword": "",
+  "summary": "Lies und unterscheide 12 sehr häufige Beschriftungen/Tasten an koreanischen Bankautomaten (ATM) und verstehe, was jede davon bewirkt. Baue das Selbstvertrauen auf, einen kompletten ATM-Vorgang eigenständig durchzuführen.",
+  "objective": "Am Ende können die Lernenden 12 häufige ATM-Tasten/Beschriftungen auf Koreanisch korrekt lesen (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) und den grundlegenden ATM-Ablauf eigenständig befolgen (Karte einstecken → Dienst wählen, oder bei manchen Automaten zuerst Dienst wählen → PIN eingeben → Betrag/Konto wählen → Beleg-Option → Bargeld/Karte entnehmen).",
+  "level": "Anfänger",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "혼자 ATM에서 출금하기",
-    "line": "화면의 라벨을 읽고 출금부터 카드 수령까지 순서대로 말해 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "상황: 돈이 필요해서 ATM에서 5만 원을 받고 싶어요. 어떤 버튼을 누르나요?",
-    "화면에 '영수증이 필요하십니까? 예/아니오'가 나왔어요. 종이 영수증을 받고 싶어요. 무엇을 누르나요?",
-    "상황: 통장에 돈이 얼마 있는지 알고 싶어요. 어떤 버튼을 누르나요?",
-    "라벨과 영어 뜻을 짝지으세요: 통장정리 / 무통장 입금 / 언어 선택 / 처음으로 — Sprache wählen / zum Start gehen / Sparbuch aktualisieren / Bareinzahlung ohne Karte/Sparbuch",
-    "위 [출금] 예시 흐름의 순서대로 놓으세요: 금액 선택 / 카드 넣기 / 출금 / 비밀번호 입력",
-    "라벨 '취소'의 뜻을 고르세요: 지금 하던 거래를 그만둔다 / 첫 화면으로 돌아간다 / 입력을 마치고 진행한다",
-    "친구 계좌로 돈을 보내고 싶어요. 화면에서 찾아야 하는 라벨을 쓰세요.",
-    "빈칸에 알맞은 라벨을 쓰세요: 전기 요금을 내려면 [    ] 버튼을 누릅니다.",
-    "카드로 내 통장에 현금을 넣고 싶어요. 알맞은 버튼을 고르세요: 입금 / 출금 / 잔액조회",
-    "금액을 다 입력했어요. 다음 화면으로 가려면 무엇을 누르나요? 확인 / 취소 / 처음으로",
-    "라벨 '영수증 출력'은 무엇을 하는 버튼인가요? 알맞은 것을 고르세요: 종이 영수증을 받는다 / 통장에 거래 내역을 인쇄한다 / 첫 화면으로 돌아간다"
+    "Lies die Bildschirmmeldung und wähle 예 oder 아니요: 화면에 '영수증이 필요하십니까? 예/아니요'가 나왔어요. 종이 영수증이 필요 없어요. 무엇을 누르나요?",
+    "Schreibe zuerst die koreanische Beschriftung der Taste, die du drückst, und bringe dann die nächsten Schritte in die Reihenfolge, die im 이체-Ablauf dieses Arbeitsblatts gezeigt wird: 상황: 다른 사람 계좌로 돈을 보내야 해요. (확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력)",
+    "Bringe die Schritte von 출금 in die Reihenfolge, die in diesem Arbeitsblatt gezeigt wird: 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인",
+    "Ordne jede Situation der passenden koreanischen Tastenbeschriftung zu: (a) 고지서로 전기요금을 내고 싶어요. (b) 카드로 내 계좌에 현금을 넣고 싶어요. (c) 카드나 통장 없이 계좌번호로 돈을 넣고 싶어요. (d) 통장에 그동안의 거래 내역을 찍고 싶어요. (e) 현금을 뽑고 싶어요. (f) 계좌에 남은 돈을 확인하고 싶어요.",
+    "Welche Taste drückst du? Antworte mit der koreanischen Beschriftung: (a) 거래가 끝난 후에 메뉴에서 종이 영수증을 뽑고 싶어요. (b) 화면에 '금액을 선택하세요.'가 나와서 금액을 골랐어요. 다음으로 가고 싶어요. (c) 거래를 그만하고 싶어요. (d) 첫 화면으로 돌아가고 싶어요.",
+    "Schreibe die koreanische Beschriftung für diese Umschrift: eoneo seontaek"
   ],
   "answers": [
-    "출금 또는 현금인출 (둘 다 정답)",
-    "예",
-    "잔액조회",
-    "통장정리 – update passbook / 무통장 입금 – cash deposit without card/passbook / 언어 선택 – choose language / 처음으로 – go to start",
-    "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택",
-    "지금 하던 거래를 그만둔다",
-    "이체 또는 계좌이체 (둘 다 정답)",
-    "공과금 납부 또는 지로 (둘 다 정답)",
-    "입금",
-    "확인",
-    "종이 영수증을 받는다"
+    "아니요",
+    "이체(계좌이체); 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인",
+    "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인",
+    "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회",
+    "(a) 영수증 출력 (b) 확인 (c) 취소 (d) 처음으로(초기화면)",
+    "언어 선택"
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "12개 버튼: 라벨 읽기(로마자)와 쓰임",
+      "heading": "12 Tasten: die Beschriftungen lesen (Umschrift) und was sie bewirken",
       "paragraphs": [
-        "출금[현금인출] (chulgeum [hyeongeum inchul]): 현금을 뽑을 때 누릅니다. (Bargeld abheben)",
-        "입금 (ipgeum): 은행 계좌에 돈을 넣을 때 누릅니다. (einzahlen)",
-        "이체[계좌이체] (iche [gyejwa iche]): 다른 계좌로 돈을 보낼 때 누릅니다. (überweisen)",
-        "잔액조회 (janaek johoe): 계좌에 남은 돈을 확인할 때 누릅니다. (Kontostand prüfen)",
-        "통장정리 (tongjang jeongni): 통장에 거래 내역을 인쇄합니다. (Sparbuch aktualisieren)",
-        "무통장 입금 (mutongjang ipgeum): 통장·카드 없이 계좌번호로 입금합니다. (Bareinzahlung ohne Karte/Sparbuch)",
-        "공과금 납부[지로] (gonggwageum napbu [jiro]): 전기·수도 등 요금을 냅니다. (Rechnungen bezahlen)",
-        "영수증 출력 (yeongsujeung chullyeok): 종이 영수증을 받습니다. (Beleg drucken)",
-        "언어 선택 (eoneo seontaek): 한국어/영어 등 언어를 고릅니다. (Sprache wählen)",
-        "확인 (hwagin): 입력을 마치고 진행합니다. (bestätigen)",
-        "취소 (chwiso): 하던 일을 멈추고 거래를 그만둡니다. (Transaktion abbrechen)",
-        "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): 첫 화면으로 돌아갑니다. (zum Startbildschirm zurückkehren)"
+        "출금[현금인출] (chulgeum [hyeongeum inchul]): Drücken, um Bargeld abzuheben.",
+        "입금 (ipgeum): Drücken, um Geld auf ein Bankkonto einzuzahlen (Einzahlung).",
+        "이체[계좌이체] (iche [gyejwa iche]): Drücken, um Geld auf ein anderes Konto zu senden (Überweisung).",
+        "잔액조회 (janaek johoe): Drücken, um zu prüfen, wie viel Geld noch auf dem Konto ist (Kontostand prüfen).",
+        "통장정리 (tongjang jeongni): Druckt den Transaktionsverlauf in dein Sparbuch (Sparbuch aktualisieren).",
+        "무통장 입금 (mutongjang ipgeum): Zahlt Bargeld ohne Karte oder Sparbuch auf eine Kontonummer ein.",
+        "공과금 납부[지로] (gonggwageum napbu [jiro]): Bezahlt Rechnungen wie Strom und Wasser.",
+        "영수증 출력 (yeongsujeung chullyeok): Gibt dir einen Papierbeleg (Beleg drucken).",
+        "언어 선택 (eoneo seontaek): Wählt die Sprache aus, zum Beispiel Koreanisch oder Englisch.",
+        "확인 (hwagin): Schließt deine Eingabe ab und geht weiter (bestätigen).",
+        "취소 (chwiso): Bricht die aktuelle Transaktion ab (abbrechen).",
+        "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): Kehrt zum ersten Bildschirm zurück (zum Start/Startbildschirm)."
       ]
     },
     {
-      "heading": "기본 흐름 따라가기",
+      "heading": "Dem grundlegenden Ablauf folgen",
       "paragraphs": [
-        "카드 넣기(또는 계좌번호 입력/현금 투입) → 서비스 선택 → 비밀번호 입력 → 금액/계좌 선택 → 영수증 선택 → 현금·카드 수령 (기기마다 순서가 다를 수 있습니다. 서비스를 먼저 고르고 카드를 넣는 기기도 많습니다.)",
+        "Bei manchen Automaten wählst du zuerst den Dienst und steckst danach deine Karte ein.",
         "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
-        "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기",
-        "무통장 입금: 무통장 입금 → 받는 계좌 입력 → 금액 입력 또는 현금 투입 → 확인 → 영수증 선택"
+        "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기"
       ]
     },
     {
-      "heading": "화면에서 자주 보이는 안내 문구",
+      "heading": "Häufige Bildschirmmeldungen",
       "paragraphs": [
-        "금액을 선택하세요.",
-        "계좌를 선택하세요.",
-        "영수증이 필요하십니까? 예/아니오",
-        "비밀번호를 입력하세요.",
-        "처음으로 돌아가시겠습니까? 예/아니오",
-        "다시 입력하세요."
+        "금액을 선택하세요. (Bitte wähle den Betrag.)",
+        "영수증이 필요하십니까? 예/아니요 (Benötigen Sie einen Beleg? Ja/Nein)"
       ]
     },
     {
-      "heading": "읽기 팁과 용어 메모",
+      "heading": "Lesetipps und Begriffserklärungen",
       "paragraphs": [
-        "대괄호 […]는 같은 뜻의 다른 라벨입니다. 둘 중 하나만 보여도 같은 기능입니다.",
-        "확인, 취소, 처음으로는 거의 모든 화면에 나옵니다. 위치는 은행마다 다르니 글자를 꼭 읽으세요.",
-        "통장정리는 통장에 그동안의 거래 내역을 자동으로 인쇄하는 기능입니다.",
-        "지로(공과금 납부)는 전기·수도 등 각종 요금을 내는 메뉴입니다."
+        "Eckige Klammern […] zeigen eine andere Beschriftung mit derselben Bedeutung. Wenn du eine der beiden siehst, ist es dieselbe Funktion.",
+        "확인, 취소 und 처음으로 erscheinen auf fast jedem Bildschirm. Ihre Position unterscheidet sich je nach Bank, also lies immer den Text."
       ]
     }
   ],
-  "note": "이 학습지는 실제 ATM의 버튼 문구를 중심으로 구성했습니다. 은행·기기마다 화면 구성은 조금씩 다를 수 있습니다.",
+  "note": "Dieses Arbeitsblatt basiert auf den Tastenbeschriftungen echter Geldautomaten. Die Bildschirmanordnung kann je nach Bank und Gerät leicht abweichen.",
   "category": "etc"
 }

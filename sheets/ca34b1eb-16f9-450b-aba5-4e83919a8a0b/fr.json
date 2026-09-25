@@ -9,43 +9,46 @@
   ],
   "checkThese": [],
   "exercises": [
-    "Tenez un mouchoir devant votre bouche et dites 불, 풀 et 뿔. Quel mot devrait faire bouger le mouchoir le plus ? Écrivez ce mot.",
-    "Écrivez la romanisation révisée de chaque mot : 발, 팔, 뿔.",
-    "Vous êtes dans une boulangerie et vous voulez du pain. Quel mot dites-vous : 방 ou 빵 ?",
+    "Tiens un mouchoir devant ta bouche et dis 불, 풀 et 뿔. Quel mot devrait faire bouger le mouchoir le plus ? Écris ce mot.",
+    "Écris la romanisation révisée de chaque mot : 발, 팔, 뿔.",
+    "Tu es à la boulangerie et tu veux du pain. Quel mot dis-tu : 방 ou 빵 ?",
     "Quel mot signifie « bras » : 발 ou 팔 ?",
     "Quelle phrase signifie « Il pleut. » : 비가 와요 ou 피가 와요 ?",
-    "Classez ces mots selon leur première lettre (ㅂ, ㅍ ou ㅃ) : 풀, 방, 뿔, 팔, 발, 빵."
+    "Classe ces mots selon leur première lettre (ㅂ, ㅍ ou ㅃ) : 풀, 방, 뿔, 팔, 발, 빵."
   ],
-  "keyword": "hangul",
+  "keyword": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "letters": [
     {
       "letter": "ㅂ",
-      "sound": "b/p simple : doux, avec juste un peu d'air",
-      "as": "Proche du p de « spin » en anglais (peu d'air). Souvent perçu comme un b doux."
+      "sound": "b/p simple : doux, avec un léger souffle d'air",
+      "as": "Entre le b anglais et le p de « pin » : un léger souffle d'air, plus doux que ㅍ. Souvent perçu comme un b doux."
     },
     {
       "letter": "ㅍ",
-      "sound": "p aspiré : forte bouffée d'air",
-      "as": "Proche du p de « pin » en anglais (forte bouffée d'air)."
+      "sound": "p aspiré : souffle d'air fort",
+      "as": "Proche du p de « pin » (souffle d'air fort)."
     },
     {
       "letter": "ㅃ",
-      "sound": "pp tendu : lèvres serrées, gorge tendue, aucune bouffée d'air",
-      "as": "Aucun équivalent exact en anglais. Comme le p de « spin », mais prononcé plus fort et plus serré, sans air."
+      "sound": "pp tendu : lèvres serrées, gorge tendue, sans souffle d'air",
+      "as": "Aucun équivalent exact en anglais. Comme le p de « spin », mais prononcé plus fort et plus serré, sans souffle d'air."
     }
   ],
   "level": "Débutant",
   "minutes": 15,
-  "objective": "Distinguez et prononcez les consonnes ㅂ, ㅍ et ㅃ en début de mot. Choisissez le bon mot parmi des paires minimales comme 불/풀/뿔, 발/팔 et 방/빵.",
-  "summary": "Cette fiche porte sur les trois consonnes coréennes « p/b » en début de mot : la consonne simple ㅂ, la consonne aspirée ㅍ et la consonne tendue ㅃ. Chaque lettre est accompagnée d'un repère en anglais et d'une série de mots simples. Vous apprendrez à distinguer ces lettres à l'aide de paires minimales comme 불/풀/뿔, 발/팔 et 방/빵. Les exercices comprennent un test au mouchoir, de la lecture, un classement et un choix du bon mot.",
+  "objective": "Distingue et prononce les ㅂ, ㅍ et ㅃ en début de mot. Choisis le bon mot parmi des paires minimales comme 불/풀/뿔, 발/팔 et 방/빵.",
+  "summary": "Cette fiche porte sur les trois consonnes coréennes « p/b » en début de mot : le ㅂ simple, le ㅍ aspiré et le ㅃ tendu. Chaque lettre est accompagnée d'un repère en anglais et d'une série de mots simples. Tu apprends à distinguer ces lettres à l'aide de paires minimales comme 불/풀/뿔, 발/팔 et 방/빵. Les exercices comprennent un test au mouchoir, de la lecture, du classement et le choix du bon mot.",
   "tags": [],
-  "task": null,
+  "task": {
+    "title": "",
+    "line": ""
+  },
   "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "words": [
     {
       "korean": "불",
       "roman": "bul",
-      "meaning": "lumière (une lampe ou l'éclairage d'une pièce)",
+      "meaning": "lumière (une lampe ou la lumière d'une pièce)",
       "example": "불 좀 꺼 주세요.",
       "exampleMeaning": "Éteins la lumière, s'il te plaît."
     },
@@ -54,7 +57,7 @@
       "roman": "pul",
       "meaning": "colle",
       "example": "풀 좀 빌려 주세요.",
-      "exampleMeaning": "Pourrais-je emprunter de la colle ?"
+      "exampleMeaning": "Est-ce que je peux emprunter de la colle ?"
     },
     {
       "korean": "뿔",
@@ -80,7 +83,7 @@
     {
       "korean": "방",
       "roman": "bang",
-      "meaning": "chambre",
+      "meaning": "pièce",
       "example": "제 방은 작아요.",
       "exampleMeaning": "Ma chambre est petite."
     },

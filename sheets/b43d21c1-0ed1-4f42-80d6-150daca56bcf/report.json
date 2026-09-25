@@ -1,0 +1,650 @@
+{
+  "id": "b43d21c1-0ed1-4f42-80d6-150daca56bcf",
+  "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "category": "reallife",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Dialogue line 3, word '핫' and exercise 4: The worksheet teaches only '핫' for hot drinks. At Korean cafés, staff usually say '따뜻한 걸로 드릴까요, 아이스로 드릴까요?' and customers say '따뜻한 아메리카노 주세요.' In a real-life lesson, a learner who knows only '핫' may not understand the staff. Fix: add '따뜻하다 / 따뜻한 (hot, warm)' to the word list; change dialogue line 3 to '따뜻한 걸로 드릴까요, 아이스로 드릴까요?' or add it as an alternative line; accept both '핫' and '따뜻한' as the answer to exercise 4.",
+        "Exercise 3: This is a free fill-in-the-blank with no choices, but only '매장이요.' is listed as the answer. '매장에서 마실게요.', '여기서 마실게요.' and '먹고 갈게요.' are also natural and correct; the word list's own example is '매장에서 먹고 갈게요.' Fix: give choices as in exercises 1 and 2 (for example, '매장이요 / 포장이요'), or list these other answers as correct too."
+      ],
+      "audit": [
+        "exercises[0]: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님은 아이스를 원합니다. 가장 자연스러운 대답을 고르세요. (핫으로요 / 아이스로요) → The customer wants an iced drink. Choose the most natural answer: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
+        "exercises[1]: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님은 레귤러를 원합니다. 손님: (레귤러요 / 라지요) → The customer wants a regular size. Choose the correct answer: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: (레귤러요 / 라지요)",
+        "exercises[2]: 직원: 매장이세요, 포장이세요? 손님은 여기에서 마십니다. 손님: ______. → The customer will drink it here. Complete the customer's answer: 직원: 매장이세요, 포장이세요? 손님: ______",
+        "exercises[3]: 빈칸을 채우세요: _____ 아메리카노 한 잔 주세요. (hot) → Fill in the blank (hot): _____ 아메리카노 한 잔 주세요.",
+        "exercises[4]: 문장을 보고 반대로 바꾸세요: 핫 라떼 주세요. → _______ → Change the sentence to order the opposite (iced instead of hot): 핫 라떼 주세요. → _______"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "words '따뜻하다 / 따뜻한' roman: 'ttatteuthada / ttatteuthan' is incorrect. The ㅅ+ㅎ at 따뜻하 is pronounced ㅌ ([따뜨타다], [따뜨탄]), so Revised Romanization should be 'ttatteutada / ttatteutan'.",
+        "Exercises 1 and 2 use the identical frame (staff 'A or B?' → pick one of two) and the English instruction gives away the answer each time ('wants an iced drink' → 아이스로요, 'wants a regular size' → 레귤러요). This is just matching an English word to its loanword and doesn't practice a new expression or ending. Rewrite at least one: e.g., make the learner produce the answer with ~로 주세요 (라지로 주세요), or have them understand '따뜻한 걸로 드릴까요?' and answer without an English hint."
+      ],
+      "audit": [
+        "words, 4th item (따뜻하다 / 따뜻한), roman: ttatteuthada / ttatteuthan → ttatteutada / ttatteutan"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Exercises 1, 4 and 5 all practise only hot/iced (핫/아이스), and 4 and 5 repeat the same '___ 아메리카노/라떼 주세요' pattern. Size (regular/large) gets only exercise 2, and for here/to go gets only exercise 3, which is the 'for here' answer. No exercise uses 포장 (to go), even though the objective, the words list and the dialogue cover it. Fix: change exercise 4 or 5 to a to-go question, e.g. 'The customer will take it out. 직원: 매장이세요, 포장이세요? 손님: ______', with the answer '포장이요. / 포장해 주세요. / 가져갈게요.', and update the matching answer.",
+        "task.title and task.line are both empty strings, so the worksheet would ship with a blank task section and no final speaking task. Fix: fill it in (e.g. title '카페에서 주문해 보기', line 'Order one drink, choosing temperature, size, and for here/to go — e.g. 따뜻한 라떼 라지로 한 잔 주세요. 포장이요.') or remove the section."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "Exercises 3 and 5 are too repetitive. Both use the exact same staff question (직원: 매장이세요, 포장이세요? 손님: ______), and only the English hint changes (here vs. take out). Exercise 5's answer, 포장이요, is also copied word for word from the last dialogue line. This means the worksheet practises the same frame twice and teaches very little new. Fix: rewrite Exercise 5 with a different frame. Option 1: combine several items in one order (e.g. 'Order an iced latte in large, to go, in one sentence' → 아이스 라떼 라지로 한 잔 주세요. 포장이요.). Option 2: have the customer say it first, before the staff asks (e.g. 이거 가져갈 거예요. / 포장해 주세요.)."
+      ],
+      "audit": []
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[2]",
+      "before": "레귤러요.",
+      "after": "라지로 주세요."
+    },
+    {
+      "at": "answers[3]",
+      "before": "매장이요.",
+      "after": "매장이요. / 매장에서 마실게요. / 여기서 마실게요. / 먹고 갈게요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "핫",
+      "after": "핫 / 따뜻한"
+    },
+    {
+      "at": "answers[5]",
+      "before": "아이스 라떼 주세요.",
+      "after": "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
+    },
+    {
+      "at": "dialogue[3].korean",
+      "before": "핫으로 드릴까요, 아이스로 드릴까요?",
+      "after": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님은 아이스를 원합니다. 가장 자연스러운 대답을 고르세요. (핫으로요 / 아이스로요)",
+      "after": "The customer wants an iced drink. Choose the most natural answer: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님은 레귤러를 원합니다. 손님: (레귤러요 / 라지요)",
+      "after": "The customer wants the bigger size. Answer with ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "직원: 매장이세요, 포장이세요? 손님은 여기에서 마십니다. 손님: ______.",
+      "after": "The customer will drink it here. Complete the customer's answer: 직원: 매장이세요, 포장이세요? 손님: ______"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "빈칸을 채우세요: _____ 아메리카노 한 잔 주세요. (hot)",
+      "after": "Fill in the blank (hot): _____ 아메리카노 한 잔 주세요."
+    },
+    {
+      "at": "exercises[5]",
+      "before": "문장을 보고 반대로 바꾸세요: 핫 라떼 주세요. → _______",
+      "after": "Before the staff asks anything, order an iced latte in large, to go, all at once: 직원: 어서 오세요. 손님: ______"
+    },
+    {
+      "at": "level",
+      "before": "Beginner (A1–A2)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "카페에서 주문해 보기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "Order one drink, choosing temperature, size, and for here/to go — e.g. 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+    },
+    {
+      "at": "words[1].korean",
+      "before": "주문하다",
+      "after": "아이스"
+    },
+    {
+      "at": "words[1].roman",
+      "before": "jumunhada",
+      "after": "aiseu"
+    },
+    {
+      "at": "words[1].meaning",
+      "before": "to order (at a store/cafe)",
+      "after": "iced (cold drink)"
+    },
+    {
+      "at": "words[1].example",
+      "before": "지금 주문할게요.",
+      "after": "아이스 아메리카노요."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "I’ll order now.",
+      "after": "Iced Americano, please."
+    },
+    {
+      "at": "words[2].korean",
+      "before": "아이스",
+      "after": "핫"
+    },
+    {
+      "at": "words[2].roman",
+      "before": "aiseu",
+      "after": "hat"
+    },
+    {
+      "at": "words[2].meaning",
+      "before": "iced (cold drink)",
+      "after": "hot (hot drink)"
+    },
+    {
+      "at": "words[2].example",
+      "before": "아이스 아메리카노요.",
+      "after": "핫 라떼로 할게요."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "Iced Americano, please.",
+      "after": "I’ll have a hot latte."
+    },
+    {
+      "at": "words[3].korean",
+      "before": "핫",
+      "after": "따뜻하다 / 따뜻한"
+    },
+    {
+      "at": "words[3].roman",
+      "before": "hat",
+      "after": "ttatteutada / ttatteutan"
+    },
+    {
+      "at": "words[3].meaning",
+      "before": "hot (hot drink)",
+      "after": "hot, warm (hot drink)"
+    },
+    {
+      "at": "words[3].example",
+      "before": "핫 라떼로 할게요.",
+      "after": "따뜻한 아메리카노 주세요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "I’ll have a hot latte.",
+      "after": "A hot Americano, please."
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "words[1].korean",
+          "before": "주문하다",
+          "after": "아이스"
+        },
+        {
+          "at": "words[1].roman",
+          "before": "jumunhada",
+          "after": "aiseu"
+        },
+        {
+          "at": "words[1].meaning",
+          "before": "to order (at a store/cafe)",
+          "after": "iced (cold drink)"
+        },
+        {
+          "at": "words[1].example",
+          "before": "지금 주문할게요.",
+          "after": "아이스 아메리카노요."
+        },
+        {
+          "at": "words[1].exampleMeaning",
+          "before": "I’ll order now.",
+          "after": "Iced Americano, please."
+        },
+        {
+          "at": "words[2].korean",
+          "before": "아이스",
+          "after": "핫"
+        },
+        {
+          "at": "words[2].roman",
+          "before": "aiseu",
+          "after": "hat"
+        },
+        {
+          "at": "words[2].meaning",
+          "before": "iced (cold drink)",
+          "after": "hot (hot drink)"
+        },
+        {
+          "at": "words[2].example",
+          "before": "아이스 아메리카노요.",
+          "after": "핫 라떼로 할게요."
+        },
+        {
+          "at": "words[2].exampleMeaning",
+          "before": "Iced Americano, please.",
+          "after": "I’ll have a hot latte."
+        },
+        {
+          "at": "words[3].korean",
+          "before": "핫",
+          "after": "따뜻하다 / 따뜻한"
+        },
+        {
+          "at": "words[3].roman",
+          "before": "hat",
+          "after": "ttatteutada / ttatteutan"
+        },
+        {
+          "at": "words[3].meaning",
+          "before": "hot (hot drink)",
+          "after": "hot, warm (hot drink)"
+        },
+        {
+          "at": "words[3].example",
+          "before": "핫 라떼로 할게요.",
+          "after": "따뜻한 아메리카노 주세요."
+        },
+        {
+          "at": "words[3].exampleMeaning",
+          "before": "I’ll have a hot latte.",
+          "after": "A hot Americano, please."
+        },
+        {
+          "at": "words[4].korean",
+          "before": "따뜻하다 / 따뜻한",
+          "after": "사이즈"
+        },
+        {
+          "at": "words[4].roman",
+          "before": "ttatteutada / ttatteutan",
+          "after": "saijeu"
+        },
+        {
+          "at": "words[4].meaning",
+          "before": "hot, warm (hot drink)",
+          "after": "size (drink size)"
+        },
+        {
+          "at": "words[4].example",
+          "before": "따뜻한 아메리카노 주세요.",
+          "after": "사이즈는 어떻게 하세요?"
+        },
+        {
+          "at": "words[4].exampleMeaning",
+          "before": "A hot Americano, please.",
+          "after": "What size would you like?"
+        },
+        {
+          "at": "words[5].korean",
+          "before": "사이즈",
+          "after": "매장"
+        },
+        {
+          "at": "words[5].roman",
+          "before": "saijeu",
+          "after": "maejang"
+        },
+        {
+          "at": "words[5].meaning",
+          "before": "size (drink size)",
+          "after": "for here, in-store"
+        },
+        {
+          "at": "words[5].example",
+          "before": "사이즈는 어떻게 하세요?",
+          "after": "매장에서 먹고 갈게요."
+        },
+        {
+          "at": "words[5].exampleMeaning",
+          "before": "What size would you like?",
+          "after": "I’ll have it here."
+        },
+        {
+          "at": "words[6].korean",
+          "before": "매장",
+          "after": "레귤러"
+        },
+        {
+          "at": "words[6].roman",
+          "before": "maejang",
+          "after": "regyulleo"
+        },
+        {
+          "at": "words[6].meaning",
+          "before": "for here, in-store",
+          "after": "regular (drink size)"
+        },
+        {
+          "at": "words[6].example",
+          "before": "매장에서 먹고 갈게요.",
+          "after": "레귤러로 주세요."
+        },
+        {
+          "at": "words[6].exampleMeaning",
+          "before": "I’ll have it here.",
+          "after": "Regular, please."
+        },
+        {
+          "at": "words[7].korean",
+          "before": "레귤러",
+          "after": "라지"
+        },
+        {
+          "at": "words[7].roman",
+          "before": "regyulleo",
+          "after": "raji"
+        },
+        {
+          "at": "words[7].meaning",
+          "before": "regular (drink size)",
+          "after": "large (drink size)"
+        },
+        {
+          "at": "words[7].example",
+          "before": "레귤러로 주세요.",
+          "after": "라지 하나요."
+        },
+        {
+          "at": "words[7].exampleMeaning",
+          "before": "Regular, please.",
+          "after": "One large, please."
+        },
+        {
+          "at": "words[8].korean",
+          "before": "라지",
+          "after": "포장"
+        },
+        {
+          "at": "words[8].roman",
+          "before": "raji",
+          "after": "pojang"
+        },
+        {
+          "at": "words[8].meaning",
+          "before": "large (drink size)",
+          "after": "to go, takeout"
+        },
+        {
+          "at": "words[8].example",
+          "before": "라지 하나요.",
+          "after": "포장해 주세요."
+        },
+        {
+          "at": "words[8].exampleMeaning",
+          "before": "One large, please.",
+          "after": "Please make it to go."
+        },
+        {
+          "at": "words[9].korean",
+          "before": "포장",
+          "after": "한 잔"
+        },
+        {
+          "at": "words[9].roman",
+          "before": "pojang",
+          "after": "han jan"
+        },
+        {
+          "at": "words[9].meaning",
+          "before": "to go, takeout",
+          "after": "one cup (one drink)"
+        },
+        {
+          "at": "words[9].example",
+          "before": "포장해 주세요.",
+          "after": "아메리카노 한 잔 부탁드려요."
+        },
+        {
+          "at": "words[9].exampleMeaning",
+          "before": "Please make it to go.",
+          "after": "One Americano, please."
+        },
+        {
+          "at": "words[10].korean",
+          "before": "한 잔",
+          "after": ""
+        },
+        {
+          "at": "words[10].roman",
+          "before": "han jan",
+          "after": ""
+        },
+        {
+          "at": "words[10].meaning",
+          "before": "one cup (one drink)",
+          "after": ""
+        },
+        {
+          "at": "words[10].example",
+          "before": "아메리카노 한 잔 부탁드려요.",
+          "after": ""
+        },
+        {
+          "at": "words[10].exampleMeaning",
+          "before": "One Americano, please.",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "from": 3,
+      "cut": []
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "The Korean leaves out \"in Korea\" from \"at a cafe in Korea\" and says only \"카페에서\".",
+          "fix": "한국의 카페에서 음료 한 잔을 주문할 때 핫/아이스, 사이즈(레귤러/라지), 매장/포장을 선택하는 6~8개의 짧은 질문과 대답을 듣고 말할 수 있습니다."
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "「初級（上級）」は「初級なのに上級」と読めて矛盾しています。上級は別のレベル名です。英語の Beginner (high) は初級の上の段階という意味です。",
+          "fix": "初級（上）"
+        },
+        {
+          "line": 3,
+          "problem": "英語の「at a cafe in Korea」の「in Korea（韓国の）」が訳から抜けています。",
+          "fix": "韓国のカフェで飲み物を1つ注文するための、6～8個の短い質問と答えを理解して言えるようになる。ホット/アイス、サイズ（レギュラー/ラージ）、店内/持ち帰りを選びます。"
+        },
+        {
+          "line": 45,
+          "problem": "「何も」は否定の表現と組み合わせる必要があるため、「スタッフが何も聞く前に」は文法的に不自然です。",
+          "fix": "スタッフに何か聞かれる前に、アイスラテのラージサイズを持ち帰りで一度に注文しましょう：직원: 어서 오세요. 손님: ______"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "\"Eiskaffee\" in German normally means coffee with ice cream, not an iced (cold) Americano – mistranslation.",
+          "fix": "Einen Americano mit Eis, bitte."
+        },
+        {
+          "line": 45,
+          "problem": "\"all at once\" is lost: \"direkt\" only means 'right away', but the task is to state everything in a single utterance.",
+          "fix": "Bevor das Personal etwas fragt, bestelle alles auf einmal: einen eisgekühlten Latte in Groß, zum Mitnehmen: 직원: 어서 오세요. 손님: ______"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 11,
+          "problem": "\"tiède\" means lukewarm, which changes the meaning; 따뜻한 here refers to a hot/warm drink, not a lukewarm one.",
+          "fix": "chaud (boisson chaude)"
+        },
+        {
+          "line": 22,
+          "problem": "\"Faites-le à emporter\" is unnatural French for asking for a drink to go.",
+          "fix": "À emporter, s'il vous plaît."
+        },
+        {
+          "line": 44,
+          "problem": "\"Complète le blanc\" is unnatural French for a fill-in-the-blank instruction.",
+          "fix": "Remplis le blanc (chaud) : _____ 아메리카노 한 잔 주세요."
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"高级\" means \"advanced\", so \"初级（高级）\" reads as \"beginner (advanced)\" and contradicts itself. The source means the upper part of the beginner level.",
+          "fix": "初级（高）"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:19:21.657Z"
+}

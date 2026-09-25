@@ -1,51 +1,47 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
-  "keyword": "ㅈ·ㅊ·ㅉ",
-  "summary": "Aprende cómo suenan la ㅈ, la ㅊ y la ㅉ al comienzo de una palabra. Se diferencian en la cantidad de aire y la tensión. Úsalas para elegir el verbo correcto en grupos como 자다/차다/짜다 y 지다/치다/찌다.",
+  "keyword": "ㅈㅊㅉ 소리",
+  "summary": "Aprende cómo suenan ㅈ, ㅊ y ㅉ al inicio de una palabra. Se diferencian por la aspiración y la tensión. Úsalas para elegir el verbo correcto en grupos como 자다/차다/짜다 y 지다/치다/찌다.",
   "objective": "Los estudiantes principiantes distinguirán y pronunciarán la ㅈ (simple), la ㅊ (aspirada) y la ㅉ (tensa) al inicio de palabra, y luego elegirán la palabra correcta en los grupos 자다/차다/짜다 y 지다/치다/찌다.",
   "level": "Principiante",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "짝 활동: 자/차/짜 듣고 고르기",
-    "line": "짝이 자다·차다·짜다 중 하나를 말하면 듣고 뜻을 말해 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
     "Elige la palabra correcta: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
-    "Elige la palabra correcta: 라면에 소금을 많이 넣었어요. 라면이 너무 (자요 / 차요 / 짜요).",
-    "Elige la palabra correcta: 축구할 때 발로 공을 (자요 / 차요 / 짜요).",
-    "Elige la palabra correcta: 주말에 친구와 테니스를 (져요 / 쳐요 / 쪄요).",
-    "¿Qué palabra significa 'perder (un partido)'? (지다 / 치다 / 찌다)",
-    "Sostén un pañuelo de papel frente a tu boca y di 자, 차, 짜. ¿Cuál hace que el pañuelo se mueva más?",
-    "Elige la palabra correcta: 방학 동안 많이 먹어서 살이 3킬로그램 (졌어요 / 쳤어요 / 쪘어요).",
-    "Elige la palabra correcta: 어제 축구 경기에서 우리 팀이 (졌어요 / 쳤어요 / 쪘어요)."
+    "Elige la palabra correcta: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
+    "Elige la palabra correcta: 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
+    "Elige la palabra correcta: 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
+    "¿Qué palabra significa \"perder (un partido)\"? (지다 / 치다 / 찌다)",
+    "Sostén un pañuelo de papel frente a tu boca y di 자, 차, 짜. ¿Cuál hace que el pañuelo se mueva más?"
   ],
   "answers": [
     "자요",
     "짜요",
-    "차요",
     "쳐요",
+    "쪄요",
     "지다",
-    "차 (ㅊ has a strong puff of air)",
-    "쪘어요",
-    "졌어요"
+    "차 (ㅊ has a strong puff of air)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
-      "sound": "j (simple): suave y relajada, con solo un poco de aire",
-      "as": "Se parece a la 'y' suave en 'ya', pero aún más suave. Al comienzo de una palabra puede sonar como una 'ch' ligera con algo de aire — menos que la ㅊ, más que la ㅉ."
+      "sound": "j (simple): suave y relajada, con muy poca aspiración",
+      "as": "Se parece a la 'j' en la palabra inglesa \"jam\", pero más suave. Al inicio de una palabra puede sonar como una 'ch' ligera con poco aire."
     },
     {
       "letter": "ㅊ",
-      "sound": "ch (aspirada): viene con un fuerte soplo de aire",
-      "as": "Se parece a la 'ch' en 'chico'. Expulsa una ráfaga clara de aire."
+      "sound": "ch (aspirada): va acompañada de un fuerte golpe de aire",
+      "as": "Se parece a la 'ch' en la palabra inglesa \"church\". Expulsa un chorro de aire bien marcado."
     },
     {
       "letter": "ㅉ",
-      "sound": "jj (tensa): apretada, cortante y sin soplo de aire",
-      "as": "No tiene un equivalente exacto en español. Piensa en una 'ch' muy marcada, pero aprieta la garganta y la lengua y no dejes salir aire."
+      "sound": "jj (tensa): tensa, cortante y sin ningún golpe de aire",
+      "as": "No tiene un equivalente exacto en inglés. Piensa en la 'tch' de la palabra inglesa \"pitch\", pero tensando la garganta y la lengua, sin dejar salir aire."
     }
   ],
   "words": [
@@ -66,7 +62,7 @@
     {
       "korean": "짜다",
       "roman": "jjada",
-      "meaning": "estar salado/a",
+      "meaning": "estar salado",
       "example": "국이 짜요.",
       "exampleMeaning": "La sopa está salada."
     },
@@ -80,7 +76,7 @@
     {
       "korean": "치다",
       "roman": "chida",
-      "meaning": "golpear; jugar (tenis, golf, etc.); tocar (piano, guitarra, batería, etc.)",
+      "meaning": "golpear; tocar (piano, tenis de mesa, tenis, etc.)",
       "example": "피아노를 쳐요.",
       "exampleMeaning": "Toco el piano."
     },
@@ -89,7 +85,7 @@
       "roman": "jjida",
       "meaning": "engordar (subir de peso)",
       "example": "살이 쪘어요.",
-      "exampleMeaning": "Subí de peso."
+      "exampleMeaning": "Engordé."
     }
   ],
   "category": "hangul"

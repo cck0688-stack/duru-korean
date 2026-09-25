@@ -1,45 +1,45 @@
 {
   "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
   "keyword": "ㄱ·ㅋ·ㄲ",
-  "summary": "Practice distinguishing and pronouncing initial ㄱ (plain), ㅋ (aspirated), and ㄲ (tense). Use clear English sound anchors: ㄱ = a light puff of air, weaker than ㅋ, with a lower, softer voice; ㅋ ≈ the k in \"key\"; ㄲ = tense \"kk,\" close to the k in \"ski\" but tighter. Read and choose simple words that begin with these letters.",
-  "objective": "Beginner learners will accurately hear and pronounce ㄱ (plain), ㅋ (aspirated), and ㄲ (tense) in word-initial position, connect them to helpful English sound references (ㄱ = light puff, weaker than ㅋ, with a lower, softer voice; ㅋ ≈ k in \"key\"; ㄲ = tense \"kk,\" close to the k in \"ski\" but tighter), and correctly read and select simple words containing these initials.",
+  "summary": "Practice distinguishing and pronouncing initial ㄱ (plain), ㅋ (aspirated), and ㄲ (tense). Use clear English sound anchors: ㄱ ≈ a light sound between English g and k, ㅋ ≈ the k in “key,” ㄲ = tense “kk” with no exact English match. Read and choose simple words that begin with these letters.",
+  "objective": "Beginner learners will accurately hear and pronounce ㄱ (plain), ㅋ (aspirated), and ㄲ (tense) in word-initial position, connect them to helpful English sound references (ㄱ ≈ between English g and k, with a light puff of air, ㅋ ≈ k in “key,” ㄲ = tense “kk,” no exact English equivalent), and correctly read and select simple words containing these initials.",
   "level": "Beginner",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "가게·카메라·꽃 소리 구별하기",
-    "line": "가게, 카메라, 꽃을 소리 내어 읽고, 첫소리 ㄱ, ㅋ, ㄲ의 차이를 들어 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "다음 낱말을 듣고, 첫소리가 ㄱ, ㅋ, ㄲ 중 무엇인지 고르세요: 코",
-    "다음 글자를 소리 내어 읽고, 첫소리의 바람과 힘이 어떻게 다른지 말해 보세요: 개 / 캐 / 깨, 굴 / 쿨 / 꿀",
-    "첫소리가 다른 하나를 고르세요: 고기 / 콩 / 카메라",
-    "낱말을 초성 종류에 맞게 짝지으세요: 가방, 코, 꽃 → [ㄱ], [ㅋ], [ㄲ]",
-    "영어 힌트에 맞게 낱말을 고르세요: light puff, softer than ㅋ / 'k' in \"key\" / tense 'kk', like the 'k' in \"ski\" but tighter → 보기: 가게, 카메라, 꽃"
+    "Choose the word that begins with ㅋ (aspirated): 가게 / 코 / 꽃",
+    "Read the romanization and choose the matching Korean word: kkoma → 가방 / 꼬마 / 카메라",
+    "Choose the word that begins with ㄱ (plain): 콩 / 껌 / 고기",
+    "Match each word to its first consonant: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "Match each English hint to the word whose first sound fits it: between 'g' and 'k' (light puff) / 'k' in \"key\" / tense 'kk' → Choices: 꽃, 가게, 카메라"
   ],
   "answers": [
-    "ㅋ (코)",
-    "개·굴: ㄱ, 바람이 약하게 나오고 낮고 부드러운 소리 / 캐·쿨: ㅋ, 바람을 세게 내뿜음 / 깨·꿀: ㄲ, 바람 없이 힘을 주어 단단하게",
+    "코",
+    "꼬마",
     "고기",
-    "가방-ㄱ, 코-ㅋ, 꽃-ㄲ",
-    "light puff→가게, key→카메라, ski(tense kk)→꽃"
+    "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
+    "between g and k→가게, key→카메라, kk→꽃"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "평음. 혀 뒤쪽을 여린입천장에 가볍게 댔다가 떼며 소리를 냄. 공기가 약하게 나오며, ㅋ보다 훨씬 약함. 목소리는 낮고 부드럽게.",
-      "as": "light puff, weaker than ㅋ (lower, softer voice)"
+      "sound": "Plain (lax) consonant. The back of the tongue lightly closes against the soft palate, then releases. At the start of a word, a light puff of air comes out: weaker than ㅋ and softer than ㄲ.",
+      "as": "between English 'g' and 'k' (light puff)"
     },
     {
       "letter": "ㅋ",
-      "sound": "거센소리. ㄱ보다 공기를 세게 내뿜음.",
+      "sound": "Aspirated consonant. Same tongue position as ㄱ, but released with a strong puff of air.",
       "as": "'k' in 'key' (strong puff)"
     },
     {
       "letter": "ㄲ",
-      "sound": "된소리. 입에 힘을 주고 단단하게, 짧게 터뜨림. 공기를 세게 내보내지 않음.",
-      "as": "tense 'kk', close to the 'k' in 'ski' but tighter (no puff)"
+      "sound": "Tense consonant. Same tongue position as ㄱ, but the throat and tongue are tensed and the sound is released sharply, with no puff of air.",
+      "as": "tense 'kk' (no exact English)"
     }
   ],
   "words": [
@@ -69,21 +69,21 @@
       "roman": "ko",
       "meaning": "nose",
       "example": "코가 커요.",
-      "exampleMeaning": "(He/She) has a big nose."
+      "exampleMeaning": "My nose is big."
     },
     {
       "korean": "카메라",
       "roman": "kamera",
       "meaning": "camera",
-      "example": "카메라가 있어요.",
-      "exampleMeaning": "There is a camera."
+      "example": "카메라로 사진을 찍어요.",
+      "exampleMeaning": "I take pictures with a camera."
     },
     {
       "korean": "콩",
       "roman": "kong",
       "meaning": "bean",
-      "example": "콩을 먹어요.",
-      "exampleMeaning": "I eat beans."
+      "example": "콩이 작아요.",
+      "exampleMeaning": "The beans are small."
     },
     {
       "korean": "껌",

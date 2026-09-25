@@ -14,32 +14,33 @@
     "통화/문자는 얼마나 포함되어 있나요?",
     "약정 기간은 어떻게 되나요?"
   ],
-  "keyword": "",
+  "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
   "level": "Intermediate Low (중급 초반)",
   "minutes": 15,
   "objective": "After reading a 3–5 paragraph mobile plan notice, learners can accurately find the monthly fee, data allowance, voice/SMS included amounts, the contract term (or no contract), and the post-data policy (speed cap/extra charges).",
   "passage": [
-    "가온모바일 'LTE 라이트 29' 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.\n데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른\n추가 요금은 없습니다.",
+    "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
+    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
     "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 포함량을 넘으면 통화와 문자는 별도 요금이 발생합니다."
   ],
-  "summary": "Read a realistic Korean mobile plan notice and identify key details such as the monthly fee, data allowance, voice/SMS\\nlimits, contract term, and the policy after data is used up.",
+  "summary": "Read a realistic Korean mobile plan notice and identify key details such as the monthly fee, data allowance, voice/SMS limits, contract term, and the policy after data is used up.",
   "tags": [],
   "task": null,
-  "title": "가온모바일 'LTE 라이트 29' 요금제 안내",
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
   "words": [
     {
       "korean": "월정액",
       "roman": "woljeong-aek",
       "meaning": "fixed monthly fee for the plan",
       "example": "이 요금제의 월정액은 29,000원이에요.",
-      "exampleMeaning": "The monthly fee for this plan is 29,000\nwon."
+      "exampleMeaning": "The monthly fee for this plan is 29,000 won."
     },
     {
       "korean": "약정",
       "roman": "yakjeong",
-      "meaning": "contract term; the set period you agree to\nstay on a plan",
+      "meaning": "contract term; the set period you agree to stay on a plan",
       "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
-      "exampleMeaning": "It’s a 12-month contract, so it’s hard to\nswitch easily."
+      "exampleMeaning": "It’s a 12-month contract, so it’s hard to switch easily."
     },
     {
       "korean": "소진",
@@ -60,7 +61,7 @@
       "roman": "chuga yogeum",
       "meaning": "extra charge beyond the plan",
       "example": "추가 요금이 없어서 안심이에요.",
-      "exampleMeaning": "I’m relieved because there’s no extra\ncharge."
+      "exampleMeaning": "I’m relieved because there’s no extra charge."
     },
     {
       "korean": "기본 제공",

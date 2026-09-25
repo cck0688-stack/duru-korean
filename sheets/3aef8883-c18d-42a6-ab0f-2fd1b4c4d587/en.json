@@ -1,38 +1,40 @@
 {
-  "answers": [
-    "자동발매기",
-    "지하철 = subway, 승차권 = ticket (paper)",
-    "환승",
-    "출구",
-    "개찰구",
-    "교통카드",
-    "갈아타 (환승하도 정답)",
-    "안내판",
-    "역무원"
-  ],
-  "checkThese": [],
-  "exercises": [
-    "Write the Korean word for 'ticket machine'.",
-    "Write the English meaning of each word: 지하철 / 승차권",
-    "Write the Korean word for 'transfer (noun)'.",
-    "Fill in the blank with a word from the list: 몇 번 ___로 나가요?",
-    "Fill in the blank: ___를 지나서 오른쪽으로 가세요. (hint: ticket gate)",
-    "Fill in the blank: ___에 돈을 충전했어요. (hint: transport card)",
-    "Fill in the blank: 2호선으로 ___세요. (hint: change trains)",
-    "Choose the word that means 'information sign / signboard': 안내판 / 개찰구 / 출구 / 자동발매기",
-    "Fill in the blank: 길을 몰라요. ___에게 물어볼까요? (hint: station staff)"
-  ],
-  "keyword": "지하철 이용 어휘",
-  "level": "초급 (A1)",
-  "minutes": 10,
-  "objective": "Learn 10 key subway vocabulary items (ticket purchase, ticket gate, transfer, exit) with short example sentences that you can use immediately.",
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "keyword": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
   "summary": "This worksheet teaches 10 core Korean words for using the subway: buying tickets, passing the ticket gate, transferring, and finding exits. Each word has a short, practical example sentence.",
+  "objective": "Learn 10 key subway vocabulary items (ticket purchase, ticket gate, transfer, exit) with short example sentences that you can use immediately.",
+  "level": "Beginner",
+  "minutes": 10,
   "tags": [],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "Ask the station staff",
+    "line": "Imagine you are lost in a station. Ask a 역무원 where to transfer and how to get to your exit, for example: '실례합니다. 2호선은 어디에서 갈아타요? 3번 출구는 어디예요?'"
   },
-  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "exercises": [
+    "Write the Korean word for 'ticket machine'. (First sounds: ㅈㄷㅂㅁㄱ)",
+    "Write the Korean word for 'ticket (paper)'. (First sounds: ㅅㅊㄱ)",
+    "Fill in the blank: ___하는 곳이 어디예요? (Where is the place to transfer?)",
+    "Fill in the blank: 2번 ___로 나오세요. (Come out through exit 2.)",
+    "Fill in the blank: ___를 찍고 들어가요. (I tap my transport card and go in.)",
+    "Fill in the blank: ___를 지나서 들어가요. (Go in through the ticket gate.)",
+    "Fill in the blank: 여기에서 버스로 ___ 수 있어요? (Can I change to a bus here?)",
+    "Fill in the blank: 출구 번호는 ___에 있어요. (The exit number is on the information sign.)",
+    "Fill in the blank: 표를 잃어버렸어요. ___에게 말하세요. (I lost my ticket. Tell the station staff.)",
+    "Fill in the blank: 공항까지 ___로 가요. (I go to the airport by subway.)"
+  ],
+  "answers": [
+    "자동발매기",
+    "승차권",
+    "환승",
+    "출구",
+    "교통카드",
+    "개찰구",
+    "갈아탈",
+    "안내판",
+    "역무원",
+    "지하철"
+  ],
+  "checkThese": [],
   "words": [
     {
       "korean": "지하철",

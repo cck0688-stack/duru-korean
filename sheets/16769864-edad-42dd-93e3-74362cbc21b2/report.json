@@ -15,74 +15,48 @@
     "zh"
   ],
   "dropped": [],
-  "passed": false,
-  "unresolved": [
-    "Exercise 5 ('In the minimal set 서 / 소 / 수, which syllable has ㅜ?') repeats exercises 1 and 3. Exercise 1 already asked about 서, and exercise 3 already had the learner compare 소/수 and answer '수 (ㅜ)'. So exercise 5 only repeats a question already answered, with the same syllables, and makes the worksheet thinner. Replace it with an item that uses new words, e.g. 'Pick the word whose first syllable has ㅜ: 거울 / 두부 / 오리' (answer: 두부), or have the learner write the vowel in each syllable of a new word such as 두부 or 머리."
-  ],
+  "passed": true,
+  "unresolved": [],
   "rounds": [
     {
       "round": 1,
       "mechanical": [],
       "review": [
-        "Exercise 3 (answer 3): The word '우유' has two vowels: ㅜ in '우' and ㅠ in '유'. The question 'Which vowel appears in the word '우유'?' does not limit the choices, so ㅠ is also a correct answer, but 'ㅜ' is the only answer given. Fix: ask about the first syllable, e.g. 'Which vowel is in the first syllable of '우유'? (Write ㅓ, ㅗ, or ㅜ)'. Or use a word that only has ㅜ, e.g. '구두' (shoes) or '두부' (tofu). The same issue affects exercise 4: '엄마' and '수박' also contain ㅏ, and '오이' also contains ㅣ. Add '(choose from ㅓ, ㅗ, ㅜ)' to exercise 4 so there is only one correct answer."
+        "Question 3: '우유' contains two vowels, ㅜ (우) and ㅠ (유), but the question asks 'Which vowel appears' and only ㅜ is accepted. Change it to 'Which vowel is in the first syllable of '우유'? (Write ㅓ, ㅗ, or ㅜ)', or use a word with one vowel, such as '두부' or '구두'.",
+        "Question 4 (and question 2): 엄마 also contains ㅏ, 오이 also contains ㅣ, and 수박 also contains ㅏ. Without a choice list, ㅏ/ㅣ/ㅏ are also fair answers, but only ㅓ/ㅗ/ㅜ is accepted. Add '(choose from ㅓ, ㅗ, ㅜ)' to question 4, and give question 2 the same choice list that question 1 has.",
+        "Example sentences: the '~을/를 먹어요' pattern appears 3 times in 9 examples ('밥을 먹어요', '오이를 먹어요', '수박을 먹어요'), which makes the worksheet thin. Change the 오이 and 수박 examples to different verbs, for example '오이가 싱싱해요.' (The cucumber is fresh.) and '수박이 달아요.' (The watermelon is sweet.)."
       ],
       "audit": [
-        "exercises[2] (3번): Which vowel appears in the word '우유'? → Which of ㅓ, ㅗ, ㅜ appears in the word '우유'?",
-        "exercises[3] (4번): Match these words to the vowel they contain (write three symbols in order): 엄마 / 오이 / 수박 → Match these words to the vowel (ㅓ, ㅗ, or ㅜ) they contain (write three symbols in order): 엄마 / 오이 / 수박"
+        "exercises[2] (Exercise 3): Which vowel appears in the word '우유'? → Which vowel (ㅓ, ㅗ, or ㅜ) appears in the word '우유'?",
+        "exercises[3] (Exercise 4): Match these words to the vowel they contain (write three symbols in order): 엄마 / 오이 / 수박 → Match these words to the vowel (ㅓ, ㅗ, or ㅜ) they contain (write three symbols in order): 엄마 / 오이 / 수박"
       ]
     },
     {
       "round": 2,
       "mechanical": [],
       "review": [
-        "The objective says learners will 'recognize and correctly pronounce' ㅓ, ㅗ and ㅜ, but all six exercises (1–6) are written recognition tasks (write down the vowel symbol). None of them practises pronunciation. Add one or two pronunciation items, e.g. 'Read aloud: 서 / 소 / 수 — listen for the difference between ㅓ and ㅗ' or 'Which vowel do you round your lips for, ㅓ or ㅗ?'. Otherwise, change the objective to recognition only.",
-        "Three of the nine example sentences use the same 'X을/를 먹어요' frame (먹다: 밥을 먹어요, 오이: 오이를 먹어요, 수박: 수박을 먹어요). This makes the sheet thin. Change at least two of them to different frames, e.g. 수박: '수박이 커요.' (The watermelon is big.) and 오이: '오이가 맛있어요.' (The cucumber is tasty.).",
-        "The exercises also repeat the same pattern. Exercises 1, 2 and 3 all ask which vowel is in a single word, and exercises 4 and 6 are the same three-word matching task. Replace some of them with different task types, such as reading the ㅓ/ㅗ minimal pair 거기/고기 aloud or sorting the words by vowel."
+        "목표와 문제 불일치: objective는 ㅓ·ㅗ·ㅜ를 'recognize and correctly pronounce'한다고 하지만, 문제 1–6은 모두 글자를 보고 모음을 고르는 인식 문제이고 발음을 연습시키는 문제가 없음. 고칠 방법: 발음 문제를 추가(예: '서/소/수'를 소리 내어 읽고 입 모양 차이 쓰기, 로마자 eo/o/u와 한글 음절 짝짓기)하거나 objective를 'recognize'로 줄일 것.",
+        "낱말 '주다'의 예문 '선물을 줘요.': '줘'의 모음은 ㅝ라서 목표 모음 ㅜ가 없음. 초급 모음 학습지에서 헷갈릴 수 있음. 고칠 방법: ㅜ가 그대로 드러나는 예문으로 바꿀 것(예: '선물을 주세요.' / 'Please give me a present.')."
       ],
       "audit": []
     },
     {
       "round": 3,
       "mechanical": [],
-      "review": [
-        "Exercises 2 and 3 repeat the same task. Both ask only which vowel, ㅓ or ㅗ, rounds the lips: exercise 2 with 거기 / 고기, exercise 3 with the bare vowels. Nothing in the worksheet practises telling ㅗ and ㅜ apart by sound; exercise 5 only asks the learner to spot ㅜ in writing. That leaves a gap in the goal of pronouncing all three vowels correctly. Replace exercise 3 with a ㅗ-vs-ㅜ pronunciation task, for example: \"Read aloud: 소 / 수. Both vowels round the lips. For which one is your mouth more closed and your lips pushed further forward?\" The answer is 수 (ㅜ). Update answer 3 to match."
-      ],
-      "audit": []
-    },
-    {
-      "round": 4,
-      "mechanical": [],
-      "review": [
-        "Exercise 5 ('In the minimal set 서 / 소 / 수, which syllable has ㅜ?') repeats exercises 1 and 3. Exercise 1 already asked about 서, and exercise 3 already had the learner compare 소/수 and answer '수 (ㅜ)'. So exercise 5 only repeats a question already answered, with the same syllables, and makes the worksheet thinner. Replace it with an item that uses new words, e.g. 'Pick the word whose first syllable has ㅜ: 거울 / 두부 / 오리' (answer: 두부), or have the learner write the vowel in each syllable of a new word such as 두부 or 머리."
-      ],
+      "review": [],
       "audit": []
     }
   ],
   "fixes": [
     {
-      "at": "answers[2]",
-      "before": "ㅗ",
-      "after": "거기: ㅓ / 고기: ㅗ — you round your lips for 고기"
-    },
-    {
-      "at": "answers[3]",
-      "before": "ㅜ",
-      "after": "수 (ㅜ)"
-    },
-    {
-      "at": "answers[6]",
-      "before": "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ",
-      "after": "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
-    },
-    {
       "at": "exercises[2]",
       "before": "Which vowel appears in the word '포도'?",
-      "after": "Read aloud: 거기 / 고기. Write the vowel in the first syllable of each word. For which word do you round your lips?"
+      "after": "Which vowel appears in the word '포도'? (Write ㅓ, ㅗ, or ㅜ)"
     },
     {
       "at": "exercises[3]",
       "before": "Which vowel appears in the word '우유'?",
-      "after": "Read aloud: 소 / 수. Both vowels round the lips. For which one is your mouth more closed?"
+      "after": "Which vowel (ㅓ, ㅗ, or ㅜ) appears in the word '우유'?"
     },
     {
       "at": "exercises[4]",
@@ -90,64 +64,86 @@
       "after": "Match these words to the vowel (ㅓ, ㅗ, or ㅜ) they contain (write three symbols in order): 엄마 / 오이 / 수박"
     },
     {
-      "at": "exercises[6]",
-      "before": "Look at the first syllable of each word and write its vowel: 먹다, 고기, 주다",
-      "after": "Sort these words into ㅓ, ㅗ, and ㅜ groups by the vowel in the first syllable: 먹다, 주다, 고기, 서점, 포도, 우유"
+      "at": "level",
+      "before": "초급 (A1)",
+      "after": "Beginner"
+    },
+    {
+      "at": "objective",
+      "before": "The learner will be able to recognize and correctly pronounce the Korean vowels ㅓ, ㅗ, and ㅜ in simple words.",
+      "after": "The learner will be able to recognize the Korean vowels ㅓ, ㅗ, and ㅜ in simple words."
+    },
+    {
+      "at": "summary",
+      "before": "Short practice for recognizing and pronouncing the Korean vowels ㅓ, ㅗ, and ㅜ. Shows three simple words for each vowel and short example sentences.",
+      "after": "Short practice for recognizing the Korean vowels ㅓ, ㅗ, and ㅜ. Shows three simple words for each vowel and short example sentences."
     },
     {
       "at": "words[4].example",
       "before": "오이를 먹어요.",
-      "after": "오이가 맛있어요."
+      "after": "오이가 싱싱해요."
     },
     {
       "at": "words[4].exampleMeaning",
       "before": "I eat cucumber.",
-      "after": "The cucumber is tasty."
+      "after": "The cucumber is fresh."
     },
     {
       "at": "words[8].example",
       "before": "수박을 먹어요.",
-      "after": "수박이 커요."
+      "after": "수박이 달아요."
     },
     {
       "at": "words[8].exampleMeaning",
       "before": "I eat watermelon.",
-      "after": "The watermelon is big."
+      "after": "The watermelon is sweet."
+    },
+    {
+      "at": "words[9].example",
+      "before": "선물을 줘요.",
+      "after": "선물을 주세요."
+    },
+    {
+      "at": "words[9].exampleMeaning",
+      "before": "I give a present.",
+      "after": "Please give me a present."
     }
   ],
+  "shortened": [],
   "translations": {
-    "es": {
-      "lang": "es",
-      "tries": 2,
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
       "lost": [],
       "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 23,
+          "problem": "The English gives the sound as 'uh' (as in 'cup'), but the Spanish changed it to 'u'. A Spanish reader will hear that as /u/, which is the sound of ㅜ, not ㅓ, so the explanation now describes the wrong sound.",
+          "fix": "como 'uh' en la palabra inglesa 'cup' (aproximado)"
+        }
+      ]
     },
     "id": {
       "lang": "id",
-      "tries": 2,
-      "lost": [],
-      "fixes": []
-    },
-    "vi": {
-      "lang": "vi",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
     "pt-BR": {
       "lang": "pt-BR",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": [
         {
           "line": 22,
-          "problem": "'eo' is the romanization of ㅓ and was replaced by 'é', a front vowel, which is misleading. Also, 'vogal aberta e mediana' is not the standard phonetic term for an open-mid vowel.",
-          "fix": "parecido com 'eo' (vogal média-aberta)"
-        },
-        {
-          "line": 23,
-          "problem": "The 'ó' in 'só' is a rounded vowel, but ㅓ (like the 'u' in English 'cup') is unrounded. This contradicts line 29, which asks the learner which word rounds the lips.",
-          "fix": "como o 'ó' de 'só', mas sem arredondar os lábios (aproximado)"
+          "problem": "The phonetic term 'open-mid vowel' is mistranslated. 'aberta-média' is not the standard term in Portuguese; it should be 'média-aberta' (or 'semiaberta').",
+          "fix": "próximo de 'eo' (uma vogal média-aberta)"
         }
       ]
     },
@@ -157,45 +153,61 @@
       "lost": [],
       "fixes": []
     },
-    "zh": {
-      "lang": "zh",
-      "tries": 2,
-      "lost": [],
-      "fixes": []
-    },
     "ja": {
       "lang": "ja",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": [
         {
-          "line": 2,
-          "problem": "「韓語」 is not the normal Japanese word for the Korean language; the standard term is 「韓国語」.",
-          "fix": "韓国語の母音ㅓ、ㅗ、ㅜを認識して発音する練習。各母音につき簡単な単語を3つと短い例文を示します。"
+          "line": 32,
+          "problem": "The term 'minimal set' is left out. It tells learners that the three syllables differ only in their vowel, and that information is lost.",
+          "fix": "最小対（ミニマルペア）「서 / 소 / 수」のうち、ㅜが含まれる音節はどれですか?"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 22,
+          "problem": "The romanization 'eo' was replaced by 'ö'. ㅓ is not a rounded front vowel like German ö, so this is misleading and changes the meaning.",
+          "fix": "nahe an 'eo' (ein offen-mittlerer Vokal)"
+        },
+        {
+          "line": 23,
+          "problem": "The German word 'Bett' contains no 'a', so the comparison makes no sense. The English compares ㅓ to 'uh' in 'cup'.",
+          "fix": "etwa wie das 'o' im deutschen Wort 'Sonne' (ungefähr)"
         }
       ]
     },
     "fr": {
       "lang": "fr",
-      "tries": 2,
+      "tries": 1,
       "lost": [],
       "fixes": [
         {
           "line": 22,
-          "problem": "The romanization 'eo' (for ㅓ) was changed to « eu ». In standard romanization, 'eu' stands for a different vowel (ㅡ), so learners could confuse ㅓ with ㅡ. The romanization should stay 'eo'.",
-          "fix": "proche de « eo » (voyelle mi-ouverte)"
+          "problem": "\"Open-mid vowel\" is mistranslated as \"voyelle moyenne ouverte\", which is not a standard term. The standard French phonetic term is \"voyelle mi-ouverte\".",
+          "fix": "proche du son « eo » (une voyelle mi-ouverte)"
         }
       ]
-    },
-    "de": {
-      "lang": "de",
-      "tries": 2,
-      "lost": [],
-      "fixes": []
     }
   },
   "pages": {
     "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -210,11 +222,6 @@
       "ok": true,
       "why": []
     },
-    "vi": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
     "pt-BR": {
       "pages": 2,
       "ok": true,
@@ -225,17 +232,12 @@
       "ok": true,
       "why": []
     },
-    "zh": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
     "ja": {
       "pages": 2,
       "ok": true,
       "why": []
     },
-    "fr": {
+    "zh": {
       "pages": 2,
       "ok": true,
       "why": []
@@ -244,7 +246,12 @@
       "pages": 2,
       "ok": true,
       "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
     }
   },
-  "preparedAt": "2026-09-25T09:38:54.329Z"
+  "preparedAt": "2026-09-25T13:55:42.900Z"
 }

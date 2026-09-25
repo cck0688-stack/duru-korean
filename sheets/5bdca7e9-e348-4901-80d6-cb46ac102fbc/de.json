@@ -1,24 +1,35 @@
 {
+  "title": "이유 말하기: -아서/어서와 -(으)니까",
+  "keyword": "-아서/어서, -(으)니까",
+  "summary": "Sowohl -아서/어서 als auch -(으)니까 drücken einen Grund aus (\"weil, deshalb\"). Dieses Blatt zeigt, wie man jede Form mit Verben, Adjektiven und Nomen bildet (einschließlich der unregelmäßigen ㄹ- und ㅂ-Stämme). Außerdem werden die zwei häufigsten Fehler behandelt: Nur -(으)니까 kann vor einem Befehl oder Vorschlag stehen (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), und ein Vergangenheitsmarker steht niemals vor -아서/어서 (kein -았/었어서).",
+  "objective": "Wähle zwischen -아서/어서 und -(으)니까 für einen Kausalsatz, bilde die richtige Form (einschließlich Nomen und unregelmäßiger ㄹ/ㅂ-Stämme) und korrigiere Sätze, in denen -아서/어서 vor einem Befehl/Vorschlag oder mit einem Vergangenheitsmarker verwendet wird.",
+  "level": "Anfänger (fortgeschritten)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Fülle die Lücke mit der richtigen Form aus: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+    "Fülle die Lücke mit der richtigen Form aus: 선물을 (주다) ____ 고마워요.",
+    "Fülle die Lücke mit der richtigen Form aus: 밖이 (덥다) ____ 안에 있읍시다.",
+    "Fülle die Lücke mit der Nomen-Form von -아서/어서 aus: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+    "Fülle die Lücke mit der richtigen Form aus: 내일은 (휴일) ____ 같이 영화 볼까요?",
+    "Finde den Fehler und schreibe den ganzen Satz richtig um: 어제 잠을 못 잤어서 오늘 너무 피곤해요."
+  ],
   "answers": [
     "사니까",
     "줘서 (주어서)",
     "더우니까",
-    "휴가라서",
+    "휴가라서 (휴가여서)",
     "휴일이니까",
     "어제 잠을 못 자서 오늘 너무 피곤해요."
   ],
   "checkThese": [],
-  "exercises": [
-    "빈칸에 알맞은 형태를 쓰세요: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
-    "빈칸에 알맞은 형태를 쓰세요: 선물을 (주다) ____ 고마워요.",
-    "빈칸에 알맞은 형태를 쓰세요: 밖이 (덥다) ____ 안에 있읍시다.",
-    "빈칸에 명사 + -(이)라서 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
-    "빈칸에 알맞은 형태를 쓰세요: 내일은 (휴일) ____ 같이 영화 볼까요?",
-    "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 어제 잠을 못 잤어서 오늘 너무 피곤해요."
-  ],
   "forms": [
     {
-      "form": "V/A + 아서 (어간 끝 모음이 ㅏ, ㅗ)",
+      "form": "V/A + 아서 (der letzte Vokal des Stamms ist ㅏ oder ㅗ)",
       "when": "Der letzte Vokal des Stamms ist ㅏ oder ㅗ. 가다 → 가서, 작다 → 작아서, 보다 → 봐서",
       "means": "weil / deshalb (ein einfacher Grund oder eine Ursache)",
       "example": "방이 작아서 좀 불편해요.",
@@ -28,7 +39,7 @@
       ]
     },
     {
-      "form": "V/A + 어서 (그 밖의 모음)",
+      "form": "V/A + 어서 (jeder andere letzte Vokal)",
       "when": "Jeder andere letzte Vokal. 먹다 → 먹어서, 마시다 → 마셔서, 어렵다 → 어려워서",
       "means": "weil / deshalb",
       "example": "커피를 많이 마셔서 잠이 안 와요.",
@@ -49,7 +60,7 @@
     },
     {
       "form": "N + 이라서 / 라서",
-      "when": "Nomen. Nach einem Endkonsonanten (받침): 이라서 (학생이라서). Nach einem Vokal: 라서 (친구라서). 이어서/여서 wird ebenfalls verwendet.",
+      "when": "Nomen. Nach einem Konsonanten am Ende: 이라서 (학생이라서). Nach einem Vokal: 라서 (친구라서). 이어서/여서 wird ebenfalls verwendet.",
       "means": "weil (es) N ist",
       "example": "아직 학생이라서 돈이 별로 없어요.",
       "exampleMeaning": "Ich bin noch Student/Studentin, deshalb habe ich nicht viel Geld.",
@@ -58,54 +69,43 @@
       ]
     },
     {
-      "form": "V/A + 니까 (모음 어간, ㄹ 어간)",
-      "when": "Der Stamm endet auf einen Vokal: 가다 → 가니까. Der Stamm endet auf ㄹ: Das ㄹ wird weggelassen, dann wird 니까 angehängt (멀다 → 머니까).",
-      "means": "weil / da. Es kann vor einem Befehl oder Vorschlag stehen.",
+      "form": "V/A + 니까 (Stamm endet auf Vokal oder ㄹ)",
+      "when": "Der Stamm endet auf einen Vokal: 가다 → 가니까. Der Stamm endet auf ㄹ: ㄹ weglassen, dann 니까 anhängen (멀다 → 머니까).",
+      "means": "weil / da. Kann vor einem Befehl oder Vorschlag stehen.",
       "example": "그 식당은 머니까 택시를 탑시다.",
-      "exampleMeaning": "Das Restaurant ist weit weg, also lass uns ein Taxi nehmen.",
+      "exampleMeaning": "Das Restaurant ist weit weg, lass uns ein Taxi nehmen.",
       "mark": [
         "머니까"
       ]
     },
     {
-      "form": "V/A + 으니까 (받침 있는 어간)",
+      "form": "V/A + 으니까 (Stamm endet auf einen Konsonanten)",
       "when": "Der Stamm endet auf einen Konsonanten: 먹다 → 먹으니까, 많다 → 많으니까. ㅂ-unregelmäßig: ㅂ → 우 + 니까 (어렵다 → 어려우니까).",
-      "means": "weil / da. Es kann vor einem Befehl oder Vorschlag stehen.",
+      "means": "weil / da. Kann vor einem Befehl oder Vorschlag stehen.",
       "example": "지금은 사람이 많으니까 다음에 올까요?",
-      "exampleMeaning": "Gerade sind viele Leute hier, sollen wir also ein anderes Mal wiederkommen?",
+      "exampleMeaning": "Gerade sind viele Leute da, sollen wir ein anderes Mal wiederkommen?",
       "mark": [
         "많으니까"
       ]
     },
     {
       "form": "N + 이니까 / 니까",
-      "when": "Nomen. Nach einem Endkonsonanten: 이니까 (회의 중이니까). Nach einem Vokal: 니까 (친구니까).",
-      "means": "da (es) N ist. Es kann vor einem Befehl oder Vorschlag stehen.",
+      "when": "Nomen. Nach einem Konsonanten am Ende: 이니까 (회의 중이니까). Nach einem Vokal: 니까 (친구니까).",
+      "means": "da (es) N ist. Kann vor einem Befehl oder Vorschlag stehen.",
       "example": "지금은 회의 중이니까 나중에 전화하세요.",
-      "exampleMeaning": "Ich bin gerade in einer Besprechung, deshalb ruf bitte später an.",
+      "exampleMeaning": "Ich bin gerade in einer Besprechung, bitte ruf später an.",
       "mark": [
-        "중이니까"
+        "회의 중이니까"
       ]
     }
   ],
-  "keyword": "-아서/어서, -(으)니까",
-  "level": "Fortgeschrittenes Anfängerniveau (초급 후반)",
-  "minutes": 15,
-  "objective": "Wähle zwischen -아서/어서 und -(으)니까 für einen Begründungssatz (auch vor einem Befehl/Vorschlag), bilde die richtige Form (einschließlich Nomen und ㄹ/ㅂ-unregelmäßiger Stämme) und korrigiere Sätze, in denen ein Vergangenheitsmarker vor -아서/어서 verwendet wird.",
-  "summary": "Sowohl -아서/어서 als auch -(으)니까 geben einen Grund an (\"weil, deshalb\"). Dieses Arbeitsblatt zeigt, wie man jede Form mit Verben, Adjektiven und Nomen bildet (einschließlich ㄹ- und ㅂ-unregelmäßiger Stämme). Außerdem werden die zwei häufigsten Fehler behandelt: Nur -(으)니까 kann vor einem Befehl oder Vorschlag stehen (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), und ein Vergangenheitsmarker steht niemals vor -아서/어서 (kein -았/었어서).",
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "title": "이유 말하기: -아서/어서와 -(으)니까",
   "watchOut": [
-    "Wenn der zweite Satzteil ein Befehl oder Vorschlag ist (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), verwendet man -(으)니까, nicht -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
-    "Setze niemals den Vergangenheitsmarker -았/었- vor -아서/어서. Der zweite Satzteil zeigt die Zeit bereits an. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Bei -(으)니까 ist die Vergangenheit in Ordnung: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
-    "Bei Verben und Adjektiven mit ㄹ-Stamm wird das ㄹ vor 니까 weggelassen, und man fügt kein 으 hinzu. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Bei -아서/어서 bleibt das ㄹ erhalten: 멀어서, 알아서",
+    "Wenn der zweite Satzteil ein Befehl oder Vorschlag ist (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), verwende -(으)니까, nicht -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
+    "Setze niemals den Vergangenheitsmarker -았/었- vor -아서/어서. Der zweite Satzteil zeigt bereits die Zeit an. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Mit -(으)니까 ist die Vergangenheit in Ordnung: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
+    "Bei Verben und Adjektiven mit ㄹ-Stamm fällt das ㄹ vor 니까 weg, und man fügt kein 으 hinzu. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Bei -아서/어서 bleibt das ㄹ erhalten: 멀어서, 알아서",
     "Bei den meisten Adjektiven mit ㅂ-Stamm wird ㅂ zu 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
-    "Wenn man sich bedankt oder entschuldigt, verwendet man -아서/어서, nicht -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
-    "Bei Nomen: Prüfe, ob ein Endkonsonant (받침) vorhanden ist. 학생라서 (X) → 학생이라서 (O), 의사이라서 (X) → 의사라서 (O). 니까 funktioniert genauso: 이니까 nach einem Konsonanten, 니까 nach einem Vokal."
+    "Wenn du dich bei jemandem bedankst oder entschuldigst, verwende -아서/어서, nicht -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
+    "Bei Nomen: prüfe, ob am Ende ein Konsonant (받침) steht. 학생라서 (X) → 학생이라서 (O). Nach einem Vokal ist 라서 die übliche Form: 의사라서. 니까 funktioniert genauso: 이니까 nach einem Konsonanten, 니까 nach einem Vokal."
   ],
   "watchOutMark": [
     [
@@ -129,14 +129,12 @@
       "추워서"
     ],
     [
-      "하니까",
-      "해서"
+      "기다리게 하니까",
+      "기다리게 해서"
     ],
     [
       "학생라서",
-      "학생이라서",
-      "의사이라서",
-      "의사라서"
+      "학생이라서"
     ]
   ],
   "category": "grammar"

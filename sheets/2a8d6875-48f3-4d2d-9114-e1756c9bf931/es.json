@@ -1,4 +1,23 @@
 {
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "summary": "Practica distinguir y leer las vocales coreanas ㅐ, ㅔ, ㅖ a través de pares mínimos y palabras comunes. Incluye ejercicios rápidos de elección ortográfica para reforzar el reconocimiento correcto de las vocales.",
+  "objective": "Los estudiantes distinguirán ㅐ, ㅔ y ㅖ por su ortografía, y leerán correctamente palabras sencillas que contienen estas vocales.",
+  "level": "Principiante",
+  "minutes": 12,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Elige la palabra que corresponde al significado: perro -> 개 / 게",
+    "Elige la ortografía correcta: (pera) 배 / 베",
+    "Elige la ortografía correcta: (limón) 레몬 / 래몬",
+    "Elige la ortografía correcta: (huevo) 계란 / 게란",
+    "Completa el espacio con la vocal correcta: ㅊ_ㄱ (libro): ㅐ / ㅔ / ㅖ",
+    "Completa el espacio con la vocal correcta: ㅇ_쁘다 (ser bonito/a): ㅐ / ㅔ / ㅖ"
+  ],
   "answers": [
     "개",
     "배",
@@ -8,42 +27,23 @@
     "ㅖ"
   ],
   "checkThese": [],
-  "exercises": [
-    "뜻에 맞는 낱말을 고르세요. dog -> 개 / 게",
-    "뜻에 맞는 낱말을 고르세요. pear -> 배 / 베",
-    "맞는 철자를 고르세요. (lemon) 레몬 / 래몬",
-    "맞는 철자를 고르세요. (egg) 계란 / 게란",
-    "빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ",
-    "빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ"
-  ],
-  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
   "letters": [
     {
       "letter": "ㅐ",
       "sound": "ae",
-      "as": "como la vocal de \"bed\" en inglés — en el coreano estándar es un poco más abierta que ㅔ, pero hoy en día la mayoría de los coreanos pronuncian ㅐ y ㅔ igual; distínguelas por la ortografía"
+      "as": "como la vocal en \"bed\" en inglés (en el coreano estándar moderno, ㅐ y ㅔ suenan casi igual; se distinguen sobre todo por la ortografía y el significado, por ejemplo, 개 perro / 게 cangrejo)"
     },
     {
       "letter": "ㅔ",
       "sound": "e",
-      "as": "como la vocal de \"bed\" en inglés"
+      "as": "como la vocal en \"bed\" en inglés"
     },
     {
       "letter": "ㅖ",
       "sound": "ye",
-      "as": "como \"ye\" en inglés \"yes\""
+      "as": "como \"ye\" en \"yes\" en inglés (después de una consonante puede pronunciarse como ㅔ, por ejemplo, 계란 se pronuncia [게란])"
     }
   ],
-  "level": "Principiante (초급)",
-  "minutes": 12,
-  "objective": "Los estudiantes leerán ㅐ y ㅔ como el mismo sonido y aprenderán cuál usa cada palabra según su ortografía, y pronunciarán ㅖ como [ye] en 예 y 례 (en otras sílabas como 계, ㅖ también se puede leer como [e], por lo que 계란 se puede leer [계란] o [게란]) al leer palabras sencillas que contienen estas vocales.",
-  "summary": "Practica la lectura de las vocales coreanas ㅐ, ㅔ, ㅖ en palabras comunes. Como la mayoría de los hablantes pronuncian ㅐ y ㅔ de la misma manera, aprende la ortografía de cada palabra. Lee ㅖ como [ye] en 예 y 례; en otras sílabas como 계, ㅖ también se puede leer como [e] (계란 → [계란] o [게란]). Incluye ejercicios rápidos de significado y ortografía para reforzar la escritura correcta.",
-  "tags": [],
-  "task": {
-    "title": "소리 내어 읽기",
-    "line": "다음 낱말을 소리 내어 읽어 보세요: 개, 배, 책, 게, 레몬, 예, 예쁘다, 계란"
-  },
-  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
   "words": [
     {
       "korean": "개",
@@ -57,7 +57,7 @@
       "roman": "bae",
       "meaning": "pera",
       "example": "배가 맛있어요.",
-      "exampleMeaning": "La pera está rica."
+      "exampleMeaning": "La pera está deliciosa."
     },
     {
       "korean": "책",
@@ -78,12 +78,12 @@
       "roman": "remon",
       "meaning": "limón",
       "example": "레몬 주세요.",
-      "exampleMeaning": "Dame un limón, por favor."
+      "exampleMeaning": "Por favor, dame un limón."
     },
     {
       "korean": "예",
       "roman": "ye",
-      "meaning": "sí (formal)",
+      "meaning": "sí (cortés)",
       "example": "예, 맞아요.",
       "exampleMeaning": "Sí, así es."
     },

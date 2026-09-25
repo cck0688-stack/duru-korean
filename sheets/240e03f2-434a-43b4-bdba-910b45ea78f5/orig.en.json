@@ -1,15 +1,12 @@
 {
   "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
-  "keyword": "",
+  "keyword": "도로명주소",
   "summary": "Learn to quickly locate and say the road name ending with ro/gil plus the building number, and, when present, apartment building/unit numbers (dong/ho) in Korean written addresses from print, texts, or map apps.",
   "objective": "By the end of this worksheet, learners can 1) spot and read the road name that ends with ro/gil plus the building number, and 2) find and say apartment dong and ho quickly and accurately.",
   "level": "Beginner-High (A2)",
   "minutes": 15,
   "tags": [],
-  "task": {
-    "title": "연습 안내",
-    "line": "아래 주소에서 1) 로/길+건물번호, 2) (아파트) 동·호(있으면)를 찾아 적으세요.\n정답 형식: ‘도로명 건물번호; 동·호’ 또는 ‘도로명 건물번호; 없음’.\n예시 주소는 학습용으로 구성했으며 실제 장소와 일치하지 않을 수 있습니다."
-  },
+  "task": null,
   "exercises": [
     "서울 중구 세종대로 110",
     "부산 해운대구 센텀중앙로 75, 센텀오피스텔 1203호",
@@ -64,8 +61,15 @@
         "2) 쉼표(,) 다음이나 건물 이름 뒤에서 ‘동’, ‘호’를 찾습니다. 없으면 ‘없음’으로 말하면 됩니다.",
         "3) 말할 때는 ‘도로명+건물번호’를 먼저, 그다음 ‘동·호’를 순서대로 말하세요."
       ]
+    },
+    {
+      "heading": "연습 안내",
+      "paragraphs": [
+        "아래 주소에서 1) 로/길+건물번호, 2) (아파트) 동·호(있으면)를 찾아 적으세요.",
+        "정답 형식: ‘도로명 건물번호; 동·호’ 또는 ‘도로명 건물번호; 없음’."
+      ]
     }
   ],
-  "note": "",
+  "note": "예시 주소는 학습용으로 구성했으며 실제 장소와 일치하지 않을 수 있습니다.",
   "category": "etc"
 }

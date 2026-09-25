@@ -1,23 +1,30 @@
 {
+  "title": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
+  "keyword": "중고거래 채팅 읽기",
+  "summary": "Read a short secondhand trade chat and identify the final meeting time and the exact place (e.g., station + exit number). Practice scanning for schedule changes and confirmations.",
+  "objective": "Learners will read a short used-goods chat (6 messages) and accurately extract the final appointment time and the exact meeting location (e.g., ○○ Station Exit 3).",
+  "level": "Intermediate (low)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Answer in Korean: 두 사람이 최종으로 만나기로 한 날짜와 시간은 언제예요?",
+    "Answer in Korean: 두 사람이 최종으로 만나기로 한 정확한 장소는 어디예요?",
+    "Answer in Korean: 처음 판매자가 제안한 날짜와 시간은 언제였나요?",
+    "Choose the correct answer: 판매자가 처음 제안한 만나는 장소는 어디였나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
+    "True or false? Write O or X: 장소를 교대역으로 바꾸자고 한 사람은 판매자이다."
+  ],
   "answers": [
     "5월 19일(일) 오후 6시",
     "교대역 3번 출구 앞",
-    "내일(5월 18일 토요일) 오후 7시 ('내일 오후 7시', '5월 18일(토) 오후 7시' 모두 정답)",
+    "내일(5월 18일 토요일) 오후 7시 (\"5월 18일(토) 오후 7시\"도 정답)",
     "A) 강남역 5번 출구 앞",
-    "O"
+    "X"
   ],
   "checkThese": [],
-  "exercises": [
-    "지문에서 두 사람이 최종으로 만나기로 한 날짜와 시간을 쓰세요.",
-    "지문에서 최종으로 만나기로 한 정확한 장소를 쓰세요.",
-    "처음 판매자가 제안한 날짜와 시간은 언제였나요?",
-    "다음 중 판매자가 처음 제안한 만나는 장소는 무엇이었나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
-    "구매자는 처음 약속 시간에 야근 때문에 갈 수 없었다. (O/X)"
-  ],
-  "keyword": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
-  "level": "초중급(A2)",
-  "minutes": 15,
-  "objective": "Learners will read a short used-goods chat (6 messages) and accurately extract the final appointment time and the exact meeting location (e.g., ○○ Station Exit 3).",
   "passage": [
     "중고거래 앱 채팅",
     "판매자: 안녕하세요! 의자 예약하신 분 맞으세요? 내일 오후 7시에 강남역 5번 출구 앞에서 직거래 가능하세요?",
@@ -27,13 +34,6 @@
     "판매자: 네, 좋아요. 그럼 최종으로 5월 19일(일) 오후 6시, 교대역 3번 출구 앞에서 만나요. 혹시 늦으면 미리 메시지 드릴게요.",
     "구매자: 네, 알겠습니다. 감사합니다!"
   ],
-  "summary": "Read a short secondhand trade chat and identify the final meeting time and the exact place (e.g., station + exit number).\nPractice scanning for schedule changes and confirmations.",
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "title": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
   "words": [
     {
       "korean": "직거래",
@@ -54,7 +54,7 @@
       "roman": "more",
       "meaning": "the day after tomorrow",
       "example": "모레 오후에 시간 있어요.",
-      "exampleMeaning": "I’m free in the afternoon the day after tomorrow."
+      "exampleMeaning": "I’m free the afternoon of the day after tomorrow."
     },
     {
       "korean": "출구",

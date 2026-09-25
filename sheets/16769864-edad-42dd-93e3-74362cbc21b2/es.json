@@ -1,9 +1,9 @@
 {
   "title": "모음 ㅓ·ㅗ·ㅜ 연습",
   "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
-  "summary": "Práctica breve para reconocer y pronunciar las vocales coreanas ㅓ, ㅗ y ㅜ. Muestra tres palabras simples para cada vocal y frases de ejemplo cortas.",
-  "objective": "El estudiante podrá reconocer y pronunciar correctamente las vocales coreanas ㅓ, ㅗ y ㅜ en palabras sencillas.",
-  "level": "초급 (A1)",
+  "summary": "Práctica breve para reconocer las vocales coreanas ㅓ, ㅗ y ㅜ. Muestra tres palabras sencillas para cada vocal y frases de ejemplo cortas.",
+  "objective": "El estudiante podrá reconocer las vocales coreanas ㅓ, ㅗ y ㅜ en palabras sencillas.",
+  "level": "Principiante",
   "minutes": 10,
   "tags": [],
   "task": {
@@ -12,36 +12,36 @@
   },
   "exercises": [
     "¿Qué vocal hay en la sílaba '서'? (Escribe ㅓ, ㅗ o ㅜ)",
-    "Lee en voz alta: 거기 / 고기. Escribe la vocal de la primera sílaba de cada palabra. ¿Para cuál palabra redondeas los labios?",
-    "Lee en voz alta: 소 / 수. Ambas vocales redondean los labios. ¿Para cuál tienes la boca más cerrada?",
+    "¿Qué vocal aparece en la palabra '포도'? (Escribe ㅓ, ㅗ o ㅜ)",
+    "¿Qué vocal (ㅓ, ㅗ o ㅜ) aparece en la palabra '우유'?",
     "Relaciona estas palabras con la vocal (ㅓ, ㅗ o ㅜ) que contienen (escribe los tres símbolos en orden): 엄마 / 오이 / 수박",
     "En el conjunto mínimo '서 / 소 / 수', ¿qué sílaba tiene ㅜ?",
-    "Clasifica estas palabras en los grupos ㅓ, ㅗ y ㅜ según la vocal de la primera sílaba: 먹다, 주다, 고기, 서점, 포도, 우유"
+    "Observa la primera sílaba de cada palabra y escribe su vocal: 먹다, 고기, 주다"
   ],
   "answers": [
     "ㅓ",
-    "거기: ㅓ / 고기: ㅗ — you round your lips for 고기",
-    "수 (ㅜ)",
+    "ㅗ",
+    "ㅜ",
     "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
     "수",
-    "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅓ",
-      "sound": "cercano a 'eo' (una vocal media abierta)",
-      "as": "como la 'uh' en la palabra inglesa 'cup' (aproximado)"
+      "sound": "cercana a 'eo' (una vocal media-abierta)",
+      "as": "como 'uh' en la palabra inglesa 'cup' (aproximado)"
     },
     {
       "letter": "ㅗ",
-      "sound": "cercano a 'o' (vocal posterior redondeada)",
+      "sound": "cercana a 'o' (vocal posterior redondeada)",
       "as": "como la 'o' en la palabra inglesa 'go' (aproximado)"
     },
     {
       "letter": "ㅜ",
-      "sound": "cercano a 'u' (vocal posterior redondeada)",
-      "as": "como la 'oo' en la palabra inglesa 'food' (aproximado)"
+      "sound": "cercana a 'u' (vocal posterior redondeada)",
+      "as": "como 'oo' en la palabra inglesa 'food' (aproximado)"
     }
   ],
   "words": [
@@ -70,8 +70,8 @@
       "korean": "오이",
       "roman": "oi",
       "meaning": "pepino",
-      "example": "오이가 맛있어요.",
-      "exampleMeaning": "El pepino está rico."
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "El pepino está fresco."
     },
     {
       "korean": "포도",
@@ -98,15 +98,15 @@
       "korean": "수박",
       "roman": "subak",
       "meaning": "sandía",
-      "example": "수박이 커요.",
-      "exampleMeaning": "La sandía es grande."
+      "example": "수박이 달아요.",
+      "exampleMeaning": "La sandía está dulce."
     },
     {
       "korean": "주다",
       "roman": "juda",
       "meaning": "dar",
-      "example": "선물을 줘요.",
-      "exampleMeaning": "Doy un regalo."
+      "example": "선물을 주세요.",
+      "exampleMeaning": "Por favor, dame un regalo."
     }
   ],
   "category": "hangul"

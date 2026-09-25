@@ -26,6 +26,7 @@
     }
   ],
   "fixes": [],
+  "shortened": [],
   "translations": {
     "es": {
       "lang": "es",
@@ -49,25 +50,19 @@
       "lang": "pt-BR",
       "tries": 1,
       "lost": [],
-      "fixes": [
-        {
-          "line": 13,
-          "problem": "\"Podemos ter alguns pratinhos?\" copies the English \"Could we have\" word for word and sounds unnatural in Brazilian Portuguese as a request to restaurant staff.",
-          "fix": "Pode trazer alguns pratinhos, por favor?"
-        }
-      ]
-    },
-    "zh": {
-      "lang": "zh",
-      "tries": 1,
-      "lost": [],
       "fixes": []
     },
     "ko": {
       "lang": "ko",
       "tries": 1,
       "lost": [],
-      "fixes": []
+      "fixes": [
+        {
+          "line": 6,
+          "problem": "The English defines 인분 as \"serving(s) for one person\". The Korean glosses the headword as \"1인분\", which is a new Hangul form not in the English. It also makes it look like the word itself means 1인분, not that 인분 goes after a number.",
+          "fix": "한 사람 몫의 음식, 숫자 뒤에 붙여 써요 (예: 2인분 = 두 사람 몫의 음식)"
+        }
+      ]
     },
     "ja": {
       "lang": "ja",
@@ -75,36 +70,9 @@
       "lost": [],
       "fixes": [
         {
-          "line": 27,
-          "problem": "The period inside the Korean sentence was changed to a Japanese full stop (해 주세요。 그리고). The Korean has to stay character for character.",
-          "fix": "リストの中から適切な単語を選んで、2つの空欄を埋めましょう。トッポッキを辛さ控えめにしてほしくて、みんなで取り分けるための取り皿を2枚欲しいときです:떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요."
-        },
-        {
-          "line": 28,
-          "problem": "The period inside the Korean sentence was changed to a Japanese full stop (주세요。 그리고). The Korean has to stay character for character.",
-          "fix": "リストの中から適切な単語を選んで、3つの空欄を埋めましょう。手がベタベタしていて、おかずが全部なくなってしまったときです:___ 좀 주세요. 그리고 ___ 좀 ___ 주세요."
-        },
-        {
-          "line": 29,
-          "problem": "The period inside the Korean sentence was changed to a Japanese full stop (계산할게요。 그리고). The Korean has to stay character for character.",
-          "fix": "リストの中から適切な単語を選んで、2つの空欄を埋めましょう。友達とカウンターにいて、それぞれ自分の分を払い、レシートも欲しいときです:저희 ___ 계산할게요. 그리고 ___도 주세요."
-        }
-      ]
-    },
-    "de": {
-      "lang": "de",
-      "tries": 1,
-      "lost": [],
-      "fixes": [
-        {
-          "line": 15,
-          "problem": "The informal plural \"Habt ihr\" is the wrong register for restaurant staff. It goes against the polite requests the worksheet teaches and clashes with \"Können Sie\" in line 17.",
-          "fix": "Haben Sie Feuchttücher?"
-        },
-        {
-          "line": 16,
-          "problem": "\"eine Bitte, wie das Essen zubereitet wird\" is awkward German. It doesn't clearly say the request is about how the food is prepared.",
-          "fix": "weniger scharf (eine Bitte dazu, wie das Essen zubereitet werden soll)"
+          "line": 14,
+          "problem": "The English says the wipe is 'for cleaning your hands at the table'. The Japanese narrows this to 'before the meal' (食事の前に), which changes the meaning and doesn't fit line 28, where the wipe is needed partway through the meal.",
+          "fix": "おしぼり(食卓で手を拭くためのもの)"
         }
       ]
     },
@@ -115,10 +83,33 @@
       "fixes": [
         {
           "line": 18,
-          "problem": "The French leaves out \"a refill\". The English says the phrase is used to ask for a refill or an extra portion, but the French only mentions an extra portion, so the explanation is narrower than the English.",
+          "problem": "\"réapprovisionnement\" means restocking supplies, not a refill of food at the table. It is the wrong word here and sounds unnatural.",
           "fix": "encore, s'il vous plaît (pour demander à être resservi ou une portion supplémentaire)"
         }
       ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 17,
+          "problem": "\"清淡\" means mild or light in flavour in general (less salt, less oil), not specifically less spicy. It adds meaning the English does not have.",
+          "fix": "可以做得不那么辣吗?"
+        },
+        {
+          "line": 18,
+          "problem": "\"续餐\" is not natural Chinese for asking for a refill.",
+          "fix": "请再给我一点(要求续添或加量)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
     }
   },
   "pages": {
@@ -147,11 +138,6 @@
       "ok": true,
       "why": []
     },
-    "zh": {
-      "pages": 2,
-      "ok": true,
-      "why": []
-    },
     "ko": {
       "pages": 2,
       "ok": true,
@@ -162,16 +148,21 @@
       "ok": true,
       "why": []
     },
-    "de": {
+    "fr": {
       "pages": 2,
       "ok": true,
       "why": []
     },
-    "fr": {
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
       "pages": 2,
       "ok": true,
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T12:06:37.112Z"
+  "preparedAt": "2026-09-25T15:37:55.769Z"
 }

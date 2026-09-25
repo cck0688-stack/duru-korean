@@ -1,45 +1,45 @@
 {
   "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
-  "keyword": "받침",
-  "summary": "Pratique a leitura e a pronúncia das consoantes finais (batchim) ㅇ, ㄴ, ㅁ. Relacione-as com terminações parecidas do inglês (-ng, -n, -m) e leia palavras simples que contenham esses batchim.",
-  "objective": "O aluno vai distinguir pelo som as consoantes finais ㅇ, ㄴ, ㅁ, relacioná-las com terminações parecidas do inglês (-ng, -n, -m) para pronunciar corretamente, e ler palavras simples que contenham esses batchim.",
-  "level": "Iniciante (A1)",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
+  "summary": "Pratique a leitura e a pronúncia das consoantes finais ㅇ, ㄴ, ㅁ. Relacione-as com terminações parecidas em inglês (-ng, -n, -m) e leia palavras simples que contenham esses batchim.",
+  "objective": "Os alunos vão distinguir pelo som as consoantes finais ㅇ, ㄴ, ㅁ, relacioná-las com terminações parecidas em inglês (-ng, -n, -m) para pronunciar corretamente, e ler palavras simples que contenham esses batchim.",
+  "level": "Iniciante",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "받침 소리 구별하기",
-    "line": "Leia cada palavra em voz alta e classifique-a pelo som final: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
-    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
-    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)",
-    "뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜",
-    "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+    "Escolha a palavra cujo som final é [-ng]: 방 / 반 / 밤",
+    "Escreva a terminação no estilo inglês (-ng/-n/-m) em cada espaço em branco: 손(__) 방(__) 봄(__)",
+    "Classifique estas palavras pelo som final (ㅇ/ㄴ/ㅁ): 공 / 눈 / 산 / 봄",
+    "Escolha a palavra que corresponde ao significado de 'mão': 손 / 송 / 솜",
+    "Preencha o espaço em branco com a consoante final correta (ㅇ/ㄴ/ㅁ): 이르_ (significado: nome)"
   ],
   "answers": [
     "방",
     "손(-n), 방(-ng), 봄(-m)",
-    "ㅇ, ㄴ, ㅁ",
+    "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄",
     "손",
-    "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+    "ㅁ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅇ",
-      "sound": "ng (끝소리)",
-      "as": "como a terminação -ng do inglês (sing)"
+      "sound": "ng (som final)",
+      "as": "como a terminação em inglês -ng (sing)"
     },
     {
       "letter": "ㄴ",
-      "sound": "n (끝소리)",
-      "as": "como a terminação -n do inglês (sun)"
+      "sound": "n (som final)",
+      "as": "como a terminação em inglês -n (sun)"
     },
     {
       "letter": "ㅁ",
-      "sound": "m (끝소리)",
-      "as": "como a terminação -m do inglês (gum)"
+      "sound": "m (som final)",
+      "as": "como a terminação em inglês -m (gum)"
     }
   ],
   "words": [

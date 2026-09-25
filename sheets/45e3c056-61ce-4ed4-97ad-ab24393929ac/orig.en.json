@@ -1,4 +1,20 @@
 {
+  "title": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
+  "keyword": "",
+  "summary": "Read and distinguish 12 very common Korean bank ATM buttons/labels and understand what each one does. Build confidence to navigate a full ATM flow on your own.",
+  "objective": "By the end, learners can accurately read 12 frequent ATM buttons/labels in Korean (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) and follow the basic ATM flow (card in → choose service → choose amount/account → receipt option → take cash/card) independently.",
+  "level": "초급 중 (A1+~A2-)",
+  "minutes": 20,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "상황: 현금을 뽑고 싶어요. 어떤 버튼을 누르나요?",
+    "상황: 다른 사람 계좌로 돈을 보내야 해요. 어떤 버튼을 누르나요?",
+    "상황: 통장에 남은 돈을 보고 싶어요. 어떤 버튼을 누르나요?",
+    "상황: 고지서로 전기요금을 내고 싶어요. 어떤 버튼을 누르나요?",
+    "상황: 종이 영수증이 필요해요. 어떤 버튼을 누르나요?",
+    "로마자를 보고 한국어 라벨을 쓰세요: eoneo seontaek"
+  ],
   "answers": [
     "출금(현금인출)",
     "이체(계좌이체)",
@@ -8,19 +24,6 @@
     "언어 선택"
   ],
   "checkThese": [],
-  "exercises": [
-    "상황: 현금을 뽑고 싶어요. 어떤 버튼을 누르나요?",
-    "상황: 다른 사람 계좌로 돈을 보내야 해요. 어떤 버튼을 누르나요?",
-    "상황: 통장에 남은 돈을 보고 싶어요. 어떤 버튼을 누르나요?",
-    "상황: 고지서로 전기요금을 내고 싶어요. 어떤 버튼을 누르나요?",
-    "상황: 종이 영수증이 필요해요. 어떤 버튼을 누르나요?",
-    "로마자를 보고 한국어 라벨을 쓰세요: eoneo seontaek"
-  ],
-  "keyword": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
-  "level": "초급 중 (A1+~A2-)",
-  "minutes": 20,
-  "note": "이 학습지는 실제 ATM의 버튼 문구를 중심으로 구성했습니다. 은행·기기마다 화면 구성은 조금씩 다를 수 있습니다.",
-  "objective": "By the end, learners can accurately read 12 frequent ATM buttons/labels in Korean (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) and follow the basic ATM flow (card in → choose service → choose amount/account → receipt option → take cash/card) independently.",
   "sections": [
     {
       "heading": "12개 버튼: 라벨 읽기(로마자)와 쓰임",
@@ -69,9 +72,6 @@
       ]
     }
   ],
-  "summary": "Read and distinguish 12 very common Korean bank ATM buttons/labels and understand what each one does. Build confidence to navigate a full ATM flow on your own.",
-  "tags": [],
-  "task": null,
-  "title": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
+  "note": "이 학습지는 실제 ATM의 버튼 문구를 중심으로 구성했습니다. 은행·기기마다 화면 구성은 조금씩 다를 수 있습니다.",
   "category": "etc"
 }

@@ -1,9 +1,9 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
-  "keyword": "약 봉투",
-  "summary": "Une fiche de lecture pratique sur l'enveloppe de médicaments de la pharmacie coréenne (약 봉투). Les apprenants lisent trois courtes étiquettes d'enveloppes. Ils apprennent les mots de posologie qui apparaissent sur presque toutes les enveloppes (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) et comment les dire à voix haute avec les nombres coréens natifs (하루 세 번, 한 알). Ils apprennent aussi deux avertissements courants : 졸음이 올 수 있어요 et 운전 주의.",
-  "objective": "Après avoir lu une enveloppe de médicaments de pharmacie, les apprenants peuvent trouver quatre choses : combien de fois par jour prendre le médicament, quand le prendre (식전 / 식후 30분 / 취침 전), combien en prendre à chaque fois (1포, 1알/1정), et pendant combien de jours (○일분). Ils peuvent aussi reconnaître les avertissements 졸음이 올 수 있어요 et 운전 주의.",
-  "level": "Débutant (niveau élevé)",
+  "keyword": "",
+  "summary": "Une fiche de lecture pratique sur l'enveloppe de médicaments de pharmacie coréenne (약 봉투). Les apprenants lisent trois courtes étiquettes d'enveloppe. Ils apprennent les mots de posologie qui apparaissent sur presque chaque enveloppe (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) et comment les prononcer à voix haute avec les compteurs coréens natifs (하루 세 번, 한 알). Ils apprennent aussi deux avertissements courants : 졸음이 올 수 있어요 et 운전 주의.",
+  "objective": "Après avoir lu une enveloppe de médicaments de pharmacie, les apprenants peuvent trouver quatre choses : combien de fois par jour prendre le médicament, quand le prendre (식전 / 식후 30분 / 취침 전), quelle quantité prendre à chaque fois (1포, 1알/1정), et pendant combien de jours (○일분). Ils peuvent aussi reconnaître les avertissements 졸음이 올 수 있어요 et 운전 주의.",
+  "level": "Débutant (niveau supérieur)",
   "minutes": 20,
   "tags": [],
   "task": {
@@ -13,10 +13,10 @@
   "exercises": [
     "Regardez l'enveloppe A. 이 약은 하루에 몇 번 먹어요?",
     "Regardez l'enveloppe A. 이 약은 언제 먹어요? Écrivez les mots de l'enveloppe et ce qu'ils signifient.",
-    "Regardez l'enveloppe B. L'enveloppe indique 1회 1정. 한 번에 몇 알 먹어요? Répondez comme on le dit à l'oral.",
+    "Regardez l'enveloppe B. L'enveloppe indique 1회 1정. 한 번에 몇 알 먹어요? Répondez comme on le dirait à l'oral.",
     "Regardez l'enveloppe C. 이 약은 며칠 동안 먹어요?",
     "Regardez l'enveloppe C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
-    "Regardez l'enveloppe A. 이 약을 먹고 운전해도 괜찮아요? Quels mots sur l'enveloppe vous le disent, et que signifient-ils ?"
+    "Regardez l'enveloppe A. 이 약을 먹고 운전해도 괜찮아요? Quels mots de l'enveloppe vous le disent, et que signifient-ils ?"
   ],
   "answers": [
     "하루 세 번 (1일 3회 = 3 times a day)",
@@ -39,15 +39,15 @@
       "heading": "봉투에 나오는 말 (MOTS SUR L'ENVELOPPE)",
       "paragraphs": [
         "COMBIEN DE FOIS PAR JOUR — 1일 3회 (iril samhoe) = 3 fois par jour. 일 signifie « jour » et 회 signifie « fois ». On dit cela 하루 세 번.",
-        "COMBIEN À CHAQUE FOIS — 1회 1포 = un sachet à chaque fois. 1정 = un comprimé. Vous verrez 정 sur l'enveloppe, mais on dit 알 à l'oral : 1정 = 1알 = 한 알. Deux comprimés = 2알 = 두 알.",
-        "QUAND — 식전 (sikjeon) = avant un repas. 식후 (sikhu) = après un repas. 식후 30분 = 30 minutes après un repas. 취침 전 (chwichim jeon) = avant de se coucher. À l'oral, on peut dire 밥 먹기 전, 밥 먹고 나서, et 자기 전.",
-        "COMBIEN DE JOURS — 3일분 (samilbun) = une provision de 3 jours. Ici, 분 signifie « quantité/portion » et n'a rien à voir avec les minutes. 7일분 = médicament pour 7 jours."
+        "QUELLE QUANTITÉ À CHAQUE FOIS — 1회 1포 = un sachet à chaque fois. 1정 = un comprimé. Vous verrez 정 sur l'enveloppe, mais les gens disent 알 : 1정 = 1알 = 한 알. Deux comprimés = 2알 = 두 알.",
+        "QUAND — 식전 (sikjeon) = avant un repas. 식후 (sikhu) = après un repas. 식후 30분 = 30 minutes après un repas. 취침 전 (chwichim jeon) = avant de dormir. À l'oral, on peut dire 밥 먹기 전, 밥 먹고 나서, et 자기 전.",
+        "COMBIEN DE JOURS — 3일분 (sam-ilbun) = une réserve de 3 jours. 분 signifie ici « quantité/portion » et n'a rien à voir avec les minutes. 7일분 = médicament pour 7 jours."
       ]
     },
     {
       "heading": "소리 내어 읽기 (LIRE À VOIX HAUTE)",
       "paragraphs": [
-        "L'enveloppe utilise des mots et des nombres sino-coréens. Quand vous parlez, utilisez les nombres coréens natifs (한, 두, 세) avec les compteurs 번 et 알.",
+        "L'enveloppe utilise des mots et des chiffres sino-coréens. Quand vous parlez, utilisez les compteurs coréens natifs.",
         "1일 3회 → 하루 세 번 먹어요. 1회 2알 → 한 번에 두 알 먹어요. 취침 전 → 자기 전에 먹어요."
       ]
     },
@@ -55,8 +55,8 @@
       "heading": "주의 (AVERTISSEMENTS)",
       "paragraphs": [
         "졸음이 올 수 있어요. (joreumi ol su isseoyo) = Ce médicament peut vous rendre somnolent.",
-        "운전 주의 (unjeon juui) = Soyez prudent avant de prendre le volant.",
-        "Ces deux avertissements apparaissent souvent ensemble. Certaines enveloppes les mettent dans une seule phrase : 졸음이 올 수 있으니 운전에 주의하세요."
+        "운전 주의 (unjeon juui) = Soyez prudent en conduisant.",
+        "Ces deux avertissements apparaissent souvent ensemble. Certaines enveloppes les regroupent en une seule phrase : 졸음이 올 수 있으니 운전에 주의하세요."
       ]
     },
     {
@@ -69,11 +69,11 @@
     {
       "heading": "약국에서 물어보기 (DEMANDER À LA PHARMACIE)",
       "paragraphs": [
-        "Si vous ne pouvez pas lire l'enveloppe, demandez au pharmacien :",
-        "이 약은 언제 먹어요? — Quand est-ce que je prends ceci ? 하루에 몇 번 먹어요? — Combien de fois par jour ? 한 번에 몇 알 먹어요? — Combien j'en prends à chaque fois ?"
+        "Si vous n'arrivez pas à lire l'enveloppe, demandez au pharmacien :",
+        "이 약은 언제 먹어요? — Quand est-ce que je prends ce médicament ? 하루에 몇 번 먹어요? — Combien de fois par jour ? 한 번에 몇 알 먹어요? — Combien j'en prends à chaque fois ?"
       ]
     }
   ],
-  "note": "Toutes les enveloppes sont des exemples fictifs pour la pratique de la lecture. Ce ne sont pas des conseils médicaux. Pour de vrais médicaments, suivez toujours les instructions de votre pharmacien ou de votre médecin.",
+  "note": "Toutes les enveloppes sont des exemples fictifs pour l'entraînement à la lecture. Ce ne sont pas des conseils médicaux. Pour de vrais médicaments, suivez toujours les instructions de votre pharmacien ou de votre médecin.",
   "category": "etc"
 }

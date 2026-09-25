@@ -1,24 +1,24 @@
 {
   "answers": [
-    "사진을 찍어도 돼요? / 사진을 찍어도 될까요?",
-    "네, 앉아도 돼요. (네, 여기 앉아도 돼요.)",
+    "화장실에 가도 돼요? / 화장실에 가도 될까요?",
+    "네, 앉아도 돼요. (네, 여기에 앉아도 돼요.)",
     "여기에서 떠들면 안 돼요.",
-    "오늘은 토요일이에요. 학교에 안 가도 돼요.",
+    "내일은 토요일이에요. 학교에 안 가도 돼요.",
     "수업에 늦으면 안 돼요."
   ],
   "checkThese": [],
   "exercises": [
-    "허락을 묻는 질문으로 바꾸세요: 사진을 찍다 (Transforme em uma pergunta pedindo permissão: 사진을 찍다)",
-    "질문에 허락으로 대답하세요: 여기 앉아도 돼요? (Responda à pergunta dando permissão: 여기 앉아도 돼요?)",
-    "금지 문장으로 쓰세요: 도서관이에요. 여기에서 떠들다 (Escreva como uma frase de proibição: 도서관이에요. 여기에서 떠들다)",
-    "괄호에서 고르세요: 오늘은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요). (Escolha entre parênteses: 오늘은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).)",
-    "문장을 올바르게 고치세요(금지): 수업에 늦으면 돼요. (Corrija a frase corretamente (proibição): 수업에 늦으면 돼요.)"
+    "Transforme em uma pergunta pedindo permissão: 화장실에 가다",
+    "Responda à pergunta dando permissão: 여기에 앉아도 돼요?",
+    "Escreva uma frase de proibição: 도서관이에요. 여기에서 떠들다",
+    "Escolha a opção correta entre parênteses: 내일은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).",
+    "Corrija a frase para que expresse proibição: 수업에 늦으면 돼요."
   ],
   "forms": [
     {
       "form": "V-아/어도 돼요? / V-아/어도 될까요?",
-      "when": "상대에게 허락을 물을 때(정중: 될까요) — Quando se pede permissão à outra pessoa (mais educado: 될까요)",
-      "means": "Posso...? Tudo bem se eu...?",
+      "when": "Quando se pede permissão a alguém (될까요 é mais educado)",
+      "means": "Posso…? Tudo bem se eu…?",
       "example": "창문을 열어도 될까요?",
       "exampleMeaning": "Posso abrir a janela?",
       "mark": [
@@ -28,55 +28,57 @@
     },
     {
       "form": "V-아/어도 돼요.",
-      "when": "상대에게 허락을 줄 때 — Quando se dá permissão à outra pessoa",
-      "means": "Você pode... / Tudo bem...",
-      "example": "네, 창문을 열어도 돼요.",
-      "exampleMeaning": "Sim, você pode abrir a janela.",
+      "when": "Quando se dá permissão a alguém",
+      "means": "Você pode… / Está tudo bem…",
+      "example": "네, 여기에서 사진을 찍어도 돼요.",
+      "exampleMeaning": "Sim, você pode tirar fotos aqui.",
       "mark": [
-        "열어도",
-        "돼요"
+        "찍어도",
+        "돼요."
       ]
     },
     {
       "form": "V-(으)면 안 돼요.",
-      "when": "규칙·금지·주의를 말할 때 — Quando se fala sobre regras, proibições ou avisos",
-      "means": "não deve / não é permitido",
+      "when": "Quando se expressam regras, proibições ou avisos",
+      "means": "não pode / não é permitido",
       "example": "여기에서 담배를 피우면 안 돼요.",
-      "exampleMeaning": "Você não deve fumar aqui.",
+      "exampleMeaning": "Você não pode fumar aqui.",
       "mark": [
         "피우면",
-        "안 돼요"
+        "안",
+        "돼요."
       ]
     },
     {
       "form": "안 V-아/어도 돼요. (= V-지 않아도 돼요.)",
-      "when": "어떤 일을 할 필요가 없다고 말할 때 — Quando se diz que não é necessário fazer algo",
+      "when": "Quando se diz que não é necessário fazer algo",
       "means": "não precisa / não é necessário",
       "example": "오늘은 숙제를 안 해도 돼요.",
-      "exampleMeaning": "Você não precisa fazer a lição de casa hoje.",
+      "exampleMeaning": "Você não precisa fazer o dever de casa hoje.",
       "mark": [
-        "안 해도",
-        "돼요"
+        "안",
+        "해도",
+        "돼요."
       ]
     }
   ],
-  "keyword": "",
-  "level": "Iniciante (A2)",
+  "keyword": "-아/어도 되다·-(으)면 안 되다",
+  "level": "Iniciante (avançado)",
   "minutes": 15,
-  "objective": "Ao final, os alunos serão capazes de pedir/dar permissão usando -아/어도 되다, expressar proibições usando -(으)면 안 되다, e diferenciar corretamente '안 V-아/어도 되다 (não precisar)' de 'V-(으)면 안 되다 (não poder)'.",
-  "summary": "Pratique como pedir e dar permissão com -아/어도 되다, expressar proibições com -(으)면 안 되다, e diferenciar \"não precisar\" (안 V-아/어도 되다) de \"não poder\" (V-(으)면 안 되다).",
+  "objective": "Ao final, o aluno será capaz de pedir e dar permissão usando -아/어도 되다, expressar proibições usando -(으)면 안 되다, e diferenciar corretamente ‘안 V-아/어도 되다 (não precisar)’ de ‘V-(으)면 안 되다 (não poder)’.",
+  "summary": "Pratique como pedir e dar permissão usando -아/어도 되다, como expressar proibições usando -(으)면 안 되다, e como diferenciar “não precisar” (안 V-아/어도 되다) de “não poder” (V-(으)면 안 되다).",
   "tags": [],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "Crie as Regras da Biblioteca",
+    "line": "Escreva 2 coisas que você pode fazer e 2 coisas que você não pode fazer na biblioteca, usando -아/어도 돼요 e -(으)면 안 돼요."
   },
-  "title": "허락·금지 말하기: -아/어도 되다, -(으)면 안 되다, ‘안 V-아/어도 되다’ 구분",
+  "title": "Permission and Prohibition: -아/어도 되다, -(으)면 안 되다, and distinguishing ‘안 V-아/어도 되다’",
   "watchOut": [
-    "'안 V-아/어도 돼요'(하지 않아도 됨) ≠ 'V-(으)면 안 돼요'(하면 안 됨). 예: 우산을 안 써도 돼요(비 안 옴) vs 우산을 쓰면 안 돼요(금지). — 'não precisar' ≠ 'não poder'. Exemplo: 우산을 안 써도 돼요 (não está chovendo) vs 우산을 쓰면 안 돼요 (proibido).",
-    "맞춤법: '돼요'가 맞습니다('되요' X). — Ortografia: o certo é '돼요' ('되요' está errado).",
-    "정중도: '…돼요?'보다 '…될까요?'가 더 공손합니다. (Nível de formalidade: '…될까요?' é mais educado do que '…돼요?'.)",
-    "'하지 않아도 됨'을 말할 때는 '안'을 본동사 앞에 씁니다: 우산을 안 써도 돼요 (O) / 우산을 써도 안 돼요 (X: 뜻이 달라짐) — Ao dizer 'não precisa fazer', coloque '안' antes do verbo principal: 우산을 안 써도 돼요 (correto) / 우산을 써도 안 돼요 (errado: muda o significado)",
-    "활용 주의: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도. (Atenção à conjugação: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도.)"
+    "‘안 V-아/어도 돼요’ (não precisar) ≠ ‘V-(으)면 안 돼요’ (não poder). Ex.: 우산을 안 써도 돼요 (você não precisa de guarda-chuva; não está chovendo) vs 우산을 쓰면 안 돼요 (você não pode usar guarda-chuva).",
+    "Ortografia: a forma correta é ‘돼요’ (‘되요’ está errado).",
+    "Cortesia: ‘…될까요?’ é mais educado do que ‘…돼요?’.",
+    "Posição de 안: coloque ‘안’ logo antes do verbo. Ex.: 약을 안 먹어도 돼요 (você não precisa tomar remédio) ≠ 약을 먹어도 안 돼요 (significado diferente: mesmo que tome o remédio, não funciona).",
+    "Preste atenção na conjugação: 하다→해도, 마시다→마셔도, 쓰다→써도 (cai o ㅡ), 듣다→들어도 (irregular de ㄷ)."
   ],
   "watchOutMark": [
     [
@@ -84,21 +86,25 @@
       "쓰면 안 돼요"
     ],
     [
-      "돼요",
-      "되요"
+      "되요",
+      "돼요"
     ],
     [
       "돼요?",
       "될까요?"
     ],
     [
-      "안 써도 돼요",
-      "써도 안 돼요"
+      "안 먹어도 돼요",
+      "먹어도 안 돼요"
     ],
     [
+      "하다",
       "해도",
+      "마시다",
       "마셔도",
+      "쓰다",
       "써도",
+      "듣다",
       "들어도"
     ]
   ],

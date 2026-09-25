@@ -1,22 +1,4 @@
 {
-  "title": "가온모바일 'LTE 라이트 29' 요금제 안내",
-  "keyword": "",
-  "summary": "Read a realistic Korean mobile plan notice and identify key details such as the monthly fee, data allowance, voice/SMS limits, contract term, and the policy after data is used up.",
-  "objective": "After reading a 3–5 paragraph mobile plan notice, learners can accurately find the monthly fee, data allowance, voice/SMS included amounts, the contract term (or no contract), and the post-data policy (speed cap/extra charges).",
-  "level": "Intermediate Low (중급 초반)",
-  "minutes": 15,
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "exercises": [
-    "이 요금제의 월정액은 얼마인가요?",
-    "데이터는 얼마를 제공하나요?",
-    "데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
-    "통화/문자는 얼마나 포함되어 있나요?",
-    "약정 기간은 어떻게 되나요?"
-  ],
   "answers": [
     "29,000원",
     "월 15GB",
@@ -25,11 +7,29 @@
     "12개월"
   ],
   "checkThese": [],
-  "passage": [
-    "가온모바일 'LTE 라이트 29' 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
-    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
-    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 초과하면 통화와 문자에 별도 요금이 부과됩니다."
+  "exercises": [
+    "Answer in Korean: 이 요금제의 월정액은 얼마인가요?",
+    "Answer in Korean: 데이터는 얼마를 제공하나요?",
+    "Answer in Korean: 데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+    "Answer in Korean: 통화/문자는 얼마나 포함되어 있나요?",
+    "Answer in Korean: 약정 기간은 어떻게 되나요?"
   ],
+  "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "level": "Intermediate (low)",
+  "minutes": 15,
+  "objective": "After reading a 3–5 paragraph mobile plan notice, learners can accurately find the monthly fee, data allowance, voice/SMS included amounts, the contract term (or no contract), and the post-data policy (speed cap/extra charges).",
+  "passage": [
+    "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
+    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
+    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
+  ],
+  "summary": "Read a realistic Korean mobile plan notice and identify key details such as the monthly fee, data allowance, voice/SMS limits, contract term, and the policy after data is used up.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
   "words": [
     {
       "korean": "월정액",

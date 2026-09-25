@@ -1,17 +1,17 @@
 {
   "answers": [
-    "앞머리 조금만 내려 주세요.",
+    "앞머리 조금만 내려 주세요. / 앞머리를 조금만 내려 주세요. / 앞머리는 조금만 내려 주세요.",
     "이 정도",
-    "b) 귀는 가리게 해 주세요.",
-    "너무 짧게는 말고요.",
-    "귀는 보이게 해 주세요."
+    "옆머리는 짧게 해 주세요. / 옆머리 짧게 해 주세요. / 옆머리를 짧게 해 주세요.",
+    "뒷머리는 너무 짧게는 말고요. / 뒷머리 너무 짧게는 말고요.",
+    "기본 커트요. / 기본 커트 해 주세요. / 기본 커트로 해 주세요. / 기본 커트 부탁해요. / 기본 커트 부탁합니다."
   ],
   "checkThese": [],
   "dialogue": [
     {
       "who": "디자이너",
       "korean": "어서 오세요. 어떻게 해 드릴까요?",
-      "meaning": "Chào mừng quý khách. Hôm nay anh/chị muốn làm kiểu gì ạ?"
+      "meaning": "Xin chào. Hôm nay bạn muốn làm kiểu gì?"
     },
     {
       "who": "손님",
@@ -21,51 +21,51 @@
     {
       "who": "디자이너",
       "korean": "네, 이 정도면 괜찮으세요?",
-      "meaning": "Vâng ạ. Độ dài thế này được không ạ?"
+      "meaning": "Vâng. Độ dài thế này được không ạ?"
     },
     {
       "who": "손님",
       "korean": "네, 좋아요. 근데 너무 짧게는 말고요.",
-      "meaning": "Vâng, được đấy. Nhưng đừng cắt ngắn quá nhé."
+      "meaning": "Vâng, thế này được rồi. Nhưng đừng cắt ngắn quá nhé."
     },
     {
       "who": "디자이너",
       "korean": "알겠습니다. 앞머리는 내릴까요?",
-      "meaning": "Dạ vâng. Tôi cắt mái cho anh/chị nhé?"
+      "meaning": "Vâng, tôi hiểu rồi. Bạn có muốn để mái xõa xuống không?"
     },
     {
       "who": "손님",
       "korean": "네, 앞머리 조금만 내려 주세요.",
-      "meaning": "Vâng, xin hãy hạ mái xuống một chút thôi nhé."
+      "meaning": "Vâng, hãy để mái xõa xuống một chút thôi nhé."
     },
     {
       "who": "디자이너",
       "korean": "귀는 보이게 해 드릴까요, 가리게 해 드릴까요?",
-      "meaning": "Anh/chị muốn để lộ tai hay che tai lại ạ?"
+      "meaning": "Bạn muốn để lộ tai hay che tai lại?"
     },
     {
       "who": "손님",
       "korean": "귀는 가리게 해 주세요.",
-      "meaning": "Che tai tôi lại nhé."
+      "meaning": "Hãy che tai tôi lại nhé."
     }
   ],
   "exercises": [
-    "Dịch sang tiếng Hàn: “Xin hãy hạ mái xuống một chút thôi.”",
-    "Điền vào chỗ trống: _____로만 잘라 주세요. (Bạn đang dùng tay để chỉ độ dài.)",
-    "Chọn câu yêu cầu che tai lại: a) 귀는 보이게 해 주세요. b) 귀는 가리게 해 주세요.",
-    "Dịch sang tiếng Hàn dùng …말고요: “Đừng cắt ngắn quá nhé.”",
-    "Dịch sang tiếng Hàn dùng ‘귀는 … 해 주세요’: “Làm cho tai tôi lộ ra nhé.”"
+    "Dịch sang tiếng Hàn, dùng '앞머리': “Hãy để mái xõa xuống một chút thôi nhé.”",
+    "Bạn đang chạm vào tóc của mình để chỉ độ dài mong muốn. Điền vào chỗ trống từ đúng (이 정도 / 그 정도 / 저 정도): _____로만 잘라 주세요.",
+    "Dịch sang tiếng Hàn, dùng …게 해 주세요 (옆머리 = tóc hai bên): “Hãy làm cho hai bên ngắn lại.”",
+    "Dịch sang tiếng Hàn, dùng …말고요 (뒷머리 = tóc phía sau): “Đừng cắt ngắn quá ở phía sau nhé.”",
+    "Dịch sang tiếng Hàn: “Cho tôi cắt kiểu cơ bản nhé.”"
   ],
-  "keyword": "미용실",
-  "level": "Sơ cấp cao (A2)",
+  "keyword": "미용실에서 기본 커트 부탁하기",
+  "level": "Sơ cấp (cao)",
   "minutes": 15,
-  "objective": "Sau bài học, người học có thể yêu cầu một kiểu cắt cơ bản, chỉ độ dài bằng ‘이 정도’, nói mình có muốn cắt mái hay không, yêu cầu để lộ hay che tai, và sử dụng ‘너무 짧게는 말고요’ một cách tự nhiên.",
+  "objective": "Sau bài học, người học có thể yêu cầu cắt tóc cơ bản, chỉ độ dài bằng '이 정도', nói mình có muốn để mái hay không, yêu cầu để lộ hay che tai, và dùng '너무 짧게는 말고요' một cách tự nhiên.",
   "setting": "미용실",
-  "summary": "Một đoạn hội thoại ngắn, thực tế tại tiệm làm tóc để yêu cầu cắt tóc cơ bản: xác định độ dài bằng ‘이 정도’, chọn mái, và yêu cầu để lộ hay che tai. Luyện tập dạng yêu cầu phủ định rút gọn ‘…말고요’ (“không …, nhé”) như trong câu ‘Đừng cắt ngắn quá nhé.’",
+  "summary": "Một đoạn hội thoại ngắn, thực tế ở tiệm làm tóc để yêu cầu cắt tóc cơ bản: xác định độ dài bằng '이 정도', chọn mái, và yêu cầu để lộ hay che tai. Luyện tập cách nói giảm nhẹ lịch sự '…말고요' như trong câu 'Đừng cắt ngắn quá nhé.'",
   "tags": [],
   "task": {
-    "title": "미용실 역할극",
-    "line": "원하는 길이, 앞머리, 귀 모양을 디자이너에게 말해 보세요."
+    "title": "Nói cho thợ làm tóc biết bạn muốn gì",
+    "line": "Ở tiệm làm tóc, hãy yêu cầu cắt tóc cơ bản: chỉ độ dài bằng '이 정도', nói bạn muốn mái và tai như thế nào, và thêm câu '너무 짧게는 말고요'."
   },
   "title": "미용실에서 기본 커트 부탁하기",
   "words": [
@@ -95,28 +95,28 @@
       "roman": "ammeori",
       "meaning": "tóc mái (mái)",
       "example": "앞머리 내려 주세요.",
-      "exampleMeaning": "Cho tôi cắt mái nhé."
+      "exampleMeaning": "Cho tôi để mái nhé."
     },
     {
       "korean": "귀는 보이게 해 주세요",
       "roman": "gwineun boige hae juseyo",
-      "meaning": "Làm cho tai tôi lộ ra nhé.",
-      "example": "옆머리를 짧게 잘라서 귀는 보이게 해 주세요.",
-      "exampleMeaning": "Cắt ngắn hai bên để lộ tai ra nhé."
+      "meaning": "Hãy để lộ tai của tôi ra nhé.",
+      "example": "이번에는 귀가 보이게 잘라 주세요.",
+      "exampleMeaning": "Lần này hãy cắt sao cho tai tôi lộ ra nhé."
     },
     {
       "korean": "귀는 가리게 해 주세요",
       "roman": "gwineun garige hae juseyo",
-      "meaning": "Che tai tôi lại nhé.",
-      "example": "옆머리를 길게 남겨서 귀는 가리게 해 주세요.",
-      "exampleMeaning": "Để hai bên dài để che tai lại nhé."
+      "meaning": "Hãy che tai tôi lại nhé.",
+      "example": "겨울이라서 귀는 좀 가리게 해 주세요.",
+      "exampleMeaning": "Trời đang mùa đông nên hãy để tai tôi được che một chút."
     },
     {
       "korean": "…게 해 주세요",
       "roman": "…ge hae juseyo",
-      "meaning": "Làm cho nó …; làm sao để …",
+      "meaning": "Hãy làm sao cho …; hãy làm để …",
       "example": "앞머리는 짧게 해 주세요.",
-      "exampleMeaning": "Cắt mái ngắn lại nhé."
+      "exampleMeaning": "Hãy cắt mái ngắn lại nhé."
     }
   ],
   "category": "reallife"

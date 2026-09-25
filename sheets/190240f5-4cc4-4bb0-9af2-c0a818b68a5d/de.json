@@ -1,23 +1,30 @@
 {
+  "title": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
+  "keyword": "중고거래 채팅 읽기",
+  "summary": "Lies einen kurzen Chat über einen Gebrauchtwarenverkauf und finde die endgültige Treffzeit sowie den genauen Treffpunkt heraus (z. B. Bahnhof + Ausgangsnummer). Übe, Terminänderungen und Bestätigungen gezielt herauszulesen.",
+  "objective": "Die Lernenden lesen einen kurzen Chat über einen Gebrauchtwarenverkauf (6 Nachrichten) und finden die endgültige Treffzeit sowie den genauen Treffpunkt heraus (z. B. ○○-Bahnhof, Ausgang 3).",
+  "level": "Mittelstufe (niedrig)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Antworte auf Koreanisch: 두 사람이 최종으로 만나기로 한 날짜와 시간은 언제예요?",
+    "Antworte auf Koreanisch: 두 사람이 최종으로 만나기로 한 정확한 장소는 어디예요?",
+    "Antworte auf Koreanisch: 처음 판매자가 제안한 날짜와 시간은 언제였나요?",
+    "Wähle die richtige Antwort: 판매자가 처음 제안한 만나는 장소는 어디였나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
+    "Richtig oder falsch? Schreibe O oder X: 장소를 교대역으로 바꾸자고 한 사람은 판매자이다."
+  ],
   "answers": [
     "5월 19일(일) 오후 6시",
     "교대역 3번 출구 앞",
-    "내일(5월 18일 토요일) 오후 7시 ('내일 오후 7시', '5월 18일(토) 오후 7시' 모두 정답)",
+    "내일(5월 18일 토요일) 오후 7시 (\"5월 18일(토) 오후 7시\"도 정답)",
     "A) 강남역 5번 출구 앞",
-    "O"
+    "X"
   ],
   "checkThese": [],
-  "exercises": [
-    "지문에서 두 사람이 최종으로 만나기로 한 날짜와 시간을 쓰세요.",
-    "지문에서 최종으로 만나기로 한 정확한 장소를 쓰세요.",
-    "처음 판매자가 제안한 날짜와 시간은 언제였나요?",
-    "다음 중 판매자가 처음 제안한 만나는 장소는 무엇이었나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
-    "구매자는 처음 약속 시간에 야근 때문에 갈 수 없었다. (O/X)"
-  ],
-  "keyword": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
-  "level": "초중급(A2)",
-  "minutes": 15,
-  "objective": "Die Lernenden lesen einen kurzen Chat über einen Gebrauchtwarenhandel (6 Nachrichten) und ermitteln genau die endgültige Treffzeit und den genauen Treffpunkt (z. B. ○○-Bahnhof, Ausgang 3).",
   "passage": [
     "중고거래 앱 채팅",
     "판매자: 안녕하세요! 의자 예약하신 분 맞으세요? 내일 오후 7시에 강남역 5번 출구 앞에서 직거래 가능하세요?",
@@ -27,18 +34,11 @@
     "판매자: 네, 좋아요. 그럼 최종으로 5월 19일(일) 오후 6시, 교대역 3번 출구 앞에서 만나요. 혹시 늦으면 미리 메시지 드릴게요.",
     "구매자: 네, 알겠습니다. 감사합니다!"
   ],
-  "summary": "Lies einen kurzen Chat über einen Gebrauchtwarenhandel und finde die endgültige Treffzeit sowie den genauen Ort heraus (z. B. Bahnhof + Ausgangsnummer).\nÜbe das gezielte Lesen nach Terminänderungen und Bestätigungen.",
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "title": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
   "words": [
     {
       "korean": "직거래",
       "roman": "jikgeorae",
-      "meaning": "persönliches Geschäft; sich persönlich treffen, um zu tauschen und zu bezahlen",
+      "meaning": "persönliches Treffen; sich persönlich treffen, um die Ware zu übergeben und zu bezahlen",
       "example": "중고폰은 직거래로 사는 게 마음이 편해요.",
       "exampleMeaning": "Ich fühle mich sicherer, wenn ich ein gebrauchtes Handy persönlich kaufe."
     },
@@ -47,7 +47,7 @@
       "roman": "yageun",
       "meaning": "Überstunden am Abend/in der Nacht",
       "example": "오늘 야근이라 약속을 미뤄야 해요.",
-      "exampleMeaning": "Ich muss den Plan verschieben, weil ich heute Überstunden mache."
+      "exampleMeaning": "Ich muss den Plan verschieben, weil ich heute länger arbeiten muss."
     },
     {
       "korean": "모레",
@@ -59,14 +59,14 @@
     {
       "korean": "출구",
       "roman": "chulgu",
-      "meaning": "Ausgang (eines Bahnhofs oder Gebäudes), oft mit einer Nummer verwendet",
+      "meaning": "Ausgang (eines Bahnhofs oder Gebäudes), wird oft mit einer Nummer verwendet",
       "example": "을지로입구역 1번 출구로 나와 주세요.",
-      "exampleMeaning": "Bitte komm durch Ausgang 1 der Station Euljiro 1(il)-ga heraus."
+      "exampleMeaning": "Bitte komm am Ausgang 1 der Station Euljiro 1(il)-ga heraus."
     },
     {
       "korean": "최종",
       "roman": "choejong",
-      "meaning": "endgültig; die letzte und bestätigte Version/der letzte bestätigte Status",
+      "meaning": "endgültig; die letzte und bestätigte Version bzw. der bestätigte Stand",
       "example": "최종 일정은 내일 오전 10시로 정했어요.",
       "exampleMeaning": "Wir haben den endgültigen Termin auf morgen, 10 Uhr, festgelegt."
     }

@@ -1,48 +1,44 @@
 {
   "answers": [
-    "아빠가 신문을 읽고 있어요.",
-    "교실 문이 열려 있어요.",
-    "아이가 소파에 앉아 있어요? (아이가 소파에 앉아 있나요?)",
-    "방의 불이 켜져 있지 않아요. (방의 불이 안 켜져 있어요.)",
-    "책이 책상 위에 놓여 있어요.",
-    "동생이 숙제를 하고 있지 않아요. (동생이 숙제를 안 하고 있어요.)",
-    "친구가 전화하고 있어요? (친구가 전화하고 있나요?)"
+    "동생이 숙제를 하고 있어요.",
+    "강아지가 소파에 누워 있어요.",
+    "지금 텔레비전을 보고 있어요? (지금 텔레비전을 보고 있나요?)",
+    "부엌 불이 켜져 있지 않아요. (부엌 불이 안 켜져 있어요.)",
+    "아빠가 지금 신문을 읽고 있지 않아요. (아빠가 지금 신문을 안 읽고 있어요.)"
   ],
   "checkThese": [],
   "exercises": [
-    "아빠 / 신문을 읽다 / kalimat positif → Buatlah kalimat yang menyatakan bahwa ayah sedang membaca koran sekarang.",
-    "교실 문 / 열리다 / kalimat positif → Buatlah kalimat yang menyatakan bahwa setelah seseorang membuka pintu, pintu itu masih tetap dalam keadaan terbuka sekarang.",
-    "아이 / 소파에 앉다 / kalimat tanya → Buatlah kalimat yang menanyakan apakah anak itu sedang dalam keadaan duduk di sofa sekarang.",
-    "방의 불 / 켜지다 / kalimat negatif → Buatlah kalimat negatif yang menyatakan bahwa lampu kamar sedang tidak dalam keadaan menyala.",
-    "책 / 책상 위에 놓이다 / kalimat positif → Buatlah kalimat yang menyatakan bahwa setelah seseorang meletakkan buku di atas meja, buku itu masih tetap dalam keadaan itu sekarang.",
-    "동생 / 숙제를 하다 / kalimat negatif → Buatlah kalimat negatif yang menyatakan bahwa adik sedang tidak mengerjakan PR sekarang.",
-    "친구 / 전화하다 / kalimat tanya → Buatlah kalimat yang menanyakan apakah teman sedang menelepon sekarang."
+    "Adik kamu mulai mengerjakan PR sepuluh menit yang lalu dan masih mengerjakannya sampai sekarang. Buatlah kalimat yang menyatakan apa yang sedang dilakukan adikmu sekarang: 동생 / 숙제 / 하다",
+    "Anjing itu berbaring di sofa satu jam yang lalu dan masih di sana. Buatlah kalimat yang menggambarkan keadaan anjing itu: 강아지 / 소파 / 눕다",
+    "Kamu menelepon seorang teman dan mendengar suara TV di latar belakang. Buatlah kalimat tanya yang menanyakan apakah temanmu sedang menonton TV sekarang: 텔레비전 / 보다",
+    "Tidak ada yang menyalakan lampu dapur, sehingga dapur menjadi gelap. Buatlah kalimat negatif tentang lampu dapur: 부엌 불 / 켜지다",
+    "Ayah sedang memegang koran, tetapi dia melihat ke luar jendela, bukan ke korannya. Buatlah kalimat negatif tentang apa yang sedang dilakukan ayah sekarang: 아빠 / 신문 / 읽다"
   ],
   "forms": [
     {
       "form": "-고 있다",
-      "when": "Digunakan saat 동작이 지금 진행되고 있을 때('진행' dari suatu tindakan sedang berlangsung).",
-      "means": "sedang ...-ing (tindakan yang sedang berlangsung)",
+      "when": "Gunakan ini saat suatu tindakan sedang berlangsung sekarang. Tambahkan -고 있다 pada batang kata kerja, baik yang berakhiran konsonan maupun tidak (먹다 → 먹고 있다, 가다 → 가고 있다).",
+      "means": "sedang ... (tindakan yang sedang berlangsung)",
       "example": "엄마가 밥을 먹고 있어요.",
-      "exampleMeaning": "Ibu sedang (dalam proses) makan.",
+      "exampleMeaning": "Ibu sedang makan.",
       "mark": [
         "먹고 있어요"
       ]
     },
     {
       "form": "-아/어 있다",
-      "when": "Digunakan saat 어떤 동작의 결과로 지금 그 상태가 남아 있을 때(keadaan hasil/keberadaan). Hanya melekat pada 자동사·피동사 (열리다 → 열려 있다, 켜지다 → 켜져 있다).",
-      "means": "sedang/dalam keadaan ... (kondisi hasil setelah suatu tindakan)",
+      "when": "Gunakan ini saat hasil dari suatu tindakan yang telah selesai tetap berlanjut sebagai suatu keadaan sekarang. Digunakan dengan kata kerja intransitif atau pasif, bukan kata kerja transitif: gunakan -아 있다 setelah batang kata yang berakhiran ㅏ/ㅗ dan -어 있다 setelah batang kata lainnya (열리다 → 열려 있다, 앉다 → 앉아 있다).",
+      "means": "sedang/berada dalam keadaan ... (keadaan hasil setelah suatu tindakan)",
       "example": "창문이 열려 있어요.",
-      "exampleMeaning": "Jendelanya terbuka (sudah dibuka dan tetap dalam kondisi itu).",
+      "exampleMeaning": "Jendelanya terbuka (sudah dibuka dan tetap terbuka).",
       "mark": [
         "열려 있어요"
       ]
     },
     {
-      "form": "Kata kerja posisi/postur: 앉아 있다 / 서 있다 / 누워 있다",
-      "when": "Kata kerja 'postur' seperti 앉다, 서다, 눕다 biasanya digunakan dalam bentuk -아/어 있다 untuk menyatakan 'kondisi sedang duduk'.",
-      "means": "sedang duduk/berdiri/berbaring (keadaan postur)",
+      "form": "Kata kerja postur: 앉아 있다 / 서 있다 / 누워 있다",
+      "when": "Kata kerja postur seperti 앉다, 서다, dan 눕다 biasanya menggunakan -아/어 있다 untuk menggambarkan postur seseorang (눕다 → 누워 있다, tidak beraturan ㅂ).",
+      "means": "sedang duduk/berdiri/berbaring (postur keadaan)",
       "example": "학생이 의자에 앉아 있어요.",
       "exampleMeaning": "Siswa itu sedang duduk di kursi.",
       "mark": [
@@ -51,43 +47,43 @@
     }
   ],
   "keyword": "-고 있다 vs -아/어 있다",
-  "level": "Tingkat pemula-menengah (A2–B1)",
+  "level": "Menengah (rendah)",
   "minutes": 15,
-  "objective": "Pembelajar akan dapat menjelaskan perbedaan antara -고 있다 dan -아/어 있다 serta memilih dan membentuk kalimat (positif, negatif, tanya) yang tepat untuk menyatakan tindakan yang sedang berlangsung atau kondisi hasil/keadaan dengan benar.",
-  "summary": "Jelaskan perbedaan antara -고 있다 (tindakan yang sedang berlangsung) dan -아/어 있다 (kondisi/hasil setelah suatu tindakan). Tunjukkan cara membentuk kalimat positif, negatif, dan tanya untuk masing-masing makna.",
+  "objective": "Peserta didik akan mampu menjelaskan perbedaan antara -고 있다 dan -아/어 있다 serta memilih dan membentuk kalimat (positif, negatif, tanya) yang tepat untuk mengungkapkan tindakan yang sedang berlangsung atau keadaan/hasil dari suatu tindakan.",
+  "summary": "Jelaskan perbedaan antara -고 있다 (tindakan yang sedang berlangsung) dan -아/어 있다 (keadaan/hasil setelah suatu tindakan). Tunjukkan cara membentuk kalimat positif, negatif, dan tanya untuk masing-masing makna.",
   "tags": [],
   "task": {
     "title": "",
     "line": ""
   },
-  "title": "-고 있다 vs -아/어 있다 구분하기",
+  "title": "Telling -고 있다 and -아/어 있다 Apart",
   "watchOut": [
-    "Gunakan -고 있다 jika 동작이 실제로 '진행' 중이면, dan gunakan -아/어 있다 jika merupakan '결과로 남은 상태' dari suatu tindakan. (창문이 열린 상태: bukan '창문이 열고 있어요' melainkan '창문이 열려 있어요')",
-    "-아/어 있다 tidak melekat pada 타동사. Untuk 타동사(예: 열다, 켜다), 결과 상태-nya dinyatakan dengan melekatkannya pada 자동사·피동사(열리다, 켜지다), yaitu '열려 있다', '켜져 있다'. ('문이 열려 있다'가 맞고, '문을 열어 있다'는 틀린 문장입니다.)",
-    "Kata kerja postur (앉다/서다/눕다) biasanya menggunakan -아/어 있다 untuk menyatakan keadaan. Saat menyatakan keadaan duduk, harus dikatakan '앉아 있다', bukan '앉고 있다'. ('앉고 있다' hanya digunakan saat tindakan duduk sedang berlangsung.) Namun, kata kerja pemakaian seperti 입다·신다·쓰다 menggunakan -고 있다 untuk menyatakan kondisi hasil (예: 옷을 입고 있어요).",
-    "Dalam kalimat negatif, digunakan bentuk '-아/어 있지 않다' atau '-고 있지 않다'. Pilihlah bentuk yang tepat sesuai makna (sedang berlangsung vs keadaan). (불이 꺼진 상태: bukan '불이 켜고 있지 않아요' melainkan '불이 켜져 있지 않아요')",
-    "Kalimat tanya dapat dibuat hanya dengan mengubah akhiran (예: '앉아 있어요?' / '앉아 있나요?'). Saat menanyakan keadaan duduk pun, dikatakan '앉아 있어요?', bukan '앉고 있어요?'."
+    "Gunakan -고 있다 saat suatu tindakan benar-benar sedang berlangsung. Gunakan -아/어 있다 saat suatu keadaan tetap ada sebagai hasil dari suatu tindakan. Jika jendelanya sudah terbuka: (X) 창문이 열리고 있어요 → (O) 창문이 열려 있어요",
+    "-아/어 있다 tidak dapat digunakan dengan kata kerja transitif seperti 열다 dan 켜다. Untuk menggambarkan keadaan hasil, gunakan kata kerja pasif (intransitif): 열리다 → 열려 있다, 켜지다 → 켜져 있다. (X) 문을 열어 있다 → (O) 문이 열려 있다",
+    "Untuk menggambarkan keadaan postur (앉다/서다/눕다), gunakan -아/어 있다. Pembelajar sering salah mengatakan 앉고 있다 padahal maksudnya 앉아 있다 ('sedang duduk'). 앉고 있다 berarti 'sedang dalam proses duduk.' (X) 앉고 있다 → (O) 앉아 있다",
+    "Untuk kalimat negatif, gunakan -고 있지 않다 (tindakan yang sedang berlangsung) atau -아/어 있지 않다 (keadaan hasil), tergantung maknanya. Negasi singkat dengan 안 juga bisa digunakan (안 켜져 있어요). (X) 신문을 읽어 있지 않아요 → (O) 신문을 읽고 있지 않아요",
+    "Untuk membuat kalimat tanya, gunakan intonasi naik atau ubah akhirannya (misalnya, 앉아 있어요? / 앉아 있나요?). Saat menanyakan tentang keadaan postur: (X) 의자에 앉고 있어요? → (O) 의자에 앉아 있어요?"
   ],
   "watchOutMark": [
     [
-      "열고 있어요",
-      "열려 있어요"
+      "창문이 열리고 있어요",
+      "창문이 열려 있어요"
     ],
     [
-      "열어 있다",
-      "열려 있다"
+      "문을 열어 있다",
+      "문이 열려 있다"
     ],
     [
       "앉고 있다",
       "앉아 있다"
     ],
     [
-      "켜고 있지 않아요",
-      "켜져 있지 않아요"
+      "신문을 읽어 있지 않아요",
+      "신문을 읽고 있지 않아요"
     ],
     [
-      "앉고 있어요?",
-      "앉아 있어요?"
+      "의자에 앉고 있어요?",
+      "의자에 앉아 있어요?"
     ]
   ],
   "category": "grammar"

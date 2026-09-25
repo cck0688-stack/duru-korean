@@ -1,9 +1,9 @@
 {
   "title": "택배 받기·보내기: 기본 표현",
-  "keyword": "택배",
-  "summary": "Frases curtas úteis para receber e enviar encomendas na Coreia, no balcão ou com o entregador. Foco em confirmar o destinatário, perguntar/confirmar o número de rastreio, aceitar ou recusar uma encomenda e solicitar o envio.",
-  "objective": "Seja capaz de entender e dizer 10 frases curtas usadas ao receber e enviar encomendas na Coreia no balcão ou com o entregador (confirmação do destinatário, pedido do número de rastreio, aceitar/recusar, pedidos de envio).",
-  "level": "초급 (A1)",
+  "keyword": "",
+  "summary": "Frases curtas e úteis para receber e enviar encomendas na Coreia, no balcão ou com o entregador. Foco em confirmar o destinatário, perguntar/confirmar o número de rastreio, aceitar ou recusar uma encomenda e solicitar o envio.",
+  "objective": "Ser capaz de entender e dizer 10 frases curtas usadas ao receber e enviar encomendas na Coreia no balcão ou com o entregador (confirmação do destinatário, pedir o número de rastreio, aceitar/recusar, pedir para enviar).",
+  "level": "Iniciante",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,83 +11,61 @@
     "line": ""
   },
   "exercises": [
-    "배달 기사(또는 창구 직원)가 '수취인 성함이 어떻게 되세요?'라고 물었습니다. 한국어로 답하세요. (예시 이름: 김민수) (O entregador (ou o funcionário do balcão) perguntou: '수취인 성함이 어떻게 되세요?' Responda em coreano. Nome de exemplo: Kim Minsu)",
-    "‘I want to send a package.’를 한국어로 어떻게 말하나요? (Como se diz 'Eu quero enviar um pacote.' em coreano?)",
-    "‘What is the tracking number?’를 한국어로 어떻게 묻나요? (Como se pergunta 'Qual é o número de rastreio?' em coreano?)",
-    "택배 상자가 망가졌습니다(The box is damaged). 짧게 거절 의사를 말하세요. (A caixa da encomenda está danificada. Diga brevemente que você recusa.)",
-    "직원이 '서명해 주세요.'라고 말했습니다. 서명하겠다고 응답하세요. (O funcionário disse: '서명해 주세요.' Responda dizendo que você vai assinar.)"
+    "Responda em coreano (use o nome 김민수): 수취인 성함이 어떻게 되세요?",
+    "Diga em coreano: 'Quero enviar uma encomenda.'",
+    "Pergunte em coreano: 'Qual é o número de rastreio?'",
+    "A encomenda está danificada. Recuse-a brevemente em coreano.",
+    "Responda em coreano que você vai assinar: 서명해 주세요."
   ],
   "answers": [
-    "예시 답안: 김민수입니다. / 저는 김민수입니다.",
-    "예시 답안: 택배로 보내고 싶습니다. / 택배를 보내고 싶어요(싶습니다). / 택배 보내고 싶어요. / 이거 택배로 보내려고요.",
-    "예시 답안: 운송장 번호가 어떻게 되나요? / 운송장 번호가 뭐예요?",
-    "예시 답안: 이건 받을 수 없어요.",
-    "예시 답안: 여기 서명할게요. / 네, 서명할게요."
+    "예시 답안 (Sample answer): 저는 김민수입니다. / Also correct: 김민수입니다.",
+    "예시 답안 (Sample answer): 택배로 보내고 싶습니다. / Also correct: 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
+    "예시 답안 (Sample answer): 운송장 번호가 어떻게 되나요? / Also correct: 운송장 번호가 뭐예요?",
+    "예시 답안 (Sample answer): 이건 받을 수 없어요. / Also correct: 받을 수 없어요. / 파손돼서 못 받겠어요.",
+    "예시 답안 (Sample answer): 여기 서명할게요. / Also correct: 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "중요 표현 (10개)",
+      "heading": "Expressões-chave (10)",
       "paragraphs": [
-        "1) 택배 받으러 왔습니다. (taekbae badeureo watseumnida) — Vim buscar uma encomenda. — 창구에서 본인이 직접 물건을 찾을 때 씁니다. (Use isso no balcão quando você mesmo vai retirar sua encomenda.)",
-        "2) 수취인 성함이 어떻게 되세요? (suchwiin seonghami eotteoke doeseyo?) — Qual é o nome do destinatário? — 직원이나 기사님이 확인할 때 물어봅니다. (O funcionário ou o entregador pergunta isso para confirmar.)",
-        "3) 저는 [이름]입니다. (jeoneun [ireum]imnida) — Eu sou [nome]. — 예: 저는 김민수입니다. (수취인 대답) (Exemplo: Eu sou Kim Minsu. — a resposta do destinatário)",
-        "4) 운송장 번호가 어떻게 되나요? (unsongjang beonhoga eotteoke doenayo?) — Qual é o número de rastreio? — 운송장(송장) 번호를 묻는 말입니다. (Uma pergunta pedindo o número da nota/rastreio.)",
-        "5) 운송장 번호 알려 주세요. (unsongjang beonho allyeo juseyo) — Por favor, me diga o número de rastreio. — 상대에게 번호를 부탁할 때 씁니다. (Use isso para pedir o número à outra pessoa.)",
-        "6) 여기 서명할게요. (yeogi seomyeonghalgeyo) — Vou assinar aqui. — 서명하겠다는 뜻, 사인할 때 씁니다. (Significa que você vai assinar; use ao assinar.)",
-        "7) 이건 받을 수 없어요. (igeon badeul su eopseoyo) — Não posso aceitar isso. — 물건을 거절할 때 쓰는 표현입니다. (Expressão usada para recusar uma encomenda.)",
-        "8) 택배로 보내고 싶습니다. (taekbaero bonaego sipseumnida) — Quero enviar isto por encomenda. — 물건을 보내러 왔을 때 말합니다. (Diga isso quando vier enviar algo.)",
-        "9) 보낼 물건은 이거예요. (bonael mulgeoneun igeoyeyo) — Este é o item que quero enviar. — 보내려는 물건을 보여 줄 때 씁니다. (Use isso ao mostrar o item que deseja enviar.)",
-        "10) 착불로 보내 주세요. (chakbullo bonae juseyo) — Por favor, envie com o frete a ser pago pelo destinatário. — 받는 사람이 배송비를 내는 방식으로 보내달라고 요청할 때. (Use isso ao pedir para enviar de forma que o destinatário pague o frete.)"
+        "1) 택배 받으러 왔습니다. (Vim buscar uma encomenda.) — Usado quando você mesmo vai buscar uma encomenda no balcão. 택배 = encomenda, serviço de entrega.",
+        "2) 수취인 성함이 어떻게 되세요? (Qual é o nome do destinatário?) — Perguntado pelo atendente ou entregador para confirmar o nome do destinatário. 수취인 = destinatário; 성함 = nome (forma polida).",
+        "3) 저는 [이름]입니다. (Eu sou [nome].) — A resposta do destinatário, por exemplo, 저는 김민수입니다.",
+        "4) 운송장 번호가 어떻게 되나요? (Qual é o número de rastreio?) — Pergunta pelo número de rastreio (número da nota de envio, 송장). 운송장 = nota de envio, o comprovante de remessa com o número de rastreio.",
+        "5) 운송장 번호 알려 주세요. (Por favor, me informe o número de rastreio.) — Usado para pedir a alguém o número de rastreio.",
+        "6) 여기 서명할게요. (Vou assinar aqui.) — 'Vou assinar aqui.' Usado ao assinar. 서명 = assinatura.",
+        "7) 이건 받을 수 없어요. (Não posso aceitar isso.) — Usado para recusar uma encomenda, por exemplo quando está 파손 (danificada).",
+        "8) 택배로 보내고 싶습니다. (Quero enviar uma encomenda.) — Dito quando você vem para enviar algo.",
+        "9) 보낼 물건은 이거예요. (Este é o item que quero enviar.) — Usado ao mostrar o item que você quer enviar. 물건 = item, coisa.",
+        "10) 착불로 보내 주세요. (Por favor, envie com o frete a pagar pelo destinatário.) — Pede para enviar de forma que o destinatário pague a taxa de envio na chegada. 착불 = frete pago pelo destinatário (a cobrar)."
       ]
     },
     {
-      "heading": "어휘 (Vocabulário)",
+      "heading": "Diálogos curtos",
       "paragraphs": [
-        "택배 (taekbae) — encomenda, serviço de entrega de encomendas",
-        "수취인 (suchwiin) — destinatário, a pessoa que recebe a encomenda",
-        "성함 (seongham) — nome (forma educada de 이름)",
-        "운송장 / 송장 (unsongjang / songjang) — nota de envio, etiqueta de envio; 운송장 번호 = número de rastreio",
-        "서명 (seomyeong) — assinatura (= 사인)",
-        "착불 (chakbul) — frete pago pelo destinatário (a cobrar)",
-        "창구 (changgu) — balcão, guichê de atendimento",
-        "기사님 (gisanim) — entregador (forma educada)",
-        "물건 (mulgeon) — item, coisa"
+        "Exemplo 1 (recebendo): Entregador: '수취인 성함이 어떻게 되세요?' (Qual é o nome do destinatário?) / Eu: '저는 김민수입니다.' (Eu sou Kim Minsu.)",
+        "Exemplo 2 (enviando): Eu: '택배로 보내고 싶습니다.' (Quero enviar uma encomenda.) / Atendente: '보내실 물건이 뭐예요?' (O que você gostaria de enviar?) / Eu: '보낼 물건은 이거예요.' (Este é o item que quero enviar.)"
       ]
     },
     {
-      "heading": "짧은 대화 예",
+      "heading": "Dicas",
       "paragraphs": [
-        "예1 (받을 때): 기사: '수취인 성함이 어떻게 되세요?' / 나: '저는 김민수입니다.'",
-        "예2 (보낼 때): 나: '택배로 보내고 싶습니다.' / 직원: '보내실 물건 주시겠어요?' / 나: '보낼 물건은 이거예요.'"
+        "Tenha o nome e o endereço prontos com antecedência (por exemplo, em uma anotação no celular).",
+        "Antes de aceitar uma encomenda, verifique rapidamente a embalagem e recuse-a imediatamente se houver algum problema.",
+        "Para falar de forma polida, adicione '요' após a terminação informal casual (-아/어, -지, etc.): 받을 수 없어 → 받을 수 없어요. Você não pode adicionar '요' a qualquer terminação (não 받을 수 없다요)."
       ]
     },
     {
-      "heading": "더 연습하기 (Mais prática)",
+      "heading": "Mais prática de fala",
       "paragraphs": [
-        "말하기 (Fala)",
-        "가) 창구에 택배를 찾으러 왔습니다. 직원에게 뭐라고 말하나요? (Você foi ao balcão para retirar uma encomenda. O que você diz ao funcionário?)",
-        "나) 상대에게 운송장 번호를 알려 달라고 부탁하세요. (Peça à outra pessoa que lhe diga o número de rastreio.)",
-        "다) 직원이 '보내실 물건 주시겠어요?'라고 합니다. 물건을 보여 주며 답하세요. (O funcionário diz: 'Pode me dar o item que vai enviar?' Responda mostrando o item.)",
-        "라) 받는 사람이 배송비를 내도록 보내고 싶습니다. 직원에게 말하세요. (Você quer enviar de forma que o destinatário pague o frete. Diga isso ao funcionário.)",
-        "듣고 이해하기 (Compreensão auditiva: escolha o significado)",
-        "마) 기사님: '수취인 성함이 어떻게 되세요?' — (a) Qual é o nome do destinatário? (b) Onde está a caixa?",
-        "바) 직원: '운송장 번호 알려 주세요.' — (a) Por favor, assine aqui. (b) Por favor, me diga o número de rastreio.",
-        "사) 직원: '착불로 보내 드릴까요?' — (a) Quer que eu envie para o destinatário pagar? (b) Quer que eu envie hoje?",
-        "아) 직원: '서명해 주세요.' — (a) Por favor, pague. (b) Por favor, assine.",
-        "정답 (Respostas): 가) 택배 받으러 왔습니다. / 택배 찾으러 왔습니다. 나) 운송장 번호 알려 주세요. 다) 보낼 물건은 이거예요. 라) 착불로 보내 주세요. 마) (a) 바) (b) 사) (a) 아) (b)"
-      ]
-    },
-    {
-      "heading": "팁",
-      "paragraphs": [
-        "이름과 주소는 미리 준비해 두세요(휴대폰 메모 등). (Tenha o nome e o endereço prontos com antecedência, por exemplo, em uma nota no celular.)",
-        "포장이 손상되었으면 받기 전에 기사님이나 직원에게 말하세요. 처리 방법은 택배사마다 다릅니다. (Se a embalagem estiver danificada, avise o entregador ou o funcionário antes de aceitar. O procedimento varia conforme a empresa de entrega.)",
-        "해요체(-어요/-아요)와 -습니다체 모두 공손한 말입니다. 예: '서명할게요', '받으러 왔습니다'. (Tanto as terminações -어요/-아요 quanto -습니다 são formas educadas de falar.)",
-        "초급 학습자용 한 장짜리 학습지입니다. 각 표현을 소리 내어 여러 번 말해 보세요."
+        "Você está no balcão para pegar sua encomenda. O que você diz? → 택배 받으러 왔습니다.",
+        "Você quer que o atendente lhe diga o número de rastreio. → 운송장 번호 알려 주세요.",
+        "O atendente pergunta o que você quer enviar. Mostre o item. → 보낼 물건은 이거예요.",
+        "Você quer que o destinatário pague a taxa de envio. → 착불로 보내 주세요."
       ]
     }
   ],
-  "note": "",
+  "note": "Uma folha de exercícios de uma página para iniciantes. Diga cada expressão em voz alta várias vezes.",
   "category": "etc"
 }

@@ -1,23 +1,30 @@
 {
+  "title": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
+  "keyword": "중고거래 채팅 읽기",
+  "summary": "Lisez une courte conversation de vente d'occasion et identifiez l'heure finale du rendez-vous ainsi que le lieu exact (par ex. station + numéro de sortie). Entraînez-vous à repérer les changements d'horaire et les confirmations.",
+  "objective": "Les apprenants liront une courte conversation sur un objet d'occasion (6 messages) et devront extraire avec précision l'heure finale du rendez-vous et le lieu exact de la rencontre (par ex. Station ○○, sortie 3).",
+  "level": "Intermédiaire (niveau bas)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Répondez en coréen : 두 사람이 최종으로 만나기로 한 날짜와 시간은 언제예요?",
+    "Répondez en coréen : 두 사람이 최종으로 만나기로 한 정확한 장소는 어디예요?",
+    "Répondez en coréen : 처음 판매자가 제안한 날짜와 시간은 언제였나요?",
+    "Choisissez la bonne réponse : 판매자가 처음 제안한 만나는 장소는 어디였나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
+    "Vrai ou faux ? Écrivez O ou X : 장소를 교대역으로 바꾸자고 한 사람은 판매자이다."
+  ],
   "answers": [
     "5월 19일(일) 오후 6시",
     "교대역 3번 출구 앞",
-    "내일(5월 18일 토요일) 오후 7시 ('내일 오후 7시', '5월 18일(토) 오후 7시' 모두 정답)",
+    "내일(5월 18일 토요일) 오후 7시 (\"5월 18일(토) 오후 7시\"도 정답)",
     "A) 강남역 5번 출구 앞",
-    "O"
+    "X"
   ],
   "checkThese": [],
-  "exercises": [
-    "지문에서 두 사람이 최종으로 만나기로 한 날짜와 시간을 쓰세요.",
-    "지문에서 최종으로 만나기로 한 정확한 장소를 쓰세요.",
-    "처음 판매자가 제안한 날짜와 시간은 언제였나요?",
-    "다음 중 판매자가 처음 제안한 만나는 장소는 무엇이었나요? A) 강남역 5번 출구 앞 B) 교대역 3번 출구 앞 C) 양재역 1번 출구 앞",
-    "구매자는 처음 약속 시간에 야근 때문에 갈 수 없었다. (O/X)"
-  ],
-  "keyword": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
-  "level": "초중급(A2)",
-  "minutes": 15,
-  "objective": "Les apprenants liront une courte conversation sur la vente d'un objet d'occasion (6 messages) et devront extraire précisément l'heure du rendez-vous final et le lieu exact de rencontre (par ex. Station ○○, sortie 3).",
   "passage": [
     "중고거래 앱 채팅",
     "판매자: 안녕하세요! 의자 예약하신 분 맞으세요? 내일 오후 7시에 강남역 5번 출구 앞에서 직거래 가능하세요?",
@@ -27,25 +34,18 @@
     "판매자: 네, 좋아요. 그럼 최종으로 5월 19일(일) 오후 6시, 교대역 3번 출구 앞에서 만나요. 혹시 늦으면 미리 메시지 드릴게요.",
     "구매자: 네, 알겠습니다. 감사합니다!"
   ],
-  "summary": "Lisez une courte conversation de vente d'occasion et identifiez l'heure de rendez-vous finale ainsi que le lieu exact (par ex. station + numéro de sortie).\nEntraînez-vous à repérer les changements et confirmations d'horaire.",
-  "tags": [],
-  "task": {
-    "title": "",
-    "line": ""
-  },
-  "title": "중고거래 채팅 읽기: 만나는 시간과 장소 찾기",
   "words": [
     {
       "korean": "직거래",
       "roman": "jikgeorae",
-      "meaning": "transaction en personne ; se rencontrer physiquement pour échanger l'objet et payer",
+      "meaning": "transaction en personne ; se rencontrer en personne pour échanger l'objet et payer",
       "example": "중고폰은 직거래로 사는 게 마음이 편해요.",
       "exampleMeaning": "Je me sens plus en sécurité en achetant un téléphone d'occasion en personne."
     },
     {
       "korean": "야근",
       "roman": "yageun",
-      "meaning": "heures supplémentaires le soir/la nuit",
+      "meaning": "heures supplémentaires la nuit/le soir",
       "example": "오늘 야근이라 약속을 미뤄야 해요.",
       "exampleMeaning": "Je dois reporter le projet parce que je travaille tard ce soir."
     },
@@ -54,21 +54,21 @@
       "roman": "more",
       "meaning": "après-demain",
       "example": "모레 오후에 시간 있어요.",
-      "exampleMeaning": "Je suis libre l'après-midi après-demain."
+      "exampleMeaning": "Je suis libre après-demain dans l'après-midi."
     },
     {
       "korean": "출구",
       "roman": "chulgu",
-      "meaning": "sortie (d'une station ou d'un bâtiment), souvent utilisée avec un numéro",
+      "meaning": "sortie (d'une station ou d'un bâtiment), souvent utilisé avec un numéro",
       "example": "을지로입구역 1번 출구로 나와 주세요.",
       "exampleMeaning": "Veuillez sortir par la sortie 1 de la station Euljiro 1(il)-ga."
     },
     {
       "korean": "최종",
       "roman": "choejong",
-      "meaning": "final ; la version ou le statut définitif et confirmé",
+      "meaning": "final ; la dernière version/statut confirmé",
       "example": "최종 일정은 내일 오전 10시로 정했어요.",
-      "exampleMeaning": "Nous avons fixé l'horaire final à 10 h demain."
+      "exampleMeaning": "Nous avons fixé l'horaire final à 10h demain."
     }
   ],
   "category": "reading"

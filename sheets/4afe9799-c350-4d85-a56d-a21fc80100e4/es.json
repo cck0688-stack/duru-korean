@@ -1,45 +1,51 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
-  "keyword": "받침 ㄱ·ㄷ·ㅂ",
-  "summary": "Practica la lectura y el reconocimiento de las consonantes finales no liberadas (unreleased) para los batchim ㄱ/ㄷ/ㅂ. Los estudiantes las relacionan con sonidos finales similares en inglés (back/bat/cap) pero sin liberación, y luego leen y eligen palabras simples que contengan estos batchim.",
-  "objective": "Los estudiantes principiantes reconocerán las consonantes finales no liberadas [k], [t], [p] para los batchim ㄱ, ㄷ, ㅂ; las relacionarán con terminaciones similares en inglés (\"back/bat/cap\", sin liberación); y leerán y seleccionarán con precisión palabras simples en coreano que contengan estos batchim.",
+  "keyword": "받침",
+  "summary": "Practicar la lectura y producción de las oclusivas finales no explosivas (sin liberación) para el batchim ㄱ/ㄷ/ㅂ. Los estudiantes las relacionan con sonidos finales similares del inglés (back/bat/cap) pero sin liberación, y luego leen y eligen palabras sencillas que contienen estos batchim.",
+  "objective": "Los estudiantes principiantes producirán las oclusivas finales no explosivas [k], [t], [p] para el batchim ㄱ, ㄷ, ㅂ; las relacionarán con terminaciones similares del inglés (\"back/bat/cap\" sin liberación); y leerán y seleccionarán correctamente palabras coreanas sencillas que contienen estos batchim.",
   "level": "Principiante",
   "minutes": 15,
-  "tags": [],
+  "tags": [
+    "hangul",
+    "batchim",
+    "final consonants",
+    "pronunciation",
+    "beginner"
+  ],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "Dilo: detén el sonido final",
+    "line": "Lee en voz alta: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. En cada batchim ㄱ/ㄷ/ㅂ, bloquea el aire con la parte posterior de la lengua (ㄱ), la punta de la lengua (ㄷ) o los labios (ㅂ) y detén el sonido sin liberarlo."
   },
   "exercises": [
-    "끝소리가 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
-    "아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p)",
-    "「집」의 끝소리와 가장 가까운 영어 낱말의 끝소리는? (back / bat / cap)",
-    "로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk)",
-    "끝소리가 [p]인 낱말을 모두 고르세요. (집 / 속 / 입 / 곧)"
+    "Elige la palabra cuyo sonido final es [k]: (국 / 곧 / 밥)",
+    "¿Cuál es el sonido final de esta palabra? 곧 (k / t / p)",
+    "¿Qué terminación del inglés se acerca más al sonido final de 받 en 받다? (back / bat / cap)",
+    "Elige la romanización correcta: 벽 (byeok / byeog / byuk)",
+    "Lee la oración en voz alta, deteniendo 「집」 sin liberar el sonido final. Luego elige su sonido final: 우리 집 좋아요. (k / t / p)"
   ],
   "answers": [
     "국",
     "t",
-    "cap",
+    "bat",
     "byeok",
-    "집, 입"
+    "p"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "끝소리 [k] (무성·불파)",
-      "as": "como el final de \"back\" (oclusión; sin liberación)"
+      "sound": "[k] final (sorda, no explosiva)",
+      "as": "como el final de \"back\" (oclusiva; sin liberación)"
     },
     {
       "letter": "ㄷ",
-      "sound": "끝소리 [t] (무성·불파)",
-      "as": "como el final de \"bat\" (oclusión; sin liberación)"
+      "sound": "[t] final (sorda, no explosiva)",
+      "as": "como el final de \"bat\" (oclusiva; sin liberación)"
     },
     {
       "letter": "ㅂ",
-      "sound": "끝소리 [p] (무성·불파)",
-      "as": "como el final de \"cap\" (oclusión; sin liberación)"
+      "sound": "[p] final (sorda, no explosiva)",
+      "as": "como el final de \"cap\" (oclusiva; sin liberación)"
     }
   ],
   "words": [
@@ -47,22 +53,22 @@
       "korean": "국",
       "roman": "guk",
       "meaning": "sopa",
-      "example": "국 주세요.",
-      "exampleMeaning": "Sopa, por favor."
+      "example": "국도 드세요.",
+      "exampleMeaning": "Toma un poco de sopa también."
     },
     {
       "korean": "속",
       "roman": "sok",
-      "meaning": "adentro",
-      "example": "가방 속 책이 무거워요.",
-      "exampleMeaning": "El libro que está en la bolsa es pesado."
+      "meaning": "dentro",
+      "example": "가방 속 봤어요?",
+      "exampleMeaning": "¿Miraste dentro de la bolsa?"
     },
     {
       "korean": "벽",
       "roman": "byeok",
       "meaning": "pared",
-      "example": "벽 색깔이 하얘요.",
-      "exampleMeaning": "La pared es blanca."
+      "example": "저기 벽 보세요.",
+      "exampleMeaning": "Mira esa pared de allí."
     },
     {
       "korean": "곧",
@@ -75,43 +81,36 @@
       "korean": "받다",
       "roman": "batda",
       "meaning": "recibir",
-      "example": "선물을 받고 싶어요.",
-      "exampleMeaning": "Quiero recibir un regalo."
+      "example": "편지 받고 기뻤어요.",
+      "exampleMeaning": "Me alegré de recibir la carta."
     },
     {
-      "korean": "걷다",
-      "roman": "geotda",
-      "meaning": "caminar",
-      "example": "공원에서 걷고 있어요.",
-      "exampleMeaning": "Estoy caminando en el parque."
+      "korean": "믿다",
+      "roman": "mitda",
+      "meaning": "creer; confiar",
+      "example": "친구 말 믿고 기다렸어요.",
+      "exampleMeaning": "Confié en mi amigo y esperé."
     },
     {
-      "korean": "옷",
-      "roman": "ot",
-      "meaning": "ropa (el batchim ㅅ se pronuncia [t] al final: 옷 → [옫])",
-      "example": "옷 사러 가요.",
-      "exampleMeaning": "Voy a comprar ropa."
-    },
-    {
-      "korean": "낮",
-      "roman": "nat",
-      "meaning": "el día (el batchim ㅈ se pronuncia [t] al final: 낮 → [낟])",
-      "example": "낮 12시에 만나요.",
-      "exampleMeaning": "Nos vemos a las 12 del mediodía."
+      "korean": "닫다",
+      "roman": "datda",
+      "meaning": "cerrar",
+      "example": "문 닫고 나가세요.",
+      "exampleMeaning": "Cierra la puerta al salir."
     },
     {
       "korean": "밥",
       "roman": "bap",
       "meaning": "arroz cocido; comida",
-      "example": "밥 먹었어요?",
-      "exampleMeaning": "¿Comiste?"
+      "example": "밥 주세요.",
+      "exampleMeaning": "Arroz, por favor."
     },
     {
       "korean": "집",
       "roman": "jip",
       "meaning": "casa; hogar",
-      "example": "우리 집은 커요.",
-      "exampleMeaning": "Nuestra casa es grande."
+      "example": "우리 집 좋아요.",
+      "exampleMeaning": "Nuestra casa es bonita."
     },
     {
       "korean": "입",

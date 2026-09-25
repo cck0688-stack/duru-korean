@@ -12,15 +12,15 @@
     "Completa el espacio en blanco con una palabra de la lista (두통 / 배탈 / 콧물): 머리가 너무 아파요. ____이 있어요.",
     "Completa el espacio en blanco con el medicamento correcto: 손가락을 조금 베었어요. 상처에 붙이게 ____ 주세요.",
     "Elige la partícula correcta en cada espacio (이 / 가): 기침( ) 나요. 그리고 콧물( ) 나요.",
-    "Traduce al coreano con dos frases cortas: \"Tengo fiebre. Deme un medicamento para el resfriado, por favor.\"",
+    "Traduce al coreano con dos oraciones cortas: \"Tengo fiebre. Deme medicamento para el resfriado, por favor.\"",
     "Completa la conversación con una palabra. 약사: 어디가 아프세요? / 손님: 어제 상한 우유를 마시고 ____이 났어요.",
     "Clasifica estas cuatro palabras en dos grupos, síntomas (증상) y medicamentos (약): 콧물, 소화제, 기침, 연고"
   ],
-  "keyword": "약국 증상 약",
-  "level": "Principiante (etapa final)",
+  "keyword": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
+  "level": "Principiante (alto)",
   "minutes": 20,
-  "objective": "Los estudiantes pueden contarle a un farmacéutico su síntoma usando 10 palabras clave de farmacia en frases cortas como '두통이 있어요' o '열이 나요', y pedir el medicamento correcto con '○○ 주세요'.",
-  "summary": "Esta hoja de trabajo enseña 10 palabras clave para una farmacia coreana: 5 síntomas (두통, 열, 기침, 콧물, 배탈) y 5 tipos de medicamento (감기약, 소화제, 진통제, 연고, 밴드). Cada palabra viene con una frase corta y natural. Luego usas las palabras en patrones simples: '○○이/가 있어요' o '○○이/가 나요' para decir qué te pasa, y '○○ 주세요' para pedir el medicamento. Nota: los coreanos suelen decir 열이 나요 (no solo 열이 있어요), y 기침·콧물 también se usan con 나요. Para un malestar estomacal, se dice 배탈이 났어요.",
+  "objective": "Los estudiantes pueden decirle su síntoma a un farmacéutico usando 10 palabras básicas de farmacia en oraciones cortas como '두통이 있어요' o '열이 나요', y pedir el medicamento adecuado con '○○ 주세요'.",
+  "summary": "Esta ficha enseña 10 palabras básicas para una farmacia coreana: 5 síntomas (두통, 열, 기침, 콧물, 배탈) y 5 tipos de medicamentos (감기약, 소화제, 진통제, 연고, 밴드). Cada palabra viene con una oración corta y natural. Luego usas las palabras en patrones simples: '○○이/가 있어요' o '○○이/가 나요' para decir qué te pasa, y '○○ 주세요' para pedir un medicamento. Nota: los coreanos suelen decir 열이 나요 (no solo 열이 있어요), y 기침·콧물 también se usan con 나요. Para un malestar estomacal, se dice 배탈이 났어요.",
   "tags": [],
   "task": null,
   "title": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
@@ -44,21 +44,21 @@
       "roman": "gichim",
       "meaning": "tos",
       "example": "밤에 기침이 많이 나요.",
-      "exampleMeaning": "Toso mucho por las noches."
+      "exampleMeaning": "Toso mucho por la noche."
     },
     {
       "korean": "콧물",
       "roman": "konmul",
-      "meaning": "mocos (secreción nasal)",
+      "meaning": "moqueo (mucosidad nasal)",
       "example": "콧물이 나고 목도 아파요.",
-      "exampleMeaning": "Tengo mocos, y además me duele la garganta."
+      "exampleMeaning": "Tengo moqueo, y también me duele la garganta."
     },
     {
       "korean": "배탈",
       "roman": "baetal",
-      "meaning": "malestar estomacal, problema digestivo",
+      "meaning": "malestar estomacal, problema de estómago",
       "example": "회를 먹고 배탈이 났어요.",
-      "exampleMeaning": "Me dio un malestar estomacal después de comer pescado crudo."
+      "exampleMeaning": "Me dio malestar estomacal después de comer pescado crudo."
     },
     {
       "korean": "감기약",
@@ -91,7 +91,7 @@
     {
       "korean": "밴드",
       "roman": "baendeu",
-      "meaning": "curita (como una tirita adhesiva)",
+      "meaning": "curita (tipo Band-Aid)",
       "example": "칼에 손가락을 베었어요. 밴드 하나 주세요.",
       "exampleMeaning": "Me corté el dedo con un cuchillo. Deme una curita, por favor."
     }

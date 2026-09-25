@@ -1,51 +1,47 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
-  "keyword": "ㅈ·ㅊ·ㅉ",
-  "summary": "Học cách phát âm ㅈ, ㅊ và ㅉ ở đầu từ. Chúng khác nhau về hơi thở và độ căng. Dùng chúng để chọn đúng động từ trong các nhóm như 자다/차다/짜다 và 지다/치다/찌다.",
-  "objective": "Người học trình độ sơ cấp sẽ phân biệt và phát âm ㅈ (âm thường), ㅊ (âm bật hơi) và ㅉ (âm căng) ở đầu từ, sau đó chọn đúng từ trong các nhóm 자다/차다/짜다 và 지다/치다/찌다.",
+  "keyword": "ㅈㅊㅉ 소리",
+  "summary": "Học cách phát âm ㅈ, ㅊ và ㅉ ở đầu từ. Chúng khác nhau ở luồng hơi và độ căng. Hãy dùng chúng để chọn đúng động từ trong các bộ từ như 자다/차다/짜다 và 지다/치다/찌다.",
+  "objective": "Người học ở trình độ sơ cấp sẽ phân biệt và phát âm được ㅈ (âm thường), ㅊ (âm bật hơi) và ㅉ (âm căng) ở đầu từ, sau đó chọn đúng từ trong các bộ 자다/차다/짜다 và 지다/치다/찌다.",
   "level": "Sơ cấp",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "짝 활동: 자/차/짜 듣고 고르기",
-    "line": "짝이 자다·차다·짜다 중 하나를 말하면 듣고 뜻을 말해 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
     "Chọn từ đúng: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
-    "Chọn từ đúng: 라면에 소금을 많이 넣었어요. 라면이 너무 (자요 / 차요 / 짜요).",
-    "Chọn từ đúng: 축구할 때 발로 공을 (자요 / 차요 / 짜요).",
-    "Chọn từ đúng: 주말에 친구와 테니스를 (져요 / 쳐요 / 쪄요).",
+    "Chọn từ đúng: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
+    "Chọn từ đúng: 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
+    "Chọn từ đúng: 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
     "Từ nào có nghĩa là \"thua (một trận đấu)\"? (지다 / 치다 / 찌다)",
-    "Cầm một tờ khăn giấy trước miệng và nói 자, 차, 짜. Từ nào làm tờ giấy chuyển động nhiều nhất?",
-    "Chọn từ đúng: 방학 동안 많이 먹어서 살이 3킬로그램 (졌어요 / 쳤어요 / 쪘어요).",
-    "Chọn từ đúng: 어제 축구 경기에서 우리 팀이 (졌어요 / 쳤어요 / 쪘어요)."
+    "Cầm một tờ khăn giấy trước miệng và nói 자, 차, 짜. Âm nào làm tờ giấy rung động mạnh nhất?"
   ],
   "answers": [
     "자요",
     "짜요",
-    "차요",
     "쳐요",
+    "쪄요",
     "지다",
-    "차 (ㅊ has a strong puff of air)",
-    "쪘어요",
-    "졌어요"
+    "차 (ㅊ has a strong puff of air)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
-      "sound": "j (âm thường): mềm và thả lỏng, chỉ có một chút hơi thở",
-      "as": "Gần giống âm \"j\" trong từ \"jam\", nhưng mềm hơn. Ở đầu từ, nó có thể nghe giống âm \"ch\" nhẹ với một chút hơi thở — ít hơn ㅊ, nhiều hơn ㅉ."
+      "sound": "j (âm thường): nhẹ nhàng, thư giãn, chỉ có một chút hơi thở",
+      "as": "Gần giống âm \"j\" trong \"jam\", nhưng nhẹ hơn. Ở đầu từ, nó có thể nghe giống âm \"ch\" nhẹ với chỉ một chút hơi."
     },
     {
       "letter": "ㅊ",
       "sound": "ch (âm bật hơi): đi kèm một luồng hơi mạnh",
-      "as": "Gần giống âm \"ch\" trong từ \"church\". Đẩy ra một luồng hơi rõ rệt."
+      "as": "Gần giống âm \"ch\" trong \"church\". Hãy đẩy ra một luồng hơi rõ rệt."
     },
     {
       "letter": "ㅉ",
-      "sound": "jj (âm căng): chặt, sắc, và không có hơi thở thoát ra",
-      "as": "Không có âm tương đương chính xác trong tiếng Anh. Hãy nghĩ đến âm \"tch\" trong từ \"pitch\", nhưng siết chặt cổ họng và lưỡi lại và không để hơi thoát ra."
+      "sound": "jj (âm căng): chặt, sắc, và không có luồng hơi",
+      "as": "Không có âm tương đương chính xác trong tiếng Anh. Hãy nghĩ đến âm \"tch\" trong \"pitch\", nhưng siết chặt cổ họng và lưỡi, không cho hơi thoát ra."
     }
   ],
   "words": [
@@ -59,7 +55,7 @@
     {
       "korean": "차다",
       "roman": "chada",
-      "meaning": "đá (bằng chân)",
+      "meaning": "đá",
       "example": "공을 차요.",
       "exampleMeaning": "Tôi đá quả bóng."
     },
@@ -68,21 +64,21 @@
       "roman": "jjada",
       "meaning": "mặn",
       "example": "국이 짜요.",
-      "exampleMeaning": "Món canh mặn."
+      "exampleMeaning": "Canh này mặn."
     },
     {
       "korean": "지다",
       "roman": "jida",
-      "meaning": "thua (một ván hoặc một trận đấu)",
+      "meaning": "thua (một trận đấu)",
       "example": "우리 팀이 졌어요.",
       "exampleMeaning": "Đội chúng tôi đã thua."
     },
     {
       "korean": "치다",
       "roman": "chida",
-      "meaning": "đánh; chơi (tennis, golf, piano, guitar, trống, v.v.)",
+      "meaning": "đánh; chơi (đàn piano, bóng bàn, quần vợt, v.v.)",
       "example": "피아노를 쳐요.",
-      "exampleMeaning": "Tôi chơi piano."
+      "exampleMeaning": "Tôi chơi đàn piano."
     },
     {
       "korean": "찌다",

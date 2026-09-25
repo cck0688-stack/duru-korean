@@ -1,8 +1,8 @@
 {
   "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
-  "keyword": "단어 첫소리 ㄷ·ㅌ·ㄸ",
+  "keyword": "ㄷ·ㅌ·ㄸ",
   "summary": "Practice distinguishing and reading the word-initial Korean consonants ㄷ (plain), ㅌ (aspirated), and ㄸ (tense). Helpful English sound references are provided so beginners can connect the sounds and read simple words accurately.",
-  "objective": "Learners will identify and pronounce ㄷ (plain), ㅌ (aspirated), and ㄸ (tense) in word-initial position, link them to clear English cues (ㄷ = light t between d and t, ㅌ ≈ t in “top”, ㄸ ≈ t in “stop” but tighter), and correctly read simple words containing these initials.",
+  "objective": "Learners will identify and pronounce ㄷ (plain), ㅌ (aspirated), and ㄸ (tense) in word-initial position, link them to clear English cues (ㄷ ≈ between English d and t with a light puff, ㅌ ≈ t in “top”, ㄸ ≈ tense t with no puff, close to the t in “stop”), and correctly read simple words containing these initials.",
   "level": "Beginner",
   "minutes": 15,
   "tags": [],
@@ -11,25 +11,25 @@
     "line": ""
   },
   "exercises": [
-    "각 단어의 첫 자음(초성)을 쓰세요. Write the first consonant of each word: 두부 / 토끼 / 또",
-    "ㄸ(된소리)로 시작하는 말을 고르세요. Choose the word that starts with ㄸ (tense): 돈 / 토마토 / 떡",
-    "첫소리가 같은 두 단어를 고르세요. Choose the two words that start with the same sound: 달 / 두부 / 딸",
-    "ㅌ(거센소리)로 시작하는 말을 고르세요. Choose the word that starts with ㅌ (aspirated): 달 / 타다 / 딸",
-    "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요. Look at the romanization and write only the first consonant in Hangul: tteok"
+    "Choose the word that starts with ㄸ (tense): 두부 / 토끼 / 또",
+    "Look at the romanization and write only the first consonant in Hangul: dubu",
+    "Choose the word that means ‘daughter’: 달 / 딸",
+    "Choose the word that starts with ㅌ (aspirated): 달 / 토마토 / 딸",
+    "Look at the romanization and write only the first consonant in Hangul: tteok"
   ],
   "answers": [
-    "ㄷ / ㅌ / ㄸ",
-    "떡",
-    "달, 두부",
-    "타다",
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
     "ㄸ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄷ",
-      "sound": "plain (lax) t, a light puff of air (lighter than ㅌ), lower pitch",
-      "as": "between English d and t, softer than t in “top”"
+      "sound": "plain t, light puff of air (weaker than ㅌ)",
+      "as": "between English d and t; at the start of a word it often sounds like a soft t"
     },
     {
       "letter": "ㅌ",
@@ -39,7 +39,7 @@
     {
       "letter": "ㄸ",
       "sound": "tense t, tight and short",
-      "as": "close to t in “stop” (no puff), but tighter"
+      "as": "tense “tt” with no puff of air; closest English is the t in “stop”"
     }
   ],
   "words": [

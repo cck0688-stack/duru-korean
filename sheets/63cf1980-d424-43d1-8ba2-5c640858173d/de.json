@@ -1,51 +1,47 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
-  "keyword": "ㅈ·ㅊ·ㅉ",
-  "summary": "Lerne, wie ㅈ, ㅊ und ㅉ am Wortanfang klingen. Sie unterscheiden sich in Atem und Spannung. Nutze sie, um in Wortgruppen wie 자다/차다/짜다 und 지다/치다/찌다 das richtige Verb auszuwählen.",
-  "objective": "Anfänger-Lernende unterscheiden das wortanfängliche ㅈ (einfach), ㅊ (behaucht) und ㅉ (angespannt) und sprechen sie aus, um dann in den Wortgruppen 자다/차다/짜다 und 지다/치다/찌다 das richtige Wort zu wählen.",
+  "keyword": "ㅈㅊㅉ 소리",
+  "summary": "Lerne, wie ㅈ, ㅊ und ㅉ am Wortanfang klingen. Sie unterscheiden sich durch Atemstärke und Anspannung. Nutze sie, um in Wortgruppen wie 자다/차다/짜다 und 지다/치다/찌다 das richtige Verb auszuwählen.",
+  "objective": "Anfänger sollen das wortanfängliche ㅈ (einfach), ㅊ (behaucht) und ㅉ (angespannt) unterscheiden und aussprechen und dann in den Wortgruppen 자다/차다/짜다 und 지다/치다/찌다 das richtige Wort wählen.",
   "level": "Anfänger",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "짝 활동: 자/차/짜 듣고 고르기",
-    "line": "짝이 자다·차다·짜다 중 하나를 말하면 듣고 뜻을 말해 보세요."
+    "title": "",
+    "line": ""
   },
   "exercises": [
     "Wähle das richtige Wort: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
-    "Wähle das richtige Wort: 라면에 소금을 많이 넣었어요. 라면이 너무 (자요 / 차요 / 짜요).",
-    "Wähle das richtige Wort: 축구할 때 발로 공을 (자요 / 차요 / 짜요).",
-    "Wähle das richtige Wort: 주말에 친구와 테니스를 (져요 / 쳐요 / 쪄요).",
+    "Wähle das richtige Wort: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
+    "Wähle das richtige Wort: 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
+    "Wähle das richtige Wort: 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
     "Welches Wort bedeutet „verlieren (ein Spiel)“? (지다 / 치다 / 찌다)",
-    "Halte ein Taschentuch vor den Mund und sage 자, 차, 짜. Bei welchem bewegt sich das Taschentuch am meisten?",
-    "Wähle das richtige Wort: 방학 동안 많이 먹어서 살이 3킬로그램 (졌어요 / 쳤어요 / 쪘어요).",
-    "Wähle das richtige Wort: 어제 축구 경기에서 우리 팀이 (졌어요 / 쳤어요 / 쪘어요)."
+    "Halte ein Taschentuch vor deinen Mund und sag 자, 차, 짜. Bei welchem bewegt sich das Taschentuch am meisten?"
   ],
   "answers": [
     "자요",
     "짜요",
-    "차요",
     "쳐요",
+    "쪄요",
     "지다",
-    "차 (ㅊ has a strong puff of air)",
-    "쪘어요",
-    "졌어요"
+    "차 (ㅊ has a strong puff of air)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
       "sound": "j (einfach): weich und entspannt, mit nur wenig Atem",
-      "as": "Nahe am „j“ in „jam“, aber weicher. Am Wortanfang kann es wie ein leichtes „ch“ mit etwas Luft klingen — weniger als ㅊ, mehr als ㅉ."
+      "as": "Ähnlich dem „j“ in „jam“, aber weicher. Am Wortanfang kann es wie ein leichtes „tsch“ mit wenig Luft klingen."
     },
     {
       "letter": "ㅊ",
-      "sound": "ch (behaucht): kommt mit einem starken Luftstoß",
-      "as": "Nahe am „ch“ in „church“ (Englisch). Stoße einen deutlichen Atemschwall aus."
+      "sound": "ch (behaucht): kommt mit einem kräftigen Atemstoß",
+      "as": "Ähnlich dem „ch“ in „Cherry“ (englisch). Stoße einen deutlichen Atemschwall aus."
     },
     {
       "letter": "ㅉ",
-      "sound": "jj (angespannt): eng, scharf und ohne Luftstoß",
-      "as": "Keine genaue englische Entsprechung. Denk an das „tch“ in „pitch“, aber spanne Kehle und Zunge an und lass keinen Atem heraus."
+      "sound": "jj (angespannt): eng, scharf und ohne Atemstoß",
+      "as": "Keine genaue Entsprechung im Deutschen. Denk an das „tsch“ in „Kutsche“, aber spanne Kehle und Zunge an und lass keine Luft entweichen."
     }
   ],
   "words": [
@@ -80,7 +76,7 @@
     {
       "korean": "치다",
       "roman": "chida",
-      "meaning": "schlagen; spielen (Tennis, Golf, Klavier, Gitarre, Schlagzeug usw.)",
+      "meaning": "schlagen; spielen (Klavier, Tischtennis, Tennis usw.)",
       "example": "피아노를 쳐요.",
       "exampleMeaning": "Ich spiele Klavier."
     },

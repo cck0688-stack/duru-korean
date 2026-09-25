@@ -1,44 +1,44 @@
 {
   "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
-  "keyword": "받침",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
   "summary": "Berlatih membaca dan melafalkan konsonan akhir ㅇ, ㄴ, ㅁ. Hubungkan dengan akhiran bahasa Inggris yang mirip (-ng, -n, -m) dan bacalah kata-kata sederhana yang mengandung batchim ini.",
-  "objective": "Peserta didik akan membedakan ㅇ, ㄴ, ㅁ akhir berdasarkan bunyinya, menghubungkannya dengan akhiran bahasa Inggris yang mirip (-ng, -n, -m) untuk pelafalan yang tepat, dan membaca kata-kata sederhana yang mengandung batchim ini.",
-  "level": "Pemula (A1)",
+  "objective": "Pelajar akan membedakan konsonan akhir ㅇ, ㄴ, ㅁ berdasarkan bunyinya, menghubungkannya dengan akhiran bahasa Inggris yang mirip (-ng, -n, -m) untuk pelafalan yang tepat, dan membaca kata-kata sederhana yang mengandung batchim ini.",
+  "level": "Pemula",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "받침 소리 구별하기",
-    "line": "Bacalah setiap kata dengan lantang dan kelompokkan berdasarkan bunyi akhirnya: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+    "title": "",
+    "line": ""
   },
   "exercises": [
-    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
-    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
-    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)",
-    "뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜",
-    "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+    "Pilih kata yang bunyi akhirnya [-ng]: 방 / 반 / 밤",
+    "Tuliskan akhiran bergaya bahasa Inggris (-ng/-n/-m) pada setiap kolom kosong: 손(__) 방(__) 봄(__)",
+    "Kelompokkan kata-kata berikut berdasarkan bunyi akhirnya (ㅇ/ㄴ/ㅁ): 공 / 눈 / 산 / 봄",
+    "Pilih kata yang sesuai dengan artinya: 'tangan' → 손 / 송 / 솜",
+    "Isilah bagian yang kosong dengan konsonan akhir yang tepat (ㅇ/ㄴ/ㅁ): 이르_ (artinya: nama)"
   ],
   "answers": [
     "방",
     "손(-n), 방(-ng), 봄(-m)",
-    "ㅇ, ㄴ, ㅁ",
+    "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄",
     "손",
-    "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+    "ㅁ"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅇ",
-      "sound": "ng (끝소리)",
+      "sound": "ng (bunyi akhir)",
       "as": "seperti akhiran bahasa Inggris -ng (sing)"
     },
     {
       "letter": "ㄴ",
-      "sound": "n (끝소리)",
+      "sound": "n (bunyi akhir)",
       "as": "seperti akhiran bahasa Inggris -n (sun)"
     },
     {
       "letter": "ㅁ",
-      "sound": "m (끝소리)",
+      "sound": "m (bunyi akhir)",
       "as": "seperti akhiran bahasa Inggris -m (gum)"
     }
   ],
@@ -62,7 +62,7 @@
       "roman": "ppang",
       "meaning": "roti",
       "example": "빵 주세요.",
-      "exampleMeaning": "Roti, tolong."
+      "exampleMeaning": "Tolong berikan rotinya."
     },
     {
       "korean": "손",
@@ -76,7 +76,7 @@
       "roman": "nun",
       "meaning": "salju; mata (di sini: salju)",
       "example": "눈이 와요.",
-      "exampleMeaning": "Salju turun."
+      "exampleMeaning": "Salju sedang turun."
     },
     {
       "korean": "산",
@@ -88,7 +88,7 @@
     {
       "korean": "밤",
       "roman": "bam",
-      "meaning": "malam (juga berarti kastanye/chestnut)",
+      "meaning": "malam (juga berarti kastanye)",
       "example": "밤에 자요.",
       "exampleMeaning": "Saya tidur di malam hari."
     },

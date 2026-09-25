@@ -1,9 +1,9 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
-  "keyword": "약 봉투",
-  "summary": "Una hoja de lectura práctica sobre el sobre de medicina de la farmacia coreana (약 봉투). Los estudiantes leen tres etiquetas cortas de sobres. Aprenden las palabras de dosificación que aparecen en casi todos los sobres (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) y cómo decirlas en voz alta con los números nativos coreanos (하루 세 번, 한 알). También aprenden dos advertencias comunes: 졸음이 올 수 있어요 y 운전 주의.",
-  "objective": "Después de leer un sobre de medicina de farmacia, los estudiantes pueden identificar cuatro cosas: cuántas veces al día tomar la medicina, cuándo tomarla (식전 / 식후 30분 / 취침 전), cuánto tomar cada vez (1포, 1알/1정), y por cuántos días (○일분). También pueden reconocer las advertencias 졸음이 올 수 있어요 y 운전 주의.",
-  "level": "Principiante (avanzado)",
+  "keyword": "",
+  "summary": "Una hoja de lectura práctica sobre el sobre de medicamentos de la farmacia coreana (약 봉투). Los alumnos leen tres etiquetas cortas de sobres. Aprenden las palabras de dosificación que aparecen en casi todos los sobres (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) y cómo decirlas en voz alta con los contadores nativos coreanos (하루 세 번, 한 알). También aprenden dos advertencias comunes: 졸음이 올 수 있어요 y 운전 주의.",
+  "objective": "Después de leer un sobre de medicamentos de la farmacia, los alumnos pueden identificar cuatro cosas: cuántas veces al día tomar el medicamento, cuándo tomarlo (식전 / 식후 30분 / 취침 전), cuánto tomar cada vez (1포, 1알/1정) y durante cuántos días (○일분). También pueden reconocer las advertencias 졸음이 올 수 있어요 y 운전 주의.",
+  "level": "Principiante (alto)",
   "minutes": 20,
   "tags": [],
   "task": {
@@ -13,10 +13,10 @@
   "exercises": [
     "Mira el Sobre A. 이 약은 하루에 몇 번 먹어요?",
     "Mira el Sobre A. 이 약은 언제 먹어요? Escribe las palabras del sobre y qué significan.",
-    "Mira el Sobre B. El sobre dice 1회 1정. 한 번에 몇 알 먹어요? Responde de la forma en que la gente lo dice en voz alta.",
+    "Mira el Sobre B. El sobre dice 1회 1정. 한 번에 몇 알 먹어요? Responde tal como se dice en voz alta.",
     "Mira el Sobre C. 이 약은 며칠 동안 먹어요?",
     "Mira el Sobre C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
-    "Mira el Sobre A. 이 약을 먹고 운전해도 괜찮아요? ¿Qué palabras del sobre te lo indican, y qué significan?"
+    "Mira el Sobre A. 이 약을 먹고 운전해도 괜찮아요? ¿Qué palabras del sobre te lo indican y qué significan?"
   ],
   "answers": [
     "하루 세 번 (1일 3회 = 3 times a day)",
@@ -32,31 +32,31 @@
       "heading": "약 봉투 A (SOBRE A)",
       "paragraphs": [
         "이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의.",
-        "En Corea, la farmacia a menudo pone una dosis de pastillas en un paquetito llamado 포. Abres un paquete y tomas todo lo que hay dentro."
+        "En Corea, la farmacia suele poner una dosis de pastillas en un pequeño paquete llamado 포. Abres un paquete y tomas todo lo que hay dentro."
       ]
     },
     {
-      "heading": "봉투에 나오는 말 (PALABRAS EN EL SOBRE)",
+      "heading": "봉투에 나오는 말 (PALABRAS QUE APARECEN EN EL SOBRE)",
       "paragraphs": [
-        "CUÁNTAS VECES AL DÍA — 1일 3회 (iril samhoe) = 3 veces al día. 일 significa 'día' y 회 significa 'vez(es)'. La gente dice esto como 하루 세 번.",
+        "CUÁNTAS VECES AL DÍA — 1일 3회 (iril samhoe) = 3 veces al día. 일 significa 'día' y 회 significa 'vez(veces)'. La gente lo dice como 하루 세 번.",
         "CUÁNTO CADA VEZ — 1회 1포 = un paquete cada vez. 1정 = una pastilla. Verás 정 en el sobre, pero la gente dice 알: 1정 = 1알 = 한 알. Dos pastillas = 2알 = 두 알.",
-        "CUÁNDO — 식전 (sikjeon) = antes de una comida. 식후 (sikhu) = después de una comida. 식후 30분 = 30 minutos después de una comida. 취침 전 (chwichim jeon) = antes de dormir. Al hablar puedes decir 밥 먹기 전, 밥 먹고 나서, y 자기 전.",
-        "CUÁNTOS DÍAS — 3일분 (samilbun) = suministro para 3 días. Aquí 분 significa 'cantidad/porción' y no tiene nada que ver con minutos. 7일분 = medicina para 7 días."
+        "CUÁNDO — 식전 (sikjeon) = antes de una comida. 식후 (sikhu) = después de una comida. 식후 30분 = 30 minutos después de una comida. 취침 전 (chwichim jeon) = antes de dormir. Al hablar puedes decir 밥 먹기 전, 밥 먹고 나서 y 자기 전.",
+        "CUÁNTOS DÍAS — 3일분 (sam-ilbun) = suministro para 3 días. Aquí 분 significa 'cantidad/porción' y no tiene nada que ver con los minutos. 7일분 = medicamento para 7 días."
       ]
     },
     {
       "heading": "소리 내어 읽기 (LEERLO EN VOZ ALTA)",
       "paragraphs": [
-        "El sobre usa palabras y números sino-coreanos. Al hablar, usa los números nativos coreanos (한, 두, 세) con los contadores 번 y 알.",
+        "El sobre usa palabras y números de origen sino-coreano. Al hablar, usa los contadores nativos coreanos.",
         "1일 3회 → 하루 세 번 먹어요. 1회 2알 → 한 번에 두 알 먹어요. 취침 전 → 자기 전에 먹어요."
       ]
     },
     {
       "heading": "주의 (ADVERTENCIAS)",
       "paragraphs": [
-        "졸음이 올 수 있어요. (joreumi ol su isseoyo) = Esta medicina puede darte sueño.",
+        "졸음이 올 수 있어요. (joreumi ol su isseoyo) = Este medicamento puede darte sueño.",
         "운전 주의 (unjeon juui) = Ten cuidado al conducir.",
-        "Estas dos advertencias suelen aparecer juntas. Algunos sobres las ponen en una sola oración: 졸음이 올 수 있으니 운전에 주의하세요."
+        "Estas dos advertencias suelen aparecer juntas. Algunos sobres las ponen en una sola frase: 졸음이 올 수 있으니 운전에 주의하세요."
       ]
     },
     {
@@ -74,6 +74,6 @@
       ]
     }
   ],
-  "note": "Todos los sobres son ejemplos inventados para practicar la lectura. No son consejo médico. Para medicamentos reales, siempre sigue las indicaciones de tu farmacéutico o médico.",
+  "note": "Todos los sobres son ejemplos inventados para la práctica de lectura. No son consejos médicos. Para medicamentos reales, siga siempre las indicaciones de su farmacéutico o médico.",
   "category": "etc"
 }

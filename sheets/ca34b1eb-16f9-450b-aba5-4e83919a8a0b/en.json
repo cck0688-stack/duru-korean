@@ -16,12 +16,12 @@
     "Which sentence means 'It's raining.': 비가 와요 or 피가 와요?",
     "Sort these words by their first letter (ㅂ, ㅍ or ㅃ): 풀, 방, 뿔, 팔, 발, 빵."
   ],
-  "keyword": "hangul",
+  "keyword": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "letters": [
     {
       "letter": "ㅂ",
-      "sound": "plain b/p: soft, with only a little air",
-      "as": "Close to the p in \"spin\" (little air). Often heard as a soft b."
+      "sound": "plain b/p: soft, with a light puff of air",
+      "as": "Between English b and the p in \"pin\": a light puff of air, softer than ㅍ. Often heard as a soft b."
     },
     {
       "letter": "ㅍ",
@@ -39,7 +39,10 @@
   "objective": "Tell apart and pronounce word-initial ㅂ, ㅍ and ㅃ. Choose the correct word from minimal-pair sets like 불/풀/뿔, 발/팔 and 방/빵.",
   "summary": "This worksheet covers the three Korean \"p/b\" letters at the start of a word: plain ㅂ, aspirated ㅍ and tense ㅃ. Each letter has an English cue and a set of easy words. You learn to tell the letters apart using minimal pairs such as 불/풀/뿔, 발/팔 and 방/빵. The exercises cover a tissue test, reading, sorting and choosing the right word.",
   "tags": [],
-  "task": null,
+  "task": {
+    "title": "",
+    "line": ""
+  },
   "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
   "words": [
     {

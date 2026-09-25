@@ -1,77 +1,71 @@
 {
   "title": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
-  "keyword": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
-  "summary": "Mười từ vựng tiếng Hàn cần biết về việc phân loại rác sinh hoạt và đổ rác ở chung cư/nhà ở, kèm câu ví dụ rõ ràng, tự nhiên và phần luyện tập ngắn.",
-  "objective": "Người học sẽ hiểu và tự tin sử dụng 10 từ vựng quan trọng liên quan đến việc đổ rác sinh hoạt và tái chế, đồng thời có thể đặt câu ngắn để dùng trong đời sống thực tế.",
-  "level": "Sơ cấp cao (A2)",
+  "keyword": "vocab",
+  "summary": "Mười từ vựng tiếng Hàn cần biết để phân loại rác sinh hoạt và bỏ rác ở chung cư/nhà ở, kèm câu ví dụ rõ ràng, tự nhiên và phần luyện tập ngắn.",
+  "objective": "Người học sẽ hiểu và tự tin sử dụng 10 từ vựng quan trọng liên quan đến việc bỏ rác sinh hoạt và tái chế, đồng thời có thể đặt câu ngắn để dùng trong đời sống thực tế.",
+  "level": "Sơ cấp (cao)",
   "minutes": 15,
-  "tags": [],
+  "tags": [
+    "쓰레기",
+    "분리수거",
+    "재활용",
+    "생활 어휘",
+    "주거"
+  ],
   "task": {
-    "title": "우리 집 쓰레기 버리는 날 알려 주기",
-    "line": "Hãy cho hàng xóm biết những gì được đổ vào ngày thu gom rác của tòa nhà bạn, bằng 3 câu."
+    "title": "우리 집 쓰레기 분류해 말하기",
+    "line": "Hãy chọn 5 món đồ mà bạn vứt bỏ ở nhà và nói bằng tiếng Hàn xem mỗi món nên bỏ vào đâu, ví dụ: '이 캔은 헹군 다음 재활용으로 버려요.' Quy định có thể khác nhau tùy khu vực, nên hãy kiểm tra thông báo của tòa nhà hoặc văn phòng địa phương của bạn."
   },
   "exercises": [
-    "빈칸에 알맞은 말을 쓰세요: 음료를 다 마셨다면 라벨을 떼고 _____은 따로 모아 주세요. (chai nhựa PET trong suốt)",
-    "빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 _____를 꼭 하세요. (gỡ nhãn)",
-    "빈칸에 알맞은 말을 쓰세요: 오늘은 우리 동네 재활용 _____이에요.",
-    "빈칸에 알맞은 말을 쓰세요: 플라스틱과 종이는 함께 버리지 말고 _____하세요. (phân loại)",
-    "알맞은 것을 고르세요: 일반쓰레기는 (종량제봉투 / 재활용 / 음식물쓰레기)에 넣어서 배출해야 해요.",
-    "빈칸에 알맞은 말을 쓰세요: 쓰레기는 저녁 8시 이후에 _____해 주세요. (đem ra để thu gom)",
-    "알맞은 것을 고르세요: 먹고 남은 반찬은 (음식물쓰레기 / 스티로폼 / 투명 페트병)(으)로 버려요.",
-    "빈칸에 알맞은 말을 쓰세요: 택배 상자 안에 있던 하얀 _____은 테이프를 떼고 버려요. (xốp)",
-    "알맞은 것을 고르세요: 깨끗한 종이 상자와 캔은 (재활용 / 음식물쓰레기 / 일반쓰레기)(으)로 버려요.",
-    "알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(이)에요.",
-    "'수거일'과 '배출'을 사용해서 우리 집 쓰레기 버리는 날에 대해 짧은 문장을 쓰세요."
+    "Điền vào chỗ trống: 생수를 다 마신 _____은 라벨을 떼고 찌그러뜨려 주세요. 택배 상자 안의 흰 _____은 테이프를 떼고 버리세요.",
+    "Điền vào chỗ trống: 페트병에 붙은 비닐을 떼는 것을 _____라고 해요. 그다음 페트병은 _____으로 버리세요.",
+    "Điền vào chỗ trống: 오늘은 우리 동네 재활용 _____이에요. 관리사무소 안내에 따라 캔은 헹군 다음 재활용 수거함에 _____하세요.",
+    "Điền vào chỗ trống: 플라스틱, 종이, 캔을 섞지 말고 _____해서 버리세요. 먹다 남은 김치는 _____에 버려요.",
+    "Điền vào chỗ trống: 다 쓴 칫솔 같은 _____는 _____에 넣어요."
   ],
   "answers": [
-    "투명 페트병",
-    "라벨 제거",
-    "수거일",
-    "분리",
-    "종량제봉투",
-    "배출",
-    "음식물쓰레기",
-    "스티로폼",
-    "재활용",
-    "일반쓰레기",
-    "예: 우리 집 음식물쓰레기 수거일은 월요일과 목요일이에요. 그래서 일요일 저녁과 수요일 저녁에 음식물쓰레기를 배출해요."
+    "투명 페트병 / 스티로폼",
+    "라벨 제거 / 재활용",
+    "수거일 / 배출",
+    "분리 / 음식물 쓰레기",
+    "일반 쓰레기 / 종량제 봉투"
   ],
   "checkThese": [],
   "words": [
     {
-      "korean": "일반쓰레기",
-      "roman": "ilbansseuregi",
-      "meaning": "rác thường; rác không tái chế được",
-      "example": "사용한 휴지는 일반쓰레기예요.",
-      "exampleMeaning": "Khăn giấy đã dùng là rác thường."
+      "korean": "일반 쓰레기",
+      "roman": "ilban sseuregi",
+      "meaning": "rác thải chung; rác không thể tái chế",
+      "example": "더러운 휴지는 일반 쓰레기에 버리세요.",
+      "exampleMeaning": "Hãy vứt khăn giấy bẩn vào rác thải chung."
     },
     {
       "korean": "재활용",
       "roman": "jaehwaryong",
-      "meaning": "tái chế; loại rác tái chế được",
-      "example": "플라스틱은 재활용으로 버려야 해요.",
-      "exampleMeaning": "Nhựa phải được vứt bỏ dưới dạng rác tái chế."
+      "meaning": "tái chế; danh mục đồ tái chế",
+      "example": "플라스틱은 재활용으로 버리세요.",
+      "exampleMeaning": "Hãy vứt nhựa vào mục tái chế."
     },
     {
-      "korean": "음식물쓰레기",
-      "roman": "eumsingmulsseuregi",
+      "korean": "음식물 쓰레기",
+      "roman": "eumsingmul sseuregi",
       "meaning": "rác thức ăn (thức ăn thừa)",
-      "example": "남은 밥은 음식물쓰레기에 버려요.",
-      "exampleMeaning": "Tôi bỏ cơm thừa vào rác thức ăn."
+      "example": "남은 밥은 음식물 쓰레기에 버려요.",
+      "exampleMeaning": "Tôi vứt cơm thừa vào rác thức ăn."
     },
     {
-      "korean": "종량제봉투",
-      "roman": "jongnyangjebongtu",
-      "meaning": "túi rác trả phí theo quy định (túi đựng rác phải mua)",
-      "example": "쓰레기는 종량제봉투에 담아 주세요.",
-      "exampleMeaning": "Vui lòng bỏ rác vào túi rác trả phí theo quy định."
+      "korean": "종량제 봉투",
+      "roman": "jongnyangje bongtu",
+      "meaning": "túi rác trả phí theo quy định (túi rác phải trả tiền)",
+      "example": "쓰레기는 종량제 봉투에 담아 주세요.",
+      "exampleMeaning": "Hãy bỏ rác vào túi rác trả phí theo quy định."
     },
     {
       "korean": "배출",
       "roman": "baechul",
-      "meaning": "việc đưa rác ra ngoài để thu gom",
-      "example": "쓰레기는 몇 시에 배출해요?",
-      "exampleMeaning": "Mấy giờ thì mình đem rác ra ngoài?"
+      "meaning": "mang rác ra (để thu gom)",
+      "example": "쓰레기는 지정 장소에 배출하세요.",
+      "exampleMeaning": "Hãy mang rác ra nơi quy định."
     },
     {
       "korean": "수거일",
@@ -83,30 +77,30 @@
     {
       "korean": "분리",
       "roman": "bulli",
-      "meaning": "phân loại; việc phân loại đồ vật",
-      "example": "종이와 플라스틱을 분리해야 해요.",
-      "exampleMeaning": "Bạn phải phân loại riêng giấy và nhựa."
+      "meaning": "phân loại; việc phân chia (các loại đồ)",
+      "example": "종이와 플라스틱을 분리하세요.",
+      "exampleMeaning": "Hãy phân loại giấy và nhựa riêng."
     },
     {
       "korean": "라벨 제거",
       "roman": "rabel jegeo",
-      "meaning": "việc bóc nhãn; gỡ bỏ nhãn",
+      "meaning": "việc bóc nhãn; tháo bỏ nhãn dán",
       "example": "병은 라벨 제거 후 버리세요.",
-      "exampleMeaning": "Hãy gỡ nhãn trên chai trước khi vứt bỏ."
+      "exampleMeaning": "Hãy bóc nhãn trên chai trước khi vứt bỏ."
     },
     {
       "korean": "투명 페트병",
       "roman": "tumyeong peteubyeong",
       "meaning": "chai nhựa PET trong suốt",
       "example": "투명 페트병은 따로 모아요.",
-      "exampleMeaning": "Chúng tôi thu gom riêng các chai PET trong suốt."
+      "exampleMeaning": "Chúng tôi thu gom riêng chai nhựa PET trong suốt."
     },
     {
       "korean": "스티로폼",
       "roman": "seutiropom",
-      "meaning": "xốp (styrofoam, polystyrene xốp)",
-      "example": "스티로폼도 재활용이 돼요?",
-      "exampleMeaning": "Xốp cũng có thể tái chế được không?"
+      "meaning": "xốp (polystyrene giãn nở)",
+      "example": "스티로폼은 내용물을 비우고 배출하세요.",
+      "exampleMeaning": "Hãy đổ hết đồ bên trong ra rồi mang xốp ra để thu gom."
     }
   ],
   "category": "vocab"

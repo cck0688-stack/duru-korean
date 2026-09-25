@@ -1,0 +1,137 @@
+{
+  "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "summary": "Übe eine kurze, alltagsnahe Bestellung in einem koreanischen Café. Du wirst hören und sagen, ob es heiß/eisgekühlt sein soll, die Größe wählen (normal/groß) und mit natürlichen Ausdrücken sagen, ob zum Hieressen oder Mitnehmen.",
+  "objective": "Sei in der Lage, 6–8 kurze Fragen und Antworten zu verstehen und zu sagen, um in einem koreanischen Café ein Getränk zu bestellen – dabei heiß/eisgekühlt, Größe (normal/groß) und zum Hieressen/Mitnehmen wählen.",
+  "level": "Anfänger (hoch)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "카페에서 주문해 보기",
+    "line": "Bestelle ein Getränk und wähle dabei Temperatur, Größe und ob zum Hieressen oder Mitnehmen – z. B. 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+  },
+  "exercises": [
+    "Der Kunde möchte ein eisgekühltes Getränk. Wähle die natürlichste Antwort: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
+    "Der Kunde möchte die größere Größe. Antworte mit ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
+    "Der Kunde wird es hier trinken. Vervollständige die Antwort des Kunden: 직원: 매장이세요, 포장이세요? 손님: ______",
+    "Lücke füllen (heiß): _____ 아메리카노 한 잔 주세요.",
+    "Bevor das Personal etwas fragt, bestelle alles auf einmal: einen eisgekühlten Latte in Groß, zum Mitnehmen: 직원: 어서 오세요. 손님: ______"
+  ],
+  "answers": [
+    "아이스로요.",
+    "라지로 주세요.",
+    "매장이요. / 매장에서 마실게요. / 여기서 마실게요. / 먹고 갈게요.",
+    "핫 / 따뜻한",
+    "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
+  ],
+  "checkThese": [],
+  "setting": "서울의 프랜차이즈 카페 카운터",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "어서 오세요. 주문 도와드릴까요?",
+      "meaning": "Willkommen. Darf ich Ihre Bestellung aufnehmen?"
+    },
+    {
+      "who": "손님",
+      "korean": "아메리카노 한 잔 주세요.",
+      "meaning": "Einen Americano, bitte."
+    },
+    {
+      "who": "직원",
+      "korean": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+      "meaning": "Heiß oder eisgekühlt?"
+    },
+    {
+      "who": "손님",
+      "korean": "아이스로 주세요.",
+      "meaning": "Eisgekühlt, bitte."
+    },
+    {
+      "who": "직원",
+      "korean": "사이즈는 레귤러로 하실까요, 라지로 하실까요?",
+      "meaning": "Normal oder groß?"
+    },
+    {
+      "who": "손님",
+      "korean": "레귤러요.",
+      "meaning": "Normal."
+    },
+    {
+      "who": "직원",
+      "korean": "매장이세요, 포장이세요?",
+      "meaning": "Zum Hieressen oder Mitnehmen?"
+    },
+    {
+      "who": "손님",
+      "korean": "포장이요.",
+      "meaning": "Zum Mitnehmen."
+    }
+  ],
+  "words": [
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "eisgekühlt (kaltes Getränk)",
+      "example": "아이스 아메리카노요.",
+      "exampleMeaning": "Einen Americano mit Eis, bitte."
+    },
+    {
+      "korean": "핫",
+      "roman": "hat",
+      "meaning": "heiß (heißes Getränk)",
+      "example": "핫 라떼로 할게요.",
+      "exampleMeaning": "Ich nehme einen heißen Latte."
+    },
+    {
+      "korean": "따뜻하다 / 따뜻한",
+      "roman": "ttatteutada / ttatteutan",
+      "meaning": "heiß, warm (heißes Getränk)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "Einen heißen Americano, bitte."
+    },
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "Größe (Getränkegröße)",
+      "example": "사이즈는 어떻게 하세요?",
+      "exampleMeaning": "Welche Größe hätten Sie gern?"
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "zum Hieressen, im Laden",
+      "example": "매장에서 먹고 갈게요.",
+      "exampleMeaning": "Ich trinke es hier."
+    },
+    {
+      "korean": "레귤러",
+      "roman": "regyulleo",
+      "meaning": "normal (Getränkegröße)",
+      "example": "레귤러로 주세요.",
+      "exampleMeaning": "Normal, bitte."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "groß (Getränkegröße)",
+      "example": "라지 하나요.",
+      "exampleMeaning": "Einmal groß, bitte."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "zum Mitnehmen",
+      "example": "포장해 주세요.",
+      "exampleMeaning": "Bitte zum Mitnehmen."
+    },
+    {
+      "korean": "한 잔",
+      "roman": "han jan",
+      "meaning": "ein Becher (ein Getränk)",
+      "example": "아메리카노 한 잔 부탁드려요.",
+      "exampleMeaning": "Einen Americano, bitte."
+    }
+  ],
+  "category": "reallife"
+}
