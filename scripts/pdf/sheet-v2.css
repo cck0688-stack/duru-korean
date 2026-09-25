@@ -206,8 +206,8 @@ html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormor
    onto another page for a few lines. Nothing is smaller than a learner
    can read and write in. */
 .compact h1 { font-size: 26px; margin: 0 0 6px; }
-.compact .summary { font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
-.compact .objective { padding: 9px 16px; margin-bottom: 14px; gap: 12px; line-height: 1.5; }
+.compact .summary { font-size: 12px; line-height: 1.5; margin-bottom: 8px; }
+.compact .objective { padding: 7px 16px; margin-bottom: 11px; gap: 12px; line-height: 1.5; }
 .compact .obj-icon { width: 36px; height: 36px; }
 .compact .obj-icon svg { width: 20px; height: 20px; }
 .compact section { margin-bottom: 10px; }
@@ -220,9 +220,10 @@ html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormor
 .compact table.forms .rom { font-size: 10.5px; line-height: 1.5; }
 /* The grammar table: its first column carries the notes, so it gets the
    width and the rows get shorter. */
-.compact table.forms td:nth-child(1) { width: 46%; }
-.compact table.forms td:nth-child(2) { width: 17%; }
-.compact table.forms td:nth-child(3) { width: 37%; }
+.compact table.forms td:nth-child(1) { width: 50%; }
+.compact table.forms td:nth-child(2) { width: 18%; }
+.compact table.forms td:nth-child(3) { width: 32%; }
+.compact table.forms td { padding-top: 4px; padding-bottom: 4px; }
 .compact .note { padding: 6px 11px; font-size: 10.5px; line-height: 1.5; margin-bottom: 5px !important; }
 .compact .letters tbody td { padding: 9px 12px; }
 .compact .letters .box { width: 64px; height: 64px; }
