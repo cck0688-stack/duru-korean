@@ -787,5 +787,6 @@
   "stories.sampleNote": "Publicación de ejemplo. Solo los administradores ven esta marca.",
   "resources.more": "Ver más (quedan {n})",
   "view.grid": "Vista en cuadros",
-  "view.list": "Vista en lista"
+  "view.list": "Vista en lista",
+  "review.relaid": "Rehecho con el nuevo diseño. No está publicado hasta que lo revises y pulses Aprobar y publicar."
 }

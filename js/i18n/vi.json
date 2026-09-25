@@ -787,5 +787,6 @@
   "stories.sampleNote": "Bài mẫu. Chỉ quản trị viên thấy dấu này.",
   "resources.more": "Xem thêm (còn {n})",
   "view.grid": "Xem dạng ô",
-  "view.list": "Xem dạng danh sách"
+  "view.list": "Xem dạng danh sách",
+  "review.relaid": "Đã dàn trang lại theo bố cục mới. Tài liệu tạm gỡ xuống cho đến khi bạn kiểm tra và bấm Duyệt và đăng."
 }

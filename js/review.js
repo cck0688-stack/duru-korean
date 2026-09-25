@@ -197,6 +197,15 @@
       }).join('') + '</ul>';
     }
 
+    // Taken off the shelf by scripts/relayout-sheets.mjs after its PDFs
+    // were set again: the newest thing that happened to it.
+    function relaid(row) {
+      var last = (row.resource_reviews || []).slice().sort(function (a, b) {
+        return String(b.created_at).localeCompare(String(a.created_at));
+      })[0];
+      return !!(last && last.action === 'unpublished');
+    }
+
     function draftHTML(row) {
       var files = filesOf(row);
       var lang = open[row.id] || (files[0] && files[0].lang) || 'en';
@@ -218,6 +227,10 @@
             esc(row.status) + '</span>' +
         '</div>' +
 
+        (relaid(row)
+          ? '<p class="review-relaid">' + esc(t('review.relaid',
+              'Set again in the new layout. It is off the shelf until you check it and press Approve and publish.')) + '</p>'
+          : '') +
         (row.summary ? '<p class="review-summary">' + esc(row.summary) + '</p>' : '') +
         (row.objective
           ? '<p class="review-objective"><b>' + esc(t('review.objective', 'What it is for')) +

@@ -787,5 +787,6 @@
   "stories.sampleNote": "Unggahan contoh. Hanya admin yang melihat tanda ini.",
   "resources.more": "Lihat lainnya ({n} lagi)",
   "view.grid": "Tampilan kotak",
-  "view.list": "Tampilan daftar"
+  "view.list": "Tampilan daftar",
+  "review.relaid": "Dibuat ulang dengan tata letak baru. Tidak tayang sampai Anda memeriksanya dan menekan Setujui dan terbitkan."
 }

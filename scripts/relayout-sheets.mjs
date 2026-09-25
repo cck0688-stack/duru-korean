@@ -263,6 +263,22 @@ async function pool(items, n, fn) {
   }));
 }
 
+// The owner's rule (2026-09-25): a download whose PDF was set again
+// comes off the shelf and waits on the review screen until the owner
+// has looked at it and pressed Publish. Approving it there publishes
+// the new files through the same gate as any other.
+async function hold(token, r) {
+  await rest(token, 'resources?id=eq.' + r.id, {
+    method: 'PATCH',
+    body: JSON.stringify({ published: false, status: 'review', updated_at: new Date().toISOString() })
+  });
+  await rest(token, 'resource_reviews', {
+    method: 'POST',
+    body: JSON.stringify([{ resource_id: r.id, action: 'unpublished',
+      note: '새 편집으로 다시 찍었습니다. 확인 후 게시해 주세요. (Set again in the new layout — check, then publish.)' }])
+  });
+}
+
 /* ---------------- the run ---------------- */
 
 export async function run() {
@@ -283,12 +299,17 @@ export async function run() {
   const { chromium } = await import('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
   let done = 0, kept = 0, failed = 0;
+  const held = [];
   try {
     for (const r of rows) {
       log('· ' + r.title + ' [' + r.category + ', ' + r.status + ']');
       try {
         const got = await relayout(token, cfg, browser, r);
         done += got.done; kept += got.kept;
+        if (got.done && !DRY && r.status === 'published') {
+          await hold(token, r);
+          held.push(r.title);
+        }
       } catch (err) {
         failed += 1; log('    실패 — ' + err.message);
       }
@@ -299,6 +320,10 @@ export async function run() {
   }
   log('');
   log('새 편집으로 바꿈: ' + done + '개 파일 · 그대로 둠: ' + kept + '개 · 자료 단위 실패: ' + failed + '개');
+  if (held.length) {
+    log('게시를 멈추고 검토 화면으로 보낸 자료 ' + held.length + '개 (확인 후 게시해 주세요):');
+    held.forEach((t) => log('  - ' + t));
+  }
   return { done, kept, failed };
 }
 

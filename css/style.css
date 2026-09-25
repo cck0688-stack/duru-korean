@@ -4122,6 +4122,7 @@ section { position: relative; }
 .review-blocks b { color: #a14a20; }
 .review-blocks ul { margin: 6px 0 0; padding-left: 18px; }
 .review-ready { font-size: 13px; color: #1d6b48; margin: 12px 0; }
+.review-relaid { font-size: 13px; color: #8a4b12; background: #fbf1e3; border-left: 3px solid #cf8a52; padding: 8px 12px; margin: 12px 0; border-radius: 4px; }
 
 .review-langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 10px; }
 .review-lang {
