@@ -197,3 +197,36 @@ html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormor
 
 .note { background: #fbf3ea; border-left-color: #cf8a52; border-radius: 0 8px 8px 0; }
 .credits { color: var(--soft); }
+
+/* Compact (renderSheet's `compact` option): the same design and the
+   same page header, set closer, for a sheet that would otherwise run
+   onto another page for a few lines. Nothing is smaller than a learner
+   can read and write in. */
+.compact h1 { font-size: 26px; margin: 0 0 6px; }
+.compact .summary { font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
+.compact .objective { padding: 9px 16px; margin-bottom: 14px; gap: 12px; line-height: 1.5; }
+.compact .obj-icon { width: 36px; height: 36px; }
+.compact .obj-icon svg { width: 20px; height: 20px; }
+.compact section { margin-bottom: 10px; }
+.compact section > h2 { font-size: 18px; margin: 0 0 7px; }
+.compact section > h2::before { width: 24px; height: 24px; font-size: 16px; }
+.compact th { padding: 6px 12px; }
+.compact td { padding: 5px 12px; }
+.compact .word { font-size: 16px; }
+.compact .rom { font-size: 10px; line-height: 1.4; }
+/* The grammar table: its first column carries the notes, so it gets the
+   width and the rows get shorter. */
+.compact table.forms td:nth-child(1) { width: 46%; }
+.compact table.forms td:nth-child(2) { width: 17%; }
+.compact table.forms td:nth-child(3) { width: 37%; }
+.compact .note { padding: 6px 11px; font-size: 10.5px; line-height: 1.5; margin-bottom: 5px !important; }
+.compact .letters tbody td { padding: 9px 12px; }
+.compact .letters .box { width: 64px; height: 64px; }
+.compact .task { padding: 8px 16px; margin-bottom: 7px; }
+.compact .q { padding: 5px 12px; margin-bottom: 5px; }
+.compact .q-ask .n { width: 22px; height: 22px; font-size: 12px; }
+.compact .answers { margin-top: 12px; padding-top: 10px; }
+.compact .answers h2 { font-size: 18px; margin-bottom: 8px; }
+.compact .answers h2::before { width: 24px; height: 24px; font-size: 13px; }
+.compact .answer-box { padding: 9px 20px; }
+.compact .answers .a { font-size: 12px; margin-bottom: 3px; }

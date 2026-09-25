@@ -225,7 +225,7 @@ export async function sheetHTML(sheet, opts = {}) {
 
   return '<!doctype html><html lang="' + esc(lang) + '"><head><meta charset="utf-8">' +
     '<title>' + esc(sheet.title) + '</title>' +
-    '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2"' : '') + '>' +
+    '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2' + (opts.compact ? ' compact' : '') + '"' : '') + '>' +
     (v2 ? '' : masthead(sheet, L)) +
     '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' +
     (v2 && (opts.category || sheet.category) === 'hangul' ? titleHTML(sheet.title) : esc(sheet.title)) + '</h1>' +
@@ -302,6 +302,7 @@ export function frameText(sheet, lang) {
 }
 
 async function frameV2(sheet, L, fonts) {
+  const k = { top: '44mm', bottom: '27mm', row: '18mm', logo: '15.5mm', gap: '2.2mm', pad: '2.2mm 0' };
   if (!logo) logo = 'data:image/jpeg;base64,' + (await fs.readFile(path.join(HERE, 'assets', 'sheet-logo.jpg'))).toString('base64');
   const pills = [];
   if (sheet.level) pills.push([esc(L.level) + ' · ' + esc(sheet.level), '#eef1ea', '#b9c6bd']);
@@ -314,14 +315,14 @@ async function frameV2(sheet, L, fonts) {
   const headText = 'www.durukorean.com' + pills.map((p) => p[0]).join('');
   const footText = 'durukorean.com0123456789/|' + COPYRIGHT() + sheet.title + RIGHTS;
   return {
-    margin: { top: '44mm', bottom: '27mm', left: '15mm', right: '15mm' },
+    margin: { top: k.top, bottom: k.bottom, left: '15mm', right: '15mm' },
     headerTemplate: style(headText) +
       '<div style="' + box + 'color:#16302b;">' +
-      '<div style="position:relative;height:18mm;display:flex;align-items:flex-end;">' +
-      '<img src="' + logo + '" style="height:15.5mm;display:block;position:relative;z-index:1" alt="DURU KOREAN">' +
+      '<div style="position:relative;height:' + k.row + ';display:flex;align-items:flex-end;">' +
+      '<img src="' + logo + '" style="height:' + k.logo + ';display:block;position:relative;z-index:1" alt="DURU KOREAN">' +
       LANDSCAPE + '</div>' +
-      '<div style="border-top:0.8px solid #dba79c;margin-top:2.2mm;"></div>' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;padding:2.2mm 0;">' +
+      '<div style="border-top:0.8px solid #dba79c;margin-top:' + k.gap + ';"></div>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;padding:' + k.pad + ';">' +
       '<span style="color:#b83a2a;font-size:12px;font-weight:700;letter-spacing:.13em;">www.durukorean.com</span>' +
       '<span style="display:flex;gap:2.2mm;">' + pills.map(([t, bg, line]) =>
         '<span style="font-size:10px;font-weight:600;padding:1.1mm 3.4mm;border-radius:999px;background:' + bg +
