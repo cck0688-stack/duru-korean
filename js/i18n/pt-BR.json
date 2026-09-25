@@ -788,5 +788,8 @@
   "resources.more": "Ver mais (faltam {n})",
   "view.grid": "Ver em blocos",
   "view.list": "Ver em lista",
-  "review.relaid": "Refeito no novo layout. Fica fora do ar até você conferir e clicar em Aprovar e publicar."
+  "review.relaid": "Refeito no novo layout. Fica fora do ar até você conferir e clicar em Aprovar e publicar.",
+  "admin.moveTo": "Mover para",
+  "admin.move": "Mover",
+  "admin.moved": "Movido para {cat}."
 }

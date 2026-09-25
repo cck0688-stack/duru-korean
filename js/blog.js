@@ -864,6 +864,14 @@
             '<button type="button" class="btn btn-ghost" id="blogEditBtn">' + escapeHTML(t('blog.edit', 'Edit')) + '</button>' +
             '<button type="button" class="btn btn-ghost blog-delete-btn" id="blogDeleteBtn">' + escapeHTML(t('blog.delete', 'Delete')) + '</button>' +
           '</span>' +
+          // Another category, after it went out, without the editor.
+          '<span class="res-move">' +
+            '<label for="blogMoveCat">' + escapeHTML(t('admin.moveTo', 'Move to')) + '</label>' +
+            '<select id="blogMoveCat">' + CATEGORIES.map(function (c) {
+              return '<option value="' + escapeHTML(c) + '"' + (c === post.category ? ' selected' : '') + '>' + escapeHTML(categoryLabel(c)) + '</option>';
+            }).join('') + '</select>' +
+            '<button type="button" class="btn btn-ghost" id="blogMoveBtn">' + escapeHTML(t('admin.move', 'Move')) + '</button>' +
+          '</span>' +
         '</div>' + translationStatusHTML(post);
       }
 
@@ -929,6 +937,23 @@
       if (editBtn) editBtn.addEventListener('click', function () { openEditor(post); });
       var delBtn = singleEl.querySelector('#blogDeleteBtn');
       if (delBtn) delBtn.addEventListener('click', function () { confirmDelete(post); });
+      var moveBtn = singleEl.querySelector('#blogMoveBtn');
+      if (moveBtn) {
+        moveBtn.addEventListener('click', function () {
+          var to = singleEl.querySelector('#blogMoveCat').value;
+          if (!to || to === post.category) return;
+          moveBtn.disabled = true;
+          client.from('posts').update({ category: to }).eq('id', post.id).then(function (res) {
+            moveBtn.disabled = false;
+            if (res.error) { window.alert(res.error.message); return; }
+            post.category = to;
+            if (window.DURU_NOTIFY && window.DURU_NOTIFY.success) {
+              window.DURU_NOTIFY.success(t('admin.moved', 'Moved to {cat}.').replace('{cat}', categoryLabel(to)));
+            }
+            renderSingle(post);
+          });
+        });
+      }
       var trBtn = singleEl.querySelector('#blogTranslateBtn');
       if (trBtn) {
         trBtn.addEventListener('click', function () {

@@ -2243,3 +2243,15 @@ update public.resources
 
 create index if not exists posts_published_at_idx on public.posts (published_at desc);
 create index if not exists resources_first_published_idx on public.resources (first_published_at desc);
+
+-- 41. a short keyword for the saved file's name ----------------------
+-- A download is saved as "<keyword>(<language>).pdf" — bank(en).pdf,
+-- openhours(vi).pdf — so a learner with a folder full of them can tell
+-- them apart (the owner's rule, 2026-09-25). One or two English words
+-- run together, lower case; the daily run writes it, an admin can change
+-- it in the download's editor, and the page makes one up from the tags
+-- or the English title while it is empty.
+alter table public.resources add column if not exists keyword text;
+alter table public.resources drop constraint if exists resources_keyword_check;
+alter table public.resources
+  add constraint resources_keyword_check check (keyword is null or keyword ~ '^[a-z0-9]{1,20}$');

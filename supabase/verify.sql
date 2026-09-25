@@ -244,6 +244,10 @@ with checks(item, ok) as (
      exists (select 1 from pg_trigger where tgname = 'posts_stamp_published')
      and exists (select 1 from pg_trigger where tgname = 'resources_stamp_published')),
 
+    ('downloads have a keyword for the saved file name (§41)',
+     exists (select 1 from information_schema.columns
+             where table_schema='public' and table_name='resources' and column_name='keyword')),
+
     ('uploads allowed up to 50 MB',
      not exists (select 1 from storage.buckets
                  where id in ('resources', 'resource-covers')

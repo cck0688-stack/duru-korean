@@ -144,7 +144,7 @@ export function sheetSchema(category, isStrict) {
   const shape = shapes[(SHELVES[category] || SHELVES.etc).shape] || shapes.sections;
 
   const properties = Object.assign({
-    title: str, summary: str, objective: str, level: str,
+    title: str, keyword: str, summary: str, objective: str, level: str,
     minutes: { type: 'integer' }, tags: strs,
     exercises: strs, answers: strs, checkThese: strs
   }, shape);
@@ -207,6 +207,8 @@ export async function writeSheet(cfg, opts) {
     '반드시 채울 것: title, summary, objective, level, minutes, exercises, answers.',
     'title 은 한국어로, summary 와 objective 는 영어로 쓰세요.',
     'minutes 는 학습자가 이 학습지를 푸는 데 걸릴 시간입니다.',
+    'keyword 는 내려받은 파일 이름에 쓸 영어 낱말 하나(또는 둘을 붙인 것)입니다. 소문자, 띄어쓰기 없이, 12자 이내.',
+    '  예: bank, subway, openhours, pharmacy. 주제를 가장 짧게 말하는 낱말로.',
     'exercises 는 4~6개, answers 는 그와 정확히 같은 개수.',
     '',
     '이 갈래에서 추가로 채울 것: ' + shelf.shape,
@@ -358,6 +360,12 @@ export function same(a, b) {
   let shared = 0;
   x.forEach((w) => { if (y.has(w)) shared += 1; });
   return shared / Math.min(x.size, y.size) >= 0.7;
+}
+
+// The keyword a download is saved under: "bank" in bank(en).pdf.
+// Lower-case letters and digits, one or two words run together.
+export function cleanKeyword(raw) {
+  return String(raw || '').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '').slice(0, 16);
 }
 
 export function slugify(raw) {

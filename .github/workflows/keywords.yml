@@ -1,0 +1,47 @@
+# DURU KOREAN — a file-name keyword for every download that has none
+#
+# On demand. Downloads are saved as "<keyword>(<language>).pdf"; the
+# daily run gives new ones a keyword, and this fills in the ones already
+# on the shelf (scripts/keywords.mjs). Needs schema.sql §41.
+
+name: Download keywords
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only show the keywords it would save'
+        type: boolean
+        default: false
+
+jobs:
+  keywords:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Fill in the keywords
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SHEET_PROVIDER: ${{ vars.SHEET_PROVIDER }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then node scripts/keywords.mjs --dry-run; else node scripts/keywords.mjs; fi

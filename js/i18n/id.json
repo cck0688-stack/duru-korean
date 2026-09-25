@@ -788,5 +788,8 @@
   "resources.more": "Lihat lainnya ({n} lagi)",
   "view.grid": "Tampilan kotak",
   "view.list": "Tampilan daftar",
-  "review.relaid": "Dibuat ulang dengan tata letak baru. Tidak tayang sampai Anda memeriksanya dan menekan Setujui dan terbitkan."
+  "review.relaid": "Dibuat ulang dengan tata letak baru. Tidak tayang sampai Anda memeriksanya dan menekan Setujui dan terbitkan.",
+  "admin.moveTo": "Pindahkan ke",
+  "admin.move": "Pindahkan",
+  "admin.moved": "Dipindahkan ke {cat}."
 }

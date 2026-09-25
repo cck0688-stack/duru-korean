@@ -788,5 +788,8 @@
   "resources.more": "Show more ({n} left)",
   "view.grid": "Box view",
   "view.list": "List view",
-  "review.relaid": "Set again in the new layout. It is off the shelf until you check it and press Approve and publish."
+  "review.relaid": "Set again in the new layout. It is off the shelf until you check it and press Approve and publish.",
+  "admin.moveTo": "Move to",
+  "admin.move": "Move",
+  "admin.moved": "Moved to {cat}."
 }

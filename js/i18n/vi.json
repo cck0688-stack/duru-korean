@@ -788,5 +788,8 @@
   "resources.more": "Xem thêm (còn {n})",
   "view.grid": "Xem dạng ô",
   "view.list": "Xem dạng danh sách",
-  "review.relaid": "Đã dàn trang lại theo bố cục mới. Tài liệu tạm gỡ xuống cho đến khi bạn kiểm tra và bấm Duyệt và đăng."
+  "review.relaid": "Đã dàn trang lại theo bố cục mới. Tài liệu tạm gỡ xuống cho đến khi bạn kiểm tra và bấm Duyệt và đăng.",
+  "admin.moveTo": "Chuyển sang",
+  "admin.move": "Chuyển",
+  "admin.moved": "Đã chuyển sang {cat}."
 }

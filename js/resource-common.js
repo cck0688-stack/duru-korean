@@ -229,13 +229,43 @@
 
   // The bucket is private: a link is minted when the visitor asks, and
   // only a signed-in session can mint one — the storage policy decides.
+  // `download` is true, or the file name to save it as.
   function signedUrl(client, storageKey, download, bucket) {
-    var opts = download ? { download: true } : undefined;
+    var opts = download ? { download: download === true ? true : String(download) } : undefined;
     return client.storage.from(bucket || BUCKET).createSignedUrl(storageKey, SIGNED_URL_TTL, opts)
       .then(function (res) {
         if (res.error || !res.data) throw new Error(res.error ? res.error.message : 'no url');
         return res.data.signedUrl;
       });
+  }
+
+  // What a download is saved as: a short keyword and the language —
+  // "bank(en).pdf", "openhours(vi).pdf" (the owner's rule, 2026-09-25).
+  // The keyword is the resource's own (resources.keyword, set by the
+  // daily run and editable by an admin); a resource without one gets
+  // one from its English tags or title, so the name is never Korean
+  // (Storage and some browsers mangle it) and never long.
+  function cleanKeyword(raw) {
+    return String(raw || '').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '').slice(0, 16);
+  }
+  function keywordFor(resource) {
+    var own = cleanKeyword(resource && resource.keyword);
+    if (own.length >= 2) return own;
+    var tags = (resource && resource.tags) || [];
+    for (var i = 0; i < tags.length; i++) {
+      var tag = cleanKeyword(String(tags[i]).split(/\s+/).slice(0, 2).join(''));
+      if (tag.length >= 3) return tag;
+    }
+    var en = resource && resource.i18n && resource.i18n.en && resource.i18n.en.title;
+    var words = String(en || (resource && resource.description) || '').toLowerCase()
+      .split(/[^a-z0-9]+/).filter(function (w) { return w.length > 2 && ['the', 'and', 'for', 'with', 'how', 'your', 'what', 'when'].indexOf(w) === -1; });
+    var guess = cleanKeyword(words.slice(0, 2).join(''));
+    return guess.length >= 2 ? guess : 'durukorean';
+  }
+  function downloadName(resource, file) {
+    var ext = String((file && (file.storage_key || file.draft_key)) || '').split('.').pop().toLowerCase();
+    if (!/^[a-z0-9]{2,5}$/.test(ext)) ext = String((file && file.file_type) || 'pdf').toLowerCase();
+    return keywordFor(resource) + '(' + ((file && file.lang) || 'en') + ').' + ext;
   }
 
   // A page count read from the PDF itself, so the admin need not type
@@ -402,6 +432,7 @@
     categoryIcon: categoryIcon, levelLabel: levelLabel,
     localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
+    cleanKeyword: cleanKeyword, keywordFor: keywordFor, downloadName: downloadName,
     pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin
   };
 })();

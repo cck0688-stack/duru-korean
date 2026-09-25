@@ -49,7 +49,7 @@
 //   node scripts/generate-sheets.mjs [--only=vocab,reading] [--count=3] [--dry-run]
 
 import { resolveProvider, translate, LANGUAGES, TranslateError } from '../api/_providers.js';
-import { pickSubject, writeSheet, reviewSheet, problemsWith, translateSheet, slugify, SHELVES } from './lib/sheets.mjs';
+import { pickSubject, writeSheet, reviewSheet, problemsWith, translateSheet, slugify, cleanKeyword, SHELVES } from './lib/sheets.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
@@ -211,6 +211,8 @@ async function save(call, token, userId, category, made) {
       publish_location: 'free-resources',
       file_type: 'pdf',
       learning_level: sheet.level,
+      // Only once schema.sql §41 has given the table the column.
+      ...(made.hasKeyword ? { keyword: cleanKeyword(sheet.keyword) || null } : {}),
       description: sheet.summary,
       description_language: SOURCE_LANG,
       storage_key: 'pending/' + slug,
@@ -343,6 +345,9 @@ export async function run() {
   log('자료실에 ' + made.length + '편 (자동 생성 ' + autoCount + '편). ' +
       '오늘: ' + shelves.join(', ') + ' × ' + want + '편');
 
+  // The file-name keyword column (schema.sql §41), if it is there yet.
+  const hasKeyword = await call('resources?select=keyword&limit=1').then(() => true, () => false);
+
   const { chromium } = await import('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
 
@@ -365,7 +370,7 @@ export async function run() {
                 Object.keys(out.rendered).length + '개 언어' +
                 (bad.length ? ', 검사 실패 ' + bad.map(([l]) => l).join(',') : ', 검사 전부 통과'));
           } else {
-            const saved = await save(call, session.token, session.userId, category, out);
+            const saved = await save(call, session.token, session.userId, category, { ...out, hasKeyword });
             log('    저장됨: ' + saved.title);
           }
           existing.push(out.sheet.title + ' — ' + out.sheet.objective);

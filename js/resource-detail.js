@@ -130,6 +130,36 @@
       return !!(resource.status && resource.status !== 'published');
     }
 
+    // Moving a download to another category after it went out, without
+    // opening the whole editor (the owner asked for it on 2026-09-25).
+    function moveHTML() {
+      return '<span class="res-move">' +
+        '<label for="resMoveCat">' + esc(t('admin.moveTo', 'Move to')) + '</label>' +
+        '<select id="resMoveCat">' + R.CATEGORIES.map(function (c) {
+          return '<option value="' + esc(c) + '"' + (c === resource.category ? ' selected' : '') + '>' + esc(R.categoryLabel(c)) + '</option>';
+        }).join('') + '</select>' +
+        '<button type="button" class="btn btn-ghost" id="resMoveBtn">' + esc(t('admin.move', 'Move')) + '</button>' +
+      '</span>';
+    }
+
+    function wireMove(box) {
+      box.querySelector('#resMoveBtn').addEventListener('click', function () {
+        var btn = this;
+        var to = box.querySelector('#resMoveCat').value;
+        if (!to || to === resource.category) return;
+        btn.disabled = true;
+        client.from('resources').update({ category: to, updated_at: new Date().toISOString() }).eq('id', resource.id)
+          .then(function (res) {
+            btn.disabled = false;
+            if (res.error) { window.alert(R.schemaHint(res.error.message)); return; }
+            if (window.DURU_NOTIFY && window.DURU_NOTIFY.success) {
+              window.DURU_NOTIFY.success(t('admin.moved', 'Moved to {cat}.').replace('{cat}', R.categoryLabel(to)));
+            }
+            load();
+          });
+      });
+    }
+
     function renderStatus() {
       var box = $('resStatus');
       if (inReview()) {
@@ -137,8 +167,10 @@
         box.innerHTML =
           '<span>' + esc(t('resource.statusReview', 'Waiting for review — nobody can see this download until it is approved on the review screen.')) + '</span>' +
           '<a class="btn btn-primary" id="resReviewLink" href="review.html">' +
-            esc(t('resource.reviewLink', 'Open the review screen')) + '</a>';
+            esc(t('resource.reviewLink', 'Open the review screen')) + '</a>' +
+          moveHTML();
         box.hidden = false;
+        wireMove(box);
         return;
       }
       var live = resource.published !== false;
@@ -148,8 +180,10 @@
           ? t('resource.statusLive', 'Published — everyone can see this download.')
           : t('resource.statusDraft', 'Not published yet — only admins can see this download.')) + '</span>' +
         '<button type="button" class="btn ' + (live ? 'btn-outline-dark' : 'btn-primary') + '" id="resPublishBtn">' +
-          esc(live ? t('resource.unpublishBtn', 'Unpublish') : t('resource.publishBtn', 'Publish now')) + '</button>';
+          esc(live ? t('resource.unpublishBtn', 'Unpublish') : t('resource.publishBtn', 'Publish now')) + '</button>' +
+        moveHTML();
       box.hidden = false;
+      wireMove(box);
       box.querySelector('#resPublishBtn').addEventListener('click', function () {
         var btn = this;
         if (!live && !R.availableFiles(resource, true).length) {
@@ -241,6 +275,8 @@
     function fetchLink(download) {
       if (!currentUser) { R.openLogin(); return Promise.reject(new Error('login')); }
       if (!chosen) return Promise.reject(new Error('no file'));
+      // Saved as "bank(en).pdf": a short keyword and the language.
+      if (download) download = R.downloadName(resource, chosen);
       if (chosen.storage_key) return R.signedUrl(client, chosen.storage_key, download);
       // Not approved yet: the only copy is in the private drafts bucket,
       // which the storage policy opens to admins alone. Asking for a
@@ -350,6 +386,10 @@
           '<form id="resEdForm" novalidate>' +
             field(t('resources.fieldTitle', 'Title'), '<input type="text" id="edTitle" maxlength="120" value="' + esc(r.title) + '">') +
             field(t('resource.fieldSummary', 'Short description'), '<textarea id="edDesc" rows="2" maxlength="300">' + esc(r.description || '') + '</textarea>') +
+            ('keyword' in r
+              ? field(t('resource.fieldKeyword', 'File name keyword (English, short — saved as keyword(en).pdf)'),
+                  '<input type="text" id="edKeyword" maxlength="16" placeholder="' + esc(R.keywordFor(r)) + '" value="' + esc(r.keyword || '') + '">')
+              : '') +
             '<div class="res-editor-row">' +
               field(t('resources.fieldCategory', 'Category'), '<select id="edCategory">' + R.CATEGORIES.map(function (c) { return '<option value="' + c + '"' + (c === r.category ? ' selected' : '') + '>' + esc(R.categoryLabel(c)) + '</option>'; }).join('') + '</select>') +
               field(t('resources.fieldLevel', 'Learning level'), '<select id="edLevel">' + R.LEVELS.map(function (l) { return '<option value="' + l + '"' + (l === (r.learning_level || 'Any level') ? ' selected' : '') + '>' + esc(R.levelLabel(l)) + '</option>'; }).join('') + '</select>') +
@@ -435,6 +475,8 @@
         learning_level: editor.querySelector('#edLevel').value,
         updated_at: new Date().toISOString()
       };
+      var kw = editor.querySelector('#edKeyword');
+      if (kw) patch.keyword = R.cleanKeyword(kw.value) || null;
       var cover = editor.querySelector('#edCover').files[0];
       var step = Promise.resolve();
       if (cover) {
