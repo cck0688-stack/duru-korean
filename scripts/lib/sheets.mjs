@@ -85,7 +85,9 @@ const COMMON = [
   '- 문제는 학습 목표를 실제로 연습시키는 것이어야 하고, 그 학습지를 읽으면 풀 수 있어야 합니다.',
   '- 정답은 하나로 분명해야 합니다. 여러 답이 가능하면 대표 답을 쓰고 괄호에 다른 답을 적으세요.',
   '- 문제와 정답의 개수는 반드시 같아야 하고, 순서도 같아야 합니다.',
-  '- 문제나 정답 앞에 번호를 붙이지 마세요. 번호는 학습지가 붙입니다.'
+  '- 문제나 정답 앞에 번호를 붙이지 마세요. 번호는 학습지가 붙입니다.',
+  '- 학습지에 들어가는 모든 칸(note, sections, watchOut 등)은 학습자에게 하는 말만 쓰세요. 검수, 수정, "고쳤습니다",',
+  '  "지난번 검토" 같은 만드는 과정 이야기는 어디에도 쓰지 마세요. 사람에게 전할 말은 checkThese 에만 쓰세요.'
 ].join('\n');
 
 // The shape the model must answer in — for one shelf, not for all six.
@@ -291,6 +293,16 @@ export async function reviewSheet(cfg, sheet) {
 // Refusing here is the point. A sheet that reaches the review screen
 // with two questions and five answers has spent a person's attention
 // on something a loop could have caught.
+// Talk about making the sheet rather than about Korean. English only
+// (the sheet is written in English first, and translated from that);
+// Korean words like 지난번 or 고쳤어요 are ordinary example material.
+export const MAKING_OF = new RegExp([
+  "\\bI(?:'ve| have)? (?:fixed|changed|updated|corrected|rewrote|revised|addressed)\\b",
+  '\\b(?:last|previous|earlier) (?:review|draft|version|revision)\\b',
+  '\\bthe review(?:er)?\\b', '\\breviewer\\b', '\\bas requested\\b',
+  '\\bnow reads\\b', '\\bthis (?:revision|draft)\\b', '검수'
+].join('|'), 'i');
+
 export function problemsWith(sheet, opts = {}) {
   const bad = [];
   const n = (x) => (Array.isArray(x) ? x.length : 0);
@@ -308,6 +320,13 @@ export function problemsWith(sheet, opts = {}) {
   if (n(sheet[shape]) < least) {
     bad.push(shape + ' 가 ' + n(sheet[shape]) + '개뿐입니다 (최소 ' + least + ').');
   }
+
+  // A note to the reviewer printed on the learner's page: a rewrite
+  // once put "I fixed both problems from the last review…" into the
+  // sheet's note box. Whatever the model says about its own work goes
+  // in checkThese, which is never printed.
+  const printed = JSON.stringify({ ...sheet, checkThese: undefined });
+  if (MAKING_OF.test(printed)) bad.push('학습지 본문에 만드는 과정(검수·수정) 이야기가 들어갔습니다. 학습자에게 하는 말만 남기세요.');
 
   // A worksheet for learning Korean with no Korean in it has gone
   // wrong in a way every other check would miss.

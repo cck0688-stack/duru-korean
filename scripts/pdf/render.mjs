@@ -210,7 +210,7 @@ export async function renderSheet(sheet, opts = {}) {
     // page and does not — it drew once and landed halfway down page
     // two. This one repeats, and can count the pages, which is worth
     // having on something that gets printed and handed out in a pile.
-    const pdf = await page.pdf({
+    const print = () => page.pdf({
       format: 'A4',
       printBackground: true,
       margin: { top: '17mm', bottom: '18mm', left: '15mm', right: '15mm' },
@@ -225,10 +225,35 @@ export async function renderSheet(sheet, opts = {}) {
         '<span><span class="pageNumber"></span> / <span class="totalPages"></span></span>' +
         '</div>'
     });
+    let pdf = await print();
+    let used = html;
+    // The owner's rule (2026-09-25): the answers follow the questions,
+    // not a page of their own. When they do not fit under the last
+    // question — the sheet is a page longer with them than without —
+    // the sheet is set a little tighter and the answers in two columns,
+    // and that is kept if it saves the page.
+    if (opts.fit !== false && await page.$('.answers')) {
+      const { pageBreakdown } = await import('./check.mjs');
+      const pages = (x) => pageBreakdown(x).pages;
+      const withAnswers = pages(pdf);
+      await page.evaluate(() => { document.querySelector('.answers').style.display = 'none'; });
+      const without = pages(await print());
+      await page.evaluate(() => { document.querySelector('.answers').style.display = ''; });
+      if (withAnswers > without) {
+        await page.evaluate(() => document.body.classList.add('fit'));
+        const tight = await print();
+        if (pages(tight) < withAnswers) {
+          pdf = tight;
+          used = html.replace('<body>', '<body class="fit">');
+        } else {
+          await page.evaluate(() => document.body.classList.remove('fit'));
+        }
+      }
+    }
     const checks = opts.check === false ? null : await (await inspector())(page, pdf, sheet);
     return {
       pdf,
-      html,
+      html: used,
       bytes: pdf.length,
       hash: crypto.createHash('sha256').update(pdf).digest('hex'),
       check: checks

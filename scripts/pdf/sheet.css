@@ -59,11 +59,21 @@ h1 { font-family: 'Noto Sans KR', sans-serif; font-size: 25px; margin: 15px 0 4p
 .objective b { color: #1d6b48; letter-spacing: .04em; font-size: 10px; text-transform: uppercase; }
 
 /* ---- blocks the body is made of -------------------------------- */
-section { margin-bottom: 18px; break-inside: avoid; }
+/* The owner's rule (2026-09-25): a page is not left half empty.
+   Sections flow on from one another and may run across a page; what
+   is kept whole is the small unit a reader takes in at once — a table
+   row, a question with its lines, a note, a line of dialogue — and a
+   heading stays with what follows it. A section used to be kept whole
+   instead, so a long table that did not fit under the title moved to
+   page 2 in one piece and left page 1 three-quarters blank. */
+section { margin-bottom: 18px; }
 h2 {
   font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
   color: #5b6b66; margin: 0 0 9px; padding-bottom: 5px; border-bottom: 1px solid #e2e7e5;
+  break-after: avoid; page-break-after: avoid;
 }
+p { orphans: 3; widows: 3; }
+thead { display: table-header-group; }
 
 table { width: 100%; border-collapse: collapse; }
 th {
@@ -100,6 +110,7 @@ tr { break-inside: avoid; }
 .box { width: 26px; height: 26px; border: 1px solid #c9d2cf; border-radius: 3px; }
 
 .note {
+  break-inside: avoid;
   border-left: 3px solid #cf8a52; background: #fbf6ef;
   padding: 10px 12px; font-size: 11px; line-height: 1.65;
 }
@@ -107,11 +118,28 @@ tr { break-inside: avoid; }
 
 /* ---- answers, kept apart --------------------------------------- */
 /* Section 5.5 asks for the answers to be clearly separated from the
-   questions. A page of their own is the only separation that survives
-   being printed double-sided and handed out. */
-.answers { break-before: page; }
+   questions. They used to take a page of their own; the owner asked
+   (2026-09-25) for them to follow the questions on the same page when
+   there is room. Apart, then, by a dashed cut line and a heading of
+   their own, and kept in one piece — on the next page only if the
+   whole list does not fit under the questions. */
+.answers {
+  margin-top: 26px; padding-top: 14px; border-top: 1.5px dashed #c9d2cf;
+  break-inside: avoid; page-break-inside: avoid;
+}
 .answers h2 { color: #b4472a; border-bottom-color: #f0d8cc; }
 .answers .a { margin-bottom: 7px; font-size: 11.5px; break-inside: avoid; }
+
+/* When the answers would otherwise need a page to themselves, render.mjs
+   sets the sheet a little tighter and the answers in two columns, and
+   keeps that if it saves the page. Still roomy enough to write in. */
+.fit section { margin-bottom: 12px; }
+.fit td { padding: 6px 7px; }
+.fit .q { margin-bottom: 9px; }
+.fit .rule { height: 18px; }
+.fit .note { padding: 7px 11px; }
+.fit .answers { margin-top: 16px; padding-top: 10px; columns: 2; column-gap: 26px; }
+.fit .answers h2 { column-span: all; }
 
 /* ---- footer ------------------------------------------------------ */
 /* There isn't one here. A `position: fixed` footer does not repeat per
