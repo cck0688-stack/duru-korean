@@ -70,9 +70,19 @@ def compare(old, new, title, drop, labels):
     b = bare('\n'.join(pages(new)), title, [], labels)
     ca, cb = Counter(a), Counter(b)
     off = sum(((ca - cb) + (cb - ca)).values())
+    sm = difflib.SequenceMatcher(None, a, b, autojunk=False)
+    # Where they differ, for the log: a few places, with a little around.
+    where = []
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == 'equal':
+            continue
+        where.append({'old': a[max(0, i1 - 12):i2 + 12], 'new': b[max(0, j1 - 12):j2 + 12]})
+        if len(where) >= 6:
+            break
     return {
         'hist': off / max(1, len(a)),
-        'ratio': difflib.SequenceMatcher(None, a, b, autojunk=False).ratio(),
+        'ratio': sm.ratio(),
+        'where': where,
         'oldChars': len(a),
         'newChars': len(b),
     }

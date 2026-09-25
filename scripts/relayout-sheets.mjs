@@ -222,6 +222,8 @@ export async function relayout(token, cfg, browser, r) {
         log('    ' + lang + ': 원본과 다름 (hist ' + cmp.hist.toFixed(4) + ', ratio ' + cmp.ratio.toFixed(4) +
             (out.check && !out.check.ok ? ', 검사: ' + out.check.why.join('; ') : '') + ')' +
             (t + 1 < TRIES ? ' — 다시' : ''));
+        (cmp.where || []).slice(0, 4).forEach((w) =>
+          log('        원본 …' + w.old.slice(0, 90) + '…  /  새 …' + w.new.slice(0, 90) + '…'));
       }
     }
     if (!result) { kept += 1; log('    ' + lang + ': 그대로 둡니다'); return; }
