@@ -25,7 +25,7 @@ on:
         type: string
         default: ''
       only:
-        description: 'Only this download (its id)'
+        description: 'Only these downloads: ids or exact titles, separated by "|"'
         type: string
         default: ''
 

@@ -144,7 +144,9 @@ function prompt(category, lang) {
     '틀(편집)이 넣은 것은 빼세요:',
     '- 맨 위 "DURU KOREAN · FREE DOWNLOADS" 와 수준·시간 표시 (level 과 minutes 칸에 값만 넣으세요. minutes 는 숫자).',
     '- 대문자로 된 칸 제목 (예: THE PATTERN, WATCH OUT, YOUR TURN, ANSWERS, WHAT THIS IS FOR 와 그 언어의 같은 말), 표의 머리줄.',
-    '- 문제와 정답 앞의 번호 "1)". 페이지 아래의 durukorean.com, 제목, 쪽 번호.',
+    '- 문제(YOUR TURN)와 정답(ANSWERS) 목록 앞에 틀이 붙인 번호 "1)". 페이지 아래의 durukorean.com, 제목, 쪽 번호.',
+    '  그 밖의 글 안에 글쓴이가 직접 쓴 번호(예: 문단 안의 "1) 택배 받으러 왔습니다.")는 빼지 말고 그대로 두세요.',
+    '- 소제목이나 문단에 두 언어가 함께 적혀 있으면(예: "주문 흐름 한눈에 보기. Ringkasan alur pemesanan") 둘 다 그대로 두세요.',
     '',
     'title = 맨 위 큰 제목. summary = 제목 아래 문단. objective = 학습 목표 상자 안의 글.',
     'exercises = 문제들, answers = 정답들 (같은 개수, 같은 순서).',
@@ -293,7 +295,11 @@ export async function run() {
   let rows = await rest(token, 'resources?select=id,title,category,status,' +
     'resource_files(id,lang,version,published,storage_key,draft_key,page_count)' +
     '&origin=eq.auto&status=neq.rejected&publish_location=eq.free-resources&order=created_at.asc&limit=5000');
-  if (ONLY) rows = rows.filter((r) => r.id === ONLY);
+  // One download by its id, or several by id or exact title, separated by "|".
+  if (ONLY) {
+    const want = ONLY.split('|').map((x) => x.trim()).filter(Boolean);
+    rows = rows.filter((r) => want.includes(r.id) || want.includes(r.title));
+  }
   if (LIMIT) rows = rows.slice(0, LIMIT);
   log('대상: ' + rows.length + '개');
 
