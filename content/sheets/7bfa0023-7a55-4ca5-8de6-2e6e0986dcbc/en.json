@@ -19,17 +19,17 @@
     "Answer in Korean (yes/no and why): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
   ],
   "answers": [
-    "아니요. 월요일은 정기휴무예요. (No. Monday is the regular day off.)",
-    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (No. It's the break time, 15:00–16:30.)",
-    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (No. Orders close at 19:30. The shop is open until 20:00, but you can't order.)",
-    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Yes. Weekend hours run until 22:00, and last order is at 21:30.)",
-    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (No. It closes on public holidays, even if the holiday falls on a weekday.)",
-    "네. 24시간 영업, 연중무휴예요. (Yes. It's open 24 hours, every day of the year.)"
+    "아니요. 월요일은 정기휴무예요.",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요.",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요.",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요.",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요.",
+    "네. 24시간 영업, 연중무휴예요."
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "1. 안내판에 자주 나오는 말 8개 (8 SIGN LABELS)",
+      "heading": "8 labels you often see on shop signs",
       "paragraphs": [
         "영업시간 (yeongeop sigan): the hours the shop is open for business.",
         "정기휴무 (jeonggi hyumu): the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday).",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "heading": "2. 안내판 읽는 순서 (HOW TO CHECK: 4 STEPS)",
+      "heading": "How to check a sign: 4 steps",
       "paragraphs": [
         "① 요일 확인: Is that day a 휴무 (day off)? Check 정기휴무 and 공휴일 휴무.",
         "② 평일/주말 확인: Which hours apply, the weekday hours or the weekend hours?",
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "heading": "3. 안내판 1: 카페 하루",
+      "heading": "안내판 1: 카페 하루",
       "paragraphs": [
         "영업시간",
         "평일 10:00 ~ 21:00",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "heading": "4. 안내판 2: 엄마손 칼국수",
+      "heading": "안내판 2: 엄마손 칼국수",
       "paragraphs": [
         "영업시간 11:00 ~ 20:00",
         "브레이크 타임 15:00 ~ 16:30",
@@ -70,13 +70,13 @@
       ]
     },
     {
-      "heading": "5. 안내판 3: 우리동네 편의점",
+      "heading": "안내판 3: 우리동네 편의점",
       "paragraphs": [
         "24시간 영업",
         "연중무휴"
       ]
     }
   ],
-  "note": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분).",
+  "note": "The three signs are made up for practice; they are not real shops or hours. The key point: 'the shop is open' is not the same as 'you can still order' (exercises 3 and 4).",
   "category": "etc"
 }

@@ -946,5 +946,23 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T18:57:26.033Z"
+  "preparedAt": "2026-09-25T18:57:26.033Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "answers[0]",
+      "before": "7분 후에 도착해요. 지금 세 정류장 전에 있어요. (3번째 전이에요.)",
+      "after": "7분 후에 도착해요. 지금 3번째 전이에요.",
+      "why": "Shorter answer key (same answer) — the sheet ran to three pages.",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "27번을 타요. 시청역 방면이고 3분 후에 도착해요. (2번째 전이에요. 14번은 12분 뒤에 오고, 41번은 운행 종료이고, 88번은 시장 방면이에요.)",
+      "after": "27번을 타요. 시청역 방면이고 3분 후에 도착해요.",
+      "why": "Shorter answer key (same answer) — the sheet ran to three pages.",
+      "all_languages": true
+    }
+  ]
 }

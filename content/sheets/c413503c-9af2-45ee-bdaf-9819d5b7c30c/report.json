@@ -987,5 +987,31 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T18:40:29.645Z"
+  "preparedAt": "2026-09-25T18:40:29.645Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "answers[1]",
+      "before": "목이 아프고 기침이 나요. (목이 아프고 기침도 나요. / 목이 아프고 기침을 해요.)",
+      "after": "목이 아프고 기침이 나요.",
+      "why": "Alternatives dropped so fr/de fit two pages (answer boxes are the same Korean in every language).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers[3]",
+      "before": "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)",
+      "after": "하루 두 번 식후에 드세요.",
+      "why": "Alternatives dropped so fr/de fit two pages (answer boxes are the same Korean in every language).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "한 번에 두 알씩 먹으면 돼요? (한 번에 두 알 먹으면 돼요?)",
+      "after": "한 번에 두 알씩 먹으면 돼요?",
+      "why": "Alternatives dropped so fr/de fit two pages (answer boxes are the same Korean in every language).",
+      "all_languages": true
+    }
+  ]
 }

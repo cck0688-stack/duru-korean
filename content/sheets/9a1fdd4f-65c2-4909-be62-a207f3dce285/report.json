@@ -414,5 +414,21 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T19:18:59.447Z"
+  "preparedAt": "2026-09-25T19:18:59.447Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "forms[5].when",
+      "before": "When the stem ends in ㄹ, the ㄹ drops before -는 and -ㄴ. With -ㄹ, the two ㄹ merge into one. Do not add 으. Verbs: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들.",
+      "after": "When the stem ends in ㄹ, the ㄹ drops before -는 and -ㄴ. With -ㄹ, the two ㄹ merge into one. Do not add 으. Verbs: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들. Adjectives: 길다 → 긴, 멀다 → 먼.",
+      "why": "Exercise 6 asks for 길은 → 긴 (an ㄹ-stem adjective); the rule showed verbs only."
+    },
+    {
+      "op": "replace",
+      "path": "answers[5]",
+      "before": "덥은 → 더운, 길은 → 긴 (오늘은 정말 더운 날이에요. 그래서 머리가 긴 사람들은 머리를 묶었어요.)",
+      "after": "덥은 → 더운, 길은 → 긴",
+      "why": "shorter answer key (id/de ran onto a third page)"
+    }
+  ]
 }

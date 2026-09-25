@@ -496,5 +496,42 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T18:38:15.648Z"
+  "preparedAt": "2026-09-25T18:38:15.648Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "keyword",
+      "before": "원룸 광고 두 개, 어느 방이 좋을까?",
+      "after": "원룸 광고",
+      "why": "The keyword names the download file; it was the whole title with ? and ,."
+    },
+    {
+      "op": "replace",
+      "path": "answers[1]",
+      "before": "앱에서 본 방: 관리비 7만 원, 인터넷과 수도가 포함되어 있다. / 전단지 방: 관리비 5만 원(별도), 수도는 포함되어 있지만 인터넷은 포함되어 있지 않다. 인터넷은 따로 신청하고 요금을 따로 내야 한다.",
+      "after": "앱에서 본 방: 관리비 7만 원(인터넷·수도 포함). / 전단지 방: 관리비 5만 원(수도 포함, 인터넷은 따로 신청하고 요금도 따로 낸다).",
+      "why": "Answer key shortened (same facts) — the sheet ran to three pages."
+    },
+    {
+      "op": "replace",
+      "path": "answers[2]",
+      "before": "앱에서 본 방(풀옵션이라서 방에 세탁기가 있다). 전단지 방에서는 1층에 있는 공용 세탁기를 쓴다.",
+      "after": "앱에서 본 방(풀옵션). 전단지 방에서는 1층 공용 세탁기를 쓴다.",
+      "why": "Answer key shortened (same facts) — the sheet ran to three pages."
+    },
+    {
+      "op": "replace",
+      "path": "answers[3]",
+      "before": "앱에서 본 방: 지금 바로 들어갈 수 있다('즉시 입주'). / 전단지 방: 10월 말부터 들어갈 수 있다('10월 말 입주 가능').",
+      "after": "앱에서 본 방: 지금 바로('즉시 입주'). / 전단지 방: 10월 말부터('10월 말 입주 가능').",
+      "why": "Answer key shortened (same facts) — the sheet ran to three pages."
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)",
+      "after": "① 보증금이 500만 원이라서 800만 원으로 낼 수 있다. ② 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 잘 맞는다는 것도 정답)",
+      "why": "Answer key shortened (same facts) — the sheet ran to three pages."
+    }
+  ]
 }

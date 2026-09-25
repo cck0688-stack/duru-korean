@@ -447,5 +447,56 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T18:58:02.419Z"
+  "preparedAt": "2026-09-25T18:58:02.419Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "watchOut[0]",
+      "before": "Don't use -(으)ㄹ게요 when the subject is someone else. It is only for your own promise. ✗ 지수 씨가 이따가 전화할게요. → ✓ 지수 씨가 이따가 전화할 거예요.",
+      "after": "지수 씨가 이따가 전화할게요 (X) → 지수 씨가 이따가 전화할 거예요 (O): Don't use -(으)ㄹ게요 when the subject is someone else. It is only for your own promise.",
+      "why": "Watch Out in the owner's format: wrong (X) → right (O), then why."
+    },
+    {
+      "op": "replace",
+      "path": "watchOut[1]",
+      "before": "Don't use -(으)ㄹ게요 in questions. ✗ 일을 언제 끝낼게요? → ✓ 언제 끝낼 거예요?",
+      "after": "일을 언제 끝낼게요? (X) → 일을 언제 끝낼 거예요? (O): Don't use -(으)ㄹ게요 in questions.",
+      "why": "Watch Out in the owner's format: wrong (X) → right (O), then why."
+    },
+    {
+      "op": "replace",
+      "path": "watchOut[2]",
+      "before": "It is pronounced [께요] but written 게요. ✗ 할께요 → ✓ 할게요",
+      "after": "할께요 (X) → 할게요 (O): It is pronounced [할께요] but always written 게요.",
+      "why": "Watch Out in the owner's format: wrong (X) → right (O), then why."
+    },
+    {
+      "op": "replace",
+      "path": "answers[0]",
+      "before": "(a) 기다릴게요 (b) 받을게요 (✗ 발을게요. 받다 is a regular verb.) (c) 놀게요 (✗ 놀을게요)",
+      "after": "(a) 기다릴게요 (b) 받을게요 (c) 놀게요",
+      "why": "Answer key: answers only (the reasons are in Watch Out); six languages ran onto a third page."
+    },
+    {
+      "op": "replace",
+      "path": "answers[2]",
+      "before": "입을께요 → 입을게요 (It is pronounced [이블께요], but it is always written 게.)",
+      "after": "입을께요 → 입을게요",
+      "why": "Answer key: answers only (the reasons are in Watch Out); six languages ran onto a third page."
+    },
+    {
+      "op": "replace",
+      "path": "answers[3]",
+      "before": "(a) 배울 거예요 (The subject is a third person, 동생.) (b) 출발할 거예요 (It is a question.)",
+      "after": "(a) 배울 거예요 (b) 출발할 거예요",
+      "why": "Answer key: answers only (the reasons are in Watch Out); six languages ran onto a third page."
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "볼 거예요 / 예매할게요 (The first is a plan B is just reporting. The second is a promise B makes after hearing what A said.)",
+      "after": "볼 거예요 / 예매할게요",
+      "why": "Answer key: answers only (the reasons are in Watch Out); six languages ran onto a third page."
+    }
+  ]
 }
