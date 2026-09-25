@@ -1187,3 +1187,13 @@ Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
 - **저작권 띠**: 1줄 "Copyright © (만든 해) DURU KOREAN. All rights reserved." 2줄 "For personal and educational use only. Commercial use, redistribution, or reproduction without the author's permission is prohibited." (8개 언어 모두 같은 영어 문구)
 - 파일 크기는 약 100KB 늘어납니다(견본 134KB → 235KB). 머리글이 44mm라 긴 학습지는 한 쪽 늘 수 있습니다(명사 꾸미기: v1 2쪽 → v2 3쪽, 마지막 쪽에 문제 일부+정답).
 - 이미 올라간 자료에 적용하려면 relayout을 한 번 더 돌려야 합니다(원본 JSON이 없어 PDF에서 다시 읽음 = 파일마다 AI 호출 1번). `scripts/pdf/pdftext.py`의 비교는 v2 머리글·바닥글·번호를 빼고 비교하도록 맞춰 두었습니다(견본 2개 모두 원본과 100% 같음).
+
+### 정밀 검수 후 다시 만들기 (2026-09-25 운영자 지시) — `scripts/rework-sheets.mjs`, Actions "Rework worksheets"
+
+운영자 규칙: 문장·정답에 오류가 하나도 없어야 한다(문법은 특히). 모든 자료는 두 번 검수. 10개 언어(기존 8 + 프랑스어·독일어). 다시 만든 자료는 게시에서 내리고 운영자 승인 후 게시.
+
+1. **prepare** (Actions에서 mode=prepare): 영어판 PDF를 글자 그대로 읽기(원본과 기계 비교) → 검수자 2명(`reviewSheet`, 더 엄격한 `auditSheet`: 모든 문제를 직접 풀어 정답 대조, 갈래별 점검표) → 찾은 곳만 고치기(`fixSheet`) → 다시 두 번 검수(최대 3회) → 9개 언어 번역 → 줄마다 번역 검수 + 한국어가 바뀌지 않았는지 기계 확인. 결과는 PDF가 아니라 내용(JSON)으로 `rework-output` 브랜치의 `sheets/<id>/`에 저장(`report.json`에 고친 곳 전부). 사이트는 건드리지 않음. 이미 한 것은 건너뛰므로 시간 제한에 걸리면 다시 실행하면 이어서.
+2. **사람 점검**: 내용을 읽고 필요한 곳을 직접 고친 뒤 `content/sheets/<id>/`로 커밋(사이트에는 배포되지 않음: .vercelignore).
+3. **apply** (mode=apply, 먼저 dry_run): 새 디자인으로 10개 언어 PDF를 만들어 같은 주소에 교체, 없던 언어(fr/de)는 초안 파일로 추가, 자료는 게시 중단·승인 대기.
+
+매일 자동 생성도 같은 이중 검수와 번역 검수를 거치고, 10개 언어로 만듭니다. 사이트 화면 언어(메뉴·블로그·커뮤니티)는 여전히 8개입니다.

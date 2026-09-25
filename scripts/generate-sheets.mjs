@@ -48,8 +48,9 @@
 //
 //   node scripts/generate-sheets.mjs [--only=vocab,reading] [--count=3] [--dry-run]
 
-import { resolveProvider, translate, LANGUAGES, TranslateError } from '../api/_providers.js';
-import { pickSubject, writeSheet, reviewSheet, problemsWith, translateSheet, slugify, cleanKeyword, SHELVES } from './lib/sheets.mjs';
+import { resolveProvider, LANGUAGE_NAMES, TranslateError } from '../api/_providers.js';
+import { pickSubject, writeSheet, reviewSheet, problemsWith, slugify, cleanKeyword, SHELVES } from './lib/sheets.mjs';
+import { auditSheet, markProblems, translateChecked } from './lib/proofread.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
@@ -66,7 +67,8 @@ const REWRITES = 2;                 // a sheet sent back this many times is not 
 // enough and is what the site uses everywhere else; a worksheet that a
 // learner will study from is worth the larger one.
 const WRITING_MODEL = { openai: 'gpt-5' };
-const LANGS = Object.keys(LANGUAGES);
+// Ten: the site's eight, and French and German (2026-09-25).
+const LANGS = Object.keys(LANGUAGE_NAMES);
 const SOURCE_LANG = 'en';           // sheets are written with English explanations
 
 const args = process.argv.slice(2);
@@ -149,15 +151,20 @@ async function makeOne(cfg, category, context, browser) {
     objective: subject.objective, level: subject.level
   });
 
-  // What the checks find — the mechanical ones here, the reader's ones
-  // in reviewSheet() — goes back to the writer as a list. Twice; a
-  // sheet that is still wrong after that is not saved, and the shelf
-  // gets a different subject tomorrow.
+  // What the checks find — the mechanical ones here, the two readers'
+  // (reviewSheet, then the stricter auditSheet: the owner's rule that
+  // every sheet is checked twice) — goes back to the writer as a list.
+  // Twice; a sheet that is still wrong after that is not saved, and the
+  // shelf gets a different subject tomorrow.
   let notes = [];
   for (let round = 0; ; round += 1) {
-    const problems = problemsWith(sheet, { existing: context.existing });
-    const review = problems.length ? { ok: false, problems: [] } : await reviewSheet(writer, sheet);
-    notes = problems.concat(review.problems);
+    const problems = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet));
+    let found = [];
+    if (!problems.length) {
+      const [first, second] = await Promise.all([reviewSheet(writer, sheet), auditSheet(writer, sheet)]);
+      found = first.problems.concat(second.problems);
+    }
+    notes = problems.concat(found);
     if (!notes.length) break;
     if (round >= REWRITES) {
       const err = new Error('검수를 통과하지 못했습니다: ' + notes.join(' '));
@@ -175,10 +182,14 @@ async function makeOne(cfg, category, context, browser) {
 
   // English first: it is the language the sheet was written in, so it
   // is the one nothing can go wrong in.
+  // Each translation is checked: the Korean in it by machine (it must
+  // come through untouched), every line by the reader.
   const editions = { [SOURCE_LANG]: sheet };
   for (const lang of LANGS) {
     if (lang === SOURCE_LANG) continue;
-    editions[lang] = await translateSheet(translate, cfg, sheet, lang, LANGUAGES[SOURCE_LANG]);
+    const got = await translateChecked({ translator: cfg, writer }, sheet, lang);
+    if (got.record.failed) throw new Error(lang + ' 번역에서 한국어가 바뀌어 저장하지 않습니다');
+    editions[lang] = got.edition;
   }
 
   const rendered = {};

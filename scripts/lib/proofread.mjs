@@ -13,7 +13,11 @@
 // untouched — a translation that "corrects" 맛있은 into 맛있는 has
 // destroyed the lesson.
 
-import { sheetSchema, unnumbered, explanatoryText } from './sheets.mjs';
+import { sheetSchema, unnumbered, explanatoryText, translateSheet } from './sheets.mjs';
+import { translate, LANGUAGE_NAMES } from '../../api/_providers.js';
+
+const TR_TRIES = 3;
+const log = (...a) => console.log(...a);
 
 const strictObj = (properties, isStrict) => {
   const root = { type: 'object', properties, required: Object.keys(properties) };
@@ -184,3 +188,77 @@ export function applyLines(edition, lines) {
   lines.forEach((p) => { const slot = slots[p.line - 1]; if (slot) slot.set(copy, String(p.fix).trim()); });
   return copy;
 }
+
+// Marks that are not in their sentence mark nothing; say so rather than
+// let a sheet go out with an example that was meant to be underlined.
+export function markProblems(sheet) {
+  const out = [];
+  if ((sheet.category || 'grammar') !== 'grammar') return out;
+  (sheet.forms || []).forEach((f, i) => {
+    const marks = Array.isArray(f.mark) ? f.mark : [];
+    if (!marks.length) out.push('forms[' + (i + 1) + '].mark 가 비어 있습니다 (예문에서 문형이 쓰인 어절)');
+    marks.filter((m) => m && !String(f.example || '').includes(m))
+      .forEach((m) => out.push('forms[' + (i + 1) + '].mark "' + m + '" 가 예문에 없습니다'));
+  });
+  (sheet.watchOut || []).forEach((w, i) => {
+    const marks = (Array.isArray(sheet.watchOutMark) ? sheet.watchOutMark[i] : null) || [];
+    if (!marks.length) out.push('watchOutMark[' + (i + 1) + '] 가 비어 있습니다 (틀린 말과 맞는 말)');
+    marks.filter((m) => m && !String(w).includes(m))
+      .forEach((m) => out.push('watchOutMark[' + (i + 1) + '] "' + m + '" 가 그 항목에 없습니다'));
+  });
+  return out;
+}
+
+// One language: translated, the Korean checked by machine, every line
+// checked by a reader, the lines it corrected put back.
+export async function translateChecked(cfgs, en, lang) {
+  const name = LANGUAGE_NAMES[lang];
+  let extra = '';
+  let edition = null;
+  const record = { lang, tries: 0, lost: [], fixes: [] };
+  for (let t = 0; t < TR_TRIES; t += 1) {
+    record.tries += 1;
+    edition = await translateSheet(translate, cfgs.translator, en, lang, 'English', extra);
+    const lost = lostKorean(en, edition, lang);
+    if (lost.length) {
+      record.lost = lost;
+      extra = 'The last attempt changed the Korean in some lines. Keep every Korean (Hangul) word exactly as written, ' +
+              'including deliberately wrong forms marked (X): ' + lost.slice(0, 12).join(', ');
+      log('    ' + lang + ': 한국어가 바뀐 줄 ' + lost.length + '개 — 다시 번역');
+      continue;
+    }
+    const checked = await checkTranslation(cfgs.writer, en, edition, lang, name);
+    if (checked.broken) { extra = ''; continue; }
+    if (checked.lines.length) {
+      // A corrected line is taken only if its Korean is still exactly the
+      // English line's Korean.
+      const src = explanatoryText(en).map((x) => x.value);
+      const keep = checked.lines.filter((p) => lang === 'ko' || !koreanLost(src[p.line - 1], p.fix).length);
+      const refused = checked.lines.filter((p) => !keep.includes(p));
+      if (keep.length) {
+        edition = applyLines(edition, keep);
+        record.fixes = keep;
+        log('    ' + lang + ': 번역 검수에서 ' + keep.length + '줄 고침');
+      }
+      if (refused.length) {
+        record.rejectedFixes = refused;
+        log('    ' + lang + ': 한국어를 바꾸는 고침 ' + refused.length + '줄은 쓰지 않았습니다');
+      }
+    }
+    record.lost = [];
+    return { edition, record };
+  }
+  record.failed = true;
+  return { edition, record };
+}
+
+function lostKorean(en, edition, lang) {
+  if (lang === 'ko') return [];
+  const a = explanatoryText(en).map((s) => s.value);
+  const b = explanatoryText(edition).map((s) => s.value);
+  if (a.length !== b.length) return ['(줄 수가 다름)'];
+  const lost = [];
+  a.forEach((line, i) => koreanLost(line, b[i]).forEach((k) => lost.push(k)));
+  return lost;
+}
+

@@ -7,3 +7,5 @@ scripts/
 .github/
 supabase/
 PROJECT-NOTES.ko.md
+# The worksheets' content (scripts/rework-sheets.mjs), unpublished ones too.
+content/

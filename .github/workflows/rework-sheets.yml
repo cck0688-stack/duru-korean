@@ -1,0 +1,134 @@
+# DURU KOREAN — every worksheet proofread, made again in ten languages
+#
+# On demand, in two steps with a person between them (scripts/rework-sheets.mjs):
+#
+#   prepare  reads each sheet back, has it checked by two reviewers and
+#            fixed, translates it into the other nine languages and checks
+#            every translation. Writes content, not PDFs, to the
+#            `rework-output` branch (sheets/<id>/<lang>.json + report.json),
+#            where it is read before anything goes further. Touches nothing
+#            on the site. Sheets already on that branch are skipped, so a
+#            run that stops at the time limit is simply started again.
+#
+#   apply    renders the content committed under content/sheets/ on this
+#            branch, replaces the files under their keys, adds French and
+#            German, and holds each download for the owner's approval.
+#
+# Secrets: the ones the daily worksheet run uses.
+
+name: Rework worksheets
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'prepare (check and translate, write content) or apply (put the checked content on the site)'
+        type: choice
+        options: [prepare, apply]
+        default: prepare
+      only:
+        description: 'Only these downloads: ids or exact titles, separated by "|"'
+        type: string
+        default: ''
+      limit:
+        description: 'Only the first N downloads (empty = all)'
+        type: string
+        default: ''
+      redo:
+        description: 'prepare: do again even the ones already on rework-output'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'apply: render and report, change nothing'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rework-sheets
+  cancel-in-progress: false
+
+jobs:
+  rework:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install the browser that renders the PDFs
+        run: npx playwright install --with-deps chromium
+
+      - name: Install the PDF text reader
+        run: pip install --quiet pymupdf
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      # What earlier runs prepared, so they are not done twice.
+      - name: Open the rework-output branch
+        if: inputs.mode == 'prepare'
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin rework-output >/dev/null; then
+            git fetch origin rework-output
+            git worktree add ../rework-output origin/rework-output -B rework-output
+          else
+            git worktree add --orphan -b rework-output ../rework-output
+          fi
+          mkdir -p ../rework-output/sheets
+
+      - name: Rework
+        timeout-minutes: 330
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+          SHEET_PROVIDER: ${{ vars.SHEET_PROVIDER }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          # Through the environment, never pasted into the command line.
+          MODE: ${{ inputs.mode }}
+          ONLY: ${{ inputs.only }}
+          LIMIT: ${{ inputs.limit }}
+          REDO: ${{ inputs.redo }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          args=("$MODE")
+          if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
+          if [ "$MODE" = "prepare" ]; then
+            args+=(--out=../rework-output/sheets)
+            if [ "$REDO" = "true" ]; then args+=(--redo); fi
+          else
+            args+=(--from=content/sheets)
+            if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          fi
+          node scripts/rework-sheets.mjs "${args[@]}"
+
+      # Saved even when the run stopped part-way: what was finished is kept.
+      - name: Save what was prepared
+        if: always() && inputs.mode == 'prepare'
+        working-directory: ../rework-output
+        run: |
+          git add -A sheets
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Prepared worksheets ($(ls sheets | wc -l) so far)"
+          git push -q origin rework-output
