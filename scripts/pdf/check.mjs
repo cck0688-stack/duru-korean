@@ -67,7 +67,7 @@ export function textIsReal(pdf) {
 // in the file: what overflowed, what came out empty, what got cut off.
 export async function inspectPage(page) {
   return page.evaluate(() => {
-    const out = { overflow: [], tiny: [], emptyBlocks: 0, textLength: 0, widest: 0 };
+    const out = { overflow: [], tiny: [], spill: [], emptyBlocks: 0, textLength: 0, widest: 0 };
     const root = document.documentElement;
     // The sheet's own content, not the furniture. The masthead, the
     // title and the footer are about forty characters between them,
@@ -84,6 +84,11 @@ export async function inspectPage(page) {
       if (r.width > root.clientWidth + 1) out.overflow.push(el.className || el.tagName);
       const txt = (el.innerText || '').trim();
       if (!txt && !el.querySelector('.box, .rule')) out.emptyBlocks += 1;
+    });
+    // Text that will not wrap (a long translated pattern name, say) runs
+    // out of its table cell and is printed over the next column.
+    document.querySelectorAll('td, th').forEach((el) => {
+      if (el.scrollWidth > el.clientWidth + 1) out.spill.push((el.innerText || '').trim().slice(0, 40));
     });
     // Print small enough and nobody reads it; the brief says so outright.
     document.querySelectorAll('body *').forEach((el) => {
@@ -148,6 +153,7 @@ export async function inspect(page, pdf, sheet) {
 
   if (seen.widest > 1) why.push('content runs ' + seen.widest + 'px past the page edge and will be cut off');
   if (seen.overflow.length) why.push('too wide for the page: ' + seen.overflow.slice(0, 3).join(', '));
+  if (seen.spill && seen.spill.length) why.push('text runs out of its column over the next one: ' + seen.spill.slice(0, 3).join(' | '));
   if (seen.tiny.length) why.push('text under 8px, too small to read in print: ' + seen.tiny.slice(0, 3).join(', '));
   if (seen.textLength < MIN_TEXT_PER_PAGE) why.push('there is almost nothing on the sheet');
 

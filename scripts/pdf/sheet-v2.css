@@ -105,6 +105,9 @@ table.forms td:nth-child(2) { width: 22%; }
 table.forms td:nth-child(3) { width: 42%; }
 /* The note under each form is how the form is made — read closely, not
    glanced at: darker, upright, a size up from a romanisation line. */
+/* A translated pattern name can be long ("V/A + 아서 (der letzte Vokal des
+   Stamms ist ㅏ oder ㅗ)"): it wraps inside its column, never over the next. */
+table.forms .word { white-space: normal; }
 table.forms .rom { color: #3f4f4a; font-style: normal; font-size: 11px; line-height: 1.55; margin-top: 3px; }
 .rom { font-size: 10.5px; color: #6f7c78; font-style: italic; }
 .ex-kr { font-size: 13.5px; }
