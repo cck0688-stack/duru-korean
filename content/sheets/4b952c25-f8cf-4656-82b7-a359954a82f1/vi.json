@@ -1,0 +1,78 @@
+{
+  "answers": [
+    "29,000원",
+    "월 15GB",
+    "소진 후 최대 1Mbps로 무제한 이용, 추가 요금 없음",
+    "통화 월 200분, 문자 월 200건",
+    "12개월"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Trả lời bằng tiếng Hàn: 이 요금제의 월정액은 얼마인가요?",
+    "Trả lời bằng tiếng Hàn: 데이터는 얼마를 제공하나요?",
+    "Trả lời bằng tiếng Hàn: 데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+    "Trả lời bằng tiếng Hàn: 통화/문자는 얼마나 포함되어 있나요?",
+    "Trả lời bằng tiếng Hàn: 약정 기간은 어떻게 되나요?"
+  ],
+  "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "level": "Trung cấp (thấp)",
+  "minutes": 15,
+  "objective": "Sau khi đọc một thông báo gói cước di động dài 3–5 đoạn, người học có thể xác định chính xác phí hàng tháng, dung lượng dữ liệu, lượng gọi/tin nhắn được bao gồm, thời hạn hợp đồng (hoặc không có hợp đồng), và chính sách sau khi hết dữ liệu (giới hạn tốc độ/phụ phí).",
+  "passage": [
+    "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
+    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
+    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
+  ],
+  "summary": "Đọc một thông báo gói cước di động Hàn Quốc thực tế và xác định các chi tiết chính như phí hàng tháng, dung lượng dữ liệu, giới hạn cuộc gọi/tin nhắn, thời hạn hợp đồng, và chính sách sau khi hết dữ liệu.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "words": [
+    {
+      "korean": "월정액",
+      "roman": "woljeong-aek",
+      "meaning": "phí cố định hàng tháng của gói cước",
+      "example": "이 요금제의 월정액은 29,000원이에요.",
+      "exampleMeaning": "Phí hàng tháng của gói cước này là 29.000 won."
+    },
+    {
+      "korean": "약정",
+      "roman": "yakjeong",
+      "meaning": "thời hạn hợp đồng; khoảng thời gian bạn cam kết sử dụng gói cước",
+      "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
+      "exampleMeaning": "Đây là hợp đồng 12 tháng, nên khó chuyển đổi dễ dàng."
+    },
+    {
+      "korean": "소진",
+      "roman": "sojin",
+      "meaning": "hết (dữ liệu của bạn)",
+      "example": "데이터가 소진되어 속도가 느려졌어요.",
+      "exampleMeaning": "Dữ liệu của tôi đã hết nên tốc độ trở nên chậm."
+    },
+    {
+      "korean": "무제한",
+      "roman": "mujehan",
+      "meaning": "không giới hạn (không có mức giới hạn sử dụng)",
+      "example": "주말에는 무제한 이용이 가능해요.",
+      "exampleMeaning": "Vào cuối tuần, có thể sử dụng không giới hạn."
+    },
+    {
+      "korean": "추가 요금",
+      "roman": "chuga yogeum",
+      "meaning": "phụ phí phát sinh ngoài gói cước",
+      "example": "추가 요금이 없어서 안심이에요.",
+      "exampleMeaning": "Tôi thấy nhẹ nhõm vì không có phụ phí."
+    },
+    {
+      "korean": "기본 제공",
+      "roman": "gibon jegong",
+      "meaning": "lượng sử dụng được bao gồm sẵn trong gói cước",
+      "example": "통화 200분이 기본 제공입니다.",
+      "exampleMeaning": "Bao gồm 200 phút gọi."
+    }
+  ],
+  "category": "reading"
+}

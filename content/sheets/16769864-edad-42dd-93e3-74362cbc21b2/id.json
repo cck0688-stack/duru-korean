@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "Latihan singkat untuk mengenali vokal Korea ㅓ, ㅗ, dan ㅜ. Menampilkan tiga kata sederhana untuk setiap vokal beserta contoh kalimat singkat.",
+  "objective": "Peserta didik akan dapat mengenali vokal Korea ㅓ, ㅗ, dan ㅜ dalam kata-kata sederhana.",
+  "level": "Pemula",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Vokal apa yang ada pada suku kata '서'? (Tulis ㅓ, ㅗ, atau ㅜ)",
+    "Vokal apa yang muncul pada kata '포도'? (Tulis ㅓ, ㅗ, atau ㅜ)",
+    "Vokal apa (ㅓ, ㅗ, atau ㅜ) yang muncul pada kata '우유'?",
+    "Cocokkan kata-kata berikut dengan vokal (ㅓ, ㅗ, atau ㅜ) yang terkandung di dalamnya (tulis tiga simbol secara berurutan): 엄마 / 오이 / 수박",
+    "Dalam kumpulan minimal '서 / 소 / 수', suku kata mana yang mengandung ㅜ?",
+    "Perhatikan suku kata pertama dari setiap kata dan tuliskan vokalnya: 먹다, 고기, 주다"
+  ],
+  "answers": [
+    "ㅓ",
+    "ㅗ",
+    "ㅜ",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "mendekati 'eo' (vokal tengah-terbuka)",
+      "as": "seperti 'uh' pada kata Inggris 'cup' (kira-kira)"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "mendekati 'o' (vokal belakang bulat)",
+      "as": "seperti 'o' pada kata Inggris 'go' (kira-kira)"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "mendekati 'u' (vokal belakang bulat)",
+      "as": "seperti 'oo' pada kata Inggris 'food' (kira-kira)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "ibu",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "Ibu datang."
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "makan",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "Saya makan nasi."
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "toko buku",
+      "example": "서점에 가요.",
+      "exampleMeaning": "Saya pergi ke toko buku."
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "mentimun",
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "Mentimunnya segar."
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "anggur",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "Ada anggur."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "daging",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "Saya suka daging."
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "susu",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "Saya minum susu."
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "semangka",
+      "example": "수박이 달아요.",
+      "exampleMeaning": "Semangkanya manis."
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "memberi",
+      "example": "선물을 주세요.",
+      "exampleMeaning": "Tolong berikan saya hadiah."
+    }
+  ],
+  "category": "hangul"
+}

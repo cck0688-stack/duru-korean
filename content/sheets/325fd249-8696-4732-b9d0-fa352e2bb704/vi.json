@@ -1,0 +1,111 @@
+{
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Luyện phân biệt và đọc các phụ âm đầu tiếng Hàn ㄷ (âm thường), ㅌ (âm bật hơi), và ㄸ (âm căng). Có kèm theo gợi ý phát âm tiếng Anh để người mới học liên hệ âm thanh và đọc đúng các từ đơn giản.",
+  "objective": "Người học sẽ nhận biết và phát âm ㄷ (âm thường), ㅌ (âm bật hơi), và ㄸ (âm căng) ở đầu từ, liên hệ với các gợi ý rõ ràng trong tiếng Anh (ㄷ ≈ giữa âm d và t trong tiếng Anh với hơi bật nhẹ, ㅌ ≈ âm t trong \"top\", ㄸ ≈ âm t căng, không bật hơi, gần giống âm t trong \"stop\"), và đọc đúng các từ đơn giản có chứa những phụ âm đầu này.",
+  "level": "Sơ cấp",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Chọn từ bắt đầu bằng ㄸ (âm căng): 두부 / 토끼 / 또",
+    "Nhìn vào phiên âm La-tinh và chỉ viết phụ âm đầu bằng Hangul: dubu",
+    "Chọn từ có nghĩa là 'con gái': 달 / 딸",
+    "Chọn từ bắt đầu bằng ㅌ (âm bật hơi): 달 / 토마토 / 딸",
+    "Nhìn vào phiên âm La-tinh và chỉ viết phụ âm đầu bằng Hangul: tteok"
+  ],
+  "answers": [
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
+    "ㄸ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄷ",
+      "sound": "âm t thường, hơi bật nhẹ (yếu hơn ㅌ)",
+      "as": "nằm giữa âm d và t trong tiếng Anh; ở đầu từ thường nghe giống âm t nhẹ"
+    },
+    {
+      "letter": "ㅌ",
+      "sound": "âm t bật hơi, hơi bật mạnh",
+      "as": "giống âm t trong từ \"top\""
+    },
+    {
+      "letter": "ㄸ",
+      "sound": "âm t căng, chặt và ngắn",
+      "as": "âm \"tt\" căng, không bật hơi; gần giống nhất với âm t trong từ \"stop\""
+    }
+  ],
+  "words": [
+    {
+      "korean": "달",
+      "roman": "dal",
+      "meaning": "mặt trăng",
+      "example": "달이 예뻐요.",
+      "exampleMeaning": "Mặt trăng đẹp."
+    },
+    {
+      "korean": "돈",
+      "roman": "don",
+      "meaning": "tiền",
+      "example": "돈이 없어요.",
+      "exampleMeaning": "Tôi không có tiền."
+    },
+    {
+      "korean": "두부",
+      "roman": "dubu",
+      "meaning": "đậu phụ",
+      "example": "두부를 사요.",
+      "exampleMeaning": "Tôi mua đậu phụ."
+    },
+    {
+      "korean": "토마토",
+      "roman": "tomato",
+      "meaning": "cà chua",
+      "example": "토마토를 먹어요.",
+      "exampleMeaning": "Tôi ăn cà chua."
+    },
+    {
+      "korean": "타다",
+      "roman": "tada",
+      "meaning": "đi (bằng phương tiện)",
+      "example": "버스를 타요.",
+      "exampleMeaning": "Tôi đi xe buýt."
+    },
+    {
+      "korean": "토끼",
+      "roman": "tokki",
+      "meaning": "thỏ",
+      "example": "토끼가 귀여워요.",
+      "exampleMeaning": "Con thỏ dễ thương."
+    },
+    {
+      "korean": "딸",
+      "roman": "ttal",
+      "meaning": "con gái",
+      "example": "딸이 있어요.",
+      "exampleMeaning": "Tôi có một con gái."
+    },
+    {
+      "korean": "떡",
+      "roman": "tteok",
+      "meaning": "bánh gạo (tteok)",
+      "example": "떡이 맛있어요.",
+      "exampleMeaning": "Bánh gạo ngon."
+    },
+    {
+      "korean": "또",
+      "roman": "tto",
+      "meaning": "lại",
+      "example": "또 만나요.",
+      "exampleMeaning": "Hẹn gặp lại."
+    }
+  ],
+  "category": "hangul"
+}

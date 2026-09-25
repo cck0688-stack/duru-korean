@@ -1,0 +1,111 @@
+{
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "韓国語の語頭子音ㄷ(平音)、ㅌ(激音)、ㄸ(濃音)を聞き分けて発音する練習をしましょう。英語の発音を手がかりにして、初心者でも音のイメージをつかみ、簡単な単語を正確に読めるようにします。",
+  "objective": "学習者は語頭に来るㄷ(平音)、ㅌ(激音)、ㄸ(濃音)を区別して発音できるようになります。英語の音との対応(ㄷ≈英語のdとtの中間で軽い息が出る音、ㅌ≈「top」のtのような音、ㄸ≈息を出さない詰まったt音で「stop」のtに近い)を参考にしながら、これらの子音を含む簡単な単語を正しく読みます。",
+  "level": "初級",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "ㄸ(濃音)で始まる単語を選んでください: 두부 / 토끼 / 또",
+    "ローマ字表記を見て、最初の子音だけをハングルで書いてください: dubu",
+    "「娘」という意味の単語を選んでください: 달 / 딸",
+    "ㅌ(激音)で始まる単語を選んでください: 달 / 토마토 / 딸",
+    "ローマ字表記を見て、最初の子音だけをハングルで書いてください: tteok"
+  ],
+  "answers": [
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
+    "ㄸ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄷ",
+      "sound": "平音のt。ㅌより弱く、軽い息が出る音",
+      "as": "英語のdとtの中間の音。語頭では柔らかいtのように聞こえることが多い"
+    },
+    {
+      "letter": "ㅌ",
+      "sound": "激音のt。強い息が出る音",
+      "as": "英語の「top」のtのような音"
+    },
+    {
+      "letter": "ㄸ",
+      "sound": "濃音のt。詰まった短い音",
+      "as": "息をまったく出さない濃音の「tt」。英語では「stop」のtに一番近い"
+    }
+  ],
+  "words": [
+    {
+      "korean": "달",
+      "roman": "dal",
+      "meaning": "月",
+      "example": "달이 예뻐요.",
+      "exampleMeaning": "月がきれいです。"
+    },
+    {
+      "korean": "돈",
+      "roman": "don",
+      "meaning": "お金",
+      "example": "돈이 없어요.",
+      "exampleMeaning": "お金がありません。"
+    },
+    {
+      "korean": "두부",
+      "roman": "dubu",
+      "meaning": "豆腐",
+      "example": "두부를 사요.",
+      "exampleMeaning": "豆腐を買います。"
+    },
+    {
+      "korean": "토마토",
+      "roman": "tomato",
+      "meaning": "トマト",
+      "example": "토마토를 먹어요.",
+      "exampleMeaning": "トマトを食べます。"
+    },
+    {
+      "korean": "타다",
+      "roman": "tada",
+      "meaning": "乗る",
+      "example": "버스를 타요.",
+      "exampleMeaning": "バスに乗ります。"
+    },
+    {
+      "korean": "토끼",
+      "roman": "tokki",
+      "meaning": "うさぎ",
+      "example": "토끼가 귀여워요.",
+      "exampleMeaning": "うさぎがかわいいです。"
+    },
+    {
+      "korean": "딸",
+      "roman": "ttal",
+      "meaning": "娘",
+      "example": "딸이 있어요.",
+      "exampleMeaning": "娘がいます。"
+    },
+    {
+      "korean": "떡",
+      "roman": "tteok",
+      "meaning": "餅",
+      "example": "떡이 맛있어요.",
+      "exampleMeaning": "餅がおいしいです。"
+    },
+    {
+      "korean": "또",
+      "roman": "tto",
+      "meaning": "また",
+      "example": "또 만나요.",
+      "exampleMeaning": "また会いましょう。"
+    }
+  ],
+  "category": "hangul"
+}

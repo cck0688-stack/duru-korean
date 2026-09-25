@@ -1,0 +1,856 @@
+{
+  "id": "3c3e62af-06a5-49c0-85e7-84214b4d142e",
+  "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
+  "category": "reading",
+  "status": "published",
+  "published": true,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Exercise 3: the second question '왜 그래요?' is unnatural for asking a reason. In Korean it means 'What's wrong? / Why are you acting like that?' Change it to '왜요?' or '왜 안 돼요?' (e.g. '감기약을 바로 먹어도 돼요? 왜 안 돼요?').",
+        "Exercises 1, 2 and 6 all use the same frame '~은/는 하루에 몇 번, 언제 먹어요?' (3 of 6 items), which makes the worksheet thin. Recast one or two of them to practice something different. Example for exercise 2: '파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요?' Example for exercise 6: '다른 약 봉투에 \"1일 2회, 식전 30분\"이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?' Update the matching answer (e.g. '7시 30분에 먹어요.')."
+      ],
+      "audit": [
+        "exercises[0]: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요? → Answer in Korean: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
+        "exercises[1]: 파란 봉투의 기침약은 하루에 몇 번, 언제 먹어요? → Answer in Korean: 파란 봉투의 기침약은 하루에 몇 번, 언제 먹어요?",
+        "exercises[2]: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜 그래요? → Answer in Korean: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜 그래요?",
+        "exercises[3]: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요? → Answer in Korean: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?",
+        "exercises[4]: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요? → Answer in Korean: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?",
+        "exercises[5]: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 이 약은 하루에 몇 번, 언제 먹어요? → Answer in Korean: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 이 약은 하루에 몇 번, 언제 먹어요?",
+        "summary, second sentence: She gets her prescription filled at a neighborhood pharmacy, where the pharmacist explains two medicine bags. → She gets her prescription filled at the pharmacy on the first floor of the hospital, where the pharmacist explains two medicine bags."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercise 3: the second question, '왜 안 돼요?', assumes the answer is already 'no', so learners don't need the passage to answer '먹어도 돼요?'. Change it to '감기약을 바로 먹어도 돼요? 왜요?' or '…먹어도 돼요? 약사는 뭐라고 했어요?' so learners have to find the answer (아니요, 빈속에 먹으면 속이 쓰릴 수 있어요) in the passage."
+      ],
+      "audit": [
+        "exercises[0]: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요? → Answer in Korean: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
+        "exercises[1]: 파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요? → Answer in Korean: 파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요?",
+        "exercises[2]: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜 안 돼요? → Answer in Korean: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜 안 돼요?",
+        "exercises[3]: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요? → Answer in Korean: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?",
+        "exercises[4]: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요? → Answer in Korean: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?",
+        "exercises[5]: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요? → Answer in Korean: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "exercises[0]: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요? → Answer in Korean: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
+        "exercises[1]: 파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요? → Answer in Korean: 파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요?",
+        "exercises[2]: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜요? → Answer in Korean: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜요?",
+        "exercises[3]: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요? → Answer in Korean: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?",
+        "exercises[4]: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요? → Answer in Korean: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?",
+        "exercises[5]: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요? → Answer in Korean: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?"
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "words '3일분' meaning: \"-분 = amount for that many days\" is an inaccurate rule. -분 means an amount/portion for the unit before it and is not limited to days (e.g. 2인분 = for two people). Change it to something like \"a three-day supply (-분 = amount/portion for the number before it: 3일분 = for three days, 2인분 = for two people)\".",
+        "task: both task.title and task.line are empty strings, so the sheet has no task for learners. Fill them in (e.g. 'Read the two medicine bags and write how often, when, and for how many days to take each one') or remove the field."
+      ],
+      "audit": [
+        "words[8] (3일분) meaning: a three-day supply (-분 = amount for that many days) → a three-day supply (3일 = three days, -분 = portion/amount for)"
+      ]
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[2]",
+      "before": "하루에 한 번, 자기 전에 먹어요.",
+      "after": "자기 전에만 먹어야 해요. 그러니까 점심 먹고 나서 먹으면 안 돼요."
+    },
+    {
+      "at": "answers[3]",
+      "before": "아니요. 빈속에 먹으면 속이 쓰릴 수 있어요. 빵이나 우유를 조금이라도 먹은 후에 먹어야 해요.",
+      "after": "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일 동안 먹으니까 모두 아홉 번(9번) 먹어요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일 동안 먹으니까 모두 아홉 번(9번) 먹어요.",
+      "after": "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 마리아 씨는 사흘 동안 운전하지 않고 버스를 타기로 했어요."
+    },
+    {
+      "at": "answers[5]",
+      "before": "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 마리아 씨는 사흘 동안 운전하지 않고 버스를 타기로 했어요.",
+      "after": "아침 7시 30분에 먹어요. (밥 먹기 30분 전에 먹어야 해요.)"
+    },
+    {
+      "at": "answers[6]",
+      "before": "하루에 두 번, 밥 먹기 30분 전에 먹어요. (식사 30분 전에 먹어요.)",
+      "after": ""
+    },
+    {
+      "at": "exercises[1]",
+      "before": "하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
+      "after": "Answer in Korean: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "파란 봉투의 기침약은 하루에 몇 번, 언제 먹어요?",
+      "after": "Answer in Korean: 파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜 그래요?",
+      "after": "Answer in Korean: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "'3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?",
+      "after": "Answer in Korean: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?",
+      "after": "Answer in Korean: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 이 약은 하루에 몇 번, 언제 먹어요?",
+      "after": ""
+    },
+    {
+      "at": "level",
+      "before": "Intermediate (low intermediate)",
+      "after": "Intermediate (low)"
+    },
+    {
+      "at": "summary",
+      "before": "Maria, a foreign resident in Korea, catches a cold. She gets her prescription filled at a neighborhood pharmacy, where the pharmacist explains two medicine bags. At home she reads the bags again. Learners read the story and find how often, when, and for how many days to take each medicine, and what the warning on the bag means.",
+      "after": "Maria, a foreign resident in Korea, catches a cold. She gets her prescription filled at the pharmacy on the first floor of the hospital, where the pharmacist explains two medicine bags. At home she reads the bags again. Learners read the story and find how often, when, and for how many days to take each medicine, and what the warning on the bag means."
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "Read the medicine bags"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "Read the two medicine bags and write how often, when, and for how many days to take each one."
+    },
+    {
+      "at": "words[1].korean",
+      "before": "처방전",
+      "after": "식후"
+    },
+    {
+      "at": "words[1].roman",
+      "before": "cheobangjeon",
+      "after": "sikhu"
+    },
+    {
+      "at": "words[1].meaning",
+      "before": "prescription (the paper a doctor gives you to take to the pharmacy)",
+      "after": "after a meal"
+    },
+    {
+      "at": "words[1].example",
+      "before": "처방전이 없으면 이 약은 살 수 없어요.",
+      "after": "이 약은 꼭 식후에 드세요."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "You can't buy this medicine without a prescription.",
+      "after": "Be sure to take this medicine after a meal."
+    },
+    {
+      "at": "words[2].korean",
+      "before": "약사",
+      "after": "식전"
+    },
+    {
+      "at": "words[2].roman",
+      "before": "yaksa",
+      "after": "sikjeon"
+    },
+    {
+      "at": "words[2].meaning",
+      "before": "pharmacist",
+      "after": "before a meal"
+    },
+    {
+      "at": "words[2].example",
+      "before": "약 먹는 방법을 모르면 약사한테 물어보세요.",
+      "after": "저는 식전에 물을 한 잔 마셔요."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "If you don't know how to take the medicine, ask the pharmacist.",
+      "after": "I drink a glass of water before meals."
+    },
+    {
+      "at": "words[3].korean",
+      "before": "식후",
+      "after": "빈속"
+    },
+    {
+      "at": "words[3].roman",
+      "before": "sikhu",
+      "after": "binsok"
+    },
+    {
+      "at": "words[3].meaning",
+      "before": "after a meal",
+      "after": "an empty stomach"
+    },
+    {
+      "at": "words[3].example",
+      "before": "이 약은 꼭 식후에 드세요.",
+      "after": "빈속에 커피를 마시면 배가 아파요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "Be sure to take this medicine after a meal.",
+      "after": "My stomach hurts when I drink coffee on an empty stomach."
+    },
+    {
+      "at": "words[4].korean",
+      "before": "식전",
+      "after": "속이 쓰리다"
+    },
+    {
+      "at": "words[4].roman",
+      "before": "sikjeon",
+      "after": "sogi sseurida"
+    },
+    {
+      "at": "words[4].meaning",
+      "before": "before a meal",
+      "after": "to have a burning or sore feeling in the stomach"
+    },
+    {
+      "at": "words[4].example",
+      "before": "저는 식전에 물을 한 잔 마셔요.",
+      "after": "어제 술을 많이 마셔서 속이 쓰려요."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "I drink a glass of water before meals.",
+      "after": "My stomach feels sore because I drank a lot yesterday."
+    },
+    {
+      "at": "words[5].korean",
+      "before": "빈속",
+      "after": "졸리다"
+    },
+    {
+      "at": "words[5].roman",
+      "before": "binsok",
+      "after": "jollida"
+    },
+    {
+      "at": "words[5].meaning",
+      "before": "an empty stomach",
+      "after": "to feel sleepy"
+    },
+    {
+      "at": "words[5].example",
+      "before": "빈속에 커피를 마시면 배가 아파요.",
+      "after": "점심을 먹으면 너무 졸려요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "My stomach hurts when I drink coffee on an empty stomach.",
+      "after": "I get really sleepy after I eat lunch."
+    },
+    {
+      "at": "words[6].korean",
+      "before": "속이 쓰리다",
+      "after": "주의"
+    },
+    {
+      "at": "words[6].roman",
+      "before": "sogi sseurida",
+      "after": "juui"
+    },
+    {
+      "at": "words[6].meaning",
+      "before": "to have a burning or sore feeling in the stomach",
+      "after": "caution, warning (on signs and labels: 'be careful of ~')"
+    },
+    {
+      "at": "words[6].example",
+      "before": "어제 술을 많이 마셔서 속이 쓰려요.",
+      "after": "바닥에 '미끄럼 주의'라고 쓰여 있어요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "My stomach feels sore because I drank a lot yesterday.",
+      "after": "The sign on the floor says 'Caution: slippery.'"
+    },
+    {
+      "at": "words[7].korean",
+      "before": "졸리다",
+      "after": "3일분"
+    },
+    {
+      "at": "words[7].roman",
+      "before": "jollida",
+      "after": "samilbun"
+    },
+    {
+      "at": "words[7].meaning",
+      "before": "to feel sleepy",
+      "after": "a three-day supply (3일 = three days, -분 = portion/amount for the number before it: 3일분 = for three days, 2인분 = for two people)"
+    },
+    {
+      "at": "words[7].example",
+      "before": "점심을 먹으면 너무 졸려요.",
+      "after": "약사가 5일분 약을 줬어요."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "I get really sleepy after I eat lunch.",
+      "after": "The pharmacist gave me a five-day supply of medicine."
+    },
+    {
+      "at": "words[8].korean",
+      "before": "주의",
+      "after": "사흘"
+    },
+    {
+      "at": "words[8].roman",
+      "before": "juui",
+      "after": "saheul"
+    },
+    {
+      "at": "words[8].meaning",
+      "before": "caution, warning (on signs and labels: 'be careful of ~')",
+      "after": "three days (native Korean word)"
+    },
+    {
+      "at": "words[8].example",
+      "before": "바닥에 '미끄럼 주의'라고 쓰여 있어요.",
+      "after": "사흘 동안 계속 비가 왔어요."
+    },
+    {
+      "at": "words[8].exampleMeaning",
+      "before": "The sign on the floor says 'Caution: slippery.'",
+      "after": "It rained for three days straight."
+    },
+    {
+      "at": "words[9].korean",
+      "before": "3일분",
+      "after": ""
+    },
+    {
+      "at": "words[9].roman",
+      "before": "samilbun",
+      "after": ""
+    },
+    {
+      "at": "words[9].meaning",
+      "before": "a three-day supply (-분 = amount for that many days)",
+      "after": ""
+    },
+    {
+      "at": "words[9].example",
+      "before": "약사가 5일분 약을 줬어요.",
+      "after": ""
+    },
+    {
+      "at": "words[9].exampleMeaning",
+      "before": "The pharmacist gave me a five-day supply of medicine.",
+      "after": ""
+    },
+    {
+      "at": "words[10].korean",
+      "before": "사흘",
+      "after": ""
+    },
+    {
+      "at": "words[10].roman",
+      "before": "saheul",
+      "after": ""
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "three days (native Korean word)",
+      "after": ""
+    },
+    {
+      "at": "words[10].example",
+      "before": "사흘 동안 계속 비가 왔어요.",
+      "after": ""
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "It rained for three days straight.",
+      "after": ""
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "exercises[3]",
+          "before": "Answer in Korean: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜요?",
+          "after": "Answer in Korean: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?"
+        },
+        {
+          "at": "exercises[4]",
+          "before": "Answer in Korean: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?",
+          "after": "Answer in Korean: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?"
+        },
+        {
+          "at": "exercises[5]",
+          "before": "Answer in Korean: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?",
+          "after": "Answer in Korean: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?"
+        },
+        {
+          "at": "exercises[6]",
+          "before": "Answer in Korean: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?",
+          "after": ""
+        },
+        {
+          "at": "answers[3]",
+          "before": "아니요. 빈속에 먹으면 속이 쓰릴 수 있어요. 빵이나 우유를 조금이라도 먹은 후에 먹어야 해요.",
+          "after": "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일 동안 먹으니까 모두 아홉 번(9번) 먹어요."
+        },
+        {
+          "at": "answers[4]",
+          "before": "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일 동안 먹으니까 모두 아홉 번(9번) 먹어요.",
+          "after": "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 마리아 씨는 사흘 동안 운전하지 않고 버스를 타기로 했어요."
+        },
+        {
+          "at": "answers[5]",
+          "before": "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 마리아 씨는 사흘 동안 운전하지 않고 버스를 타기로 했어요.",
+          "after": "아침 7시 30분에 먹어요. (밥 먹기 30분 전에 먹어야 해요.)"
+        },
+        {
+          "at": "answers[6]",
+          "before": "아침 7시 30분에 먹어요. (밥 먹기 30분 전에 먹어야 해요.)",
+          "after": ""
+        },
+        {
+          "at": "words[1].korean",
+          "before": "처방전",
+          "after": "식후"
+        },
+        {
+          "at": "words[1].roman",
+          "before": "cheobangjeon",
+          "after": "sikhu"
+        },
+        {
+          "at": "words[1].meaning",
+          "before": "prescription (the paper a doctor gives you to take to the pharmacy)",
+          "after": "after a meal"
+        },
+        {
+          "at": "words[1].example",
+          "before": "처방전이 없으면 이 약은 살 수 없어요.",
+          "after": "이 약은 꼭 식후에 드세요."
+        },
+        {
+          "at": "words[1].exampleMeaning",
+          "before": "You can't buy this medicine without a prescription.",
+          "after": "Be sure to take this medicine after a meal."
+        },
+        {
+          "at": "words[2].korean",
+          "before": "약사",
+          "after": "식전"
+        },
+        {
+          "at": "words[2].roman",
+          "before": "yaksa",
+          "after": "sikjeon"
+        },
+        {
+          "at": "words[2].meaning",
+          "before": "pharmacist",
+          "after": "before a meal"
+        },
+        {
+          "at": "words[2].example",
+          "before": "약 먹는 방법을 모르면 약사한테 물어보세요.",
+          "after": "저는 식전에 물을 한 잔 마셔요."
+        },
+        {
+          "at": "words[2].exampleMeaning",
+          "before": "If you don't know how to take the medicine, ask the pharmacist.",
+          "after": "I drink a glass of water before meals."
+        },
+        {
+          "at": "words[3].korean",
+          "before": "식후",
+          "after": "빈속"
+        },
+        {
+          "at": "words[3].roman",
+          "before": "sikhu",
+          "after": "binsok"
+        },
+        {
+          "at": "words[3].meaning",
+          "before": "after a meal",
+          "after": "an empty stomach"
+        },
+        {
+          "at": "words[3].example",
+          "before": "이 약은 꼭 식후에 드세요.",
+          "after": "빈속에 커피를 마시면 배가 아파요."
+        },
+        {
+          "at": "words[3].exampleMeaning",
+          "before": "Be sure to take this medicine after a meal.",
+          "after": "My stomach hurts when I drink coffee on an empty stomach."
+        },
+        {
+          "at": "words[4].korean",
+          "before": "식전",
+          "after": "속이 쓰리다"
+        },
+        {
+          "at": "words[4].roman",
+          "before": "sikjeon",
+          "after": "sogi sseurida"
+        },
+        {
+          "at": "words[4].meaning",
+          "before": "before a meal",
+          "after": "to have a burning or sore feeling in the stomach"
+        },
+        {
+          "at": "words[4].example",
+          "before": "저는 식전에 물을 한 잔 마셔요.",
+          "after": "어제 술을 많이 마셔서 속이 쓰려요."
+        },
+        {
+          "at": "words[4].exampleMeaning",
+          "before": "I drink a glass of water before meals.",
+          "after": "My stomach feels sore because I drank a lot yesterday."
+        },
+        {
+          "at": "words[5].korean",
+          "before": "빈속",
+          "after": "졸리다"
+        },
+        {
+          "at": "words[5].roman",
+          "before": "binsok",
+          "after": "jollida"
+        },
+        {
+          "at": "words[5].meaning",
+          "before": "an empty stomach",
+          "after": "to feel sleepy"
+        },
+        {
+          "at": "words[5].example",
+          "before": "빈속에 커피를 마시면 배가 아파요.",
+          "after": "점심을 먹으면 너무 졸려요."
+        },
+        {
+          "at": "words[5].exampleMeaning",
+          "before": "My stomach hurts when I drink coffee on an empty stomach.",
+          "after": "I get really sleepy after I eat lunch."
+        },
+        {
+          "at": "words[6].korean",
+          "before": "속이 쓰리다",
+          "after": "주의"
+        },
+        {
+          "at": "words[6].roman",
+          "before": "sogi sseurida",
+          "after": "juui"
+        },
+        {
+          "at": "words[6].meaning",
+          "before": "to have a burning or sore feeling in the stomach",
+          "after": "caution, warning (on signs and labels: 'be careful of ~')"
+        },
+        {
+          "at": "words[6].example",
+          "before": "어제 술을 많이 마셔서 속이 쓰려요.",
+          "after": "바닥에 '미끄럼 주의'라고 쓰여 있어요."
+        },
+        {
+          "at": "words[6].exampleMeaning",
+          "before": "My stomach feels sore because I drank a lot yesterday.",
+          "after": "The sign on the floor says 'Caution: slippery.'"
+        },
+        {
+          "at": "words[7].korean",
+          "before": "졸리다",
+          "after": "3일분"
+        },
+        {
+          "at": "words[7].roman",
+          "before": "jollida",
+          "after": "samilbun"
+        },
+        {
+          "at": "words[7].meaning",
+          "before": "to feel sleepy",
+          "after": "a three-day supply (3일 = three days, -분 = portion/amount for the number before it: 3일분 = for three days, 2인분 = for two people)"
+        },
+        {
+          "at": "words[7].example",
+          "before": "점심을 먹으면 너무 졸려요.",
+          "after": "약사가 5일분 약을 줬어요."
+        },
+        {
+          "at": "words[7].exampleMeaning",
+          "before": "I get really sleepy after I eat lunch.",
+          "after": "The pharmacist gave me a five-day supply of medicine."
+        },
+        {
+          "at": "words[8].korean",
+          "before": "주의",
+          "after": "사흘"
+        },
+        {
+          "at": "words[8].roman",
+          "before": "juui",
+          "after": "saheul"
+        },
+        {
+          "at": "words[8].meaning",
+          "before": "caution, warning (on signs and labels: 'be careful of ~')",
+          "after": "three days (native Korean word)"
+        },
+        {
+          "at": "words[8].example",
+          "before": "바닥에 '미끄럼 주의'라고 쓰여 있어요.",
+          "after": "사흘 동안 계속 비가 왔어요."
+        },
+        {
+          "at": "words[8].exampleMeaning",
+          "before": "The sign on the floor says 'Caution: slippery.'",
+          "after": "It rained for three days straight."
+        },
+        {
+          "at": "words[9].korean",
+          "before": "3일분",
+          "after": ""
+        },
+        {
+          "at": "words[9].roman",
+          "before": "samilbun",
+          "after": ""
+        },
+        {
+          "at": "words[9].meaning",
+          "before": "a three-day supply (3일 = three days, -분 = portion/amount for the number before it: 3일분 = for three days, 2인분 = for two people)",
+          "after": ""
+        },
+        {
+          "at": "words[9].example",
+          "before": "약사가 5일분 약을 줬어요.",
+          "after": ""
+        },
+        {
+          "at": "words[9].exampleMeaning",
+          "before": "The pharmacist gave me a five-day supply of medicine.",
+          "after": ""
+        },
+        {
+          "at": "words[10].korean",
+          "before": "사흘",
+          "after": ""
+        },
+        {
+          "at": "words[10].roman",
+          "before": "saheul",
+          "after": ""
+        },
+        {
+          "at": "words[10].meaning",
+          "before": "three days (native Korean word)",
+          "after": ""
+        },
+        {
+          "at": "words[10].example",
+          "before": "사흘 동안 계속 비가 왔어요.",
+          "after": ""
+        },
+        {
+          "at": "words[10].exampleMeaning",
+          "before": "It rained for three days straight.",
+          "after": ""
+        }
+      ]
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'básico' means 'basic', not 'low'. The level is the lower part of the intermediate level, so the meaning has changed.",
+          "fix": "Intermediário (baixo)"
+        },
+        {
+          "line": 20,
+          "problem": "'numeral nativo coreano' calls it a numeral. The source says 'native Korean word', and the word for 'three days' (사흘) is a noun, not a numeral.",
+          "fix": "três dias (palavra nativa coreana)"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"cherchent à combien de fois\" is not correct French: \"chercher à\" can't introduce an indirect question.",
+          "fix": "Maria, une résidente étrangère en Corée, attrape un rhume. Elle fait préparer son ordonnance à la pharmacie du rez-de-chaussée de l'hôpital, où le pharmacien lui explique le contenu de deux sachets de médicaments. Chez elle, elle relit les sachets. Les apprenants lisent l'histoire et cherchent combien de fois, à quel moment et pendant combien de jours prendre chaque médicament, ainsi que ce que signifie l'avertissement sur le sachet."
+        },
+        {
+          "line": 5,
+          "problem": "\"écrivez à combien de fois\" is not correct French: the \"à\" doesn't belong before an indirect question.",
+          "fix": "Lisez les deux sachets de médicaments et écrivez combien de fois, à quel moment et pendant combien de jours prendre chacun d'eux."
+        },
+        {
+          "line": 15,
+          "problem": "\"après avoir mangé le déjeuner\" is an unnatural word-for-word copy of the English.",
+          "fix": "J'ai vraiment sommeil après avoir déjeuné."
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 19,
+          "problem": "Says 三天 (three days) instead of five days, and ends with a leftover editing note ('等等,应为五天').",
+          "fix": "药剂师给了我五天的药量。"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T15:24:46.613Z"
+}

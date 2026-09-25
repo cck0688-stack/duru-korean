@@ -1,0 +1,113 @@
+{
+  "answers": [
+    "풀",
+    "bal, pal, ppul",
+    "빵",
+    "팔",
+    "비가 와요",
+    "ㅂ: 방, 발 / ㅍ: 풀, 팔 / ㅃ: 뿔, 빵"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "把一张纸巾放在嘴前，说出불、풀和뿔。哪个词会让纸巾晃动得最厉害？写下那个词。",
+    "写出下列各词的国语罗马字（Revised Romanization）标记：발、팔、뿔。",
+    "你在面包店想买面包。你该说哪个词：방还是빵？",
+    "哪个词的意思是\"胳膊\"：발还是팔？",
+    "哪个句子的意思是\"在下雨\"：비가 와요还是피가 와요？",
+    "按照首字母（ㅂ、ㅍ或ㅃ）给下列单词分类：풀、방、뿔、팔、발、빵。"
+  ],
+  "keyword": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
+  "letters": [
+    {
+      "letter": "ㅂ",
+      "sound": "平音b/p：柔和，带轻微送气",
+      "as": "介于英语的b和\"pin\"中的p之间：带轻微送气，比ㅍ更柔和。听起来常像柔和的b。"
+    },
+    {
+      "letter": "ㅍ",
+      "sound": "送气音p：强烈送气",
+      "as": "接近\"pin\"中的p（强烈送气）。"
+    },
+    {
+      "letter": "ㅃ",
+      "sound": "紧音pp：双唇紧闭，喉咙绷紧，不送气",
+      "as": "英语中没有完全对应的音。类似\"spin\"中的p，但发音更用力、更紧，且不送气。"
+    }
+  ],
+  "level": "初级",
+  "minutes": 15,
+  "objective": "区分并发出词首ㅂ、ㅍ和ㅃ的音。从불/풀/뿔、발/팔和방/빵这样的最小对立组中选出正确的词。",
+  "summary": "这份练习卷讲解韩语词首的三个\"p/b\"音：平音ㅂ、送气音ㅍ和紧音ㅃ。每个字母都配有英语发音提示和一组简单单词。你将通过불/풀/뿔、발/팔和방/빵这样的最小对立组来学习区分这些字母。练习内容包括纸巾测试、朗读、分类和选词。",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
+  "words": [
+    {
+      "korean": "불",
+      "roman": "bul",
+      "meaning": "灯（台灯或房间的灯）",
+      "example": "불 좀 꺼 주세요.",
+      "exampleMeaning": "请关灯。"
+    },
+    {
+      "korean": "풀",
+      "roman": "pul",
+      "meaning": "胶水",
+      "example": "풀 좀 빌려 주세요.",
+      "exampleMeaning": "我可以借一下胶水吗？"
+    },
+    {
+      "korean": "뿔",
+      "roman": "ppul",
+      "meaning": "角（动物的角）",
+      "example": "이 소는 뿔이 길어요.",
+      "exampleMeaning": "这头牛的角很长。"
+    },
+    {
+      "korean": "발",
+      "roman": "bal",
+      "meaning": "脚",
+      "example": "많이 걸어서 발이 아파요.",
+      "exampleMeaning": "因为走了很多路，我的脚很疼。"
+    },
+    {
+      "korean": "팔",
+      "roman": "pal",
+      "meaning": "胳膊",
+      "example": "어제 팔을 다쳤어요.",
+      "exampleMeaning": "我昨天胳膊受伤了。"
+    },
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "房间",
+      "example": "제 방은 작아요.",
+      "exampleMeaning": "我的房间很小。"
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "面包",
+      "example": "아침에 빵을 먹어요.",
+      "exampleMeaning": "我早上吃面包。"
+    },
+    {
+      "korean": "비",
+      "roman": "bi",
+      "meaning": "雨",
+      "example": "밖에 비가 와요.",
+      "exampleMeaning": "外面在下雨。"
+    },
+    {
+      "korean": "피",
+      "roman": "pi",
+      "meaning": "血",
+      "example": "손가락에서 피가 나요.",
+      "exampleMeaning": "我的手指在流血。"
+    }
+  ],
+  "category": "hangul"
+}

@@ -1,0 +1,106 @@
+{
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "summary": "S'entraîner à distinguer et à lire les voyelles coréennes ㅐ, ㅔ, ㅖ à travers des paires minimales et des mots courants. Inclut des choix d'orthographe rapides pour renforcer la reconnaissance précise des voyelles.",
+  "objective": "Les apprenants distingueront ㅐ, ㅔ et ㅖ par l'orthographe, et liront correctement des mots simples contenant ces voyelles.",
+  "level": "Débutant",
+  "minutes": 12,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Choisissez le mot qui correspond au sens : chien -> 개 / 게",
+    "Choisissez la bonne orthographe : (poire) 배 / 베",
+    "Choisissez la bonne orthographe : (citron) 레몬 / 래몬",
+    "Choisissez la bonne orthographe : (œuf) 계란 / 게란",
+    "Complétez avec la bonne voyelle : ㅊ_ㄱ (livre) : ㅐ / ㅔ / ㅖ",
+    "Complétez avec la bonne voyelle : ㅇ_쁘다 (être joli(e)) : ㅐ / ㅔ / ㅖ"
+  ],
+  "answers": [
+    "개",
+    "배",
+    "레몬",
+    "계란",
+    "ㅐ",
+    "ㅖ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅐ",
+      "sound": "ae",
+      "as": "comme la voyelle dans « lait » (en coréen standard moderne, ㅐ et ㅔ se prononcent presque de la même façon ; on les distingue surtout par l'orthographe et le sens, par exemple 개 chien / 게 crabe)"
+    },
+    {
+      "letter": "ㅔ",
+      "sound": "e",
+      "as": "comme la voyelle dans « lait »"
+    },
+    {
+      "letter": "ㅖ",
+      "sound": "ye",
+      "as": "comme « ye » dans « yeah » (après une consonne, il peut se prononcer comme ㅔ, par exemple 계란 [게란])"
+    }
+  ],
+  "words": [
+    {
+      "korean": "개",
+      "roman": "gae",
+      "meaning": "chien",
+      "example": "저건 개예요.",
+      "exampleMeaning": "C'est un chien."
+    },
+    {
+      "korean": "배",
+      "roman": "bae",
+      "meaning": "poire",
+      "example": "배가 맛있어요.",
+      "exampleMeaning": "La poire est délicieuse."
+    },
+    {
+      "korean": "책",
+      "roman": "chaek",
+      "meaning": "livre",
+      "example": "책이 있어요.",
+      "exampleMeaning": "Il y a un livre."
+    },
+    {
+      "korean": "게",
+      "roman": "ge",
+      "meaning": "crabe",
+      "example": "게를 먹어요.",
+      "exampleMeaning": "Je mange du crabe."
+    },
+    {
+      "korean": "레몬",
+      "roman": "remon",
+      "meaning": "citron",
+      "example": "레몬 주세요.",
+      "exampleMeaning": "Donnez-moi un citron, s'il vous plaît."
+    },
+    {
+      "korean": "예",
+      "roman": "ye",
+      "meaning": "oui (poli)",
+      "example": "예, 맞아요.",
+      "exampleMeaning": "Oui, c'est exact."
+    },
+    {
+      "korean": "예쁘다",
+      "roman": "yeppeuda",
+      "meaning": "être joli(e)",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "La fleur est jolie."
+    },
+    {
+      "korean": "계란",
+      "roman": "gyeran",
+      "meaning": "œuf",
+      "example": "이건 계란이에요.",
+      "exampleMeaning": "C'est un œuf."
+    }
+  ],
+  "category": "hangul"
+}

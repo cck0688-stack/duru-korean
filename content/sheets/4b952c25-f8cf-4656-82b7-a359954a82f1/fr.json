@@ -1,0 +1,78 @@
+{
+  "answers": [
+    "29,000원",
+    "월 15GB",
+    "소진 후 최대 1Mbps로 무제한 이용, 추가 요금 없음",
+    "통화 월 200분, 문자 월 200건",
+    "12개월"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Répondez en coréen : 이 요금제의 월정액은 얼마인가요?",
+    "Répondez en coréen : 데이터는 얼마를 제공하나요?",
+    "Répondez en coréen : 데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+    "Répondez en coréen : 통화/문자는 얼마나 포함되어 있나요?",
+    "Répondez en coréen : 약정 기간은 어떻게 되나요?"
+  ],
+  "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "level": "Intermédiaire (niveau inférieur)",
+  "minutes": 15,
+  "objective": "Après avoir lu un avis de forfait mobile de 3 à 5 paragraphes, les apprenants peuvent trouver avec précision le tarif mensuel, la quantité de données incluse, les quantités d'appels/SMS incluses, la durée d'engagement (ou l'absence d'engagement) et la politique après épuisement des données (limitation de vitesse/frais supplémentaires).",
+  "passage": [
+    "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
+    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
+    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
+  ],
+  "summary": "Lire un avis réaliste sur un forfait mobile coréen et identifier les détails clés tels que le tarif mensuel, la quantité de données incluse, les limites d'appels/SMS, la durée d'engagement et la politique appliquée une fois les données épuisées.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "words": [
+    {
+      "korean": "월정액",
+      "roman": "woljeong-aek",
+      "meaning": "le tarif mensuel fixe du forfait",
+      "example": "이 요금제의 월정액은 29,000원이에요.",
+      "exampleMeaning": "Le tarif mensuel de ce forfait est de 29 000 wons."
+    },
+    {
+      "korean": "약정",
+      "roman": "yakjeong",
+      "meaning": "la durée d'engagement ; la période fixe pendant laquelle on s'engage à garder un forfait",
+      "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
+      "exampleMeaning": "C'est un engagement de 12 mois, donc il n'est pas facile d'en changer."
+    },
+    {
+      "korean": "소진",
+      "roman": "sojin",
+      "meaning": "l'épuisement (de ses données)",
+      "example": "데이터가 소진되어 속도가 느려졌어요.",
+      "exampleMeaning": "Mes données se sont épuisées, donc la vitesse est devenue lente."
+    },
+    {
+      "korean": "무제한",
+      "roman": "mujehan",
+      "meaning": "illimité (sans limite fixée sur l'utilisation)",
+      "example": "주말에는 무제한 이용이 가능해요.",
+      "exampleMeaning": "Le week-end, une utilisation illimitée est disponible."
+    },
+    {
+      "korean": "추가 요금",
+      "roman": "chuga yogeum",
+      "meaning": "des frais supplémentaires au-delà du forfait",
+      "example": "추가 요금이 없어서 안심이에요.",
+      "exampleMeaning": "Je suis soulagé(e) car il n'y a pas de frais supplémentaires."
+    },
+    {
+      "korean": "기본 제공",
+      "roman": "gibon jegong",
+      "meaning": "la quantité incluse fournie par le forfait",
+      "example": "통화 200분이 기본 제공입니다.",
+      "exampleMeaning": "200 minutes d'appels sont incluses."
+    }
+  ],
+  "category": "reading"
+}

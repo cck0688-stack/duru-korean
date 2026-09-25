@@ -1,0 +1,298 @@
+{
+  "id": "bba278d3-1dd6-455d-a7ee-9f35e491a283",
+  "title": "카페 주문 필수 어휘 10",
+  "category": "vocab",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "따뜻한 로마자 표기 오류: 'ttatteuthan'은 잘못. ㅅ+ㅎ 거센소리되기로 [따뜨탄]으로 발음되므로 표기법상 'ttatteutan'으로 고쳐야 함.",
+        "연습 문제가 학습 목표를 다 다루지 못함: 목표는 10개 낱말을 이해하고 말하기(묻고 답하기)인데 빈칸 문제는 포장·라지·아이스·당도·샷 추가·얼음 6개만 연습시키고 사이즈·스몰·따뜻한·매장은 한 번도 나오지 않음. 모든 문제가 손님 발화라서 '묻고 답하기'도 연습되지 않음. 예: 직원 '사이즈 어떻게 하실까요?' → 손님 '___로 주세요.(small)'(스몰), '___ 아메리카노 주세요.(hot)'(따뜻한), 직원 '드시고 가세요?' → 손님 '네, ___에서 마실게요.(for here)'(매장) 같은 문제를 넣을 것.",
+        "4·5·6번 문제가 낱말 예문('당도는 50%로 해 주세요', '샷 추가해 주세요', '얼음은 적게 해 주세요')에서 한 낱말만 빈칸으로 바꾼 것이라 학습자가 낱말을 알지 못해도 문장을 맞춰서 풀 수 있고, 1~3번도 모두 '___(으)로 주세요' 틀이라 여섯 문제가 같은 문장 틀 몇 개에 기대고 있음. 새 문장으로 바꿀 것(예: '좀 덜 달게요. ___를 낮춰 주세요.', '라떼에 ___ 한 번 해 주세요.', '___ 빼 주세요.')."
+      ],
+      "audit": [
+        "words[4].roman (따뜻한): ttatteuthan → ttatteutan",
+        "exercises[0]: 손님: 가져갈 거예요. ___으로 주세요. (to go) → Fill in the blank: 손님: 가져갈 거예요. ___으로 주세요. (to go)",
+        "exercises[1]: 손님: 아메리카노는 ___로 주세요. (big size) → Fill in the blank: 손님: 아메리카노는 ___로 주세요. (big size)",
+        "exercises[2]: 손님: 오늘은 덥네요. ___로 주세요. (iced) → Fill in the blank: 손님: 오늘은 덥네요. ___로 주세요. (iced)",
+        "exercises[3]: 손님: 너무 달지 않게 ___는 50%로 해 주세요. (sweetness level) → Fill in the blank: 손님: 너무 달지 않게 ___는 50%로 해 주세요. (sweetness level)",
+        "exercises[4]: 손님: ___해 주세요. 오늘은 좀 졸려요. (add a shot) → Fill in the blank: 손님: ___해 주세요. 오늘은 좀 졸려요. (add a shot)",
+        "exercises[5]: 손님: 너무 차가운 건 싫어요. ___은 적게 해 주세요. (ice) → Fill in the blank: 손님: 너무 차가운 건 싫어요. ___은 적게 해 주세요. (ice)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercise 2: '저는 큰 ___로, 동생은 작은 ___로' gives '큰 라지로 / 작은 스몰로', which is redundant and unnatural ('large large'), and 큰/작은 give the answers away. Remove 큰/작은 → '저는 ___로, 동생은 ___로 주세요.'",
+        "Exercise 5: '라떼에 샷 추가 한 번 해 주세요' sounds unnatural because of '한 번'. Change it to '라떼에 ___해 주세요.' (answer: 샷 추가) or '샷 하나 추가해 주세요'.",
+        "Exercise 5: the staff is still taking the order ('더 필요하신 건 없으세요?'), but the customer says '커피가 좀 연해서요' as if they have already tasted it. Use a reason that works before tasting, e.g. '진하게 마시고 싶어서요'.",
+        "Exercise 6: the drink has already been served ('아이스 라떼 나왔습니다') when the customer asks to take the ice out. Ice amount is normally chosen when ordering. Move the scene to the ordering step, e.g. '직원: 아이스 라떼 맞으시죠? 손님: 네, 이가 시려서요. ___ 좀 빼 주세요.'",
+        "Word examples: 7 of the 10 sentences end in the same '(해) 주세요' frame (스몰로 주세요, 라지 한 잔 주세요, 아이스 라떼로 주세요, 따뜻한 아메리카노 주세요, 얼음은 적게 해 주세요, 당도는 50%로 해 주세요, 샷 추가해 주세요), so the sheet feels thin. Rewrite some with other patterns, e.g. '라지 사이즈 있어요?', '아이스로 할게요.', '얼음 많이 들어가요?', '당도 조절 돼요?'"
+      ],
+      "audit": [
+        "exercises[1] (Exercise 2): Fill in the blank: 직원: ___는 어떻게 하실까요? 손님: 저는 큰 ___로, 동생은 작은 ___로 주세요. (size / large / small) → Fill in the blank: 직원: ___는 어떻게 하실까요? 손님: 저는 ___로, 동생은 ___로 주세요. (size / large / small)",
+        "exercises[4] (Exercise 5): Fill in the blank: 직원: 더 필요하신 건 없으세요? 손님: 커피가 좀 연해서요. 라떼에 ___ 한 번 해 주세요. (add a shot) → Fill in the blank: 직원: 더 필요하신 건 없으세요? 손님: 진하게 마시고 싶어서요. 라떼에 ___해 주세요. (add a shot)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "6번 문제: '아이스 라떼 맞으시죠?'는 사물(라떼)을 높인 과잉 존대로 문법에 맞지 않음. 교재 예문으로 부적절하므로 '아이스 라떼 맞죠?' 또는 '아이스 라떼로 드릴까요?'로 고칠 것.",
+        "낱말 '매장'의 뜻풀이 'for here (drink in)'이 부정확함. '매장' 자체의 뜻은 store(가게)이고 'for here'는 '매장에서 (먹다/마시다)'라는 표현의 뜻임. 'store; 매장에서 = for here (eat/drink in)'처럼 고칠 것."
+      ],
+      "audit": [
+        "words[6] (당도) example: 당도 조절 돼요? → 당도 조절돼요?",
+        "answers[2] (exercise 3): 따뜻한 / 아이스 → 따뜻한(또는 뜨거운) / 아이스",
+        "exercises[5] staff line: 직원: 아이스 라떼 맞으시죠? → 직원: 아이스 라떼 맞죠?"
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "4번 문제: 손님 대사 '네, 그런데 좀 덜 달게요.'가 부자연스럽고 뜻이 모호합니다. '달게요'는 '(제가) 달게 할게요'처럼 읽힐 수도 있어서 부탁하는 말로 들리지 않습니다. '네, 그런데 좀 덜 달게 해 주세요.'로 고치세요. 뒤의 '당도를 낮춰 주세요.'와 겹친다면 '네, 그런데 너무 단 건 싫어요.'로 써도 됩니다.",
+        "3번 문제: 직원이 '뜨거운 거랑 차가운 거 중에'라고 물었으니 두 번째 칸에는 '차가운'도 맞는 답입니다. 그런데 정답에는 '아이스'만 있습니다. 첫 칸에 '따뜻한(또는 뜨거운)'을 함께 인정한 것처럼 정답을 '따뜻한(또는 뜨거운) / 아이스(또는 차가운)'으로 고치세요."
+      ],
+      "audit": [
+        "answers[2] (exercise 3): 따뜻한(또는 뜨거운) / 아이스 → 따뜻한(또는 뜨거운) / 아이스(또는 차가운)"
+      ]
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "포장",
+      "after": "매장 / 포장"
+    },
+    {
+      "at": "answers[2]",
+      "before": "라지",
+      "after": "사이즈 / 라지 / 스몰"
+    },
+    {
+      "at": "answers[3]",
+      "before": "아이스",
+      "after": "따뜻한(또는 뜨거운) / 아이스(또는 차가운)"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "손님: 가져갈 거예요. ___으로 주세요. (to go)",
+      "after": "Fill in the blank: 직원: 드시고 가세요? 손님: 네, 저는 ___에서 먹고 갈 거예요. 친구 커피는 ___으로 부탁해요. (for here / to go)"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "손님: 아메리카노는 ___로 주세요. (big size)",
+      "after": "Fill in the blank: 직원: ___는 어떻게 하실까요? 손님: 저는 ___로, 동생은 ___로 주세요. (size / large / small)"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "손님: 오늘은 덥네요. ___로 주세요. (iced)",
+      "after": "Fill in the blank: 직원: 뜨거운 거랑 차가운 거 중에 뭘로 드릴까요? 손님: 저는 ___ 녹차, 동생은 ___ 초코로 할게요. (hot / iced)"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "손님: 너무 달지 않게 ___는 50%로 해 주세요. (sweetness level)",
+      "after": "Fill in the blank: 직원: 시럽 넣어 드릴까요? 손님: 네, 그런데 너무 단 건 싫어요. ___를 낮춰 주세요. (sweetness level)"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "손님: ___해 주세요. 오늘은 좀 졸려요. (add a shot)",
+      "after": "Fill in the blank: 직원: 더 필요하신 건 없으세요? 손님: 진하게 마시고 싶어서요. 라떼에 ___해 주세요. (add a shot)"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "손님: 너무 차가운 건 싫어요. ___은 적게 해 주세요. (ice)",
+      "after": "Fill in the blank: 직원: 아이스 라떼 맞죠? 손님: 네, 이가 시려서요. ___ 좀 빼 주세요. (ice)"
+    },
+    {
+      "at": "words[3].example",
+      "before": "라지 한 잔 주세요.",
+      "after": "라지 사이즈 있어요?"
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "One large, please.",
+      "after": "Do you have a large size?"
+    },
+    {
+      "at": "words[4].example",
+      "before": "아이스 라떼로 주세요.",
+      "after": "아이스로 할게요."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "Iced latte, please.",
+      "after": "I'll have it iced."
+    },
+    {
+      "at": "words[5].roman",
+      "before": "ttatteuthan",
+      "after": "ttatteutan"
+    },
+    {
+      "at": "words[6].example",
+      "before": "얼음은 적게 해 주세요.",
+      "after": "얼음 많이 들어가요?"
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "Please put less ice.",
+      "after": "Does it come with a lot of ice?"
+    },
+    {
+      "at": "words[7].example",
+      "before": "당도는 50%로 해 주세요.",
+      "after": "당도 조절돼요?"
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "Please make the sweetness 50%.",
+      "after": "Can I adjust the sweetness?"
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "for here (drink in)",
+      "after": "store; 매장에서 = for here (eat/drink in)"
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 26,
+          "problem": "The hint 'hot' is translated as the noun phrase '따뜻한 것', which doesn't fit the blank. '따뜻한 것 녹차' is ungrammatical. The blank needs the adjective '따뜻한' to form '따뜻한 녹차'.",
+          "fix": "빈칸을 채우세요: 직원: 뜨거운 거랑 차가운 거 중에 뭘로 드릴까요? 손님: 저는 ___ 녹차, 동생은 ___ 초코로 할게요. (따뜻한 / 아이스)"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:03:24.391Z"
+}

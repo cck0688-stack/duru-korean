@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "练习辨认韩语元音 ㅓ、ㅗ、ㅜ 的简短练习。针对每个元音展示三个简单单词和简短的例句。",
+  "objective": "学习者将能够在简单单词中辨认出韩语元音 ㅓ、ㅗ、ㅜ。",
+  "level": "初级",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "音节‘서’中含有哪个元音?(请写出 ㅓ、ㅗ 或 ㅜ)",
+    "单词‘포도’中出现了哪个元音?(请写出 ㅓ、ㅗ 或 ㅜ)",
+    "单词‘우유’中出现了哪个元音(ㅓ、ㅗ 或 ㅜ)?",
+    "请将下列单词与它们所含的元音(ㅓ、ㅗ 或 ㅜ)配对(按顺序写出三个符号):엄마 / 오이 / 수박",
+    "在最小对立组‘서 / 소 / 수’中,哪个音节含有 ㅜ?",
+    "请看每个单词的第一个音节,写出其元音:먹다, 고기, 주다"
+  ],
+  "answers": [
+    "ㅓ",
+    "ㅗ",
+    "ㅜ",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "接近“eo”音(半开元音)",
+      "as": "类似英语“cup”中的“uh”音(近似)"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "接近“o”音(圆唇后元音)",
+      "as": "类似英语“go”中的“o”音(近似)"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "接近“u”音(圆唇后元音)",
+      "as": "类似英语“food”中的“oo”音(近似)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "妈妈",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "妈妈来了。"
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "吃",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "我吃饭。"
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "书店",
+      "example": "서점에 가요.",
+      "exampleMeaning": "我去书店。"
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "黄瓜",
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "黄瓜很新鲜。"
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "葡萄",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "有葡萄。"
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "肉",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "我喜欢肉。"
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "牛奶",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "我喝牛奶。"
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "西瓜",
+      "example": "수박이 달아요.",
+      "exampleMeaning": "西瓜很甜。"
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "给",
+      "example": "선물을 주세요.",
+      "exampleMeaning": "请给我礼物。"
+    }
+  ],
+  "category": "hangul"
+}

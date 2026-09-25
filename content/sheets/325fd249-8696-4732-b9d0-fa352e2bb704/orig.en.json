@@ -1,0 +1,108 @@
+{
+  "answers": [
+    "ㄷ",
+    "ㅌ",
+    "ㄸ",
+    "토마토",
+    "ㄸ"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "영어 소리 힌트: t in “stop”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+    "영어 소리 힌트: t in “top”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+    "영어 소리 힌트: tense “tt” (no exact English). 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+    "ㅌ(거센 소리)로 시작하는 말을 고르세요: 달 / 토마토 / 딸",
+    "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: tteok"
+  ],
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "letters": [
+    {
+      "letter": "ㄷ",
+      "sound": "plain t (unaspirated), little or no puff",
+      "as": "like t in “stop”"
+    },
+    {
+      "letter": "ㅌ",
+      "sound": "aspirated t, strong puff of air",
+      "as": "like t in “top”"
+    },
+    {
+      "letter": "ㄸ",
+      "sound": "tense t, tight and short",
+      "as": "tense “tt” (no exact English equivalent)"
+    }
+  ],
+  "level": "Beginner",
+  "minutes": 15,
+  "objective": "Learners will identify and pronounce ㄷ (plain), ㅌ (aspirated), and ㄸ (tense) in word-initial position, link them to clear English cues (ㄷ ≈ t in “stop”, ㅌ ≈ t in “top”, ㄸ = tense “tt”, no exact English equivalent), and correctly read simple words containing these initials.",
+  "summary": "Practice distinguishing and reading the word-initial Korean consonants ㄷ (plain), ㅌ (aspirated), and ㄸ (tense). Helpful English sound references are provided so beginners can connect the sounds and read simple words accurately.",
+  "tags": [],
+  "task": null,
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "words": [
+    {
+      "korean": "달",
+      "roman": "dal",
+      "meaning": "moon",
+      "example": "달이 예뻐요.",
+      "exampleMeaning": "The moon is pretty."
+    },
+    {
+      "korean": "돈",
+      "roman": "don",
+      "meaning": "money",
+      "example": "돈이 없어요.",
+      "exampleMeaning": "I don’t have money."
+    },
+    {
+      "korean": "두부",
+      "roman": "dubu",
+      "meaning": "tofu",
+      "example": "두부를 사요.",
+      "exampleMeaning": "I buy tofu."
+    },
+    {
+      "korean": "토마토",
+      "roman": "tomato",
+      "meaning": "tomato",
+      "example": "토마토를 먹어요.",
+      "exampleMeaning": "I eat tomatoes."
+    },
+    {
+      "korean": "타다",
+      "roman": "tada",
+      "meaning": "to ride",
+      "example": "버스를 타요.",
+      "exampleMeaning": "I ride the bus."
+    },
+    {
+      "korean": "토끼",
+      "roman": "tokki",
+      "meaning": "rabbit",
+      "example": "토끼가 귀여워요.",
+      "exampleMeaning": "The rabbit is cute."
+    },
+    {
+      "korean": "딸",
+      "roman": "ttal",
+      "meaning": "daughter",
+      "example": "딸이 있어요.",
+      "exampleMeaning": "I have a daughter."
+    },
+    {
+      "korean": "떡",
+      "roman": "tteok",
+      "meaning": "rice cake",
+      "example": "떡이 맛있어요.",
+      "exampleMeaning": "Rice cake is tasty."
+    },
+    {
+      "korean": "또",
+      "roman": "tto",
+      "meaning": "again",
+      "example": "또 만나요.",
+      "exampleMeaning": "See you again."
+    }
+  ],
+  "category": "hangul"
+}

@@ -1,0 +1,295 @@
+{
+  "id": "b9f251a6-2fc9-49f3-ab61-850ff5778615",
+  "title": "편의점에서 물건을 찾아요",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words '즉석식품' 로마자 표기 오류: 'jiksuk sikpum'은 국어의 로마자 표기법에 맞지 않습니다. 즉=jeuk, 석=seok이므로 'jeukseok sikpum'(또는 붙여서 'jeukseoksikpum')으로 고쳐야 합니다.",
+        "passage 4문단 '흔한 표현은 \"~ 어디에 있어요?\" 또는 \"찾아 주세요.\"'는 서술어가 없어 문장이 끝나지 않았습니다. '흔한 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요/입니다.'로 고쳐야 합니다. '찾아 주세요'도 목적어가 없어 무엇을 찾아 달라는지 알 수 없으므로 '~ 좀 찾아 주세요'로 넣어야 합니다.",
+        "passage 2문단 '아이스티, 콜라, 주스가 냉장고에 차례로 있어요.'는 한국어로 부자연스럽습니다. '냉장고에 차례대로 진열되어 있어요' 또는 '냉장고에 나란히 있어요'로 고쳐야 합니다.",
+        "words '계산대' meaning 'checkout counter / cashier': 영어 'cashier'는 계산하는 사람(점원)을 뜻하므로 틀린 뜻풀이입니다. 'checkout counter / cash register counter'로 고쳐야 합니다.",
+        "학습 목표와 내용이 맞지 않습니다: objective와 summary는 '가게 안내문(store/shelf signs)을 이해한다'고 하지만, 본문에는 실제 안내문 문구가 하나도 없고 마지막 문장에서 '안내문을 보면…'이라고만 언급합니다. 문제도 안내문을 읽는 문항이 없습니다. 본문에 안내문 예시(예: '냉동식품 →', '음료 코너')를 넣고 그것을 읽는 문제를 추가하거나, 목표에서 안내문 부분을 빼야 합니다.",
+        "exercises 1~4가 모두 'X은/는 어디에 있어요/있나요?'라는 같은 틀로 위치만 묻고 있어 학습지가 얇습니다. 본문에 나오는 즉석식품·전자레인지(중앙), 담배(계산대 뒤) 같은 정보를 활용하거나, '계산대 옆에는 무엇이 있어요?'처럼 거꾸로 묻는 문항과 참/거짓 문항 등으로 문제 유형을 다양하게 바꿔야 합니다."
+      ],
+      "audit": [
+        "exercises[0]: 우유는 어디에 있어요? → Answer in Korean: 우유는 어디에 있어요?",
+        "exercises[1]: 음료수는 어느 냉장고에 있어요? → Answer in Korean: 음료수는 어느 냉장고에 있어요?",
+        "exercises[2]: 아이스크림은 어디에 있나요? → Answer in Korean: 아이스크림은 어디에 있나요?",
+        "exercises[3]: 과자 코너는 어디에 있어요? → Answer in Korean: 과자 코너는 어디에 있어요?",
+        "exercises[4]: 직원에게 우유 위치를 어떻게 물었나요? (본문의 문장 그대로 쓰세요) → Answer in Korean, copying the exact sentence from the passage: 직원에게 우유 위치를 어떻게 물었나요?",
+        "words[4].roman (즉석식품): jiksuk sikpum → jeukseok sikpum",
+        "words[3].meaning (계산대): checkout counter / cashier → checkout counter",
+        "passage[0], sentences 2 and 4 (tense shift in a past narrative): 직원에게 물어봅니다. ... 직원이 친절하게 말합니다. → 직원에게 물어봤어요. ... 직원이 친절하게 말했어요.",
+        "passage[3], sentence 2 (incomplete sentence without a predicate): 흔한 표현은 \"~ 어디에 있어요?\" 또는 \"찾아 주세요.\" → 자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요.",
+        "passage[1], sentence 2 (unnatural): 아이스티, 콜라, 주스가 냉장고에 차례로 있어요. → 아이스티, 콜라, 주스가 냉장고에 차례로 놓여 있어요.",
+        "summary: Understand employee replies and shelf signs to locate products. → Understand employee replies and descriptions of where products are located.",
+        "objective: understand a convenience store employee's directions and store signs to find an item's location. → understand a convenience store employee's directions and descriptions of where items are located in the store."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Passage paragraph 4, '안내문을 보면 빠르게 칸 위치를 확인할 수 있습니다.': '칸 위치' is not natural Korean. A store sign shows where products are, not where individual shelf slots are. Change it to '안내문을 보면 물건 위치를 빨리 확인할 수 있어요.'",
+        "Passage paragraphs 2–4 mix speech levels. The text is mostly in 해요체 ('있어요'), but some sentences switch to 합니다체 for no reason: '냉동고에 진열되어 있습니다', '전자레인지도 중앙에 있습니다' and '확인할 수 있습니다'. A beginner-high reader could take this as a real difference in meaning. Put them all in 해요체: '진열되어 있어요', '중앙에 있어요', '확인할 수 있어요'."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[2]",
+      "before": "오른쪽 냉장고 안에 있어요.",
+      "after": "과자 코너가 있어요."
+    },
+    {
+      "at": "answers[3]",
+      "before": "냉동고에 있어요.",
+      "after": "X (아이스크림은 냉동고에 있어요.)"
+    },
+    {
+      "at": "answers[4]",
+      "before": "계산대 옆 진열대에 있어요.",
+      "after": "중앙에 있어요."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "우유는 어디에 있어요?",
+      "after": "Answer in Korean: 우유는 어디에 있어요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "음료수는 어느 냉장고에 있어요?",
+      "after": "Answer in Korean: 계산대 옆에는 무엇이 있어요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "아이스크림은 어디에 있나요?",
+      "after": "True or false (O/X): 아이스크림은 오른쪽 냉장고 안에 있어요."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "과자 코너는 어디에 있어요?",
+      "after": "Answer in Korean: 즉석식품을 데우고 싶어요. 전자레인지는 어디에 있어요?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "직원에게 우유 위치를 어떻게 물었나요? (본문의 문장 그대로 쓰세요)",
+      "after": "Answer in Korean, copying the exact sentence from the passage: 직원에게 우유 위치를 어떻게 물었나요?"
+    },
+    {
+      "at": "level",
+      "before": "초급 (A1–A2)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "objective",
+      "before": "Students will be able to read a 3–4 paragraph passage and understand a convenience store employee's directions and store signs to find an item's location.",
+      "after": "Students will be able to read a 3–4 paragraph passage and understand a convenience store employee's directions and descriptions of where items are located in the store."
+    },
+    {
+      "at": "passage[1]",
+      "before": "편의점에 들어갔는데 필요한 물건을 못 찾았어요. 직원에게 물어봅니다. \"저기요, 우유 어디에 있어요?\" 직원이 친절하게 말합니다. \"우유는 왼쪽 냉장고 위 칸에 있어요.\"",
+      "after": "편의점에 들어갔는데 필요한 물건을 못 찾았어요. 직원에게 물어봤어요. \"저기요, 우유 어디에 있어요?\" 직원이 친절하게 말했어요. \"우유는 왼쪽 냉장고 위 칸에 있어요.\""
+    },
+    {
+      "at": "passage[2]",
+      "before": "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 차례로 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있습니다. 아이스크림도 냉동고에 있어요.",
+      "after": "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 차례대로 진열되어 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있어요. 아이스크림도 냉동고에 있어요."
+    },
+    {
+      "at": "passage[3]",
+      "before": "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 전자레인지도 중앙에 있습니다. 담배는 계산대 뒤에 진열되어 있어요.",
+      "after": "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 전자레인지도 중앙에 있어요. 담배는 계산대 뒤에 진열되어 있어요."
+    },
+    {
+      "at": "passage[4]",
+      "before": "물건을 못 찾으면 직원에게 물어보세요. 흔한 표현은 \"~ 어디에 있어요?\" 또는 \"찾아 주세요.\" 안내문을 보면 빠르게 칸 위치를 확인할 수 있습니다.",
+      "after": "물건을 못 찾으면 직원에게 물어보세요. 자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요. 안내문을 보면 물건 위치를 빨리 확인할 수 있어요."
+    },
+    {
+      "at": "summary",
+      "before": "Read a short passage about asking for and finding items in a convenience store. Understand employee replies and shelf signs to locate products.",
+      "after": "Read a short passage about asking for and finding items in a convenience store. Understand employee replies and descriptions of where products are located."
+    },
+    {
+      "at": "words[4].meaning",
+      "before": "checkout counter / cashier",
+      "after": "checkout counter"
+    },
+    {
+      "at": "words[5].roman",
+      "before": "jiksuk sikpum",
+      "after": "jeukseok sikpum"
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "\"một đoạn văn từ 3–4 đoạn\" is unnatural and self-contradictory. \"Đoạn văn\" normally means a single paragraph, so it reads as \"a paragraph of 3–4 paragraphs.\" The English means a passage made up of 3–4 paragraphs.",
+          "fix": "Học viên sẽ có thể đọc một bài đọc gồm 3–4 đoạn và hiểu được hướng dẫn cũng như cách mô tả vị trí các mặt hàng trong cửa hàng của nhân viên cửa hàng tiện lợi."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 20,
+          "problem": "The period at the end of the Korean sentence was changed to the Japanese full stop \"。\", so the Korean no longer matches the English line character for character.",
+          "fix": "正誤(○/×)問題:아이스크림은 오른쪽 냉장고 안에 있어요."
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 16,
+          "problem": "\"shelf slot\" (a slot/space on a shelf) is rendered as \"étagère\" (the shelf itself), which changes the meaning of the vocabulary gloss and confuses it with \"display shelf\" (étagère d'exposition).",
+          "fix": "compartiment / emplacement sur l'étagère"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"高级\" means \"advanced\" as a proficiency level, so \"初级(高级)\" reads as \"Beginner (Advanced)\" and contradicts itself. The English \"(high)\" means the upper band of the Beginner level.",
+          "fix": "初级(高)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Anfänger (hoch)\" is unnatural German for the level name \"Beginner (high)\" (upper beginner level).",
+          "fix": "Anfänger (obere Stufe)"
+        },
+        {
+          "line": 2,
+          "problem": "Adds \"Supermarkt\"; the source speaks only of a convenience store, which is not a supermarket, and line 3 uses only \"Convenience-Store\".",
+          "fix": "Lies einen kurzen Text darüber, wie man in einem Convenience-Store nach Artikeln fragt und sie findet. Verstehe die Antworten der Angestellten und die Beschreibungen, wo sich Produkte befinden."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T13:42:15.708Z"
+}

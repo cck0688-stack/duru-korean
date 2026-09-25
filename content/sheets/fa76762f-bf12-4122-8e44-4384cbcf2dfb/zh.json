@@ -1,0 +1,111 @@
+{
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "keyword": "ㄱ·ㅋ·ㄲ",
+  "summary": "练习区分并发出词首ㄱ(平音)、ㅋ(送气音)、ㄲ(紧音)的发音。可以借助以下英语发音参考:ㄱ≈介于英语g和k之间的轻音,ㅋ≈“key”中的k音,ㄲ=紧音“kk”,英语中没有完全对应的音。朗读并选出以这些辅音开头的简单单词。",
+  "objective": "初级学习者将能够准确听辨并发出词首位置的ㄱ(平音)、ㅋ(送气音)、ㄲ(紧音),并借助英语发音参考进行对应(ㄱ≈介于英语g和k之间、带轻微气流,ㅋ≈“key”中的k音,ㄲ=紧音“kk”,英语中没有完全对应的音),从而正确读出并选出包含这些词首辅音的简单单词。",
+  "level": "初级",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "选出以ㅋ(送气音)开头的单词:가게 / 코 / 꽃",
+    "读出罗马音,并选出对应的韩语单词:kkoma → 가방 / 꼬마 / 카메라",
+    "选出以ㄱ(平音)开头的单词:콩 / 껌 / 고기",
+    "将每个单词与其词首辅音连线:꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "将每个英语提示与首音相符的单词连线:介于'g'和'k'之间(气流轻微) / 'key'中的'k'音 / 紧音'kk' → 选项:꽃, 가게, 카메라"
+  ],
+  "answers": [
+    "코",
+    "꼬마",
+    "고기",
+    "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
+    "between g and k→가게, key→카메라, kk→꽃"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "平音(松音)辅音。舌根轻轻贴住软腭,然后释放。在词首会伴有轻微气流:比ㅋ弱,比ㄲ柔和。",
+      "as": "介于英语'g'和'k'之间(气流轻微)"
+    },
+    {
+      "letter": "ㅋ",
+      "sound": "送气音辅音。舌位与ㄱ相同,但释放时伴随强烈的气流。",
+      "as": "英语'key'中的'k'音(气流强烈)"
+    },
+    {
+      "letter": "ㄲ",
+      "sound": "紧音辅音。舌位与ㄱ相同,但喉咙和舌头绷紧,发音短促有力,没有气流送出。",
+      "as": "紧音'kk'(英语中无完全对应音)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "가방",
+      "roman": "gabang",
+      "meaning": "包",
+      "example": "가방이 있어요.",
+      "exampleMeaning": "有一个包。"
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "肉",
+      "example": "고기를 먹어요.",
+      "exampleMeaning": "我吃肉。"
+    },
+    {
+      "korean": "가게",
+      "roman": "gage",
+      "meaning": "商店",
+      "example": "가게에 가요.",
+      "exampleMeaning": "我去商店。"
+    },
+    {
+      "korean": "코",
+      "roman": "ko",
+      "meaning": "鼻子",
+      "example": "코가 커요.",
+      "exampleMeaning": "我的鼻子很大。"
+    },
+    {
+      "korean": "카메라",
+      "roman": "kamera",
+      "meaning": "相机",
+      "example": "카메라로 사진을 찍어요.",
+      "exampleMeaning": "我用相机拍照。"
+    },
+    {
+      "korean": "콩",
+      "roman": "kong",
+      "meaning": "豆子",
+      "example": "콩이 작아요.",
+      "exampleMeaning": "豆子很小。"
+    },
+    {
+      "korean": "껌",
+      "roman": "kkeom",
+      "meaning": "口香糖",
+      "example": "껌을 씹어요.",
+      "exampleMeaning": "我嚼口香糖。"
+    },
+    {
+      "korean": "꼬마",
+      "roman": "kkoma",
+      "meaning": "小孩",
+      "example": "꼬마가 웃어요.",
+      "exampleMeaning": "小孩在笑。"
+    },
+    {
+      "korean": "꽃",
+      "roman": "kkot",
+      "meaning": "花",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "花很漂亮。"
+    }
+  ],
+  "category": "hangul"
+}

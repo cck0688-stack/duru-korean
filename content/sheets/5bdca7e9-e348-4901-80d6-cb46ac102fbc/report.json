@@ -1,0 +1,258 @@
+{
+  "id": "5bdca7e9-e348-4901-80d6-cb46ac102fbc",
+  "title": "이유 말하기: -아서/어서와 -(으)니까",
+  "category": "grammar",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "exercises[0]: 빈칸에 알맞은 형태를 쓰세요: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요? → Fill in the blank with the correct form: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+        "exercises[1]: 빈칸에 알맞은 형태를 쓰세요: 선물을 (주다) ____ 고마워요. → Fill in the blank with the correct form: 선물을 (주다) ____ 고마워요.",
+        "exercises[2]: 빈칸에 알맞은 형태를 쓰세요: 밖이 (덥다) ____ 안에 있읍시다. → Fill in the blank with the correct form: 밖이 (덥다) ____ 안에 있읍시다.",
+        "exercises[3]: 빈칸에 -아서/어서 계열의 명사 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요. → Fill in the blank with the noun form of -아서/어서: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+        "exercises[4]: 빈칸에 알맞은 형태를 쓰세요: 내일은 (휴일) ____ 같이 영화 볼까요? → Fill in the blank with the correct form: 내일은 (휴일) ____ 같이 영화 볼까요?",
+        "exercises[5]: 틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 어제 잠을 못 잤어서 오늘 너무 피곤해요. → Find the mistake and rewrite the whole sentence correctly: 어제 잠을 못 잤어서 오늘 너무 피곤해요.",
+        "forms[0].form: V/A + 아서 (어간 끝 모음이 ㅏ, ㅗ) → V/A + 아서 (stem's last vowel is ㅏ or ㅗ)",
+        "forms[1].form: V/A + 어서 (그 밖의 모음) → V/A + 어서 (any other last vowel)",
+        "forms[4].form: V/A + 니까 (모음 어간, ㄹ 어간) → V/A + 니까 (vowel stem or ㄹ stem)",
+        "forms[5].form: V/A + 으니까 (받침 있는 어간) → V/A + 으니까 (stem ending in a consonant)",
+        "watchOut[5]: Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O), 의사이라서 (X) → 의사라서 (O). 니까 works the same way: 이니까 after a consonant, 니까 after a vowel. → Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O). After a vowel, 라서 is the usual form: 의사라서. 니까 works the same way: 이니까 after a consonant, 니까 after a vowel.",
+        "watchOutMark[5]: [\"학생라서\", \"학생이라서\", \"의사이라서\", \"의사라서\"] → [\"학생라서\", \"학생이라서\"]"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "exercises[1]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+      "after": "Fill in the blank with the correct form: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 선물을 (주다) ____ 고마워요.",
+      "after": "Fill in the blank with the correct form: 선물을 (주다) ____ 고마워요."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 밖이 (덥다) ____ 안에 있읍시다.",
+      "after": "Fill in the blank with the correct form: 밖이 (덥다) ____ 안에 있읍시다."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "빈칸에 -아서/어서 계열의 명사 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+      "after": "Fill in the blank with the noun form of -아서/어서: 다들 (휴가) ____ 사무실에 사람이 별로 없어요."
+    },
+    {
+      "at": "exercises[5]",
+      "before": "빈칸에 알맞은 형태를 쓰세요: 내일은 (휴일) ____ 같이 영화 볼까요?",
+      "after": "Fill in the blank with the correct form: 내일은 (휴일) ____ 같이 영화 볼까요?"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 어제 잠을 못 잤어서 오늘 너무 피곤해요.",
+      "after": "Find the mistake and rewrite the whole sentence correctly: 어제 잠을 못 잤어서 오늘 너무 피곤해요."
+    },
+    {
+      "at": "forms[1].form",
+      "before": "V/A + 아서 (어간 끝 모음이 ㅏ, ㅗ)",
+      "after": "V/A + 아서 (stem's last vowel is ㅏ or ㅗ)"
+    },
+    {
+      "at": "forms[2].form",
+      "before": "V/A + 어서 (그 밖의 모음)",
+      "after": "V/A + 어서 (any other last vowel)"
+    },
+    {
+      "at": "forms[5].form",
+      "before": "V/A + 니까 (모음 어간, ㄹ 어간)",
+      "after": "V/A + 니까 (vowel stem or ㄹ stem)"
+    },
+    {
+      "at": "forms[6].form",
+      "before": "V/A + 으니까 (받침 있는 어간)",
+      "after": "V/A + 으니까 (stem ending in a consonant)"
+    },
+    {
+      "at": "level",
+      "before": "Beginner-high (초급 후반)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "watchOut[6]",
+      "before": "Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O), 의사이라서 (X) → 의사라서 (O). 니까 works the same way: 이니까 after a consonant, 니까 after a vowel.",
+      "after": "Nouns: check for a final consonant (받침). 학생라서 (X) → 학생이라서 (O). After a vowel, 라서 is the usual form: 의사라서. 니까 works the same way: 이니까 after a consonant, 니까 after a vowel."
+    },
+    {
+      "at": "watchOutMark[6][3]",
+      "before": "의사이라서",
+      "after": ""
+    },
+    {
+      "at": "watchOutMark[6][4]",
+      "before": "의사라서",
+      "after": ""
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 41,
+          "problem": "\"forma sustantiva de -아서/어서\" suggests a nominalized form of the ending; the English \"noun form\" means the form of -아서/어서 used after nouns (이라서/라서).",
+          "fix": "Completa el espacio en blanco con la forma de -아서/어서 para sustantivos: 다들 (휴가) ____ 사무실에 사람이 별로 없어요."
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 34,
+          "problem": "\"berkata dasar ㄹ\" is unnatural Indonesian (\"berkata\" normally means \"to say\"). It also says the stem is ㄹ, not that the stem ends in ㄹ.",
+          "fix": "Kata kerja dan kata sifat yang kata dasarnya berakhiran ㄹ menghilangkan ㄹ sebelum 니까, dan tidak ditambahkan 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Dengan -아서/어서, ㄹ tetap dipakai: 멀어서, 알아서"
+        },
+        {
+          "line": 35,
+          "problem": "\"berkata dasar ㅂ\" is unnatural Indonesian. It also says the stem is ㅂ, not that the stem ends in ㅂ.",
+          "fix": "Sebagian besar kata sifat yang kata dasarnya berakhiran ㅂ mengubah ㅂ menjadi 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Beginner (high)\" means the upper part of the beginner level, but the translation says 中高级 (upper-intermediate), which is a different level.",
+          "fix": "初级（高）"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "\"reason clause\" is translated as \"Grundsatz\", which means \"principle\" in German, not a clause giving a reason. The right grammar term is \"Kausalsatz\" (or \"Begründungssatz\").",
+          "fix": "Wähle zwischen -아서/어서 und -(으)니까 für einen Kausalsatz, bilde die richtige Form (einschließlich Nomen und unregelmäßiger ㄹ/ㅂ-Stämme) und korrigiere Sätze, in denen -아서/어서 vor einem Befehl/Vorschlag oder mit einem Vergangenheitsmarker verwendet wird."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T15:33:20.299Z"
+}

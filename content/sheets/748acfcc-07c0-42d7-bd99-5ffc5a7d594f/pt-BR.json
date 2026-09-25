@@ -1,0 +1,71 @@
+{
+  "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
+  "keyword": "키오스크 버튼",
+  "summary": "Ler e entender 12 botões/textos muito comuns em quiosques de autoatendimento de cafeterias e fast-food. Os alunos relacionam cada rótulo à sua função e seguem sozinhos um fluxo simples de pedido.",
+  "objective": "Ao final, os alunos conseguem reconhecer 12 botões/rótulos frequentes de quiosque e seguir um fluxo básico — comer no local/levar para viagem → escolher o item do cardápio → escolher opções → escolher a forma de pagamento → receber o recibo/número do pedido — sem ajuda.",
+  "level": "Iniciante (nível alto)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Relacione cada botão à sua função. Botões: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Funções: (a) pagar com o celular (b) comer no local (c) escolher a temperatura da bebida (d) imprimir um recibo em papel (e) somente o item, sem acompanhamento nem bebida (f) levar a comida para fora (g) ir para a tela de pagamento (h) escolher S/M/L (i) pagar com cartão (j) item com acompanhamento e bebida (k) adicionar algo extra (l) interromper o pedido",
+    "Leia a situação e escreva o botão que você escolheria: ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?",
+    "Leia a situação e escreva a opção que você escolheria: ① 사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요? ② 추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요? ③ 라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?",
+    "Leia e responda: ① 카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요? ② 체크카드로 계산할 거예요. 어떤 버튼이 맞아요? ③ 결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요? ④ '취소' 버튼을 누르면 어떻게 돼요?",
+    "Coloque as etapas do pedido na ordem correta: 결제하기 / 영수증 출력 / 포장 / L / 간편결제 / 세트"
+  ],
+  "answers": [
+    "매장–(b), 포장–(f), 단품–(e), 세트–(j), HOT/ICE–(c), 사이즈–(h), 추가–(k), 취소–(l), 결제하기–(g), 카드 결제–(i), 간편결제–(a), 영수증 출력–(d)",
+    "① 포장 ② 세트",
+    "L ② HOT ③ 추가",
+    "① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ 주문이 취소되고 처음 화면으로 돌아가요.",
+    "포장 → 세트 → L → 결제하기 → 간편결제 → 영수증 출력"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Como usar esta folha de exercícios",
+      "paragraphs": [
+        "Leia os botões e os textos curtos que você costuma ver nas telas dos quiosques e relacione cada um imediatamente ao seu significado.",
+        "Aprenda apenas as palavras necessárias e tente seguir sozinho o fluxo básico do pedido."
+      ]
+    },
+    {
+      "heading": "Visão geral do fluxo do pedido",
+      "paragraphs": [
+        "Escolher 매장/포장 (comer no local/levar para viagem) → escolher o item do cardápio (단품/세트) → escolher opções (HOT/ICE, 사이즈, 추가) → apertar 결제하기 (pagar) → escolher a forma de pagamento (카드 결제/간편결제) → conferir o recibo/número do pedido (영수증/주문번호)"
+      ]
+    },
+    {
+      "heading": "12 botões comuns",
+      "paragraphs": [
+        "1) 매장 (comer no local) — Aperte quando for comer dentro da loja. 예: 여기서 먹어요. 매장을 눌러요.",
+        "2) 포장 (levar para viagem) — Aperte quando for levar a comida para fora. 예: 바빠요? 그러면 포장을 고르세요.",
+        "3) 단품 (item avulso) — Aperte para comprar somente o item, sem acompanhamento nem bebida. 예: 버거만 먹고 싶으면 단품을 고르세요.",
+        "4) 세트 (combo) — O item vem acompanhado de um acompanhamento e uma bebida. 예: 배가 많이 고파요. 세트로 주문해요.",
+        "5) HOT / ICE — Aperte para escolher a temperatura da bebida. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요.",
+        "6) 사이즈 (tamanho) — Usado para escolher o tamanho do copo ou do item, geralmente S/M/L. 예: 많이 마시고 싶으면 L을 고르세요.",
+        "7) 추가 (adicionar) — Aperte para adicionar algo extra. 예: 커피를 더 진하게 마시고 싶어요. '샷 추가'를 눌러요.",
+        "8) 취소 (cancelar) — Aperte para interromper o pedido atual. 예: 주문을 안 하고 싶어요. 취소를 눌러요.",
+        "9) 결제하기 (pagar) — Quando terminar de escolher, isso leva à tela de pagamento. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요.",
+        "10) 카드 결제 (pagamento com cartão) — Aperte para pagar com cartão. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요.",
+        "11) 간편결제 (pagamento fácil/pelo celular) — Aperte para pagar com o celular. 예: 카카오페이를 써요? 간편결제로 계산하세요.",
+        "12) 영수증 출력 (imprimir recibo) — Imprime um recibo em papel; o número do pedido vem junto. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
+      ]
+    },
+    {
+      "heading": "Dicas de leitura: abreviações e rótulos em inglês",
+      "paragraphs": [
+        "S/M/L: abreviação de Small/Medium/Large (pequeno/médio/grande). Muitos quiosques mostram os tamanhos como S/M/L, mas algumas lojas usam outros nomes (por exemplo, 레귤러/라지).",
+        "HOT/ICE: bebidas quentes são marcadas como HOT, bebidas geladas como ICE.",
+        "단품/세트: 단품 é somente o item; 세트 vem com um acompanhamento e uma bebida.",
+        "취소 (cancelar) interrompe o pedido e sai. 뒤로가기 (voltar) retorna apenas um passo (뒤로가기 não está na lista de 12 botões desta folha de exercícios)."
+      ]
+    }
+  ],
+  "note": "Os exemplos são baseados em expressões e fluxos de pedido comumente vistos em quiosques reais. Esta folha de exercícios foca na leitura, e o design da tela pode variar de loja para loja.",
+  "category": "etc"
+}

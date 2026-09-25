@@ -1,0 +1,90 @@
+{
+  "answers": [
+    "동생이 숙제를 하고 있어요.",
+    "강아지가 소파에 누워 있어요.",
+    "지금 텔레비전을 보고 있어요? (지금 텔레비전을 보고 있나요?)",
+    "부엌 불이 켜져 있지 않아요. (부엌 불이 안 켜져 있어요.)",
+    "아빠가 지금 신문을 읽고 있지 않아요. (아빠가 지금 신문을 안 읽고 있어요.)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Em của bạn bắt đầu làm bài tập về nhà mười phút trước và vẫn đang làm. Hãy đặt câu nói em bạn đang làm gì ngay bây giờ: 동생 / 숙제 / 하다",
+    "Con chó nằm xuống sofa một tiếng trước và vẫn còn ở đó. Hãy đặt câu miêu tả con chó: 강아지 / 소파 / 눕다",
+    "Bạn gọi điện cho một người bạn và nghe thấy tiếng tivi ở phía sau. Hãy đặt câu hỏi xem bạn của bạn có đang xem tivi ngay bây giờ không: 텔레비전 / 보다",
+    "Chưa ai bật đèn nhà bếp, nên nhà bếp đang tối. Hãy đặt câu phủ định về đèn nhà bếp: 부엌 불 / 켜지다",
+    "Bố đang cầm tờ báo, nhưng ông đang nhìn ra ngoài cửa sổ, không nhìn vào tờ báo. Hãy đặt câu phủ định về việc bố đang làm gì ngay bây giờ: 아빠 / 신문 / 읽다"
+  ],
+  "forms": [
+    {
+      "form": "-고 있다",
+      "when": "Dùng khi một hành động đang diễn ra ngay bây giờ. Gắn -고 있다 vào thân động từ, dù động từ đó có patchim hay không (먹다 → 먹고 있다, 가다 → 가고 있다).",
+      "means": "đang ... (hành động đang diễn ra)",
+      "example": "엄마가 밥을 먹고 있어요.",
+      "exampleMeaning": "Mẹ đang ăn (cơm).",
+      "mark": [
+        "먹고 있어요"
+      ]
+    },
+    {
+      "form": "-아/어 있다",
+      "when": "Dùng khi kết quả của một hành động đã hoàn thành vẫn còn tiếp diễn như một trạng thái ở hiện tại. Nó được dùng với động từ tự động hoặc bị động, không dùng với động từ tha động: dùng -아 있다 sau thân từ có nguyên âm ㅏ/ㅗ và -어 있다 sau các thân từ khác (열리다 → 열려 있다, 앉다 → 앉아 있다).",
+      "means": "đang ở trạng thái... (trạng thái là kết quả của một hành động)",
+      "example": "창문이 열려 있어요.",
+      "exampleMeaning": "Cửa sổ đang mở (nó đã được mở ra và vẫn đang mở).",
+      "mark": [
+        "열려 있어요"
+      ]
+    },
+    {
+      "form": "Động từ chỉ tư thế: 앉아 있다 / 서 있다 / 누워 있다",
+      "when": "Các động từ chỉ tư thế như 앉다, 서다 và 눕다 thường dùng -아/어 있다 để diễn tả tư thế mà ai đó đang có (눕다 → 누워 있다, bất quy tắc ㅂ).",
+      "means": "đang ngồi/đứng/nằm (trạng thái tư thế)",
+      "example": "학생이 의자에 앉아 있어요.",
+      "exampleMeaning": "Học sinh đang ngồi trên ghế.",
+      "mark": [
+        "앉아 있어요"
+      ]
+    }
+  ],
+  "keyword": "-고 있다 vs -아/어 있다",
+  "level": "Trung cấp (thấp)",
+  "minutes": 15,
+  "objective": "Người học sẽ có thể giải thích được sự khác biệt giữa -고 있다 và -아/어 있다, đồng thời chọn và tạo đúng các câu (khẳng định, phủ định, nghi vấn) diễn tả hành động đang diễn ra hoặc trạng thái là kết quả của hành động.",
+  "summary": "Giải thích sự khác biệt giữa -고 있다 (hành động đang diễn ra) và -아/어 있다 (trạng thái là kết quả của một hành động). Hướng dẫn cách tạo câu khẳng định, phủ định và nghi vấn cho mỗi ý nghĩa.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "-고 있다 vs -아/어 있다 구분하기",
+  "watchOut": [
+    "Dùng -고 있다 khi hành động thực sự đang diễn ra. Dùng -아/어 있다 khi một trạng thái vẫn còn tồn tại như kết quả của một hành động. Nếu cửa sổ đã mở sẵn rồi: (X) 창문이 열리고 있어요 → (O) 창문이 열려 있어요",
+    "Không thể dùng -아/어 있다 với các động từ tha động như 열다 và 켜다. Để diễn tả trạng thái là kết quả, hãy dùng động từ bị động (tự động): 열리다 → 열려 있다, 켜지다 → 켜져 있다. (X) 문을 열어 있다 → (O) 문이 열려 있다",
+    "Để diễn tả trạng thái tư thế (앉다/서다/눕다), hãy dùng -아/어 있다. Người học thường nhầm nói 앉고 있다 khi muốn nói 앉아 있다 ('đang ngồi'). 앉고 있다 có nghĩa là 'đang trong quá trình ngồi xuống.' (X) 앉고 있다 → (O) 앉아 있다",
+    "Với câu phủ định, dùng -고 있지 않다 (hành động đang diễn ra) hoặc -아/어 있지 않다 (trạng thái là kết quả), tùy theo ý nghĩa. Cũng có thể dùng cách phủ định ngắn với 안 (안 켜져 있어요). (X) 신문을 읽어 있지 않아요 → (O) 신문을 읽고 있지 않아요",
+    "Để đặt câu hỏi, dùng ngữ điệu lên giọng hoặc đổi đuôi câu (ví dụ: 앉아 있어요? / 앉아 있나요?). Khi hỏi về trạng thái tư thế: (X) 의자에 앉고 있어요? → (O) 의자에 앉아 있어요?"
+  ],
+  "watchOutMark": [
+    [
+      "창문이 열리고 있어요",
+      "창문이 열려 있어요"
+    ],
+    [
+      "문을 열어 있다",
+      "문이 열려 있다"
+    ],
+    [
+      "앉고 있다",
+      "앉아 있다"
+    ],
+    [
+      "신문을 읽어 있지 않아요",
+      "신문을 읽고 있지 않아요"
+    ],
+    [
+      "의자에 앉고 있어요?",
+      "의자에 앉아 있어요?"
+    ]
+  ],
+  "category": "grammar"
+}

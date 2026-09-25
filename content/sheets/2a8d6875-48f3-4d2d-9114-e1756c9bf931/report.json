@@ -1,0 +1,251 @@
+{
+  "id": "2a8d6875-48f3-4d2d-9114-e1756c9bf931",
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "The ㅐ and ㅔ pronunciation guides in letters are wrong. ㅐ is described as 'like the vowel in \"cat\"' ([æ]) and ㅔ as 'like the vowel in \"bed\"', which says the two are clearly different sounds. In modern standard Korean, ㅐ and ㅔ have merged, and most speakers say both the same, close to the vowel in 'bed'. Fix: change ㅐ's guide to something like 'like the vowel in \"bed\" (in modern speech ㅐ and ㅔ sound almost the same)'. Also add a note that you tell them apart mostly by spelling and meaning (개/게).",
+        "The objective says learners will 'pronounce … accurately … without confusion', but the exercises only test spelling. Because ㅐ and ㅔ sound the same, the listed words can't really be told apart by pronunciation. Also, under the standard pronunciation rules, 계 in 계란 can be said as [게]. Fix: reword the objective to be about telling the vowels apart by spelling and reading them correctly, and add a note that 계란 may be pronounced [게란].",
+        "Exercises 1 and 2 test the same pair (개/게) with the order swapped, so they repeat each other and the worksheet gets thin. Fix: change exercise 2 to another ㅐ/ㅔ/ㅖ word from the list. For example: 'What does 배 mean? pear / crab'. Or a spelling choice like 'Choose the correct spelling: (pear) 배 / 베'."
+      ],
+      "audit": [
+        "letters[0] (ㅐ) as: (a wide e sound) like the vowel in \"cat\" → like the vowel in \"bed\" (in modern standard Korean, ㅐ and ㅔ sound almost the same; tell them apart by spelling)",
+        "exercises[0]: 뜻에 맞는 낱말을 고르세요. dog -> 개 / 게 → Choose the word that matches the meaning: dog -> 개 / 게",
+        "exercises[1]: 뜻에 맞는 낱말을 고르세요. crab -> 게 / 개 → Choose the word that matches the meaning: crab -> 게 / 개",
+        "exercises[2]: 맞는 철자를 고르세요. (lemon) 레몬 / 래몬 → Choose the correct spelling: (lemon) 레몬 / 래몬",
+        "exercises[3]: 맞는 철자를 고르세요. (egg) 계란 / 게란 → Choose the correct spelling: (egg) 계란 / 게란",
+        "exercises[4]: 빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ → Fill in the blank with the correct vowel: ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ",
+        "exercises[5]: 빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ → Fill in the blank with the correct vowel: ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[2]",
+      "before": "게",
+      "after": "배"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "뜻에 맞는 낱말을 고르세요. dog -> 개 / 게",
+      "after": "Choose the word that matches the meaning: dog -> 개 / 게"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "뜻에 맞는 낱말을 고르세요. crab -> 게 / 개",
+      "after": "Choose the correct spelling: (pear) 배 / 베"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "맞는 철자를 고르세요. (lemon) 레몬 / 래몬",
+      "after": "Choose the correct spelling: (lemon) 레몬 / 래몬"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "맞는 철자를 고르세요. (egg) 계란 / 게란",
+      "after": "Choose the correct spelling: (egg) 계란 / 게란"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ",
+      "after": "Fill in the blank with the correct vowel: ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ",
+      "after": "Fill in the blank with the correct vowel: ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ"
+    },
+    {
+      "at": "letters[1].as",
+      "before": "(a wide e sound) like the vowel in \"cat\"",
+      "after": "like the vowel in \"bed\" (in modern standard Korean, ㅐ and ㅔ sound almost the same; tell them apart mostly by spelling and meaning, e.g., 개 dog / 게 crab)"
+    },
+    {
+      "at": "letters[3].as",
+      "before": "like \"ye\" in \"yes\"",
+      "after": "like \"ye\" in \"yes\" (after a consonant it may be pronounced like ㅔ, e.g., 계란 [게란])"
+    },
+    {
+      "at": "level",
+      "before": "Beginner (초급)",
+      "after": "Beginner"
+    },
+    {
+      "at": "objective",
+      "before": "Learners will recognize and pronounce ㅐ, ㅔ, and ㅖ accurately, and read simple words that contain these vowels without confusion.",
+      "after": "Learners will tell ㅐ, ㅔ, and ㅖ apart by spelling, and read simple words that contain these vowels correctly."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 27,
+          "problem": "The English hint (pear) was translated as (배), which is the correct answer. The question now answers itself, and it adds Hangul that isn't in the English line.",
+          "fix": "올바른 철자를 고르세요: (pear) 배 / 베"
+        },
+        {
+          "line": 28,
+          "problem": "The English hint (lemon) was translated as (레몬), which is the correct answer. The question now answers itself, and it adds Hangul that isn't in the English line.",
+          "fix": "올바른 철자를 고르세요: (lemon) 레몬 / 래몬"
+        },
+        {
+          "line": 29,
+          "problem": "The English hint (egg) was translated as (계란), which is the correct answer. The question now answers itself, and it adds Hangul that isn't in the English line.",
+          "fix": "올바른 철자를 고르세요: (egg) 계란 / 게란"
+        },
+        {
+          "line": 30,
+          "problem": "The English hint (book) was translated as (책), which shows the missing vowel. The fill-in-the-blank now answers itself, and it adds Hangul that isn't in the English line.",
+          "fix": "빈칸에 알맞은 모음을 채우세요: ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ"
+        },
+        {
+          "line": 31,
+          "problem": "The English hint (to be pretty) was translated as (예쁘다), which shows the missing vowel. The fill-in-the-blank now answers itself, and it adds Hangul that isn't in the English line.",
+          "fix": "빈칸에 알맞은 모음을 채우세요: ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "「聞き分け」 means telling the vowels apart by ear. The worksheet says ㅐ and ㅔ sound almost the same and are told apart by spelling and meaning, so this contradicts it. The English only says \"distinguishing\".",
+          "fix": "最小対と身近な単語を通して、韓国語の母音「ㅐ」「ㅔ」「ㅖ」を見分け、正しく読む練習をします。素早く綴りを選ぶ練習も含まれており、正確な母音認識を強化します。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"Pratiquer à distinguer\" is not natural French (it copies the English \"practice\"). Use \"S'entraîner à\" instead.",
+          "fix": "S'entraîner à distinguer et à lire les voyelles coréennes ㅐ, ㅔ, ㅖ à travers des paires minimales et des mots courants. Inclut des choix d'orthographe rapides pour renforcer la reconnaissance précise des voyelles."
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:02:37.173Z"
+}

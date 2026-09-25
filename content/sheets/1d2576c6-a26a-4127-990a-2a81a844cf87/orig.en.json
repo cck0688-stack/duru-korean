@@ -1,0 +1,108 @@
+{
+  "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
+  "summary": "Practice reading and pronouncing the final consonants ㅇ, ㄴ, ㅁ. Link them to similar English endings (-ng, -n, -m) and read simple words that contain these batchim.",
+  "objective": "Learners will distinguish final ㅇ, ㄴ, ㅁ by sound, connect them to similar English endings (-ng, -n, -m) for accurate pronunciation, and read simple words that contain these batchim.",
+  "level": "Beginner (A1)",
+  "minutes": 15,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
+    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
+    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 바_ (-ng) 바_ (-n) 바_ (-m)",
+    "뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜",
+    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 소_ (meaning: hand)"
+  ],
+  "answers": [
+    "방",
+    "손(-n), 방(-ng), 봄(-m)",
+    "ㅇ, ㄴ, ㅁ",
+    "손",
+    "ㄴ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅇ",
+      "sound": "ng (끝소리)",
+      "as": "like English ending -ng (sing)"
+    },
+    {
+      "letter": "ㄴ",
+      "sound": "n (끝소리)",
+      "as": "like English ending -n (sun)"
+    },
+    {
+      "letter": "ㅁ",
+      "sound": "m (끝소리)",
+      "as": "like English ending -m (gum)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "room",
+      "example": "방이 커요.",
+      "exampleMeaning": "The room is big."
+    },
+    {
+      "korean": "공",
+      "roman": "gong",
+      "meaning": "ball",
+      "example": "공을 차요.",
+      "exampleMeaning": "I kick the ball."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "bread",
+      "example": "빵 주세요.",
+      "exampleMeaning": "Bread, please."
+    },
+    {
+      "korean": "손",
+      "roman": "son",
+      "meaning": "hand",
+      "example": "손 씻어요.",
+      "exampleMeaning": "I wash my hands."
+    },
+    {
+      "korean": "눈",
+      "roman": "nun",
+      "meaning": "snow; eye (here: snow)",
+      "example": "눈이 와요.",
+      "exampleMeaning": "It is snowing."
+    },
+    {
+      "korean": "산",
+      "roman": "san",
+      "meaning": "mountain",
+      "example": "산에 가요.",
+      "exampleMeaning": "I go to the mountain."
+    },
+    {
+      "korean": "밤",
+      "roman": "bam",
+      "meaning": "night (also chestnut)",
+      "example": "밤에 자요.",
+      "exampleMeaning": "I sleep at night."
+    },
+    {
+      "korean": "봄",
+      "roman": "bom",
+      "meaning": "spring",
+      "example": "봄이 따뜻해요.",
+      "exampleMeaning": "Spring is warm."
+    },
+    {
+      "korean": "이름",
+      "roman": "ireum",
+      "meaning": "name",
+      "example": "이름이 뭐예요?",
+      "exampleMeaning": "What is your name?"
+    }
+  ],
+  "category": "hangul"
+}

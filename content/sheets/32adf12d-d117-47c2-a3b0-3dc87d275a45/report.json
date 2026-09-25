@@ -1,0 +1,193 @@
+{
+  "id": "32adf12d-d117-47c2-a3b0-3dc87d275a45",
+  "title": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
+  "category": "vocab",
+  "status": "published",
+  "published": true,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "level",
+      "before": "Beginner (late)",
+      "after": "Beginner (high)"
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 27,
+          "problem": "The sentence to translate was left in English. A Spanish-speaking learner should get it in Spanish.",
+          "fix": "Traduce al coreano con dos oraciones cortas: \"Tengo fiebre. Deme medicamento para el resfriado, por favor.\""
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 27,
+          "problem": "The sentence the learner must translate into Korean was left in English instead of being translated into Indonesian, so Indonesian learners get an English prompt.",
+          "fix": "Terjemahkan ke dalam bahasa Korea dengan dua kalimat pendek: \"Saya demam. Tolong beri saya obat flu.\""
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 27,
+          "problem": "The sentence the learner must translate was left in English instead of being translated into Portuguese.",
+          "fix": "Traduza para o coreano em duas frases curtas: \"Estou com febre. Por favor, me dê remédio para resfriado.\""
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'Beginner (high)' was rendered as 中高级 (intermediate-high), which changes the level. It should mean the high end of the beginner level.",
+          "fix": "初级(高)"
+        },
+        {
+          "line": 3,
+          "problem": "'ask for the right medicine' means to request the medicine, but 询问 means 'inquire about'. It should say 要, as line 2 does.",
+          "fix": "学习者可以用10个药店核心单词,通过'두통이 있어요'或'열이 나요'这样的简短句子向药剂师说明自己的症状,并用'○○ 주세요'来要合适的药。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 3,
+      "lost": [
+        "기침·콧물"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 15,
+          "problem": "Missing article: 'Erkältungsmedikament' is a countable noun and cannot stand without an article, so the German sounds wrong.",
+          "fix": "Könnte ich bitte ein Erkältungsmedikament bekommen?"
+        },
+        {
+          "line": 26,
+          "problem": "Wrong gender: in grammar terms, 'Partikel' is feminine (die Partikel), so 'den richtigen Partikel' is incorrect.",
+          "fix": "Wähle in jeder Lücke die richtige Partikel (이 / 가): 기침( ) 나요. 그리고 콧물( ) 나요."
+        },
+        {
+          "line": 27,
+          "problem": "The sentence to translate was left in English instead of German, so German learners get an English prompt.",
+          "fix": "Übersetze ins Koreanische mit zwei kurzen Sätzen: \"Ich habe Fieber. Bitte geben Sie mir ein Erkältungsmedikament.\""
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T15:10:33.625Z"
+}

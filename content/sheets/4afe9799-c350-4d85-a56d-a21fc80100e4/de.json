@@ -1,0 +1,124 @@
+{
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "keyword": "받침",
+  "summary": "Übe das Lesen und Bilden von ungelösten (nicht gelösten) Endkonsonanten für die Batchim ㄱ/ㄷ/ㅂ. Die Lernenden verbinden jeden mit ähnlichen englischen Wortend-Lauten (back/bat/cap), jedoch ohne Lösung des Verschlusses, und lesen und wählen dann einfache Wörter mit diesen Batchim aus.",
+  "objective": "Anfänger-Lernende sollen die ungelösten Endlaute [k], [t], [p] für die Batchim ㄱ, ㄷ, ㅂ bilden; sie mit ähnlichen englischen Endlauten verbinden („back/bat/cap“ ohne Lösung des Verschlusses); und einfache koreanische Wörter mit diesen Batchim korrekt lesen und auswählen können.",
+  "level": "Anfänger",
+  "minutes": 15,
+  "tags": [
+    "hangul",
+    "batchim",
+    "final consonants",
+    "pronunciation",
+    "beginner"
+  ],
+  "task": {
+    "title": "Sag es: den Endlaut stoppen",
+    "line": "Lies laut vor: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. Blockiere bei jedem ㄱ/ㄷ/ㅂ-Batchim den Luftstrom mit dem Zungenrücken (ㄱ), der Zungenspitze (ㄷ) oder den Lippen (ㅂ) und stoppe den Laut, ohne ihn zu lösen."
+  },
+  "exercises": [
+    "Wähle das Wort, dessen Endlaut [k] ist: (국 / 곧 / 밥)",
+    "Was ist der Endlaut dieses Wortes? 곧 (k / t / p)",
+    "Welche englische Wortendung kommt dem Endlaut von 받 in 받다 am nächsten? (back / bat / cap)",
+    "Wähle die richtige Umschrift: 벽 (byeok / byeog / byuk)",
+    "Lies den Satz laut vor und stoppe bei 「집」 den Endlaut, ohne ihn zu lösen. Wähle dann seinen Endlaut aus: 우리 집 좋아요. (k / t / p)"
+  ],
+  "answers": [
+    "국",
+    "t",
+    "bat",
+    "byeok",
+    "p"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "Endlaut [k] (stimmlos, ungelöst)",
+      "as": "wie das Ende von „back“ (Verschluss; keine Lösung)"
+    },
+    {
+      "letter": "ㄷ",
+      "sound": "Endlaut [t] (stimmlos, ungelöst)",
+      "as": "wie das Ende von „bat“ (Verschluss; keine Lösung)"
+    },
+    {
+      "letter": "ㅂ",
+      "sound": "Endlaut [p] (stimmlos, ungelöst)",
+      "as": "wie das Ende von „cap“ (Verschluss; keine Lösung)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "국",
+      "roman": "guk",
+      "meaning": "Suppe",
+      "example": "국도 드세요.",
+      "exampleMeaning": "Iss auch etwas Suppe."
+    },
+    {
+      "korean": "속",
+      "roman": "sok",
+      "meaning": "innen; drinnen",
+      "example": "가방 속 봤어요?",
+      "exampleMeaning": "Hast du in die Tasche hineingeschaut?"
+    },
+    {
+      "korean": "벽",
+      "roman": "byeok",
+      "meaning": "Wand",
+      "example": "저기 벽 보세요.",
+      "exampleMeaning": "Schau dir die Wand dort drüben an."
+    },
+    {
+      "korean": "곧",
+      "roman": "got",
+      "meaning": "bald",
+      "example": "곧 갈게요.",
+      "exampleMeaning": "Ich gehe bald."
+    },
+    {
+      "korean": "받다",
+      "roman": "batda",
+      "meaning": "bekommen; erhalten",
+      "example": "편지 받고 기뻤어요.",
+      "exampleMeaning": "Ich habe mich gefreut, den Brief zu bekommen."
+    },
+    {
+      "korean": "믿다",
+      "roman": "mitda",
+      "meaning": "glauben; vertrauen",
+      "example": "친구 말 믿고 기다렸어요.",
+      "exampleMeaning": "Ich habe meinem Freund vertraut und gewartet."
+    },
+    {
+      "korean": "닫다",
+      "roman": "datda",
+      "meaning": "schließen",
+      "example": "문 닫고 나가세요.",
+      "exampleMeaning": "Mach die Tür zu, wenn du hinausgehst."
+    },
+    {
+      "korean": "밥",
+      "roman": "bap",
+      "meaning": "gekochter Reis; Mahlzeit",
+      "example": "밥 주세요.",
+      "exampleMeaning": "Reis, bitte."
+    },
+    {
+      "korean": "집",
+      "roman": "jip",
+      "meaning": "Haus; Zuhause",
+      "example": "우리 집 좋아요.",
+      "exampleMeaning": "Unser Haus ist schön."
+    },
+    {
+      "korean": "입",
+      "roman": "ip",
+      "meaning": "Mund",
+      "example": "입 크게 벌리세요.",
+      "exampleMeaning": "Mach deinen Mund weit auf."
+    }
+  ],
+  "category": "hangul"
+}

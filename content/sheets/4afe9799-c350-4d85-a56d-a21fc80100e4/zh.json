@@ -1,0 +1,124 @@
+{
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "keyword": "받침",
+  "summary": "练习读出并发出韵尾ㄱ/ㄷ/ㅂ的不完全爆破音(不释放的塞音)。学习者将其与英语词尾相似的发音(back/bat/cap,但不释放)联系起来,然后朗读并选出含有这些韵尾的简单单词。",
+  "objective": "初级学习者要发出韵尾ㄱ、ㄷ、ㅂ的不释放塞音[k]、[t]、[p];将它们与英语中相似的词尾(“back/bat/cap”,不释放)联系起来;并能准确朗读、选出含有这些韵尾的简单韩语单词。",
+  "level": "初级",
+  "minutes": 15,
+  "tags": [
+    "hangul",
+    "batchim",
+    "final consonants",
+    "pronunciation",
+    "beginner"
+  ],
+  "task": {
+    "title": "读出来:把最后的音堵住",
+    "line": "大声朗读:국도 드세요. / 문 닫고 나가세요. / 밥 주세요. 在每个ㄱ/ㄷ/ㅂ韵尾处,用舌根(ㄱ)、舌尖(ㄷ)或双唇(ㅂ)堵住气流,把音堵住而不要释放出来。"
+  },
+  "exercises": [
+    "选出韵尾发音是[k]的单词:(국 / 곧 / 밥)",
+    "这个单词的韵尾发音是什么?곧 (k / t / p)",
+    "받다中받的韵尾发音最接近下列哪个英语单词的词尾发音?(back / bat / cap)",
+    "选出正确的罗马字标记:벽 (byeok / byeog / byuk)",
+    "大声朗读这句话,读到「집」时把韵尾堵住、不要释放出来。然后选出它的韵尾发音:우리 집 좋아요. (k / t / p)"
+  ],
+  "answers": [
+    "국",
+    "t",
+    "bat",
+    "byeok",
+    "p"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "韵尾[k](清音、不释放)",
+      "as": "类似“back”结尾的音(堵住;不释放)"
+    },
+    {
+      "letter": "ㄷ",
+      "sound": "韵尾[t](清音、不释放)",
+      "as": "类似“bat”结尾的音(堵住;不释放)"
+    },
+    {
+      "letter": "ㅂ",
+      "sound": "韵尾[p](清音、不释放)",
+      "as": "类似“cap”结尾的音(堵住;不释放)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "국",
+      "roman": "guk",
+      "meaning": "汤",
+      "example": "국도 드세요.",
+      "exampleMeaning": "也喝点汤吧。"
+    },
+    {
+      "korean": "속",
+      "roman": "sok",
+      "meaning": "里面",
+      "example": "가방 속 봤어요?",
+      "exampleMeaning": "你看过包里面了吗?"
+    },
+    {
+      "korean": "벽",
+      "roman": "byeok",
+      "meaning": "墙",
+      "example": "저기 벽 보세요.",
+      "exampleMeaning": "看看那边的墙。"
+    },
+    {
+      "korean": "곧",
+      "roman": "got",
+      "meaning": "快;马上",
+      "example": "곧 갈게요.",
+      "exampleMeaning": "我马上就去。"
+    },
+    {
+      "korean": "받다",
+      "roman": "batda",
+      "meaning": "收到;接到",
+      "example": "편지 받고 기뻤어요.",
+      "exampleMeaning": "收到信很开心。"
+    },
+    {
+      "korean": "믿다",
+      "roman": "mitda",
+      "meaning": "相信",
+      "example": "친구 말 믿고 기다렸어요.",
+      "exampleMeaning": "我相信朋友,等着他。"
+    },
+    {
+      "korean": "닫다",
+      "roman": "datda",
+      "meaning": "关上",
+      "example": "문 닫고 나가세요.",
+      "exampleMeaning": "出门的时候请把门关上。"
+    },
+    {
+      "korean": "밥",
+      "roman": "bap",
+      "meaning": "饭;米饭",
+      "example": "밥 주세요.",
+      "exampleMeaning": "请给我饭。"
+    },
+    {
+      "korean": "집",
+      "roman": "jip",
+      "meaning": "家;房子",
+      "example": "우리 집 좋아요.",
+      "exampleMeaning": "我们家很好。"
+    },
+    {
+      "korean": "입",
+      "roman": "ip",
+      "meaning": "嘴",
+      "example": "입 크게 벌리세요.",
+      "exampleMeaning": "把嘴张大。"
+    }
+  ],
+  "category": "hangul"
+}

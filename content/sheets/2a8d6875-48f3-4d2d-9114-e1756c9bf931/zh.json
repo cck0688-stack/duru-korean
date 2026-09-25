@@ -1,0 +1,106 @@
+{
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "summary": "通过最小对立组和常用词汇，练习区分和读出韩语元音 ㅐ、ㅔ、ㅖ。包含快速拼写选择题，帮助巩固对这些元音的准确辨识。",
+  "objective": "学习者将通过拼写区分 ㅐ、ㅔ、ㅖ，并能正确读出包含这些元音的简单单词。",
+  "level": "初级",
+  "minutes": 12,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "选出与词义相符的单词：狗 -> 개 / 게",
+    "选出正确的拼写：（梨）배 / 베",
+    "选出正确的拼写：（柠檬）레몬 / 래몬",
+    "选出正确的拼写：（鸡蛋）계란 / 게란",
+    "填入正确的元音：ㅊ_ㄱ（书）：ㅐ / ㅔ / ㅖ",
+    "填入正确的元音：ㅇ_쁘다（漂亮）：ㅐ / ㅔ / ㅖ"
+  ],
+  "answers": [
+    "개",
+    "배",
+    "레몬",
+    "계란",
+    "ㅐ",
+    "ㅖ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅐ",
+      "sound": "ae",
+      "as": "发音类似英语 “bed” 中的元音（在现代标准韩语中，ㅐ 和 ㅔ 的发音几乎相同，主要靠拼写和词义来区分，例如：개（狗）/ 게（螃蟹））"
+    },
+    {
+      "letter": "ㅔ",
+      "sound": "e",
+      "as": "发音类似英语 “bed” 中的元音"
+    },
+    {
+      "letter": "ㅖ",
+      "sound": "ye",
+      "as": "发音类似英语 “yes” 中的 “ye”（在辅音后可能发成 ㅔ 的音，例如：계란 读作 [게란]）"
+    }
+  ],
+  "words": [
+    {
+      "korean": "개",
+      "roman": "gae",
+      "meaning": "狗",
+      "example": "저건 개예요.",
+      "exampleMeaning": "那是一只狗。"
+    },
+    {
+      "korean": "배",
+      "roman": "bae",
+      "meaning": "梨",
+      "example": "배가 맛있어요.",
+      "exampleMeaning": "这个梨很好吃。"
+    },
+    {
+      "korean": "책",
+      "roman": "chaek",
+      "meaning": "书",
+      "example": "책이 있어요.",
+      "exampleMeaning": "有一本书。"
+    },
+    {
+      "korean": "게",
+      "roman": "ge",
+      "meaning": "螃蟹",
+      "example": "게를 먹어요.",
+      "exampleMeaning": "我吃螃蟹。"
+    },
+    {
+      "korean": "레몬",
+      "roman": "remon",
+      "meaning": "柠檬",
+      "example": "레몬 주세요.",
+      "exampleMeaning": "请给我一个柠檬。"
+    },
+    {
+      "korean": "예",
+      "roman": "ye",
+      "meaning": "是（敬语）",
+      "example": "예, 맞아요.",
+      "exampleMeaning": "是的，没错。"
+    },
+    {
+      "korean": "예쁘다",
+      "roman": "yeppeuda",
+      "meaning": "漂亮",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "花很漂亮。"
+    },
+    {
+      "korean": "계란",
+      "roman": "gyeran",
+      "meaning": "鸡蛋",
+      "example": "이건 계란이에요.",
+      "exampleMeaning": "这是鸡蛋。"
+    }
+  ],
+  "category": "hangul"
+}

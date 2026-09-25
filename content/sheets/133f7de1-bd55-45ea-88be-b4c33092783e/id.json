@@ -1,0 +1,83 @@
+{
+  "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
+  "keyword": "",
+  "summary": "Baca dua pemberitahuan singkat apartemen (pemberhentian air dan pemadaman listrik karena pemeriksaan) dan berlatih memindai tanggal/waktu, tempat, alasan, dan apa yang harus dilakukan penghuni. Fokus pada delapan label/kata yang sering muncul.",
+  "objective": "Pembelajar akan dapat membaca pemberitahuan gedung singkat tentang pemberhentian air/listrik dan pemeriksaan, serta dengan cepat menemukan tanggal, waktu, area yang terdampak, dan apa yang harus dilakukan penghuni; serta mengenali 8 label/kata yang sering muncul (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Pemula (tingkat tinggi)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Jawab dalam format yang digunakan pada pemberitahuan (misalnya, 08:00): 공지 A의 단수는 몇 시에 끝납니까?",
+    "Salin persis seperti yang tertulis di pemberitahuan: 공지 B의 사유는 무엇입니까?",
+    "Salin persis seperti yang tertulis di pemberitahuan: 공지 A의 장소는 어디입니까?",
+    "Salin kalimat persis seperti yang tertulis di pemberitahuan: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
+    "Tulis tempat kontak dan nomor telepon persis seperti yang tertulis di pemberitahuan: 두 공지의 문의처는 어디입니까?"
+  ],
+  "answers": [
+    "14:00",
+    "전기설비 정기 점검",
+    "101동 전체",
+    "단전 전에 가전제품 플러그를 뽑아 주세요.",
+    "관리사무소 02-000-0000"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Label dan kata yang sering muncul",
+      "paragraphs": [
+        "일시 (ilsi): tanggal dan waktu",
+        "장소 (jangso): tempat, area yang terdampak",
+        "사유 (sayu): alasan",
+        "점검 (jeomgeom): pemeriksaan, pengecekan",
+        "작업 (jageop): pekerjaan (konstruksi atau perbaikan)",
+        "단수 (dansu): pemberhentian air",
+        "단전 (danjeon): pemadaman listrik (pemutusan terencana)",
+        "문의 (munui): pertanyaan, kontak (nomor telepon, kantor)"
+      ]
+    },
+    {
+      "heading": "Contoh pemberitahuan A — 단수 안내 (pemberitahuan pemberhentian air)",
+      "paragraphs": [
+        "[공지 A] 단수 안내",
+        "일시: 2026년 10월 12일(월) 09:30~14:00",
+        "장소: 101동 전체",
+        "사유: 건물 내부 배관 교체 작업",
+        "작업: 물 공급 중단 및 배관 교체",
+        "유의사항: 단수 전에 물을 미리 받아 두세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "Contoh pemberitahuan B — 단전 안내 (pemberitahuan pemadaman listrik)",
+      "paragraphs": [
+        "[공지 B] 단전 안내",
+        "일시: 2026년 10월 15일(목) 13:00~16:00",
+        "장소: 102동 1층~10층 전체 세대",
+        "사유: 전기설비 정기 점검",
+        "작업: 변전실 점검 및 전력 차단",
+        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "Cara memindai dengan cepat",
+      "paragraphs": [
+        "Pertama lihat label-labelnya (일시, 장소, 사유, 작업, 유의사항, 문의), lalu baca hanya baris yang Anda perlukan.",
+        "Biasakan diri dengan angka dan simbol seperti 09:30, ~ (dari–sampai), 층 (lantai), 동 (nomor gedung). Pemberitahuan ini menggunakan format waktu 24 jam.",
+        "Untuk menemukan apa yang harus dilakukan penghuni, lihat baris 유의사항 (catatan penting) untuk akhiran permintaan seperti -세요."
+      ]
+    },
+    {
+      "heading": "Panduan latihan",
+      "paragraphs": [
+        "Pemberitahuan di sini adalah contoh pembelajaran, bukan jadwal atau nomor kontak sungguhan."
+      ]
+    }
+  ],
+  "note": "",
+  "category": "etc"
+}

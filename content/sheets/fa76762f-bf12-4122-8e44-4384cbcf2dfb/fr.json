@@ -1,0 +1,111 @@
+{
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "keyword": "ㄱ·ㅋ·ㄲ",
+  "summary": "S'entraîner à distinguer et à prononcer les consonnes initiales ㄱ (simple), ㅋ (aspirée) et ㄲ (tendue). Utiliser des repères sonores clairs en anglais : ㄱ ≈ un son léger entre le g et le k anglais, ㅋ ≈ le k de « key », ㄲ = un « kk » tendu sans équivalent exact en anglais. Lire et choisir des mots simples commençant par ces lettres.",
+  "objective": "Les débutants apprendront à entendre et à prononcer correctement ㄱ (simple), ㅋ (aspirée) et ㄲ (tendue) en position initiale de mot, à les relier à des repères sonores utiles en anglais (ㄱ ≈ entre le g et le k anglais, avec un léger souffle d'air, ㅋ ≈ le k de « key », ㄲ = un « kk » tendu, sans équivalent exact en anglais), et à lire et sélectionner correctement des mots simples contenant ces consonnes initiales.",
+  "level": "Débutant",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Choisissez le mot qui commence par ㅋ (aspirée) : 가게 / 코 / 꽃",
+    "Lisez la romanisation et choisissez le mot coréen correspondant : kkoma → 가방 / 꼬마 / 카메라",
+    "Choisissez le mot qui commence par ㄱ (simple) : 콩 / 껌 / 고기",
+    "Associez chaque mot à sa consonne initiale : 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "Associez chaque indice en anglais au mot dont le premier son correspond : entre 'g' et 'k' (léger souffle) / 'k' de « key » / 'kk' tendu → Choix : 꽃, 가게, 카메라"
+  ],
+  "answers": [
+    "코",
+    "꼬마",
+    "고기",
+    "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
+    "between g and k→가게, key→카메라, kk→꽃"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "Consonne simple (relâchée). L'arrière de la langue se ferme légèrement contre le palais mou, puis se relâche. Au début d'un mot, un léger souffle d'air en sort : plus faible que ㅋ et plus doux que ㄲ.",
+      "as": "entre le 'g' et le 'k' anglais (léger souffle)"
+    },
+    {
+      "letter": "ㅋ",
+      "sound": "Consonne aspirée. Même position de la langue que pour ㄱ, mais relâchée avec un fort souffle d'air.",
+      "as": "le 'k' de 'key' (souffle fort)"
+    },
+    {
+      "letter": "ㄲ",
+      "sound": "Consonne tendue. Même position de la langue que pour ㄱ, mais la gorge et la langue sont tendues et le son est relâché de façon nette, sans souffle d'air.",
+      "as": "'kk' tendu (pas d'équivalent exact en anglais)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "가방",
+      "roman": "gabang",
+      "meaning": "sac",
+      "example": "가방이 있어요.",
+      "exampleMeaning": "Il y a un sac."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "viande",
+      "example": "고기를 먹어요.",
+      "exampleMeaning": "Je mange de la viande."
+    },
+    {
+      "korean": "가게",
+      "roman": "gage",
+      "meaning": "magasin, boutique",
+      "example": "가게에 가요.",
+      "exampleMeaning": "Je vais au magasin."
+    },
+    {
+      "korean": "코",
+      "roman": "ko",
+      "meaning": "nez",
+      "example": "코가 커요.",
+      "exampleMeaning": "Mon nez est gros."
+    },
+    {
+      "korean": "카메라",
+      "roman": "kamera",
+      "meaning": "appareil photo",
+      "example": "카메라로 사진을 찍어요.",
+      "exampleMeaning": "Je prends des photos avec un appareil photo."
+    },
+    {
+      "korean": "콩",
+      "roman": "kong",
+      "meaning": "haricot",
+      "example": "콩이 작아요.",
+      "exampleMeaning": "Les haricots sont petits."
+    },
+    {
+      "korean": "껌",
+      "roman": "kkeom",
+      "meaning": "chewing-gum",
+      "example": "껌을 씹어요.",
+      "exampleMeaning": "Je mâche du chewing-gum."
+    },
+    {
+      "korean": "꼬마",
+      "roman": "kkoma",
+      "meaning": "petit enfant",
+      "example": "꼬마가 웃어요.",
+      "exampleMeaning": "Le petit enfant sourit."
+    },
+    {
+      "korean": "꽃",
+      "roman": "kkot",
+      "meaning": "fleur",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "La fleur est jolie."
+    }
+  ],
+  "category": "hangul"
+}

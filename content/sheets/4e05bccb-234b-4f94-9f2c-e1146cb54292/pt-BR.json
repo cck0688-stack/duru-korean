@@ -1,0 +1,123 @@
+{
+  "answers": [
+    "앞머리 조금만 내려 주세요. / 앞머리를 조금만 내려 주세요. / 앞머리는 조금만 내려 주세요.",
+    "이 정도",
+    "옆머리는 짧게 해 주세요. / 옆머리 짧게 해 주세요. / 옆머리를 짧게 해 주세요.",
+    "뒷머리는 너무 짧게는 말고요. / 뒷머리 너무 짧게는 말고요.",
+    "기본 커트요. / 기본 커트 해 주세요. / 기본 커트로 해 주세요. / 기본 커트 부탁해요. / 기본 커트 부탁합니다."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "디자이너",
+      "korean": "어서 오세요. 어떻게 해 드릴까요?",
+      "meaning": "Bem-vindo(a). O que você gostaria de fazer hoje?"
+    },
+    {
+      "who": "손님",
+      "korean": "기본 커트요. 길이는 이 정도까지만 잘라 주세요.",
+      "meaning": "Um corte básico, por favor. Corte só até mais ou menos esse comprimento."
+    },
+    {
+      "who": "디자이너",
+      "korean": "네, 이 정도면 괜찮으세요?",
+      "meaning": "Certo. Esse comprimento está bom?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 좋아요. 근데 너무 짧게는 말고요.",
+      "meaning": "Sim, está bom. Mas não muito curto, por favor."
+    },
+    {
+      "who": "디자이너",
+      "korean": "알겠습니다. 앞머리는 내릴까요?",
+      "meaning": "Entendi. Você quer a franja caindo (para baixo)?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 앞머리 조금만 내려 주세요.",
+      "meaning": "Sim, deixe a franja cair só um pouquinho, por favor."
+    },
+    {
+      "who": "디자이너",
+      "korean": "귀는 보이게 해 드릴까요, 가리게 해 드릴까요?",
+      "meaning": "Você quer as orelhas à mostra ou cobertas?"
+    },
+    {
+      "who": "손님",
+      "korean": "귀는 가리게 해 주세요.",
+      "meaning": "Cubra minhas orelhas, por favor."
+    }
+  ],
+  "exercises": [
+    "Traduza para o coreano usando '앞머리': \"Deixe a franja cair só um pouquinho, por favor.\"",
+    "Você está tocando no seu próprio cabelo para mostrar o comprimento que quer. Preencha a lacuna com a palavra certa (이 정도 / 그 정도 / 저 정도): _____로만 잘라 주세요.",
+    "Traduza para o coreano usando …게 해 주세요 (옆머리 = o cabelo da lateral): \"Deixe a lateral curta, por favor.\"",
+    "Traduza para o coreano usando …말고요 (뒷머리 = o cabelo de trás): \"Não muito curto atrás, por favor.\"",
+    "Traduza para o coreano: \"Um corte básico, por favor.\""
+  ],
+  "keyword": "미용실에서 기본 커트 부탁하기",
+  "level": "Iniciante (avançado)",
+  "minutes": 15,
+  "objective": "Ao final, o aluno será capaz de pedir um corte básico, indicar o comprimento com '이 정도', dizer se quer franja ou não, pedir para as orelhas ficarem à mostra ou cobertas, e usar '너무 짧게는 말고요' naturalmente.",
+  "setting": "미용실",
+  "summary": "Um diálogo curto e realista de salão de beleza para pedir um corte básico: definir o comprimento com '이 정도', escolher a franja e pedir para mostrar ou cobrir as orelhas. Praticar o suavizador educado '…말고요', como em 'Não muito curto, por favor.'",
+  "tags": [],
+  "task": {
+    "title": "Diga ao cabeleireiro o que você quer",
+    "line": "No salão, peça um corte básico: mostre o comprimento com '이 정도', diga como você quer a franja e as orelhas, e acrescente '너무 짧게는 말고요'."
+  },
+  "title": "미용실에서 기본 커트 부탁하기",
+  "words": [
+    {
+      "korean": "기본 커트",
+      "roman": "gibon keoteu",
+      "meaning": "um corte básico",
+      "example": "기본 커트요.",
+      "exampleMeaning": "Um corte básico, por favor."
+    },
+    {
+      "korean": "이 정도",
+      "roman": "i jeongdo",
+      "meaning": "mais ou menos isso; mais ou menos esse comprimento",
+      "example": "이 정도로만 잘라 주세요.",
+      "exampleMeaning": "Corte só até aqui, por favor."
+    },
+    {
+      "korean": "너무 짧게는 말고요",
+      "roman": "neomu jjalgeneun malgoyo",
+      "meaning": "Não muito curto, por favor.",
+      "example": "옆머리는 너무 짧게는 말고요.",
+      "exampleMeaning": "Não muito curto na lateral, por favor."
+    },
+    {
+      "korean": "앞머리",
+      "roman": "ammeori",
+      "meaning": "franja",
+      "example": "앞머리 내려 주세요.",
+      "exampleMeaning": "Faça franja para mim, por favor."
+    },
+    {
+      "korean": "귀는 보이게 해 주세요",
+      "roman": "gwineun boige hae juseyo",
+      "meaning": "Deixe minhas orelhas à mostra, por favor.",
+      "example": "이번에는 귀가 보이게 잘라 주세요.",
+      "exampleMeaning": "Desta vez, corte de um jeito que minhas orelhas fiquem à mostra, por favor."
+    },
+    {
+      "korean": "귀는 가리게 해 주세요",
+      "roman": "gwineun garige hae juseyo",
+      "meaning": "Cubra minhas orelhas, por favor.",
+      "example": "겨울이라서 귀는 좀 가리게 해 주세요.",
+      "exampleMeaning": "É inverno, então deixe minhas orelhas um pouco cobertas, por favor."
+    },
+    {
+      "korean": "…게 해 주세요",
+      "roman": "…ge hae juseyo",
+      "meaning": "Faça de um jeito que…, por favor; faça para que…, por favor",
+      "example": "앞머리는 짧게 해 주세요.",
+      "exampleMeaning": "Deixe a franja curta, por favor."
+    }
+  ],
+  "category": "reallife"
+}

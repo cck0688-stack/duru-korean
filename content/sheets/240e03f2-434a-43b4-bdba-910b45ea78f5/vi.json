@@ -1,0 +1,70 @@
+{
+  "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
+  "keyword": "도로명주소",
+  "summary": "Học cách nhanh chóng tìm và đọc tên đường kết thúc bằng ro/gil cùng với số nhà, và khi có, số tòa nhà/căn hộ chung cư (동/호) trong địa chỉ tiếng Hàn được viết trên giấy, tin nhắn, hoặc ứng dụng bản đồ.",
+  "objective": "Sau khi hoàn thành bài tập này, người học có thể 1) nhận biết và đọc tên đường kết thúc bằng ro/gil cùng với số nhà, và 2) tìm và đọc 동 và 호 của chung cư một cách nhanh chóng và chính xác.",
+  "level": "Sơ cấp (cao)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Hãy viết tên đường + số nhà và 동/층/호 (viết 없음 nếu không có): 광주 북구 무지개로 58",
+    "Hãy viết tên đường + số nhà và 동/층/호 (viết 없음 nếu không có): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
+    "Hãy viết cách đọc địa chỉ này từ tên đường đến 호, đọc các số bằng số Hán-Hàn (viết bằng chữ Hangul). Bỏ qua phần vùng và phần trong ngoặc đơn ở cuối: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
+    "Hãy viết tên đường + số nhà và 동/층/호 (viết 없음 nếu không có): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
+    "Địa chỉ này được viết theo kiểu không trang trọng hàng ngày. Hãy viết cách đọc từ tên đường đến hết, bao gồm tên tòa nhà trước 호 và bỏ qua phần vùng, đọc các số bằng số Hán-Hàn (viết bằng chữ Hangul): 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
+  ],
+  "answers": [
+    "무지개로 58; 없음",
+    "바다숲로45번길 17; 3층",
+    "푸른숲로 백사십육, 백일동 사백이호",
+    "별빛로 29; 5동",
+    "달빛로 십이번길 팔, 해오름빌라 이백삼호"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Tổng quan về địa chỉ theo tên đường",
+      "paragraphs": [
+        "Địa chỉ tiếng Hàn được đọc theo ba phần: vùng (시/도, 시/군/구) + tên đường và số nhà + (đối với chung cư) 동·호.",
+        "Ví dụ: trong '서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)', '햇살로17길 12' là tên đường và số nhà, còn '202호' là số căn hộ. Phần trong ngoặc đơn ở cuối chứa tên khu phố (법정동) và tên tòa nhà."
+      ]
+    },
+    {
+      "heading": "Tìm 로/길 (ro/gil) và số nhà",
+      "paragraphs": [
+        "Tên đường thường kết thúc bằng '…로' (ro) hoặc '…길' (gil), bao gồm cả '…번길' (beon-gil). Số ngay sau tên đường là số nhà.",
+        "Ví dụ: '세종대로 110', '햇살로17길 12'.",
+        "Cách đọc: '세종대로 백십', '햇살로 십칠길 십이'. Đọc các số rõ ràng bằng đơn vị hàng số Hán-Hàn (천/백/십)."
+      ]
+    },
+    {
+      "heading": "Tìm 동·호 (dong/ho) của chung cư",
+      "paragraphs": [
+        "Đối với chung cư, officetel và các tòa nhà tương tự, địa chỉ chi tiết (동·층·호) nằm sau dấu phẩy. '동' là số tòa nhà trong khu phức hợp, '층' là số tầng, và '호' là số căn hộ (phòng).",
+        "Mẫu chính thức: '…, 101동 1203호 (○○동, ○○아파트)' hoặc '…, 1203호 (○○동, ○○오피스텔)' (đôi khi không có 동). Tên tòa nhà được đặt trong ngoặc đơn ở cuối, cùng với tên khu phố (법정동).",
+        "Kiểu viết không trang trọng hàng ngày: nhiều người viết tên tòa nhà trước 동·호, ví dụ '…, 초록아파트 101동 1203호'. Bạn sẽ thường thấy kiểu này trên bưu kiện và tin nhắn, nhưng đây không phải là định dạng chính thức.",
+        "Cách đọc: '백일동 천이백삼호' (101동 1203호)."
+      ]
+    },
+    {
+      "heading": "Mẹo để tìm nhanh",
+      "paragraphs": [
+        "1) Trước tiên, tìm phần cuối của tên đường, tức chữ '로' hoặc '길/번길' cuối cùng. Đối với các đường nhánh như '…로17길' hoặc '…로45번길', số dính liền với chữ đó là một phần của tên đường. Số sau khoảng trắng là số nhà.",
+        "2) Tìm '동', '층' và '호' ngay sau dấu phẩy (trong kiểu viết không trang trọng, sau tên tòa nhà). Các từ trong ngoặc đơn ở cuối là tên khu vực và tên tòa nhà, không phải số căn hộ. Nếu không có 동·층·호, hãy nói '없음' (không có).",
+        "3) Khi nói, hãy nói 'tên đường + số nhà' trước, sau đó mới đến '동·호'."
+      ]
+    },
+    {
+      "heading": "Hướng dẫn luyện tập",
+      "paragraphs": [
+        "Định dạng câu trả lời khi tìm: 'tên đường số nhà; 동·층·호' hoặc 'tên đường số nhà; 없음' (không có). Khi đọc: chỉ nói tên đường + số nhà rồi đến 동·호 (cộng với tên tòa nhà nếu nó được viết trước 동·호, như trong kiểu viết không trang trọng); bỏ qua phần vùng và phần trong ngoặc đơn ở cuối. Viết các số bằng chữ Hangul, ví dụ '세종대로 백십'."
+      ]
+    }
+  ],
+  "note": "Các địa chỉ ví dụ được tạo ra để luyện tập. Ngoại trừ '세종대로 110', tên đường, tòa nhà và số căn hộ đều là hư cấu và không liên quan đến địa điểm thực tế nào.",
+  "category": "etc"
+}

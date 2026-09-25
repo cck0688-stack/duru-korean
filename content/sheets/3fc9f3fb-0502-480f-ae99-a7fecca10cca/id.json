@@ -1,0 +1,112 @@
+{
+  "answers": [
+    "화장실에 가도 돼요? / 화장실에 가도 될까요?",
+    "네, 앉아도 돼요. (네, 여기에 앉아도 돼요.)",
+    "여기에서 떠들면 안 돼요.",
+    "내일은 토요일이에요. 학교에 안 가도 돼요.",
+    "수업에 늦으면 안 돼요."
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Ubah menjadi kalimat tanya yang meminta izin: 화장실에 가다",
+    "Jawablah pertanyaan berikut dengan memberikan izin: 여기에 앉아도 돼요?",
+    "Tuliskan sebuah kalimat larangan: 도서관이에요. 여기에서 떠들다",
+    "Pilih jawaban yang tepat di dalam tanda kurung: 내일은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).",
+    "Perbaiki kalimat berikut agar menyatakan larangan: 수업에 늦으면 돼요."
+  ],
+  "forms": [
+    {
+      "form": "V-아/어도 돼요? / V-아/어도 될까요?",
+      "when": "Digunakan saat meminta izin kepada seseorang (될까요 lebih sopan)",
+      "means": "Bolehkah saya…? Apakah tidak apa-apa jika saya…?",
+      "example": "창문을 열어도 될까요?",
+      "exampleMeaning": "Bolehkah saya membuka jendela?",
+      "mark": [
+        "열어도",
+        "될까요?"
+      ]
+    },
+    {
+      "form": "V-아/어도 돼요.",
+      "when": "Digunakan saat memberi izin kepada seseorang",
+      "means": "Kamu boleh… / Tidak apa-apa untuk…",
+      "example": "네, 여기에서 사진을 찍어도 돼요.",
+      "exampleMeaning": "Ya, kamu boleh mengambil foto di sini.",
+      "mark": [
+        "찍어도",
+        "돼요."
+      ]
+    },
+    {
+      "form": "V-(으)면 안 돼요.",
+      "when": "Digunakan saat menyatakan peraturan, larangan, atau peringatan",
+      "means": "tidak boleh / dilarang",
+      "example": "여기에서 담배를 피우면 안 돼요.",
+      "exampleMeaning": "Kamu tidak boleh merokok di sini.",
+      "mark": [
+        "피우면",
+        "안",
+        "돼요."
+      ]
+    },
+    {
+      "form": "안 V-아/어도 돼요. (= V-지 않아도 돼요.)",
+      "when": "Digunakan saat mengatakan bahwa sesuatu tidak perlu dilakukan",
+      "means": "tidak perlu / tidak harus",
+      "example": "오늘은 숙제를 안 해도 돼요.",
+      "exampleMeaning": "Kamu tidak perlu mengerjakan PR hari ini.",
+      "mark": [
+        "안",
+        "해도",
+        "돼요."
+      ]
+    }
+  ],
+  "keyword": "-아/어도 되다·-(으)면 안 되다",
+  "level": "Pemula (tinggi)",
+  "minutes": 15,
+  "objective": "Pada akhir pelajaran, peserta dapat meminta/memberi izin menggunakan -아/어도 되다, menyatakan larangan menggunakan -(으)면 안 되다, dan membedakan dengan tepat antara '안 V-아/어도 되다 (tidak perlu)' dan 'V-(으)면 안 되다 (tidak boleh)'.",
+  "summary": "Berlatih meminta dan memberi izin dengan -아/어도 되다, menyatakan larangan dengan -(으)면 안 되다, serta membedakan 'tidak perlu' (안 V-아/어도 되다) dari 'tidak boleh' (V-(으)면 안 되다).",
+  "tags": [],
+  "task": {
+    "title": "Buat Peraturan Perpustakaan",
+    "line": "Tuliskan 2 hal yang boleh dilakukan dan 2 hal yang tidak boleh dilakukan di perpustakaan, dengan menggunakan -아/어도 돼요 dan -(으)면 안 돼요."
+  },
+  "title": "허락·금지 말하기: -아/어도 되다, -(으)면 안 되다, ‘안 V-아/어도 되다’ 구분",
+  "watchOut": [
+    "'안 V-아/어도 돼요' (tidak perlu) berbeda dengan 'V-(으)면 안 돼요' (tidak boleh). Contoh: 우산을 안 써도 돼요 (kamu tidak perlu memakai payung; tidak sedang hujan) dibandingkan dengan 우산을 쓰면 안 돼요 (kamu tidak boleh memakai payung).",
+    "Ejaan: '돼요' adalah bentuk yang benar ('되요' salah).",
+    "Kesopanan: '…될까요?' lebih sopan daripada '…돼요?'.",
+    "Posisi 안: letakkan '안' tepat sebelum kata kerja. Contoh: 약을 안 먹어도 돼요 (kamu tidak perlu minum obat) berbeda dengan 약을 먹어도 안 돼요 (artinya berbeda: meski minum obat, tetap tidak membantu).",
+    "Perhatikan konjugasinya: 하다→해도, 마시다→마셔도, 쓰다→써도 (ㅡ hilang), 듣다→들어도 (tidak beraturan ㄷ)."
+  ],
+  "watchOutMark": [
+    [
+      "안 써도 돼요",
+      "쓰면 안 돼요"
+    ],
+    [
+      "되요",
+      "돼요"
+    ],
+    [
+      "돼요?",
+      "될까요?"
+    ],
+    [
+      "안 먹어도 돼요",
+      "먹어도 안 돼요"
+    ],
+    [
+      "하다",
+      "해도",
+      "마시다",
+      "마셔도",
+      "쓰다",
+      "써도",
+      "듣다",
+      "들어도"
+    ]
+  ],
+  "category": "grammar"
+}

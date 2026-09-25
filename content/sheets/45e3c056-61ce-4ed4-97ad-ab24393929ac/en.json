@@ -1,0 +1,73 @@
+{
+  "title": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
+  "keyword": "",
+  "summary": "Read and distinguish 12 very common Korean bank ATM buttons/labels and understand what each one does. Build confidence to navigate a full ATM flow on your own.",
+  "objective": "By the end, learners can accurately read 12 frequent ATM buttons/labels in Korean (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) and follow the basic ATM flow (choose service → card in → enter PIN → choose amount/account → receipt option → take cash/card; some machines ask for the card first) independently.",
+  "level": "Beginner",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Read the screen message and choose 예 or 아니요: 화면에 '영수증이 필요하십니까? 예/아니요'가 나왔어요. 종이 영수증이 필요 없어요. 무엇을 누르나요?",
+    "First write the Korean label of the button you press, then put the next steps in the order shown in this worksheet's 이체 flow: 상황: 다른 사람 계좌로 돈을 보내야 해요. (확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력)",
+    "Put the steps of 출금 in the order shown in this worksheet: 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인",
+    "Match each situation to a Korean button label: (a) 고지서로 전기요금을 내고 싶어요. (b) 카드로 내 계좌에 현금을 넣고 싶어요. (c) 카드나 통장 없이 계좌번호로 돈을 넣고 싶어요. (d) 통장에 그동안의 거래 내역을 찍고 싶어요. (e) 현금을 뽑고 싶어요. (f) 계좌에 남은 돈을 확인하고 싶어요.",
+    "Which button do you press? Answer with the Korean label: (a) 거래가 끝난 후에 메뉴에서 종이 영수증을 뽑고 싶어요. (b) 화면에 '금액을 선택하세요.'가 나와서 금액을 골랐어요. 다음으로 가고 싶어요. (c) 거래를 그만하고 싶어요. (d) 첫 화면으로 돌아가고 싶어요.",
+    "Write the Korean label for this romanization: eoneo seontaek"
+  ],
+  "answers": [
+    "아니요",
+    "이체(계좌이체); 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인",
+    "출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인",
+    "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회",
+    "(a) 영수증 출력 (b) 확인 (c) 취소 (d) 처음으로(초기화면)",
+    "언어 선택"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "12 buttons: reading the labels (romanization) and what they do",
+      "paragraphs": [
+        "출금[현금인출] (chulgeum [hyeongeum inchul]): Press to withdraw cash.",
+        "입금 (ipgeum): Press to put money into a bank account (deposit).",
+        "이체[계좌이체] (iche [gyejwa iche]): Press to send money to another account (transfer).",
+        "잔액조회 (janaek johoe): Press to check how much money is left in the account (check balance).",
+        "통장정리 (tongjang jeongni): Prints the transaction history into your passbook (update passbook).",
+        "무통장 입금 (mutongjang ipgeum): Deposits cash to an account number without a card or passbook.",
+        "공과금 납부[지로] (gonggwageum napbu [jiro]): Pays bills such as electricity and water.",
+        "영수증 출력 (yeongsujeung chullyeok): Gives you a paper receipt (print receipt).",
+        "언어 선택 (eoneo seontaek): Chooses the language, such as Korean or English.",
+        "확인 (hwagin): Finishes your input and continues (confirm).",
+        "취소 (chwiso): Cancels the current transaction (cancel).",
+        "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): Goes back to the first screen (go to start/home)."
+      ]
+    },
+    {
+      "heading": "Following the basic flow",
+      "paragraphs": [
+        "On most machines, you choose the service first and then insert your card or passbook. Some machines ask for the card first.",
+        "출금: 출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
+        "이체: 이체 → 카드 넣기 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기"
+      ]
+    },
+    {
+      "heading": "Common on-screen messages",
+      "paragraphs": [
+        "금액을 선택하세요. (Please choose the amount.)",
+        "영수증이 필요하십니까? 예/아니요 (Do you need a receipt? Yes/No)"
+      ]
+    },
+    {
+      "heading": "Reading tips and term notes",
+      "paragraphs": [
+        "Square brackets […] show another label with the same meaning. If you see either one, it is the same function.",
+        "확인, 취소 and 처음으로 appear on almost every screen. Their position differs by bank, so always read the text."
+      ]
+    }
+  ],
+  "note": "This worksheet is based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine.",
+  "category": "etc"
+}

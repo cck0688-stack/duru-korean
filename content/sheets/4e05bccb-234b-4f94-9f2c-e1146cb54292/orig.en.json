@@ -1,0 +1,120 @@
+{
+  "answers": [
+    "T",
+    "이 정도",
+    "b) 귀는 가리게 해 주세요.",
+    "너무 짧게는 말고요.",
+    "귀는 보이게 해 주세요."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "디자이너",
+      "korean": "어서 오세요. 어떻게 해 드릴까요?",
+      "meaning": "Welcome. What would you like today?"
+    },
+    {
+      "who": "손님",
+      "korean": "기본 커트요. 길이는 이 정도까지만 잘라 주세요.",
+      "meaning": "A basic cut, please. Please cut only to about this length."
+    },
+    {
+      "who": "디자이너",
+      "korean": "네, 이 정도면 괜찮으세요?",
+      "meaning": "Okay. Is this length okay?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 좋아요. 근데 너무 짧게는 말고요.",
+      "meaning": "Yes, that’s good. But not too short, please."
+    },
+    {
+      "who": "디자이너",
+      "korean": "알겠습니다. 앞머리는 내릴까요?",
+      "meaning": "Got it. Shall I give you bangs?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 앞머리 조금만 내려 주세요.",
+      "meaning": "Yes, just a little for the bangs, please."
+    },
+    {
+      "who": "디자이너",
+      "korean": "귀는 보이게 해 드릴까요, 가리게 해 드릴까요?",
+      "meaning": "Do you want your ears showing or covered?"
+    },
+    {
+      "who": "손님",
+      "korean": "귀는 가리게 해 주세요.",
+      "meaning": "Please cover my ears."
+    }
+  ],
+  "exercises": [
+    "T/F. In the dialogue, the customer asks to cover their ears. (Write T or F)",
+    "Fill in the blank with exactly ‘이 정도’: _____로만 잘라 주세요. (You are pointing to the length.)",
+    "Choose the sentence that asks to cover the ears: a) 귀는 보이게 해 주세요. b) 귀는 가리게 해 주세요.",
+    "Translate to Korean using …말고요: “Not too short, please.”",
+    "Translate to Korean using ‘귀는 … 해 주세요’: “Please make my ears visible.”"
+  ],
+  "keyword": "미용실에서 기본 커트 부탁하기",
+  "level": "Beginner-High (A2)",
+  "minutes": 15,
+  "objective": "By the end, learners can request a basic cut, indicate length with ‘이 정도’, say whether they want bangs, ask for ears to be visible or covered, and use ‘너무 짧게는 말고요’ naturally.",
+  "setting": "미용실",
+  "summary": "A short, real-life salon dialogue to request a basic haircut: set the length with ‘이 정도’, choose bangs, and ask to show or cover ears. Practice the polite softener ‘…말고요’ as in ‘Not too short, please.’",
+  "tags": [],
+  "task": null,
+  "title": "미용실에서 기본 커트 부탁하기",
+  "words": [
+    {
+      "korean": "기본 커트",
+      "roman": "gibon keoteu",
+      "meaning": "a basic haircut",
+      "example": "기본 커트요.",
+      "exampleMeaning": "A basic cut, please."
+    },
+    {
+      "korean": "이 정도",
+      "roman": "i jeongdo",
+      "meaning": "this much; about this length",
+      "example": "이 정도로만 잘라 주세요.",
+      "exampleMeaning": "Please cut only this much."
+    },
+    {
+      "korean": "너무 짧게는 말고요",
+      "roman": "neomu jjalbge-neun malgoyo",
+      "meaning": "Not too short, please.",
+      "example": "너무 짧게는 말고요.",
+      "exampleMeaning": "Not too short, please."
+    },
+    {
+      "korean": "앞머리",
+      "roman": "apmeori",
+      "meaning": "bangs (fringe)",
+      "example": "앞머리 내려 주세요.",
+      "exampleMeaning": "Please give me bangs."
+    },
+    {
+      "korean": "귀는 보이게 해 주세요",
+      "roman": "gwineun boige hae juseyo",
+      "meaning": "Please make my ears visible.",
+      "example": "귀는 보이게 해 주세요.",
+      "exampleMeaning": "Please make my ears visible."
+    },
+    {
+      "korean": "귀는 가리게 해 주세요",
+      "roman": "gwineun garige hae juseyo",
+      "meaning": "Please cover my ears.",
+      "example": "귀는 가리게 해 주세요.",
+      "exampleMeaning": "Please cover my ears."
+    },
+    {
+      "korean": "…게 해 주세요",
+      "roman": "…ge hae juseyo",
+      "meaning": "Please make it …; please do it so that …",
+      "example": "앞머리는 짧게 해 주세요.",
+      "exampleMeaning": "Please make the bangs short."
+    }
+  ],
+  "category": "reallife"
+}

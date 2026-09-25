@@ -1,0 +1,291 @@
+{
+  "id": "325fd249-8696-4732-b9d0-fa352e2bb704",
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "letters의 ㄷ 항목, objective, 1번 문제: ㄷ을 'little or no puff', 'like t in “stop”'으로 설명한 것은 틀렸습니다. \"stop\"처럼 s 뒤에 오는 t는 숨이 나오지 않는 소리여서 한국어에서는 ㄷ보다 된소리 ㄸ에 더 가깝습니다. 또 단어 첫머리의 ㄷ은 ㅌ보다 약하지만 숨이 조금 나옵니다. 그래서 1번 문제의 정답을 ㄷ으로 두면 학습자가 소리를 잘못 익히게 됩니다. ㄷ은 'lightly aspirated t/d, weaker puff than ㅌ'로 설명하고, \"stop\"의 t는 ㄸ에 가깝다고 안내하거나 이 단서를 빼세요. 1번 문제의 힌트와 정답도 이에 맞게 다시 만드세요.",
+        "4번 문제: '거센 소리'는 한 낱말이므로 '거센소리'로 붙여 써야 합니다. 'ㅌ(거센소리)로 시작하는 말을 고르세요'로 고치세요."
+      ],
+      "audit": [
+        "exercises[0]: 영어 소리 힌트: t in “stop”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요. → Write the correct initial consonant (ㄷ/ㅌ/ㄸ). Sound hint: between English d and t, with a light puff of air (as in 달, 돈).",
+        "exercises[1]: 영어 소리 힌트: t in “top”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요. → Write the correct initial consonant (ㄷ/ㅌ/ㄸ). Sound hint: t in “top” (strong puff of air).",
+        "exercises[2]: 영어 소리 힌트: tense “tt” (no exact English). 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요. → Write the correct initial consonant (ㄷ/ㅌ/ㄸ). Sound hint: tense “tt”, tight throat, no puff of air.",
+        "exercises[3]: ㅌ(거센 소리)로 시작하는 말을 고르세요: 달 / 토마토 / 딸 → Choose the word that begins with ㅌ (aspirated): 달 / 토마토 / 딸",
+        "exercises[4]: 로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: tteok → Look at the romanization and write only the first consonant in Hangul: tteok",
+        "letters[0] (ㄷ) sound / as: sound: \"plain t (unaspirated), little or no puff\"; as: \"like t in “stop”\" → sound: \"plain t, light puff of air (weaker than ㅌ)\"; as: \"between English d and t; at the start of a word it often sounds like a soft t\"",
+        "letters[2] (ㄸ) as; objective: as: \"tense “tt” (no exact English equivalent)\"; objective: \"ㄷ ≈ t in “stop”, ㅌ ≈ t in “top”, ㄸ = tense “tt”, no exact English equivalent\" → as: \"tense “tt” with no puff of air; closest English is the t in “stop”\"; objective: \"ㄷ ≈ between English d and t with a light puff, ㅌ ≈ t in “top”, ㄸ ≈ tense t with no puff, close to the t in “stop”\""
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Questions 1–3 all use the same frame ('영어 소리 힌트: … 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요'). Each hint is copied almost word for word from the letters table (Q1 'between English d and t' = the ㄷ entry, Q2 't in top' = the ㅌ entry, Q3 'tense tt' = the ㄸ entry). Learners can match the text to the table without telling the sounds apart or reading any Korean word. This makes the worksheet thin and does not practise the objective of reading simple words with these first consonants. Fix: change at least two of these questions to word-based tasks. For example, show 두부/토끼/떡 and ask which starts with the tense sound, give the romanization 'dubu' and ask for the first consonant, or show 달/딸 and ask which means 'daughter'. Update the answers to match."
+      ],
+      "audit": [
+        "exercises[0]: 영어 소리 힌트: between English d and t, with a light puff of air. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요. → English sound hint: between English d and t, with a light puff of air. Write the correct initial consonant (ㄷ/ㅌ/ㄸ).",
+        "exercises[1]: 영어 소리 힌트: t in “top”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요. → English sound hint: t in “top”. Write the correct initial consonant (ㄷ/ㅌ/ㄸ).",
+        "exercises[2]: 영어 소리 힌트: tense “tt” (no exact English). 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요. → English sound hint: tense “tt” (no exact English equivalent). Write the correct initial consonant (ㄷ/ㅌ/ㄸ).",
+        "exercises[3]: ㅌ(거센소리)로 시작하는 말을 고르세요: 달 / 토마토 / 딸 → Choose the word that starts with aspirated ㅌ: 달 / 토마토 / 딸",
+        "exercises[4]: 로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: tteok → Look at the romanization and write only the first consonant in Hangul: tteok"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "exercises[0]: ㄸ(된소리)로 시작하는 말을 고르세요: 두부 / 토끼 / 또 → Choose the word that starts with ㄸ (tense): 두부 / 토끼 / 또",
+        "exercises[1]: 로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: dubu → Look at the romanization and write only the first consonant in Hangul: dubu",
+        "exercises[2]: ‘daughter’라는 뜻의 말을 고르세요: 달 / 딸 → Choose the word that means ‘daughter’: 달 / 딸",
+        "exercises[3]: ㅌ(거센소리)로 시작하는 말을 고르세요: 달 / 토마토 / 딸 → Choose the word that starts with ㅌ (aspirated): 달 / 토마토 / 딸",
+        "exercises[4]: 로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: tteok → Look at the romanization and write only the first consonant in Hangul: tteok"
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "ㄷ",
+      "after": "또"
+    },
+    {
+      "at": "answers[2]",
+      "before": "ㅌ",
+      "after": "ㄷ"
+    },
+    {
+      "at": "answers[3]",
+      "before": "ㄸ",
+      "after": "딸"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "영어 소리 힌트: t in “stop”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+      "after": "Choose the word that starts with ㄸ (tense): 두부 / 토끼 / 또"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "영어 소리 힌트: t in “top”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+      "after": "Look at the romanization and write only the first consonant in Hangul: dubu"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "영어 소리 힌트: tense “tt” (no exact English). 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+      "after": "Choose the word that means ‘daughter’: 달 / 딸"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "ㅌ(거센 소리)로 시작하는 말을 고르세요: 달 / 토마토 / 딸",
+      "after": "Choose the word that starts with ㅌ (aspirated): 달 / 토마토 / 딸"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: tteok",
+      "after": "Look at the romanization and write only the first consonant in Hangul: tteok"
+    },
+    {
+      "at": "letters[1].sound",
+      "before": "plain t (unaspirated), little or no puff",
+      "after": "plain t, light puff of air (weaker than ㅌ)"
+    },
+    {
+      "at": "letters[1].as",
+      "before": "like t in “stop”",
+      "after": "between English d and t; at the start of a word it often sounds like a soft t"
+    },
+    {
+      "at": "letters[3].as",
+      "before": "tense “tt” (no exact English equivalent)",
+      "after": "tense “tt” with no puff of air; closest English is the t in “stop”"
+    },
+    {
+      "at": "objective",
+      "before": "Learners will identify and pronounce ㄷ (plain), ㅌ (aspirated), and ㄸ (tense) in word-initial position, link them to clear English cues (ㄷ ≈ t in “stop”, ㅌ ≈ t in “top”, ㄸ = tense “tt”, no exact English equivalent), and correctly read simple words containing these initials.",
+      "after": "Learners will identify and pronounce ㄷ (plain), ㅌ (aspirated), and ㄸ (tense) in word-initial position, link them to clear English cues (ㄷ ≈ between English d and t with a light puff, ㅌ ≈ t in “top”, ㄸ ≈ tense t with no puff, close to the t in “stop”), and correctly read simple words containing these initials."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 29,
+          "problem": "The word \"only\" is missing. The English asks learners to write only the first consonant, not the whole word; without \"chỉ\" the Vietnamese no longer says that.",
+          "fix": "Nhìn vào phiên âm La-tinh và chỉ viết phụ âm đầu bằng Hangul: dubu"
+        },
+        {
+          "line": 32,
+          "problem": "The word \"only\" is missing. The English asks learners to write only the first consonant, not the whole word; without \"chỉ\" the Vietnamese no longer says that.",
+          "fix": "Nhìn vào phiên âm La-tinh và chỉ viết phụ âm đầu bằng Hangul: tteok"
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 30,
+          "problem": "The English prompt asks for the word meaning 'daughter', but the Korean puts the answer itself ('딸') in the prompt. This gives away the answer and changes what the exercise tests.",
+          "fix": "'daughter'를 의미하는 단어를 고르세요: 달 / 딸"
+        },
+        {
+          "line": 2,
+          "problem": "The English says beginners can connect the sounds and read simple words accurately. The Korean leaves out the part about reading simple words accurately.",
+          "fix": "한국어 초성 자음 ㄷ(평음), ㅌ(격음), ㄸ(경음)을 구별하여 읽는 연습을 합니다. 초급 학습자가 소리를 연결하고 간단한 단어를 정확하게 읽을 수 있도록 영어 발음 참고 예시를 함께 제공합니다."
+        },
+        {
+          "line": 26,
+          "problem": "'tight' is rendered as 강하게 ('strongly'). This suggests a strong sound or puff of air, which conflicts with the point that ㄸ has no puff. It should say tense or tight (긴장된).",
+          "fix": "경음 t 소리로, 긴장된 상태로 짧게 발음합니다."
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "\"Windstoß\" means a gust of wind and is the wrong word for a puff of air in pronunciation. The usual term is \"Luftstoß\".",
+          "fix": "Die Lernenden erkennen und sprechen ㄷ (einfach), ㅌ (aspiriert) und ㄸ (angespannt) am Wortanfang aus, verbinden sie mit klaren englischen Lautvergleichen (ㄷ ≈ zwischen englischem d und t mit leichtem Luftstoß, ㅌ ≈ t wie in „top“, ㄸ ≈ angespanntes t ohne Luftstoß, ähnlich dem t in „stop“) und lesen einfache Wörter mit diesen Anfangskonsonanten korrekt."
+        },
+        {
+          "line": 22,
+          "problem": "\"plain\" is the name of the basic, unaspirated sound and is translated \"einfach\" elsewhere. \"reines t\" means \"pure t\", which is wrong here. \"Windstoß\" (a gust of wind) should be \"Luftstoß\".",
+          "fix": "einfaches t, leichter Luftstoß (schwächer als ㅌ)"
+        },
+        {
+          "line": 24,
+          "problem": "\"Windstoß\" means a gust of wind, not a puff of air in pronunciation. It should be \"Luftstoß\".",
+          "fix": "aspiriertes t, starker Luftstoß"
+        },
+        {
+          "line": 27,
+          "problem": "\"Windstoß\" means a gust of wind, not a puff of air in pronunciation. It should be \"Luftstoß\".",
+          "fix": "angespanntes „tt“ ohne Luftstoß; am ehesten vergleichbar mit dem t in „stop“"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:49:34.052Z"
+}

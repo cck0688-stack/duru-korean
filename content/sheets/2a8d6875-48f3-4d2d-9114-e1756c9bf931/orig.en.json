@@ -1,0 +1,103 @@
+{
+  "answers": [
+    "개",
+    "게",
+    "레몬",
+    "계란",
+    "ㅐ",
+    "ㅖ"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "뜻에 맞는 낱말을 고르세요. dog -> 개 / 게",
+    "뜻에 맞는 낱말을 고르세요. crab -> 게 / 개",
+    "맞는 철자를 고르세요. (lemon) 레몬 / 래몬",
+    "맞는 철자를 고르세요. (egg) 계란 / 게란",
+    "빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (book): ㅐ / ㅔ / ㅖ",
+    "빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (to be pretty): ㅐ / ㅔ / ㅖ"
+  ],
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "letters": [
+    {
+      "letter": "ㅐ",
+      "sound": "ae",
+      "as": "(a wide e sound) like the vowel in \"cat\""
+    },
+    {
+      "letter": "ㅔ",
+      "sound": "e",
+      "as": "like the vowel in \"bed\""
+    },
+    {
+      "letter": "ㅖ",
+      "sound": "ye",
+      "as": "like \"ye\" in \"yes\""
+    }
+  ],
+  "level": "Beginner (초급)",
+  "minutes": 12,
+  "objective": "Learners will recognize and pronounce ㅐ, ㅔ, and ㅖ accurately, and read simple words that contain these vowels without confusion.",
+  "summary": "Practice distinguishing and reading the Korean vowels ㅐ, ㅔ, ㅖ through minimal pairs and common words. Includes quick spelling choices to reinforce accurate vowel recognition.",
+  "tags": [],
+  "task": null,
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "words": [
+    {
+      "korean": "개",
+      "roman": "gae",
+      "meaning": "dog",
+      "example": "저건 개예요.",
+      "exampleMeaning": "That is a dog."
+    },
+    {
+      "korean": "배",
+      "roman": "bae",
+      "meaning": "pear",
+      "example": "배가 맛있어요.",
+      "exampleMeaning": "The pear is tasty."
+    },
+    {
+      "korean": "책",
+      "roman": "chaek",
+      "meaning": "book",
+      "example": "책이 있어요.",
+      "exampleMeaning": "There is a book."
+    },
+    {
+      "korean": "게",
+      "roman": "ge",
+      "meaning": "crab",
+      "example": "게를 먹어요.",
+      "exampleMeaning": "I eat crab."
+    },
+    {
+      "korean": "레몬",
+      "roman": "remon",
+      "meaning": "lemon",
+      "example": "레몬 주세요.",
+      "exampleMeaning": "Please give me a lemon."
+    },
+    {
+      "korean": "예",
+      "roman": "ye",
+      "meaning": "yes (polite)",
+      "example": "예, 맞아요.",
+      "exampleMeaning": "Yes, that's right."
+    },
+    {
+      "korean": "예쁘다",
+      "roman": "yeppeuda",
+      "meaning": "to be pretty",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "The flower is pretty."
+    },
+    {
+      "korean": "계란",
+      "roman": "gyeran",
+      "meaning": "egg",
+      "example": "이건 계란이에요.",
+      "exampleMeaning": "This is an egg."
+    }
+  ],
+  "category": "hangul"
+}

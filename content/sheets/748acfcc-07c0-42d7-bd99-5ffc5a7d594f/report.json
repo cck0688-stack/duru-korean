@@ -1,0 +1,456 @@
+{
+  "id": "748acfcc-07c0-42d7-bd99-5ffc5a7d594f",
+  "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12 읽기",
+  "category": "etc",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "answers[1] (Exercise 2): The first answer has no number. It reads \"포장 ② 세트\", so ① and ② are formatted differently and are hard to match to the questions. Change it to \"① 포장 ② 세트\".",
+    "answers[2] (Exercise 3): The first answer has no number. It reads \"L ② HOT ③ 추가\". Change it to \"① L ② HOT ③ 추가\".",
+    "answers[3] (Exercise 4): The first answer has no number. It reads \"간편결제 ② 카드 결제 ③ 영수증 출력 ④ ...\". Change it to \"① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.\"",
+    "answers[1] (answer to exercise 2): 포장 ② 세트 → ① 포장 ② 세트",
+    "answers[2] (answer to exercise 3): L ② HOT ③ 추가 → ① L ② HOT ③ 추가",
+    "answers[3] (answer to exercise 4): 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit. → ① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Button 8 (취소): the example contradicts the definition. The definition says 취소 is for stopping the whole order ('지금 주문을 그만둘 때'), and the reading tip agrees ('‘취소’는 주문을 멈추고 나가요'). But the example '메뉴를 잘못 눌렀어요. 취소를 눌러요.' is a situation for fixing one item or going back a step, which the tip assigns to 뒤로가기. Learners could lose their whole order. Change the example to fit the definition, e.g. '주문을 안 하고 싶어요. 취소를 눌러요.'",
+        "The exercises do not match the objective or summary. The objective promises all 12 buttons and the whole order flow, and the summary promises matching every label to its function. But the 5 exercises only test 매장, 단품, ICE, 결제하기 and 취소. Seven buttons are never practiced (포장, 세트, 사이즈, 추가, 카드 결제, 간편결제, 영수증 출력), and no task has learners put the flow steps in order. Exercises 1 and 2 also copy the button examples almost word for word ('가게에서 먹고 싶어요', '버거만…'), so they test memory, not reading. Fix: add a task matching all 12 buttons to their functions, a task ordering the flow (e.g. 포장 → 세트 → L → 결제하기 → 간편결제 → 영수증 출력), and new situations for the untested buttons (e.g. '사이다를 큰 컵으로 마시고 싶어요' → L, '휴대전화로 계산하고 싶어요' → 간편결제).",
+        "The same sentence frame is repeated too much. All 12 examples follow '예: [short reason]. [button]을/를 눌러요.', and 11 of them end with exactly '~을/를 눌러요' (only button 12 is worded a little differently). All 5 exercises end with '어떤 버튼을 누르나요?' (Exercise 3 uses the close variant '무엇을 누르나요?'). This makes the worksheet thin. Vary the wording, e.g. '~(으)면 ○○을/를 고르세요', '○○ 버튼이 어디 있어요?', '이 버튼을 누르면 어떻게 돼요?', '다음에 무엇을 해요?'"
+      ],
+      "audit": [
+        "exercises[0]: 상황: 가게에서 먹고 싶어요. 어떤 버튼을 누르나요? → Read the situation and write the kiosk button you press: 가게에서 먹고 싶어요. 어떤 버튼을 누르나요?",
+        "exercises[1]: 상황: 버거만 사고 싶어요. 감자튀김과 음료는 필요 없어요. 어떤 버튼을 누르나요? → Read the situation and write the kiosk button you press: 버거만 사고 싶어요. 감자튀김과 음료는 필요 없어요. 어떤 버튼을 누르나요?",
+        "exercises[2]: 상황: 아이스 아메리카노를 마시고 싶어요. 온도 버튼에서 무엇을 누르나요? → Read the situation and write the kiosk button you press: 아이스 아메리카노를 마시고 싶어요. 온도 버튼에서 무엇을 누르나요?",
+        "exercises[3]: 상황: 메뉴를 다 골랐어요. 이제 결제 화면으로 가려고 해요. 어떤 버튼을 누르나요? → Read the situation and write the kiosk button you press: 메뉴를 다 골랐어요. 이제 결제 화면으로 가려고 해요. 어떤 버튼을 누르나요?",
+        "exercises[4]: 상황: 지금 주문을 그만하고 싶어요. 어떤 버튼을 누르나요? → Read the situation and write the kiosk button you press: 지금 주문을 그만하고 싶어요. 어떤 버튼을 누르나요?",
+        "sections[0] heading and paragraphs: 이 자료, 이렇게 보세요 / 키오스크 화면에서 자주 만나는 버튼과 문구를 짧게 읽고 뜻을 바로바로 연결해 봅니다. / 필요한 말만 간단히 익혀서, 혼자서도 기본 주문 흐름을 따라가 보세요. → How to use this worksheet / Read the buttons and short text you often see on kiosk screens, and connect each one to its meaning right away. / Learn only the words you need, and try to follow the basic order flow on your own.",
+        "sections[1] heading: 주문 흐름 한눈에 보기 → The order flow at a glance",
+        "sections[2] heading: 자주 보이는 버튼 12 → 12 common buttons",
+        "sections[2] paragraphs 1–12 (explanation part): The meaning of each button is explained only in Korean (e.g. '1) 매장 — 가게에서 먹을 때 눌러요.') → Write the explanations in English and keep the Korean label and 예 sentences, e.g. '1) 매장 (dine in) — Press it when you eat in the store. 예: 여기서 먹어요. 매장을 눌러요.'; '2) 포장 (take out) — Press it when you take the food out.'; '3) 단품 (single item) — Press it to buy only the item, with no side or drink.'; '4) 세트 (set/combo) — A side and a drink come with the item.'; '5) HOT / ICE — Press it to choose the drink temperature.'; '6) 사이즈 (size) — Used to choose the cup or item size: S/M/L.'; '7) 추가 (add) — Press it to add something extra.'; '8) 취소 (cancel) — Press it to stop the current order.'; '9) 결제하기 (pay) — When you finish choosing, it takes you to the payment screen.'; '10) 카드 결제 (card payment) — Press it to pay by card.'; '11) 간편결제 (mobile/easy pay) — Press it to pay with your phone.'; '12) 영수증 출력 (print receipt) — Prints a paper receipt; the order number comes with it.'",
+        "sections[3] heading and paragraphs: 읽기 팁: 약자와 영어 표기 / S/M/L: Small/Medium/Large의 약자예요. 버튼에서는 S, M, L만 보여요. / HOT/ICE: 따뜻한 음료는 HOT, 차가운 음료는 ICE로 표기돼요. / 단품/세트: 단품은 메뉴만, 세트는 사이드+음료가 함께 나와요. / ‘취소’는 주문을 멈추고 나가요. ‘뒤로가기’는 한 단계만 돌아가요(이 자료의 12개 목록에는 ‘뒤로가기’를 넣지 않았어요). → Reading tips: abbreviations and English labels / S/M/L: short for Small/Medium/Large. The buttons show only S, M, L. / HOT/ICE: hot drinks are marked HOT, cold drinks ICE. / 단품/세트: 단품 is the item only; 세트 comes with a side and a drink. / 취소 (cancel) stops the order and exits. 뒤로가기 (back) goes back one step only (뒤로가기 is not in this worksheet's list of 12).",
+        "note: 예문은 실제 키오스크에서 흔히 보는 표현과 사용 흐름을 기준으로 만들었습니다. 본 자료는 읽기 중심이며, 매장별 화면 디자인은 다를 수 있습니다. → The examples are based on expressions and order flows commonly seen on real kiosks. This worksheet focuses on reading, and screen designs may differ from store to store."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "answers 2·3·4: 첫 번째 답에 번호 ①이 빠져 있음(\"포장 ② 세트\", \"L ② HOT ③ 추가\", \"간편결제 ② 카드 결제 ...\"). 문제는 ①②③으로 번호가 붙어 있는데 답은 번호가 맞지 않아서 문제와 답을 짝짓기 어려움. \"① 포장 ② 세트\", \"① L ② HOT ③ 추가\", \"① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ ...\"로 고쳐야 함.",
+        "Reading tips의 'S/M/L: ... The buttons show only S, M, L.'(6번 사이즈 설명 포함): 확인할 수 없는 사실을 단정함. 실제 키오스크는 레귤러/라지, 톨/그란데/벤티, 작은/큰처럼 매장마다 표기가 달라서 note의 'screen designs may differ from store to store'와도 모순됨. 'Many kiosks show sizes as S/M/L, but some stores use other names (e.g., 레귤러/라지).'처럼 단정하지 않는 표현으로 고쳐야 함."
+      ],
+      "audit": [
+        "answers[1]: 포장 ② 세트 → ① 포장 ② 세트",
+        "answers[2]: L ② HOT ③ 추가 → ① L ② HOT ③ 추가",
+        "answers[3]: 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit. → ① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.",
+        "title: 카페·패스트푸드 키오스크: 자주 보이는 버튼 12 읽기 → 카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
+        "sections[3].paragraphs[0]: S/M/L: short for Small/Medium/Large. The buttons show only S, M, L. → S/M/L: short for Small/Medium/Large. The buttons often show only S, M, L."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "answers 2·3·4: 첫 문항 번호 ①이 빠져 있어 문제와 답의 짝이 불분명함. '포장 ② 세트' → '① 포장 ② 세트', 'L ② HOT ③ 추가' → '① L ② HOT ③ 추가', '간편결제 ② 카드 결제 …' → '① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ …'로 고칠 것.",
+        "sections '12 common buttons' 12) 영수증 출력 예문 '확인하려고 영수증 출력을 눌러요.': '확인하다'의 목적어가 없어 무엇을 확인하는지 알 수 없는 부자연스러운 문장임. '주문번호를 확인하려고 영수증 출력을 눌러요.'처럼 목적어를 넣을 것."
+      ],
+      "audit": [
+        "answers[1] (answer 2): 포장 ② 세트 → ① 포장 ② 세트",
+        "answers[2] (answer 3): L ② HOT ③ 추가 → ① L ② HOT ③ 추가",
+        "answers[3] (answer 4): 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit. → ① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit."
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "answers[1] (Exercise 2) reads '포장 ② 세트'. The '①' is missing before the first answer, so the numbering doesn't match the questions. Change it to '① 포장 ② 세트'.",
+        "answers[2] (Exercise 3) reads 'L ② HOT ③ 추가'. The '①' is missing here too. Change it to '① L ② HOT ③ 추가'.",
+        "answers[3] (Exercise 4) reads '간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.' The '①' is missing. Change it to '① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.'"
+      ],
+      "audit": [
+        "answers[1]: 포장 ② 세트 → ① 포장 ② 세트",
+        "answers[2]: L ② HOT ③ 추가 → ① L ② HOT ③ 추가",
+        "answers[3]: 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit. → ① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.",
+        "sections[1].paragraphs[0] (The order flow at a glance): 매장/포장 선택 → 메뉴 선택(단품/세트) → 옵션 선택(HOT/ICE, 사이즈, 추가) → 결제하기 → 결제수단 선택(카드/간편결제) → 영수증/주문번호 확인 → Choose 매장/포장 (dine in/take out) → choose the menu item (단품/세트) → choose options (HOT/ICE, 사이즈, 추가) → press 결제하기 (pay) → choose the payment method (카드 결제/간편결제) → check the receipt/order number (영수증/주문번호)"
+      ]
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [
+        "answers[1] (Exercise 2): The first answer has no number. It reads \"포장 ② 세트\", so ① and ② are formatted differently and are hard to match to the questions. Change it to \"① 포장 ② 세트\".",
+        "answers[2] (Exercise 3): The first answer has no number. It reads \"L ② HOT ③ 추가\". Change it to \"① L ② HOT ③ 추가\".",
+        "answers[3] (Exercise 4): The first answer has no number. It reads \"간편결제 ② 카드 결제 ③ 영수증 출력 ④ ...\". Change it to \"① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.\""
+      ],
+      "audit": [
+        "answers[1] (answer to exercise 2): 포장 ② 세트 → ① 포장 ② 세트",
+        "answers[2] (answer to exercise 3): L ② HOT ③ 추가 → ① L ② HOT ③ 추가",
+        "answers[3] (answer to exercise 4): 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit. → ① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit."
+      ]
+    }
+  ],
+  "fixes": [
+    {
+      "at": "title",
+      "before": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12 읽기",
+      "after": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기"
+    },
+    {
+      "at": "level",
+      "before": "초급 하 (A2)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "상황: 가게에서 먹고 싶어요. 어떤 버튼을 누르나요?",
+      "after": "Match each button to its function. Buttons: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Functions: (a) pay with your phone (b) eat in the store (c) choose the drink temperature (d) print a paper receipt (e) item only, no side or drink (f) take the food out (g) go to the payment screen (h) choose S/M/L (i) pay by card (j) item with a side and a drink (k) add something extra (l) stop the order"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "상황: 버거만 사고 싶어요. 감자튀김과 음료는 필요 없어요. 어떤 버튼을 누르나요?",
+      "after": "Read the situation and write the button you choose: ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "상황: 아이스 아메리카노를 마시고 싶어요. 온도 버튼에서 무엇을 누르나요?",
+      "after": "Read the situation and write the option you choose: ① 사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요? ② 추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요? ③ 라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "상황: 메뉴를 다 골랐어요. 이제 결제 화면으로 가려고 해요. 어떤 버튼을 누르나요?",
+      "after": "Read and answer: ① 카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요? ② 체크카드로 계산할 거예요. 어떤 버튼이 맞아요? ③ 결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요? ④ ‘취소’ 버튼을 누르면 어떻게 돼요?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "상황: 지금 주문을 그만하고 싶어요. 어떤 버튼을 누르나요?",
+      "after": "Put the order steps in the right order: 결제하기 / 영수증 출력 / 포장 / L / 간편결제 / 세트"
+    },
+    {
+      "at": "answers[1]",
+      "before": "매장",
+      "after": "매장–(b), 포장–(f), 단품–(e), 세트–(j), HOT/ICE–(c), 사이즈–(h), 추가–(k), 취소–(l), 결제하기–(g), 카드 결제–(i), 간편결제–(a), 영수증 출력–(d)"
+    },
+    {
+      "at": "answers[2]",
+      "before": "단품",
+      "after": "포장 ② 세트"
+    },
+    {
+      "at": "answers[3]",
+      "before": "ICE",
+      "after": "L ② HOT ③ 추가"
+    },
+    {
+      "at": "answers[4]",
+      "before": "결제하기",
+      "after": "간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit."
+    },
+    {
+      "at": "answers[5]",
+      "before": "취소",
+      "after": "포장 → 세트 → L → 결제하기 → 간편결제 → 영수증 출력"
+    },
+    {
+      "at": "sections[1].heading",
+      "before": "이 자료, 이렇게 보세요",
+      "after": "How to use this worksheet"
+    },
+    {
+      "at": "sections[1].paragraphs[1]",
+      "before": "키오스크 화면에서 자주 만나는 버튼과 문구를 짧게 읽고 뜻을 바로바로 연결해 봅니다.",
+      "after": "Read the buttons and short text you often see on kiosk screens, and connect each one to its meaning right away."
+    },
+    {
+      "at": "sections[1].paragraphs[2]",
+      "before": "필요한 말만 간단히 익혀서, 혼자서도 기본 주문 흐름을 따라가 보세요.",
+      "after": "Learn only the words you need, and try to follow the basic order flow on your own."
+    },
+    {
+      "at": "sections[2].heading",
+      "before": "주문 흐름 한눈에 보기",
+      "after": "The order flow at a glance"
+    },
+    {
+      "at": "sections[2].paragraphs[1]",
+      "before": "매장/포장 선택 → 메뉴 선택(단품/세트) → 옵션 선택(HOT/ICE, 사이즈, 추가) → 결제하기 → 결제수단 선택(카드/간편결제) → 영수증/주문번호 확인",
+      "after": "Choose 매장/포장 (dine in/take out) → choose the menu item (단품/세트) → choose options (HOT/ICE, 사이즈, 추가) → press 결제하기 (pay) → choose the payment method (카드 결제/간편결제) → check the receipt/order number (영수증/주문번호)"
+    },
+    {
+      "at": "sections[3].heading",
+      "before": "자주 보이는 버튼 12",
+      "after": "12 common buttons"
+    },
+    {
+      "at": "sections[3].paragraphs[1]",
+      "before": "1) 매장 — 가게에서 먹을 때 눌러요. 예: 여기서 먹어요. 매장을 눌러요.",
+      "after": "1) 매장 (dine in) — Press it when you eat in the store. 예: 여기서 먹어요. 매장을 눌러요."
+    },
+    {
+      "at": "sections[3].paragraphs[2]",
+      "before": "2) 포장 — 가지고 나갈 때 눌러요. 예: 바빠요. 포장을 눌러요.",
+      "after": "2) 포장 (take out) — Press it when you take the food out. 예: 바빠요? 그러면 포장을 고르세요."
+    },
+    {
+      "at": "sections[3].paragraphs[3]",
+      "before": "3) 단품 — 사이드와 음료 없이, 메뉴만 살 때 눌러요. 예: 버거만 먹고 싶어요. 단품을 눌러요.",
+      "after": "3) 단품 (single item) — Press it to buy only the item, with no side or drink. 예: 버거만 먹고 싶으면 단품을 고르세요."
+    },
+    {
+      "at": "sections[3].paragraphs[4]",
+      "before": "4) 세트 — 사이드와 음료가 함께 나와요. 예: 배고파요. 세트를 눌러요.",
+      "after": "4) 세트 (set/combo) — A side and a drink come with the item. 예: 배가 많이 고파요. 세트로 주문해요."
+    },
+    {
+      "at": "sections[3].paragraphs[5]",
+      "before": "5) HOT / ICE — 음료 온도를 고를 때 눌러요. 예: 더워요. ICE를 눌러요.",
+      "after": "5) HOT / ICE — Press it to choose the drink temperature. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요."
+    },
+    {
+      "at": "sections[3].paragraphs[6]",
+      "before": "6) 사이즈 — 컵이나 메뉴 크기를 고를 때 써요. 사이즈 S/M/L을 고를 수 있어요. 예: 많이 마실래요. L을 눌러요.",
+      "after": "6) 사이즈 (size) — Used to choose the cup or item size, often S/M/L. 예: 많이 마시고 싶으면 L을 고르세요."
+    },
+    {
+      "at": "sections[3].paragraphs[7]",
+      "before": "7) 추가 — 원하는 것을 더할 때 눌러요. 예: 샷을 더해요. ‘샷 추가’를 눌러요.",
+      "after": "7) 추가 (add) — Press it to add something extra. 예: 커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요."
+    },
+    {
+      "at": "sections[3].paragraphs[8]",
+      "before": "8) 취소 — 지금 주문을 그만둘 때 눌러요. 예: 메뉴를 잘못 눌렀어요. 취소를 눌러요.",
+      "after": "8) 취소 (cancel) — Press it to stop the current order. 예: 주문을 안 하고 싶어요. 취소를 눌러요."
+    },
+    {
+      "at": "sections[3].paragraphs[9]",
+      "before": "9) 결제하기 — 선택이 끝났을 때 결제 화면으로 가요. 예: 다 골랐어요. 결제하기를 눌러요.",
+      "after": "9) 결제하기 (pay) — When you finish choosing, it takes you to the payment screen. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요."
+    },
+    {
+      "at": "sections[3].paragraphs[10]",
+      "before": "10) 카드 결제 — 카드로 계산할 때 눌러요. 예: 신용카드로 해요. 카드 결제를 눌러요.",
+      "after": "10) 카드 결제 (card payment) — Press it to pay by card. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요."
+    },
+    {
+      "at": "sections[3].paragraphs[11]",
+      "before": "11) 간편결제 — 휴대전화로 결제할 때 눌러요. 예: 카카오페이로 해요. 간편결제를 눌러요.",
+      "after": "11) 간편결제 (mobile/easy pay) — Press it to pay with your phone. 예: 카카오페이를 써요? 간편결제로 계산하세요."
+    },
+    {
+      "at": "sections[3].paragraphs[12]",
+      "before": "12) 영수증 출력 — 종이 영수증을 뽑아요. 주문번호가 같이 나와요. 예: 확인하려고 영수증 출력을 눌러요.",
+      "after": "12) 영수증 출력 (print receipt) — Prints a paper receipt; the order number comes with it. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
+    },
+    {
+      "at": "sections[4].heading",
+      "before": "읽기 팁: 약자와 영어 표기",
+      "after": "Reading tips: abbreviations and English labels"
+    },
+    {
+      "at": "sections[4].paragraphs[1]",
+      "before": "S/M/L: Small/Medium/Large의 약자예요. 버튼에서는 S, M, L만 보여요.",
+      "after": "S/M/L: short for Small/Medium/Large. Many kiosks show sizes as S/M/L, but some stores use other names (e.g., 레귤러/라지)."
+    },
+    {
+      "at": "sections[4].paragraphs[2]",
+      "before": "HOT/ICE: 따뜻한 음료는 HOT, 차가운 음료는 ICE로 표기돼요.",
+      "after": "HOT/ICE: hot drinks are marked HOT, cold drinks ICE."
+    },
+    {
+      "at": "sections[4].paragraphs[3]",
+      "before": "단품/세트: 단품은 메뉴만, 세트는 사이드+음료가 함께 나와요.",
+      "after": "단품/세트: 단품 is the item only; 세트 comes with a side and a drink."
+    },
+    {
+      "at": "sections[4].paragraphs[4]",
+      "before": "‘취소’는 주문을 멈추고 나가요. ‘뒤로가기’는 한 단계만 돌아가요(이 자료의 12개 목록에는 ‘뒤로가기’를 넣지 않았어요).",
+      "after": "취소 (cancel) stops the order and exits. 뒤로가기 (back) goes back one step only (뒤로가기 is not in this worksheet's list of 12)."
+    },
+    {
+      "at": "note",
+      "before": "예문은 실제 키오스크에서 흔히 보는 표현과 사용 흐름을 기준으로 만들었습니다. 본 자료는 읽기 중심이며, 매장별 화면 디자인은 다를 수 있습니다.",
+      "after": "The examples are based on expressions and order flows commonly seen on real kiosks. This worksheet focuses on reading, and screen designs may differ from store to store."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 16,
+          "problem": "The English says kiosks often show sizes as S/M/L. The translation changes this to P/M/G, which is not what learners will read on a kiosk. It also doesn't match the example on the same line (L을 고르세요) or line 24.",
+          "fix": "6) 사이즈 (tamanho) — Usado para escolher o tamanho do copo ou do item, geralmente S/M/L. 예: 많이 마시고 싶으면 L을 고르세요."
+        },
+        {
+          "line": 28,
+          "problem": "Function (h) says 'choose S/M/L', meaning the labels on the kiosk. The translation changes them to P/M/G, which doesn't match the kiosk labels the worksheet teaches.",
+          "fix": "Relacione cada botão à sua função. Botões: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Funções: (a) pagar com o celular (b) comer no local (c) escolher a temperatura da bebida (d) imprimir um recibo em papel (e) somente o item, sem acompanhamento nem bebida (f) levar a comida para fora (g) ir para a tela de pagamento (h) escolher S/M/L (i) pagar com cartão (j) item com acompanhamento e bebida (k) adicionar algo extra (l) interromper o pedido"
+        },
+        {
+          "line": 1,
+          "problem": "'Iniciante (alto)' is not natural Brazilian Portuguese for a level name. The adjective 'alto' needs a noun such as 'nível'.",
+          "fix": "Iniciante (nível alto)"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 14,
+          "problem": "\"sind im Artikel enthalten\" says the side and drink are contained inside the item itself; the English means they come along with the item as part of the combo.",
+          "fix": "4) 세트 (Menü/Set) — Zum Artikel gibt es eine Beilage und ein Getränk dazu. 예: 배가 많이 고파요. 세트로 주문해요."
+        },
+        {
+          "line": 27,
+          "problem": "\"stoppt die Bestellung und beendet sie\" just repeats itself and drops the meaning of \"exits\" (leaving the ordering process).",
+          "fix": "취소 (Abbrechen) bricht die Bestellung ab und verlässt den Bestellvorgang. 뒤로가기 (Zurück) geht nur einen Schritt zurück (der Button 뒤로가기 gehört nicht zu den 12 Buttons dieses Arbeitsblatts)."
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 3,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Beginner (high)\" means the upper part of the beginner level. \"初级（高级）\" reads as \"beginner (advanced)\", which contradicts itself because 高级 is also the name of the advanced level.",
+          "fix": "初级（高）"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:12:47.556Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "answers[1]",
+      "before": "포장 ② 세트",
+      "after": "① 포장 ② 세트",
+      "why": "The first number of a multi-part answer was being stripped by the pipeline (unnumbered); fixed at the source too."
+    },
+    {
+      "op": "replace",
+      "path": "answers[2]",
+      "before": "L ② HOT ③ 추가",
+      "after": "① L ② HOT ③ 추가",
+      "why": "The first number of a multi-part answer was being stripped by the pipeline (unnumbered); fixed at the source too."
+    },
+    {
+      "op": "replace",
+      "path": "answers[3]",
+      "before": "간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.",
+      "after": "① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ 주문이 취소되고 처음 화면으로 돌아가요.",
+      "why": "The first number of a multi-part answer was being stripped by the pipeline (unnumbered); fixed at the source too. ④ in Korean: an answer with Korean in it is not translated, so its English half stayed English in every language."
+    }
+  ]
+}

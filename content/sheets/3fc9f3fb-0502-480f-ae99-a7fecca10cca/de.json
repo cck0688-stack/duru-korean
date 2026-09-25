@@ -1,0 +1,112 @@
+{
+  "answers": [
+    "화장실에 가도 돼요? / 화장실에 가도 될까요?",
+    "네, 앉아도 돼요. (네, 여기에 앉아도 돼요.)",
+    "여기에서 떠들면 안 돼요.",
+    "내일은 토요일이에요. 학교에 안 가도 돼요.",
+    "수업에 늦으면 안 돼요."
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Bilde daraus eine Frage, mit der um Erlaubnis gebeten wird: 화장실에 가다",
+    "Beantworte die Frage, indem du Erlaubnis gibst: 여기에 앉아도 돼요?",
+    "Schreibe einen Verbotssatz: 도서관이에요. 여기에서 떠들다",
+    "Wähle die richtige Option in den Klammern: 내일은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).",
+    "Korrigiere den Satz so, dass er ein Verbot ausdrückt: 수업에 늦으면 돼요."
+  ],
+  "forms": [
+    {
+      "form": "V-아/어도 돼요? / V-아/어도 될까요?",
+      "when": "Wenn man jemanden um Erlaubnis bittet (될까요 ist höflicher)",
+      "means": "Darf ich …? Ist es in Ordnung, wenn ich …?",
+      "example": "창문을 열어도 될까요?",
+      "exampleMeaning": "Darf ich das Fenster öffnen?",
+      "mark": [
+        "열어도",
+        "될까요?"
+      ]
+    },
+    {
+      "form": "V-아/어도 돼요.",
+      "when": "Wenn man jemandem Erlaubnis gibt",
+      "means": "Du darfst … / Es ist in Ordnung, … zu tun.",
+      "example": "네, 여기에서 사진을 찍어도 돼요.",
+      "exampleMeaning": "Ja, hier darfst du Fotos machen.",
+      "mark": [
+        "찍어도",
+        "돼요."
+      ]
+    },
+    {
+      "form": "V-(으)면 안 돼요.",
+      "when": "Wenn man Regeln, Verbote oder Warnungen ausdrückt",
+      "means": "nicht dürfen / nicht erlaubt sein",
+      "example": "여기에서 담배를 피우면 안 돼요.",
+      "exampleMeaning": "Hier darfst du nicht rauchen.",
+      "mark": [
+        "피우면",
+        "안",
+        "돼요."
+      ]
+    },
+    {
+      "form": "안 V-아/어도 돼요. (= V-지 않아도 돼요.)",
+      "when": "Wenn man sagt, dass etwas nicht notwendig ist",
+      "means": "nicht müssen / nicht notwendig sein",
+      "example": "오늘은 숙제를 안 해도 돼요.",
+      "exampleMeaning": "Du musst heute keine Hausaufgaben machen.",
+      "mark": [
+        "안",
+        "해도",
+        "돼요."
+      ]
+    }
+  ],
+  "keyword": "-아/어도 되다·-(으)면 안 되다",
+  "level": "Anfänger (hoch)",
+  "minutes": 15,
+  "objective": "Am Ende können die Lernenden mit -아/어도 되다 um Erlaubnis bitten/Erlaubnis geben, mit -(으)면 안 되다 Verbote ausdrücken und ‚안 V-아/어도 되다 (nicht müssen)‘ korrekt von ‚V-(으)면 안 되다 (nicht dürfen)‘ unterscheiden.",
+  "summary": "Übe, mit -아/어도 되다 um Erlaubnis zu bitten und Erlaubnis zu geben, mit -(으)면 안 되다 Verbote auszudrücken, und unterscheide „nicht müssen“ (안 V-아/어도 되다) von „nicht dürfen“ (V-(으)면 안 되다).",
+  "tags": [],
+  "task": {
+    "title": "Bibliotheksregeln aufstellen",
+    "line": "Schreibe mit -아/어도 돼요 und -(으)면 안 돼요 zwei Dinge, die man in der Bibliothek tun darf, und zwei Dinge, die man nicht tun darf."
+  },
+  "title": "허락·금지 말하기: -아/어도 되다, -(으)면 안 되다, ‘안 V-아/어도 되다’ 구분",
+  "watchOut": [
+    "‚안 V-아/어도 돼요‘ (nicht müssen) ≠ ‚V-(으)면 안 돼요‘ (nicht dürfen). Beispiel: 우산을 안 써도 돼요 (du brauchst keinen Regenschirm; es regnet nicht) vs. 우산을 쓰면 안 돼요 (du darfst keinen Regenschirm benutzen).",
+    "Rechtschreibung: ‚돼요‘ ist richtig (‚되요‘ ist falsch).",
+    "Höflichkeit: ‚…될까요?‘ ist höflicher als ‚…돼요?‘.",
+    "Position von 안: ‚안‘ direkt vor das Verb stellen. Beispiel: 약을 안 먹어도 돼요 (du musst keine Medizin nehmen) ≠ 약을 먹어도 안 돼요 (andere Bedeutung: selbst wenn du Medizin nimmst, hilft es nicht).",
+    "Achte auf die Konjugation: 하다→해도, 마시다→마셔도, 쓰다→써도 (ㅡ fällt weg), 듣다→들어도 (ㄷ-Unregelmäßigkeit)."
+  ],
+  "watchOutMark": [
+    [
+      "안 써도 돼요",
+      "쓰면 안 돼요"
+    ],
+    [
+      "되요",
+      "돼요"
+    ],
+    [
+      "돼요?",
+      "될까요?"
+    ],
+    [
+      "안 먹어도 돼요",
+      "먹어도 안 돼요"
+    ],
+    [
+      "하다",
+      "해도",
+      "마시다",
+      "마셔도",
+      "쓰다",
+      "써도",
+      "듣다",
+      "들어도"
+    ]
+  ],
+  "category": "grammar"
+}

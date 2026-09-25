@@ -1,0 +1,121 @@
+{
+  "answers": [
+    "4번 세탁기예요.",
+    "17분 남았어요.",
+    "2번 건조기로 옮겨요.",
+    "건조기는 얼마예요?"
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "민지",
+      "korean": "실례합니다, 4번 세탁기 지금 누구 거예요?",
+      "meaning": "Disculpe, ¿de quién es la ropa que está ahora en la lavadora número 4?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 제 거예요. 지금 17분 남았어요.",
+      "meaning": "Sí, es mía. Ahora quedan 17 minutos."
+    },
+    {
+      "who": "민지",
+      "korean": "아, 알겠어요. 끝나면 건조기로 바로 옮겨 주실 수 있어요?",
+      "meaning": "Ah, entiendo. ¿Puedes pasarla a la secadora justo cuando termine?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 괜찮아요. 건조기는 몇 번이 비어 있어요?",
+      "meaning": "Sí, está bien. ¿Qué número de secadora está disponible?"
+    },
+    {
+      "who": "민지",
+      "korean": "2번이 비어 있어요.",
+      "meaning": "La secadora número 2 está libre."
+    },
+    {
+      "who": "철수",
+      "korean": "그러면 끝나면 제가 2번으로 옮길게요.",
+      "meaning": "Entonces la pasaré a la número 2 cuando termine."
+    },
+    {
+      "who": "민지",
+      "korean": "감사합니다. 건조기는 얼마예요?",
+      "meaning": "Gracias. ¿Cuánto cuesta la secadora?"
+    },
+    {
+      "who": "철수",
+      "korean": "저기 안내판에 30분에 3,000원이라고 쓰여 있어요.",
+      "meaning": "El letrero de allí dice 3.000 wones por 30 minutos."
+    }
+  ],
+  "exercises": [
+    "Responde en coreano: 철수의 세탁기 번호는 몇 번이에요?",
+    "Responde en coreano: 철수 세탁기에 남은 시간이 얼마나 돼요?",
+    "Responde en coreano (incluye el número): 철수는 빨래를 몇 번 건조기로 옮겨요?",
+    "Escribe esta oración en coreano: \"¿Cuánto cuesta la secadora?\""
+  ],
+  "keyword": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "level": "Principiante",
+  "minutes": 15,
+  "objective": "Ser capaz de entender y decir preguntas y respuestas cortas en una lavandería con monedas/autoservicio: pedir el número de una máquina, preguntar cuánto tiempo queda, preguntar por el costo de la secadora, pedirle a alguien que mueva la ropa, y decir que vas a pasar la ropa a la secadora.",
+  "setting": "무인(코인) 빨래방",
+  "summary": "Practica preguntas y respuestas cortas y prácticas en una lavandería de autoservicio: preguntar qué máquina usar, comprobar el tiempo restante y ponerse de acuerdo para pasar la ropa a la secadora.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "words": [
+    {
+      "korean": "세탁기",
+      "roman": "setakgi",
+      "meaning": "lavadora",
+      "example": "세탁기 4번에 넣으세요.",
+      "exampleMeaning": "Ponlo en la lavadora número 4."
+    },
+    {
+      "korean": "건조기",
+      "roman": "geonjogi",
+      "meaning": "secadora",
+      "example": "건조기 2번이 비었어요.",
+      "exampleMeaning": "La secadora número 2 está libre."
+    },
+    {
+      "korean": "몇 번",
+      "roman": "myeot beon",
+      "meaning": "qué número",
+      "example": "몇 번이 비어 있어요?",
+      "exampleMeaning": "¿Qué número está disponible?"
+    },
+    {
+      "korean": "남은 시간",
+      "roman": "nameun sigan",
+      "meaning": "tiempo restante",
+      "example": "남은 시간이 얼마나 돼요?",
+      "exampleMeaning": "¿Cuánto tiempo queda?"
+    },
+    {
+      "korean": "옮기다",
+      "roman": "omgida",
+      "meaning": "pasar (algo a otra máquina/lugar)",
+      "example": "끝나면 건조기로 옮겨 주세요.",
+      "exampleMeaning": "Por favor, pásalo a la secadora cuando termine."
+    },
+    {
+      "korean": "시작 버튼",
+      "roman": "sijak beoteun",
+      "meaning": "botón de inicio",
+      "example": "시작 버튼을 눌러 주세요.",
+      "exampleMeaning": "Por favor, presiona el botón de inicio."
+    },
+    {
+      "korean": "세제",
+      "roman": "seje",
+      "meaning": "detergente",
+      "example": "세제는 이미 넣었어요.",
+      "exampleMeaning": "Ya puse el detergente."
+    }
+  ],
+  "category": "reallife"
+}

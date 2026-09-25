@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "Prática curta para reconhecer as vogais coreanas ㅓ, ㅗ e ㅜ. Mostra três palavras simples para cada vogal e frases de exemplo curtas.",
+  "objective": "O aluno será capaz de reconhecer as vogais coreanas ㅓ, ㅗ e ㅜ em palavras simples.",
+  "level": "Iniciante",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Qual vogal está na sílaba '서'? (Escreva ㅓ, ㅗ ou ㅜ)",
+    "Qual vogal aparece na palavra '포도'? (Escreva ㅓ, ㅗ ou ㅜ)",
+    "Qual vogal (ㅓ, ㅗ ou ㅜ) aparece na palavra '우유'?",
+    "Relacione estas palavras com a vogal (ㅓ, ㅗ ou ㅜ) que elas contêm (escreva três símbolos em ordem): 엄마 / 오이 / 수박",
+    "No conjunto mínimo '서 / 소 / 수', qual sílaba tem ㅜ?",
+    "Observe a primeira sílaba de cada palavra e escreva sua vogal: 먹다, 고기, 주다"
+  ],
+  "answers": [
+    "ㅓ",
+    "ㅗ",
+    "ㅜ",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "próximo de 'eo' (uma vogal média-aberta)",
+      "as": "como o 'uh' em 'cup' no inglês (aproximado)"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "próximo de 'o' (vogal posterior arredondada)",
+      "as": "como o 'o' em 'go' no inglês (aproximado)"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "próximo de 'u' (vogal posterior arredondada)",
+      "as": "como o 'oo' em 'food' no inglês (aproximado)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "mãe",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "A mãe chegou."
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "comer",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "Eu como arroz."
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "livraria",
+      "example": "서점에 가요.",
+      "exampleMeaning": "Eu vou à livraria."
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "pepino",
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "O pepino está fresco."
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "uva",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "Tem uvas."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "carne",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "Eu gosto de carne."
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "leite",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "Eu bebo leite."
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "melancia",
+      "example": "수박이 달아요.",
+      "exampleMeaning": "A melancia está doce."
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "dar",
+      "example": "선물을 주세요.",
+      "exampleMeaning": "Por favor, me dê um presente."
+    }
+  ],
+  "category": "hangul"
+}

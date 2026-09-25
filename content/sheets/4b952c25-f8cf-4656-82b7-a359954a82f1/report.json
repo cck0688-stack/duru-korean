@@ -1,0 +1,246 @@
+{
+  "id": "4b952c25-f8cf-4656-82b7-a359954a82f1",
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "지문 3문단 '포함량을 넘으면 통화와 문자는 별도 요금이 발생합니다.'가 부자연스럽습니다. 통신 요금 안내에서는 '포함량'을 쓰지 않고 '기본 제공량'이라고 합니다. 또 '통화와 문자는 … 요금이 발생합니다'는 주어와 서술어가 어긋납니다. '기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다.'로 고치세요."
+      ],
+      "audit": [
+        "exercises[0]: 이 요금제의 월정액은 얼마인가요? → Answer in Korean: 이 요금제의 월정액은 얼마인가요?",
+        "exercises[1]: 데이터는 얼마를 제공하나요? → Answer in Korean: 데이터는 얼마를 제공하나요?",
+        "exercises[2]: 데이터 소진 후 속도/추가 요금 정책은 무엇인가요? → Answer in Korean: 데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+        "exercises[3]: 통화/문자는 얼마나 포함되어 있나요? → Answer in Korean: 통화/문자는 얼마나 포함되어 있나요?",
+        "exercises[4]: 약정 기간은 어떻게 되나요? → Answer in Korean: 약정 기간은 어떻게 되나요?"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "exercises[1]",
+      "before": "이 요금제의 월정액은 얼마인가요?",
+      "after": "Answer in Korean: 이 요금제의 월정액은 얼마인가요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "데이터는 얼마를 제공하나요?",
+      "after": "Answer in Korean: 데이터는 얼마를 제공하나요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+      "after": "Answer in Korean: 데이터 소진 후 속도/추가 요금 정책은 무엇인가요?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "통화/문자는 얼마나 포함되어 있나요?",
+      "after": "Answer in Korean: 통화/문자는 얼마나 포함되어 있나요?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "약정 기간은 어떻게 되나요?",
+      "after": "Answer in Korean: 약정 기간은 어떻게 되나요?"
+    },
+    {
+      "at": "level",
+      "before": "Intermediate Low (중급 초반)",
+      "after": "Intermediate (low)"
+    },
+    {
+      "at": "passage[3]",
+      "before": "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 포함량을 넘으면 통화와 문자는 별도 요금이 발생합니다.",
+      "after": "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 6,
+          "problem": "Ungrammatical relative clause: 'el período fijo que aceptas mantener el plan' is missing a preposition, so 'que' can't link 'período' to 'mantener el plan'.",
+          "fix": "duración del contrato; el período fijo durante el cual aceptas mantener el plan"
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"giới hạn gọi/thoại/tin nhắn\" repeats the same idea (\"gọi\" and \"thoại\" both mean voice calls here). It turns \"voice/SMS\" into three items, which is awkward.",
+          "fix": "Đọc một thông báo gói cước di động Hàn Quốc thực tế và xác định các chi tiết chính như phí hàng tháng, dung lượng dữ liệu, giới hạn cuộc gọi/tin nhắn, thời hạn hợp đồng, và chính sách sau khi hết dữ liệu."
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"básico\" means beginner/basic level, which changes the meaning; the English means the lower part of the intermediate level.",
+          "fix": "Intermediário (inferior)"
+        },
+        {
+          "line": 7,
+          "problem": "\"não é fácil trocar facilmente\" says \"easy\" twice and sounds unnatural in Portuguese.",
+          "fix": "É um contrato de 12 meses, então é difícil trocar de plano com facilidade."
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 9,
+          "problem": "Stray space inside the Japanese sentence (「データが なくなって」); this is broken Japanese.",
+          "fix": "データがなくなって、速度が遅くなりました。"
+        },
+        {
+          "line": 14,
+          "problem": "「提供されている含まれる量」 stacks two modifiers in a row and reads unnaturally.",
+          "fix": "プランに含まれる提供量"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"中级（初级）\" reads as \"intermediate (beginner)\", which is self-contradictory; the English means the lower band of intermediate.",
+          "fix": "中级（偏低）"
+        },
+        {
+          "line": 7,
+          "problem": "\"不容易轻易更换\" is redundant and unnatural (不容易 and 轻易 both express 'easily').",
+          "fix": "这是12个月的合约，所以很难轻易更换。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Niveau faible\" sounds like a judgement of the learner (\"weak level\"), not the name of a course level. \"Intermédiaire (niveau inférieur)\" is the normal way to say \"Intermediate (low)\" in French.",
+          "fix": "Intermédiaire (niveau inférieur)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "\"Vertragsfreiheit\" is a legal term meaning \"freedom of contract,\" not \"no contract / no contract commitment.\"",
+          "fix": "Nach dem Lesen einer 3–5 Absätze langen Mitteilung zu einem Mobilfunktarif können Lernende die monatliche Grundgebühr, das Datenvolumen, die enthaltenen Sprach-/SMS-Mengen, die Vertragslaufzeit (oder ob es keine Vertragsbindung gibt) und die Regelung nach Verbrauch des Datenvolumens (Drosselung/Zusatzkosten) korrekt herausfinden."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:57:38.052Z"
+}

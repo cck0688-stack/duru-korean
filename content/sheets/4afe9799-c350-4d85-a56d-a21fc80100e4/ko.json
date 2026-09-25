@@ -1,0 +1,124 @@
+{
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "keyword": "받침",
+  "summary": "받침 ㄱ/ㄷ/ㅂ의 불파음(파열 없이 끝나는 소리)을 읽고 발음하는 연습을 합니다. 학습자는 각 받침을 영어 단어 끝소리(back/bat/cap)와 비슷하지만 파열이 없는 소리로 연결한 뒤, 이 받침이 들어간 간단한 단어를 읽고 고릅니다.",
+  "objective": "초급 학습자는 받침 ㄱ, ㄷ, ㅂ에 대해 파열 없는 받침소리 [k], [t], [p]를 발음할 수 있습니다. 이를 영어 단어 끝소리(\"back/bat/cap\", 파열 없음)와 연결하고, 이 받침이 들어간 간단한 한국어 단어를 정확하게 읽고 고를 수 있습니다.",
+  "level": "초급",
+  "minutes": 15,
+  "tags": [
+    "hangul",
+    "batchim",
+    "final consonants",
+    "pronunciation",
+    "beginner"
+  ],
+  "task": {
+    "title": "말해 보기: 받침소리 멈추기",
+    "line": "소리 내어 읽어 보세요: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. 받침 ㄱ, ㄷ, ㅂ이 나올 때마다 혀뿌리(ㄱ), 혀끝(ㄷ), 입술(ㅂ)로 숨을 막고, 소리를 터뜨리지 않은 채로 멈추세요."
+  },
+  "exercises": [
+    "받침소리가 [k]인 단어를 고르세요: (국 / 곧 / 밥)",
+    "이 단어의 받침소리는 무엇일까요? 곧 (k / t / p)",
+    "받다에서 '받'의 받침소리와 가장 비슷한 영어 단어 끝소리는 무엇일까요? (back / bat / cap)",
+    "올바른 로마자 표기를 고르세요: 벽 (byeok / byeog / byuk)",
+    "문장을 소리 내어 읽으면서 「집」의 받침소리를 파열 없이 멈춰 보세요. 그런 다음 받침소리를 고르세요: 우리 집 좋아요. (k / t / p)"
+  ],
+  "answers": [
+    "국",
+    "t",
+    "bat",
+    "byeok",
+    "p"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "받침소리 [k] (무성, 불파음)",
+      "as": "\"back\"의 끝소리와 비슷함 (막힘; 파열 없음)"
+    },
+    {
+      "letter": "ㄷ",
+      "sound": "받침소리 [t] (무성, 불파음)",
+      "as": "\"bat\"의 끝소리와 비슷함 (막힘; 파열 없음)"
+    },
+    {
+      "letter": "ㅂ",
+      "sound": "받침소리 [p] (무성, 불파음)",
+      "as": "\"cap\"의 끝소리와 비슷함 (막힘; 파열 없음)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "국",
+      "roman": "guk",
+      "meaning": "국",
+      "example": "국도 드세요.",
+      "exampleMeaning": "국도 드세요."
+    },
+    {
+      "korean": "속",
+      "roman": "sok",
+      "meaning": "속",
+      "example": "가방 속 봤어요?",
+      "exampleMeaning": "가방 안을 봤어요?"
+    },
+    {
+      "korean": "벽",
+      "roman": "byeok",
+      "meaning": "벽",
+      "example": "저기 벽 보세요.",
+      "exampleMeaning": "저기 벽을 보세요."
+    },
+    {
+      "korean": "곧",
+      "roman": "got",
+      "meaning": "곧",
+      "example": "곧 갈게요.",
+      "exampleMeaning": "곧 갈게요."
+    },
+    {
+      "korean": "받다",
+      "roman": "batda",
+      "meaning": "받다",
+      "example": "편지 받고 기뻤어요.",
+      "exampleMeaning": "편지를 받아서 기뻤어요."
+    },
+    {
+      "korean": "믿다",
+      "roman": "mitda",
+      "meaning": "믿다",
+      "example": "친구 말 믿고 기다렸어요.",
+      "exampleMeaning": "친구를 믿고 기다렸어요."
+    },
+    {
+      "korean": "닫다",
+      "roman": "datda",
+      "meaning": "닫다",
+      "example": "문 닫고 나가세요.",
+      "exampleMeaning": "나갈 때 문을 닫으세요."
+    },
+    {
+      "korean": "밥",
+      "roman": "bap",
+      "meaning": "밥",
+      "example": "밥 주세요.",
+      "exampleMeaning": "밥 주세요."
+    },
+    {
+      "korean": "집",
+      "roman": "jip",
+      "meaning": "집",
+      "example": "우리 집 좋아요.",
+      "exampleMeaning": "우리 집 좋아요."
+    },
+    {
+      "korean": "입",
+      "roman": "ip",
+      "meaning": "입",
+      "example": "입 크게 벌리세요.",
+      "exampleMeaning": "입을 크게 벌리세요."
+    }
+  ],
+  "category": "hangul"
+}

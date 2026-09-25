@@ -1,0 +1,86 @@
+{
+  "answers": [
+    "왼쪽 냉장고 위 칸에 있어요.",
+    "과자 코너가 있어요.",
+    "X (아이스크림은 냉동고에 있어요.)",
+    "중앙에 있어요.",
+    "저기요, 우유 어디에 있어요?"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Répondez en coréen : 우유는 어디에 있어요?",
+    "Répondez en coréen : 계산대 옆에는 무엇이 있어요?",
+    "Vrai ou faux (O/X) : 아이스크림은 오른쪽 냉장고 안에 있어요.",
+    "Répondez en coréen : 즉석식품을 데우고 싶어요. 전자레인지는 어디에 있어요?",
+    "Répondez en coréen, en recopiant exactement la phrase du texte : 직원에게 우유 위치를 어떻게 물었나요?"
+  ],
+  "keyword": "",
+  "level": "Débutant (avancé)",
+  "minutes": 10,
+  "objective": "Les élèves seront capables de lire un texte de 3 à 4 paragraphes et de comprendre les indications et descriptions d'un employé de supérette concernant l'emplacement des articles dans le magasin.",
+  "passage": [
+    "편의점에 들어갔는데 필요한 물건을 못 찾았어요. 직원에게 물어봤어요. \"저기요, 우유 어디에 있어요?\" 직원이 친절하게 말했어요. \"우유는 왼쪽 냉장고 위 칸에 있어요.\"",
+    "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 차례대로 진열되어 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있어요. 아이스크림도 냉동고에 있어요.",
+    "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 전자레인지도 중앙에 있어요. 담배는 계산대 뒤에 진열되어 있어요.",
+    "물건을 못 찾으면 직원에게 물어보세요. 자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요. 안내문을 보면 물건 위치를 빨리 확인할 수 있어요."
+  ],
+  "summary": "Lire un court texte sur le fait de demander et de trouver des articles dans une supérette. Comprendre les réponses de l'employé et les descriptions de l'emplacement des produits.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "편의점에서 물건을 찾아요",
+  "words": [
+    {
+      "korean": "냉장고",
+      "roman": "naengjanggo",
+      "meaning": "réfrigérateur / vitrine réfrigérée",
+      "example": "우유는 냉장고에 있어요.",
+      "exampleMeaning": "Le lait est dans le réfrigérateur."
+    },
+    {
+      "korean": "냉동고",
+      "roman": "naengdonggo",
+      "meaning": "congélateur / présentoir de produits surgelés",
+      "example": "아이스크림은 냉동고에 있어요.",
+      "exampleMeaning": "La glace est dans le congélateur."
+    },
+    {
+      "korean": "진열대",
+      "roman": "jinyeoldae",
+      "meaning": "étagère d'exposition",
+      "example": "과자가 진열대에 있어요.",
+      "exampleMeaning": "Les snacks sont sur l'étagère d'exposition."
+    },
+    {
+      "korean": "계산대",
+      "roman": "gyesandae",
+      "meaning": "comptoir de caisse",
+      "example": "계산대에서 기다려요.",
+      "exampleMeaning": "J'attends au comptoir de caisse."
+    },
+    {
+      "korean": "즉석식품",
+      "roman": "jeukseok sikpum",
+      "meaning": "plat préparé (prêt à manger)",
+      "example": "즉석식품을 전자레인지에 데워요.",
+      "exampleMeaning": "Je réchauffe le plat préparé au micro-ondes."
+    },
+    {
+      "korean": "안내문",
+      "roman": "annaemun",
+      "meaning": "avis / pancarte",
+      "example": "안내문을 읽어 보세요.",
+      "exampleMeaning": "Veuillez lire l'avis/la pancarte."
+    },
+    {
+      "korean": "칸",
+      "roman": "kan",
+      "meaning": "compartiment / emplacement sur l'étagère",
+      "example": "우유는 위 칸에 있어요.",
+      "exampleMeaning": "Le lait se trouve dans le compartiment du haut."
+    }
+  ],
+  "category": "reading"
+}

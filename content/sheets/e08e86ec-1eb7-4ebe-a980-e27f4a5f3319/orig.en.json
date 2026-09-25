@@ -1,0 +1,59 @@
+{
+  "title": "택배 받기·보내기: 기본 표현",
+  "keyword": "",
+  "summary": "Useful short phrases for receiving and sending parcels in Korea at a counter or with a delivery driver. Focus on checking recipient, asking/confirming tracking number, accepting or refusing a parcel, and requesting shipment.",
+  "objective": "Be able to understand and say 10 short sentences used when receiving and sending parcels in Korea at a counter or with a courier (recipient confirmation, asking for tracking number, accepting/refusing, sending requests).",
+  "level": "초급 (A1)",
+  "minutes": 15,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "배달 기사(또는 창구 직원)가 '수취인 성함이 어떻게 되세요?'라고 물었습니다. 한국어로 답하세요. (예시 이름: 김민수)",
+    "‘I want to send a package.’을 한국어로 어떻게 말하나요?",
+    "‘What is the tracking number?’을 한국어로 어떻게 묻나요?",
+    "택배가 파손되어 받아들일 수 없습니다. 짧게 거절의사를 말하세요.",
+    "직원이 '서명해 주세요.'라고 말했습니다. 서명하겠다고 응답하세요."
+  ],
+  "answers": [
+    "저는 김민수입니다.",
+    "택배로 보내고 싶습니다.",
+    "운송장 번호가 어떻게 되나요?",
+    "이건 받을 수 없어요.",
+    "여기 서명할게요."
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "중요 표현 (10개)",
+      "paragraphs": [
+        "1) 택배 받으러 왔습니다. — 창구에서 본인이 직접 물건을 찾을 때 씁니다.",
+        "2) 수취인 성함이 어떻게 되세요? — 직원이나 기사님이 확인할 때 물어봅니다.",
+        "3) 저는 [이름]입니다. — 예: 저는 김민수입니다. (수취인 대답)",
+        "4) 운송장 번호가 어떻게 되나요? — 운송장(송장) 번호를 묻는 말입니다.",
+        "5) 운송장 번호 알려 주세요. — 상대에게 번호를 부탁할 때 씁니다.",
+        "6) 여기 서명할게요. — 서명하겠다는 뜻, 사인할 때 씁니다.",
+        "7) 이건 받을 수 없어요. — 물건을 거절할 때 쓰는 표현입니다.",
+        "8) 택배로 보내고 싶습니다. — 물건을 보내러 왔을 때 말합니다.",
+        "9) 보낼 물건은 이거예요. — 보내려는 물건을 보여 줄 때 씁니다.",
+        "10) 착불로 보내 주세요. — 받는 사람이 배송비를 내는 방식으로 보내달라고 요청할 때."
+      ]
+    },
+    {
+      "heading": "짧은 대화 예",
+      "paragraphs": [
+        "예1 (받을 때): 기사: '수취인 성함이 어떻게 되세요?' / 나: '저는 김민수입니다.'",
+        "예2 (보낼 때): 나: '택배로 보내고 싶습니다.' / 직원: '보낼 물건은 뭐예요?' / 나: '이거예요.'"
+      ]
+    },
+    {
+      "heading": "팁",
+      "paragraphs": [
+        "간단한 이름/주소는 미리 준비해 두세요(휴대폰 메모 등).",
+        "택배 수령 전에는 포장 상태를 빠르게 확인하고, 문제가 있으면 바로 거절하세요.",
+        "공손하게 말하려면 끝에 '요'를 붙이면 대부분 충분합니다."
+      ]
+    }
+  ],
+  "note": "초급 학습자용 한 장짜리 학습지입니다. 각 표현을 소리 내어 여러 번 말해 보세요.",
+  "category": "etc"
+}

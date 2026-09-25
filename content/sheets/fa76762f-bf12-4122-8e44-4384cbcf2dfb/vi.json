@@ -1,0 +1,111 @@
+{
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "keyword": "ㄱ·ㅋ·ㄲ",
+  "summary": "Luyện phân biệt và phát âm phụ âm đầu ㄱ (âm thường), ㅋ (âm bật hơi), và ㄲ (âm căng). Sử dụng các mốc âm tiếng Anh rõ ràng: ㄱ ≈ âm nhẹ nằm giữa 'g' và 'k' trong tiếng Anh, ㅋ ≈ âm 'k' trong từ \"key\", ㄲ = âm 'kk' căng, không có âm tương đương chính xác trong tiếng Anh. Đọc và chọn những từ đơn giản bắt đầu bằng các phụ âm này.",
+  "objective": "Người học trình độ sơ cấp sẽ nghe và phát âm chính xác các phụ âm đầu ㄱ (âm thường), ㅋ (âm bật hơi), và ㄲ (âm căng) ở vị trí đầu từ, liên hệ chúng với các mốc âm tiếng Anh hữu ích (ㄱ ≈ nằm giữa 'g' và 'k' trong tiếng Anh, có một luồng hơi nhẹ; ㅋ ≈ âm 'k' trong \"key\"; ㄲ = âm 'kk' căng, không có âm tương đương chính xác trong tiếng Anh), đồng thời đọc và chọn đúng những từ đơn giản chứa các phụ âm đầu này.",
+  "level": "Sơ cấp",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Chọn từ bắt đầu bằng ㅋ (âm bật hơi): 가게 / 코 / 꽃",
+    "Đọc cách phiên âm La-tinh và chọn từ tiếng Hàn tương ứng: kkoma → 가방 / 꼬마 / 카메라",
+    "Chọn từ bắt đầu bằng ㄱ (âm thường): 콩 / 껌 / 고기",
+    "Nối mỗi từ với phụ âm đầu của nó: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "Nối mỗi gợi ý tiếng Anh với từ có âm đầu phù hợp: nằm giữa 'g' và 'k' (hơi nhẹ) / âm 'k' trong \"key\" / âm 'kk' căng → Các lựa chọn: 꽃, 가게, 카메라"
+  ],
+  "answers": [
+    "코",
+    "꼬마",
+    "고기",
+    "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
+    "between g and k→가게, key→카메라, kk→꽃"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "Phụ âm thường (lỏng). Phần gốc lưỡi khép nhẹ vào ngạc mềm rồi bật ra. Ở đầu từ, có một luồng hơi nhẹ thoát ra: yếu hơn ㅋ và nhẹ hơn ㄲ.",
+      "as": "nằm giữa 'g' và 'k' trong tiếng Anh (hơi nhẹ)"
+    },
+    {
+      "letter": "ㅋ",
+      "sound": "Phụ âm bật hơi. Vị trí lưỡi giống ㄱ, nhưng được bật ra với luồng hơi mạnh.",
+      "as": "âm 'k' trong \"key\" (hơi mạnh)"
+    },
+    {
+      "letter": "ㄲ",
+      "sound": "Phụ âm căng. Vị trí lưỡi giống ㄱ, nhưng cổ họng và lưỡi căng lại, âm được bật ra dứt khoát, không có hơi thoát ra.",
+      "as": "âm 'kk' căng (không có âm tương đương chính xác trong tiếng Anh)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "가방",
+      "roman": "gabang",
+      "meaning": "túi xách",
+      "example": "가방이 있어요.",
+      "exampleMeaning": "Có một cái túi."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "thịt",
+      "example": "고기를 먹어요.",
+      "exampleMeaning": "Tôi ăn thịt."
+    },
+    {
+      "korean": "가게",
+      "roman": "gage",
+      "meaning": "cửa hàng",
+      "example": "가게에 가요.",
+      "exampleMeaning": "Tôi đi đến cửa hàng."
+    },
+    {
+      "korean": "코",
+      "roman": "ko",
+      "meaning": "mũi",
+      "example": "코가 커요.",
+      "exampleMeaning": "Mũi tôi to."
+    },
+    {
+      "korean": "카메라",
+      "roman": "kamera",
+      "meaning": "máy ảnh",
+      "example": "카메라로 사진을 찍어요.",
+      "exampleMeaning": "Tôi chụp ảnh bằng máy ảnh."
+    },
+    {
+      "korean": "콩",
+      "roman": "kong",
+      "meaning": "đậu",
+      "example": "콩이 작아요.",
+      "exampleMeaning": "Hạt đậu nhỏ."
+    },
+    {
+      "korean": "껌",
+      "roman": "kkeom",
+      "meaning": "kẹo cao su",
+      "example": "껌을 씹어요.",
+      "exampleMeaning": "Tôi nhai kẹo cao su."
+    },
+    {
+      "korean": "꼬마",
+      "roman": "kkoma",
+      "meaning": "đứa trẻ nhỏ",
+      "example": "꼬마가 웃어요.",
+      "exampleMeaning": "Đứa trẻ nhỏ mỉm cười."
+    },
+    {
+      "korean": "꽃",
+      "roman": "kkot",
+      "meaning": "hoa",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "Bông hoa đẹp."
+    }
+  ],
+  "category": "hangul"
+}

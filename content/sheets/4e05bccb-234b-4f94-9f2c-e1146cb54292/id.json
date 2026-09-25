@@ -1,0 +1,123 @@
+{
+  "answers": [
+    "앞머리 조금만 내려 주세요. / 앞머리를 조금만 내려 주세요. / 앞머리는 조금만 내려 주세요.",
+    "이 정도",
+    "옆머리는 짧게 해 주세요. / 옆머리 짧게 해 주세요. / 옆머리를 짧게 해 주세요.",
+    "뒷머리는 너무 짧게는 말고요. / 뒷머리 너무 짧게는 말고요.",
+    "기본 커트요. / 기본 커트 해 주세요. / 기본 커트로 해 주세요. / 기본 커트 부탁해요. / 기본 커트 부탁합니다."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "디자이너",
+      "korean": "어서 오세요. 어떻게 해 드릴까요?",
+      "meaning": "Selamat datang. Mau potong seperti apa hari ini?"
+    },
+    {
+      "who": "손님",
+      "korean": "기본 커트요. 길이는 이 정도까지만 잘라 주세요.",
+      "meaning": "Tolong potongan dasar saja. Tolong potong hanya sekitar sepanjang ini."
+    },
+    {
+      "who": "디자이너",
+      "korean": "네, 이 정도면 괜찮으세요?",
+      "meaning": "Baik. Panjang segini sudah pas?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 좋아요. 근데 너무 짧게는 말고요.",
+      "meaning": "Ya, itu bagus. Tapi jangan terlalu pendek, ya."
+    },
+    {
+      "who": "디자이너",
+      "korean": "알겠습니다. 앞머리는 내릴까요?",
+      "meaning": "Baik, dimengerti. Apakah poninya mau diturunkan?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 앞머리 조금만 내려 주세요.",
+      "meaning": "Ya, tolong turunkan poni saya sedikit saja."
+    },
+    {
+      "who": "디자이너",
+      "korean": "귀는 보이게 해 드릴까요, 가리게 해 드릴까요?",
+      "meaning": "Telinganya mau terlihat atau tertutup?"
+    },
+    {
+      "who": "손님",
+      "korean": "귀는 가리게 해 주세요.",
+      "meaning": "Tolong tutupi telinga saya."
+    }
+  ],
+  "exercises": [
+    "Terjemahkan ke bahasa Korea menggunakan '앞머리': \"Tolong turunkan poni saya sedikit saja.\"",
+    "Kamu sedang menyentuh rambutmu sendiri untuk menunjukkan panjang yang kamu inginkan. Isi bagian kosong dengan kata yang tepat (이 정도 / 그 정도 / 저 정도): _____로만 잘라 주세요.",
+    "Terjemahkan ke bahasa Korea menggunakan …게 해 주세요 (옆머리 = rambut bagian samping): \"Tolong buat bagian samping pendek.\"",
+    "Terjemahkan ke bahasa Korea menggunakan …말고요 (뒷머리 = rambut bagian belakang): \"Bagian belakang jangan terlalu pendek, ya.\"",
+    "Terjemahkan ke bahasa Korea: \"Tolong potongan dasar saja.\""
+  ],
+  "keyword": "미용실에서 기본 커트 부탁하기",
+  "level": "Pemula (tinggi)",
+  "minutes": 15,
+  "objective": "Pada akhirnya, pembelajar dapat meminta potongan dasar, menunjukkan panjang dengan '이 정도', mengatakan apakah ingin berponi atau tidak, meminta agar telinga terlihat atau tertutup, dan menggunakan '너무 짧게는 말고요' secara alami.",
+  "setting": "미용실",
+  "summary": "Dialog singkat dan nyata di salon untuk meminta potongan rambut dasar: menentukan panjang dengan '이 정도', memilih poni, dan meminta agar telinga terlihat atau tertutup. Berlatih ungkapan sopan '…말고요' seperti dalam 'Jangan terlalu pendek, ya.'",
+  "tags": [],
+  "task": {
+    "title": "Katakan pada penata rambut apa yang kamu inginkan",
+    "line": "Di salon, mintalah potongan dasar: tunjukkan panjangnya dengan '이 정도', katakan bagaimana kamu ingin poni dan telingamu, lalu tambahkan '너무 짧게는 말고요'."
+  },
+  "title": "미용실에서 기본 커트 부탁하기",
+  "words": [
+    {
+      "korean": "기본 커트",
+      "roman": "gibon keoteu",
+      "meaning": "potongan rambut dasar",
+      "example": "기본 커트요.",
+      "exampleMeaning": "Tolong potongan dasar saja."
+    },
+    {
+      "korean": "이 정도",
+      "roman": "i jeongdo",
+      "meaning": "sepanjang ini; kira-kira sepanjang ini",
+      "example": "이 정도로만 잘라 주세요.",
+      "exampleMeaning": "Tolong potong hanya sepanjang ini saja."
+    },
+    {
+      "korean": "너무 짧게는 말고요",
+      "roman": "neomu jjalgeneun malgoyo",
+      "meaning": "Jangan terlalu pendek, ya.",
+      "example": "옆머리는 너무 짧게는 말고요.",
+      "exampleMeaning": "Bagian samping jangan terlalu pendek, ya."
+    },
+    {
+      "korean": "앞머리",
+      "roman": "ammeori",
+      "meaning": "poni",
+      "example": "앞머리 내려 주세요.",
+      "exampleMeaning": "Tolong buatkan saya poni."
+    },
+    {
+      "korean": "귀는 보이게 해 주세요",
+      "roman": "gwineun boige hae juseyo",
+      "meaning": "Tolong buat telinga saya terlihat.",
+      "example": "이번에는 귀가 보이게 잘라 주세요.",
+      "exampleMeaning": "Kali ini, tolong potong agar telinga saya terlihat."
+    },
+    {
+      "korean": "귀는 가리게 해 주세요",
+      "roman": "gwineun garige hae juseyo",
+      "meaning": "Tolong tutupi telinga saya.",
+      "example": "겨울이라서 귀는 좀 가리게 해 주세요.",
+      "exampleMeaning": "Ini musim dingin, jadi tolong biarkan telinga saya agak tertutup."
+    },
+    {
+      "korean": "…게 해 주세요",
+      "roman": "…ge hae juseyo",
+      "meaning": "Tolong buat agar …; tolong lakukan agar …",
+      "example": "앞머리는 짧게 해 주세요.",
+      "exampleMeaning": "Tolong buat poninya pendek."
+    }
+  ],
+  "category": "reallife"
+}

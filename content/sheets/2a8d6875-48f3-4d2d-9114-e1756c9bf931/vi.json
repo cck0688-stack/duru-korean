@@ -1,0 +1,106 @@
+{
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "summary": "Luyện phân biệt và đọc các nguyên âm tiếng Hàn ㅐ, ㅔ, ㅖ qua các cặp từ gần giống nhau và các từ thông dụng. Bao gồm các bài chọn cách viết nhanh để củng cố khả năng nhận biết nguyên âm chính xác.",
+  "objective": "Người học sẽ phân biệt được ㅐ, ㅔ và ㅖ qua cách viết, và đọc đúng các từ đơn giản có chứa những nguyên âm này.",
+  "level": "Sơ cấp",
+  "minutes": 12,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Chọn từ đúng với nghĩa: con chó -> 개 / 게",
+    "Chọn cách viết đúng: (quả lê) 배 / 베",
+    "Chọn cách viết đúng: (quả chanh) 레몬 / 래몬",
+    "Chọn cách viết đúng: (quả trứng) 계란 / 게란",
+    "Điền nguyên âm đúng vào chỗ trống: ㅊ_ㄱ (quyển sách): ㅐ / ㅔ / ㅖ",
+    "Điền nguyên âm đúng vào chỗ trống: ㅇ_쁘다 (đẹp, xinh): ㅐ / ㅔ / ㅖ"
+  ],
+  "answers": [
+    "개",
+    "배",
+    "레몬",
+    "계란",
+    "ㅐ",
+    "ㅖ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅐ",
+      "sound": "ae",
+      "as": "giống nguyên âm trong từ tiếng Anh \"bed\" (trong tiếng Hàn chuẩn hiện đại, ㅐ và ㅔ phát âm gần giống nhau; phân biệt chủ yếu qua cách viết và nghĩa, ví dụ: 개 con chó / 게 con cua)"
+    },
+    {
+      "letter": "ㅔ",
+      "sound": "e",
+      "as": "giống nguyên âm trong từ tiếng Anh \"bed\""
+    },
+    {
+      "letter": "ㅖ",
+      "sound": "ye",
+      "as": "giống âm \"ye\" trong từ tiếng Anh \"yes\" (sau phụ âm có thể được phát âm giống ㅔ, ví dụ: 계란 [게란])"
+    }
+  ],
+  "words": [
+    {
+      "korean": "개",
+      "roman": "gae",
+      "meaning": "con chó",
+      "example": "저건 개예요.",
+      "exampleMeaning": "Đó là con chó."
+    },
+    {
+      "korean": "배",
+      "roman": "bae",
+      "meaning": "quả lê",
+      "example": "배가 맛있어요.",
+      "exampleMeaning": "Quả lê này ngon."
+    },
+    {
+      "korean": "책",
+      "roman": "chaek",
+      "meaning": "quyển sách",
+      "example": "책이 있어요.",
+      "exampleMeaning": "Có một quyển sách."
+    },
+    {
+      "korean": "게",
+      "roman": "ge",
+      "meaning": "con cua",
+      "example": "게를 먹어요.",
+      "exampleMeaning": "Tôi ăn cua."
+    },
+    {
+      "korean": "레몬",
+      "roman": "remon",
+      "meaning": "quả chanh",
+      "example": "레몬 주세요.",
+      "exampleMeaning": "Xin cho tôi một quả chanh."
+    },
+    {
+      "korean": "예",
+      "roman": "ye",
+      "meaning": "vâng (lịch sự)",
+      "example": "예, 맞아요.",
+      "exampleMeaning": "Vâng, đúng vậy."
+    },
+    {
+      "korean": "예쁘다",
+      "roman": "yeppeuda",
+      "meaning": "đẹp, xinh",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "Bông hoa này đẹp."
+    },
+    {
+      "korean": "계란",
+      "roman": "gyeran",
+      "meaning": "quả trứng",
+      "example": "이건 계란이에요.",
+      "exampleMeaning": "Đây là quả trứng."
+    }
+  ],
+  "category": "hangul"
+}

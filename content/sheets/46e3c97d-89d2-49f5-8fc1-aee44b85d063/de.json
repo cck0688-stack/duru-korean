@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "메뉴판 좀 주세요.",
+    "불고기 3인분 주세요. (3 is read as 삼: 삼인분)",
+    "저기요, 저희 비빔밥 두 개 주문했어요.",
+    "떡볶이 덜 맵게 해 주세요. 그리고 앞접시 두 개 주세요.",
+    "물티슈 좀 주세요. 그리고 반찬 좀 더 주세요.",
+    "저희 따로 계산할게요. 그리고 영수증도 주세요. (각자 계산할게요 is also correct, but 각자 is not in the list.)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Setze das passende Wort aus der Liste in die Lücke. Du hast dich gerade hingesetzt und möchtest sehen, was es zu essen gibt: ___ 좀 주세요.",
+    "Setze das passende Wort in die Lücke. Ihr seid zu dritt und möchtet Bulgogi für drei Personen: 불고기 ___ 주세요.",
+    "Setze die Vergangenheitsform von 주문하다 in die Lücke. Du hast vor 10 Minuten bestellt, aber dein Essen ist noch nicht gekommen: 저기요, 저희 비빔밥 두 개 ___.",
+    "Setze die passenden Wörter aus der Liste in die beiden Lücken. Du möchtest, dass dein Tteokbokki weniger scharf ist, und du möchtest zwei kleine Teller, um es zu teilen: 떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요.",
+    "Setze die passenden Wörter aus der Liste in die drei Lücken. Deine Hände sind klebrig, und alle Beilagen sind aufgegessen: ___ 좀 주세요. 그리고 ___ 좀 ___ 주세요.",
+    "Setze die passenden Wörter aus der Liste in die beiden Lücken. Du bist mit einem Freund/einer Freundin an der Kasse. Ihr bezahlt jeweils für euer eigenes Essen und möchtet eine Quittung: 저희 ___ 계산할게요. 그리고 ___도 주세요."
+  ],
+  "keyword": "식당 어휘",
+  "level": "Anfänger",
+  "minutes": 15,
+  "objective": "Lernende können 10 wichtige Restaurantwörter (메뉴판, 인분, 주문하다, 반찬, 앞접시, 물티슈, 덜 맵게, 더 주세요, 따로 계산하다, 영수증) benutzen, um kurze, höfliche Bitten an das Restaurantpersonal zu formulieren, vom Bestellen bis zum Bezahlen.",
+  "summary": "Zehn Wörter, die man in einem koreanischen Restaurant braucht, vom Hinsetzen bis zum Bezahlen. Du lernst, nach der Speisekarte zu fragen, nach Portionen zu bestellen, um kleine Teller, Feuchttücher, mehr Beilagen oder weniger Schärfe zu bitten, getrennt zu bezahlen und eine Quittung zu bekommen. Zu jedem Wort gibt es einen echten Beispielsatz. Die Übungen verlangen, die Wörter in neuen Situationen anzuwenden.",
+  "tags": [],
+  "task": null,
+  "title": "식당에서 주문하고 부탁하기: 핵심 어휘 10",
+  "words": [
+    {
+      "korean": "메뉴판",
+      "roman": "menyupan",
+      "meaning": "Speisekarte (die physische Karte, die man in der Hand hält oder an der Wand sieht)",
+      "example": "메뉴판에 사진이 있어요?",
+      "exampleMeaning": "Hat die Speisekarte Bilder?"
+    },
+    {
+      "korean": "인분",
+      "roman": "inbun",
+      "meaning": "Portion(en) für eine Person, wird nach einer Zahl verwendet (2인분 = Essen für zwei Personen)",
+      "example": "삼겹살 2인분 주세요.",
+      "exampleMeaning": "Zwei Portionen Schweinebauch, bitte."
+    },
+    {
+      "korean": "주문하다",
+      "roman": "jumunhada",
+      "meaning": "bestellen (Essen)",
+      "example": "여기요, 주문할게요.",
+      "exampleMeaning": "Entschuldigung, wir möchten bestellen."
+    },
+    {
+      "korean": "반찬",
+      "roman": "banchan",
+      "meaning": "kleine Beilagen, die zu einer koreanischen Mahlzeit serviert werden",
+      "example": "이 반찬 이름이 뭐예요?",
+      "exampleMeaning": "Wie heißt diese Beilage?"
+    },
+    {
+      "korean": "앞접시",
+      "roman": "apjeopsi",
+      "meaning": "kleiner Teller, auf den man sich seinen Anteil von einem gemeinsam servierten Gericht legt",
+      "example": "앞접시 좀 주시겠어요?",
+      "exampleMeaning": "Könnten wir ein paar kleine Teller bekommen?"
+    },
+    {
+      "korean": "물티슈",
+      "roman": "multisyu",
+      "meaning": "Feuchttuch (zum Reinigen der Hände am Tisch)",
+      "example": "물티슈 있어요?",
+      "exampleMeaning": "Haben Sie Feuchttücher?"
+    },
+    {
+      "korean": "덜 맵게",
+      "roman": "deol maepge",
+      "meaning": "weniger scharf (eine Bitte darüber, wie das Essen zubereitet wird)",
+      "example": "덜 맵게 할 수 있어요?",
+      "exampleMeaning": "Können Sie es weniger scharf machen?"
+    },
+    {
+      "korean": "더 주세요",
+      "roman": "deo juseyo",
+      "meaning": "bitte mehr (um Nachschlag oder eine zusätzliche Portion bitten)",
+      "example": "밥 한 공기 더 주세요.",
+      "exampleMeaning": "Noch eine Schüssel Reis, bitte."
+    },
+    {
+      "korean": "따로 계산하다",
+      "roman": "ttaro gyesanhada",
+      "meaning": "getrennt bezahlen (jede Person bezahlt für ihr eigenes Essen)",
+      "example": "계산은 따로 할게요.",
+      "exampleMeaning": "Wir bezahlen getrennt."
+    },
+    {
+      "korean": "영수증",
+      "roman": "yeongsujeung",
+      "meaning": "Quittung",
+      "example": "영수증은 괜찮아요.",
+      "exampleMeaning": "Ich brauche keine Quittung, danke."
+    }
+  ],
+  "category": "vocab"
+}

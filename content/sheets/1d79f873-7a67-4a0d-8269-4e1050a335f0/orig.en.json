@@ -1,0 +1,118 @@
+{
+  "answers": [
+    "4번 세탁기예요.",
+    "17분 남았어요.",
+    "2번 건조기로 옮긴다고 했어요.",
+    "시작 버튼을 눌렀어요."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "민지",
+      "korean": "실례합니다, 4번 세탁기 지금 누구 거예요?",
+      "meaning": "Excuse me, is the washing machine number 4 in use by someone now?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 제 거예요. 지금 17분 남았어요.",
+      "meaning": "Yes, it's mine. There's 17 minutes left now."
+    },
+    {
+      "who": "민지",
+      "korean": "아, 알겠어요. 끝나면 건조기로 바로 옮겨 주실 수 있어요?",
+      "meaning": "Ah, I see. Can you move it to the dryer right after it's done?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 괜찮아요. 건조기는 몇 번이 비어 있어요?",
+      "meaning": "Yes, that's fine. Which dryer number is available?"
+    },
+    {
+      "who": "민지",
+      "korean": "2번이 비어 있어요.",
+      "meaning": "Dryer number 2 is free."
+    },
+    {
+      "who": "철수",
+      "korean": "그러면 끝나면 제가 2번으로 옮길게요.",
+      "meaning": "Then I'll move it to number 2 when it's finished."
+    },
+    {
+      "who": "민지",
+      "korean": "감사합니다. 세제는 넣으셨어요?",
+      "meaning": "Thank you. Did you put in the detergent?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 이미 넣었고 시작 버튼도 눌렀어요.",
+      "meaning": "Yes, I already put it in and pressed the start button."
+    }
+  ],
+  "exercises": [
+    "철수의 세탁기 번호는 몇 번이에요?",
+    "철수 세탁기에 남은 시간은 얼마예요?",
+    "철수가 끝나면 어디로 옮기겠다고 했어요? (몇 번)",
+    "다음 문장을 한국어로 적으세요: \"I pressed the start button.\""
+  ],
+  "keyword": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "level": "A2 (초급 중급)",
+  "minutes": 15,
+  "objective": "Be able to understand and say short questions and responses at a coin/self-service laundromat: ask for a machine number, ask how much time is left, ask about fees or moving laundry, and start or move laundry to the dryer.",
+  "setting": "무인(코인) 빨래방",
+  "summary": "Practice short, practical questions and responses at a self-service laundromat: asking which machine, checking remaining time, and arranging to move laundry to the dryer.",
+  "tags": [],
+  "task": null,
+  "title": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "words": [
+    {
+      "korean": "세탁기",
+      "roman": "setakgi",
+      "meaning": "washing machine",
+      "example": "세탁기 4번에 넣으세요.",
+      "exampleMeaning": "Put it in washing machine number 4."
+    },
+    {
+      "korean": "건조기",
+      "roman": "geonjogi",
+      "meaning": "dryer",
+      "example": "건조기 2번이 비었어요.",
+      "exampleMeaning": "Dryer number 2 is free."
+    },
+    {
+      "korean": "몇 번",
+      "roman": "myeot beon",
+      "meaning": "which number",
+      "example": "몇 번이 비어 있어요?",
+      "exampleMeaning": "Which number is available?"
+    },
+    {
+      "korean": "남은 시간",
+      "roman": "nameun sigan",
+      "meaning": "remaining time",
+      "example": "남은 시간이 얼마나 돼요?",
+      "exampleMeaning": "How much time is left?"
+    },
+    {
+      "korean": "옮기다",
+      "roman": "omgida",
+      "meaning": "to move (something to another machine/place)",
+      "example": "끝나면 건조기로 옮겨 주세요.",
+      "exampleMeaning": "Please move it to the dryer when it's finished."
+    },
+    {
+      "korean": "시작 버튼",
+      "roman": "sijak beoteun",
+      "meaning": "start button",
+      "example": "시작 버튼을 눌러 주세요.",
+      "exampleMeaning": "Please press the start button."
+    },
+    {
+      "korean": "세제",
+      "roman": "seje",
+      "meaning": "detergent",
+      "example": "세제는 이미 넣었어요.",
+      "exampleMeaning": "I already put the detergent in."
+    }
+  ],
+  "category": "reallife"
+}

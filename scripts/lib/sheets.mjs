@@ -255,8 +255,16 @@ export async function writeSheet(cfg, opts) {
 // the only number on the page.
 const LEADING_NUMBER = /^\s*(?:\(\d+\)|\d+\s*[.)]|[①-⑳])\s*/;
 
+// A number is the template's to add — unless the text is a list of its
+// own ("① 포장 ② 세트", "1) … 2) …"): then the first number belongs to
+// the list, and taking it away left answers reading "포장 ② 세트".
+const LIST_AFTER = /(?:^|\s)(?:\(2\)|2\s*[.)]|②)\s*\S/;
 export function unnumbered(sheet) {
-  const strip = (v) => (typeof v === 'string' ? v.replace(LEADING_NUMBER, '') : v);
+  const strip = (v) => {
+    if (typeof v !== 'string') return v;
+    const rest = v.replace(LEADING_NUMBER, '');
+    return rest !== v && LIST_AFTER.test(rest) ? v : rest;
+  };
   const each = (list, key) => (Array.isArray(list) ? list : []).map((item) => {
     if (typeof item === 'string') return strip(item);
     if (item && typeof item[key] === 'string') return Object.assign({}, item, { [key]: strip(item[key]) });
@@ -425,7 +433,11 @@ const EXPLAINS = [
   ['level'], ['summary'], ['objective'], ['note'], ['setting']
 ];
 
-export function explanatoryText(sheet) {
+// `ref`: the edition the lines were translated from. Which lines are
+// sent is decided by it alone, so the same lines are found again in a
+// translated edition — a Korean answer that the Korean edition wrote
+// differently must not shift every line after it.
+export function explanatoryText(sheet, ref = sheet) {
   const at = [];
   const push = (get, set, value) => {
     if (typeof value === 'string' && value.trim()) at.push({ get, set, value });
@@ -475,8 +487,14 @@ export function explanatoryText(sheet) {
   });
   // An answer that is a Korean sentence is the answer, not an
   // explanation of one, so it stays as it is. Anything else is prose.
+  // An answer that is only Korean is the answer, not an explanation of
+  // one, so it stays as it is. One with words of explanation in it —
+  // "차 (ㅊ has a strong puff of air)", "7일 동안 (7일분 = a 7-day
+  // supply)" — is translated like prose; its Korean is kept (checked by
+  // proofread.mjs). Those were left in English in every edition.
   (sheet.answers || []).forEach((a, i) => {
-    if (!/[가-힣]/.test(String(a))) {
+    const decide = String((ref.answers || [])[i] == null ? a : ref.answers[i]);
+    if (!/[가-힣]/.test(decide) || /[A-Za-z]{3,}/.test(decide)) {
       push(null, (s, v) => { s.answers[i] = v; }, a);
     }
   });

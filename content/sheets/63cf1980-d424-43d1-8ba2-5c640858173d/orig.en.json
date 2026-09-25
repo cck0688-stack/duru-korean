@@ -1,0 +1,89 @@
+{
+  "answers": [
+    "자요",
+    "짜요",
+    "차요",
+    "쳐요",
+    "지다",
+    "차 (ㅊ has a strong puff of air)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Choose the right word: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
+    "Choose the right word: 국에 소금을 많이 넣었어요. 국이 너무 (자요 / 차요 / 짜요).",
+    "Choose the right word: 운동장에서 공을 (자요 / 차요 / 짜요).",
+    "Choose the right word: 저는 매일 피아노를 (져요 / 쳐요 / 쪄요).",
+    "Which word means \"to lose (a game)\"? (지다 / 치다 / 찌다)",
+    "Hold a tissue in front of your mouth and say 자, 차, 짜. Which one makes the tissue move the most?"
+  ],
+  "keyword": "ㅈㅊㅉ 소리",
+  "letters": [
+    {
+      "letter": "ㅈ",
+      "sound": "j (plain): soft and relaxed, with only a little breath",
+      "as": "Close to the \"j\" in \"jam,\" but softer. At the start of a word it can sound like a very light \"ch\" with almost no air."
+    },
+    {
+      "letter": "ㅊ",
+      "sound": "ch (aspirated): comes with a strong puff of air",
+      "as": "Close to the \"ch\" in \"church.\" Push out a clear burst of breath."
+    },
+    {
+      "letter": "ㅉ",
+      "sound": "jj (tense): tight, sharp, and with no puff of air",
+      "as": "No exact English match. Think of the \"tch\" in \"pitch,\" but tighten your throat and tongue and let out no breath."
+    }
+  ],
+  "level": "Beginner",
+  "minutes": 15,
+  "objective": "Beginner learners will tell apart and say word-initial ㅈ (plain), ㅊ (aspirated) and ㅉ (tense), then choose the right word in the sets 자다/차다/짜다 and 지다/치다/찌다.",
+  "summary": "Learn how ㅈ, ㅊ and ㅉ sound at the start of a word. They differ in breath and tension. Use them to pick the right verb in sets like 자다/차다/짜다 and 지다/치다/찌다.",
+  "tags": [],
+  "task": null,
+  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
+  "words": [
+    {
+      "korean": "자다",
+      "roman": "jada",
+      "meaning": "to sleep",
+      "example": "아기가 자요.",
+      "exampleMeaning": "The baby is sleeping."
+    },
+    {
+      "korean": "차다",
+      "roman": "chada",
+      "meaning": "to kick",
+      "example": "공을 차요.",
+      "exampleMeaning": "I kick the ball."
+    },
+    {
+      "korean": "짜다",
+      "roman": "jjada",
+      "meaning": "to be salty",
+      "example": "국이 짜요.",
+      "exampleMeaning": "The soup is salty."
+    },
+    {
+      "korean": "지다",
+      "roman": "jida",
+      "meaning": "to lose (a game or match)",
+      "example": "우리 팀이 졌어요.",
+      "exampleMeaning": "Our team lost."
+    },
+    {
+      "korean": "치다",
+      "roman": "chida",
+      "meaning": "to play (piano or another keyboard instrument)",
+      "example": "피아노를 쳐요.",
+      "exampleMeaning": "I play the piano."
+    },
+    {
+      "korean": "찌다",
+      "roman": "jjida",
+      "meaning": "to gain (weight)",
+      "example": "살이 쪘어요.",
+      "exampleMeaning": "I gained weight."
+    }
+  ],
+  "category": "hangul"
+}

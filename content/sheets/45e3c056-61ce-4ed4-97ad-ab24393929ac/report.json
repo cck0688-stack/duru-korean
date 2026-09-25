@@ -1,0 +1,576 @@
+{
+  "id": "45e3c056-61ce-4ed4-97ad-ab24393929ac",
+  "title": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
+  "category": "etc",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "연습문제 1–5번: 모두 '상황: …. 어떤 버튼을 누르나요?'라는 같은 틀입니다. 12개 라벨 가운데 6개만 묻고, 입금·통장정리·무통장 입금·확인·취소·처음으로는 한 번도 나오지 않습니다. 학습 목표의 '기본 흐름 따라가기'도 문제로 연습하지 않습니다. 빠진 라벨을 묻는 문제를 넣고, 흐름 순서 배열하기나 안내 문구에 알맞은 버튼 고르기 같은 다른 유형을 섞으세요.",
+        "연습문제 3번: '통장에 남은 돈을 보고 싶어요'는 답이 둘일 수 있습니다. 통장정리를 해도 통장에 잔액이 찍히는데 정답은 잔액조회 하나뿐입니다. 본문 설명처럼 '계좌에 남은 돈을 확인하고 싶어요'로 바꾸세요.",
+        "'기본 흐름 따라가기'의 출금·이체 흐름: 비밀번호 입력 단계가 빠졌습니다. 같은 학습지의 안내 문구 '비밀번호를 입력하세요.'와 맞지 않습니다. 출금 흐름은 '… → 출금 → 비밀번호 입력 → 금액 선택 → …'처럼 고치고, 이체 흐름에도 넣으세요.",
+        "'기본 흐름 따라가기': 흐름을 '카드 넣기 → 서비스 선택' 순서로만 단정했습니다. 한국의 ATM은 거래 종류(출금·이체 등)를 먼저 고르고 카드를 넣는 기기가 흔합니다. '기기에 따라 서비스를 먼저 고르고 카드를 넣기도 합니다'라는 안내를 덧붙이거나, 흐름을 '서비스 선택 → 카드 넣기'로 바꾸세요."
+      ],
+      "audit": [
+        "exercises[0]: 상황: 현금을 뽑고 싶어요. 어떤 버튼을 누르나요? → Which button do you press? Answer with the Korean label: 상황: 현금을 뽑고 싶어요. 어떤 버튼을 누르나요?",
+        "exercises[1]: 상황: 다른 사람 계좌로 돈을 보내야 해요. 어떤 버튼을 누르나요? → Which button do you press? Answer with the Korean label: 상황: 다른 사람 계좌로 돈을 보내야 해요. 어떤 버튼을 누르나요?",
+        "exercises[2]: 상황: 통장에 남은 돈을 보고 싶어요. 어떤 버튼을 누르나요? → Which button do you press? Answer with the Korean label: 상황: 통장에 남은 돈을 보고 싶어요. 어떤 버튼을 누르나요?",
+        "exercises[3]: 상황: 고지서로 전기요금을 내고 싶어요. 어떤 버튼을 누르나요? → Which button do you press? Answer with the Korean label: 상황: 고지서로 전기요금을 내고 싶어요. 어떤 버튼을 누르나요?",
+        "exercises[4]: 상황: 종이 영수증이 필요해요. 어떤 버튼을 누르나요? → Which button do you press? Answer with the Korean label: 상황: 종이 영수증이 필요해요. 어떤 버튼을 누르나요?",
+        "exercises[5]: 로마자를 보고 한국어 라벨을 쓰세요: eoneo seontaek → Write the Korean label for this romanization: eoneo seontaek",
+        "sections[0].heading: 12개 버튼: 라벨 읽기(로마자)와 쓰임 → 12 buttons: reading the labels (romanization) and what they do",
+        "sections[0].paragraphs[0]–[11]: The explanation of each button is written only in Korean (e.g. '현금을 뽑을 때 누릅니다.', '은행 계좌에 돈을 넣을 때 누릅니다.' …) → Keep each Korean label and its romanization. Replace the Korean explanations with English: [0] 'Press to withdraw cash.' [1] 'Press to put money into a bank account (deposit).' [2] 'Press to send money to another account (transfer).' [3] 'Press to check how much money is left in the account (check balance).' [4] 'Prints the transaction history into your passbook (update passbook).' [5] 'Deposits cash to an account number without a card or passbook.' [6] 'Pays bills such as electricity and water.' [7] 'Gives you a paper receipt (print receipt).' [8] 'Chooses the language, such as Korean or English.' [9] 'Finishes your input and continues (confirm).' [10] 'Goes back when you pressed the wrong thing (cancel).' [11] 'Goes back to the first screen (go to start/home).'",
+        "sections[1].heading: 기본 흐름 따라가기 → Following the basic flow",
+        "sections[2].heading: 화면에서 자주 보이는 안내 문구 → Common on-screen messages",
+        "sections[3].heading: 읽기 팁과 용어 메모 → Reading tips and term notes",
+        "sections[3].paragraphs[0]: 대괄호 […]는 같은 뜻의 다른 라벨입니다. 둘 중 하나만 보여도 같은 기능입니다. → Square brackets […] show another label with the same meaning. If you see either one, it is the same function.",
+        "sections[3].paragraphs[1]: 확인, 취소, 처음으로는 거의 모든 화면에 나옵니다. 위치는 은행마다 다르니 글자를 꼭 읽으세요. → 확인, 취소 and 처음으로 appear on almost every screen. Their position differs by bank, so always read the text.",
+        "sections[3].paragraphs[2]: 통장정리는 통장에 그동안의 거래 내역을 자동으로 인쇄하는 기능입니다. → 통장정리 automatically prints your recent transaction history into your passbook.",
+        "sections[3].paragraphs[3]: 지로(공과금 납부)는 전기·수도 등 각종 요금을 내는 메뉴입니다. → 지로 (공과금 납부) is the menu for paying bills such as electricity and water.",
+        "note: 이 학습지는 실제 ATM의 버튼 문구를 중심으로 구성했습니다. 은행·기기마다 화면 구성은 조금씩 다를 수 있습니다. → This worksheet is based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercise 2 and its answer: the answer gives one fixed order (비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인). On real ATMs the PIN is often asked for after the account and amount are entered, and the worksheet itself says '기기에 따라 서비스를 먼저 고르고 카드를 넣기도 합니다'. So more than one order is correct. The flow also leaves out choosing the receiving bank (받는 은행 선택). Fix: change the question to 'put these in the order shown in this worksheet's 이체 flow', or accept the other common order too, for example 받는 계좌 입력 → 보낼 금액 입력 → 비밀번호 입력 → 확인.",
+        "Section 1, the 취소 gloss 'Goes back when you pressed the wrong thing', and Exercise 5(c): on an ATM, 취소 means cancel. It stops the current transaction; it is not a step-back button, and fixing a wrong input is usually 정정. In 5(c), '되돌아가고 싶어요' also fits 처음으로 in 5(d), so two answers are possible. Fix: change the gloss to 'Cancels the current transaction (cancel)', and change the prompt to something like '거래를 그만하고 싶어요.'",
+        "Section 'Following the basic flow', first line (the general flow): it leaves out 비밀번호 입력. This doesn't match the flow in the objective (card in → choose service → enter PIN → …) or the 출금 and 이체 flows below it. Fix: add the step, e.g. 서비스 선택 → 비밀번호 입력 → 금액/계좌 선택.",
+        "Section 'Common on-screen messages': none of the six messages (금액을 선택하세요, 영수증이 필요하십니까? and the rest) has an English translation, and 예/아니오 has no gloss. Beginners can't work these out from the worksheet alone. Fix: add an English meaning to each message, e.g. 'Please select an amount.' and 'Do you need a receipt? Yes/No'.",
+        "Exercises 1, 3 and 5 all repeat the same frame: 'Which button do you press? Answer with the Korean label: 상황: … 어떤 버튼을 누르나요?' Exercises 1 and 3 are one-item questions with the same pattern, which makes the worksheet thin. Fix: merge 1 and 3 into the matching exercise (4 or 5). Then use the freed slot for a different kind of task, such as reading an on-screen message and choosing 예 or 아니오, or ordering the steps of 출금."
+      ],
+      "audit": [
+        "exercises[1]: 상황: 다른 사람 계좌로 돈을 보내야 해요. First write the Korean label of the button you press. Then put the next steps in order: 확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력 → First write the Korean label of the button you press, then put the next steps in order: 상황: 다른 사람 계좌로 돈을 보내야 해요. (확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력)",
+        "sections[1].paragraphs[1]: 기기에 따라 서비스를 먼저 고르고 카드를 넣기도 합니다. → On some machines, you choose the service first and then insert your card.",
+        "sections[1].paragraphs[0]: 카드 넣기(또는 계좌번호 입력/현금 투입) → 서비스 선택 → 금액/계좌 선택 → 영수증 선택 → 현금·카드 수령 → 카드 넣기(또는 계좌번호 입력/현금 투입) → 서비스 선택 → 비밀번호 입력 → 금액/계좌 선택 → 영수증 선택 → 현금·카드 수령",
+        "sections[2].paragraphs[0]-[5]: 금액을 선택하세요. / 계좌를 선택하세요. / 영수증이 필요하십니까? 예/아니오 / 비밀번호를 입력하세요. / 처음으로 돌아가시겠습니까? 예/아니오 / 다시 입력하세요. → 금액을 선택하세요. (Please choose the amount.) / 계좌를 선택하세요. (Please choose the account.) / 영수증이 필요하십니까? 예/아니오 (Do you need a receipt? Yes/No) / 비밀번호를 입력하세요. (Please enter your PIN.) / 처음으로 돌아가시겠습니까? 예/아니오 (Go back to the start? Yes/No) / 다시 입력하세요. (Please enter it again.)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Exercise 1, the answer key, and the 'Common on-screen messages' section use '아니오' as the answer to a yes/no question. Under standard spelling, the reply to a yes/no question is '아니요'. '아니오' is only the ending form of '아니다', as in '그것은 책이 아니오'. Some ATM screens do print '아니오', so either change the worksheet's own wording and the answer to '아니요', or keep the screen wording and add a note: 'Some screens show 아니오, but standard Korean is 아니요.'",
+        "Exercise 5(a) ('종이 영수증이 필요해요.') accepts only '영수증 출력'. But Exercise 1 and the basic flow teach that you get a receipt by pressing '예' when the screen asks '영수증이 필요하십니까? 예/아니오'. So '예' is an equally correct answer. Either add '예' to the answer ('영수증 출력 (or 예 at the receipt prompt)') or rewrite the situation so only one answer fits. For example: '거래가 끝났는데, 지난 거래 영수증을 다시 뽑고 싶어요' or '화면에 영수증 출력 버튼이 있어요. 종이 영수증이 필요해요.'"
+      ],
+      "audit": [
+        "exercises[0]: Read the screen message and choose 예 or 아니오: 화면에 '영수증이 필요하십니까? 예/아니오'가 나왔어요. → Read the screen message and choose 예 or 아니요: 화면에 '영수증이 필요하십니까? 예/아니요'가 나왔어요.",
+        "answers[0]: 아니오 → 아니요",
+        "sections[2].paragraphs[2]: 영수증이 필요하십니까? 예/아니오 (Do you need a receipt? Yes/No) → 영수증이 필요하십니까? 예/아니요 (Do you need a receipt? Yes/No)",
+        "sections[2].paragraphs[4]: 처음으로 돌아가시겠습니까? 예/아니오 (Go back to the start? Yes/No) → 처음으로 돌아가시겠습니까? 예/아니요 (Go back to the start? Yes/No)",
+        "exercises[4] (a): (a) 종이 영수증이 필요해요. → (a) 거래 전에 메뉴에서 종이 영수증을 뽑고 싶어요."
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "Exercise 5(a) doesn't make sense. '거래 전에 메뉴에서 종이 영수증을 뽑고 싶어요' asks for a receipt before any transaction, but a receipt is for a transaction that already happened. The worksheet's own flow also puts receipts after the transaction (영수증 선택 near the end). Rewrite the situation so it matches the answer 영수증 출력, for example: '(a) 거래가 끝났어요. 메뉴에서 거래 영수증을 종이로 뽑고 싶어요.'"
+      ],
+      "audit": [
+        "exercises[4] (a): (a) 거래 전에 메뉴에서 종이 영수증을 뽑고 싶어요. → (a) 거래가 끝난 후에 메뉴에서 종이 영수증을 뽑고 싶어요."
+      ]
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [
+        "'Following the basic flow' 첫 문단: 일반 흐름을 '카드 넣기(또는 계좌번호 입력/현금 투입) → 서비스 선택 → 비밀번호 입력 → …'으로 적었는데, 이렇게 하면 계좌번호 입력이나 현금 투입이 서비스 선택보다 먼저 오고 비밀번호 입력도 항상 거치게 됩니다. 두 줄 아래 무통장 입금 흐름(무통장 입금 → 받는 계좌 입력 → 금액 입력 또는 현금 투입 → 확인 → 영수증 선택)은 서비스를 먼저 고르고 비밀번호 단계가 없으므로 서로 맞지 않습니다. 실제 ATM에서도 무통장 입금은 먼저 고르고 카드 비밀번호를 넣지 않습니다. '(또는 계좌번호 입력/현금 투입)'을 지워 일반 흐름을 '카드 넣기 → 서비스 선택 → 비밀번호 입력 → 금액/계좌 선택 → 영수증 선택 → 현금·카드 수령'으로 고치고, 무통장 입금은 카드 없이 먼저 고르며 비밀번호 단계가 없다는 설명을 따로 붙이세요."
+      ],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "objective",
+      "before": "By the end, learners can accurately read 12 frequent ATM buttons/labels in Korean (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) and follow the basic ATM flow (card in → choose service → choose amount/account → receipt option → take cash/card) independently.",
+      "after": "By the end, learners can accurately read 12 frequent ATM buttons/labels in Korean (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) and follow the basic ATM flow (card in → choose service, or choose service first on some machines → enter PIN → choose amount/account → receipt option → take cash/card) independently."
+    },
+    {
+      "at": "level",
+      "before": "초급 중 (A1+~A2-)",
+      "after": "Beginner"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "상황: 현금을 뽑고 싶어요. 어떤 버튼을 누르나요?",
+      "after": "Read the screen message and choose 예 or 아니요: 화면에 '영수증이 필요하십니까? 예/아니요'가 나왔어요. 종이 영수증이 필요 없어요. 무엇을 누르나요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "상황: 다른 사람 계좌로 돈을 보내야 해요. 어떤 버튼을 누르나요?",
+      "after": "First write the Korean label of the button you press, then put the next steps in the order shown in this worksheet's 이체 flow: 상황: 다른 사람 계좌로 돈을 보내야 해요. (확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력)"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "상황: 통장에 남은 돈을 보고 싶어요. 어떤 버튼을 누르나요?",
+      "after": "Put the steps of 출금 in the order shown in this worksheet: 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "상황: 고지서로 전기요금을 내고 싶어요. 어떤 버튼을 누르나요?",
+      "after": "Match each situation to a Korean button label: (a) 고지서로 전기요금을 내고 싶어요. (b) 카드로 내 계좌에 현금을 넣고 싶어요. (c) 카드나 통장 없이 계좌번호로 돈을 넣고 싶어요. (d) 통장에 그동안의 거래 내역을 찍고 싶어요. (e) 현금을 뽑고 싶어요. (f) 계좌에 남은 돈을 확인하고 싶어요."
+    },
+    {
+      "at": "exercises[5]",
+      "before": "상황: 종이 영수증이 필요해요. 어떤 버튼을 누르나요?",
+      "after": "Which button do you press? Answer with the Korean label: (a) 거래가 끝난 후에 메뉴에서 종이 영수증을 뽑고 싶어요. (b) 화면에 '금액을 선택하세요.'가 나와서 금액을 골랐어요. 다음으로 가고 싶어요. (c) 거래를 그만하고 싶어요. (d) 첫 화면으로 돌아가고 싶어요."
+    },
+    {
+      "at": "exercises[6]",
+      "before": "로마자를 보고 한국어 라벨을 쓰세요: eoneo seontaek",
+      "after": "Write the Korean label for this romanization: eoneo seontaek"
+    },
+    {
+      "at": "answers[1]",
+      "before": "출금(현금인출)",
+      "after": "아니요"
+    },
+    {
+      "at": "answers[2]",
+      "before": "이체(계좌이체)",
+      "after": "이체(계좌이체); 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인"
+    },
+    {
+      "at": "answers[3]",
+      "before": "잔액조회",
+      "after": "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인"
+    },
+    {
+      "at": "answers[4]",
+      "before": "공과금 납부(지로)",
+      "after": "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회"
+    },
+    {
+      "at": "answers[5]",
+      "before": "영수증 출력",
+      "after": "(a) 영수증 출력 (b) 확인 (c) 취소 (d) 처음으로(초기화면)"
+    },
+    {
+      "at": "sections[1].heading",
+      "before": "12개 버튼: 라벨 읽기(로마자)와 쓰임",
+      "after": "12 buttons: reading the labels (romanization) and what they do"
+    },
+    {
+      "at": "sections[1].paragraphs[1]",
+      "before": "출금[현금인출] (chulgeum [hyeongeum inchul]): 현금을 뽑을 때 누릅니다. (withdraw cash)",
+      "after": "출금[현금인출] (chulgeum [hyeongeum inchul]): Press to withdraw cash."
+    },
+    {
+      "at": "sections[1].paragraphs[2]",
+      "before": "입금 (ipgeum): 은행 계좌에 돈을 넣을 때 누릅니다. (deposit)",
+      "after": "입금 (ipgeum): Press to put money into a bank account (deposit)."
+    },
+    {
+      "at": "sections[1].paragraphs[3]",
+      "before": "이체[계좌이체] (iche [gyejwa iche]): 다른 계좌로 돈을 보낼 때 누릅니다. (transfer)",
+      "after": "이체[계좌이체] (iche [gyejwa iche]): Press to send money to another account (transfer)."
+    },
+    {
+      "at": "sections[1].paragraphs[4]",
+      "before": "잔액조회 (janaek johoe): 계좌에 남은 돈을 확인할 때 누릅니다. (check balance)",
+      "after": "잔액조회 (janaek johoe): Press to check how much money is left in the account (check balance)."
+    },
+    {
+      "at": "sections[1].paragraphs[5]",
+      "before": "통장정리 (tongjang jeongni): 통장에 거래 내역을 인쇄합니다. (update passbook)",
+      "after": "통장정리 (tongjang jeongni): Prints the transaction history into your passbook (update passbook)."
+    },
+    {
+      "at": "sections[1].paragraphs[6]",
+      "before": "무통장 입금 (mutongjang ipgeum): 통장·카드 없이 계좌번호로 입금합니다. (cash deposit without card/passbook)",
+      "after": "무통장 입금 (mutongjang ipgeum): Deposits cash to an account number without a card or passbook."
+    },
+    {
+      "at": "sections[1].paragraphs[7]",
+      "before": "공과금 납부[지로] (gonggwageum napbu [jiro]): 전기·수도 등 요금을 냅니다. (pay bills)",
+      "after": "공과금 납부[지로] (gonggwageum napbu [jiro]): Pays bills such as electricity and water."
+    },
+    {
+      "at": "sections[1].paragraphs[8]",
+      "before": "영수증 출력 (yeongsujeung chullyeok): 종이 영수증을 받습니다. (print receipt)",
+      "after": "영수증 출력 (yeongsujeung chullyeok): Gives you a paper receipt (print receipt)."
+    },
+    {
+      "at": "sections[1].paragraphs[9]",
+      "before": "언어 선택 (eoneo seontaek): 한국어/영어 등 언어를 고릅니다. (choose language)",
+      "after": "언어 선택 (eoneo seontaek): Chooses the language, such as Korean or English."
+    },
+    {
+      "at": "sections[1].paragraphs[10]",
+      "before": "확인 (hwagin): 입력을 마치고 진행합니다. (confirm)",
+      "after": "확인 (hwagin): Finishes your input and continues (confirm)."
+    },
+    {
+      "at": "sections[1].paragraphs[11]",
+      "before": "취소 (chwiso): 잘못 눌렀을 때 되돌아갑니다. (cancel)",
+      "after": "취소 (chwiso): Cancels the current transaction (cancel)."
+    },
+    {
+      "at": "sections[1].paragraphs[12]",
+      "before": "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): 첫 화면으로 돌아갑니다. (go to start/home)",
+      "after": "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): Goes back to the first screen (go to start/home)."
+    },
+    {
+      "at": "sections[2].heading",
+      "before": "기본 흐름 따라가기",
+      "after": "Following the basic flow"
+    },
+    {
+      "at": "sections[2].paragraphs[1]",
+      "before": "카드 넣기(또는 계좌번호 입력/현금 투입) → 서비스 선택 → 금액/계좌 선택 → 영수증 선택 → 현금·카드 수령",
+      "after": "On some machines, you choose the service first and then insert your card."
+    },
+    {
+      "at": "sections[2].paragraphs[2]",
+      "before": "출금: 카드 넣기 → 출금 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
+      "after": "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기"
+    },
+    {
+      "at": "sections[2].paragraphs[3]",
+      "before": "이체: 카드 넣기 → 이체 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기",
+      "after": "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기"
+    },
+    {
+      "at": "sections[2].paragraphs[4]",
+      "before": "무통장 입금: 무통장 입금 → 받는 계좌 입력 → 금액 입력 또는 현금 투입 → 확인 → 영수증 선택",
+      "after": ""
+    },
+    {
+      "at": "sections[3].heading",
+      "before": "화면에서 자주 보이는 안내 문구",
+      "after": "Common on-screen messages"
+    },
+    {
+      "at": "sections[3].paragraphs[1]",
+      "before": "금액을 선택하세요.",
+      "after": "금액을 선택하세요. (Please choose the amount.)"
+    },
+    {
+      "at": "sections[3].paragraphs[2]",
+      "before": "계좌를 선택하세요.",
+      "after": "영수증이 필요하십니까? 예/아니요 (Do you need a receipt? Yes/No)"
+    },
+    {
+      "at": "sections[3].paragraphs[3]",
+      "before": "영수증이 필요하십니까? 예/아니오",
+      "after": ""
+    },
+    {
+      "at": "sections[3].paragraphs[4]",
+      "before": "비밀번호를 입력하세요.",
+      "after": ""
+    },
+    {
+      "at": "sections[3].paragraphs[5]",
+      "before": "처음으로 돌아가시겠습니까? 예/아니오",
+      "after": ""
+    },
+    {
+      "at": "sections[3].paragraphs[6]",
+      "before": "다시 입력하세요.",
+      "after": ""
+    },
+    {
+      "at": "sections[4].heading",
+      "before": "읽기 팁과 용어 메모",
+      "after": "Reading tips and term notes"
+    },
+    {
+      "at": "sections[4].paragraphs[1]",
+      "before": "대괄호 […]는 같은 뜻의 다른 라벨입니다. 둘 중 하나만 보여도 같은 기능입니다.",
+      "after": "Square brackets […] show another label with the same meaning. If you see either one, it is the same function."
+    },
+    {
+      "at": "sections[4].paragraphs[2]",
+      "before": "확인, 취소, 처음으로는 거의 모든 화면에 나옵니다. 위치는 은행마다 다르니 글자를 꼭 읽으세요.",
+      "after": "확인, 취소 and 처음으로 appear on almost every screen. Their position differs by bank, so always read the text."
+    },
+    {
+      "at": "sections[4].paragraphs[3]",
+      "before": "통장정리는 통장에 그동안의 거래 내역을 자동으로 인쇄하는 기능입니다.",
+      "after": ""
+    },
+    {
+      "at": "sections[4].paragraphs[4]",
+      "before": "지로(공과금 납부)는 전기·수도 등 각종 요금을 내는 메뉴입니다.",
+      "after": ""
+    },
+    {
+      "at": "note",
+      "before": "이 학습지는 실제 ATM의 버튼 문구를 중심으로 구성했습니다. 은행·기기마다 화면 구성은 조금씩 다를 수 있습니다.",
+      "after": "This worksheet is based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine."
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "sections[2].paragraphs[5]",
+          "before": "무통장 입금: 무통장 입금 → 받는 계좌 입력 → 금액 입력 또는 현금 투입 → 확인 → 영수증 선택",
+          "after": ""
+        },
+        {
+          "at": "sections[3].paragraphs[2]",
+          "before": "계좌를 선택하세요. (Please choose the account.)",
+          "after": "영수증이 필요하십니까? 예/아니요 (Do you need a receipt? Yes/No)"
+        },
+        {
+          "at": "sections[3].paragraphs[3]",
+          "before": "영수증이 필요하십니까? 예/아니요 (Do you need a receipt? Yes/No)",
+          "after": "비밀번호를 입력하세요. (Please enter your PIN.)"
+        },
+        {
+          "at": "sections[3].paragraphs[4]",
+          "before": "비밀번호를 입력하세요. (Please enter your PIN.)",
+          "after": ""
+        },
+        {
+          "at": "sections[3].paragraphs[5]",
+          "before": "처음으로 돌아가시겠습니까? 예/아니요 (Go back to the start? Yes/No)",
+          "after": ""
+        },
+        {
+          "at": "sections[3].paragraphs[6]",
+          "before": "다시 입력하세요. (Please enter it again.)",
+          "after": ""
+        },
+        {
+          "at": "sections[4].paragraphs[3]",
+          "before": "통장정리 automatically prints your recent transaction history into your passbook.",
+          "after": ""
+        },
+        {
+          "at": "sections[4].paragraphs[4]",
+          "before": "지로 (공과금 납부) is the menu for paying bills such as electricity and water.",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "sections[2].paragraphs[1]",
+          "before": "카드 넣기(또는 계좌번호 입력/현금 투입) → 서비스 선택 → 비밀번호 입력 → 금액/계좌 선택 → 영수증 선택 → 현금·카드 수령",
+          "after": "On some machines, you choose the service first and then insert your card."
+        },
+        {
+          "at": "sections[2].paragraphs[2]",
+          "before": "On some machines, you choose the service first and then insert your card.",
+          "after": "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기"
+        },
+        {
+          "at": "sections[2].paragraphs[3]",
+          "before": "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
+          "after": "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기"
+        },
+        {
+          "at": "sections[2].paragraphs[4]",
+          "before": "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기",
+          "after": ""
+        },
+        {
+          "at": "sections[3].paragraphs[3]",
+          "before": "비밀번호를 입력하세요. (Please enter your PIN.)",
+          "after": ""
+        }
+      ]
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 20,
+          "problem": "The Korean label 출금 was changed to 취금 at the start of the line. The Korean must match the English line exactly.",
+          "fix": "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 23,
+          "problem": "The gloss adds '얼마를 찾을지' (how much to withdraw), which limits the message to withdrawals. The English just says 'Please choose the amount', and the worksheet also uses this step in the transfer flow.",
+          "fix": "금액을 선택하세요. (금액을 골라 달라는 뜻이에요.)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:53:03.845Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "sections[1].paragraphs[0]",
+      "before": "On some machines, you choose the service first and then insert your card.",
+      "after": "On most machines, you choose the service first and then insert your card or passbook. Some machines ask for the card first.",
+      "why": "Most Korean ATMs ask for the transaction first (출금/입금/조회/이체) and then for the card or passbook; the sheet taught the reverse as the rule."
+    },
+    {
+      "op": "replace",
+      "path": "sections[1].paragraphs[1]",
+      "before": "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
+      "after": "출금: 출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
+      "why": "Most Korean ATMs ask for the transaction first (출금/입금/조회/이체) and then for the card or passbook; the sheet taught the reverse as the rule."
+    },
+    {
+      "op": "replace",
+      "path": "sections[1].paragraphs[2]",
+      "before": "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기",
+      "after": "이체: 이체 → 카드 넣기 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기",
+      "why": "Most Korean ATMs ask for the transaction first (출금/입금/조회/이체) and then for the card or passbook; the sheet taught the reverse as the rule."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "and follow the basic ATM flow (card in → choose service, or choose service first on some machines → enter PIN → choose amount/account → receipt option → take cash/card) independently.",
+      "after": "and follow the basic ATM flow (choose service → card in → enter PIN → choose amount/account → receipt option → take cash/card; some machines ask for the card first) independently.",
+      "why": "Most Korean ATMs ask for the transaction first (출금/입금/조회/이체) and then for the card or passbook; the sheet taught the reverse as the rule."
+    },
+    {
+      "op": "replace",
+      "path": "exercises[2]",
+      "before": "Put the steps of 출금 in the order shown in this worksheet: 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인",
+      "after": "Put the steps of 출금 in the order shown in this worksheet: 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인",
+      "why": "unchanged question; answer follows the corrected flow"
+    },
+    {
+      "op": "replace",
+      "path": "answers[2]",
+      "before": "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인",
+      "after": "출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인",
+      "why": "Most Korean ATMs ask for the transaction first (출금/입금/조회/이체) and then for the card or passbook; the sheet taught the reverse as the rule."
+    }
+  ]
+}

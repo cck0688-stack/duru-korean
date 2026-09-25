@@ -1,0 +1,111 @@
+{
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Latih cara membedakan dan membaca konsonan awal kata bahasa Korea ㄷ (biasa), ㅌ (aspirasi), dan ㄸ (tegas). Referensi bunyi bahasa Inggris disediakan agar pemula dapat menghubungkan bunyi-bunyi tersebut dan membaca kata-kata sederhana dengan tepat.",
+  "objective": "Pembelajar akan mengenali dan melafalkan ㄷ (biasa), ㅌ (aspirasi), dan ㄸ (tegas) di posisi awal kata, menghubungkannya dengan referensi bunyi bahasa Inggris yang jelas (ㄷ ≈ antara d dan t dalam bahasa Inggris dengan sedikit hembusan napas, ㅌ ≈ t pada \"top\", ㄸ ≈ t tegas tanpa hembusan napas, mirip dengan t pada \"stop\"), dan membaca dengan benar kata-kata sederhana yang mengandung konsonan awal ini.",
+  "level": "Pemula",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Pilih kata yang diawali dengan ㄸ (tegas): 두부 / 토끼 / 또",
+    "Lihat romanisasinya dan tuliskan hanya konsonan awalnya dalam Hangul: dubu",
+    "Pilih kata yang berarti 'anak perempuan': 달 / 딸",
+    "Pilih kata yang diawali dengan ㅌ (aspirasi): 달 / 토마토 / 딸",
+    "Lihat romanisasinya dan tuliskan hanya konsonan awalnya dalam Hangul: tteok"
+  ],
+  "answers": [
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
+    "ㄸ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄷ",
+      "sound": "t biasa, dengan sedikit hembusan napas (lebih lemah daripada ㅌ)",
+      "as": "di antara d dan t dalam bahasa Inggris; di awal kata sering terdengar seperti t yang lembut"
+    },
+    {
+      "letter": "ㅌ",
+      "sound": "t beraspirasi, dengan hembusan napas yang kuat",
+      "as": "seperti t pada \"top\""
+    },
+    {
+      "letter": "ㄸ",
+      "sound": "t tegas, rapat dan pendek",
+      "as": "\"tt\" tegas tanpa hembusan napas; yang paling mendekati dalam bahasa Inggris adalah t pada \"stop\""
+    }
+  ],
+  "words": [
+    {
+      "korean": "달",
+      "roman": "dal",
+      "meaning": "bulan",
+      "example": "달이 예뻐요.",
+      "exampleMeaning": "Bulannya indah."
+    },
+    {
+      "korean": "돈",
+      "roman": "don",
+      "meaning": "uang",
+      "example": "돈이 없어요.",
+      "exampleMeaning": "Saya tidak punya uang."
+    },
+    {
+      "korean": "두부",
+      "roman": "dubu",
+      "meaning": "tahu",
+      "example": "두부를 사요.",
+      "exampleMeaning": "Saya membeli tahu."
+    },
+    {
+      "korean": "토마토",
+      "roman": "tomato",
+      "meaning": "tomat",
+      "example": "토마토를 먹어요.",
+      "exampleMeaning": "Saya makan tomat."
+    },
+    {
+      "korean": "타다",
+      "roman": "tada",
+      "meaning": "naik",
+      "example": "버스를 타요.",
+      "exampleMeaning": "Saya naik bus."
+    },
+    {
+      "korean": "토끼",
+      "roman": "tokki",
+      "meaning": "kelinci",
+      "example": "토끼가 귀여워요.",
+      "exampleMeaning": "Kelincinya lucu."
+    },
+    {
+      "korean": "딸",
+      "roman": "ttal",
+      "meaning": "anak perempuan",
+      "example": "딸이 있어요.",
+      "exampleMeaning": "Saya punya anak perempuan."
+    },
+    {
+      "korean": "떡",
+      "roman": "tteok",
+      "meaning": "kue beras",
+      "example": "떡이 맛있어요.",
+      "exampleMeaning": "Kue berasnya enak."
+    },
+    {
+      "korean": "또",
+      "roman": "tto",
+      "meaning": "lagi",
+      "example": "또 만나요.",
+      "exampleMeaning": "Sampai jumpa lagi."
+    }
+  ],
+  "category": "hangul"
+}

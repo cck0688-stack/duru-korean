@@ -1,0 +1,107 @@
+{
+  "title": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
+  "keyword": "vocab",
+  "summary": "Zehn wichtige koreanische Wörter zur Mülltrennung und Müllentsorgung in Wohnungen/Häusern, mit klaren, natürlichen Beispielsätzen und einer kurzen Übung.",
+  "objective": "Lernende verstehen und verwenden sicher 10 wichtige Wörter rund um Mülltrennung und Recycling im Haushalt und können kurze Sätze für den Alltag bilden.",
+  "level": "Anfänger (hohes Niveau)",
+  "minutes": 15,
+  "tags": [
+    "쓰레기",
+    "분리수거",
+    "재활용",
+    "생활 어휘",
+    "주거"
+  ],
+  "task": {
+    "title": "우리 집 쓰레기 분류해 말하기",
+    "line": "Wähle 5 Dinge aus, die du zu Hause wegwirfst, und sage auf Koreanisch, wohin jedes davon gehört, z. B. '이 캔은 헹군 다음 재활용으로 버려요.' Die Regeln können je nach Region unterschiedlich sein, überprüfe daher die Aushänge in deinem Gebäude oder bei der örtlichen Verwaltung."
+  },
+  "exercises": [
+    "Fülle die Lücken aus: 생수를 다 마신 _____은 라벨을 떼고 찌그러뜨려 주세요. 택배 상자 안의 흰 _____은 테이프를 떼고 버리세요.",
+    "Fülle die Lücken aus: 페트병에 붙은 비닐을 떼는 것을 _____라고 해요. 그다음 페트병은 _____으로 버리세요.",
+    "Fülle die Lücken aus: 오늘은 우리 동네 재활용 _____이에요. 관리사무소 안내에 따라 캔은 헹군 다음 재활용 수거함에 _____하세요.",
+    "Fülle die Lücken aus: 플라스틱, 종이, 캔을 섞지 말고 _____해서 버리세요. 먹다 남은 김치는 _____에 버려요.",
+    "Fülle die Lücken aus: 다 쓴 칫솔 같은 _____는 _____에 넣어요."
+  ],
+  "answers": [
+    "투명 페트병 / 스티로폼",
+    "라벨 제거 / 재활용",
+    "수거일 / 배출",
+    "분리 / 음식물 쓰레기",
+    "일반 쓰레기 / 종량제 봉투"
+  ],
+  "checkThese": [],
+  "words": [
+    {
+      "korean": "일반 쓰레기",
+      "roman": "ilban sseuregi",
+      "meaning": "Restmüll; nicht recycelbarer Abfall",
+      "example": "더러운 휴지는 일반 쓰레기에 버리세요.",
+      "exampleMeaning": "Bitte wirf schmutzige Taschentücher in den Restmüll."
+    },
+    {
+      "korean": "재활용",
+      "roman": "jaehwaryong",
+      "meaning": "Recycling; Kategorie für recycelbare Materialien",
+      "example": "플라스틱은 재활용으로 버리세요.",
+      "exampleMeaning": "Bitte wirf Plastik ins Recycling."
+    },
+    {
+      "korean": "음식물 쓰레기",
+      "roman": "eumsingmul sseuregi",
+      "meaning": "Essensreste (Biomüll für Lebensmittel)",
+      "example": "남은 밥은 음식물 쓰레기에 버려요.",
+      "exampleMeaning": "Ich werfe übrig gebliebenen Reis in den Essensreste-Müll."
+    },
+    {
+      "korean": "종량제 봉투",
+      "roman": "jongnyangje bongtu",
+      "meaning": "vorgeschriebener gebührenpflichtiger Müllbeutel (Pay-as-you-throw-Beutel)",
+      "example": "쓰레기는 종량제 봉투에 담아 주세요.",
+      "exampleMeaning": "Bitte gib den Müll in einen vorgeschriebenen gebührenpflichtigen Beutel."
+    },
+    {
+      "korean": "배출",
+      "roman": "baechul",
+      "meaning": "Müll zur Abholung rausstellen",
+      "example": "쓰레기는 지정 장소에 배출하세요.",
+      "exampleMeaning": "Bitte stelle den Müll an der dafür vorgesehenen Stelle raus."
+    },
+    {
+      "korean": "수거일",
+      "roman": "sugeoil",
+      "meaning": "Abholtag",
+      "example": "우리 아파트 재활용 수거일은 화요일이에요.",
+      "exampleMeaning": "Der Recycling-Abholtag in unserer Wohnanlage ist Dienstag."
+    },
+    {
+      "korean": "분리",
+      "roman": "bulli",
+      "meaning": "Trennung; Sortierung (von Gegenständen)",
+      "example": "종이와 플라스틱을 분리하세요.",
+      "exampleMeaning": "Bitte trenne Papier und Plastik."
+    },
+    {
+      "korean": "라벨 제거",
+      "roman": "rabel jegeo",
+      "meaning": "Etikettenentfernung; das Etikett entfernen",
+      "example": "병은 라벨 제거 후 버리세요.",
+      "exampleMeaning": "Entferne das Etikett von der Flasche, bevor du sie wegwirfst."
+    },
+    {
+      "korean": "투명 페트병",
+      "roman": "tumyeong peteubyeong",
+      "meaning": "durchsichtige PET-Flasche",
+      "example": "투명 페트병은 따로 모아요.",
+      "exampleMeaning": "Wir sammeln durchsichtige PET-Flaschen getrennt."
+    },
+    {
+      "korean": "스티로폼",
+      "roman": "seutiropom",
+      "meaning": "Styropor (expandiertes Polystyrol)",
+      "example": "스티로폼은 내용물을 비우고 배출하세요.",
+      "exampleMeaning": "Leere den Inhalt und stelle das Styropor zur Abholung raus."
+    }
+  ],
+  "category": "vocab"
+}

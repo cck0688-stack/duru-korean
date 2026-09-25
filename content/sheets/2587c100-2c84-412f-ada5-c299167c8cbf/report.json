@@ -1,0 +1,179 @@
+{
+  "id": "2587c100-2c84-412f-ada5-c299167c8cbf",
+  "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
+  "category": "etc",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Section '약 봉투 A' paragraph 1: the fields run together with no separators ('…2026년 9월 24일 복용법: 1일 3회, 1회 1포, 식후 30분 3일분 주의: …'), while Envelopes B and C use '|'. '식후 30분 3일분' looks like one phrase, and beginners could misread it. Exercises 1, 2 and 6 depend on reading this envelope. Add separators to match B and C: '이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의.' Putting each field on its own line also works."
+      ],
+      "audit": [
+        "sections[1] (WORDS ON THE ENVELOPE), paragraph 1: 1일 3회 (il-il sam-hoe) → 1일 3회 (iril samhoe)",
+        "sections[0] (약 봉투 A), paragraph 1: 이름: 마리아 님 | 조제일: 2026년 9월 24일 복용법: 1일 3회, 1회 1포, 식후 30분 3일분 주의: 졸음이 올 수 있어요. 운전 주의. → 이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "sections[1].paragraphs[1]",
+      "before": "이름: 마리아 님 | 조제일: 2026년 9월 24일 복용법: 1일 3회, 1회 1포, 식후 30분 3일분 주의: 졸음이 올 수 있어요. 운전 주의.",
+      "after": "이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의."
+    },
+    {
+      "at": "sections[2].paragraphs[1]",
+      "before": "HOW MANY TIMES A DAY — 1일 3회 (il-il sam-hoe) = 3 times a day. 일 means 'day' and 회 means 'time(s)'. People say this as 하루 세 번.",
+      "after": "HOW MANY TIMES A DAY — 1일 3회 (iril samhoe) = 3 times a day. 일 means 'day' and 회 means 'time(s)'. People say this as 하루 세 번."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 13,
+          "problem": "'Membacanya dengan suara' is unnatural and incomplete Indonesian for 'reading it aloud'; the standard expression is 'dengan suara keras'.",
+          "fix": "소리 내어 읽기 (MEMBACANYA DENGAN SUARA KERAS)"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Beginner (high)\" means the upper part of the beginner level. 上級 means \"advanced,\" so 初級(上級) gives a confusing level label.",
+          "fix": "初級(上)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"高级\" means \"advanced level\", so \"初级（高级）\" reads as \"Beginner (Advanced)\". The English means the upper part of the beginner level.",
+          "fix": "初级（高阶）"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T15:32:50.248Z"
+}

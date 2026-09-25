@@ -1,0 +1,279 @@
+{
+  "id": "fa76762f-bf12-4122-8e44-4384cbcf2dfb",
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "letters의 ㄱ 설명: 첫소리 ㄱ을 'k' in 'ski' (no puff)에 대응시키고 '공기를 세게 내보내지 않음'이라고 했지만, 낱말 첫소리의 ㄱ은 약하게나마 기식이 있다. 기식이 없는 'ski'의 k는 오히려 ㄲ에 가깝다고 흔히 설명된다. 지금 설명대로면 ㄱ과 ㄲ이 둘 다 '공기를 세게 내보내지 않는 소리'가 되어 구별할 근거가 사라진다. ㄱ은 '첫소리에서는 약하게 공기가 나오며, ㅋ보다 약하고 ㄲ보다 부드러운 소리(영어 g와 k의 중간쯤)'로 고치고, 'ski'의 k 대응은 ㄲ 쪽으로 옮기거나 빼야 한다. summary와 objective의 'ㄱ ≈ k in ski'도 같이 고칠 것.",
+        "4번 문제: 낱말(가방, 코, 꽃)과 칸([ㄱ], [ㅋ], [ㄲ])이 같은 순서로 놓여 있어 소리를 몰라도 순서대로 이으면 맞는다. 낱말 순서를 섞고(예: 꽃, 가방, 코) 정답도 그에 맞게 고칠 것.",
+        "5번 문제: 힌트(ski / key / kk)와 보기(가게, 카메라, 꽃)가 같은 순서라서 순서만 보고 풀 수 있다. 보기 순서를 섞을 것(예: 꽃, 가게, 카메라). 또 ㄱ 설명을 고치면 ski 힌트와 정답(ski→가게)도 같이 바꿔야 한다."
+      ],
+      "audit": [
+        "letters[0].sound (ㄱ): 평음. 뒤쪽에서 가볍게 막았다가 소리를 냄. 공기를 세게 내보내지 않음. → Plain (lax) consonant. The back of the tongue lightly closes against the soft palate, then releases. Little or no puff of air.",
+        "letters[1].sound (ㅋ): 거센소리. ㄱ보다 공기를 세게 내뿜음. → Aspirated consonant. Same tongue position as ㄱ, but released with a strong puff of air.",
+        "letters[2].sound (ㄲ): 된소리. 입에 힘을 주고 단단하게, 짧게 터뜨림. 공기를 세게 내보내지 않음. → Tense consonant. Same tongue position as ㄱ, but the throat and tongue are tensed and the sound is released sharply, with no puff of air.",
+        "exercises[0]: 보기에서 ㅋ(거센소리)로 시작하는 낱말을 고르세요: 가게 / 코 / 꽃 → Choose the word that begins with ㅋ (aspirated): 가게 / 코 / 꽃",
+        "exercises[1]: 보기에서 ㄲ(된소리)로 시작하는 낱말을 고르세요: 가방 / 꼬마 / 카메라 → Choose the word that begins with ㄲ (tense): 가방 / 꼬마 / 카메라",
+        "exercises[2]: 보기에서 ㄱ(평음)으로 시작하는 낱말을 고르세요: 콩 / 꽃 / 고기 → Choose the word that begins with ㄱ (plain): 콩 / 꽃 / 고기",
+        "exercises[3]: 낱말을 초성 종류에 맞게 짝지으세요: 가방, 코, 꽃 → [ㄱ], [ㅋ], [ㄲ] → Match each word to its first consonant: 가방, 코, 꽃 → [ㄱ], [ㅋ], [ㄲ]",
+        "exercises[4]: 영어 힌트에 맞게 낱말을 고르세요: 'k' in \"ski\" / 'k' in \"key\" / tense 'kk' → 보기: 가게, 카메라, 꽃 → Match each English hint to the word whose first sound fits it: 'k' in \"ski\" / 'k' in \"key\" / tense 'kk' → Choices: 가게, 카메라, 꽃"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "연습 문제의 낱말이 지나치게 겹칩니다. '꽃'이 1·3·4·5번 네 문제에 나오고, 코·가방·가게·카메라도 두 번씩 나옵니다. 반면 낱말 목록에 있는 '껌'은 어느 문제에도 쓰이지 않습니다. 3번의 오답 '꽃'은 '껌'으로, 4번의 '꽃'은 '꼬마'로 바꾸세요. 그러면 4번 정답도 '꼬마-ㄲ, 가방-ㄱ, 코-ㅋ'으로 고쳐야 합니다. 이렇게 하면 목록의 아홉 낱말이 고르게 쓰입니다.",
+        "1·2·3번이 모두 'Choose the word that begins with ○' 한 가지 틀에 보기 세 개만 바꾼 문제입니다. 사실상 같은 문제를 세 번 푸는 셈이라 학습지가 얇아집니다. 한두 문항은 다른 틀로 바꾸세요. 예를 들어 초성만 다른 최소대립쌍(다섯 문제 모두 거리가 '가다/까다', '크다/끄다', '공/콩'처럼)을 보고 초성을 적게 하는 문제, 또는 로마자 표기(gogi / kong / kkoma)를 보고 해당하는 한글 낱말을 고르는 문제로 바꾸면 세 소리를 구별하는 연습이 됩니다. 예로 든 '가다', '까다', '크다', '끄다', '공'은 낱말 목록에 없으므로, 문제에 쓰려면 뜻·로마자 표기와 함께 목록에 추가해야 학습지만 읽고 풀 수 있습니다."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Four of the nine example sentences reuse just two sentence patterns. '가방이 있어요.' and '카메라가 있어요.' both use 'N이/가 있어요'. '고기를 먹어요.' and '콩을 먹어요.' both use 'N을/를 먹어요'. This makes the worksheet thinner. Change one of each pair to a different easy pattern. For example, change 카메라 to '카메라로 사진을 찍어요.' (I take pictures with a camera.) and change 콩 to '콩이 작아요.' (The beans are small.). Update the English translations to match."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[4]",
+      "before": "가방-ㄱ, 코-ㅋ, 꽃-ㄲ",
+      "after": "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ"
+    },
+    {
+      "at": "answers[5]",
+      "before": "ski→가게, key→카메라, kk→꽃",
+      "after": "between g and k→가게, key→카메라, kk→꽃"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "보기에서 ㅋ(거센소리)로 시작하는 낱말을 고르세요: 가게 / 코 / 꽃",
+      "after": "Choose the word that begins with ㅋ (aspirated): 가게 / 코 / 꽃"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "보기에서 ㄲ(된소리)로 시작하는 낱말을 고르세요: 가방 / 꼬마 / 카메라",
+      "after": "Read the romanization and choose the matching Korean word: kkoma → 가방 / 꼬마 / 카메라"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "보기에서 ㄱ(평음)으로 시작하는 낱말을 고르세요: 콩 / 꽃 / 고기",
+      "after": "Choose the word that begins with ㄱ (plain): 콩 / 껌 / 고기"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "낱말을 초성 종류에 맞게 짝지으세요: 가방, 코, 꽃 → [ㄱ], [ㅋ], [ㄲ]",
+      "after": "Match each word to its first consonant: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "영어 힌트에 맞게 낱말을 고르세요: 'k' in \"ski\" / 'k' in \"key\" / tense 'kk' → 보기: 가게, 카메라, 꽃",
+      "after": "Match each English hint to the word whose first sound fits it: between 'g' and 'k' (light puff) / 'k' in \"key\" / tense 'kk' → Choices: 꽃, 가게, 카메라"
+    },
+    {
+      "at": "letters[1].sound",
+      "before": "평음. 뒤쪽에서 가볍게 막았다가 소리를 냄. 공기를 세게 내보내지 않음.",
+      "after": "Plain (lax) consonant. The back of the tongue lightly closes against the soft palate, then releases. At the start of a word, a light puff of air comes out: weaker than ㅋ and softer than ㄲ."
+    },
+    {
+      "at": "letters[1].as",
+      "before": "'k' in 'ski' (no puff)",
+      "after": "between English 'g' and 'k' (light puff)"
+    },
+    {
+      "at": "letters[2].sound",
+      "before": "거센소리. ㄱ보다 공기를 세게 내뿜음.",
+      "after": "Aspirated consonant. Same tongue position as ㄱ, but released with a strong puff of air."
+    },
+    {
+      "at": "letters[3].sound",
+      "before": "된소리. 입에 힘을 주고 단단하게, 짧게 터뜨림. 공기를 세게 내보내지 않음.",
+      "after": "Tense consonant. Same tongue position as ㄱ, but the throat and tongue are tensed and the sound is released sharply, with no puff of air."
+    },
+    {
+      "at": "objective",
+      "before": "Beginner learners will accurately hear and pronounce ㄱ (plain), ㅋ (aspirated), and ㄲ (tense) in word-initial position, connect them to helpful English sound references (ㄱ ≈ k in “ski,” ㅋ ≈ k in “key,” ㄲ = tense “kk,” no exact English equivalent), and correctly read and select simple words containing these initials.",
+      "after": "Beginner learners will accurately hear and pronounce ㄱ (plain), ㅋ (aspirated), and ㄲ (tense) in word-initial position, connect them to helpful English sound references (ㄱ ≈ between English g and k, with a light puff of air, ㅋ ≈ k in “key,” ㄲ = tense “kk,” no exact English equivalent), and correctly read and select simple words containing these initials."
+    },
+    {
+      "at": "summary",
+      "before": "Practice distinguishing and pronouncing initial ㄱ (plain), ㅋ (aspirated), and ㄲ (tense). Use clear English sound anchors: ㄱ ≈ the k in “ski,” ㅋ ≈ the k in “key,” ㄲ = tense “kk” with no exact English match. Read and choose simple words that begin with these letters.",
+      "after": "Practice distinguishing and pronouncing initial ㄱ (plain), ㅋ (aspirated), and ㄲ (tense). Use clear English sound anchors: ㄱ ≈ a light sound between English g and k, ㅋ ≈ the k in “key,” ㄲ = tense “kk” with no exact English match. Read and choose simple words that begin with these letters."
+    },
+    {
+      "at": "words[5].example",
+      "before": "카메라가 있어요.",
+      "after": "카메라로 사진을 찍어요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "There is a camera.",
+      "after": "I take pictures with a camera."
+    },
+    {
+      "at": "words[6].example",
+      "before": "콩을 먹어요.",
+      "after": "콩이 작아요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "I eat beans.",
+      "after": "The beans are small."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 32,
+          "problem": "The Japanese reads awkwardly: 「に合う、最初の音の単語」 does not correctly say 'the word whose first sound fits the hint.' It also drops 'English' from 'English hint' and says 'choose' (選びましょう) where the English says 'match.'",
+          "fix": "英語の各ヒント(英語のgとkの中間(軽い息)/ \"key\"のkの音 / 緊張した「kk」の音)と、最初の音がそれに合う単語を結びつけましょう → 選択肢:꽃, 가게, 카메라"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"Pratiquer à + infinitif\" is not correct French (\"pratiquer\" takes a noun); the natural phrasing is \"S'entraîner à\". Also, \"clear\" was translated as \"simples\" instead of \"clairs\".",
+          "fix": "S'entraîner à distinguer et à prononcer les consonnes initiales ㄱ (simple), ㅋ (aspirée) et ㄲ (tendue). Utiliser des repères sonores clairs en anglais : ㄱ ≈ un son léger entre le g et le k anglais, ㅋ ≈ le k de « key », ㄲ = un « kk » tendu sans équivalent exact en anglais. Lire et choisir des mots simples commençant par ces lettres."
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 32,
+          "problem": "“whose first sound fits it” was rendered as “与其发音相符”, which drops the point that only the word's first sound must match the hint.",
+          "fix": "将每个英语提示与首音相符的单词连线:介于'g'和'k'之间(气流轻微) / 'key'中的'k'音 / 紧音'kk' → 选项:꽃, 가게, 카메라"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:26:24.899Z"
+}

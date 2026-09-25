@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "Court exercice pour reconnaître les voyelles coréennes ㅓ, ㅗ et ㅜ. Présente trois mots simples pour chaque voyelle ainsi que de courtes phrases d'exemple.",
+  "objective": "L'apprenant sera capable de reconnaître les voyelles coréennes ㅓ, ㅗ et ㅜ dans des mots simples.",
+  "level": "Débutant",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Quelle voyelle se trouve dans la syllabe « 서 » ? (Écris ㅓ, ㅗ ou ㅜ)",
+    "Quelle voyelle apparaît dans le mot « 포도 » ? (Écris ㅓ, ㅗ ou ㅜ)",
+    "Quelle voyelle (ㅓ, ㅗ ou ㅜ) apparaît dans le mot « 우유 » ?",
+    "Associe ces mots à la voyelle (ㅓ, ㅗ ou ㅜ) qu'ils contiennent (écris trois symboles dans l'ordre) : 엄마 / 오이 / 수박",
+    "Dans la série minimale « 서 / 소 / 수 », quelle syllabe contient ㅜ ?",
+    "Regarde la première syllabe de chaque mot et écris sa voyelle : 먹다, 고기, 주다"
+  ],
+  "answers": [
+    "ㅓ",
+    "ㅗ",
+    "ㅜ",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "proche du son « eo » (une voyelle mi-ouverte)",
+      "as": "comme le son « uh » dans le mot anglais « cup » (approximatif)"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "proche du son « o » (une voyelle postérieure arrondie)",
+      "as": "comme le « o » dans le mot anglais « go » (approximatif)"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "proche du son « u » (une voyelle postérieure arrondie)",
+      "as": "comme le « oo » dans le mot anglais « food » (approximatif)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "maman",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "Maman est venue."
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "manger",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "Je mange du riz."
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "librairie",
+      "example": "서점에 가요.",
+      "exampleMeaning": "Je vais à la librairie."
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "concombre",
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "Le concombre est frais."
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "raisin",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "Il y a des raisins."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "viande",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "J'aime la viande."
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "lait",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "Je bois du lait."
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "pastèque",
+      "example": "수박이 달아요.",
+      "exampleMeaning": "La pastèque est sucrée."
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "donner",
+      "example": "선물을 주세요.",
+      "exampleMeaning": "Donne-moi un cadeau, s'il te plaît."
+    }
+  ],
+  "category": "hangul"
+}

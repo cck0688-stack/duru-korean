@@ -1,0 +1,377 @@
+{
+  "id": "4e05bccb-234b-4f94-9f2c-e1146cb54292",
+  "title": "미용실에서 기본 커트 부탁하기",
+  "category": "reallife",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words[2] '너무 짧게는 말고요': the romanization 'neomu jjalbge-neun malgoyo' is wrong. Korean romanization spells words the way they are pronounced, and 짧게 is said [짤께], so the silent ㅂ should not appear. The hyphen is also not part of the standard. Change it to 'neomu jjalgeneun malgoyo'.",
+        "words[3] '앞머리': the romanization 'apmeori' is wrong. 앞머리 is pronounced [암머리] (the ㅍ sound changes to ㅁ before ㅁ), so it should be 'ammeori'.",
+        "Exercise 2: the instructions say 'Fill in the blank with exactly ‘이 정도’', which gives away the answer. The question doesn't test anything. Replace it with a real task, e.g. 'You are pointing to the length you want. Fill in the blank: _____로만 잘라 주세요.' Or have learners choose between options like 이 정도 / 그 정도 / 많이.",
+        "The exercises don't match the objective. Three of the five (1, 3, 5) are about ears (보이게/가리게). No exercise practices asking for bangs (앞머리 내려 주세요 / 앞머리는 내릴까요?) or asking for a basic cut (기본 커트요), even though the objective lists both. Replace one of the ear exercises, such as exercise 1 or 5, with one on bangs (e.g. translate 'Just a little bangs, please.' → 앞머리 조금만 내려 주세요.) and add one on requesting a basic cut.",
+        "words[2], [4] and [5] ('너무 짧게는 말고요', '귀는 보이게 해 주세요', '귀는 가리게 해 주세요'): each example sentence and its translation just repeat the word entry itself, so these examples add nothing. Give each one a new sentence in a different frame, e.g. '옆머리는 너무 짧게는 말고요.' / '이번에는 귀가 보이게 잘라 주세요.' / '겨울이라서 귀는 좀 가리게 해 주세요.'"
+      ],
+      "audit": [
+        "words 3번째 (너무 짧게는 말고요), roman: neomu jjalbge-neun malgoyo → neomu jjalgeneun malgoyo",
+        "words 4번째 (앞머리), roman: apmeori → ammeori"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "The romanization for '너무 짧게는 말고요' is wrong. It reads 'neomu jjalgeneun malgoyo', but Revised Romanization follows pronunciation. 짧게 is pronounced [짤께], so it should be 'neomu jjalkkeneun malgoyo'.",
+        "Exercise 1's English prompt, 'Just a little bangs, please.', is ungrammatical. The matching dialogue translation, 'Yes, just a little for the bangs, please.', is also vague about what 앞머리 조금만 내려 주세요 actually asks for. Rewrite the prompt as something like 'Please bring my bangs down just a little.' and correct the dialogue translation the same way.",
+        "The dialogue line '앞머리는 내릴까요?' is translated 'Shall I give you bangs?'. That is loose: 앞머리를 내리다 means letting the bangs fall forward rather than pushing them up. Change it to something like 'Do you want your bangs down?' so it matches the Korean.",
+        "Exercise 5 ('A basic cut, please.') accepts only '기본 커트요.' as the answer. Answers like '기본 커트 해 주세요.' and '기본 커트로 해 주세요.' are also correct. Add them as acceptable answers.",
+        "Every answer is a dialogue line copied word for word (앞머리 조금만 내려 주세요 / 이 정도 / 귀는 가리게 해 주세요 / 너무 짧게는 말고요 / 기본 커트요). Learners never apply '…게 해 주세요' or '…는 말고요' to new words (for example 옆머리는 너무 짧게는 말고요, 뒷머리는 짧게 해 주세요), so the sheet is thin. Replace at least 1–2 exercises with ones that use the patterns in new sentences.",
+        "In exercise 2, the options 너무 and 많이 cannot grammatically go before '로만'. Only one option even fits the slot, so the item tests nothing. Swap in distractors that fit the slot (for example 이 정도 / 그 정도 / 저 정도, matched to a situation), or change the item.",
+        "The task object is empty (title: '', line: ''). Fill in the task title and line, or remove the field."
+      ],
+      "audit": [
+        "exercises[0] (Exercise 1): Translate to Korean using ‘앞머리’: “Just a little bangs, please.” → Translate to Korean using ‘앞머리’: “Please bring my bangs down just a little.”"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "words '너무 짧게는 말고요' roman 표기 오류: 'neomu jjalkkeneun malgoyo' → 국어의 로마자 표기법은 된소리되기를 반영하지 않으므로 'neomu jjalgeneun malgoyo'로 고쳐야 함.",
+        "학습 목표·과제에 '귀를 보이게/가리게 해 달라고 하기'가 있는데 exercises 1–5 중 이를 연습하는 문제가 없음. 예: 'Translate to Korean: \"Please keep my ears covered.\"' (정답: 귀는 가리게 해 주세요.) 같은 문항을 추가해야 함.",
+        "answers 1·3·4는 번역 문제라 다른 정답도 가능한데 하나만 제시함(5번은 복수 정답을 제시해 일관성도 없음). 1번 '앞머리를 조금만 내려 주세요.', 3번 '옆머리 짧게 해 주세요.', 4번 '뒷머리는 너무 짧지 않게 해 주세요.' 등 허용 답안을 함께 적어야 함."
+      ],
+      "audit": [
+        "words[2].roman (너무 짧게는 말고요): neomu jjalkkeneun malgoyo → neomu jjalgeneun malgoyo",
+        "answers[0] (exercise 1): 앞머리 조금만 내려 주세요. → 앞머리 조금만 내려 주세요. / 앞머리를 조금만 내려 주세요.",
+        "answers[2] (exercise 3): 옆머리는 짧게 해 주세요. → 옆머리는 짧게 해 주세요. / 옆머리 짧게 해 주세요. / 옆머리를 짧게 해 주세요.",
+        "answers[3] (exercise 4): 뒷머리는 너무 짧게는 말고요. → 뒷머리는 너무 짧게는 말고요. / 뒷머리 너무 짧게는 말고요."
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "answers, 5번: 기본 커트요. / 기본 커트 해 주세요. / 기본 커트로 해 주세요. → 기본 커트요. / 기본 커트 해 주세요. / 기본 커트로 해 주세요. / 기본 커트 부탁해요. / 기본 커트 부탁합니다.",
+        "answers, 1번: 앞머리 조금만 내려 주세요. / 앞머리를 조금만 내려 주세요. → 앞머리 조금만 내려 주세요. / 앞머리를 조금만 내려 주세요. / 앞머리는 조금만 내려 주세요."
+      ]
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "T",
+      "after": "앞머리 조금만 내려 주세요. / 앞머리를 조금만 내려 주세요. / 앞머리는 조금만 내려 주세요."
+    },
+    {
+      "at": "answers[3]",
+      "before": "b) 귀는 가리게 해 주세요.",
+      "after": "옆머리는 짧게 해 주세요. / 옆머리 짧게 해 주세요. / 옆머리를 짧게 해 주세요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "너무 짧게는 말고요.",
+      "after": "뒷머리는 너무 짧게는 말고요. / 뒷머리 너무 짧게는 말고요."
+    },
+    {
+      "at": "answers[5]",
+      "before": "귀는 보이게 해 주세요.",
+      "after": "기본 커트요. / 기본 커트 해 주세요. / 기본 커트로 해 주세요. / 기본 커트 부탁해요. / 기본 커트 부탁합니다."
+    },
+    {
+      "at": "dialogue[5].meaning",
+      "before": "Got it. Shall I give you bangs?",
+      "after": "Got it. Do you want your bangs down?"
+    },
+    {
+      "at": "dialogue[6].meaning",
+      "before": "Yes, just a little for the bangs, please.",
+      "after": "Yes, please bring my bangs down just a little."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "T/F. In the dialogue, the customer asks to cover their ears. (Write T or F)",
+      "after": "Translate to Korean using ‘앞머리’: “Please bring my bangs down just a little.”"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Fill in the blank with exactly ‘이 정도’: _____로만 잘라 주세요. (You are pointing to the length.)",
+      "after": "You are touching your own hair to show the length you want. Fill in the blank with the right word (이 정도 / 그 정도 / 저 정도): _____로만 잘라 주세요."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "Choose the sentence that asks to cover the ears: a) 귀는 보이게 해 주세요. b) 귀는 가리게 해 주세요.",
+      "after": "Translate to Korean using …게 해 주세요 (옆머리 = the hair on the sides): “Please make the sides short.”"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "Translate to Korean using …말고요: “Not too short, please.”",
+      "after": "Translate to Korean using …말고요 (뒷머리 = the hair in the back): “Not too short in the back, please.”"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "Translate to Korean using ‘귀는 … 해 주세요’: “Please make my ears visible.”",
+      "after": "Translate to Korean: “A basic cut, please.”"
+    },
+    {
+      "at": "level",
+      "before": "Beginner-High (A2)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "Tell the stylist what you want"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "At the salon, ask for a basic cut: show the length with ‘이 정도’, say how you want your bangs and ears, and add ‘너무 짧게는 말고요’."
+    },
+    {
+      "at": "words[3].roman",
+      "before": "neomu jjalbge-neun malgoyo",
+      "after": "neomu jjalgeneun malgoyo"
+    },
+    {
+      "at": "words[3].example",
+      "before": "너무 짧게는 말고요.",
+      "after": "옆머리는 너무 짧게는 말고요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "Not too short, please.",
+      "after": "Not too short on the sides, please."
+    },
+    {
+      "at": "words[4].roman",
+      "before": "apmeori",
+      "after": "ammeori"
+    },
+    {
+      "at": "words[5].example",
+      "before": "귀는 보이게 해 주세요.",
+      "after": "이번에는 귀가 보이게 잘라 주세요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "Please make my ears visible.",
+      "after": "This time, please cut it so my ears show."
+    },
+    {
+      "at": "words[6].example",
+      "before": "귀는 가리게 해 주세요.",
+      "after": "겨울이라서 귀는 좀 가리게 해 주세요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "Please cover my ears.",
+      "after": "It’s winter, so please keep my ears a bit covered."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 39,
+          "problem": "An extra Hangul character 'ㆍ' (middle dot) was inserted after '…게 해 주세요'. The Korean doesn't match the English line exactly.",
+          "fix": "Traduce al coreano usando …게 해 주세요 (옆머리 = el pelo de los lados): \"Haga los lados cortos, por favor.\""
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 39,
+          "problem": "A stray Hangul character 'ㄲ' follows '…게 해 주세요'. It is not in the English line, so the Korean no longer matches the source exactly.",
+          "fix": "Traduza para o coreano usando …게 해 주세요 (옆머리 = o cabelo da lateral): \"Deixe a lateral curta, por favor.\""
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 13,
+          "problem": "'mái tóc' in Vietnamese means a person's whole head of hair, not bangs/fringe. The English says 'bangs (fringe)'; the right term is 'tóc mái'.",
+          "fix": "tóc mái (mái)"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "「上級」means \"advanced level\", so 初級(上級) reads as a contradiction. \"Beginner (high)\" means the upper part of the beginner level.",
+          "fix": "初級(上)"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'Beginner (high)' was translated as '中高级', which means intermediate-high. That is the wrong level.",
+          "fix": "初级(高)"
+        },
+        {
+          "line": 30,
+          "problem": "'Bangs down' means letting the bangs fall over the forehead. '留下来' means 'keep them / leave them', so the meaning changed.",
+          "fix": "明白了。刘海想要放下来吗?"
+        },
+        {
+          "line": 32,
+          "problem": "'Bring my bangs down just a little' was translated as '稍微留长一点' (grow them a bit longer), which changes the meaning.",
+          "fix": "是的,请把刘海稍微放下来一点。"
+        },
+        {
+          "line": 37,
+          "problem": "The sentence to translate says '留长一点' (grow longer) instead of 'bring down', which changes the meaning.",
+          "fix": "用'앞머리'把下面这句话翻译成韩语:'请把刘海稍微放下来一点。'"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 37,
+          "problem": "The English sentence to translate was replaced with its Korean answer ('앞머리는 조금만 내려 주세요.'). This gives the answer away, makes it a Korean-to-Korean task, and adds Korean that isn't in the English line.",
+          "fix": "'앞머리'를 사용해서 한국어로 번역하세요: \"Please bring my bangs down just a little.\""
+        },
+        {
+          "line": 39,
+          "problem": "The English sentence to translate was replaced with its Korean answer ('옆머리를 짧게 해 주세요.'). This gives the answer away and adds Korean that isn't in the English line.",
+          "fix": "'…게 해 주세요'를 사용해서 한국어로 번역하세요 (옆머리 = 옆쪽 머리): \"Please make the sides short.\""
+        },
+        {
+          "line": 40,
+          "problem": "The English sentence to translate was replaced with its Korean answer ('뒷머리는 너무 짧게는 말고요.'). This gives the answer away and adds Korean that isn't in the English line.",
+          "fix": "'…말고요'를 사용해서 한국어로 번역하세요 (뒷머리 = 뒤쪽 머리): \"Not too short in the back, please.\""
+        },
+        {
+          "line": 41,
+          "problem": "The English sentence to translate was replaced with its Korean answer ('기본 커트 해 주세요.'). This gives the answer away and adds Korean that isn't in the English line.",
+          "fix": "한국어로 번역하세요: \"A basic cut, please.\""
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 24,
+          "problem": "„Schneiden Sie bitte nur ungefähr diese Länge“ is broken German: it is missing „auf“ or „ab“. It doesn't clearly say 'cut only to about this length'.",
+          "fix": "Einen einfachen Haarschnitt, bitte. Schneiden Sie bitte nur ungefähr auf diese Länge."
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:34:38.429Z"
+}

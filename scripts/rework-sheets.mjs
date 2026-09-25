@@ -175,6 +175,11 @@ export async function prepareOne(cfgs, browser, token, r, outDir, work) {
     checked = { ...again, rounds: checked.rounds.concat(again.rounds) };
     en = again.sheet;
   }
+  // The title is Korean — it is the download's name on the shelf and in
+  // its file name. A fixer that put it into English is overruled.
+  const latin = (t) => (String(t || '').match(/[A-Za-z]/g) || []).length;
+  const hangul = (t) => (String(t || '').match(/[\uac00-\ud7a3]/g) || []).length;
+  if (latin(en.title) > hangul(en.title)) en = { ...en, title: orig.title };
   const fixes = diffSheets(orig, en);
 
   const editions = { [SOURCE]: en };

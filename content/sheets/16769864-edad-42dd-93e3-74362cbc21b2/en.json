@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "Short practice for recognizing the Korean vowels ㅓ, ㅗ, and ㅜ. Shows three simple words for each vowel and short example sentences.",
+  "objective": "The learner will be able to recognize the Korean vowels ㅓ, ㅗ, and ㅜ in simple words.",
+  "level": "Beginner",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Which vowel is in the syllable '서'? (Write ㅓ, ㅗ, or ㅜ)",
+    "Which vowel appears in the word '포도'? (Write ㅓ, ㅗ, or ㅜ)",
+    "Which vowel (ㅓ, ㅗ, or ㅜ) appears in the word '우유'?",
+    "Match these words to the vowel (ㅓ, ㅗ, or ㅜ) they contain (write three symbols in order): 엄마 / 오이 / 수박",
+    "In the minimal set '서 / 소 / 수', which syllable has ㅜ?",
+    "Look at the first syllable of each word and write its vowel: 먹다, 고기, 주다"
+  ],
+  "answers": [
+    "ㅓ",
+    "ㅗ",
+    "ㅜ",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "close to 'eo' (an open-mid vowel)",
+      "as": "as 'uh' in English 'cup' (approximate)"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "close to 'o' (rounded back vowel)",
+      "as": "as 'o' in English 'go' (approximate)"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "close to 'u' (rounded back vowel)",
+      "as": "as 'oo' in English 'food' (approximate)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "mom",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "Mom came."
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "to eat",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "I eat rice."
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "bookstore",
+      "example": "서점에 가요.",
+      "exampleMeaning": "I go to the bookstore."
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "cucumber",
+      "example": "오이가 싱싱해요.",
+      "exampleMeaning": "The cucumber is fresh."
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "grape",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "There are grapes."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "meat",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "I like meat."
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "milk",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "I drink milk."
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "watermelon",
+      "example": "수박이 달아요.",
+      "exampleMeaning": "The watermelon is sweet."
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "to give",
+      "example": "선물을 주세요.",
+      "exampleMeaning": "Please give me a present."
+    }
+  ],
+  "category": "hangul"
+}

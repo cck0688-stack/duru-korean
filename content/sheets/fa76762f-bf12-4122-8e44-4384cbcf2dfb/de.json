@@ -1,0 +1,111 @@
+{
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "keyword": "ㄱ·ㅋ·ㄲ",
+  "summary": "Übe, den Anlaut ㄱ (einfach), ㅋ (aspiriert) und ㄲ (angespannt) zu unterscheiden und auszusprechen. Nutze einfache englische Klanghilfen: ㄱ ≈ ein leichter Laut zwischen englischem g und k, ㅋ ≈ das k in „key“, ㄲ = angespanntes „kk“ ohne genaue englische Entsprechung. Lies einfache Wörter, die mit diesen Buchstaben beginnen, und wähle sie aus.",
+  "objective": "Anfänger sollen ㄱ (einfach), ㅋ (aspiriert) und ㄲ (angespannt) am Wortanfang korrekt hören und aussprechen, sie mit hilfreichen englischen Klangvergleichen verbinden (ㄱ ≈ zwischen englischem g und k, mit leichtem Luftstoß, ㅋ ≈ k in „key“, ㄲ = angespanntes „kk“, keine genaue englische Entsprechung) und einfache Wörter mit diesen Anlauten richtig lesen und auswählen.",
+  "level": "Anfänger",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Wähle das Wort, das mit ㅋ (aspiriert) beginnt: 가게 / 코 / 꽃",
+    "Lies die Romanisierung und wähle das passende koreanische Wort: kkoma → 가방 / 꼬마 / 카메라",
+    "Wähle das Wort, das mit ㄱ (einfach) beginnt: 콩 / 껌 / 고기",
+    "Ordne jedem Wort seinen Anlaut zu: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "Ordne jeden englischen Hinweis dem Wort zu, dessen Anlaut dazu passt: zwischen 'g' und 'k' (leichter Luftstoß) / 'k' wie in „key“ / angespanntes 'kk' → Auswahl: 꽃, 가게, 카메라"
+  ],
+  "answers": [
+    "코",
+    "꼬마",
+    "고기",
+    "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
+    "between g and k→가게, key→카메라, kk→꽃"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "Einfacher (lockerer) Konsonant. Der hintere Zungenrücken schließt sich leicht gegen den weichen Gaumen und löst sich dann. Am Wortanfang kommt ein leichter Luftstoß heraus: schwächer als ㅋ und weicher als ㄲ.",
+      "as": "zwischen englischem 'g' und 'k' (leichter Luftstoß)"
+    },
+    {
+      "letter": "ㅋ",
+      "sound": "Aspirierter Konsonant. Gleiche Zungenposition wie bei ㄱ, aber mit einem starken Luftstoß gelöst.",
+      "as": "'k' wie in 'key' (starker Luftstoß)"
+    },
+    {
+      "letter": "ㄲ",
+      "sound": "Angespannter Konsonant. Gleiche Zungenposition wie bei ㄱ, aber Kehle und Zunge sind angespannt, und der Laut wird scharf gelöst, ohne Luftstoß.",
+      "as": "angespanntes 'kk' (keine genaue englische Entsprechung)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "가방",
+      "roman": "gabang",
+      "meaning": "Tasche",
+      "example": "가방이 있어요.",
+      "exampleMeaning": "Es gibt eine Tasche."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "Fleisch",
+      "example": "고기를 먹어요.",
+      "exampleMeaning": "Ich esse Fleisch."
+    },
+    {
+      "korean": "가게",
+      "roman": "gage",
+      "meaning": "Laden, Geschäft",
+      "example": "가게에 가요.",
+      "exampleMeaning": "Ich gehe zum Laden."
+    },
+    {
+      "korean": "코",
+      "roman": "ko",
+      "meaning": "Nase",
+      "example": "코가 커요.",
+      "exampleMeaning": "Meine Nase ist groß."
+    },
+    {
+      "korean": "카메라",
+      "roman": "kamera",
+      "meaning": "Kamera",
+      "example": "카메라로 사진을 찍어요.",
+      "exampleMeaning": "Ich mache Fotos mit einer Kamera."
+    },
+    {
+      "korean": "콩",
+      "roman": "kong",
+      "meaning": "Bohne",
+      "example": "콩이 작아요.",
+      "exampleMeaning": "Die Bohnen sind klein."
+    },
+    {
+      "korean": "껌",
+      "roman": "kkeom",
+      "meaning": "Kaugummi",
+      "example": "껌을 씹어요.",
+      "exampleMeaning": "Ich kaue Kaugummi."
+    },
+    {
+      "korean": "꼬마",
+      "roman": "kkoma",
+      "meaning": "kleines Kind",
+      "example": "꼬마가 웃어요.",
+      "exampleMeaning": "Das kleine Kind lächelt."
+    },
+    {
+      "korean": "꽃",
+      "roman": "kkot",
+      "meaning": "Blume",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "Die Blume ist hübsch."
+    }
+  ],
+  "category": "hangul"
+}

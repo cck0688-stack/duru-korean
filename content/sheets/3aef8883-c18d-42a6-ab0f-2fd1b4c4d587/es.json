@@ -1,0 +1,111 @@
+{
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "keyword": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "summary": "Esta hoja de trabajo enseña 10 palabras clave en coreano para usar el metro: comprar boletos, pasar por la puerta de entrada, hacer transbordo y encontrar salidas. Cada palabra tiene una oración de ejemplo corta y práctica.",
+  "objective": "Aprende 10 palabras clave de vocabulario del metro (compra de boletos, puerta de entrada, transbordo, salida) con oraciones de ejemplo cortas que puedes usar de inmediato.",
+  "level": "Principiante",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "Pregúntale al personal de la estación",
+    "line": "Imagina que estás perdido en una estación. Pregúntale a un 역무원 dónde hacer transbordo y cómo llegar a tu salida, por ejemplo: '실례합니다. 2호선은 어디에서 갈아타요? 3번 출구는 어디예요?'"
+  },
+  "exercises": [
+    "Escribe la palabra en coreano para 'máquina expendedora de boletos'. (Sonidos iniciales: ㅈㄷㅂㅁㄱ)",
+    "Escribe la palabra en coreano para 'boleto (de papel)'. (Sonidos iniciales: ㅅㅊㄱ)",
+    "Completa el espacio en blanco: ___하는 곳이 어디예요? (¿Dónde está el lugar para hacer transbordo?)",
+    "Completa el espacio en blanco: 2번 ___로 나오세요. (Sal por la salida 2.)",
+    "Completa el espacio en blanco: ___를 찍고 들어가요. (Paso mi tarjeta de transporte y entro.)",
+    "Completa el espacio en blanco: ___를 지나서 들어가요. (Entra pasando por la puerta de entrada.)",
+    "Completa el espacio en blanco: 여기에서 버스로 ___ 수 있어요? (¿Puedo hacer transbordo a un autobús aquí?)",
+    "Completa el espacio en blanco: 출구 번호는 ___에 있어요. (El número de salida está en el cartel informativo.)",
+    "Completa el espacio en blanco: 표를 잃어버렸어요. ___에게 말하세요. (Perdí mi boleto. Dile al personal de la estación.)",
+    "Completa el espacio en blanco: 공항까지 ___로 가요. (Voy al aeropuerto en metro.)"
+  ],
+  "answers": [
+    "자동발매기",
+    "승차권",
+    "환승",
+    "출구",
+    "교통카드",
+    "개찰구",
+    "갈아탈 / 환승할",
+    "안내판",
+    "역무원",
+    "지하철"
+  ],
+  "checkThese": [],
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "metro",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "Tomo el metro."
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "puerta de entrada (torniquete)",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "Por favor, pasa tu tarjeta por la puerta."
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "tarjeta de transporte",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "Tengo lista mi tarjeta de transporte."
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "boleto (de papel)",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "Por favor, dame un boleto."
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "máquina expendedora de boletos",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "Compro un boleto en la máquina."
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "transbordo (cambiar de tren)",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "Hago transbordo aquí."
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "hacer transbordo / cambiar de tren",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "Por favor, haz transbordo en la próxima estación."
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "salida",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "Sal por la salida 3."
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "cartel informativo / letrero",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "Mira el cartel informativo."
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "personal de la estación",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "Pregúntale al personal de la estación."
+    }
+  ],
+  "category": "vocab"
+}

@@ -78,6 +78,7 @@ export function auditPrompt(category) {
     '   "Fill in the blank: 오늘 우유를 ____해요."). 지시문이 한국어로만 되어 있으면 앞에 영어 지시문을 붙이세요.',
     '   한국어로 된 공지문·안내문·대화·지문 자체는 읽기 자료이므로 그대로 둡니다.',
     '6. level 은 Beginner, Beginner (high), Intermediate (low), Intermediate, Advanced 중 하나여야 합니다.',
+    '7. title 은 한국어 제목입니다. 영어로 바꾸라고 하지 마세요(자료실 목록과 파일 이름에 쓰입니다).',
     '5. title, summary, objective 가 학습지 내용과 맞는가.',
     '',
     '이 갈래(' + category + ')에서 특히:',
@@ -116,6 +117,7 @@ export async function fixSheet(cfg, sheet, problems) {
     '- 고친 문장이 들어간 다른 곳(정답, 요약, mark, watchOutMark, 같은 예문을 다시 쓴 곳)도 함께 맞추세요.',
     '- 문제와 정답의 개수와 순서는 그대로. 번호는 붙이지 마세요.',
     '- 검수자의 지적이 틀렸다고 확신하면 그 부분은 고치지 말고 그대로 두세요.',
+    '- title 은 한국어로 그대로 두세요. 영어로 옮기지 마세요.',
     '- 학습지에 만드는 과정 이야기(고쳤다, 검수 등)를 쓰지 마세요.',
     '- 받은 JSON 과 같은 모양으로 전부 돌려주세요.'
   ].join('\n');
@@ -175,7 +177,7 @@ export function koreanLost(source, translated) {
 // Answers with the lines to replace: [{ line, problem, fix }].
 export async function checkTranslation(cfg, en, edition, lang, langName) {
   const src = explanatoryText(en).map((s) => s.value);
-  const got = explanatoryText(edition).map((s) => s.value);
+  const got = explanatoryText(edition, en).map((s) => s.value);
   if (src.length !== got.length) return { ok: false, lines: [], broken: true };
   const isStrict = cfg.provider.strictSchema !== false;
   const item = strictObj({ line: { type: 'integer' }, problem: { type: 'string' }, fix: { type: 'string' } }, isStrict);
@@ -201,9 +203,9 @@ export async function checkTranslation(cfg, en, edition, lang, langName) {
 }
 
 // Puts corrected lines back into an edition (same slots as the check).
-export function applyLines(edition, lines) {
+export function applyLines(edition, lines, en = edition) {
   const copy = JSON.parse(JSON.stringify(edition));
-  const slots = explanatoryText(copy);
+  const slots = explanatoryText(copy, en);
   lines.forEach((p) => { const slot = slots[p.line - 1]; if (slot) slot.set(copy, String(p.fix).trim()); });
   return copy;
 }
@@ -262,7 +264,7 @@ export async function translateChecked(cfgs, en, lang) {
       const keep = checked.lines.filter((p) => lang === 'ko' || !koreanLost(src[p.line - 1], p.fix).length);
       const refused = checked.lines.filter((p) => !keep.includes(p));
       if (keep.length) {
-        edition = applyLines(edition, keep);
+        edition = applyLines(edition, keep, en);
         record.fixes = keep;
         log('    ' + lang + ': 번역 검수에서 ' + keep.length + '줄 고침');
       }
@@ -281,7 +283,7 @@ export async function translateChecked(cfgs, en, lang) {
 function lostKorean(en, edition, lang) {
   if (lang === 'ko') return [];
   const a = explanatoryText(en).map((s) => s.value);
-  const b = explanatoryText(edition).map((s) => s.value);
+  const b = explanatoryText(edition, en).map((s) => s.value);
   if (a.length !== b.length) return ['(줄 수가 다름)'];
   const lost = [];
   a.forEach((line, i) => koreanLost(line, b[i]).forEach((k) => lost.push(k)));

@@ -1,0 +1,134 @@
+{
+  "answers": [
+    "아이스로요.",
+    "레귤러요.",
+    "매장이요.",
+    "핫",
+    "아이스 라떼 주세요."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "어서 오세요. 주문 도와드릴까요?",
+      "meaning": "Welcome. Can I help you order?"
+    },
+    {
+      "who": "손님",
+      "korean": "아메리카노 한 잔 주세요.",
+      "meaning": "One Americano, please."
+    },
+    {
+      "who": "직원",
+      "korean": "핫으로 드릴까요, 아이스로 드릴까요?",
+      "meaning": "Hot or iced?"
+    },
+    {
+      "who": "손님",
+      "korean": "아이스로 주세요.",
+      "meaning": "Iced, please."
+    },
+    {
+      "who": "직원",
+      "korean": "사이즈는 레귤러로 하실까요, 라지로 하실까요?",
+      "meaning": "Regular or large?"
+    },
+    {
+      "who": "손님",
+      "korean": "레귤러요.",
+      "meaning": "Regular."
+    },
+    {
+      "who": "직원",
+      "korean": "매장이세요, 포장이세요?",
+      "meaning": "For here or to go?"
+    },
+    {
+      "who": "손님",
+      "korean": "포장이요.",
+      "meaning": "To go."
+    }
+  ],
+  "exercises": [
+    "직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님은 아이스를 원합니다. 가장 자연스러운 대답을 고르세요. (핫으로요 / 아이스로요)",
+    "직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님은 레귤러를 원합니다. 손님: (레귤러요 / 라지요)",
+    "직원: 매장이세요, 포장이세요? 손님은 여기에서 마십니다. 손님: ______.",
+    "빈칸을 채우세요: _____ 아메리카노 한 잔 주세요. (hot)",
+    "문장을 보고 반대로 바꾸세요: 핫 라떼 주세요. → _______"
+  ],
+  "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "level": "Beginner (A1–A2)",
+  "minutes": 15,
+  "objective": "Be able to understand and say 6–8 short questions and answers to order one drink at a cafe in Korea, choosing hot/iced, size (regular/large), and for here/to go.",
+  "setting": "서울의 프랜차이즈 카페 카운터",
+  "summary": "Practice a short, real-life cafe order in Korea. You will hear and say hot/iced, choose size (regular/large), and say for here/to go with natural phrases.",
+  "tags": [],
+  "task": null,
+  "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "words": [
+    {
+      "korean": "주문하다",
+      "roman": "jumunhada",
+      "meaning": "to order (at a store/cafe)",
+      "example": "지금 주문할게요.",
+      "exampleMeaning": "I’ll order now."
+    },
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "iced (cold drink)",
+      "example": "아이스 아메리카노요.",
+      "exampleMeaning": "Iced Americano, please."
+    },
+    {
+      "korean": "핫",
+      "roman": "hat",
+      "meaning": "hot (hot drink)",
+      "example": "핫 라떼로 할게요.",
+      "exampleMeaning": "I’ll have a hot latte."
+    },
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "size (drink size)",
+      "example": "사이즈는 어떻게 하세요?",
+      "exampleMeaning": "What size would you like?"
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "for here, in-store",
+      "example": "매장에서 먹고 갈게요.",
+      "exampleMeaning": "I’ll have it here."
+    },
+    {
+      "korean": "레귤러",
+      "roman": "regyulleo",
+      "meaning": "regular (drink size)",
+      "example": "레귤러로 주세요.",
+      "exampleMeaning": "Regular, please."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "large (drink size)",
+      "example": "라지 하나요.",
+      "exampleMeaning": "One large, please."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "to go, takeout",
+      "example": "포장해 주세요.",
+      "exampleMeaning": "Please make it to go."
+    },
+    {
+      "korean": "한 잔",
+      "roman": "han jan",
+      "meaning": "one cup (one drink)",
+      "example": "아메리카노 한 잔 부탁드려요.",
+      "exampleMeaning": "One Americano, please."
+    }
+  ],
+  "category": "reallife"
+}

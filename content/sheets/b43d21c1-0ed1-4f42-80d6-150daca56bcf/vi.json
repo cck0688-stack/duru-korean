@@ -1,0 +1,137 @@
+{
+  "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
+  "summary": "Luyện tập một đoạn hội thoại gọi món thực tế ngắn tại quán cà phê ở Hàn Quốc. Bạn sẽ nghe và nói nóng/đá, chọn kích cỡ (thường/lớn), và nói dùng tại chỗ/mang đi bằng những cụm từ tự nhiên.",
+  "objective": "Có thể hiểu và nói được 6–8 câu hỏi và câu trả lời ngắn để gọi một thức uống tại quán cà phê ở Hàn Quốc, chọn nóng/đá, kích cỡ (thường/lớn), và dùng tại chỗ/mang đi.",
+  "level": "Sơ cấp (cao)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "카페에서 주문해 보기",
+    "line": "Gọi một thức uống, chọn nhiệt độ, kích cỡ, và dùng tại chỗ/mang đi — ví dụ: 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+  },
+  "exercises": [
+    "Khách hàng muốn một thức uống đá. Hãy chọn câu trả lời tự nhiên nhất: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
+    "Khách hàng muốn kích cỡ lớn hơn. Hãy trả lời bằng cấu trúc ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
+    "Khách hàng sẽ dùng tại chỗ. Hãy hoàn thành câu trả lời của khách hàng: 직원: 매장이세요, 포장이세요? 손님: ______",
+    "Điền vào chỗ trống (nóng): _____ 아메리카노 한 잔 주세요.",
+    "Trước khi nhân viên hỏi bất cứ điều gì, hãy gọi một ly latte đá cỡ lớn, mang đi, tất cả cùng một lúc: 직원: 어서 오세요. 손님: ______"
+  ],
+  "answers": [
+    "아이스로요.",
+    "라지로 주세요.",
+    "매장이요. / 매장에서 마실게요. / 여기서 마실게요. / 먹고 갈게요.",
+    "핫 / 따뜻한",
+    "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
+  ],
+  "checkThese": [],
+  "setting": "서울의 프랜차이즈 카페 카운터",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "어서 오세요. 주문 도와드릴까요?",
+      "meaning": "Xin chào quý khách. Quý khách muốn gọi món gì ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "아메리카노 한 잔 주세요.",
+      "meaning": "Cho tôi một ly Americano."
+    },
+    {
+      "who": "직원",
+      "korean": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
+      "meaning": "Nóng hay đá ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "아이스로 주세요.",
+      "meaning": "Cho tôi đá."
+    },
+    {
+      "who": "직원",
+      "korean": "사이즈는 레귤러로 하실까요, 라지로 하실까요?",
+      "meaning": "Cỡ thường hay cỡ lớn ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "레귤러요.",
+      "meaning": "Cỡ thường."
+    },
+    {
+      "who": "직원",
+      "korean": "매장이세요, 포장이세요?",
+      "meaning": "Dùng tại chỗ hay mang đi ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "포장이요.",
+      "meaning": "Mang đi."
+    }
+  ],
+  "words": [
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "đá (thức uống lạnh)",
+      "example": "아이스 아메리카노요.",
+      "exampleMeaning": "Cho tôi một ly Americano đá."
+    },
+    {
+      "korean": "핫",
+      "roman": "hat",
+      "meaning": "nóng (thức uống nóng)",
+      "example": "핫 라떼로 할게요.",
+      "exampleMeaning": "Tôi sẽ dùng một ly latte nóng."
+    },
+    {
+      "korean": "따뜻하다 / 따뜻한",
+      "roman": "ttatteutada / ttatteutan",
+      "meaning": "nóng, ấm (thức uống nóng)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "Cho tôi một ly Americano nóng."
+    },
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "kích cỡ (kích cỡ thức uống)",
+      "example": "사이즈는 어떻게 하세요?",
+      "exampleMeaning": "Bạn muốn kích cỡ nào?"
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "dùng tại chỗ, tại quán",
+      "example": "매장에서 먹고 갈게요.",
+      "exampleMeaning": "Tôi sẽ dùng tại đây."
+    },
+    {
+      "korean": "레귤러",
+      "roman": "regyulleo",
+      "meaning": "thường (kích cỡ thức uống)",
+      "example": "레귤러로 주세요.",
+      "exampleMeaning": "Cho tôi cỡ thường."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "lớn (kích cỡ thức uống)",
+      "example": "라지 하나요.",
+      "exampleMeaning": "Cho tôi một ly cỡ lớn."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "mang đi",
+      "example": "포장해 주세요.",
+      "exampleMeaning": "Cho tôi mang đi."
+    },
+    {
+      "korean": "한 잔",
+      "roman": "han jan",
+      "meaning": "một ly (một thức uống)",
+      "example": "아메리카노 한 잔 부탁드려요.",
+      "exampleMeaning": "Cho tôi một ly Americano."
+    }
+  ],
+  "category": "reallife"
+}

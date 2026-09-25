@@ -1,0 +1,153 @@
+{
+  "answers": [
+    "나요",
+    "아파요",
+    "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+    "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
+    "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+    "Three times a day, 30 minutes after each meal."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "약사",
+      "korean": "어서 오세요. 어디가 아파서 오셨어요?",
+      "meaning": "Welcome. What brings you in? (Where does it hurt?)"
+    },
+    {
+      "who": "손님",
+      "korean": "머리가 아프고 열이 나요.",
+      "meaning": "I have a headache and a fever."
+    },
+    {
+      "who": "약사",
+      "korean": "처방전 있으세요?",
+      "meaning": "Do you have a prescription?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "No, I don't."
+    },
+    {
+      "who": "약사",
+      "korean": "언제부터 아프셨어요?",
+      "meaning": "Since when have you been sick?"
+    },
+    {
+      "who": "손님",
+      "korean": "어제 저녁부터요. 콧물도 조금 나요.",
+      "meaning": "Since yesterday evening. My nose is running a little too."
+    },
+    {
+      "who": "약사",
+      "korean": "알레르기 있으세요?",
+      "meaning": "Do you have any allergies?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "No, I don't."
+    },
+    {
+      "who": "약사",
+      "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
+      "meaning": "Then take this cold medicine. Take it three times a day, 30 minutes after meals."
+    },
+    {
+      "who": "손님",
+      "korean": "네, 알겠습니다. 감사합니다.",
+      "meaning": "Okay, I understand. Thank you."
+    }
+  ],
+  "exercises": [
+    "Choose the right word to finish the sentence: 콧물이 ( 아파요 / 나요 ).",
+    "Choose the right word to finish the sentence: 머리가 ( 아파요 / 나요 ).",
+    "The pharmacist asks: '처방전 있으세요?' You don't have one. Answer in Korean.",
+    "The pharmacist asks: '언제부터 아프셨어요?' You started feeling sick this morning (오늘 아침). Answer in Korean.",
+    "The pharmacist asks: '알레르기 있으세요?' You are allergic to aspirin (아스피린). Answer in Korean.",
+    "The pharmacist says: '하루 세 번, 식후 30분에 드세요.' In English, how many times a day should you take the medicine, and when?"
+  ],
+  "keyword": "약국에서 증상 말하고 약 사기",
+  "level": "Beginner (high)",
+  "minutes": 20,
+  "objective": "By the end, learners can buy an over-the-counter medicine at a Korean pharmacy: say one symptom with '머리가 아파요 / 콧물이 나요 / 열이 나요', answer the pharmacist's questions (처방전 있으세요? 언제부터요? 알레르기 있으세요?), and understand the dosing instruction '하루 세 번, 식후 30분에 드세요'.",
+  "setting": "A small neighborhood pharmacy (동네 약국) in Korea on a weekday evening. The customer has a cold but did not go to a doctor, so they have no prescription. They talk to the pharmacist at the counter.",
+  "summary": "A short, realistic conversation at a Korean pharmacy. A customer without a prescription describes a headache, fever and runny nose, answers the pharmacist's questions, and gets instructions for taking cold medicine.",
+  "tags": [],
+  "task": null,
+  "title": "약국에서 증상 말하고 약 사기",
+  "words": [
+    {
+      "korean": "머리",
+      "roman": "meori",
+      "meaning": "head",
+      "example": "머리가 너무 아파요.",
+      "exampleMeaning": "My head really hurts."
+    },
+    {
+      "korean": "열이 나다",
+      "roman": "yeori nada",
+      "meaning": "to have a fever",
+      "example": "아이가 밤에 열이 났어요.",
+      "exampleMeaning": "My child had a fever during the night."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "runny nose",
+      "example": "콧물이 계속 나요.",
+      "exampleMeaning": "My nose keeps running."
+    },
+    {
+      "korean": "처방전",
+      "roman": "cheobangjeon",
+      "meaning": "prescription (from a doctor)",
+      "example": "처방전 없이 살 수 있어요?",
+      "exampleMeaning": "Can I buy this without a prescription?"
+    },
+    {
+      "korean": "언제부터",
+      "roman": "eonjebuteo",
+      "meaning": "since when",
+      "example": "언제부터 목이 아팠어요?",
+      "exampleMeaning": "Since when has your throat been sore?"
+    },
+    {
+      "korean": "알레르기",
+      "roman": "allereugi",
+      "meaning": "allergy",
+      "example": "저는 땅콩 알레르기가 있어요.",
+      "exampleMeaning": "I'm allergic to peanuts."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "cold medicine",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Some cold medicine, please."
+    },
+    {
+      "korean": "하루",
+      "roman": "haru",
+      "meaning": "(per) day",
+      "example": "하루에 몇 번 먹어요?",
+      "exampleMeaning": "How many times a day do I take it?"
+    },
+    {
+      "korean": "식후",
+      "roman": "sikhu",
+      "meaning": "after a meal",
+      "example": "식후 30분에 먹으면 돼요?",
+      "exampleMeaning": "Should I take it 30 minutes after eating?"
+    },
+    {
+      "korean": "드세요",
+      "roman": "deuseyo",
+      "meaning": "please take (medicine), polite form",
+      "example": "따뜻한 물이랑 같이 드세요.",
+      "exampleMeaning": "Take it with warm water."
+    }
+  ],
+  "category": "reallife"
+}

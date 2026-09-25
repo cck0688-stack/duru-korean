@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "두통",
+    "밴드",
+    "기침이 나요. 그리고 콧물이 나요.",
+    "열이 나요. 감기약 주세요. (열이 있어요. 감기약 주세요.)",
+    "배탈",
+    "증상: 콧물, 기침 / 약: 소화제, 연고"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Isi bagian kosong dengan salah satu kata dari daftar (두통 / 배탈 / 콧물): 머리가 너무 아파요. ____이 있어요.",
+    "Isi bagian kosong dengan obat yang tepat: 손가락을 조금 베었어요. 상처에 붙이게 ____ 주세요.",
+    "Pilih partikel yang tepat untuk setiap bagian kosong (이 / 가): 기침( ) 나요. 그리고 콧물( ) 나요.",
+    "Terjemahkan ke dalam bahasa Korea dengan dua kalimat pendek: \"Saya demam. Tolong beri saya obat flu.\"",
+    "Lengkapi percakapan dengan satu kata. 약사: 어디가 아프세요? / 손님: 어제 상한 우유를 마시고 ____이 났어요.",
+    "Kelompokkan keempat kata ini ke dalam dua kelompok, gejala (증상) dan obat (약): 콧물, 소화제, 기침, 연고"
+  ],
+  "keyword": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
+  "level": "Tingkat Pemula (tinggi)",
+  "minutes": 20,
+  "objective": "Pelajar dapat memberi tahu apoteker tentang gejala mereka dengan 10 kata inti apotek dalam kalimat pendek seperti '두통이 있어요' atau '열이 나요', serta meminta obat yang tepat dengan '○○ 주세요'.",
+  "summary": "Lembar kerja ini mengajarkan 10 kata inti untuk apotek di Korea: 5 gejala (두통, 열, 기침, 콧물, 배탈) dan 5 jenis obat (감기약, 소화제, 진통제, 연고, 밴드). Setiap kata disertai satu kalimat pendek yang alami. Kamu kemudian menggunakan kata-kata itu dalam pola sederhana: '○○이/가 있어요' atau '○○이/가 나요' untuk mengatakan apa yang sedang kamu alami, dan '○○ 주세요' untuk meminta obat. Catatan: orang Korea biasanya mengatakan 열이 나요 (bukan hanya 열이 있어요), dan 기침·콧물 juga dipakai dengan 나요. Untuk sakit perut, katakan 배탈이 났어요.",
+  "tags": [],
+  "task": null,
+  "title": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
+  "words": [
+    {
+      "korean": "두통",
+      "roman": "dutong",
+      "meaning": "sakit kepala",
+      "example": "어제부터 두통이 있어요.",
+      "exampleMeaning": "Saya sudah sakit kepala sejak kemarin."
+    },
+    {
+      "korean": "열",
+      "roman": "yeol",
+      "meaning": "demam (suhu tubuh)",
+      "example": "아침부터 열이 나요.",
+      "exampleMeaning": "Saya demam sejak pagi ini."
+    },
+    {
+      "korean": "기침",
+      "roman": "gichim",
+      "meaning": "batuk",
+      "example": "밤에 기침이 많이 나요.",
+      "exampleMeaning": "Saya banyak batuk di malam hari."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "pilek (ingus)",
+      "example": "콧물이 나고 목도 아파요.",
+      "exampleMeaning": "Saya pilek, dan tenggorokan saya juga sakit."
+    },
+    {
+      "korean": "배탈",
+      "roman": "baetal",
+      "meaning": "sakit perut, gangguan pencernaan",
+      "example": "회를 먹고 배탈이 났어요.",
+      "exampleMeaning": "Saya sakit perut setelah makan ikan mentah."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "obat flu",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Bisa minta obat flu?"
+    },
+    {
+      "korean": "소화제",
+      "roman": "sohwaje",
+      "meaning": "obat pencernaan (untuk gangguan pencernaan)",
+      "example": "점심을 너무 많이 먹었어요. 소화제 있어요?",
+      "exampleMeaning": "Saya makan terlalu banyak saat makan siang. Apakah ada obat untuk gangguan pencernaan?"
+    },
+    {
+      "korean": "진통제",
+      "roman": "jintongje",
+      "meaning": "obat pereda nyeri",
+      "example": "이가 아파서 진통제를 사러 왔어요.",
+      "exampleMeaning": "Gigi saya sakit, jadi saya datang untuk membeli obat pereda nyeri."
+    },
+    {
+      "korean": "연고",
+      "roman": "yeongo",
+      "meaning": "salep (krim untuk kulit)",
+      "example": "이 연고는 하루에 두 번 바르세요.",
+      "exampleMeaning": "Oleskan salep ini dua kali sehari."
+    },
+    {
+      "korean": "밴드",
+      "roman": "baendeu",
+      "meaning": "plester luka (seperti Band-Aid)",
+      "example": "칼에 손가락을 베었어요. 밴드 하나 주세요.",
+      "exampleMeaning": "Jari saya teriris pisau. Tolong beri saya plester."
+    }
+  ],
+  "category": "vocab"
+}

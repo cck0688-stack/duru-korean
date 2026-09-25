@@ -1,0 +1,488 @@
+{
+  "id": "4afe9799-c350-4d85-a56d-a21fc80100e4",
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words 예문이 학습 목표(끝소리를 터뜨리지 않고 멈추기)를 연습시키지 못하고, 오히려 반대 발음을 보여 줍니다. '국이[구기]', '속에[소게]', '벽에[벼게]', '입이[이비]', '집은[지븐]'은 뒤에 모음이 와서 받침이 다음 음절로 넘어가(연음) [g]/[b]로 소리 납니다. 받침소리를 멈추는 예가 아닙니다. 설명도 없어서 초급 학습자는 '국이'를 [국-이]처럼 끊어 읽기 쉽습니다. 받침 낱말이 문장 끝에 오거나 자음 앞에 오는 예문으로 바꾸세요. 예: '이건 국이에요' 대신 '국 주세요.', '저기 벽.', '집 앞에 있어요'. 아니면 연음 규칙을 짧게 주석으로 적으세요.",
+        "밥 예문 '밥 먹었어요?'는 ㅂ이 ㅁ 앞에서 [m]으로 바뀌어(비음화) [밤머거써요]로 소리 납니다. ㅂ의 끝소리가 [p]라고 가르치는 예문으로는 틀린 발음 모델이 됩니다. '밥 주세요.'나 '밥 좋아요.'처럼 [p]가 멈추는 환경으로 바꾸세요.",
+        "1번 '끝소리 [k]인 낱말을 고르세요'는 주격 조사가 빠져 문법에 맞지 않습니다. '끝소리가 [k]인 낱말을 고르세요.'로 고치세요.",
+        "5번 '밑줄 친 낱말'이라고 했지만 학습지에는 밑줄이 표시되어 있지 않습니다. '문장 속 낱말 「밥」의 끝소리를 고르세요: 밥 주세요.'처럼 밑줄이 없어도 알 수 있게 고치세요.",
+        "letters의 sound 설명 '(무성·무폭발)'에서 '무폭발'은 표준 음성학 용어가 아닙니다. '불파음'(또는 '터뜨리지 않음')으로 고치세요."
+      ],
+      "audit": [
+        "exercises[0]: 끝소리 [k]인 낱말을 고르세요. (국 / 곧 / 밥) → Choose the word that ends in [k]: (국 / 곧 / 밥)",
+        "exercises[1]: 아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p) → What is the final sound of this word? 곧 (k / t / p)",
+        "exercises[2]: 영어 끝소리와 가장 가까운 것은? 집 (back / bat / cap) → Which English word has the closest final sound? 집 (back / bat / cap)",
+        "exercises[3]: 로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk) → Choose the correct romanization: 벽 (byeok / byeog / byuk)",
+        "exercises[4]: 문장에서 밑줄 친 낱말의 끝소리를 고르세요: 밥 주세요. → 밥 (k / t / p) → Choose the final sound of 밥 in this sentence: 밥 주세요. (k / t / p)",
+        "letters[0].sound (ㄱ): 끝소리 [k] (무성·무폭발) → final [k̚] (voiceless, unreleased)",
+        "letters[1].sound (ㄷ): 끝소리 [t] (무성·무폭발) → final [t̚] (voiceless, unreleased)",
+        "letters[2].sound (ㅂ): 끝소리 [p] (무성·무폭발) → final [p̚] (voiceless, unreleased)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "exercises[0]: 끝소리가 [k]인 낱말을 고르세요. (국 / 곧 / 밥) → Choose the word whose final sound is [k]: (국 / 곧 / 밥)",
+        "exercises[1]: 아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p) → What is the final sound of this word? 곧 (k / t / p)",
+        "exercises[2]: 영어 끝소리와 가장 가까운 것은? 집 (back / bat / cap) → Which English word ending is closest to the final sound? 집 (back / bat / cap)",
+        "exercises[3]: 로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk) → Choose the correct romanization: 벽 (byeok / byeog / byuk)",
+        "exercises[4]: 문장 속 낱말 「밥」의 끝소리를 고르세요: 밥 주세요. (k / t / p) → Choose the final sound of 「밥」 in this sentence: 밥 주세요. (k / t / p)",
+        "letters[0].sound (ㄱ): 끝소리 [k] (무성·불파음) → final [k] (voiceless, unreleased)",
+        "letters[1].sound (ㄷ): 끝소리 [t] (무성·불파음) → final [t] (voiceless, unreleased)",
+        "letters[2].sound (ㅂ): 끝소리 [p] (무성·불파음) → final [p] (voiceless, unreleased)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "받침 ㄷ 연습이 부족합니다. words 7개 중 ㄷ 받침은 '곧' 하나뿐이고 ㄱ(국·속·벽)과 ㅂ(밥·집·입)은 세 개씩입니다. 문제도 ㄷ은 2번 하나뿐입니다. '받', '믿다'의 '믿'처럼 초급에 맞는 ㄷ 받침 낱말을 두세 개 더하세요. 그리고 1번이나 3번의 보기·정답 가운데 하나가 [t]를 묻도록 바꾸세요.",
+        "objective에는 끝소리 [k]·[t]·[p]를 직접 '발음한다(produce)'고 되어 있습니다. 그런데 문제 1~5는 모두 보기에서 고르는 인식 문제라 발음 연습이 없습니다. '국/곧/밥을 끝소리를 터뜨리지 말고 소리 내어 읽기'처럼 발음하는 문제를 하나 이상 넣거나, objective에서 발음 목표를 빼세요.",
+        "같은 문장 틀이 반복됩니다. 예문 '국 주세요.'와 '밥 주세요.'는 틀이 같습니다. 5번 문제도 '밥 주세요.'를 그대로 다시 씁니다. 게다가 5번은 3번과 마찬가지로 ㅂ 받침의 끝소리 [p]를 묻는 문제입니다. '국 주세요.'를 '국이 뜨거워요.'처럼 다른 틀로 바꾸세요. 5번도 '저기 벽 보세요.'의 '벽'처럼 다른 낱말과 받침을 묻도록 바꾸세요.",
+        "task.title, task.line이 빈 문자열이고 tags, checkThese가 빈 배열입니다. 배포하기 전에 내용을 채우거나 이 항목들을 지우세요."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "The task line says \"close your throat, tongue, or lips\", which is wrong for ㄱ. You don't close the throat for final ㄱ [k]. The back of the tongue presses against the soft palate. A closed throat is a glottal stop, and learners who follow this will make the wrong sound. Change it to: \"press the back of your tongue to the roof of your mouth (ㄱ), the tongue tip behind your top teeth (ㄷ), or close your lips (ㅂ).\"",
+        "The task line says \"At each batchim … stop without letting the sound out\", but the practice sentence 「문 닫고 나가세요」 includes 문, whose batchim ㄴ is a nasal and can't be stopped. Either change the instruction to \"At each ㄱ/ㄷ/ㅂ batchim\" or swap 문 for a word without a batchim.",
+        "The exercises never test ㅂ [p], even though the objective covers [k], [t] and [p]. The answers are k (1 and 5), t (2 and 3) and a romanization item (4), so [p] is never the correct answer. The word 벽 also appears in both exercise 4 and exercise 5, which repeats the same item. Change exercise 5 to a ㅂ word, for example: \"Read aloud, stopping 「집」 without release: 우리 집 좋아요. (k / t / p)\" with the answer \"p\"."
+      ],
+      "audit": [
+        "task.line (instruction sentence): At each batchim, close your throat, tongue, or lips and stop without letting the sound out. → At each batchim, block the air with the back of your tongue (ㄱ), the tip of your tongue (ㄷ), or your lips (ㅂ) and stop without releasing the sound."
+      ]
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "Say it: stop the final sound"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "Read aloud: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. At each ㄱ/ㄷ/ㅂ batchim, block the air with the back of your tongue (ㄱ), the tip of your tongue (ㄷ), or your lips (ㅂ) and stop without releasing the sound."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "끝소리 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
+      "after": "Choose the word whose final sound is [k]: (국 / 곧 / 밥)"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p)",
+      "after": "What is the final sound of this word? 곧 (k / t / p)"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "영어 끝소리와 가장 가까운 것은? 집 (back / bat / cap)",
+      "after": "Which English word ending is closest to the final sound of 받 in 받다? (back / bat / cap)"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk)",
+      "after": "Choose the correct romanization: 벽 (byeok / byeog / byuk)"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "문장에서 밑줄 친 낱말의 끝소리를 고르세요: 밥 주세요. → 밥 (k / t / p)",
+      "after": "Read the sentence aloud, stopping 「집」 without releasing the final sound. Then choose its final sound: 우리 집 좋아요. (k / t / p)"
+    },
+    {
+      "at": "answers[3]",
+      "before": "cap",
+      "after": "bat"
+    },
+    {
+      "at": "letters[1].sound",
+      "before": "끝소리 [k] (무성·무폭발)",
+      "after": "final [k] (voiceless, unreleased)"
+    },
+    {
+      "at": "letters[2].sound",
+      "before": "끝소리 [t] (무성·무폭발)",
+      "after": "final [t] (voiceless, unreleased)"
+    },
+    {
+      "at": "letters[3].sound",
+      "before": "끝소리 [p] (무성·무폭발)",
+      "after": "final [p] (voiceless, unreleased)"
+    },
+    {
+      "at": "words[1].example",
+      "before": "국이 뜨거워요.",
+      "after": "국도 드세요."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "The soup is hot.",
+      "after": "Have some soup too."
+    },
+    {
+      "at": "words[2].example",
+      "before": "가방 속에 책이 있어요.",
+      "after": "가방 속 봤어요?"
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "There is a book in the bag.",
+      "after": "Did you look inside the bag?"
+    },
+    {
+      "at": "words[3].example",
+      "before": "벽에 그림이 있어요.",
+      "after": "저기 벽 보세요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "There is a picture on the wall.",
+      "after": "Look at the wall over there."
+    },
+    {
+      "at": "words[5].korean",
+      "before": "밥",
+      "after": "받다"
+    },
+    {
+      "at": "words[5].roman",
+      "before": "bap",
+      "after": "batda"
+    },
+    {
+      "at": "words[5].meaning",
+      "before": "cooked rice; meal",
+      "after": "to receive"
+    },
+    {
+      "at": "words[5].example",
+      "before": "밥 먹었어요?",
+      "after": "편지 받고 기뻤어요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "Did you eat?",
+      "after": "I was happy to get the letter."
+    },
+    {
+      "at": "words[6].korean",
+      "before": "집",
+      "after": "믿다"
+    },
+    {
+      "at": "words[6].roman",
+      "before": "jip",
+      "after": "mitda"
+    },
+    {
+      "at": "words[6].meaning",
+      "before": "house; home",
+      "after": "to believe; to trust"
+    },
+    {
+      "at": "words[6].example",
+      "before": "우리 집은 커요.",
+      "after": "친구 말 믿고 기다렸어요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "Our house is big.",
+      "after": "I believed my friend and waited."
+    },
+    {
+      "at": "words[7].korean",
+      "before": "입",
+      "after": "닫다"
+    },
+    {
+      "at": "words[7].roman",
+      "before": "ip",
+      "after": "datda"
+    },
+    {
+      "at": "words[7].meaning",
+      "before": "mouth",
+      "after": "to close"
+    },
+    {
+      "at": "words[7].example",
+      "before": "입이 아파요.",
+      "after": "문 닫고 나가세요."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "My mouth hurts.",
+      "after": "Close the door when you go out."
+    },
+    {
+      "at": "words[8].korean",
+      "before": "",
+      "after": "밥"
+    },
+    {
+      "at": "words[8].roman",
+      "before": "",
+      "after": "bap"
+    },
+    {
+      "at": "words[8].meaning",
+      "before": "",
+      "after": "cooked rice; meal"
+    },
+    {
+      "at": "words[8].example",
+      "before": "",
+      "after": "밥 주세요."
+    },
+    {
+      "at": "words[8].exampleMeaning",
+      "before": "",
+      "after": "Rice, please."
+    },
+    {
+      "at": "words[9].korean",
+      "before": "",
+      "after": "집"
+    },
+    {
+      "at": "words[9].roman",
+      "before": "",
+      "after": "jip"
+    },
+    {
+      "at": "words[9].meaning",
+      "before": "",
+      "after": "house; home"
+    },
+    {
+      "at": "words[9].example",
+      "before": "",
+      "after": "우리 집 좋아요."
+    },
+    {
+      "at": "words[9].exampleMeaning",
+      "before": "",
+      "after": "Our house is nice."
+    },
+    {
+      "at": "words[10].korean",
+      "before": "",
+      "after": "입"
+    },
+    {
+      "at": "words[10].roman",
+      "before": "",
+      "after": "ip"
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "",
+      "after": "mouth"
+    },
+    {
+      "at": "words[10].example",
+      "before": "",
+      "after": "입 크게 벌리세요."
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "",
+      "after": "Open your mouth wide."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 7,
+          "problem": "The meaning changed. \"Ăn thêm canh\" means \"eat more soup\", but the English (from 국도 드세요) means \"have some soup too\". The \"too\" (-도) is lost.",
+          "fix": "Ăn cả canh nữa nhé."
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "The vocabulary item gives two words, one of which (안) ends in ㄴ. This worksheet only practises ㄱ/ㄷ/ㅂ batchim, and this item belongs with the ㄱ words (국, 벽). 'inside' should be the single word 속.",
+          "fix": "속"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 26,
+          "problem": "\"voiceless\" is translated as 不送气, which means \"unaspirated\". That is a different phonetic term. \"Voiceless\" is 清音 (or 不带声).",
+          "fix": "韵尾[k](清音、不释放)"
+        },
+        {
+          "line": 28,
+          "problem": "\"voiceless\" is translated as 不送气, which means \"unaspirated\". That is a different phonetic term. \"Voiceless\" is 清音 (or 不带声).",
+          "fix": "韵尾[t](清音、不释放)"
+        },
+        {
+          "line": 30,
+          "problem": "\"voiceless\" is translated as 不送气, which means \"unaspirated\". That is a different phonetic term. \"Voiceless\" is 清音 (or 不带声).",
+          "fix": "韵尾[p](清音、不释放)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "'unverhaucht' means 'unaspirated', not 'unreleased'; the term is mistranslated and presented as a synonym of 'nicht gelöst'.",
+          "fix": "Übe das Lesen und Bilden von ungelösten (nicht gelösten) Endkonsonanten für die Batchim ㄱ/ㄷ/ㅂ. Die Lernenden verbinden jeden mit ähnlichen englischen Wortend-Lauten (back/bat/cap), jedoch ohne Lösung des Verschlusses, und lesen und wählen dann einfache Wörter mit diesen Batchim aus."
+        },
+        {
+          "line": 3,
+          "problem": "'unverhaucht' (unaspirated) is the wrong term for 'unreleased'.",
+          "fix": "Anfänger-Lernende sollen die ungelösten Endlaute [k], [t], [p] für die Batchim ㄱ, ㄷ, ㅂ bilden; sie mit ähnlichen englischen Endlauten verbinden („back/bat/cap“ ohne Lösung des Verschlusses); und einfache koreanische Wörter mit diesen Batchim korrekt lesen und auswählen können."
+        },
+        {
+          "line": 26,
+          "problem": "'unverhaucht' means 'unaspirated', not 'unreleased'.",
+          "fix": "Endlaut [k] (stimmlos, ungelöst)"
+        },
+        {
+          "line": 28,
+          "problem": "'unverhaucht' means 'unaspirated', not 'unreleased'.",
+          "fix": "Endlaut [t] (stimmlos, ungelöst)"
+        },
+        {
+          "line": 30,
+          "problem": "'unverhaucht' means 'unaspirated', not 'unreleased'.",
+          "fix": "Endlaut [p] (stimmlos, ungelöst)"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:42:41.879Z"
+}

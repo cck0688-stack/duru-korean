@@ -1,0 +1,273 @@
+{
+  "id": "1d79f873-7a67-4a0d-8269-4e1050a335f0",
+  "title": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "category": "reallife",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Dialogue lines 7–8 don't make sense: 철수 already said his machine has '17분 남았어요', so it is clearly running. 민지 asking '세제는 넣으셨어요?' and 철수 answering '시작 버튼도 눌렀어요' is pointless in this situation, and exercise 4 and its answer depend on it. Replace it with a question that fits a machine in use (for example a fee question: '건조기는 얼마예요?' or '건조기는 몇 분 돌려요?'), then change the answer and exercise 4 to match.",
+        "The objective promises 'ask about fees', but no dialogue line, word, or exercise covers fees. Add a fee exchange (for example '건조기는 얼마예요?') or remove 'fees' from the objective. If you add prices, mark them as examples or show them on a sign in the story instead of stating a real amount as fact.",
+        "The objective and the exercises don't match: the objective says learners will ask for a machine number and the remaining time, but exercises 1–3 only check understanding and only exercise 4 asks learners to write Korean. Add production exercises such as 'Write in Korean: How much time is left?' → '남은 시간이 얼마나 돼요?' and 'Which dryer is free?' → '몇 번 건조기가 비어 있어요?'.",
+        "English grammar error in dialogue line 2's translation: 'There's 17 minutes left now.' should be 'There are 17 minutes left now.' Also, line 1 '4번 세탁기 지금 누구 거예요?' means 'Whose is washer number 4 right now?', but the translation 'is… in use by someone now?' changes the question. Change it to 'Whose is washing machine number 4?'",
+        "Level mismatch: the grammar and questions are beginner-level (–어요, –어 주세요, –을게요, simple number and time comprehension), not Intermediate. Change level to Beginner, or keep Intermediate and add intermediate grammar and tasks (for example –(으)ㄴ/는데요, –아/어 드릴까요?, reported speech)."
+      ],
+      "audit": [
+        "exercises[0]: 철수의 세탁기 번호는 몇 번이에요? → Answer in Korean: 철수의 세탁기 번호는 몇 번이에요?",
+        "exercises[1]: 철수 세탁기에 남은 시간은 얼마예요? → Answer in Korean: 철수 세탁기에 남은 시간은 얼마예요?",
+        "exercises[2]: 철수가 끝나면 어디로 옮기겠다고 했어요? (몇 번) → Answer in Korean (include the number): 철수가 끝나면 어디로 옮기겠다고 했어요?",
+        "exercises[3]: 다음 문장을 한국어로 적으세요: \"I pressed the start button.\" → Write this sentence in Korean: \"I pressed the start button.\"",
+        "dialogue[0].meaning: Excuse me, is the washing machine number 4 in use by someone now? → Excuse me, whose laundry is in washing machine number 4 right now?",
+        "objective: ask for a machine number, ask how much time is left, ask about fees or moving laundry, and start or move laundry to the dryer. → ask for a machine number, ask how much time is left, ask someone to move laundry, and start or move laundry to the dryer."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercise 3 and its answer: the question '철수가 끝나면 어디로 옮기겠다고 했어요?' and the answer '2번 건조기로 옮긴다고 했어요.' require reported speech (-겠다고 했어요 / -ㄴ다고 했어요). This is intermediate grammar that the dialogue and objective never teach, so it does not suit a Beginner worksheet. Change the question to '철수는 빨래를 몇 번 건조기로 옮겨요?' with the answer '2번 건조기로 옮겨요.', or change the task so learners produce '제가 2번 건조기로 옮길게요.'",
+        "Exercise 2: in '철수 세탁기에 남은 시간은 얼마예요?', 얼마예요 is mainly used to ask a price, so it sounds unnatural for remaining time. It also does not match the vocabulary example '남은 시간이 얼마나 돼요?'. Change it to '철수 세탁기는 몇 분 남았어요?' or '철수 세탁기에 남은 시간이 얼마나 돼요?'"
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[3]",
+      "before": "2번 건조기로 옮긴다고 했어요.",
+      "after": "2번 건조기로 옮겨요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "시작 버튼을 눌렀어요.",
+      "after": "건조기는 얼마예요?"
+    },
+    {
+      "at": "dialogue[1].meaning",
+      "before": "Excuse me, is the washing machine number 4 in use by someone now?",
+      "after": "Excuse me, whose laundry is in washing machine number 4 right now?"
+    },
+    {
+      "at": "dialogue[2].meaning",
+      "before": "Yes, it's mine. There's 17 minutes left now.",
+      "after": "Yes, it's mine. There are 17 minutes left now."
+    },
+    {
+      "at": "dialogue[7].korean",
+      "before": "감사합니다. 세제는 넣으셨어요?",
+      "after": "감사합니다. 건조기는 얼마예요?"
+    },
+    {
+      "at": "dialogue[7].meaning",
+      "before": "Thank you. Did you put in the detergent?",
+      "after": "Thank you. How much is the dryer?"
+    },
+    {
+      "at": "dialogue[8].korean",
+      "before": "네, 이미 넣었고 시작 버튼도 눌렀어요.",
+      "after": "저기 안내판에 30분에 3,000원이라고 쓰여 있어요."
+    },
+    {
+      "at": "dialogue[8].meaning",
+      "before": "Yes, I already put it in and pressed the start button.",
+      "after": "The sign over there says 3,000 won for 30 minutes."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "철수의 세탁기 번호는 몇 번이에요?",
+      "after": "Answer in Korean: 철수의 세탁기 번호는 몇 번이에요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "철수 세탁기에 남은 시간은 얼마예요?",
+      "after": "Answer in Korean: 철수 세탁기에 남은 시간이 얼마나 돼요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "철수가 끝나면 어디로 옮기겠다고 했어요? (몇 번)",
+      "after": "Answer in Korean (include the number): 철수는 빨래를 몇 번 건조기로 옮겨요?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "다음 문장을 한국어로 적으세요: \"I pressed the start button.\"",
+      "after": "Write this sentence in Korean: \"How much is the dryer?\""
+    },
+    {
+      "at": "level",
+      "before": "A2 (초급 중급)",
+      "after": "Beginner"
+    },
+    {
+      "at": "objective",
+      "before": "Be able to understand and say short questions and responses at a coin/self-service laundromat: ask for a machine number, ask how much time is left, ask about fees or moving laundry, and start or move laundry to the dryer.",
+      "after": "Be able to understand and say short questions and responses at a coin/self-service laundromat: ask for a machine number, ask how much time is left, ask about dryer fees, ask someone to move laundry, and say you will move laundry to the dryer."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 38,
+          "problem": "The sentence to translate into Korean was left in English. Spanish-speaking learners need it in Spanish.",
+          "fix": "Escribe esta oración en coreano: \"¿Cuánto cuesta la secadora?\""
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 34,
+          "problem": "\"wones\" is the Spanish plural of \"won\"; in Brazilian Portuguese the plural is \"wons\".",
+          "fix": "A placa ali diz que são 3.000 wons por 30 minutos."
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 38,
+          "problem": "The exercise asks students to write the English sentence in Korean, but the Korean line swaps that sentence for its Korean answer (\"건조기는 얼마예요?\"). This gives away the answer and makes the task meaningless. The English sentence should stay as the prompt.",
+          "fix": "다음 문장을 한국어로 쓰세요: \"How much is the dryer?\""
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 24,
+          "problem": "帮我 (\"for me\") makes it sound like Minji is asking Cheolsu to move her laundry. In the English, 'it' is Cheolsu's own laundry, which she is asking him to move to the dryer.",
+          "fix": "啊,知道了。洗完后可以马上把衣服移到烘干机吗?"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "\"die Wäsche zu verlegen\" is unnatural and suggests misplacing the laundry; the meaning is moving it to another machine.",
+          "fix": "In der Lage sein, kurze Fragen und Antworten in einem Münz-/Selbstbedienungswaschsalon zu verstehen und zu sagen: nach einer Maschinennummer fragen, fragen, wie viel Zeit noch übrig ist, nach den Trocknergebühren fragen, jemanden bitten, die Wäsche umzulegen, und sagen, dass man die Wäsche in den Trockner legen wird."
+        },
+        {
+          "line": 13,
+          "problem": "\"verlegen\" is an unnatural verb for moving laundry (it also means 'to misplace'); \"umlegen/bringen\" fits the meaning.",
+          "fix": "(etwas) in eine andere Maschine/an einen anderen Ort umlegen"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T13:50:12.556Z"
+}

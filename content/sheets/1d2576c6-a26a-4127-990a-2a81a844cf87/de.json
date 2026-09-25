@@ -1,0 +1,111 @@
+{
+  "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
+  "summary": "Übe das Lesen und Aussprechen der Endkonsonanten ㅇ, ㄴ, ㅁ. Verknüpfe sie mit ähnlichen englischen Endungen (-ng, -n, -m) und lies einfache Wörter, die diese Batchim enthalten.",
+  "objective": "Die Lernenden unterscheiden die Endkonsonanten ㅇ, ㄴ, ㅁ anhand des Klangs, verbinden sie zur korrekten Aussprache mit ähnlichen englischen Endungen (-ng, -n, -m) und lesen einfache Wörter, die diese Batchim enthalten.",
+  "level": "Anfänger",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Wähle das Wort, dessen Endlaut [-ng] ist: 방 / 반 / 밤",
+    "Schreibe die Endung im englischen Stil (-ng/-n/-m) in jede Lücke: 손(__) 방(__) 봄(__)",
+    "Sortiere diese Wörter nach ihrem Endlaut (ㅇ/ㄴ/ㅁ): 공 / 눈 / 산 / 봄",
+    "Wähle das Wort, das der Bedeutung entspricht: „Hand“ → 손 / 송 / 솜",
+    "Fülle die Lücke mit dem richtigen Endkonsonanten (ㅇ/ㄴ/ㅁ): 이르_ (Bedeutung: Name)"
+  ],
+  "answers": [
+    "방",
+    "손(-n), 방(-ng), 봄(-m)",
+    "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄",
+    "손",
+    "ㅁ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅇ",
+      "sound": "ng (Endlaut)",
+      "as": "wie die englische Endung -ng (sing)"
+    },
+    {
+      "letter": "ㄴ",
+      "sound": "n (Endlaut)",
+      "as": "wie die englische Endung -n (sun)"
+    },
+    {
+      "letter": "ㅁ",
+      "sound": "m (Endlaut)",
+      "as": "wie die englische Endung -m (gum)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "Zimmer",
+      "example": "방이 커요.",
+      "exampleMeaning": "Das Zimmer ist groß."
+    },
+    {
+      "korean": "공",
+      "roman": "gong",
+      "meaning": "Ball",
+      "example": "공을 차요.",
+      "exampleMeaning": "Ich trete den Ball."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "Brot",
+      "example": "빵 주세요.",
+      "exampleMeaning": "Brot, bitte."
+    },
+    {
+      "korean": "손",
+      "roman": "son",
+      "meaning": "Hand",
+      "example": "손 씻어요.",
+      "exampleMeaning": "Ich wasche meine Hände."
+    },
+    {
+      "korean": "눈",
+      "roman": "nun",
+      "meaning": "Schnee; Auge (hier: Schnee)",
+      "example": "눈이 와요.",
+      "exampleMeaning": "Es schneit."
+    },
+    {
+      "korean": "산",
+      "roman": "san",
+      "meaning": "Berg",
+      "example": "산에 가요.",
+      "exampleMeaning": "Ich gehe zum Berg."
+    },
+    {
+      "korean": "밤",
+      "roman": "bam",
+      "meaning": "Nacht (auch Kastanie)",
+      "example": "밤에 자요.",
+      "exampleMeaning": "Ich schlafe in der Nacht."
+    },
+    {
+      "korean": "봄",
+      "roman": "bom",
+      "meaning": "Frühling",
+      "example": "봄이 따뜻해요.",
+      "exampleMeaning": "Der Frühling ist warm."
+    },
+    {
+      "korean": "이름",
+      "roman": "ireum",
+      "meaning": "Name",
+      "example": "이름이 뭐예요?",
+      "exampleMeaning": "Wie heißt du? (Wie ist dein Name?)"
+    }
+  ],
+  "category": "hangul"
+}

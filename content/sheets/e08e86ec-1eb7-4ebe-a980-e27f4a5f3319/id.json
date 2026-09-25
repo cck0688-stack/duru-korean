@@ -1,0 +1,71 @@
+{
+  "title": "택배 받기·보내기: 기본 표현",
+  "keyword": "",
+  "summary": "Frasa singkat yang berguna untuk menerima dan mengirim paket di Korea, baik di loket maupun dengan kurir. Berfokus pada memeriksa penerima, menanyakan/mengonfirmasi nomor resi, menerima atau menolak paket, dan meminta pengiriman.",
+  "objective": "Mampu memahami dan mengucapkan 10 kalimat singkat yang digunakan saat menerima dan mengirim paket di Korea di loket atau dengan kurir (konfirmasi penerima, menanyakan nomor resi, menerima/menolak, permintaan pengiriman).",
+  "level": "Pemula",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Jawablah dalam bahasa Korea (gunakan nama 김민수): 수취인 성함이 어떻게 되세요?",
+    "Katakan dalam bahasa Korea: 'Saya ingin mengirim paket.'",
+    "Tanyakan dalam bahasa Korea: 'Berapa nomor resinya?'",
+    "Paketnya rusak. Tolaklah secara singkat dalam bahasa Korea.",
+    "Jawablah dalam bahasa Korea bahwa Anda akan tanda tangan: 서명해 주세요."
+  ],
+  "answers": [
+    "예시 답안 (Sample answer): 저는 김민수입니다. / Also correct: 김민수입니다.",
+    "예시 답안 (Sample answer): 택배로 보내고 싶습니다. / Also correct: 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
+    "예시 답안 (Sample answer): 운송장 번호가 어떻게 되나요? / Also correct: 운송장 번호가 뭐예요?",
+    "예시 답안 (Sample answer): 이건 받을 수 없어요. / Also correct: 받을 수 없어요. / 파손돼서 못 받겠어요.",
+    "예시 답안 (Sample answer): 여기 서명할게요. / Also correct: 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Ungkapan kunci (10)",
+      "paragraphs": [
+        "1) 택배 받으러 왔습니다. (Saya datang untuk mengambil paket.) — Digunakan saat Anda mengambil paket sendiri di loket. 택배 = paket, pengiriman kurir.",
+        "2) 수취인 성함이 어떻게 되세요? (Siapa nama penerimanya?) — Ditanyakan oleh petugas atau kurir untuk memeriksa nama penerima. 수취인 = penerima; 성함 = nama (bentuk sopan).",
+        "3) 저는 [이름]입니다. (Saya [nama].) — Jawaban dari penerima, misalnya 저는 김민수입니다.",
+        "4) 운송장 번호가 어떻게 되나요? (Berapa nomor resinya?) — Menanyakan nomor resi (waybill, 송장). 운송장 = waybill, lembar pengiriman yang memuat nomor resi.",
+        "5) 운송장 번호 알려 주세요. (Tolong beri tahu saya nomor resinya.) — Digunakan untuk meminta nomor resi kepada seseorang.",
+        "6) 여기 서명할게요. (Saya akan tanda tangan di sini.) — 'Saya akan tanda tangan di sini.' Digunakan saat menandatangani. 서명 = tanda tangan.",
+        "7) 이건 받을 수 없어요. (Saya tidak bisa menerima ini.) — Digunakan untuk menolak paket, misalnya saat 파손 (rusak).",
+        "8) 택배로 보내고 싶습니다. (Saya ingin mengirim paket.) — Diucapkan saat Anda datang untuk mengirim sesuatu.",
+        "9) 보낼 물건은 이거예요. (Ini barang yang ingin saya kirim.) — Digunakan saat menunjukkan barang yang ingin dikirim. 물건 = barang, benda.",
+        "10) 착불로 보내 주세요. (Tolong kirim dengan ongkos kirim dibayar oleh penerima.) — Meminta agar dikirim sehingga penerima membayar ongkos kirim saat barang tiba. 착불 = ongkos kirim dibayar oleh penerima (bayar di tempat/COD ongkir)."
+      ]
+    },
+    {
+      "heading": "Dialog singkat",
+      "paragraphs": [
+        "Contoh 1 (menerima): Kurir: '수취인 성함이 어떻게 되세요?' (Siapa nama penerimanya?) / Saya: '저는 김민수입니다.' (Saya Kim Minsu.)",
+        "Contoh 2 (mengirim): Saya: '택배로 보내고 싶습니다.' (Saya ingin mengirim paket.) / Petugas: '보내실 물건이 뭐예요?' (Apa yang ingin Anda kirim?) / Saya: '보낼 물건은 이거예요.' (Ini barang yang ingin saya kirim.)"
+      ]
+    },
+    {
+      "heading": "Tips",
+      "paragraphs": [
+        "Siapkan nama dan alamat terlebih dahulu (misalnya di catatan ponsel).",
+        "Sebelum menerima paket, periksa kemasannya dengan cepat, dan langsung tolak jika ada masalah.",
+        "Untuk berbicara dengan sopan, tambahkan '요' setelah akhiran kasual/informal (-아/어, -지, dll.): 받을 수 없어 → 받을 수 없어요. Anda tidak bisa menambahkan '요' pada sembarang akhiran (bukan 받을 수 없다요)."
+      ]
+    },
+    {
+      "heading": "Latihan berbicara tambahan",
+      "paragraphs": [
+        "Anda berada di loket untuk mengambil paket Anda. Apa yang Anda katakan? → 택배 받으러 왔습니다.",
+        "Anda ingin petugas memberi tahu nomor resinya. → 운송장 번호 알려 주세요.",
+        "Petugas bertanya apa yang ingin Anda kirim. Tunjukkan barangnya. → 보낼 물건은 이거예요.",
+        "Anda ingin penerima yang membayar ongkos kirim. → 착불로 보내 주세요."
+      ]
+    }
+  ],
+  "note": "Lembar kerja satu halaman untuk pemula. Ucapkan setiap ungkapan dengan lantang beberapa kali.",
+  "category": "etc"
+}

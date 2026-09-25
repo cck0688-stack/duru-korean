@@ -1,0 +1,111 @@
+{
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "Practica cómo distinguir y leer las consonantes coreanas iniciales ㄷ (simple), ㅌ (aspirada) y ㄸ (tensa). Se ofrecen referencias de sonidos en inglés para ayudar a los principiantes a relacionar los sonidos y leer palabras sencillas con precisión.",
+  "objective": "Los estudiantes identificarán y pronunciarán ㄷ (simple), ㅌ (aspirada) y ㄸ (tensa) en posición inicial de palabra, las relacionarán con referencias claras del inglés (ㄷ ≈ entre la d y la t del inglés con un ligero soplo de aire, ㅌ ≈ la t de “top”, ㄸ ≈ una t tensa sin soplo de aire, cercana a la t de “stop”), y leerán correctamente palabras sencillas que contienen estas consonantes iniciales.",
+  "level": "Principiante",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Elige la palabra que empieza con ㄸ (tensa): 두부 / 토끼 / 또",
+    "Mira la romanización y escribe solo la primera consonante en hangul: dubu",
+    "Elige la palabra que significa 'hija': 달 / 딸",
+    "Elige la palabra que empieza con ㅌ (aspirada): 달 / 토마토 / 딸",
+    "Mira la romanización y escribe solo la primera consonante en hangul: tteok"
+  ],
+  "answers": [
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
+    "ㄸ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄷ",
+      "sound": "t simple, con un ligero soplo de aire (más suave que ㅌ)",
+      "as": "entre la d y la t del inglés; al inicio de una palabra suele sonar como una t suave"
+    },
+    {
+      "letter": "ㅌ",
+      "sound": "t aspirada, con un soplo de aire fuerte",
+      "as": "como la t de “top”"
+    },
+    {
+      "letter": "ㄸ",
+      "sound": "t tensa, corta y firme",
+      "as": "“tt” tensa sin soplo de aire; el sonido en inglés más parecido es la t de “stop”"
+    }
+  ],
+  "words": [
+    {
+      "korean": "달",
+      "roman": "dal",
+      "meaning": "luna",
+      "example": "달이 예뻐요.",
+      "exampleMeaning": "La luna es bonita."
+    },
+    {
+      "korean": "돈",
+      "roman": "don",
+      "meaning": "dinero",
+      "example": "돈이 없어요.",
+      "exampleMeaning": "No tengo dinero."
+    },
+    {
+      "korean": "두부",
+      "roman": "dubu",
+      "meaning": "tofu",
+      "example": "두부를 사요.",
+      "exampleMeaning": "Compro tofu."
+    },
+    {
+      "korean": "토마토",
+      "roman": "tomato",
+      "meaning": "tomate",
+      "example": "토마토를 먹어요.",
+      "exampleMeaning": "Como tomates."
+    },
+    {
+      "korean": "타다",
+      "roman": "tada",
+      "meaning": "montar",
+      "example": "버스를 타요.",
+      "exampleMeaning": "Monto en el autobús."
+    },
+    {
+      "korean": "토끼",
+      "roman": "tokki",
+      "meaning": "conejo",
+      "example": "토끼가 귀여워요.",
+      "exampleMeaning": "El conejo es lindo."
+    },
+    {
+      "korean": "딸",
+      "roman": "ttal",
+      "meaning": "hija",
+      "example": "딸이 있어요.",
+      "exampleMeaning": "Tengo una hija."
+    },
+    {
+      "korean": "떡",
+      "roman": "tteok",
+      "meaning": "pastel de arroz",
+      "example": "떡이 맛있어요.",
+      "exampleMeaning": "El pastel de arroz está rico."
+    },
+    {
+      "korean": "또",
+      "roman": "tto",
+      "meaning": "otra vez",
+      "example": "또 만나요.",
+      "exampleMeaning": "Nos vemos otra vez."
+    }
+  ],
+  "category": "hangul"
+}

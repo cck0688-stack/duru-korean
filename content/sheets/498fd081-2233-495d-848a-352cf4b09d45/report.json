@@ -1,0 +1,351 @@
+{
+  "id": "498fd081-2233-495d-848a-352cf4b09d45",
+  "title": "아파트 엘리베이터 점검 안내문 읽기",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "낱말 '전면 중지' 예문 '공사로 도로 통행이 전면 중지됩니다.'는 어색한 연어입니다. 도로 통행에는 보통 '전면 통제/전면 금지'를 쓰고 '통행이 전면 중지'는 거의 쓰지 않습니다. 본문 용법(운행을 전면 중지)에 맞게 '공사로 지하철 운행이 전면 중지됩니다.'로 고치고, 번역도 'Subway service will be completely suspended because of construction.'으로 바꾸세요."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Passage sentence 2 and the answer to question 1: \"10월 15일(화)\" gives the wrong weekday for the current year. As of the worksheet date (2026-09-25), October 15, 2026 is a Thursday, not a Tuesday. Change it to \"10월 15일(목)\" or remove the weekday and write \"10월 15일\". Update the answer to question 1 the same way.",
+        "Answers to questions 1, 2 and 5: each answer adds an accepted variant in parentheses, and some of these just repeat the main answer, so the key reads as garbled. Examples: \"지하 1층(B1) (지하 1층)\" and \"10월 15일(화) (10월 15일)\". Give one answer per question (e.g. \"지하 1층(B1)\", \"10월 15일(화)\"). If other answers are accepted, list them separately, e.g. \"(Also accepted: 지하 1층)\"."
+      ],
+      "audit": [
+        "exercises[0]: 지문을 보고 답하세요. 점검 날짜는 언제입니까? → Answer in Korean based on the passage: 점검 날짜는 언제입니까?",
+        "exercises[1]: 지문을 보고 답하세요. 점검 시간은 몇 시부터 몇 시까지입니까? → Answer in Korean based on the passage: 점검 시간은 몇 시부터 몇 시까지입니까?",
+        "exercises[2]: 지문을 보고 답하세요. 점검 대상은 어느 동입니까? → Answer in Korean based on the passage: 점검 대상은 어느 동입니까?",
+        "exercises[3]: 지문을 보고 답하세요. 점검 동안 완전히 멈추는 엘리베이터는 몇 호기입니까? → Answer in Korean based on the passage: 점검 동안 완전히 멈추는 엘리베이터는 몇 호기입니까?",
+        "exercises[4]: 지문을 보고 답하세요. 점검 동안 2호기는 어느 층에 정차하지 않습니까? → Answer in Korean based on the passage: 점검 동안 2호기는 어느 층에 정차하지 않습니까?",
+        "level: Beginner → Intermediate (low)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "task.title, task.line, keyword and tags are all empty. The worksheet has no task instructions for learners. Fill in task.title and task.line (for example, '안내문을 읽고 이용할 수 없는 엘리베이터와 층을 찾으세요'), and add keyword and tags (for example, 엘리베이터, 점검, 안내문).",
+        "Passage paragraph 3 and exercises 4–5 say '점검 동안', which is unnatural Korean. 동안 goes with time words like 방학, 3시간 or 기간, not with 점검 by itself. Change it to '점검 중에는' or '점검 시간 동안' everywhere, including the exercise questions.",
+        "The example for the word 전면 중지, '1호기는 전면 중지입니다.', is unnatural. Change it to the pattern used in the passage: '1호기는 운행을 전면 중지합니다.' Also make the translation consistent: 'Car 1 will stop operating completely.'",
+        "Exercise 2's answer key only accepts '오전 9시부터 낮 12시까지' and '09:00~12:00'. Other correct answers would be marked wrong, such as '오전 9시부터 12시까지', '9시부터 12시까지' or '오전 9시~낮 12시'. Add them as accepted answers.",
+        "Exercise 3 asks '어느 동입니까?', but there are two buildings in the answer, so the question should say so. Change it to '점검 대상은 어느 동과 어느 동입니까?' or '점검 대상 동을 모두 쓰세요.' Also accept '101동, 102동' in the answer key."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Question 5 (2호기는 어느 층에 정차하지 않습니까?) is ambiguous. The passage says '1층부터 20층까지만 운행합니다,' and '까지만' can be read as meaning there are floors above 20 where car 2 also won't stop. The passage never gives the building's total number of floors, so a learner can't be sure '지하 1층' is the only correct answer. Fix: in the passage, add the top floor, e.g. '101동, 102동(지하 1층~지상 20층)', or change the sentence to '지하 1층에만 정차하지 않습니다.' so that 지하 1층 is the only possible answer."
+      ],
+      "audit": [
+        "task.line: 안내문을 읽고 이용할 수 없는 엘리베이터와 층을 찾으세요. → Read the notice and find the elevators and floors that cannot be used."
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "The example for 정차하다, '2호기는 지하 1층에 정차하지 않습니다.', is nearly the same as the passage. It also gives away the answer to question 5 (2호기는 어느 층에 정차하지 않습니까?), so learners can answer without reading the passage. Use an example from another context instead, such as '이 버스는 다음 정류장에 정차하지 않습니다.'",
+        "The example for 호기, '엘리베이터 1호기만 멈춥니다.', gives away the answer to question 4 (완전히 멈추는 엘리베이터는 몇 호기입니까?). Change it to a sentence that does not give the answer, such as '3호기를 이용해 주세요.' (Please use car 3.)",
+        "The examples for 전면 중지 ('1호기는 운행을 전면 중지합니다.') and 제한 ('2호기는 제한 운행을 합니다.') copy passage sentences word for word, which makes the worksheet thin. Replace them with new sentences in other contexts, such as '공사로 도로 통행이 전면 중지됩니다.' and '이 도로는 속도 제한이 있습니다.'"
+      ],
+      "audit": [
+        "task.line: 안내문을 읽고 이용할 수 없는 엘리베이터와 층을 찾으세요. → Read the notice and find the elevator and the floor that cannot be used."
+      ]
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [
+        "낱말 '전면 중지' 예문 '공사로 도로 통행이 전면 중지됩니다.'는 어색한 연어입니다. 도로 통행에는 보통 '전면 통제/전면 금지'를 쓰고 '통행이 전면 중지'는 거의 쓰지 않습니다. 본문 용법(운행을 전면 중지)에 맞게 '공사로 지하철 운행이 전면 중지됩니다.'로 고치고, 번역도 'Subway service will be completely suspended because of construction.'으로 바꾸세요."
+      ],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "level",
+      "before": "초급 중 (A2)",
+      "after": "Intermediate (low)"
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "엘리베이터 점검 안내문 읽기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "Read the notice and find the elevator and the floor that cannot be used."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "지문을 보고 답하세요. 점검 날짜는 언제입니까?",
+      "after": "Answer in Korean based on the passage: 점검 날짜는 언제입니까?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "지문을 보고 답하세요. 점검 시간은 몇 시부터 몇 시까지입니까?",
+      "after": "Answer in Korean based on the passage: 점검 시간은 몇 시부터 몇 시까지입니까?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "지문을 보고 답하세요. 점검 대상은 어느 동입니까?",
+      "after": "Answer in Korean based on the passage: 점검 대상은 어느 동과 어느 동입니까?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "지문을 보고 답하세요. 점검 동안 완전히 멈추는 엘리베이터는 몇 호기입니까?",
+      "after": "Answer in Korean based on the passage: 점검 시간 동안 완전히 멈추는 엘리베이터는 몇 호기입니까?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "지문을 보고 답하세요. 점검 동안 2호기는 어느 층에 정차하지 않습니까?",
+      "after": "Answer in Korean based on the passage: 점검 시간 동안 2호기는 어느 층에 정차하지 않습니까?"
+    },
+    {
+      "at": "answers[1]",
+      "before": "10월 15일(화) (10월 15일)",
+      "after": "10월 15일(목) (Also accepted: 10월 15일)"
+    },
+    {
+      "at": "answers[2]",
+      "before": "오전 9시부터 낮 12시까지 (09:00~12:00)",
+      "after": "오전 9시부터 낮 12시까지 (Also accepted: 09:00~12:00, 오전 9시부터 12시까지, 9시부터 12시까지, 오전 9시~낮 12시)"
+    },
+    {
+      "at": "answers[3]",
+      "before": "101동과 102동",
+      "after": "101동과 102동 (Also accepted: 101동, 102동)"
+    },
+    {
+      "at": "answers[5]",
+      "before": "지하 1층(B1) (지하 1층)",
+      "after": "지하 1층(B1) (Also accepted: 지하 1층)"
+    },
+    {
+      "at": "passage[2]",
+      "before": "점검 일시: 10월 15일(화) 오전 9시부터 낮 12시까지. 대상: 101동, 102동.",
+      "after": "점검 일시: 10월 15일(목) 오전 9시부터 낮 12시까지. 대상: 101동, 102동(지하 1층~지상 20층)."
+    },
+    {
+      "at": "passage[3]",
+      "before": "점검 동안 1호기는 운행을 전면 중지합니다. 2호기는 제한 운행을 하며, 지하 1층에는 정차하지 않고 1층부터 20층까지만 운행합니다.",
+      "after": "점검 시간 동안 1호기는 운행을 전면 중지합니다. 2호기는 제한 운행을 하며, 지하 1층에는 정차하지 않고 1층부터 20층까지만 운행합니다."
+    },
+    {
+      "at": "words[3].example",
+      "before": "1호기는 전면 중지입니다.",
+      "after": "공사로 도로 통행이 전면 중지됩니다."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "Car 1 is completely suspended.",
+      "after": "Road traffic will be completely stopped because of construction."
+    },
+    {
+      "at": "words[4].example",
+      "before": "2호기는 지하 1층에 정차하지 않습니다.",
+      "after": "이 버스는 다음 정류장에 정차하지 않습니다."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "Elevator 2 does not stop at B1.",
+      "after": "This bus does not stop at the next stop."
+    },
+    {
+      "at": "words[6].example",
+      "before": "엘리베이터 1호기만 멈춥니다.",
+      "after": "3호기를 이용해 주세요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "Only elevator car 1 stops.",
+      "after": "Please use car 3."
+    },
+    {
+      "at": "words[7].example",
+      "before": "2호기는 제한 운행을 합니다.",
+      "after": "이 도로는 속도 제한이 있습니다."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "Car 2 runs with restrictions.",
+      "after": "This road has a speed limit."
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Low\" was translated as \"básico\". \"Básico\" usually names a separate, lower level, so this mislabels the level. The English means the lower part of the intermediate level.",
+          "fix": "Intermediário (inferior)"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 11,
+          "problem": "\"completely stopped\" is translated as \"완전히 통제됩니다\" (completely controlled/restricted). That changes the meaning and no longer matches the vocabulary item it illustrates (complete suspension / stopped entirely).",
+          "fix": "공사 때문에 도로 교통이 완전히 중단됩니다."
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 16,
+          "problem": "The Vietnamese says \"elevator\" twice (\"số hiệu thang máy (của thang máy)\"), which reads badly. The English says \"car number\" and explains it with \"(of an elevator)\", so the main term should be the car number, not the elevator.",
+          "fix": "số hiệu buồng thang (của thang máy)"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"初级\" means \"beginner\", so \"中级(初级)\" contradicts itself and does not render \"Intermediate (low)\", which means the lower part of the intermediate level.",
+          "fix": "中级(偏低)"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:09:32.276Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "task.title",
+      "before": "엘리베이터 점검 안내문 읽기",
+      "after": "Read the elevator notice",
+      "why": "Task title in the learner language."
+    },
+    {
+      "op": "replace",
+      "path": "words[2].example",
+      "before": "공사로 도로 통행이 전면 중지됩니다.",
+      "after": "공사로 지하철 운행이 전면 중지됩니다.",
+      "why": "\"통행이 전면 중지\" is an unnatural collocation; 운행 matches how the notice itself uses 전면 중지."
+    },
+    {
+      "op": "replace",
+      "path": "words[2].exampleMeaning",
+      "before": "Road traffic will be completely stopped because of construction.",
+      "after": "Subway service will be completely suspended because of construction.",
+      "why": "follows the corrected example"
+    }
+  ]
+}

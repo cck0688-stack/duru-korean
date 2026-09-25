@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "두통",
+    "밴드",
+    "기침이 나요. 그리고 콧물이 나요.",
+    "열이 나요. 감기약 주세요. (열이 있어요. 감기약 주세요.)",
+    "배탈",
+    "증상: 콧물, 기침 / 약: 소화제, 연고"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Fülle die Lücke mit einem Wort aus der Liste (두통 / 배탈 / 콧물): 머리가 너무 아파요. ____이 있어요.",
+    "Fülle die Lücke mit dem passenden Medikament: 손가락을 조금 베었어요. 상처에 붙이게 ____ 주세요.",
+    "Wähle in jeder Lücke die richtige Partikel (이 / 가): 기침( ) 나요. 그리고 콧물( ) 나요.",
+    "Übersetze ins Koreanische mit zwei kurzen Sätzen: \"Ich habe Fieber. Bitte geben Sie mir ein Erkältungsmedikament.\"",
+    "Vervollständige den Dialog mit einem Wort. 약사: 어디가 아프세요? / 손님: 어제 상한 우유를 마시고 ____이 났어요.",
+    "Ordne diese vier Wörter in zwei Gruppen, Symptome (증상) und Medikamente (약): 콧물, 소화제, 기침, 연고"
+  ],
+  "keyword": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
+  "level": "Anfänger (hoch)",
+  "minutes": 20,
+  "objective": "Lernende können einem Apotheker mit 10 grundlegenden Apothekenwörtern in kurzen Sätzen wie '두통이 있어요' oder '열이 나요' ihre Symptome mitteilen und mit '○○ 주세요' nach dem richtigen Medikament fragen.",
+  "summary": "Dieses Arbeitsblatt vermittelt 10 Grundwörter für eine koreanische Apotheke: 5 Symptome (두통, 열, 기침, 콧물, 배탈) und 5 Arten von Medikamenten (감기약, 소화제, 진통제, 연고, 밴드). Zu jedem Wort gibt es einen kurzen, natürlichen Satz. Anschließend verwendet man die Wörter in einfachen Satzmustern: '○○이/가 있어요' oder '○○이/가 나요', um zu sagen, was einem fehlt, und '○○ 주세요', um nach Medikamenten zu fragen. Hinweis: Koreaner sagen meist 열이 나요 (nicht nur 열이 있어요), und auch 기침·콧물 werden mit 나요 verwendet. Für eine Magenverstimmung sagt man 배탈이 났어요.",
+  "tags": [],
+  "task": null,
+  "title": "약국에서 증상 말하고 약 사기: 핵심 어휘 10",
+  "words": [
+    {
+      "korean": "두통",
+      "roman": "dutong",
+      "meaning": "Kopfschmerzen",
+      "example": "어제부터 두통이 있어요.",
+      "exampleMeaning": "Ich habe seit gestern Kopfschmerzen."
+    },
+    {
+      "korean": "열",
+      "roman": "yeol",
+      "meaning": "Fieber (Körpertemperatur)",
+      "example": "아침부터 열이 나요.",
+      "exampleMeaning": "Ich habe seit heute Morgen Fieber."
+    },
+    {
+      "korean": "기침",
+      "roman": "gichim",
+      "meaning": "Husten",
+      "example": "밤에 기침이 많이 나요.",
+      "exampleMeaning": "Ich huste nachts viel."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "laufende Nase (Nasenschleim)",
+      "example": "콧물이 나고 목도 아파요.",
+      "exampleMeaning": "Ich habe eine laufende Nase, und mein Hals tut auch weh."
+    },
+    {
+      "korean": "배탈",
+      "roman": "baetal",
+      "meaning": "Magenverstimmung, Bauchbeschwerden",
+      "example": "회를 먹고 배탈이 났어요.",
+      "exampleMeaning": "Ich habe mir nach rohem Fisch den Magen verdorben."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "Erkältungsmedikament",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Könnte ich bitte ein Erkältungsmedikament bekommen?"
+    },
+    {
+      "korean": "소화제",
+      "roman": "sohwaje",
+      "meaning": "Verdauungsmittel (gegen Verdauungsstörungen)",
+      "example": "점심을 너무 많이 먹었어요. 소화제 있어요?",
+      "exampleMeaning": "Ich habe zu Mittag zu viel gegessen. Haben Sie etwas gegen Verdauungsstörungen?"
+    },
+    {
+      "korean": "진통제",
+      "roman": "jintongje",
+      "meaning": "Schmerzmittel",
+      "example": "이가 아파서 진통제를 사러 왔어요.",
+      "exampleMeaning": "Mir tut ein Zahn weh, deshalb bin ich gekommen, um ein Schmerzmittel zu kaufen."
+    },
+    {
+      "korean": "연고",
+      "roman": "yeongo",
+      "meaning": "Salbe (Creme für die Haut)",
+      "example": "이 연고는 하루에 두 번 바르세요.",
+      "exampleMeaning": "Tragen Sie diese Salbe zweimal täglich auf."
+    },
+    {
+      "korean": "밴드",
+      "roman": "baendeu",
+      "meaning": "Pflaster (wie ein Band-Aid)",
+      "example": "칼에 손가락을 베었어요. 밴드 하나 주세요.",
+      "exampleMeaning": "Ich habe mir mit einem Messer in den Finger geschnitten. Bitte geben Sie mir ein Pflaster."
+    }
+  ],
+  "category": "vocab"
+}

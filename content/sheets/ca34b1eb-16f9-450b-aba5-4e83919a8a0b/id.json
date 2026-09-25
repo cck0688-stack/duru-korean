@@ -1,0 +1,113 @@
+{
+  "answers": [
+    "풀",
+    "bal, pal, ppul",
+    "빵",
+    "팔",
+    "비가 와요",
+    "ㅂ: 방, 발 / ㅍ: 풀, 팔 / ㅃ: 뿔, 빵"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Pegang tisu di depan mulutmu dan ucapkan 불, 풀, dan 뿔. Kata mana yang membuat tisu bergerak paling banyak? Tuliskan kata tersebut.",
+    "Tuliskan Romanisasi yang Disempurnakan (Revised Romanization) untuk setiap kata: 발, 팔, 뿔.",
+    "Kamu sedang berada di toko roti dan ingin membeli roti. Kata mana yang kamu ucapkan: 방 atau 빵?",
+    "Kata mana yang berarti 'lengan': 발 atau 팔?",
+    "Kalimat mana yang berarti 'Sedang hujan.': 비가 와요 atau 피가 와요?",
+    "Kelompokkan kata-kata berikut berdasarkan huruf pertamanya (ㅂ, ㅍ, atau ㅃ): 풀, 방, 뿔, 팔, 발, 빵."
+  ],
+  "keyword": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
+  "letters": [
+    {
+      "letter": "ㅂ",
+      "sound": "b/p biasa: lembut, dengan sedikit hembusan udara",
+      "as": "Di antara b bahasa Inggris dan p pada kata 'pin': hembusan udara ringan, lebih lembut daripada ㅍ. Sering terdengar seperti b yang lembut."
+    },
+    {
+      "letter": "ㅍ",
+      "sound": "p aspirasi: hembusan udara kuat",
+      "as": "Mirip dengan p pada kata 'pin' (hembusan udara kuat)."
+    },
+    {
+      "letter": "ㅃ",
+      "sound": "pp tegang: bibir ditekan rapat, tenggorokan tegang, tanpa hembusan udara",
+      "as": "Tidak ada padanan persis dalam bahasa Inggris. Mirip p pada kata 'spin', tetapi diucapkan lebih keras dan lebih ketat, tanpa hembusan udara."
+    }
+  ],
+  "level": "Pemula",
+  "minutes": 15,
+  "objective": "Bedakan dan lafalkan ㅂ, ㅍ, dan ㅃ di awal kata. Pilih kata yang tepat dari kumpulan pasangan minimal seperti 불/풀/뿔, 발/팔, dan 방/빵.",
+  "summary": "Lembar kerja ini membahas tiga huruf 'p/b' bahasa Korea di awal kata: ㅂ biasa, ㅍ aspirasi, dan ㅃ tegang. Setiap huruf memiliki petunjuk dalam bahasa Inggris dan sejumlah kata sederhana. Kamu akan belajar membedakan huruf-huruf ini menggunakan pasangan minimal seperti 불/풀/뿔, 발/팔, dan 방/빵. Latihannya meliputi tes tisu, membaca, mengelompokkan, dan memilih kata yang tepat.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
+  "words": [
+    {
+      "korean": "불",
+      "roman": "bul",
+      "meaning": "lampu (cahaya lampu atau ruangan)",
+      "example": "불 좀 꺼 주세요.",
+      "exampleMeaning": "Tolong matikan lampunya."
+    },
+    {
+      "korean": "풀",
+      "roman": "pul",
+      "meaning": "lem",
+      "example": "풀 좀 빌려 주세요.",
+      "exampleMeaning": "Bolehkah saya pinjam lem?"
+    },
+    {
+      "korean": "뿔",
+      "roman": "ppul",
+      "meaning": "tanduk (hewan)",
+      "example": "이 소는 뿔이 길어요.",
+      "exampleMeaning": "Sapi ini bertanduk panjang."
+    },
+    {
+      "korean": "발",
+      "roman": "bal",
+      "meaning": "kaki",
+      "example": "많이 걸어서 발이 아파요.",
+      "exampleMeaning": "Kaki saya sakit karena banyak berjalan."
+    },
+    {
+      "korean": "팔",
+      "roman": "pal",
+      "meaning": "lengan",
+      "example": "어제 팔을 다쳤어요.",
+      "exampleMeaning": "Lengan saya terluka kemarin."
+    },
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "kamar",
+      "example": "제 방은 작아요.",
+      "exampleMeaning": "Kamar saya kecil."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "roti",
+      "example": "아침에 빵을 먹어요.",
+      "exampleMeaning": "Saya makan roti di pagi hari."
+    },
+    {
+      "korean": "비",
+      "roman": "bi",
+      "meaning": "hujan",
+      "example": "밖에 비가 와요.",
+      "exampleMeaning": "Di luar sedang hujan."
+    },
+    {
+      "korean": "피",
+      "roman": "pi",
+      "meaning": "darah",
+      "example": "손가락에서 피가 나요.",
+      "exampleMeaning": "Jari saya berdarah."
+    }
+  ],
+  "category": "hangul"
+}

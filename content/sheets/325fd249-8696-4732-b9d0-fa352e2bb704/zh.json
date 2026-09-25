@@ -1,0 +1,111 @@
+{
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "keyword": "ㄷ·ㅌ·ㄸ",
+  "summary": "练习辨别和朗读韩语词首辅音ㄷ（平音）、ㅌ（送气音）和ㄸ（紧音）。提供了有用的英语发音参照，帮助初学者建立发音联系，准确朗读简单单词。",
+  "objective": "学习者将识别并发出词首ㄷ（平音）、ㅌ（送气音）、ㄸ（紧音）的读音，通过清晰的英语发音提示来对应记忆（ㄷ≈介于英语d和t之间、带轻微气流；ㅌ≈类似“top”中的t；ㄸ≈紧音t、不送气，接近“stop”中的t），并能正确朗读包含这些词首辅音的简单单词。",
+  "level": "初级",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "选出以ㄸ（紧音）开头的单词：두부 / 토끼 / 또",
+    "看罗马拼音，只写出首辅音对应的韩文字母：dubu",
+    "选出意思是“女儿”的单词：달 / 딸",
+    "选出以ㅌ（送气音）开头的单词：달 / 토마토 / 딸",
+    "看罗马拼音，只写出首辅音对应的韩文字母：tteok"
+  ],
+  "answers": [
+    "또",
+    "ㄷ",
+    "딸",
+    "토마토",
+    "ㄸ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄷ",
+      "sound": "平音t，气流较弱（比ㅌ弱）",
+      "as": "介于英语的d和t之间；在词首常听起来像轻柔的t"
+    },
+    {
+      "letter": "ㅌ",
+      "sound": "送气音t，气流较强",
+      "as": "类似英语“top”中的t"
+    },
+    {
+      "letter": "ㄸ",
+      "sound": "紧音t，短促而紧张",
+      "as": "紧音“tt”，不送气；最接近英语“stop”中的t"
+    }
+  ],
+  "words": [
+    {
+      "korean": "달",
+      "roman": "dal",
+      "meaning": "月亮",
+      "example": "달이 예뻐요.",
+      "exampleMeaning": "月亮很漂亮。"
+    },
+    {
+      "korean": "돈",
+      "roman": "don",
+      "meaning": "钱",
+      "example": "돈이 없어요.",
+      "exampleMeaning": "我没有钱。"
+    },
+    {
+      "korean": "두부",
+      "roman": "dubu",
+      "meaning": "豆腐",
+      "example": "두부를 사요.",
+      "exampleMeaning": "我买豆腐。"
+    },
+    {
+      "korean": "토마토",
+      "roman": "tomato",
+      "meaning": "西红柿",
+      "example": "토마토를 먹어요.",
+      "exampleMeaning": "我吃西红柿。"
+    },
+    {
+      "korean": "타다",
+      "roman": "tada",
+      "meaning": "乘坐",
+      "example": "버스를 타요.",
+      "exampleMeaning": "我坐公交车。"
+    },
+    {
+      "korean": "토끼",
+      "roman": "tokki",
+      "meaning": "兔子",
+      "example": "토끼가 귀여워요.",
+      "exampleMeaning": "兔子很可爱。"
+    },
+    {
+      "korean": "딸",
+      "roman": "ttal",
+      "meaning": "女儿",
+      "example": "딸이 있어요.",
+      "exampleMeaning": "我有一个女儿。"
+    },
+    {
+      "korean": "떡",
+      "roman": "tteok",
+      "meaning": "年糕",
+      "example": "떡이 맛있어요.",
+      "exampleMeaning": "年糕很好吃。"
+    },
+    {
+      "korean": "또",
+      "roman": "tto",
+      "meaning": "再、再次",
+      "example": "또 만나요.",
+      "exampleMeaning": "再见。"
+    }
+  ],
+  "category": "hangul"
+}

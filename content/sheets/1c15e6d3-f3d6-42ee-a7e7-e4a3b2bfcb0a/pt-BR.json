@@ -1,0 +1,90 @@
+{
+  "answers": [
+    "동생이 숙제를 하고 있어요.",
+    "강아지가 소파에 누워 있어요.",
+    "지금 텔레비전을 보고 있어요? (지금 텔레비전을 보고 있나요?)",
+    "부엌 불이 켜져 있지 않아요. (부엌 불이 안 켜져 있어요.)",
+    "아빠가 지금 신문을 읽고 있지 않아요. (아빠가 지금 신문을 안 읽고 있어요.)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Seu irmão/irmã mais novo(a) começou a lição de casa há dez minutos e ainda está fazendo. Escreva uma frase dizendo o que ele/ela está fazendo agora: 동생 / 숙제 / 하다",
+    "O cachorro se deitou no sofá há uma hora e ainda está lá. Escreva uma frase descrevendo o cachorro: 강아지 / 소파 / 눕다",
+    "Você liga para um(a) amigo(a) e ouve uma TV ligada ao fundo. Escreva uma pergunta perguntando se ele/ela está assistindo TV neste momento: 텔레비전 / 보다",
+    "Ninguém acendeu a luz da cozinha, então a cozinha está escura. Escreva uma frase negativa sobre a luz da cozinha: 부엌 불 / 켜지다",
+    "O pai está segurando um jornal, mas está olhando pela janela, não para o jornal. Escreva uma frase negativa sobre o que o pai está fazendo agora: 아빠 / 신문 / 읽다"
+  ],
+  "forms": [
+    {
+      "form": "-고 있다",
+      "when": "Use essa forma quando uma ação está acontecendo neste momento. Acrescente -고 있다 ao radical do verbo, tenha ele batchim final ou não (먹다 → 먹고 있다, 가다 → 가고 있다).",
+      "means": "estar ...-ndo (ação em andamento)",
+      "example": "엄마가 밥을 먹고 있어요.",
+      "exampleMeaning": "A mãe está comendo.",
+      "mark": [
+        "먹고 있어요"
+      ]
+    },
+    {
+      "form": "-아/어 있다",
+      "when": "Use essa forma quando o resultado de uma ação já concluída continua como um estado no presente. É usada com verbos intransitivos ou na voz passiva, não com verbos transitivos: use -아 있다 depois de radicais cuja última vogal é ㅏ/ㅗ e -어 있다 nos demais casos (열리다 → 열려 있다, 앉다 → 앉아 있다).",
+      "means": "estar (em um estado resultante de uma ação)",
+      "example": "창문이 열려 있어요.",
+      "exampleMeaning": "A janela está aberta (foi aberta e permanece assim).",
+      "mark": [
+        "열려 있어요"
+      ]
+    },
+    {
+      "form": "Verbos de postura: 앉아 있다 / 서 있다 / 누워 있다",
+      "when": "Verbos de postura como 앉다, 서다 e 눕다 geralmente usam -아/어 있다 para descrever a postura em que alguém se encontra (눕다 → 누워 있다, irregular de ㅂ).",
+      "means": "estar sentado/em pé/deitado (postura como estado)",
+      "example": "학생이 의자에 앉아 있어요.",
+      "exampleMeaning": "O aluno está sentado na cadeira.",
+      "mark": [
+        "앉아 있어요"
+      ]
+    }
+  ],
+  "keyword": "-고 있다 vs -아/어 있다",
+  "level": "Intermediário (básico)",
+  "minutes": 15,
+  "objective": "Os alunos serão capazes de explicar a diferença entre -고 있다 e -아/어 있다, além de escolher e formar corretamente frases (afirmativas, negativas e interrogativas) que expressem ações em andamento ou estados resultantes.",
+  "summary": "Explique a diferença entre -고 있다 (ação em andamento) e -아/어 있다 (estado resultante de uma ação). Mostre como formar frases afirmativas, negativas e interrogativas para cada sentido.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "-고 있다 vs -아/어 있다 구분하기",
+  "watchOut": [
+    "Use -고 있다 quando a ação está realmente acontecendo. Use -아/어 있다 quando um estado permanece como resultado de uma ação. Se a janela já está aberta: (X) 창문이 열리고 있어요 → (O) 창문이 열려 있어요",
+    "-아/어 있다 não pode ser usado com verbos transitivos como 열다 e 켜다. Para descrever o estado resultante, use o verbo passivo (intransitivo): 열리다 → 열려 있다, 켜지다 → 켜져 있다. (X) 문을 열어 있다 → (O) 문이 열려 있다",
+    "Para descrever o estado de uma postura (앉다/서다/눕다), use -아/어 있다. É comum os alunos dizerem erradamente 앉고 있다 quando querem dizer 앉아 있다 ('está sentado'). 앉고 있다 significa 'está no meio do ato de se sentar'. (X) 앉고 있다 → (O) 앉아 있다",
+    "Para frases negativas, use -고 있지 않다 (ação em andamento) ou -아/어 있지 않다 (estado resultante), dependendo do sentido. Também é possível usar a negação curta com 안 (안 켜져 있어요). (X) 신문을 읽어 있지 않아요 → (O) 신문을 읽고 있지 않아요",
+    "Para fazer uma pergunta, use entonação ascendente ou mude a terminação (por exemplo, 앉아 있어요? / 앉아 있나요?). Ao perguntar sobre um estado de postura: (X) 의자에 앉고 있어요? → (O) 의자에 앉아 있어요?"
+  ],
+  "watchOutMark": [
+    [
+      "창문이 열리고 있어요",
+      "창문이 열려 있어요"
+    ],
+    [
+      "문을 열어 있다",
+      "문이 열려 있다"
+    ],
+    [
+      "앉고 있다",
+      "앉아 있다"
+    ],
+    [
+      "신문을 읽어 있지 않아요",
+      "신문을 읽고 있지 않아요"
+    ],
+    [
+      "의자에 앉고 있어요?",
+      "의자에 앉아 있어요?"
+    ]
+  ],
+  "category": "grammar"
+}

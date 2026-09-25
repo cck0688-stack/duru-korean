@@ -1,0 +1,298 @@
+{
+  "id": "63cf1980-d424-43d1-8ba2-5c640858173d",
+  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
+  "category": "hangul",
+  "status": "published",
+  "published": true,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words 치다: 'to play (piano or another keyboard instrument)' is wrong because it is too narrow. 치다 is also used for struck or plucked instruments such as 기타를 치다 and 드럼을 치다. Change it to 'to play (an instrument such as the piano, guitar, or drums)' or 'to play (the piano)'.",
+        "Exercises 2–4 reuse the example sentences almost word for word (국이 짜요 → 국이 너무 짜요, 공을 차요 → 운동장에서 공을 차요, 피아노를 쳐요 → 매일 피아노를 쳐요). Learners can answer by matching what they just read, without telling the sounds apart. 찌다 is also never tested in a sentence. Rewrite them with new situations, e.g. '이 김치는 좀 (자요/차요/짜요).', '친구와 탁구를 (져요/쳐요/쪄요).', and add '요즘 많이 먹어서 살이 (졌어요/쳤어요/쪘어요).' to test 찌다."
+      ],
+      "audit": [
+        "words[4] (치다) meaning: to play (piano or another keyboard instrument) → to play (piano, guitar, drums, etc.)",
+        "letters[0] (ㅈ) as: At the start of a word it can sound like a very light \"ch\" with almost no air. → At the start of a word it can sound like a light \"ch\" with only a little air."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "words 치다: the gloss is 'to play (piano, guitar, drums, etc.)', which covers only instruments. Exercise 3 (친구와 탁구를 쳐요) uses 치다 with a ball sport, so the learner can't get the answer from the worksheet's meaning and has to guess by ruling out the others. Change the gloss to 'to hit; to play (piano, guitar / tennis, ping-pong, etc.)', or add a sports example such as 테니스를 쳐요.",
+        "Exercise 2 (이 김치는 좀 (자요 / 차요 / 짜요)): 차다 also means 'to be cold', and 김치가 좀 차요 ('the kimchi is a bit cold') is a natural sentence. So 차요 is also a possible answer, but only 짜요 is given as correct. Change the sentence so only one answer works, for example 이 김치는 소금이 많아서 좀 (자요/차요/짜요), or 너무 짜서 물을 마셨어요 as a lead-in.",
+        "Exercise 4 (요즘 많이 먹어서 살이 ___): the answer part, 살이 쪘어요, is word-for-word the example sentence for 찌다 in the word list. The learner can copy it without telling the sounds apart. Use a different sentence, such as a new subject or tense (e.g. 방학 동안 살이 좀 (지었어요…) → 겨울에 살이 (져요/쳐요/쪄요)), or change the example sentence for 찌다."
+      ],
+      "audit": [
+        "exercises[1] (Exercise 2): Choose the right word: 이 김치는 좀 (자요 / 차요 / 짜요). → Choose the right word: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
+        "words[4] (치다) meaning: to play (piano, guitar, drums, etc.) → to hit; to play (piano, table tennis, tennis, etc.)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[3]",
+      "before": "차요",
+      "after": "쳐요"
+    },
+    {
+      "at": "answers[4]",
+      "before": "쳐요",
+      "after": "쪄요"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Choose the right word: 국에 소금을 많이 넣었어요. 국이 너무 (자요 / 차요 / 짜요).",
+      "after": "Choose the right word: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요)."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "Choose the right word: 운동장에서 공을 (자요 / 차요 / 짜요).",
+      "after": "Choose the right word: 친구와 탁구를 (져요 / 쳐요 / 쪄요)."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "Choose the right word: 저는 매일 피아노를 (져요 / 쳐요 / 쪄요).",
+      "after": "Choose the right word: 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요)."
+    },
+    {
+      "at": "letters[1].as",
+      "before": "Close to the \"j\" in \"jam,\" but softer. At the start of a word it can sound like a very light \"ch\" with almost no air.",
+      "after": "Close to the \"j\" in \"jam,\" but softer. At the start of a word it can sound like a light \"ch\" with only a little air."
+    },
+    {
+      "at": "words[5].meaning",
+      "before": "to play (piano or another keyboard instrument)",
+      "after": "to hit; to play (piano, table tennis, tennis, etc.)"
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 21,
+          "problem": "The source says there is no exact English match and uses the 'tch' in English 'pitch' as the reference. The Spanish says 'no exact match in Spanish' and leaves out the 'pitch' example, which changes the meaning and doesn't match lines 17 and 19, where the English example words are kept.",
+          "fix": "No tiene un equivalente exacto en inglés. Piensa en la 'tch' de la palabra inglesa \"pitch\", pero tensando la garganta y la lengua, sin dejar salir aire."
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 20,
+          "problem": "\"Agudo\" means high-pitched, which is a mistranslation. \"Sharp\" here means crisp or clipped.",
+          "fix": "jj (tenso): som apertado, seco e sem nenhuma saída de ar"
+        },
+        {
+          "line": 21,
+          "problem": "The English says there is no exact match in English. The translation changes this to Portuguese, which also doesn't fit the English example (\"pitch\") that follows.",
+          "fix": "Não existe equivalente exato em inglês. Pense no som \"tch\" de \"pitch\" em inglês, mas apertando a garganta e a língua e sem soltar nenhum ar."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 26,
+          "problem": "The gloss 'to lose (a game)' was translated as '(경기에서) 지다'. This puts the answer (지다) inside the question, which changes the exercise and adds Hangul that is not in the English line.",
+          "fix": "'to lose (a game)'라는 뜻을 가진 단어는 무엇일까요? (지다 / 치다 / 찌다)"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 12,
+          "problem": "The parenthetical list is attached only to 弹, which wrongly pairs 弹 with 乒乓球 and 网球. Table tennis and tennis take 打, not 弹, so the gloss misstates what the verb means with each object.",
+          "fix": "打;弹、打(钢琴、乒乓球、网球等)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 21,
+          "problem": "Meaning changed: the English says there is no exact match in English, but the French says 'en français'. Also 'Pense au son entre le « tch » de « match »' is broken French ('entre' has only one term) and swaps the example word 'pitch' for 'match'.",
+          "fix": "Il n'y a pas d'équivalent exact en anglais. Pense au « tch » de « pitch » (anglais), mais en serrant la gorge et la langue et sans laisser sortir d'air."
+        },
+        {
+          "line": 2,
+          "problem": "'paires' means sets of two, but each set here has three verbs (자다/차다/짜다, 지다/치다/찌다).",
+          "fix": "Apprends comment se prononcent ㅈ, ㅊ et ㅉ au début d'un mot. Elles diffèrent par le souffle et la tension. Utilise-les pour choisir le bon verbe dans des séries comme 자다/차다/짜다 et 지다/치다/찌다."
+        },
+        {
+          "line": 3,
+          "problem": "'paires' means sets of two, but each set here has three words.",
+          "fix": "Les débutants apprendront à distinguer et à prononcer ㅈ (simple), ㅊ (aspiré) et ㅉ (tendu) en début de mot, puis à choisir le bon mot dans les séries 자다/차다/짜다 et 지다/치다/찌다."
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "The English says \"sets\", but the German says \"Wortpaaren\" (word pairs). Each set has three words, so they are not pairs.",
+          "fix": "Lerne, wie ㅈ, ㅊ und ㅉ am Wortanfang klingen. Sie unterscheiden sich durch Atemstärke und Anspannung. Nutze sie, um in Wortgruppen wie 자다/차다/짜다 und 지다/치다/찌다 das richtige Verb auszuwählen."
+        },
+        {
+          "line": 3,
+          "problem": "The English says \"sets\", but the German says \"Wortpaaren\" (word pairs). Each set has three words, so they are not pairs.",
+          "fix": "Anfänger sollen das wortanfängliche ㅈ (einfach), ㅊ (behaucht) und ㅉ (angespannt) unterscheiden und aussprechen und dann in den Wortgruppen 자다/차다/짜다 und 지다/치다/찌다 das richtige Wort wählen."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T15:25:22.148Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "exercises[4]",
+      "before": "Which word means \"to lose (a game)\"? (지다 / 치다 / 찌다)",
+      "after": "Choose the right word: 동생이 화가 나서 문을 발로 (잤어요 / 찼어요 / 짰어요).",
+      "why": "차다 was taught but never practised, and 지다 only as a meaning question; each now has its own sentence (new contexts, not the word-list examples)."
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "지다",
+      "after": "찼어요",
+      "why": "차다 was taught but never practised, and 지다 only as a meaning question; each now has its own sentence (new contexts, not the word-list examples)."
+    },
+    {
+      "op": "replace",
+      "path": "exercises[5]",
+      "before": "Hold a tissue in front of your mouth and say 자, 차, 짜. Which one makes the tissue move the most?",
+      "after": "Choose the right word: 어제 농구 경기에서 2점 차이로 (졌어요 / 쳤어요 / 쪘어요).",
+      "why": "차다 was taught but never practised, and 지다 only as a meaning question; each now has its own sentence (new contexts, not the word-list examples)."
+    },
+    {
+      "op": "replace",
+      "path": "answers[5]",
+      "before": "차 (ㅊ has a strong puff of air)",
+      "after": "졌어요",
+      "why": "차다 was taught but never practised, and 지다 only as a meaning question; each now has its own sentence (new contexts, not the word-list examples)."
+    },
+    {
+      "op": "append",
+      "path": "exercises",
+      "after": "Hold a tissue in front of your mouth and say 자, 차, 짜. Which one makes the tissue move the most?",
+      "why": "the tissue question moves to the end"
+    },
+    {
+      "op": "append",
+      "path": "answers",
+      "after": "차 (ㅊ has a strong puff of air)",
+      "why": "its answer moves with it"
+    }
+  ]
+}

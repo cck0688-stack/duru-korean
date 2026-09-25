@@ -1,0 +1,111 @@
+{
+  "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
+  "keyword": "받침 ㅇ·ㄴ·ㅁ",
+  "summary": "받침 ㅇ, ㄴ, ㅁ을 읽고 발음하는 연습을 합니다. 이를 비슷한 영어 끝소리(-ng, -n, -m)와 연결하고, 이 받침이 들어간 간단한 단어를 읽어 봅니다.",
+  "objective": "학습자는 받침 ㅇ, ㄴ, ㅁ을 소리로 구별하고, 정확한 발음을 위해 비슷한 영어 끝소리(-ng, -n, -m)와 연결하며, 이 받침이 들어간 간단한 단어를 읽을 수 있습니다.",
+  "level": "초급",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "받침 소리가 [-ng]인 단어를 고르세요: 방 / 반 / 밤",
+    "각 빈칸에 영어식 끝소리(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
+    "다음 단어들을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 분류하세요: 공 / 눈 / 산 / 봄",
+    "의미에 맞는 단어를 고르세요: 'hand' → 손 / 송 / 솜",
+    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 이르_ (뜻: name)"
+  ],
+  "answers": [
+    "방",
+    "손(-n), 방(-ng), 봄(-m)",
+    "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄",
+    "손",
+    "ㅁ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅇ",
+      "sound": "ng(받침소리)",
+      "as": "영어 끝소리 -ng와 비슷 (sing)"
+    },
+    {
+      "letter": "ㄴ",
+      "sound": "n(받침소리)",
+      "as": "영어 끝소리 -n과 비슷 (sun)"
+    },
+    {
+      "letter": "ㅁ",
+      "sound": "m(받침소리)",
+      "as": "영어 끝소리 -m과 비슷 (gum)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "방",
+      "example": "방이 커요.",
+      "exampleMeaning": "방이 큽니다."
+    },
+    {
+      "korean": "공",
+      "roman": "gong",
+      "meaning": "공",
+      "example": "공을 차요.",
+      "exampleMeaning": "저는 공을 찹니다."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "빵",
+      "example": "빵 주세요.",
+      "exampleMeaning": "빵 주세요."
+    },
+    {
+      "korean": "손",
+      "roman": "son",
+      "meaning": "손",
+      "example": "손 씻어요.",
+      "exampleMeaning": "저는 손을 씻습니다."
+    },
+    {
+      "korean": "눈",
+      "roman": "nun",
+      "meaning": "눈(눈[雪]과 눈[目] 두 가지 뜻이 있음; 여기서는 눈[雪]을 의미)",
+      "example": "눈이 와요.",
+      "exampleMeaning": "눈이 옵니다."
+    },
+    {
+      "korean": "산",
+      "roman": "san",
+      "meaning": "산",
+      "example": "산에 가요.",
+      "exampleMeaning": "저는 산에 갑니다."
+    },
+    {
+      "korean": "밤",
+      "roman": "bam",
+      "meaning": "밤(같은 발음으로 밤[栗]이라는 뜻도 있음)",
+      "example": "밤에 자요.",
+      "exampleMeaning": "저는 밤에 잡니다."
+    },
+    {
+      "korean": "봄",
+      "roman": "bom",
+      "meaning": "봄",
+      "example": "봄이 따뜻해요.",
+      "exampleMeaning": "봄은 따뜻합니다."
+    },
+    {
+      "korean": "이름",
+      "roman": "ireum",
+      "meaning": "이름",
+      "example": "이름이 뭐예요?",
+      "exampleMeaning": "이름이 뭐예요?"
+    }
+  ],
+  "category": "hangul"
+}

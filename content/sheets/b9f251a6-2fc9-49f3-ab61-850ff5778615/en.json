@@ -1,0 +1,86 @@
+{
+  "answers": [
+    "왼쪽 냉장고 위 칸에 있어요.",
+    "과자 코너가 있어요.",
+    "X (아이스크림은 냉동고에 있어요.)",
+    "중앙에 있어요.",
+    "저기요, 우유 어디에 있어요?"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Answer in Korean: 우유는 어디에 있어요?",
+    "Answer in Korean: 계산대 옆에는 무엇이 있어요?",
+    "True or false (O/X): 아이스크림은 오른쪽 냉장고 안에 있어요.",
+    "Answer in Korean: 즉석식품을 데우고 싶어요. 전자레인지는 어디에 있어요?",
+    "Answer in Korean, copying the exact sentence from the passage: 직원에게 우유 위치를 어떻게 물었나요?"
+  ],
+  "keyword": "",
+  "level": "Beginner (high)",
+  "minutes": 10,
+  "objective": "Students will be able to read a 3–4 paragraph passage and understand a convenience store employee's directions and descriptions of where items are located in the store.",
+  "passage": [
+    "편의점에 들어갔는데 필요한 물건을 못 찾았어요. 직원에게 물어봤어요. \"저기요, 우유 어디에 있어요?\" 직원이 친절하게 말했어요. \"우유는 왼쪽 냉장고 위 칸에 있어요.\"",
+    "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 차례대로 진열되어 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있어요. 아이스크림도 냉동고에 있어요.",
+    "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 전자레인지도 중앙에 있어요. 담배는 계산대 뒤에 진열되어 있어요.",
+    "물건을 못 찾으면 직원에게 물어보세요. 자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요. 안내문을 보면 물건 위치를 빨리 확인할 수 있어요."
+  ],
+  "summary": "Read a short passage about asking for and finding items in a convenience store. Understand employee replies and descriptions of where products are located.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "편의점에서 물건을 찾아요",
+  "words": [
+    {
+      "korean": "냉장고",
+      "roman": "naengjanggo",
+      "meaning": "refrigerator / chilled display case",
+      "example": "우유는 냉장고에 있어요.",
+      "exampleMeaning": "The milk is in the refrigerator."
+    },
+    {
+      "korean": "냉동고",
+      "roman": "naengdonggo",
+      "meaning": "freezer / frozen food case",
+      "example": "아이스크림은 냉동고에 있어요.",
+      "exampleMeaning": "Ice cream is in the freezer."
+    },
+    {
+      "korean": "진열대",
+      "roman": "jinyeoldae",
+      "meaning": "display shelf",
+      "example": "과자가 진열대에 있어요.",
+      "exampleMeaning": "Snacks are on the display shelf."
+    },
+    {
+      "korean": "계산대",
+      "roman": "gyesandae",
+      "meaning": "checkout counter",
+      "example": "계산대에서 기다려요.",
+      "exampleMeaning": "I wait at the checkout counter."
+    },
+    {
+      "korean": "즉석식품",
+      "roman": "jeukseok sikpum",
+      "meaning": "ready-to-eat food",
+      "example": "즉석식품을 전자레인지에 데워요.",
+      "exampleMeaning": "I heat ready-to-eat food in the microwave."
+    },
+    {
+      "korean": "안내문",
+      "roman": "annaemun",
+      "meaning": "notice / sign",
+      "example": "안내문을 읽어 보세요.",
+      "exampleMeaning": "Please read the notice/sign."
+    },
+    {
+      "korean": "칸",
+      "roman": "kan",
+      "meaning": "compartment / shelf slot",
+      "example": "우유는 위 칸에 있어요.",
+      "exampleMeaning": "The milk is in the top compartment."
+    }
+  ],
+  "category": "reading"
+}

@@ -1,0 +1,111 @@
+{
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "keyword": "ㄱ·ㅋ·ㄲ",
+  "summary": "Berlatih membedakan dan melafalkan konsonan awal ㄱ (biasa), ㅋ (aspirasi), dan ㄲ (tegang). Gunakan patokan bunyi bahasa Inggris berikut: ㄱ ≈ bunyi ringan di antara g dan k dalam bahasa Inggris, ㅋ ≈ bunyi k pada \"key\", ㄲ = bunyi \"kk\" yang tegang, tidak ada padanan pasti dalam bahasa Inggris. Baca dan pilih kata-kata sederhana yang diawali dengan huruf-huruf ini.",
+  "objective": "Pembelajar pemula akan dapat mendengar dan melafalkan dengan tepat ㄱ (biasa), ㅋ (aspirasi), dan ㄲ (tegang) di awal kata, mengaitkannya dengan patokan bunyi bahasa Inggris (ㄱ ≈ di antara g dan k dengan embusan napas ringan, ㅋ ≈ k pada \"key\", ㄲ = \"kk\" yang tegang, tanpa padanan pasti dalam bahasa Inggris), serta membaca dan memilih dengan tepat kata-kata sederhana yang mengandung konsonan awal ini.",
+  "level": "Pemula",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Pilih kata yang diawali dengan ㅋ (aspirasi): 가게 / 코 / 꽃",
+    "Baca romanisasi berikut dan pilih kata Korea yang sesuai: kkoma → 가방 / 꼬마 / 카메라",
+    "Pilih kata yang diawali dengan ㄱ (biasa): 콩 / 껌 / 고기",
+    "Pasangkan setiap kata dengan konsonan awalnya: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "Pasangkan setiap petunjuk bahasa Inggris dengan kata yang bunyi awalnya sesuai: di antara 'g' dan 'k' (embusan ringan) / 'k' pada \"key\" / 'kk' yang tegang → Pilihan: 꽃, 가게, 카메라"
+  ],
+  "answers": [
+    "코",
+    "꼬마",
+    "고기",
+    "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
+    "between g and k→가게, key→카메라, kk→꽃"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "Konsonan biasa (lax). Bagian belakang lidah menutup ringan ke langit-langit lunak, lalu dilepaskan. Di awal kata, keluar embusan napas ringan: lebih lemah daripada ㅋ dan lebih lembut daripada ㄲ.",
+      "as": "di antara 'g' dan 'k' dalam bahasa Inggris (embusan ringan)"
+    },
+    {
+      "letter": "ㅋ",
+      "sound": "Konsonan aspirasi. Posisi lidah sama seperti ㄱ, tetapi dilepaskan dengan embusan napas yang kuat.",
+      "as": "'k' pada 'key' (embusan kuat)"
+    },
+    {
+      "letter": "ㄲ",
+      "sound": "Konsonan tegang. Posisi lidah sama seperti ㄱ, tetapi tenggorokan dan lidah ditegangkan dan bunyinya dilepaskan secara tajam, tanpa embusan napas.",
+      "as": "'kk' yang tegang (tidak ada padanan pasti dalam bahasa Inggris)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "가방",
+      "roman": "gabang",
+      "meaning": "tas",
+      "example": "가방이 있어요.",
+      "exampleMeaning": "Ada tas."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "daging",
+      "example": "고기를 먹어요.",
+      "exampleMeaning": "Saya makan daging."
+    },
+    {
+      "korean": "가게",
+      "roman": "gage",
+      "meaning": "toko",
+      "example": "가게에 가요.",
+      "exampleMeaning": "Saya pergi ke toko."
+    },
+    {
+      "korean": "코",
+      "roman": "ko",
+      "meaning": "hidung",
+      "example": "코가 커요.",
+      "exampleMeaning": "Hidung saya besar."
+    },
+    {
+      "korean": "카메라",
+      "roman": "kamera",
+      "meaning": "kamera",
+      "example": "카메라로 사진을 찍어요.",
+      "exampleMeaning": "Saya memotret dengan kamera."
+    },
+    {
+      "korean": "콩",
+      "roman": "kong",
+      "meaning": "kacang",
+      "example": "콩이 작아요.",
+      "exampleMeaning": "Kacangnya kecil."
+    },
+    {
+      "korean": "껌",
+      "roman": "kkeom",
+      "meaning": "permen karet",
+      "example": "껌을 씹어요.",
+      "exampleMeaning": "Saya mengunyah permen karet."
+    },
+    {
+      "korean": "꼬마",
+      "roman": "kkoma",
+      "meaning": "anak kecil",
+      "example": "꼬마가 웃어요.",
+      "exampleMeaning": "Anak kecil itu tersenyum."
+    },
+    {
+      "korean": "꽃",
+      "roman": "kkot",
+      "meaning": "bunga",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "Bunganya cantik."
+    }
+  ],
+  "category": "hangul"
+}

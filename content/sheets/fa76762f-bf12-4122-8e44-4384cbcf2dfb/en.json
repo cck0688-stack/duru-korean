@@ -1,0 +1,111 @@
+{
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "keyword": "ㄱ·ㅋ·ㄲ",
+  "summary": "Practice distinguishing and pronouncing initial ㄱ (plain), ㅋ (aspirated), and ㄲ (tense). Use clear English sound anchors: ㄱ ≈ a light sound between English g and k, ㅋ ≈ the k in “key,” ㄲ = tense “kk” with no exact English match. Read and choose simple words that begin with these letters.",
+  "objective": "Beginner learners will accurately hear and pronounce ㄱ (plain), ㅋ (aspirated), and ㄲ (tense) in word-initial position, connect them to helpful English sound references (ㄱ ≈ between English g and k, with a light puff of air, ㅋ ≈ k in “key,” ㄲ = tense “kk,” no exact English equivalent), and correctly read and select simple words containing these initials.",
+  "level": "Beginner",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Choose the word that begins with ㅋ (aspirated): 가게 / 코 / 꽃",
+    "Read the romanization and choose the matching Korean word: kkoma → 가방 / 꼬마 / 카메라",
+    "Choose the word that begins with ㄱ (plain): 콩 / 껌 / 고기",
+    "Match each word to its first consonant: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "Match each English hint to the word whose first sound fits it: between 'g' and 'k' (light puff) / 'k' in \"key\" / tense 'kk' → Choices: 꽃, 가게, 카메라"
+  ],
+  "answers": [
+    "코",
+    "꼬마",
+    "고기",
+    "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
+    "between g and k→가게, key→카메라, kk→꽃"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "Plain (lax) consonant. The back of the tongue lightly closes against the soft palate, then releases. At the start of a word, a light puff of air comes out: weaker than ㅋ and softer than ㄲ.",
+      "as": "between English 'g' and 'k' (light puff)"
+    },
+    {
+      "letter": "ㅋ",
+      "sound": "Aspirated consonant. Same tongue position as ㄱ, but released with a strong puff of air.",
+      "as": "'k' in 'key' (strong puff)"
+    },
+    {
+      "letter": "ㄲ",
+      "sound": "Tense consonant. Same tongue position as ㄱ, but the throat and tongue are tensed and the sound is released sharply, with no puff of air.",
+      "as": "tense 'kk' (no exact English)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "가방",
+      "roman": "gabang",
+      "meaning": "bag",
+      "example": "가방이 있어요.",
+      "exampleMeaning": "There is a bag."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "meat",
+      "example": "고기를 먹어요.",
+      "exampleMeaning": "I eat meat."
+    },
+    {
+      "korean": "가게",
+      "roman": "gage",
+      "meaning": "store, shop",
+      "example": "가게에 가요.",
+      "exampleMeaning": "I go to the store."
+    },
+    {
+      "korean": "코",
+      "roman": "ko",
+      "meaning": "nose",
+      "example": "코가 커요.",
+      "exampleMeaning": "My nose is big."
+    },
+    {
+      "korean": "카메라",
+      "roman": "kamera",
+      "meaning": "camera",
+      "example": "카메라로 사진을 찍어요.",
+      "exampleMeaning": "I take pictures with a camera."
+    },
+    {
+      "korean": "콩",
+      "roman": "kong",
+      "meaning": "bean",
+      "example": "콩이 작아요.",
+      "exampleMeaning": "The beans are small."
+    },
+    {
+      "korean": "껌",
+      "roman": "kkeom",
+      "meaning": "chewing gum",
+      "example": "껌을 씹어요.",
+      "exampleMeaning": "I chew gum."
+    },
+    {
+      "korean": "꼬마",
+      "roman": "kkoma",
+      "meaning": "little kid",
+      "example": "꼬마가 웃어요.",
+      "exampleMeaning": "The little kid smiles."
+    },
+    {
+      "korean": "꽃",
+      "roman": "kkot",
+      "meaning": "flower",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "The flower is pretty."
+    }
+  ],
+  "category": "hangul"
+}

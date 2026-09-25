@@ -1,0 +1,71 @@
+{
+  "title": "택배 받기·보내기: 기본 표현",
+  "keyword": "",
+  "summary": "Useful short phrases for receiving and sending parcels in Korea at a counter or with a delivery driver. Focus on checking recipient, asking/confirming tracking number, accepting or refusing a parcel, and requesting shipment.",
+  "objective": "Be able to understand and say 10 short sentences used when receiving and sending parcels in Korea at a counter or with a courier (recipient confirmation, asking for tracking number, accepting/refusing, sending requests).",
+  "level": "Beginner",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Answer in Korean (use the name 김민수): 수취인 성함이 어떻게 되세요?",
+    "Say in Korean: 'I want to send a package.'",
+    "Ask in Korean: 'What is the tracking number?'",
+    "The parcel is damaged. Refuse it briefly in Korean.",
+    "Reply in Korean that you will sign: 서명해 주세요."
+  ],
+  "answers": [
+    "예시 답안 (Sample answer): 저는 김민수입니다. / Also correct: 김민수입니다.",
+    "예시 답안 (Sample answer): 택배로 보내고 싶습니다. / Also correct: 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
+    "예시 답안 (Sample answer): 운송장 번호가 어떻게 되나요? / Also correct: 운송장 번호가 뭐예요?",
+    "예시 답안 (Sample answer): 이건 받을 수 없어요. / Also correct: 받을 수 없어요. / 파손돼서 못 받겠어요.",
+    "예시 답안 (Sample answer): 여기 서명할게요. / Also correct: 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Key expressions (10)",
+      "paragraphs": [
+        "1) 택배 받으러 왔습니다. (I'm here to pick up a parcel.) — Used when you pick up a parcel yourself at the counter. 택배 = parcel, courier delivery.",
+        "2) 수취인 성함이 어떻게 되세요? (What is the recipient's name?) — Asked by the clerk or driver to check the recipient's name. 수취인 = recipient; 성함 = name (polite).",
+        "3) 저는 [이름]입니다. (I am [name].) — The recipient's answer, e.g. 저는 김민수입니다.",
+        "4) 운송장 번호가 어떻게 되나요? (What is the tracking number?) — Asks for the tracking (waybill, 송장) number. 운송장 = waybill, the shipping slip with the tracking number.",
+        "5) 운송장 번호 알려 주세요. (Please tell me the tracking number.) — Used to ask someone for the tracking number.",
+        "6) 여기 서명할게요. (I'll sign here.) — 'I'll sign here.' Used when signing. 서명 = signature.",
+        "7) 이건 받을 수 없어요. (I can't accept this.) — Used to refuse a parcel, e.g. when it is 파손 (damaged).",
+        "8) 택배로 보내고 싶습니다. (I want to send a package.) — Said when you come to send something.",
+        "9) 보낼 물건은 이거예요. (This is the item I want to send.) — Used when showing the item you want to send. 물건 = item, thing.",
+        "10) 착불로 보내 주세요. (Please send it with shipping paid by the recipient.) — Asks to send it so that the recipient pays the shipping fee on arrival. 착불 = shipping fee paid by the recipient (freight collect)."
+      ]
+    },
+    {
+      "heading": "Short dialogues",
+      "paragraphs": [
+        "Example 1 (receiving): Driver: '수취인 성함이 어떻게 되세요?' (What is the recipient's name?) / Me: '저는 김민수입니다.' (I am Kim Minsu.)",
+        "Example 2 (sending): Me: '택배로 보내고 싶습니다.' (I want to send a package.) / Clerk: '보내실 물건이 뭐예요?' (What would you like to send?) / Me: '보낼 물건은 이거예요.' (This is the item I want to send.)"
+      ]
+    },
+    {
+      "heading": "Tips",
+      "paragraphs": [
+        "Have the name and address ready in advance (e.g., in a phone memo).",
+        "Before accepting a parcel, quickly check the packaging, and refuse it right away if there is a problem.",
+        "To speak politely, add '요' after the casual informal ending (-아/어, -지, etc.): 받을 수 없어 → 받을 수 없어요. You cannot add '요' to just any ending (not 받을 수 없다요)."
+      ]
+    },
+    {
+      "heading": "More speaking practice",
+      "paragraphs": [
+        "You are at the counter to pick up your parcel. What do you say? → 택배 받으러 왔습니다.",
+        "You want the clerk to tell you the tracking number. → 운송장 번호 알려 주세요.",
+        "The clerk asks what you want to send. Show the item. → 보낼 물건은 이거예요.",
+        "You want the recipient to pay the shipping fee. → 착불로 보내 주세요."
+      ]
+    }
+  ],
+  "note": "For beginners: say each expression out loud several times.",
+  "category": "etc"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "1d2576c6-a26a-4127-990a-2a81a844cf87",
+  "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Exercises 4 and 5 test the same thing: both check that 손 means 'hand' (4: 'hand' → 손/송/솜, 5: 소_ (meaning: hand) → ㄴ). Replace exercise 5 with a different word from the word list, e.g. '누_ (meaning: snow) → ㄴ', '이르_ (meaning: name) → ㅁ' or '고_ (meaning: ball) → ㅇ'.",
+        "Exercises 1 and 3 use the same syllables, 방/반/밤, and exercise 2 repeats the same ending-to-hint (-ng/-n/-m) matching and reuses 방. Most of the word list (공, 빵, 눈, 산, 이름) never appears in any exercise, so the goal of 'reading simple words that contain these batchim' isn't practised. Replace exercise 3 with words from the list, e.g. '빵(__) 산(__) 이름(__) → -ng, -n, -m', or with an exercise asking learners to sort 공/눈/산/봄 by final sound."
+      ],
+      "audit": [
+        "exercises[0]: 다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤 → Choose the word whose final sound is [-ng]: 방 / 반 / 밤",
+        "exercises[1]: 괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__) → Write the English-style ending (-ng/-n/-m) in each blank: 손(__) 방(__) 봄(__)",
+        "exercises[2]: 빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 바_ (-ng) 바_ (-n) 바_ (-m) → Fill in each blank with the correct final consonant (ㅇ/ㄴ/ㅁ): 바_ (-ng) 바_ (-n) 바_ (-m)",
+        "exercises[3]: 뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜 → Choose the word that matches the meaning: 'hand' → 손 / 송 / 솜",
+        "exercises[4]: 빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 소_ (meaning: hand) → Fill in the blank with the correct final consonant (ㅇ/ㄴ/ㅁ): 소_ (meaning: hand)",
+        "letters[0..2].sound: ng (끝소리) / n (끝소리) / m (끝소리) → ng (final sound) / n (final sound) / m (final sound)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "level",
+      "before": "Beginner (A1)",
+      "after": "Beginner"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
+      "after": "Choose the word whose final sound is [-ng]: 방 / 반 / 밤"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
+      "after": "Write the English-style ending (-ng/-n/-m) in each blank: 손(__) 방(__) 봄(__)"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 바_ (-ng) 바_ (-n) 바_ (-m)",
+      "after": "Sort these words by their final sound (ㅇ/ㄴ/ㅁ): 공 / 눈 / 산 / 봄"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜",
+      "after": "Choose the word that matches the meaning: 'hand' → 손 / 송 / 솜"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 소_ (meaning: hand)",
+      "after": "Fill in the blank with the correct final consonant (ㅇ/ㄴ/ㅁ): 이르_ (meaning: name)"
+    },
+    {
+      "at": "answers[3]",
+      "before": "ㅇ, ㄴ, ㅁ",
+      "after": "ㅇ: 공 / ㄴ: 눈, 산 / ㅁ: 봄"
+    },
+    {
+      "at": "answers[5]",
+      "before": "ㄴ",
+      "after": "ㅁ"
+    },
+    {
+      "at": "letters[1].sound",
+      "before": "ng (끝소리)",
+      "after": "ng (final sound)"
+    },
+    {
+      "at": "letters[2].sound",
+      "before": "n (끝소리)",
+      "after": "n (final sound)"
+    },
+    {
+      "at": "letters[3].sound",
+      "before": "m (끝소리)",
+      "after": "m (final sound)"
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 31,
+          "problem": "The Korean adds Hangul that isn't in the English: the prompt 'hand' became '손(hand)', which gives away the answer.",
+          "fix": "의미에 맞는 단어를 고르세요: 'hand' → 손 / 송 / 솜"
+        },
+        {
+          "line": 32,
+          "problem": "The Korean adds Hangul that isn't in the English: the meaning hint 'name' became '이름', which shows the full word and gives away the missing ㅁ.",
+          "fix": "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 이르_ (뜻: name)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T14:17:49.958Z"
+}

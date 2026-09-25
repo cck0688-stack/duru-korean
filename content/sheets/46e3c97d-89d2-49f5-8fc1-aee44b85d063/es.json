@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "메뉴판 좀 주세요.",
+    "불고기 3인분 주세요. (3 is read as 삼: 삼인분)",
+    "저기요, 저희 비빔밥 두 개 주문했어요.",
+    "떡볶이 덜 맵게 해 주세요. 그리고 앞접시 두 개 주세요.",
+    "물티슈 좀 주세요. 그리고 반찬 좀 더 주세요.",
+    "저희 따로 계산할게요. 그리고 영수증도 주세요. (각자 계산할게요 is also correct, but 각자 is not in the list.)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Completa el espacio en blanco con una palabra de la lista. Acabas de sentarte y quieres ver qué comida tienen: ___ 좀 주세요.",
+    "Completa el espacio en blanco. Son tres personas y quieren bulgogi para tres: 불고기 ___ 주세요.",
+    "Completa el espacio en blanco con la forma pasada de 주문하다. Pediste hace 10 minutos, pero tu comida todavía no ha llegado: 저기요, 저희 비빔밥 두 개 ___.",
+    "Completa los dos espacios en blanco con palabras de la lista. Quieres que el tteokbokki esté menos picante y quieres dos platitos para compartirlo: 떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요.",
+    "Completa los tres espacios en blanco con palabras de la lista. Tienes las manos pegajosas y ya no queda ningún acompañamiento: ___ 좀 주세요. 그리고 ___ 좀 ___ 주세요.",
+    "Completa los dos espacios en blanco con palabras de la lista. Estás en la caja con un amigo. Cada uno paga lo suyo y quieres el recibo: 저희 ___ 계산할게요. 그리고 ___도 주세요."
+  ],
+  "keyword": "식당 어휘",
+  "level": "Principiante",
+  "minutes": 15,
+  "objective": "Los estudiantes pueden usar 10 palabras clave de restaurante (메뉴판, 인분, 주문하다, 반찬, 앞접시, 물티슈, 덜 맵게, 더 주세요, 따로 계산하다, 영수증) para hacer peticiones cortas y educadas al personal del restaurante, desde pedir hasta pagar.",
+  "summary": "Diez palabras que necesitas en un restaurante coreano, desde que te sientas hasta que pagas. Aprenderás a pedir el menú, hacer un pedido según el número de porciones, pedir platitos individuales, toallitas húmedas, más acompañamientos o menos picante, pagar por separado y pedir el recibo. Cada palabra tiene un ejemplo real. Los ejercicios te piden usar las palabras en situaciones nuevas.",
+  "tags": [],
+  "task": null,
+  "title": "식당에서 주문하고 부탁하기: 핵심 어휘 10",
+  "words": [
+    {
+      "korean": "메뉴판",
+      "roman": "menyupan",
+      "meaning": "menú (el menú físico que tienes en las manos o que ves en la pared)",
+      "example": "메뉴판에 사진이 있어요?",
+      "exampleMeaning": "¿El menú tiene fotos?"
+    },
+    {
+      "korean": "인분",
+      "roman": "inbun",
+      "meaning": "porción(es) para una persona, se usa después de un número (2인분 = comida para dos personas)",
+      "example": "삼겹살 2인분 주세요.",
+      "exampleMeaning": "Dos porciones de panceta de cerdo, por favor."
+    },
+    {
+      "korean": "주문하다",
+      "roman": "jumunhada",
+      "meaning": "pedir (comida)",
+      "example": "여기요, 주문할게요.",
+      "exampleMeaning": "Disculpe, ya estamos listos para pedir."
+    },
+    {
+      "korean": "반찬",
+      "roman": "banchan",
+      "meaning": "acompañamientos pequeños que se sirven con una comida coreana",
+      "example": "이 반찬 이름이 뭐예요?",
+      "exampleMeaning": "¿Cómo se llama este acompañamiento?"
+    },
+    {
+      "korean": "앞접시",
+      "roman": "apjeopsi",
+      "meaning": "platito pequeño para servirte tu parte de un plato compartido",
+      "example": "앞접시 좀 주시겠어요?",
+      "exampleMeaning": "¿Nos podría traer unos platitos?"
+    },
+    {
+      "korean": "물티슈",
+      "roman": "multisyu",
+      "meaning": "toallita húmeda (para limpiarte las manos en la mesa)",
+      "example": "물티슈 있어요?",
+      "exampleMeaning": "¿Tienen toallitas húmedas?"
+    },
+    {
+      "korean": "덜 맵게",
+      "roman": "deol maepge",
+      "meaning": "menos picante (una petición sobre cómo se cocina la comida)",
+      "example": "덜 맵게 할 수 있어요?",
+      "exampleMeaning": "¿Puede hacerlo menos picante?"
+    },
+    {
+      "korean": "더 주세요",
+      "roman": "deo juseyo",
+      "meaning": "más, por favor (pedir que rellenen o den una porción extra)",
+      "example": "밥 한 공기 더 주세요.",
+      "exampleMeaning": "Un tazón más de arroz, por favor."
+    },
+    {
+      "korean": "따로 계산하다",
+      "roman": "ttaro gyesanhada",
+      "meaning": "pagar por separado (cada persona paga lo suyo)",
+      "example": "계산은 따로 할게요.",
+      "exampleMeaning": "Vamos a pagar por separado."
+    },
+    {
+      "korean": "영수증",
+      "roman": "yeongsujeung",
+      "meaning": "recibo",
+      "example": "영수증은 괜찮아요.",
+      "exampleMeaning": "No necesito el recibo, gracias."
+    }
+  ],
+  "category": "vocab"
+}
