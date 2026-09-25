@@ -285,7 +285,8 @@ const LOCK = '<svg viewBox="0 0 24 24" style="width:11px;height:11px;flex:none" 
   '<path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="#b83a2a" stroke-width="2.4"/></svg>';
 const RIGHTS = "For personal and educational use only. Commercial use, redistribution, or reproduction " +
   "without the author's permission is prohibited.";
-const RIGHTS_KO = '저작자의 승인 없이 상업적 목적으로 사용할 수 없습니다.';
+// The owner's wording (2026-09-25). The year is the year the sheet is made.
+const COPYRIGHT = () => 'Copyright © ' + new Date().getFullYear() + ' DURU KOREAN. All rights reserved.';
 let logo = null;
 
 // Everything the page header and footer print, for a comparison of what
@@ -293,7 +294,7 @@ let logo = null;
 // it is printed on every page, and not part of the sheet.
 export function frameText(sheet, lang) {
   const L = labelsFor(lang);
-  const out = ['www.durukorean.com', 'durukorean.com', '© DURU KOREAN.', RIGHTS, RIGHTS_KO,
+  const out = ['www.durukorean.com', 'durukorean.com', COPYRIGHT(), RIGHTS,
     'DURU KOREAN · FREE DOWNLOADS'];
   if (sheet.level) out.push(L.level + ' · ' + sheet.level);
   if (sheet.minutes) out.push(sheet.minutes + ' ' + L.minutes);
@@ -311,7 +312,7 @@ async function frameV2(sheet, L, fonts) {
   const style = (text) => '<style>' + fontsFor(fonts, text) + '</style>';
   const box = 'width:100%;padding:0 15mm;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;' + font;
   const headText = 'www.durukorean.com' + pills.map((p) => p[0]).join('');
-  const footText = 'durukorean.com0123456789/|© DURU KOREAN.' + sheet.title + RIGHTS + RIGHTS_KO;
+  const footText = 'durukorean.com0123456789/|' + COPYRIGHT() + sheet.title + RIGHTS;
   return {
     margin: { top: '44mm', bottom: '27mm', left: '15mm', right: '15mm' },
     headerTemplate: style(headText) +
@@ -335,8 +336,8 @@ async function frameV2(sheet, L, fonts) {
       '<span class="pageNumber"></span> / <span class="totalPages"></span></span></div>' +
       '<div style="margin-top:2mm;background:#f8e9e5;border-radius:3mm;padding:1.6mm 4mm;display:flex;' +
       'align-items:center;gap:2.4mm;font-size:8px;line-height:1.35;color:#5b6b66;">' + LOCK +
-      '<span><b style="color:#b83a2a;font-weight:600;">© DURU KOREAN.</b> ' + esc(RIGHTS) +
-      '<br>' + esc(RIGHTS_KO) + '</span></div></div>'
+      '<span><b style="color:#b83a2a;font-weight:600;">' + esc(COPYRIGHT()) + '</b>' +
+      '<br>' + esc(RIGHTS) + '</span></div></div>'
   };
 }
 
@@ -388,6 +389,42 @@ export async function renderSheet(sheet, opts = {}) {
         } else {
           await page.evaluate(() => document.body.classList.remove('fit'));
         }
+      }
+    }
+    // The owner's rule (2026-09-25): the answers sit at the very foot of
+    // the last page, however much room that leaves above them, so a
+    // learner working down the page does not see them first. A gap goes
+    // in above the answers, as tall as it can be without adding a page —
+    // found by trying, because only the printed PDF knows where Chromium
+    // breaks its pages. A dozen quick prints for a sheet.
+    if (opts.pin !== false && await page.$('.answers')) {
+      const { pageBreakdown } = await import('./check.mjs');
+      const pages = (x) => pageBreakdown(x).pages;
+      const want = pages(pdf);
+      const gap = (px) => page.evaluate((h) => {
+        let el = document.querySelector('.answers-gap');
+        if (!el) {
+          el = document.createElement('div');
+          el.className = 'answers-gap';
+          el.setAttribute('aria-hidden', 'true');
+          const a = document.querySelector('.answers');
+          a.parentNode.insertBefore(el, a);
+        }
+        el.style.height = h + 'px';
+      }, px);
+      let lo = 0, hi = 1200, best = 0;   // an A4 page is 1123px
+      while (hi - lo > 3) {
+        const mid = Math.floor((lo + hi) / 2);
+        await gap(mid);
+        if (pages(await print()) === want) { best = mid; lo = mid; } else { hi = mid; }
+      }
+      // A few pixels short of the bottom, not one over it.
+      best = Math.max(0, best - 2);
+      await gap(best);
+      if (best > 0) {
+        pdf = await print();
+        const div = '<div class="answers-gap" aria-hidden="true" style="height:' + best + 'px"></div>';
+        used = used.replace('<div class="answers">', div + '<div class="answers">');
       }
     }
     const checks = opts.check === false ? null : await (await inspector())(page, pdf, sheet);

@@ -130,6 +130,11 @@ tr { break-inside: avoid; }
 .answers h2 { color: #b4472a; border-bottom-color: #f0d8cc; }
 .answers .a { margin-bottom: 7px; font-size: 11.5px; break-inside: avoid; }
 
+/* The gap render.mjs puts above the answers to set them at the foot of
+   the last page. It may not be split, or a sliver of it would push the
+   answers onto a page of their own. */
+.answers-gap { break-inside: avoid; page-break-inside: avoid; }
+
 /* When the answers would otherwise need a page to themselves, render.mjs
    sets the sheet a little tighter and the answers in two columns, and
    keeps that if it saves the page. Still roomy enough to write in. */

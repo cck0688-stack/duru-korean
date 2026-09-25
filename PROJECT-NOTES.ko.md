@@ -1183,5 +1183,7 @@ Table Editor 에서 `stories` 표를 직접 보셔도 됩니다.
 - 제목의 자모(ㅈ·ㅊ·ㅉ)를 빨간색으로 하는 것은 한글(hangul) 학습지만. 문법 제목의 "-(으)ㄴ"은 그대로.
 - 한국어는 낱말 중간에서 줄이 바뀌지 않습니다(띄어쓰기에서만). 일본어·중국어 학습지는 한국어 부분에만 적용.
 - 종이는 흰색(시안의 크림색은 인쇄 시 잉크를 쓰고, 여백은 어차피 흰색).
+- **정답은 마지막 페이지 맨 아래**(운영자 지시 2026-09-25): 문제와 사이가 떠도 정답은 바닥에 붙습니다. 학습자가 문제를 풀다 정답을 먼저 보지 않게. `render.mjs`가 정답 위에 빈 칸을 넣고, 페이지가 늘지 않는 가장 큰 높이를 찾아 씁니다(학습지 하나에 PDF를 10번쯤 더 찍음, 몇 초).
+- **저작권 띠**: 1줄 "Copyright © (만든 해) DURU KOREAN. All rights reserved." 2줄 "For personal and educational use only. Commercial use, redistribution, or reproduction without the author's permission is prohibited." (8개 언어 모두 같은 영어 문구)
 - 파일 크기는 약 100KB 늘어납니다(견본 134KB → 235KB). 머리글이 44mm라 긴 학습지는 한 쪽 늘 수 있습니다(명사 꾸미기: v1 2쪽 → v2 3쪽, 마지막 쪽에 문제 일부+정답).
 - 이미 올라간 자료에 적용하려면 relayout을 한 번 더 돌려야 합니다(원본 JSON이 없어 PDF에서 다시 읽음 = 파일마다 AI 호출 1번). `scripts/pdf/pdftext.py`의 비교는 v2 머리글·바닥글·번호를 빼고 비교하도록 맞춰 두었습니다(견본 2개 모두 원본과 100% 같음).
