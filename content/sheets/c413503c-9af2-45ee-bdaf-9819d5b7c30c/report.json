@@ -1012,6 +1012,14 @@
       "after": "한 번에 두 알씩 먹으면 돼요?",
       "why": "Alternatives dropped so fr/de fit two pages (answer boxes are the same Korean in every language).",
       "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "setting",
+      "before": "A neighborhood pharmacy (약국) in Korea, on a weekday. A customer with a cold comes in to buy medicine without a prescription.",
+      "after": "",
+      "why": "German ran 6mm onto a third page in CI; the summary already sets the scene.",
+      "all_languages": true
     }
   ]
 }

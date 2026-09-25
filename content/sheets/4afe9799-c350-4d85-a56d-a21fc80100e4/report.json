@@ -484,5 +484,28 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T14:42:41.879Z"
+  "preparedAt": "2026-09-25T14:42:41.879Z",
+  "manual": [
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "Practice reading and producing unreleased final stops for batchim ㄱ/ㄷ/ㅂ. Learners link each to similar English word-final sounds (back/bat/cap) but with no release, then read and choose simple words that contain these batchim.",
+      "after": "Practice unreleased final stops for batchim ㄱ/ㄷ/ㅂ: like the end of back/bat/cap, but with no release. Then read and choose simple words with these batchim.",
+      "why": "German ran 1mm onto a third page in CI; same content, shorter."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "Beginner learners will produce unreleased final stops [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ; connect them to similar English endings (“back/bat/cap” with no release); and accurately read and select simple Korean words that contain these batchim.",
+      "after": "Learners can produce unreleased final [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ, and read and choose simple words that contain them.",
+      "why": "German ran 1mm onto a third page in CI; same content, shorter."
+    },
+    {
+      "op": "replace",
+      "path": "words.속.example",
+      "before": "가방 속 봤어요? / Did you look inside the bag?",
+      "after": "가방 속에 있어요. / It's in the bag.",
+      "why": "가방 속 봤어요? drops the object particle awkwardly; 가방 속에 있어요 is the natural everyday use of 속."
+    }
+  ]
 }

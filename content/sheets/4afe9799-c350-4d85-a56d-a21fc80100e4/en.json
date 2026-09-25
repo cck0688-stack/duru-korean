@@ -1,8 +1,8 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
   "keyword": "받침",
-  "summary": "Practice reading and producing unreleased final stops for batchim ㄱ/ㄷ/ㅂ. Learners link each to similar English word-final sounds (back/bat/cap) but with no release, then read and choose simple words that contain these batchim.",
-  "objective": "Beginner learners will produce unreleased final stops [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ; connect them to similar English endings (“back/bat/cap” with no release); and accurately read and select simple Korean words that contain these batchim.",
+  "summary": "Practice unreleased final stops for batchim ㄱ/ㄷ/ㅂ: like the end of back/bat/cap, but with no release. Then read and choose simple words with these batchim.",
+  "objective": "Learners can produce unreleased final [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ, and read and choose simple words that contain them.",
   "level": "Beginner",
   "minutes": 15,
   "tags": [
@@ -60,8 +60,8 @@
       "korean": "속",
       "roman": "sok",
       "meaning": "inside",
-      "example": "가방 속 봤어요?",
-      "exampleMeaning": "Did you look inside the bag?"
+      "example": "가방 속에 있어요.",
+      "exampleMeaning": "It's in the bag."
     },
     {
       "korean": "벽",
