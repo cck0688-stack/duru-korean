@@ -29,8 +29,10 @@ import pymupdf
 
 PAGE_NO = re.compile(r'^\s*\d+\s*/\s*\d+\s*$')
 # Sheets made before the template numbered its lists itself printed
-# "1." where it now prints "1)".
-ITEM_NO = re.compile(r'^(\d{1,2})[.)]\s*')
+# "1." where it now prints "1)", and some printed the number twice
+# ("1) 1) 엄마 / 먹다", the model's own and the template's) — the new
+# edition has it once, which is the point of setting it again.
+ITEM_NO = re.compile(r'^(\d{1,2})[.)]\s*(?:\1[.)]\s*)*')
 SPACE = re.compile(r'\s+')
 
 

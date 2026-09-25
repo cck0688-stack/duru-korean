@@ -45,7 +45,7 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC
 
 // "The same thing": no character gained or lost, and the order kept.
 export const SAME = { hist: 0.002, ratio: 0.995 };
-const TRIES = 2;
+const TRIES = 3;
 const AT_ONCE = 4;
 
 const args = process.argv.slice(2);
