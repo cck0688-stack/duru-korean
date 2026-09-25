@@ -74,6 +74,10 @@ export function auditPrompt(category) {
     '   설명과 지시문(when, means, sound, as, meaning, summary, objective, note, 문제의 지시 부분)은 학습자의 언어(영어)로',
     '   써야 합니다. 한국어는 가르치는 것(낱말, 문형, 예문, 보기)으로만 들어갑니다. 설명이나 지시가 한국어로만 되어 있으면',
     '   문제입니다 — 영어로 고치세요(가르치는 한국어는 그대로 두고).',
+    '   문제(exercises)는 "영어 지시문: 한국어 부분" 형태로 (예: "Answer in Korean: 철수의 세탁기는 몇 번이에요?",',
+    '   "Fill in the blank: 오늘 우유를 ____해요."). 지시문이 한국어로만 되어 있으면 앞에 영어 지시문을 붙이세요.',
+    '   한국어로 된 공지문·안내문·대화·지문 자체는 읽기 자료이므로 그대로 둡니다.',
+    '6. level 은 Beginner, Beginner (high), Intermediate (low), Intermediate, Advanced 중 하나여야 합니다.',
     '5. title, summary, objective 가 학습지 내용과 맞는가.',
     '',
     '이 갈래(' + category + ')에서 특히:',
@@ -150,10 +154,11 @@ export function diffSheets(a, b) {
 
 // The Korean in a line has to come through a translation untouched.
 const HANGUL_RUN = /[가-힣ㄱ-ㆎ]+(?:[\s··/~-]*[가-힣ㄱ-ㆎ]+)*/g;
-// A line that is itself Korean prose — an explanation or an instruction
-// written in Korean ("상대에게 허락을 물을 때") — is translated like any
-// other prose; only the Korean set inside a line in another language is
-// the thing being taught and must come through as it is.
+// A line that is itself Korean prose. Not exempt from the check below:
+// once explanations and instructions are in the learner's language (the
+// reviewers' rule), the Korean left in a sheet is what it teaches — a
+// notice, an example — and a translation must not touch it. Used to
+// report such lines.
 const LETTER = /[A-Za-z\u00c0-\u024f\uac00-\ud7a3]/g;
 const HANGUL = /[\uac00-\ud7a3]/g;
 export function isKoreanProse(line) {
@@ -162,7 +167,6 @@ export function isKoreanProse(line) {
   return letters > 0 && korean / letters >= 0.6;
 }
 export function koreanLost(source, translated) {
-  if (isKoreanProse(source)) return [];
   const runs = String(source || '').match(HANGUL_RUN) || [];
   return runs.filter((r) => !String(translated || '').includes(r));
 }
@@ -284,3 +288,44 @@ function lostKorean(en, edition, lang) {
   return lost;
 }
 
+
+// One of five levels, in English, on every sheet: "초급 (A1)", "Beginner
+// High (A2)" and "초중급 (A2–B1)" were all on the shelf. The translator
+// puts it in each sheet's language.
+export const LEVELS = ['Beginner', 'Beginner (high)', 'Intermediate (low)', 'Intermediate', 'Advanced'];
+export function normalizeLevel(raw) {
+  const s = String(raw || '').toLowerCase();
+  if (/advanced|고급|\bc[12]\b/.test(s)) return 'Advanced';
+  // A range across the line ("Beginner (high) – Intermediate (low)", "초중급")
+  // is placed at its upper end.
+  if (/초중급|a2\s*[–~-]\s*b1|beginner.*intermediate/.test(s)) return 'Intermediate (low)';
+  if (/intermediate|중급|\bb[12]\b/.test(s)) {
+    return /low|초반|lower|\bb1\b/.test(s) ? 'Intermediate (low)' : 'Intermediate';
+  }
+  if (/초급 중/.test(s)) return 'Beginner';
+  if (/high|late|초급 상|후반|\ba2\b|upper/.test(s)) return 'Beginner (high)';
+  return 'Beginner';
+}
+
+// A sheet that does not fit on two pages even set compact (the owner's
+// rule, 2026-09-25): made shorter by the editor, keeping what it teaches.
+export async function shortenSheet(cfg, sheet, pages) {
+  const category = sheet.category || 'etc';
+  const system = [
+    '당신은 한국어 교재 편집자입니다. 이 학습지는 인쇄하면 A4 ' + pages + '쪽입니다. A4 2쪽 안에 들어가도록 줄이세요.',
+    '',
+    '- 학습 목표와 그것을 연습하는 핵심은 남기세요.',
+    '- 줄이는 순서: 같은 말을 되풀이하는 설명과 문단, 목표에 꼭 필요하지 않은 예시·표의 줄, 비슷한 문제.',
+    '  낱말·표현 표는 8~10개, 문제는 5~6개면 충분합니다.',
+    '- 새 내용을 보태지 마세요. 남기는 문장은 글자 그대로 두세요(줄이려고 문장을 다시 쓰지 마세요).',
+    '- 문제를 빼면 그 정답도 빼고, 정답은 남은 문제와 같은 순서·같은 개수로.',
+    '- mark, watchOutMark 는 남은 항목과 맞게.',
+    '- 받은 JSON 과 같은 모양으로 전부 돌려주세요.'
+  ].join('\n');
+  const out = json(await cfg.provider.chat(cfg, system, JSON.stringify({ ...sheet, checkThese: [] }, null, 1),
+    sheetSchema(category, cfg.provider.strictSchema !== false)), '줄이기');
+  const short = unnumbered(out);
+  short.category = category;
+  short.checkThese = [];
+  return short;
+}

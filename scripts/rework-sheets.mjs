@@ -36,7 +36,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { resolveProvider, LANGUAGE_NAMES } from '../api/_providers.js';
 import { reviewSheet, problemsWith, MAKING_OF } from './lib/sheets.mjs';
-import { auditSheet, fixSheet, diffSheets, markProblems, translateChecked } from './lib/proofread.mjs';
+import { auditSheet, fixSheet, diffSheets, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
+import { pageBreakdown } from './pdf/check.mjs';
+
+const pageCount = (pdf) => pageBreakdown(pdf).pages;
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionAccount, subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
 import { renderSheet, labelsFor, frameText } from './pdf/render.mjs';
@@ -48,7 +51,8 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC
 export const SOURCE = 'en';
 export const TARGETS = Object.keys(LANGUAGE_NAMES).filter((l) => l !== SOURCE);
 const READ_TRIES = 3;
-const ROUNDS = 3;          // review → fix → review again, at most this many times
+const ROUNDS = 4;          // review → fix → review again, at most this many times
+const SHORTEN = 2;         // tries at fitting a long sheet on two pages
 
 const args = process.argv.slice(2);
 const MODE = args[0];
@@ -152,8 +156,25 @@ export async function prepareOne(cfgs, browser, token, r, outDir, work) {
   const orig = read.sheet;
   log('    읽기: 원본과 같음');
 
-  const checked = await proofread(cfgs, orig);
-  const en = checked.sheet;
+  // One of five levels, in English (proofread.mjs, normalizeLevel).
+  let checked = await proofread(cfgs, { ...orig, level: normalizeLevel(orig.level) });
+  let en = checked.sheet;
+
+  // Two pages (the owner's rule): a sheet longer than that even set
+  // compact is shortened by the editor, and the shorter one read again
+  // by both reviewers.
+  const shortened = [];
+  for (let t = 0; t < SHORTEN; t += 1) {
+    const pages = (await renderSheet(en, { category: r.category, lang: SOURCE, browser, check: false })).pdf;
+    const n = pageCount(pages);
+    if (n <= 2) break;
+    log('    영어판 ' + n + '쪽 — 2쪽으로 줄입니다');
+    const short = await shortenSheet(cfgs.writer, en, n);
+    shortened.push({ from: n, cut: diffSheets(en, short) });
+    const again = await proofread(cfgs, short);
+    checked = { ...again, rounds: checked.rounds.concat(again.rounds) };
+    en = again.sheet;
+  }
   const fixes = diffSheets(orig, en);
 
   const editions = { [SOURCE]: en };
@@ -180,7 +201,7 @@ export async function prepareOne(cfgs, browser, token, r, outDir, work) {
     id: r.id, title: r.title, category: r.category, status: r.status, published: r.published,
     langsBefore: Object.keys(files).sort(),
     dropped: read.dropped, passed: checked.passed, unresolved: checked.unresolved || [],
-    rounds: checked.rounds, fixes, translations, pages,
+    rounds: checked.rounds, fixes, shortened, translations, pages,
     preparedAt: new Date().toISOString()
   };
   writeJSON(path.join(dir, 'report.json'), report);

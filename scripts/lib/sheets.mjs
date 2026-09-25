@@ -210,6 +210,11 @@ export async function writeSheet(cfg, opts) {
     '',
     '반드시 채울 것: title, summary, objective, level, minutes, exercises, answers.',
     'title 은 한국어로, summary 와 objective 는 영어로 쓰세요.',
+    '설명과 지시(뜻풀이, 발음 설명, 문형 설명, 문단의 설명, 문제의 지시문)는 모두 영어로. 한국어는 가르치는 것',
+    '  (낱말, 문형, 예문, 공지문·대화 같은 읽기 자료)으로만 넣으세요.',
+    '문제는 "영어 지시문: 한국어 부분" 형태로 (예: "Fill in the blank: 오늘 우유를 ____해요.").',
+    'level 은 Beginner, Beginner (high), Intermediate (low), Intermediate, Advanced 중 하나.',
+    '분량은 인쇄해서 A4 2쪽: 낱말·표현은 8~10개, 문제는 5~6개, 설명은 짧게.',
     'minutes 는 학습자가 이 학습지를 푸는 데 걸릴 시간입니다.',
     'keyword 는 내려받은 파일 이름에 쓸 영어 낱말 하나(또는 둘을 붙인 것)입니다. 소문자, 띄어쓰기 없이, 12자 이내.',
     '  예: bank, subway, openhours, pharmacy. 주제를 가장 짧게 말하는 낱말로.',
@@ -312,7 +317,9 @@ export async function reviewSheet(cfg, sheet) {
 // (the sheet is written in English first, and translated from that);
 // Korean words like 지난번 or 고쳤어요 are ordinary example material.
 export const MAKING_OF = new RegExp([
-  "\\bI(?:'ve| have)? (?:fixed|changed|updated|corrected|rewrote|revised|addressed)\\b",
+  // Not "changed" or "updated": "I changed the appointment" is an example
+  // sentence's translation, not a note about the sheet.
+  "\\bI(?:'ve| have)? (?:fixed|corrected|rewrote|revised|addressed)\\b",
   '\\b(?:last|previous|earlier) (?:review|draft|version|revision)\\b',
   '\\bthe review(?:er)?\\b', '\\breviewer\\b', '\\bas requested\\b',
   '\\bnow reads\\b', '\\bthis (?:revision|draft)\\b', '검수'

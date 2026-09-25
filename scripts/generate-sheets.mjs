@@ -50,7 +50,8 @@
 
 import { resolveProvider, LANGUAGE_NAMES, TranslateError } from '../api/_providers.js';
 import { pickSubject, writeSheet, reviewSheet, problemsWith, slugify, cleanKeyword, SHELVES } from './lib/sheets.mjs';
-import { auditSheet, markProblems, translateChecked } from './lib/proofread.mjs';
+import { auditSheet, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
+import { pageBreakdown } from './pdf/check.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
@@ -178,6 +179,26 @@ async function makeOne(cfg, category, context, browser) {
       subject: subject.subject + '\n\n[지난번 검수에서 걸린 것 — 전부 고치세요]\n- ' + notes.join('\n- '),
       objective: subject.objective, level: subject.level
     });
+  }
+
+  sheet.level = normalizeLevel(sheet.level);
+
+  // Two pages (the owner's rule, 2026-09-25): a sheet longer than that
+  // even set compact is shortened, and the shorter one read again by
+  // both reviewers; one that still has problems is not saved.
+  const enPages = pageBreakdown((await renderSheet(sheet, { category, lang: SOURCE_LANG, browser, check: false })).pdf).pages;
+  if (enPages > 2) {
+    log('    영어판 ' + enPages + '쪽 — 2쪽으로 줄입니다');
+    sheet = await shortenSheet(writer, sheet, enPages);
+    const again = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet));
+    const [first, second] = again.length ? [{ problems: [] }, { problems: [] }]
+      : await Promise.all([reviewSheet(writer, sheet), auditSheet(writer, sheet)]);
+    const left = again.concat(first.problems, second.problems);
+    if (left.length) {
+      const err = new Error('줄인 뒤 검수를 통과하지 못했습니다: ' + left.join(' '));
+      err.subject = subject.subject;
+      throw err;
+    }
   }
 
   // English first: it is the language the sheet was written in, so it
