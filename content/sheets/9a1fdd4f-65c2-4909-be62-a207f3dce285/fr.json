@@ -1,0 +1,131 @@
+{
+  "answers": [
+    "읽은",
+    "입을",
+    "노는",
+    "가까운",
+    "멋있는",
+    "덥은 → 더운, 길은 → 긴 (오늘은 정말 더운 날이에요. 그래서 머리가 긴 사람들은 머리를 묶었어요.)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Modifiez le verbe entre parenthèses pour qu'il convienne à la phrase : 어제 도서관에서 (읽다 → ____) 책은 정말 재미있었어요.",
+    "Modifiez le verbe entre parenthèses pour qu'il convienne à la phrase : 내일 면접 때 (입다 → ____) 옷을 미리 골라 놨어요.",
+    "Modifiez le verbe entre parenthèses pour qu'il convienne à la phrase : 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요.",
+    "Modifiez l'adjectif entre parenthèses pour qu'il convienne à la phrase : 집에서 (가깝다 → ____) 병원이 어디예요?",
+    "Modifiez le mot entre parenthèses pour qu'il convienne à la phrase : 저기 (멋있다 → ____) 모자를 쓴 사람이 우리 선생님이에요.",
+    "Il y a deux erreurs dans ces phrases. Trouvez-les et corrigez-les : 오늘은 정말 덥은 날이에요. 그래서 머리가 길은 사람들은 머리를 묶었어요."
+  ],
+  "forms": [
+    {
+      "form": "동사 + -는 (présent)",
+      "when": "L'action se déroule maintenant ou se produit régulièrement. Ajoutez -는 au radical du verbe, qu'il se termine par une voyelle ou une consonne : 먹다 → 먹는, 마시다 → 마시는. (Les radicaux se terminant par ㄹ perdent le ㄹ : 살다 → 사는. Voir la ligne sur les radicaux en ㄹ ci-dessous.)",
+      "means": "le (nom) que quelqu'un fait / est en train de faire",
+      "example": "지금 커피를 마시는 사람이 제 친구예요.",
+      "exampleMeaning": "La personne qui boit du café en ce moment est mon ami(e).",
+      "mark": [
+        "마시는"
+      ]
+    },
+    {
+      "form": "동사 + -(으)ㄴ (passé)",
+      "when": "L'action est déjà terminée. Si le radical se termine par une consonne, ajoutez -은 (먹다 → 먹은). S'il se termine par une voyelle, ajoutez -ㄴ (보다 → 본).",
+      "means": "le (nom) que quelqu'un a fait",
+      "example": "어제 먹은 음식이 좀 짰어요.",
+      "exampleMeaning": "Le plat que j'ai mangé hier était un peu trop salé.",
+      "mark": [
+        "먹은"
+      ]
+    },
+    {
+      "form": "동사 + -(으)ㄹ (futur / prévu)",
+      "when": "L'action n'a pas encore eu lieu, ou c'est quelque chose que vous prévoyez ou devez faire. Si le radical se termine par une consonne, ajoutez -을 (먹다 → 먹을). S'il se termine par une voyelle, ajoutez -ㄹ (보다 → 볼).",
+      "means": "le (nom) que quelqu'un va faire / a l'intention de faire",
+      "example": "이번 주말에 볼 영화를 아직 못 정했어요.",
+      "exampleMeaning": "Je n'ai toujours pas décidé quel film regarder ce week-end.",
+      "mark": [
+        "볼"
+      ]
+    },
+    {
+      "form": "형용사 + -(으)ㄴ",
+      "when": "Utilisez cette forme pour tout adjectif décrivant un nom. Si le radical se termine par une consonne, ajoutez -은 (작다 → 작은). S'il se termine par une voyelle, ajoutez -ㄴ (크다 → 큰).",
+      "means": "un(e) (nom) qui est ~",
+      "example": "작은 가방 말고 큰 가방 있어요?",
+      "exampleMeaning": "Avez-vous un grand sac au lieu d'un petit ?",
+      "mark": [
+        "작은",
+        "큰"
+      ]
+    },
+    {
+      "form": "Les mots en 있다 / 없다 + -는",
+      "when": "Les mots se terminant par 있다 ou 없다 (맛있다, 재미없다, 있다, 없다) prennent -는 (et non -은) pour décrire un nom au présent, même s'ils fonctionnent comme des adjectifs en français.",
+      "means": "un(e) (nom) qui est ~ / qui a ~",
+      "example": "재미없는 영화는 끝까지 못 봐요.",
+      "exampleMeaning": "Je ne supporte pas de rester assis(e) devant un film ennuyeux.",
+      "mark": [
+        "재미없는"
+      ]
+    },
+    {
+      "form": "radical en ㄹ + -는 / -ㄴ / -ㄹ",
+      "when": "Quand le radical se termine par ㄹ, le ㄹ disparaît devant -는 et -ㄴ. Avec -ㄹ, les deux ㄹ fusionnent en un seul. N'ajoutez pas 으. Verbes : 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들.",
+      "means": "mêmes significations que ci-dessus (présent / passé / futur, ou état adjectival)",
+      "example": "이건 제가 직접 만든 케이크예요.",
+      "exampleMeaning": "C'est un gâteau que j'ai fait moi-même.",
+      "mark": [
+        "만든"
+      ]
+    },
+    {
+      "form": "adjectif irrégulier en ㅂ + -ㄴ",
+      "when": "La plupart des adjectifs se terminant par ㅂ changent ㅂ en 우 puis ajoutent -ㄴ : 춥다 → 추운, 어렵다 → 어려운. Quelques-uns sont réguliers et gardent le ㅂ, par exemple 좁다 → 좁은.",
+      "means": "un(e) (nom) qui est ~",
+      "example": "어려운 단어는 선생님께 물어보세요.",
+      "exampleMeaning": "Demandez à votre professeur au sujet des mots difficiles.",
+      "mark": [
+        "어려운"
+      ]
+    }
+  ],
+  "keyword": "-는 / -(으)ㄴ / -(으)ㄹ",
+  "level": "Intermédiaire (bas)",
+  "minutes": 15,
+  "objective": "Les apprenants seront capables de former la terminaison correcte qui modifie un nom (-는, -(으)ㄴ, -(으)ㄹ) pour les verbes, les adjectifs et les radicaux irréguliers.",
+  "summary": "Les mots qui décrivent se placent avant le nom en coréen : les verbes prennent -는 (présent), -(으)ㄴ (passé), ou -(으)ㄹ (futur), et les adjectifs prennent -(으)ㄴ. Les mots en 있다/없다 prennent -는, les radicaux en ㄹ perdent leur ㄹ, et la plupart des adjectifs en ㅂ changent ㅂ en 우.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
+  "watchOut": [
+    "맛있은 음식 (X) → 맛있는 음식 (O) : Les mots se terminant par 있다/없다 prennent -는 (et non -은), même quand vous décrivez une qualité.",
+    "예쁘는 가방 (X) → 예쁜 가방 (O) : Les adjectifs ne prennent pas -는 (sauf les mots se terminant par 있다/없다). Ils prennent -(으)ㄴ.",
+    "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O) : Avec les radicaux en ㄹ, on enlève le ㄹ et on ajoute -ㄴ. N'ajoutez pas 은. C'est la même chose pour 만들은 (X) → 만든 (O).",
+    "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O) : Pour une habitude qui a lieu actuellement, utilisez -는. -(으)ㄴ sur un verbe indique que l'action est terminée et se situe dans le passé."
+  ],
+  "watchOutMark": [
+    [
+      "맛있은",
+      "맛있는"
+    ],
+    [
+      "예쁘는",
+      "예쁜"
+    ],
+    [
+      "살은",
+      "사은",
+      "산",
+      "만들은",
+      "만든"
+    ],
+    [
+      "먹은",
+      "먹는"
+    ]
+  ],
+  "category": "grammar"
+}

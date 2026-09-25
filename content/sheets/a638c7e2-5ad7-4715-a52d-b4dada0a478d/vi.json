@@ -1,0 +1,110 @@
+{
+  "title": "-(으)ㄹ게요와 -(으)ㄹ 거예요: 약속할 때와 계획을 말할 때",
+  "keyword": "-(으)ㄹ게요",
+  "summary": "-(으)ㄹ게요 và -(으)ㄹ 거예요 đều có nghĩa là \"tôi sẽ\", nhưng -(으)ㄹ게요 chỉ dùng cho lời hứa hoặc quyết định mà người nói đưa ra để đáp lại người nghe. Dùng -(으)ㄹ 거예요 khi tường thuật kế hoạch, nói về kế hoạch của người khác, hoặc trong câu hỏi.",
+  "objective": "Người học có thể tạo đúng dạng -(으)ㄹ게요 (viết là 게, không phải 께) và biết chọn giữa dạng này với -(으)ㄹ 거예요.",
+  "level": "Sơ cấp (cao)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Đổi động từ trong ngoặc sang dạng -(으)ㄹ게요. (a) 천천히 오세요. 제가 여기서 ( 기다리다 ). (b) 택배는 제가 ( 받다 ). (c) 요리하는 동안 제가 아이들하고 ( 놀다 ).",
+    "Đổi cả hai động từ sang dạng -(으)ㄹ게요. 싣다 = chất lên xe, 줍다 = nhặt lên. A: 캠핑 끝났네요. 짐도 많고 바닥에 쓰레기도 있어요. B: 짐은 제가 차에 ( 싣다 ). 쓰레기도 제가 ( 줍다 ).",
+    "Có một từ trong câu trả lời của B bị viết sai. Hãy tìm và sửa lại. A: 밖에 바람이 많이 불어요. B: 그럼 두꺼운 코트를 입을께요.",
+    "Chọn câu trả lời tự nhiên trong mỗi đoạn hội thoại. (a) A: 동생은 방학에 뭐 해요? B: 동생은 수영을 ( 배울게요 / 배울 거예요 ). (b) A: 내일 몇 시에 ( 출발할게요 / 출발할 거예요 )? B: 아침 8시요.",
+    "Chọn câu trả lời tự nhiên cho mỗi chỗ trống. A: 이번 주말에 뭐 해요? B: 친구하고 영화를 ( 볼게요 / 볼 거예요 ). A: 아, 저도 그 영화 보고 싶었어요! B: 그래요? 그럼 같이 봐요. 표는 제가 ( 예매할게요 / 예매할 거예요 )."
+  ],
+  "answers": [
+    "(a) 기다릴게요 (b) 받을게요 (✗ 발을게요. 받다 là động từ quy tắc.) (c) 놀게요 (✗ 놀을게요)",
+    "실을게요 / 주울게요",
+    "입을께요 → 입을게요 (Phát âm là [이블께요], nhưng luôn viết là 게.)",
+    "(a) 배울 거예요 (Chủ ngữ là ngôi thứ ba, 동생.) (b) 출발할 거예요 (Đây là câu hỏi.)",
+    "볼 거예요 / 예매할게요 (Vế đầu là kế hoạch B chỉ đơn thuần tường thuật lại. Vế sau là lời hứa B đưa ra sau khi nghe A nói.)"
+  ],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "-ㄹ게요 (thân động từ không có 받침)",
+      "when": "Thân động từ kết thúc bằng nguyên âm.",
+      "means": "Lời hứa hoặc quyết định của người nói dành cho người nghe, ví dụ: 연락하다 → 연락할게요, 가다 → 갈게요",
+      "example": "내일 다시 연락할게요.",
+      "exampleMeaning": "Ngày mai tôi sẽ liên lạc lại với bạn.",
+      "mark": [
+        "연락할게요"
+      ]
+    },
+    {
+      "form": "-을게요 (thân động từ có 받침)",
+      "when": "Thân động từ kết thúc bằng phụ âm (받침) khác ㄹ.",
+      "means": "Ý nghĩa giống nhau. Thêm 을 và giữ nguyên thân động từ, ví dụ: 먹다 → 먹을게요, 닫다 → 닫을게요, 잡다 → 잡을게요",
+      "example": "A: 음식이 좀 남았네요. B: 남은 건 제가 먹을게요.",
+      "exampleMeaning": "A: Còn dư lại một ít đồ ăn. B: Tôi sẽ ăn phần còn lại.",
+      "mark": [
+        "먹을게요"
+      ]
+    },
+    {
+      "form": "Thân động từ có ㄹ + -게요",
+      "when": "Thân động từ kết thúc bằng ㄹ.",
+      "means": "Giữ nguyên ㄹ và chỉ thêm 게요. Không thêm 을, ví dụ: 만들다 → 만들게요 (✗ 만들을게요), 열다 → 열게요",
+      "example": "오늘 저녁은 제가 만들게요.",
+      "exampleMeaning": "Tối nay tôi sẽ nấu bữa tối.",
+      "mark": [
+        "만들게요"
+      ]
+    },
+    {
+      "form": "Động từ bất quy tắc ㄷ: ㄷ → ㄹ + -을게요",
+      "when": "Động từ là động từ bất quy tắc ㄷ, chẳng hạn như 걷다 hoặc 묻다 (hỏi).",
+      "means": "ㄷ chuyển thành ㄹ trước 을, ví dụ: 걷다 → 걸을게요, 묻다 → 물을게요",
+      "example": "A: 택시 부를까요? B: 아니요, 가까우니까 걸을게요.",
+      "exampleMeaning": "A: Tôi gọi taxi nhé? B: Không, gần thôi nên tôi sẽ đi bộ.",
+      "mark": [
+        "걸을게요"
+      ]
+    },
+    {
+      "form": "Động từ bất quy tắc ㅂ: ㅂ → 우 + -ㄹ게요",
+      "when": "Động từ là động từ bất quy tắc ㅂ, chẳng hạn như 돕다 hoặc 굽다.",
+      "means": "ㅂ bị lược bỏ, thêm 우, rồi thêm ㄹ게요, ví dụ: 돕다 → 도울게요",
+      "example": "이사할 때 제가 도울게요.",
+      "exampleMeaning": "Tôi sẽ giúp bạn khi bạn chuyển nhà.",
+      "mark": [
+        "도울게요"
+      ]
+    },
+    {
+      "form": "-(으)ㄹ 거예요 (đối lập)",
+      "when": "Dùng dạng này cho kế hoạch của người khác, cho câu hỏi, và cho kế hoạch của chính mình không liên quan gì đến người nghe.",
+      "means": "Một kế hoạch hoặc ý định mà bạn chỉ đơn thuần tường thuật lại. Đây không phải là lời hứa với người nghe.",
+      "example": "A: 주말에 뭐 해요? B: 집에서 쉴 거예요.",
+      "exampleMeaning": "A: Cuối tuần này bạn làm gì? B: Tôi sẽ nghỉ ngơi ở nhà.",
+      "mark": [
+        "쉴 거예요"
+      ]
+    }
+  ],
+  "watchOut": [
+    "Không dùng -(으)ㄹ게요 khi chủ ngữ là người khác. Cấu trúc này chỉ dùng cho lời hứa của chính mình. ✗ 지수 씨가 이따가 전화할게요. → ✓ 지수 씨가 이따가 전화할 거예요.",
+    "Không dùng -(으)ㄹ게요 trong câu hỏi. ✗ 일을 언제 끝낼게요? → ✓ 언제 끝낼 거예요?",
+    "Nó được phát âm là [께요] nhưng viết là 게요. ✗ 할께요 → ✓ 할게요"
+  ],
+  "watchOutMark": [
+    [
+      "전화할게요",
+      "전화할 거예요"
+    ],
+    [
+      "끝낼게요",
+      "끝낼 거예요"
+    ],
+    [
+      "할께요",
+      "할게요"
+    ]
+  ],
+  "category": "grammar"
+}

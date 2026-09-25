@@ -1,0 +1,135 @@
+{
+  "title": "약국에서 감기약 사기",
+  "keyword": "약국에서 감기약 사기",
+  "summary": "Um cliente resfriado descreve seus sintomas em uma farmácia coreana e compra remédio para resfriado sem receita médica.",
+  "objective": "Os alunos conseguem relatar sintomas ('-이/가 아파요', '-이/가 나요'), entender instruções de dosagem (하루 ~ 번, 한 번에 ~ 알씩, 식후에) e confirmá-las com '~ 먹으면 돼요?'",
+  "level": "Iniciante (avançado)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "O farmacêutico diz: '하루 두 번, 한 번에 한 알씩 드세요.' Quantos comprimidos você toma em um dia? Responda em português ou em coreano.",
+    "Sua garganta dói e você está tossindo. Responda à pergunta do farmacêutico '어디가 불편하세요?' em uma frase. Junte os dois sintomas usando '-고'.",
+    "O farmacêutico pergunta '언제부터 그러셨어요?' Seus sintomas começaram anteontem. Dê uma resposta curta terminando com '-부터요'.",
+    "Escreva esta instrução em coreano da forma como um farmacêutico diria: 'Tome duas vezes ao dia, depois das refeições.'",
+    "Você acha que o farmacêutico disse para tomar dois comprimidos de cada vez, mas não tem certeza. Faça uma pergunta para confirmar. Termine com '먹으면 돼요?', como o cliente faz no diálogo."
+  ],
+  "answers": [
+    "두 알 (2 comprimidos)",
+    "목이 아프고 기침이 나요. (목이 아프고 기침도 나요. / 목이 아프고 기침을 해요.)",
+    "그저께부터요. (그제부터요.)",
+    "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)",
+    "한 번에 두 알씩 먹으면 돼요? (한 번에 두 알 먹으면 돼요?)"
+  ],
+  "checkThese": [],
+  "setting": "Uma farmácia de bairro (약국) na Coreia, em um dia de semana. Um cliente resfriado entra para comprar remédio sem receita médica.",
+  "dialogue": [
+    {
+      "who": "약사",
+      "korean": "어서 오세요. 어디가 불편하세요?",
+      "meaning": "Bem-vindo(a). Qual é o problema?"
+    },
+    {
+      "who": "손님",
+      "korean": "목이 아프고 콧물이 나요.",
+      "meaning": "Minha garganta dói e estou com coriza."
+    },
+    {
+      "who": "약사",
+      "korean": "언제부터 그러셨어요?",
+      "meaning": "Desde quando está assim?"
+    },
+    {
+      "who": "손님",
+      "korean": "어제부터요.",
+      "meaning": "Desde ontem."
+    },
+    {
+      "who": "약사",
+      "korean": "다른 약 드시는 거 있어요?",
+      "meaning": "Você está tomando algum outro remédio?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "Não, não estou."
+    },
+    {
+      "who": "약사",
+      "korean": "그럼 이 감기약 드세요. 하루 세 번, 한 번에 한 알씩 식후에 드세요.",
+      "meaning": "Então tome este remédio para resfriado. Tome um comprimido de cada vez, três vezes ao dia, depois das refeições."
+    },
+    {
+      "who": "손님",
+      "korean": "밥 먹고 먹으면 돼요?",
+      "meaning": "Então eu tomo depois de comer?"
+    },
+    {
+      "who": "약사",
+      "korean": "네, 맞아요. 식사하시고 드세요.",
+      "meaning": "Sim, isso mesmo. Tome depois de comer."
+    }
+  ],
+  "words": [
+    {
+      "korean": "불편하다",
+      "roman": "bulpyeonhada",
+      "meaning": "sentir-se mal (em alguma parte do corpo)",
+      "example": "속이 좀 불편해요.",
+      "exampleMeaning": "Meu estômago está um pouco embrulhado."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "coriza",
+      "example": "콧물이 계속 나요.",
+      "exampleMeaning": "Meu nariz não para de escorrer."
+    },
+    {
+      "korean": "기침",
+      "roman": "gichim",
+      "meaning": "tosse",
+      "example": "밤에 기침을 많이 해요.",
+      "exampleMeaning": "Eu tusso muito à noite."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "remédio para resfriado",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Você poderia me dar um remédio para resfriado?"
+    },
+    {
+      "korean": "하루 세 번",
+      "roman": "haru se beon",
+      "meaning": "três vezes ao dia",
+      "example": "하루 세 번 드시면 돼요.",
+      "exampleMeaning": "É só tomar três vezes ao dia."
+    },
+    {
+      "korean": "식후",
+      "roman": "sikhu",
+      "meaning": "depois da refeição",
+      "example": "이 약은 꼭 식후에 드세요.",
+      "exampleMeaning": "Não deixe de tomar esse remédio depois de comer."
+    },
+    {
+      "korean": "알",
+      "roman": "al",
+      "meaning": "comprimido (classificador para comprimidos)",
+      "example": "한 번에 두 알씩 드세요.",
+      "exampleMeaning": "Tome dois comprimidos de cada vez."
+    },
+    {
+      "korean": "그저께",
+      "roman": "geujeokke",
+      "meaning": "anteontem",
+      "example": "그저께 병원에 갔어요.",
+      "exampleMeaning": "Fui ao médico anteontem."
+    }
+  ],
+  "category": "reallife"
+}

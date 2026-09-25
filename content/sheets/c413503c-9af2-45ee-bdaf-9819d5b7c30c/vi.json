@@ -1,0 +1,135 @@
+{
+  "title": "약국에서 감기약 사기",
+  "keyword": "약국에서 감기약 사기",
+  "summary": "Một khách hàng bị cảm mô tả triệu chứng của mình tại một hiệu thuốc Hàn Quốc và mua thuốc cảm mà không cần đơn thuốc.",
+  "objective": "Người học có thể nói về triệu chứng ('-이/가 아파요', '-이/가 나요'), hiểu hướng dẫn liều dùng (하루 ~ 번, 한 번에 ~ 알씩, 식후에), và xác nhận lại bằng '~ 먹으면 돼요?'",
+  "level": "Sơ cấp (cao)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Dược sĩ nói: '하루 두 번, 한 번에 한 알씩 드세요.' Một ngày bạn uống bao nhiêu viên? Trả lời bằng tiếng Anh hoặc tiếng Hàn.",
+    "Bạn bị đau họng và ho. Hãy trả lời câu hỏi của dược sĩ '어디가 불편하세요?' bằng một câu. Nối hai triệu chứng bằng '-고'.",
+    "Dược sĩ hỏi '언제부터 그러셨어요?' Triệu chứng của bạn bắt đầu từ hôm kia. Hãy trả lời ngắn gọn, kết thúc bằng '-부터요'.",
+    "Hãy viết hướng dẫn này bằng tiếng Hàn theo cách một dược sĩ sẽ nói: 'Uống ngày hai lần, sau bữa ăn.'",
+    "Bạn nghĩ dược sĩ đã nói uống mỗi lần hai viên, nhưng bạn không chắc chắn. Hãy đặt câu hỏi để xác nhận lại. Kết thúc câu hỏi bằng '먹으면 돼요?', giống như khách hàng đã làm trong đoạn hội thoại."
+  ],
+  "answers": [
+    "두 알 (2 viên)",
+    "목이 아프고 기침이 나요. (목이 아프고 기침도 나요. / 목이 아프고 기침을 해요.)",
+    "그저께부터요. (그제부터요.)",
+    "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)",
+    "한 번에 두 알씩 먹으면 돼요? (한 번에 두 알 먹으면 돼요?)"
+  ],
+  "checkThese": [],
+  "setting": "Một hiệu thuốc (약국) trong khu phố ở Hàn Quốc, vào một ngày trong tuần. Một khách hàng bị cảm đến mua thuốc mà không cần đơn thuốc.",
+  "dialogue": [
+    {
+      "who": "약사",
+      "korean": "어서 오세요. 어디가 불편하세요?",
+      "meaning": "Xin chào. Anh/chị bị sao vậy?"
+    },
+    {
+      "who": "손님",
+      "korean": "목이 아프고 콧물이 나요.",
+      "meaning": "Tôi bị đau họng và sổ mũi."
+    },
+    {
+      "who": "약사",
+      "korean": "언제부터 그러셨어요?",
+      "meaning": "Bị như vậy từ khi nào vậy?"
+    },
+    {
+      "who": "손님",
+      "korean": "어제부터요.",
+      "meaning": "Từ hôm qua."
+    },
+    {
+      "who": "약사",
+      "korean": "다른 약 드시는 거 있어요?",
+      "meaning": "Anh/chị có đang uống thuốc nào khác không?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "Không, tôi không có uống."
+    },
+    {
+      "who": "약사",
+      "korean": "그럼 이 감기약 드세요. 하루 세 번, 한 번에 한 알씩 식후에 드세요.",
+      "meaning": "Vậy thì uống thuốc cảm này nhé. Mỗi lần uống một viên, ngày ba lần, sau bữa ăn."
+    },
+    {
+      "who": "손님",
+      "korean": "밥 먹고 먹으면 돼요?",
+      "meaning": "Vậy là tôi uống sau khi ăn phải không?"
+    },
+    {
+      "who": "약사",
+      "korean": "네, 맞아요. 식사하시고 드세요.",
+      "meaning": "Vâng, đúng rồi. Hãy uống sau khi ăn."
+    }
+  ],
+  "words": [
+    {
+      "korean": "불편하다",
+      "roman": "bulpyeonhada",
+      "meaning": "cảm thấy khó chịu (ở một bộ phận cơ thể)",
+      "example": "속이 좀 불편해요.",
+      "exampleMeaning": "Bụng tôi hơi khó chịu."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "sổ mũi",
+      "example": "콧물이 계속 나요.",
+      "exampleMeaning": "Mũi tôi cứ chảy nước hoài."
+    },
+    {
+      "korean": "기침",
+      "roman": "gichim",
+      "meaning": "ho",
+      "example": "밤에 기침을 많이 해요.",
+      "exampleMeaning": "Tôi ho nhiều vào ban đêm."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "thuốc cảm",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Cho tôi xin thuốc cảm được không?"
+    },
+    {
+      "korean": "하루 세 번",
+      "roman": "haru se beon",
+      "meaning": "ba lần một ngày",
+      "example": "하루 세 번 드시면 돼요.",
+      "exampleMeaning": "Bạn chỉ cần uống ba lần một ngày."
+    },
+    {
+      "korean": "식후",
+      "roman": "sikhu",
+      "meaning": "sau bữa ăn",
+      "example": "이 약은 꼭 식후에 드세요.",
+      "exampleMeaning": "Nhớ uống thuốc này sau khi ăn nhé."
+    },
+    {
+      "korean": "알",
+      "roman": "al",
+      "meaning": "viên (đơn vị đếm thuốc)",
+      "example": "한 번에 두 알씩 드세요.",
+      "exampleMeaning": "Mỗi lần uống hai viên."
+    },
+    {
+      "korean": "그저께",
+      "roman": "geujeokke",
+      "meaning": "hôm kia",
+      "example": "그저께 병원에 갔어요.",
+      "exampleMeaning": "Hôm kia tôi đã đi khám bác sĩ."
+    }
+  ],
+  "category": "reallife"
+}

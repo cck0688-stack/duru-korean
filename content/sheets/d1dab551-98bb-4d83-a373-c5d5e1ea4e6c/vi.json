@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "할인",
+    "시식",
+    "1+1(원 플러스 원), 유통기한",
+    "카트, 장바구니",
+    "계산대, 셀프 계산대",
+    "봉투, 적립"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Điền vào chỗ trống. (Hôm nay các mặt hàng rẻ hơn.) 오늘 우유를 ______해요.",
+    "Điền vào chỗ trống. (Bạn đã ăn thử món ăn miễn phí trong cửa hàng.) ______ 코너에서 김치를 먹어 봤어요.",
+    "Điền vào cả hai chỗ trống. (Bạn hỏi nhân viên xem mua một có được tặng một không. Sau đó bạn kiểm tra ngày trên bao bì.) 이 요구르트 ______이에요? 아, 그런데 ______이 내일까지네요.",
+    "Điền vào cả hai chỗ trống. (Đầu tiên bạn mua nhiều đồ nên cần thứ có bánh xe. Sau đó bạn chỉ mua sữa nên xách thứ nhẹ bằng tay.) 오늘은 살 게 많아요. ______를 가져올게요. 우유만 사요. ______만 들고 가요.",
+    "Điền vào cả hai chỗ trống. (Hàng chờ ở quầy có thu ngân quá dài, nên bạn tự quét mã và thanh toán.) ______에 줄이 너무 길어요. 우리는 ______에서 계산해요.",
+    "Điền vào cả hai chỗ trống trong đoạn hội thoại tại quầy thanh toán này. 직원: ______ 필요하세요? 손님: 아니요, 괜찮아요. 포인트 ______해 주세요."
+  ],
+  "keyword": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "level": "Sơ cấp",
+  "minutes": 15,
+  "objective": "Người học có thể nhận biết và sử dụng 10 từ vựng quan trọng về siêu thị (장바구니, 카트, 계산대, 셀프 계산대, 봉투, 할인, 1+1[원 플러스 원], 유통기한, 시식, 적립) trong các câu ngắn, tự nhiên để tìm đồ, kiểm tra giá cả và ngày tháng, và thanh toán tại quầy tính tiền. Ví dụ: '봉투 필요 없어요.', '이거 1+1이에요?', '포인트 적립해 주세요.'",
+  "summary": "Mười từ vựng thường dùng khi đi siêu thị ở Hàn Quốc. Người học sẽ cầm giỏ hoặc đẩy xe đẩy, tìm hàng giảm giá, các chương trình mua 1 tặng 1 và hàng dùng thử miễn phí, kiểm tra hạn sử dụng, rồi thanh toán tại quầy thu ngân hoặc quầy tự thanh toán, từ chối lấy túi và yêu cầu tích điểm. Sáu bài tập sẽ luyện tập cả mười từ mục tiêu này.",
+  "tags": [],
+  "task": null,
+  "title": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "words": [
+    {
+      "korean": "장바구니",
+      "roman": "jangbaguni",
+      "meaning": "giỏ đi chợ/siêu thị (xách bằng tay trong cửa hàng); cũng có thể là túi mua sắm dùng nhiều lần",
+      "example": "장바구니는 입구에 있어요.",
+      "exampleMeaning": "Giỏ mua hàng để ở lối vào."
+    },
+    {
+      "korean": "카트",
+      "roman": "kateu",
+      "meaning": "xe đẩy mua sắm (có bánh xe)",
+      "example": "카트 좀 밀어 줄래요?",
+      "exampleMeaning": "Bạn đẩy giúp mình cái xe đẩy được không?"
+    },
+    {
+      "korean": "계산대",
+      "roman": "gyesandae",
+      "meaning": "quầy thu ngân (nơi nhân viên tính tiền cho bạn)",
+      "example": "계산대가 어디예요?",
+      "exampleMeaning": "Quầy thanh toán ở đâu vậy?"
+    },
+    {
+      "korean": "셀프 계산대",
+      "roman": "selpeu gyesandae",
+      "meaning": "quầy tự thanh toán",
+      "example": "셀프 계산대에서는 바코드를 직접 찍어요.",
+      "exampleMeaning": "Ở quầy tự thanh toán, bạn tự quét mã vạch."
+    },
+    {
+      "korean": "봉투",
+      "roman": "bongtu",
+      "meaning": "túi được đưa tại quầy thanh toán (túi nhựa hoặc túi giấy)",
+      "example": "봉투 필요 없어요.",
+      "exampleMeaning": "Tôi không cần túi đâu."
+    },
+    {
+      "korean": "할인",
+      "roman": "harin",
+      "meaning": "giảm giá, khuyến mãi (giá thấp hơn bình thường)",
+      "example": "이 과자 지금 할인 중이에요.",
+      "exampleMeaning": "Món snack này đang được giảm giá."
+    },
+    {
+      "korean": "1+1 (원 플러스 원)",
+      "roman": "won peulleoseu won",
+      "meaning": "mua một tặng một",
+      "example": "이거 1+1이에요?",
+      "exampleMeaning": "Cái này có phải mua 1 tặng 1 không?"
+    },
+    {
+      "korean": "유통기한",
+      "roman": "yutonggihan",
+      "meaning": "hạn sử dụng (ngày được in trên thực phẩm)",
+      "example": "이 두부는 유통기한이 지났어요.",
+      "exampleMeaning": "Đậu phụ này đã hết hạn sử dụng rồi."
+    },
+    {
+      "korean": "시식",
+      "roman": "sisik",
+      "meaning": "hàng dùng thử miễn phí, nếm thử (thức ăn được mời dùng thử trong cửa hàng)",
+      "example": "만두 시식해 보세요!",
+      "exampleMeaning": "Hãy thử món bánh xếp (mandu) miễn phí nhé!"
+    },
+    {
+      "korean": "적립",
+      "roman": "jeongnip",
+      "meaning": "tích điểm (điểm thưởng của thẻ thành viên cửa hàng)",
+      "example": "포인트 적립해 주세요.",
+      "exampleMeaning": "Vui lòng tích điểm vào tài khoản của tôi."
+    }
+  ],
+  "category": "vocab"
+}

@@ -1,0 +1,110 @@
+{
+  "title": "-(으)ㄹ게요와 -(으)ㄹ 거예요: 약속할 때와 계획을 말할 때",
+  "keyword": "-(으)ㄹ게요",
+  "summary": "-(으)ㄹ게요 und -(으)ㄹ 거예요 bedeuten beide „ich werde“, aber -(으)ㄹ게요 wird nur für ein Versprechen oder eine Entscheidung verwendet, die als Reaktion auf den Zuhörer getroffen wird. Verwende -(으)ㄹ 거예요 für berichtete Pläne, die Pläne anderer Personen und für Fragen.",
+  "objective": "Die Lernenden können -(으)ㄹ게요 korrekt bilden (geschrieben mit 게, nicht 께) und zwischen -(으)ㄹ게요 und -(으)ㄹ 거예요 wählen.",
+  "level": "Anfänger (Oberstufe)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Setze das Verb in Klammern in die -(으)ㄹ게요-Form. (a) 천천히 오세요. 제가 여기서 ( 기다리다 ). (b) 택배는 제가 ( 받다 ). (c) 요리하는 동안 제가 아이들하고 ( 놀다 ).",
+    "Setze beide Verben in die -(으)ㄹ게요-Form. 싣다 = laden, 줍다 = aufheben. A: 캠핑 끝났네요. 짐도 많고 바닥에 쓰레기도 있어요. B: 짐은 제가 차에 ( 싣다 ). 쓰레기도 제가 ( 줍다 ).",
+    "Ein Wort in B's Antwort ist falsch geschrieben. Finde es und korrigiere es. A: 밖에 바람이 많이 불어요. B: 그럼 두꺼운 코트를 입을께요.",
+    "Wähle die natürliche Antwort in jedem Dialog. (a) A: 동생은 방학에 뭐 해요? B: 동생은 수영을 ( 배울게요 / 배울 거예요 ). (b) A: 내일 몇 시에 ( 출발할게요 / 출발할 거예요 )? B: 아침 8시요.",
+    "Wähle die natürliche Antwort für jede Lücke. A: 이번 주말에 뭐 해요? B: 친구하고 영화를 ( 볼게요 / 볼 거예요 ). A: 아, 저도 그 영화 보고 싶었어요! B: 그래요? 그럼 같이 봐요. 표는 제가 ( 예매할게요 / 예매할 거예요 )."
+  ],
+  "answers": [
+    "(a) 기다릴게요 (b) 받을게요 (✗ 발을게요. 받다 ist ein regelmäßiges Verb.) (c) 놀게요 (✗ 놀을게요)",
+    "실을게요 / 주울게요",
+    "입을께요 → 입을게요 (Es wird [이블께요] ausgesprochen, aber immer mit 게 geschrieben.)",
+    "(a) 배울 거예요 (Das Subjekt ist eine dritte Person, 동생.) (b) 출발할 거예요 (Es ist eine Frage.)",
+    "볼 거예요 / 예매할게요 (Das erste ist ein Plan, den B einfach mitteilt. Das zweite ist ein Versprechen, das B macht, nachdem er gehört hat, was A gesagt hat.)"
+  ],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "-ㄹ게요 (Stamm ohne 받침)",
+      "when": "Der Verbstamm endet auf einen Vokal.",
+      "means": "Ein Versprechen oder eine Entscheidung, die der Sprecher dem Zuhörer gegenüber macht, z. B. 연락하다 → 연락할게요, 가다 → 갈게요",
+      "example": "내일 다시 연락할게요.",
+      "exampleMeaning": "Ich melde mich morgen bei dir.",
+      "mark": [
+        "연락할게요"
+      ]
+    },
+    {
+      "form": "-을게요 (Stamm mit 받침)",
+      "when": "Der Verbstamm endet auf einen Konsonanten (받침), der nicht ㄹ ist.",
+      "means": "Die gleiche Bedeutung. Füge 을 hinzu und ändere den Stamm nicht, z. B. 먹다 → 먹을게요, 닫다 → 닫을게요, 잡다 → 잡을게요",
+      "example": "A: 음식이 좀 남았네요. B: 남은 건 제가 먹을게요.",
+      "exampleMeaning": "A: Es ist noch etwas Essen übrig. B: Ich esse den Rest.",
+      "mark": [
+        "먹을게요"
+      ]
+    },
+    {
+      "form": "ㄹ-Stamm + -게요",
+      "when": "Der Verbstamm endet auf ㄹ.",
+      "means": "Behalte das ㄹ und füge nur 게요 hinzu. Füge kein 을 hinzu, z. B. 만들다 → 만들게요 (✗ 만들을게요), 열다 → 열게요",
+      "example": "오늘 저녁은 제가 만들게요.",
+      "exampleMeaning": "Ich mache heute Abend das Abendessen.",
+      "mark": [
+        "만들게요"
+      ]
+    },
+    {
+      "form": "ㄷ-unregelmäßig: ㄷ → ㄹ + -을게요",
+      "when": "Das Verb ist ein ㄷ-unregelmäßiges Verb, wie 걷다 oder 묻다 (fragen).",
+      "means": "Das ㄷ wird vor 을 zu ㄹ, z. B. 걷다 → 걸을게요, 묻다 → 물을게요",
+      "example": "A: 택시 부를까요? B: 아니요, 가까우니까 걸을게요.",
+      "exampleMeaning": "A: Soll ich ein Taxi rufen? B: Nein, es ist nah, ich gehe zu Fuß.",
+      "mark": [
+        "걸을게요"
+      ]
+    },
+    {
+      "form": "ㅂ-unregelmäßig: ㅂ → 우 + -ㄹ게요",
+      "when": "Das Verb ist ein ㅂ-unregelmäßiges Verb, wie 돕다 oder 굽다.",
+      "means": "Das ㅂ fällt weg, 우 wird hinzugefügt, dann ㄹ게요, z. B. 돕다 → 도울게요",
+      "example": "이사할 때 제가 도울게요.",
+      "exampleMeaning": "Ich helfe dir beim Umzug.",
+      "mark": [
+        "도울게요"
+      ]
+    },
+    {
+      "form": "-(으)ㄹ 거예요 (Gegensatz)",
+      "when": "Verwende dies für die Pläne anderer Personen, für Fragen und für eigene Pläne, die nichts mit dem Zuhörer zu tun haben.",
+      "means": "Ein Plan oder eine Absicht, die du einfach mitteilst. Es ist kein Versprechen an den Zuhörer.",
+      "example": "A: 주말에 뭐 해요? B: 집에서 쉴 거예요.",
+      "exampleMeaning": "A: Was machst du dieses Wochenende? B: Ich werde mich zu Hause ausruhen.",
+      "mark": [
+        "쉴 거예요"
+      ]
+    }
+  ],
+  "watchOut": [
+    "Verwende -(으)ㄹ게요 nicht, wenn das Subjekt eine andere Person ist. Es dient nur für dein eigenes Versprechen. ✗ 지수 씨가 이따가 전화할게요. → ✓ 지수 씨가 이따가 전화할 거예요.",
+    "Verwende -(으)ㄹ게요 nicht in Fragen. ✗ 일을 언제 끝낼게요? → ✓ 언제 끝낼 거예요?",
+    "Es wird [께요] ausgesprochen, aber 게요 geschrieben. ✗ 할께요 → ✓ 할게요"
+  ],
+  "watchOutMark": [
+    [
+      "전화할게요",
+      "전화할 거예요"
+    ],
+    [
+      "끝낼게요",
+      "끝낼 거예요"
+    ],
+    [
+      "할께요",
+      "할게요"
+    ]
+  ],
+  "category": "grammar"
+}

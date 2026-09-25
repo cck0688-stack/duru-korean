@@ -1,0 +1,82 @@
+{
+  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
+  "keyword": "영업시간",
+  "summary": "Learn 8 labels on Korean shop-hours signs, then use three sample signs to decide if you can visit or order at a given time.",
+  "objective": "Learners will read a shop-hours sign and say whether the shop is open, or still taking orders, at a given day and time.",
+  "level": "Intermediate (low)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Answer in Korean (yes/no and why): [안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+    "Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+    "Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+    "Answer in Korean (yes/no and why): [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+    "Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+    "Answer in Korean (yes/no and why): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+  ],
+  "answers": [
+    "아니요. 월요일은 정기휴무예요. (No. Monday is the regular day off.)",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (No. It's the break time, 15:00–16:30.)",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (No. Orders close at 19:30. The shop is open until 20:00, but you can't order.)",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Yes. Weekend hours run until 22:00, and last order is at 21:30.)",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (No. It closes on public holidays, even if the holiday falls on a weekday.)",
+    "네. 24시간 영업, 연중무휴예요. (Yes. It's open 24 hours, every day of the year.)"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "1. 안내판에 자주 나오는 말 8개 (8 SIGN LABELS)",
+      "paragraphs": [
+        "영업시간 (yeongeop sigan): the hours the shop is open for business.",
+        "정기휴무 (jeonggi hyumu): the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday).",
+        "브레이크 타임 (beureikeu taim): a break in the middle of the day, usually between lunch and dinner. The door is closed and you can't come in.",
+        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): the last time you can order. The shop is still open, but it won't take new orders.",
+        "연중무휴 (yeonjung muhyu): open every day of the year, with no regular day off.",
+        "24시간 영업 (isipsa sigan yeongeop): open all day and all night.",
+        "공휴일 휴무 (gonghyuil hyumu): closed on public holidays.",
+        "평일 (pyeongil) / 주말 (jumal): weekdays (Monday–Friday) and the weekend (Saturday–Sunday). Many shops have different hours for each."
+      ]
+    },
+    {
+      "heading": "2. 안내판 읽는 순서 (HOW TO CHECK: 4 STEPS)",
+      "paragraphs": [
+        "① 요일 확인: Is that day a 휴무 (day off)? Check 정기휴무 and 공휴일 휴무.",
+        "② 평일/주말 확인: Which hours apply, the weekday hours or the weekend hours?",
+        "③ 시간 확인: Most signs use the 24-hour clock. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Is your time between the opening time and the closing time? Also check whether it falls during the 브레이크 타임.",
+        "④ 주문 확인: If you want to eat or order, check the 라스트 오더 (주문 마감) time too. 마감 30분 전 means '30 minutes before closing'."
+      ]
+    },
+    {
+      "heading": "3. 안내판 1: 카페 하루",
+      "paragraphs": [
+        "영업시간",
+        "평일 10:00 ~ 21:00",
+        "주말 11:00 ~ 22:00",
+        "라스트 오더: 마감 30분 전",
+        "정기휴무: 매주 월요일 휴무"
+      ]
+    },
+    {
+      "heading": "4. 안내판 2: 엄마손 칼국수",
+      "paragraphs": [
+        "영업시간 11:00 ~ 20:00",
+        "브레이크 타임 15:00 ~ 16:30",
+        "주문 마감 19:30",
+        "매주 일요일 휴무 · 공휴일 휴무"
+      ]
+    },
+    {
+      "heading": "5. 안내판 3: 우리동네 편의점",
+      "paragraphs": [
+        "24시간 영업",
+        "연중무휴"
+      ]
+    }
+  ],
+  "note": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분).",
+  "category": "etc"
+}

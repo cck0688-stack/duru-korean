@@ -1,0 +1,94 @@
+{
+  "title": "버스 도착 안내판 읽기: 몇 분 후에 와요? 몇 번째 전이에요?",
+  "keyword": "버스 도착 안내판",
+  "summary": "Anna xem bảng thông báo giờ xe buýt đến để chọn xe đến lớp học 10 giờ của mình; sau đó người học cũng xem bảng thông báo và tự chọn xe buýt cho mình.",
+  "objective": "Người học có thể đọc được bảng thông báo giờ xe buýt đến bằng tiếng Hàn (hướng đi, thời gian đến, số trạm còn lại, trạng thái như 출발 대기 và 운행 종료) và dùng nó để chọn xe buýt.",
+  "level": "Sơ cấp (cao)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Hãy xem bảng thông báo trong câu chuyện. Xe buýt số 305 còn bao nhiêu phút nữa thì đến, và hiện đang còn cách bao nhiêu trạm? Trả lời bằng tiếng Hàn.",
+    "Hãy nối mỗi nhãn với nghĩa của nó: 출발 대기 / 운행 종료 / 곧 도착 / 전 정류장 출발. (a) 오늘은(지금은) 버스가 더 오지 않아요. (b) 버스가 아직 차고지에서 출발하지 않았어요. (c) 버스가 바로 앞 정류장을 떠났어요. (d) 버스가 금방 와요.",
+    "Hãy viết O nếu câu đúng và X nếu câu sai, sau đó nêu lý do bằng tiếng Hàn: 안나 씨는 101번을 타면 한국대학교에 갈 수 있어요.",
+    "Vì sao Anna không đợi xe buýt số 62? Hãy trả lời bằng tiếng Hàn, dùng nhãn hiển thị trên bảng thông báo.",
+    "Bạn muốn đi đến 시청역. Hãy xem bảng thông báo mới này và chọn xe buýt cho mình. Nêu lý do bằng tiếng Hàn. [버스 도착 안내] 14번 (시청역 방면) — 12분 후 도착 [6번째 전] / 27번 (시청역 방면) — 3분 후 도착 [2번째 전] / 41번 (시청역 방면) — 운행 종료 / 88번 (시장 방면) — 곧 도착"
+  ],
+  "answers": [
+    "7분 후에 도착해요. 지금 세 정류장 전에 있어요. (3번째 전이에요.)",
+    "출발 대기 – (b), 운행 종료 – (a), 곧 도착 – (d), 전 정류장 출발 – (c)",
+    "X – 101번은 시청역 방면이에요. 한국대학교에 가지 않아요.",
+    "62번은 '출발 대기'예요. 아직 차고지에서 출발하지 않아서 오래 기다려야 해요.",
+    "27번을 타요. 시청역 방면이고 3분 후에 도착해요. (2번째 전이에요. 14번은 12분 뒤에 오고, 41번은 운행 종료이고, 88번은 시장 방면이에요.)"
+  ],
+  "checkThese": [],
+  "passage": [
+    "아침 9시 반이에요. 안나 씨는 집 앞 버스 정류장에 서 있어요. 오늘 10시에 한국대학교에서 수업이 있어요. 한국대학교에 가는 버스는 305번과 62번이에요. 안나 씨는 정류장에 있는 버스 도착 안내판을 봤어요.",
+    "[버스 도착 안내] 101번 (시청역 방면) — 곧 도착 / 520번 (시청역 방면) — 2분 후 도착 [전 정류장 출발] / 305번 (한국대학교 방면) — 7분 후 도착 [3번째 전] / 62번 (한국대학교 방면) — 출발 대기 / N30번 (시청역 방면) — 운행 종료",
+    "안나 씨는 먼저 62번을 찾았어요. 그런데 '출발 대기'라고 쓰여 있었어요. 버스가 아직 차고지에서 출발하지 않았다는 뜻이에요. 그래서 62번은 오래 기다려야 해요. 305번 옆에는 '7분 후 도착'이 있고, '3번째 전'도 있었어요. 버스가 지금 세 정류장 전에 있다는 뜻이에요.",
+    "그때 101번 버스가 왔어요. 안나 씨는 타고 싶었지만 101번은 시청역 방면이에요. 한국대학교에는 가지 않아요. 520번도 '전 정류장 출발'이라서 금방 와요. 하지만 이 버스도 시청역 방면이에요. N30번은 밤에만 다니는 심야버스예요. 그래서 지금은 '운행 종료'예요.",
+    "안나 씨는 305번을 기다리기로 했어요. 7분 후에 타면 수업에 늦지 않아요."
+  ],
+  "words": [
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "bảng thông tin (ở đây là bảng điện tử hiển thị các xe buýt sắp đến)",
+      "example": "안내판에 버스 번호가 나와요.",
+      "exampleMeaning": "Số hiệu xe buýt được hiển thị trên bảng thông báo."
+    },
+    {
+      "korean": "방면",
+      "roman": "bangmyeon",
+      "meaning": "về hướng, theo hướng (cho biết xe buýt đang đi về đâu)",
+      "example": "이 버스는 서울역 방면이에요.",
+      "exampleMeaning": "Xe buýt này đang đi về hướng Ga Seoul."
+    },
+    {
+      "korean": "곧",
+      "roman": "got",
+      "meaning": "sắp đến ngay, gần đến rồi",
+      "example": "잠깐만요, 버스가 곧 와요.",
+      "exampleMeaning": "Chờ một chút, xe buýt sắp đến rồi."
+    },
+    {
+      "korean": "번째 전",
+      "roman": "beonjjae jeon",
+      "meaning": "số trạm còn lại (○번째 전 = xe buýt còn cách đây ○ trạm nữa)",
+      "example": "제가 탈 버스는 지금 2번째 전이에요.",
+      "exampleMeaning": "Xe buýt tôi định đi giờ còn cách đây hai trạm nữa."
+    },
+    {
+      "korean": "전 정류장",
+      "roman": "jeon jeongnyujang",
+      "meaning": "trạm ngay trước trạm này",
+      "example": "버스가 전 정류장에서 출발했어요.",
+      "exampleMeaning": "Xe buýt đã xuất phát từ trạm ngay trước trạm này."
+    },
+    {
+      "korean": "출발 대기",
+      "roman": "chulbal daegi",
+      "meaning": "đang chờ xuất phát (xe buýt chưa rời khỏi bến xe)",
+      "example": "62번은 아직 출발 대기라서 한참 기다려야 해요.",
+      "exampleMeaning": "Xe buýt số 62 vẫn chưa xuất phát, nên chúng ta sẽ phải chờ lâu."
+    },
+    {
+      "korean": "차고지",
+      "roman": "chagoji",
+      "meaning": "bến xe, nơi xe buýt bắt đầu tuyến đường của mình",
+      "example": "첫차는 새벽에 차고지에서 나와요.",
+      "exampleMeaning": "Chuyến xe buýt đầu tiên xuất phát từ bến xe vào sáng sớm."
+    },
+    {
+      "korean": "운행 종료",
+      "roman": "unhaeng jongnyo",
+      "meaning": "đã kết thúc chuyến (xe buýt này không còn chạy nữa trong hôm nay, hoặc tạm thời không chạy)",
+      "example": "벌써 운행 종료예요? 택시를 타야겠어요.",
+      "exampleMeaning": "Đã hết chuyến rồi sao? Vậy tôi phải đi taxi thôi."
+    }
+  ],
+  "category": "reading"
+}

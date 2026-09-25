@@ -1,0 +1,80 @@
+{
+  "answers": [
+    "① 에 ② 에서 ③ 에",
+    "① 에 ② 에서",
+    "① 주말에 공원에서 사진을 찍어요. ② 내일 시장에 가요.",
+    "① 카페에서 친구를 만나요. ② 동생이 방에 있어요. ③ 형이 회사에 다녀요.",
+    "① 우리 집에 놀러 오세요. ② 교실에 사람이 없어요."
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Fill in each blank with 에 or 에서: ① 저는 백화점( ) 가요. ② 오늘 식당( ) 점심을 먹어요. ③ 우리는 3시에 서울역( ) 도착해요.",
+    "Fill in each blank with 에 or 에서: ① 고양이가 소파( ) 있어요. ② 지훈 씨가 회사( ) 일해요.",
+    "Correct the wrong particle and rewrite each sentence: ① 주말에 공원에 사진을 찍어요. ② 내일 시장에서 가요.",
+    "Make a sentence in the 해요 style, adding 에 or 에서 after the place (e.g. 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.): ① 카페 / 친구를 만나다 ② 동생이 / 방 / 있다 ③ 형이 / 회사 / 다니다",
+    "Choose the correct sentence in each pair and write it: ① a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. ② a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
+  ],
+  "forms": [
+    {
+      "form": "N에 (destination)",
+      "when": "With motion/arrival verbs such as 가다, 오다, 다니다, 도착하다 after place nouns.",
+      "means": "to (destination)",
+      "example": "학교에 가요.",
+      "exampleMeaning": "I go to school.",
+      "mark": [
+        "학교에"
+      ]
+    },
+    {
+      "form": "N에 (existence)",
+      "when": "With existence verbs such as 있다/없다 after place nouns.",
+      "means": "at/in (existence; being/staying)",
+      "example": "저는 집에 있어요.",
+      "exampleMeaning": "I’m at home.",
+      "mark": [
+        "집에"
+      ]
+    },
+    {
+      "form": "N에서",
+      "when": "With activity verbs such as 공부하다, 일하다, 운동하다, 만나다, 먹다 after place nouns.",
+      "means": "at (place where an action happens)",
+      "example": "도서관에서 공부해요.",
+      "exampleMeaning": "I study at the library.",
+      "mark": [
+        "도서관에서"
+      ]
+    }
+  ],
+  "keyword": "장소 조사 ‘에’ vs ‘에서’",
+  "level": "Beginner (high)",
+  "minutes": 15,
+  "objective": "Learners can use 에 with motion and existence verbs (가다, 오다, 다니다, 도착하다, 있다) and 에서 with activity verbs (먹다, 공부하다, 일하다, 운동하다), and fix common errors such as 학교에서 다녀요 (X) → 학교에 다녀요 (O).",
+  "summary": "Choose the right location particle: 에 for where you go or where something is (가다, 오다, 다니다, 도착하다, 있다), 에서 for where an action happens (공부하다, 일하다, 만나다, 먹다). Includes fixing common mistakes.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "장소 조사 ‘에’ vs ‘에서’ 바로 쓰기",
+  "watchOut": [
+    "학교에서 다녀요(X) → 학교에 다녀요(O): To mark the destination of 가다/오다/다니다/도착하다, use 에 (with 가다/오다, 에서 means 'from', not 'to').",
+    "도서관에 공부해요(X) → 도서관에서 공부해요(O): Use 에서 for the place where an action such as 공부하다/일하다/운동하다/만나다/먹다 happens.",
+    "집에서 있어요(X) → 집에 있어요(O): Use 에 with 있다/없다 for where someone or something is."
+  ],
+  "watchOutMark": [
+    [
+      "학교에서",
+      "학교에"
+    ],
+    [
+      "도서관에",
+      "도서관에서"
+    ],
+    [
+      "집에서",
+      "집에"
+    ]
+  ],
+  "category": "grammar"
+}

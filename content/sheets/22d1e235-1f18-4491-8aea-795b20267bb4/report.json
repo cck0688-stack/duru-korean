@@ -1,0 +1,348 @@
+{
+  "id": "22d1e235-1f18-4491-8aea-795b20267bb4",
+  "title": "장소 조사 ‘에’ vs ‘에서’ 바로 쓰기",
+  "category": "grammar",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "문제 3번 「은행 / 가다」 → 정답 「은행에 가요」: 1번 「백화점에 가요」, 2번 「시장에 가요」와 같은 「N에 가요」 틀이 세 번째로 되풀이되어 학습지가 얇아집니다. 게다가 학습 목표와 주의할 점 1번이 대표 오류로 내세운 「학교에서 다녀요(X) → 학교에 다녀요(O)」의 「다니다」를 연습하는 문제가 하나도 없습니다. 3번 항목을 「형이 / 회사 / 다니다」로 바꾸고 정답을 「형이 회사에 다녀요.」로 고치세요. 또는 2번의 「내일 시장에서 가요.」를 「동생이 학교에서 다녀요.」로 바꾸고 정답을 「동생이 학교에 다녀요.」로 고치세요."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Exercise 2, answer 2, and watchOut item 1: \"학교에서 가요\" is marked (X) as a wrong sentence. But with motion verbs, 에서 marks the starting point, so \"학교에서 가요\" (I go from school) is a correct sentence. Marking it (X) teaches learners the wrong rule. Replace it with a pair that can't be read another way, such as \"학교에서 다녀요(X) → 학교에 다녀요(O)\" or \"서울역에서 도착해요(X) → 서울역에 도착해요(O)\". Or add a note to watchOut that \"에서 + 가다/오다 = from (starting point)\".",
+        "Exercise 4, first pair: a) \"버스 정류장에서 가요.\" is also a correct sentence, meaning \"I go from the bus stop\", so only b) being the answer is wrong. The second pair is also shaky: \"집에서 있어요\" can be heard in everyday speech with the sense of \"stay at home\", although \"집에 있어요\" is the standard form. Replace both pairs with sentences where only one choice works, for example: \"a) 서울역에서 도착했어요 / b) 서울역에 도착했어요\" and \"a) 교실에 없어요 / b) 교실에서 없어요\".",
+        "forms[1] \"when\" field: the English explanation reads \"With 존재 verbs such as 있다/없다\", with the Korean word 존재 mixed in. Beginners won't know it. Change it to \"With existence verbs such as 있다/없다\".",
+        "Repetition: \"학교에 가요\", \"도서관에서 공부해요\" and \"저는 집에 있어요\" appear in the forms examples, the watchOut notes, exercise 1, exercise 2 (the same two sentences as exercise 1, items 1–2) and exercise 4, which makes the worksheet thin. The verbs 오다, 다니다, 운동하다 and 없다 are in the objective or the explanations but never in an exercise. In exercises 2 and 4, replace the repeated sentences with new ones built on those verbs, e.g. 매일 헬스장에서 운동해요 / 동생이 대학교에 다녀요 / 친구가 우리 집에 와요 / 교실에 사람이 없어요."
+      ],
+      "audit": [
+        "exercises[0] instruction: 빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. → Fill in each blank with 에 or 에서: 빈칸에 ‘에’ 또는 ‘에서’를 쓰세요.",
+        "exercises[1] instruction: 틀린 조사를 고치세요. → Correct the wrong particle and rewrite each sentence: 틀린 조사를 고치세요.",
+        "exercises[2] instruction: 알맞은 조사를 고르세요. (에 / 에서) → Choose the correct particle (에 / 에서) for each blank: 알맞은 조사를 고르세요. (에 / 에서)",
+        "exercises[3] instruction: 둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요. → Choose the correct sentence in each pair and write only that sentence: 둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요.",
+        "forms[1].when: With 존재 verbs such as 있다/없다 after place nouns. → With existence verbs such as 있다/없다 after place nouns.",
+        "watchOut[0]: 학교에서 가요(X) → 학교에 가요(O): ‘가다/오다/다니다/도착하다’에는 ‘에’를 쓴다. → 학교에서 가요(X) → 학교에 가요(O): To mark the destination of 가다/오다/다니다/도착하다, use 에 (with 가다/오다, 에서 means 'from', not 'to').",
+        "watchOut[1]: 도서관에 공부해요(X) → 도서관에서 공부해요(O): ‘공부하다/일하다/운동하다/만나다/먹다’에는 ‘에서’를 쓴다. → 도서관에 공부해요(X) → 도서관에서 공부해요(O): Use 에서 for the place where an action such as 공부하다/일하다/운동하다/만나다/먹다 happens.",
+        "watchOut[2]: ‘있다’에는 ‘에’를 쓴다: 저는 집에 있어요(O) / 집에서 있어요(X). → Use 에 with 있다 for where someone or something is: 저는 집에 있어요(O) / 집에서 있어요(X)."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercises repeat the example sentences, so learners can copy answers instead of choosing the particle. Exercise 1 item 1 '저는 학교( ) 가요' is the same as the forms example '학교에 가요'. Exercise 1 item 2 '오늘 도서관( ) 공부해요' is the same as the forms example, the objective and watchOut 2 ('도서관에서 공부해요'). Exercise 3 item 2 '아버지가 집( ) 있어요' uses the same frame as the example '저는 집에 있어요'. Fix: use new places and verbs in these items, such as '백화점에 가요', '식당에서 점심을 먹어요' and '책상 위에 책이 있어요'.",
+        "The same sentence frames repeat across exercises. '서울역에 도착' appears in both Exercise 1 item 3 ('우리는 3시에 서울역( ) 도착해요') and Exercise 4 pair 1 ('서울역에 도착했어요'). Both Exercise 2 items copy the watchOut error patterns: '헬스장에 운동해요' repeats '도서관에 공부해요(X)', and '대학교에서 다녀요' repeats '학교에서 다녀요(X)'. Fix: change the Exercise 4 pair 1 verb to something like 오다 ('a) 한국에서 왔어요 / 한국에 왔어요' would not work because both are correct, so use '집에서 와요(X for destination)' or '공항에 도착' only in one exercise), and add new error types to Exercise 2, such as '공원에 사진을 찍어요 → 공원에서 사진을 찍어요' and '시장에서 가요 → 시장에 가요'."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "연습 3번: 형식이 1번과 같은 빈칸 채우기 문제입니다('알맞은 조사를 고르세요'라고 했지만 실제로는 1번처럼 에/에서를 넣는 문제). 문장도 이미 연습한 동사(먹다, 있다, 만나다)만 반복해 학습지가 얇아집니다. 게다가 학습 목표가 내세운 핵심 오류인 '학교에서 다녀요(X) → 학교에 다녀요(O)', '도서관에 공부해요(X) → 도서관에서 공부해요(O)'와 다니다·공부하다·운동하다 동사가 어떤 문제에도 나오지 않습니다. 3번을 목표 동사가 들어간 문제로 바꾸세요. 예: 오류 수정 '저는 학교에서 다녀요. / 도서관에 공부해요. / 헬스장에 운동해요.' → 정답 '저는 학교에 다녀요. / 도서관에서 공부해요. / 헬스장에서 운동해요.'"
+      ],
+      "audit": [
+        "watchOut[2] (third item): Use 에 with 있다 for where someone or something is: 저는 집에 있어요(O) / 집에서 있어요(X). → 집에서 있어요(X) → 집에 있어요(O): Use 에 with 있다/없다 for where someone or something is.",
+        "watchOutMark[2] (third item): [\"집에\", \"집에서\"] → [\"집에서\", \"집에\"]"
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "문제 3: '학교에서 다녀요', '도서관에 공부해요'가 같은 학습지의 watchOut과 objective에 틀린 예시로 그대로 나와 있습니다. 옆에 정답(학교에 다녀요, 도서관에서 공부해요)까지 적혀 있어서 문제를 풀 필요가 없습니다. 이 두 문장은 새 낱말로 된 틀린 문장으로 바꾸세요. 예: '카페에 친구를 만나요.' → 정답 '카페에서 친구를 만나요.', '동생이 방에서 있어요.' → 정답 '동생이 방에 있어요.' answers[2]도 여기에 맞춰 고치세요.",
+        "문제 2와 문제 3이 똑같은 문제 유형입니다. 둘 다 '틀린 조사를 고쳐 문장을 다시 쓰기'이고, 문제 3의 '헬스장에 운동해요'도 '도서관에 공부해요'와 문장 틀이 같습니다. 그래서 15분 학습지가 얇아집니다. 문제 3을 다른 유형으로 바꾸세요. 예: 장소와 동사를 주고 '에/에서'를 넣어 문장을 직접 만들게 하기(도서관 / 책을 읽다 → 도서관에서 책을 읽어요). 또는 있다/없다 문장을 넣어 세 가지 쓰임을 모두 연습하게 하세요."
+      ],
+      "audit": []
+    },
+    {
+      "round": 5,
+      "mechanical": [],
+      "review": [
+        "문제 3번 「은행 / 가다」 → 정답 「은행에 가요」: 1번 「백화점에 가요」, 2번 「시장에 가요」와 같은 「N에 가요」 틀이 세 번째로 되풀이되어 학습지가 얇아집니다. 게다가 학습 목표와 주의할 점 1번이 대표 오류로 내세운 「학교에서 다녀요(X) → 학교에 다녀요(O)」의 「다니다」를 연습하는 문제가 하나도 없습니다. 3번 항목을 「형이 / 회사 / 다니다」로 바꾸고 정답을 「형이 회사에 다녀요.」로 고치세요. 또는 2번의 「내일 시장에서 가요.」를 「동생이 학교에서 다녀요.」로 바꾸고 정답을 「동생이 학교에 다녀요.」로 고치세요."
+      ],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "- 저는 학교에 가요. - 오늘 도서관에서 공부해요. - 우리는 3시에 서울역에 도착해요. - 고양이가 소파에 있어요. - 지훈 씨가 회사에서 일해요.",
+      "after": "- 저는 백화점에 가요. - 오늘 식당에서 점심을 먹어요. - 우리는 3시에 서울역에 도착해요. - 고양이가 소파에 있어요. - 지훈 씨가 회사에서 일해요."
+    },
+    {
+      "at": "answers[2]",
+      "before": "- 학교에 가요. - 도서관에서 공부해요.",
+      "after": "- 주말에 공원에서 사진을 찍어요. - 내일 시장에 가요."
+    },
+    {
+      "at": "answers[3]",
+      "before": "- 주말에 친구를 공원에서 만나요. - 아버지가 집에 있어요. - 어제 카페에서 케이크를 먹었어요.",
+      "after": "- 카페에서 친구를 만나요. - 동생이 방에 있어요. - 은행에 가요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "- 버스 정류장에 가요. - 저는 집에 있어요.",
+      "after": "- 우리 집에 놀러 오세요. - 교실에 사람이 없어요."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 학교( ) 가요. - 오늘 도서관( ) 공부해요. - 우리는 3시에 서울역( ) 도착해요. - 고양이가 소파( ) 있어요. - 지훈 씨가 회사( ) 일해요.",
+      "after": "Fill in each blank with 에 or 에서: 빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 백화점( ) 가요. - 오늘 식당( ) 점심을 먹어요. - 우리는 3시에 서울역( ) 도착해요. - 고양이가 소파( ) 있어요. - 지훈 씨가 회사( ) 일해요."
+    },
+    {
+      "at": "exercises[2]",
+      "before": "틀린 조사를 고치세요. - 학교에서 가요. - 도서관에 공부해요.",
+      "after": "Correct the wrong particle and rewrite each sentence: 틀린 조사를 고치세요. - 주말에 공원에 사진을 찍어요. - 내일 시장에서 가요."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "알맞은 조사를 고르세요. (에 / 에서) - 주말에 친구를 공원( ) 만나요. - 아버지가 집( ) 있어요. - 어제 카페( ) 케이크를 먹었어요.",
+      "after": "Make a sentence in the 해요 style using the words given, adding 에 or 에서 after the place: 주어진 낱말에 ‘에’ 또는 ‘에서’를 넣어 ‘-아요/어요’ 문장을 만드세요. (예: 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.) - 카페 / 친구를 만나다 - 동생이 / 방 / 있다 - 은행 / 가다"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요. a) 버스 정류장에서 가요. b) 버스 정류장에 가요. a) 저는 집에서 있어요. b) 저는 집에 있어요.",
+      "after": "Choose the correct sentence in each pair and write only that sentence: 둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요. a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
+    },
+    {
+      "at": "forms[2].when",
+      "before": "With 존재 verbs such as 있다/없다 after place nouns.",
+      "after": "With existence verbs such as 있다/없다 after place nouns."
+    },
+    {
+      "at": "level",
+      "before": "Beginner (A1–A2)",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "objective",
+      "before": "Learners will correctly produce short sentences using '에' with motion/existence verbs (e.g., 가다, 오다, 다니다, 도착하다, 있다) and '에서' with activity verbs (e.g., 먹다, 공부하다, 일하다, 운동하다), and self-correct frequent errors such as '학교에서 가요(X) → 학교에 가요(O)' and '도서관에 공부해요(X) → 도서관에서 공부해요(O)'.",
+      "after": "Learners will correctly produce short sentences using '에' with motion/existence verbs (e.g., 가다, 오다, 다니다, 도착하다, 있다) and '에서' with activity verbs (e.g., 먹다, 공부하다, 일하다, 운동하다), and self-correct frequent errors such as '학교에서 다녀요(X) → 학교에 다녀요(O)' and '도서관에 공부해요(X) → 도서관에서 공부해요(O)'."
+    },
+    {
+      "at": "watchOut[1]",
+      "before": "학교에서 가요(X) → 학교에 가요(O): ‘가다/오다/다니다/도착하다’에는 ‘에’를 쓴다.",
+      "after": "학교에서 다녀요(X) → 학교에 다녀요(O): To mark the destination of 가다/오다/다니다/도착하다, use 에 (with 가다/오다, 에서 means 'from', not 'to')."
+    },
+    {
+      "at": "watchOut[2]",
+      "before": "도서관에 공부해요(X) → 도서관에서 공부해요(O): ‘공부하다/일하다/운동하다/만나다/먹다’에는 ‘에서’를 쓴다.",
+      "after": "도서관에 공부해요(X) → 도서관에서 공부해요(O): Use 에서 for the place where an action such as 공부하다/일하다/운동하다/만나다/먹다 happens."
+    },
+    {
+      "at": "watchOut[3]",
+      "before": "‘있다’에는 ‘에’를 쓴다: 저는 집에 있어요(O) / 집에서 있어요(X).",
+      "after": "집에서 있어요(X) → 집에 있어요(O): Use 에 with 있다/없다 for where someone or something is."
+    },
+    {
+      "at": "watchOutMark[3][1]",
+      "before": "집에",
+      "after": "집에서"
+    },
+    {
+      "at": "watchOutMark[3][2]",
+      "before": "집에서",
+      "after": "집에"
+    }
+  ],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "The English 'Beginner (high)' means the upper part of the beginner level. 「初級(上級レベル)」 reads as 'beginner (advanced level)', which contradicts itself and changes the meaning.",
+          "fix": "初級(上)"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 20,
+          "problem": "The Korean instruction in the English line is '틀린 조사를 고치세요.', but the translation changed it to '틀린 조사를 찾아 고치고 문장을 다시 쓰세요.' Korean in the source has to stay exactly as written.",
+          "fix": "틀린 조사를 고치세요. - 주말에 공원에 사진을 찍어요. - 내일 시장에서 가요."
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Beginner (high)\" means the upper part of the beginner level. \"初级(高级)\" reads as \"beginner (advanced)\", which contradicts itself and misleads.",
+          "fix": "初级(高)"
+        },
+        {
+          "line": 17,
+          "problem": "The sentence is badly put together. \"像공부하다/…这类表示动作发生的地点\" makes the verbs sound like places. The English says 에서 marks the place where actions like these happen.",
+          "fix": "도서관에 공부해요(X) → 도서관에서 공부해요(O):表示공부하다/일하다/운동하다/만나다/먹다等动作发生的地点时,要用'에서'。"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T18:30:48.116Z",
+  "manual": [
+    {
+      "op": "rewrite",
+      "path": "summary",
+      "before": "Beginner-focused practice choosing the correct Korean location particles: use '에' for destination/existence with verbs like 가다, 오다, 다니다, 도착하다, 있다; use '에서' for the place where an action happens with verbs like 공부하다, 일하다, 운동하다, 만나다, 먹다. Includes common error correction with short, natural sentences.",
+      "after": "Choose the right location particle: 에 for where you go or where something is (가다, 오다, 다니다, 도착하다, 있다), 에서 for where an action happens (공부하다, 일하다, 만나다, 먹다). Includes fixing common mistakes.",
+      "why": "shorter; same content"
+    },
+    {
+      "op": "rewrite",
+      "path": "objective",
+      "before": "Learners will correctly produce short sentences using '에' with motion/existence verbs (e.g., 가다, 오다, 다니다, 도착하다, 있다) and '에서' with activity verbs (e.g., 먹다, 공부하다, 일하다, 운동하다), and self-correct frequent errors such as '학교에서 다녀요(X) → 학교에 다녀요(O)' and '도서관에 공부해요(X) → 도서관에서 공부해요(O)'.",
+      "after": "Learners can use 에 with motion and existence verbs (가다, 오다, 다니다, 도착하다, 있다) and 에서 with activity verbs (먹다, 공부하다, 일하다, 운동하다), and fix common errors such as 학교에서 다녀요 (X) → 학교에 다녀요 (O).",
+      "why": "shorter; same content"
+    },
+    {
+      "op": "rewrite",
+      "path": "exercises",
+      "before": [
+        "Fill in each blank with 에 or 에서: 빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 백화점( ) 가요. - 오늘 식당( ) 점심을 먹어요. - 우리는 3시에 서울역( ) 도착해요. - 고양이가 소파( ) 있어요. - 지훈 씨가 회사( ) 일해요.",
+        "Correct the wrong particle and rewrite each sentence: 틀린 조사를 고치세요. - 주말에 공원에 사진을 찍어요. - 내일 시장에서 가요.",
+        "Make a sentence in the 해요 style using the words given, adding 에 or 에서 after the place: 주어진 낱말에 ‘에’ 또는 ‘에서’를 넣어 ‘-아요/어요’ 문장을 만드세요. (예: 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.) - 카페 / 친구를 만나다 - 동생이 / 방 / 있다 - 은행 / 가다",
+        "Choose the correct sentence in each pair and write only that sentence: 둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요. a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
+      ],
+      "after": [
+        "Fill in each blank with 에 or 에서: ① 저는 백화점( ) 가요. ② 오늘 식당( ) 점심을 먹어요. ③ 우리는 3시에 서울역( ) 도착해요.",
+        "Fill in each blank with 에 or 에서: ① 고양이가 소파( ) 있어요. ② 지훈 씨가 회사( ) 일해요.",
+        "Correct the wrong particle and rewrite each sentence: ① 주말에 공원에 사진을 찍어요. ② 내일 시장에서 가요.",
+        "Make a sentence in the 해요 style, adding 에 or 에서 after the place (e.g. 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.): ① 카페 / 친구를 만나다 ② 동생이 / 방 / 있다 ③ 형이 / 회사 / 다니다",
+        "Choose the correct sentence in each pair and write it: ① a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. ② a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
+      ],
+      "why": "Sub-items were run together with \"- \" and every instruction was repeated in Korean. Now ①②③, English instruction only (the owner's format), and 다니다 — the sheet's headline error 학교에서 다녀요 (X) — is practised (the reviewers' unresolved point)."
+    },
+    {
+      "op": "rewrite",
+      "path": "answers",
+      "before": [
+        "- 저는 백화점에 가요. - 오늘 식당에서 점심을 먹어요. - 우리는 3시에 서울역에 도착해요. - 고양이가 소파에 있어요. - 지훈 씨가 회사에서 일해요.",
+        "- 주말에 공원에서 사진을 찍어요. - 내일 시장에 가요.",
+        "- 카페에서 친구를 만나요. - 동생이 방에 있어요. - 은행에 가요.",
+        "- 우리 집에 놀러 오세요. - 교실에 사람이 없어요."
+      ],
+      "after": [
+        "① 에 ② 에서 ③ 에",
+        "① 에 ② 에서",
+        "① 주말에 공원에서 사진을 찍어요. ② 내일 시장에 가요.",
+        "① 카페에서 친구를 만나요. ② 동생이 방에 있어요. ③ 형이 회사에 다녀요.",
+        "① 우리 집에 놀러 오세요. ② 교실에 사람이 없어요."
+      ],
+      "why": "matches the renumbered exercises; 형이 회사에 다녀요 added"
+    }
+  ]
+}

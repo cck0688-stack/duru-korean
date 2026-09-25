@@ -1,0 +1,161 @@
+{
+  "id": "ad2e7b6f-d1ed-4581-973f-472c097645d4",
+  "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "shortened": [],
+  "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 29,
+          "problem": "The translation leaves out 'flat' from 'lips flat and relaxed, not rounded', so part of the instruction on how to shape the lips for ㅡ is missing.",
+          "fix": "não tem equivalente próximo em inglês — comece com ㅡ (lábios retos e relaxados, não arredondados) e deslize rapidamente para 'i' (ㅣ); nesta ficha, aparece apenas no início de palavra, como em 의자"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 32,
+          "problem": "The English asks for the word meaning 'ear' (English gloss). The Korean says '귀'라는 뜻, which puts in Hangul that isn't in the English and gives away the answer.",
+          "fix": "'ear'라는 뜻을 가진 단어를 고르세요: 기 / 구 / 귀"
+        },
+        {
+          "line": 33,
+          "problem": "The English asks for the correct spelling of 'chair' (English gloss). The Korean says '의자'의 올바른 표기, which puts in Hangul that isn't in the English and gives away the answer.",
+          "fix": "'chair'의 올바른 표기를 고르세요: 으자 / 이자 / 의자"
+        },
+        {
+          "line": 34,
+          "problem": "The English says 'to say It's hot.' The Korean says '더워요'가 되도록, which puts in Hangul that isn't in the English and gives away the answer.",
+          "fix": "'It's hot.'이라는 뜻이 되도록 빈칸을 채우세요: 더_요 (와 / 워 / 위)"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T18:27:58.954Z"
+}

@@ -1,0 +1,115 @@
+{
+  "answers": [
+    "ㅘ",
+    "ㅝ",
+    "귀",
+    "의자",
+    "워 (더워요)",
+    "hwajangsil"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Gabungkan kedua vokal ini. Huruf apa yang kamu dapatkan? ㅗ + ㅏ = ?",
+    "Gabungkan kedua vokal ini. Huruf apa yang kamu dapatkan? ㅜ + ㅓ = ?",
+    "Pilih kata yang berarti 'telinga': 기 / 구 / 귀",
+    "Pilih ejaan yang benar untuk 'kursi': 으자 / 이자 / 의자",
+    "Isi bagian yang kosong untuk mengatakan 'Panas.': 더_요 (와 / 워 / 위)",
+    "Baca kata ini dengan lantang, lalu tulis dalam huruf Latin: 화장실"
+  ],
+  "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "letters": [
+    {
+      "letter": "ㅘ",
+      "sound": "wa (ㅗ + ㅏ diucapkan dengan cepat)",
+      "as": "seperti 'wa' pada kata 'wander' — mulai dengan bibir membulat (ㅗ) lalu cepat terbuka menjadi 'a' (ㅏ)"
+    },
+    {
+      "letter": "ㅝ",
+      "sound": "wo (ㅜ + ㅓ diucapkan dengan cepat)",
+      "as": "seperti 'wo' pada kata 'won' — mulai dengan bibir membulat (ㅜ) lalu cepat berpindah ke ㅓ"
+    },
+    {
+      "letter": "ㅟ",
+      "sound": "wi (ㅜ + ㅣ diucapkan dengan cepat)",
+      "as": "seperti 'we' dalam bahasa Inggris, tapi lebih pendek — mulai dengan bibir membulat (ㅜ) lalu cepat berpindah ke 'ee' (ㅣ)"
+    },
+    {
+      "letter": "ㅢ",
+      "sound": "ui (ㅡ + ㅣ diucapkan dengan cepat)",
+      "as": "tidak ada padanan yang dekat dalam bahasa Inggris — mulai dengan ㅡ (bibir datar dan rileks, tidak membulat) lalu meluncur cepat ke 'ee' (ㅣ); dalam lembar kerja ini hanya digunakan di awal kata, seperti pada 의자"
+    }
+  ],
+  "level": "Pemula",
+  "minutes": 15,
+  "objective": "Mengenali dan melafalkan ㅘ (wa), ㅝ (wo), ㅟ (wi), dan 의 (ui) di awal kata sebagai luncuran cepat dua vokal, serta membaca dan memilih dengan benar kata-kata 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자, dan 의사.",
+  "summary": "Lembar kerja ini mengajarkan empat vokal gabungan bahasa Korea: ㅘ, ㅝ, ㅟ, dan ㅢ. Setiap huruf adalah dua vokal yang diucapkan dengan cepat berurutan, menjadi satu bunyi yang halus. Kamu akan melihat dua vokal apa yang membentuk setiap huruf, menghubungkan tiga di antaranya dengan bunyi bahasa Inggris yang familiar, dan berlatih membaca kata-kata sehari-hari yang mudah seperti 과자, 뭐, 귀, dan 의자.",
+  "tags": [],
+  "task": null,
+  "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "words": [
+    {
+      "korean": "과자",
+      "roman": "gwaja",
+      "meaning": "camilan (keripik, kue kering, biskuit)",
+      "example": "과자 먹을래요?",
+      "exampleMeaning": "Mau camilan?"
+    },
+    {
+      "korean": "사과",
+      "roman": "sagwa",
+      "meaning": "apel",
+      "example": "사과가 달아요.",
+      "exampleMeaning": "Apel itu manis."
+    },
+    {
+      "korean": "화장실",
+      "roman": "hwajangsil",
+      "meaning": "toilet, kamar kecil",
+      "example": "화장실이 어디예요?",
+      "exampleMeaning": "Di mana toiletnya?"
+    },
+    {
+      "korean": "뭐",
+      "roman": "mwo",
+      "meaning": "apa (santai)",
+      "example": "이거 뭐예요?",
+      "exampleMeaning": "Ini apa?"
+    },
+    {
+      "korean": "더워요",
+      "roman": "deowoyo",
+      "meaning": "panas (cuaca)",
+      "example": "오늘 정말 더워요.",
+      "exampleMeaning": "Hari ini panas sekali."
+    },
+    {
+      "korean": "위",
+      "roman": "wi",
+      "meaning": "di atas",
+      "example": "책상 위에 있어요.",
+      "exampleMeaning": "Itu ada di atas meja."
+    },
+    {
+      "korean": "귀",
+      "roman": "gwi",
+      "meaning": "telinga",
+      "example": "귀가 아파요.",
+      "exampleMeaning": "Telingaku sakit."
+    },
+    {
+      "korean": "의자",
+      "roman": "uija",
+      "meaning": "kursi",
+      "example": "의자에 앉으세요.",
+      "exampleMeaning": "Silakan duduk (di kursi)."
+    },
+    {
+      "korean": "의사",
+      "roman": "uisa",
+      "meaning": "dokter",
+      "example": "제 친구는 의사예요.",
+      "exampleMeaning": "Temanku seorang dokter."
+    }
+  ],
+  "category": "hangul"
+}

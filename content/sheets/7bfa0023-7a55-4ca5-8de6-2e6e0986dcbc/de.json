@@ -1,0 +1,82 @@
+{
+  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
+  "keyword": "영업시간",
+  "summary": "Lerne 8 Begriffe, die auf koreanischen Öffnungszeiten-Schildern vorkommen, und entscheide dann anhand von drei Beispielschildern, ob du zu einer bestimmten Zeit vorbeikommen oder bestellen kannst.",
+  "objective": "Die Lernenden lesen ein Öffnungszeiten-Schild und sagen, ob der Laden an einem bestimmten Tag und zu einer bestimmten Uhrzeit geöffnet hat oder noch Bestellungen annimmt.",
+  "level": "Mittelstufe (niedrig)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Antworte auf Koreanisch (ja/nein und warum): [안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+    "Antworte auf Koreanisch (ja/nein und warum): [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+    "Antworte auf Koreanisch (ja/nein und warum): [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+    "Antworte auf Koreanisch (ja/nein und warum): [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+    "Antworte auf Koreanisch (ja/nein und warum): [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+    "Antworte auf Koreanisch (ja/nein und warum): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+  ],
+  "answers": [
+    "아니요. 월요일은 정기휴무예요. (Nein. Montag ist der reguläre Ruhetag.)",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (Nein. Das ist die Pausenzeit, 15:00–16:30 Uhr.)",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (Nein. Bestellungen sind nur bis 19:30 Uhr möglich. Der Laden ist zwar bis 20:00 Uhr geöffnet, aber man kann nicht mehr bestellen.)",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Ja. Die Öffnungszeiten am Wochenende gehen bis 22:00 Uhr, und die letzte Bestellung ist um 21:30 Uhr.)",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (Nein. An gesetzlichen Feiertagen ist geschlossen. Auch wenn der Feiertag auf einen Wochentag fällt, bleibt der Laden zu.)",
+    "네. 24시간 영업, 연중무휴예요. (Ja. Es ist rund um die Uhr geöffnet, das ganze Jahr über.)"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "1. 안내판에 자주 나오는 말 8개 (8 BEGRIFFE AUF SCHILDERN)",
+      "paragraphs": [
+        "영업시간 (yeongeop sigan): die Stunden, in denen der Laden geöffnet ist.",
+        "정기휴무 (jeonggi hyumu): der reguläre Ruhetag des Ladens. Auf Schildern steht das meist so: 매주 월요일 휴무 (jeden Montag geschlossen).",
+        "브레이크 타임 (beureikeu taim): eine Pause mitten am Tag, meist zwischen Mittag- und Abendessen. Die Tür ist geschlossen und man kann nicht hinein.",
+        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): der letzte Zeitpunkt, zu dem man bestellen kann. Der Laden hat noch geöffnet, nimmt aber keine neuen Bestellungen mehr an.",
+        "연중무휴 (yeonjung muhyu): das ganze Jahr über jeden Tag geöffnet, ohne regulären Ruhetag.",
+        "24시간 영업 (isipsa sigan yeongeop): rund um die Uhr geöffnet, Tag und Nacht.",
+        "공휴일 휴무 (gonghyuil hyumu): an gesetzlichen Feiertagen geschlossen.",
+        "평일 (pyeongil) / 주말 (jumal): Wochentage (Montag–Freitag) und Wochenende (Samstag–Sonntag). Viele Läden haben dafür unterschiedliche Öffnungszeiten."
+      ]
+    },
+    {
+      "heading": "2. 안내판 읽는 순서 (SO LIEST MAN DAS SCHILD: 4 SCHRITTE)",
+      "paragraphs": [
+        "① 요일 확인: Ist dieser Tag ein 휴무 (Ruhetag)? Prüfe 정기휴무 und 공휴일 휴무.",
+        "② 평일/주말 확인: Welche Öffnungszeiten gelten – die für Wochentage oder die für das Wochenende?",
+        "③ 시간 확인: Die meisten Schilder verwenden die 24-Stunden-Uhr. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Liegt deine Uhrzeit zwischen Öffnungs- und Schließzeit? Prüfe auch, ob sie in die 브레이크 타임 fällt.",
+        "④ 주문 확인: Wenn du essen oder bestellen möchtest, prüfe auch die Zeit für 라스트 오더 (주문 마감). 마감 30분 전 bedeutet „30 Minuten vor Ladenschluss“."
+      ]
+    },
+    {
+      "heading": "3. 안내판 1: 카페 하루",
+      "paragraphs": [
+        "영업시간",
+        "평일 10:00 ~ 21:00",
+        "주말 11:00 ~ 22:00",
+        "라스트 오더: 마감 30분 전",
+        "정기휴무: 매주 월요일 휴무"
+      ]
+    },
+    {
+      "heading": "4. 안내판 2: 엄마손 칼국수",
+      "paragraphs": [
+        "영업시간 11:00 ~ 20:00",
+        "브레이크 타임 15:00 ~ 16:30",
+        "주문 마감 19:30",
+        "매주 일요일 휴무 · 공휴일 휴무"
+      ]
+    },
+    {
+      "heading": "5. 안내판 3: 우리동네 편의점",
+      "paragraphs": [
+        "24시간 영업",
+        "연중무휴"
+      ]
+    }
+  ],
+  "note": "Hinweis für Lehrende: Die drei Schilder sind für den Unterricht erfunden, sie zeigen also keine echten Geschäfte oder echten Öffnungszeiten. Der Hauptpunkt, den es zu vermitteln gilt, ist der Unterschied zwischen „der Laden ist geöffnet“ und „man kann noch bestellen“ (Übungen 3 und 4). Bevor die Lernenden mit den Übungen beginnen, lass sie die 24-Stunden-Zeiten laut auf Koreanisch sagen (15:30 → 오후 3시 30분).",
+  "category": "etc"
+}

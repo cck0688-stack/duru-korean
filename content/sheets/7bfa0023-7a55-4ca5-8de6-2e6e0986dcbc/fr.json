@@ -1,0 +1,82 @@
+{
+  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
+  "keyword": "영업시간",
+  "summary": "Apprenez 8 mentions qu'on trouve sur les panneaux d'horaires des magasins coréens, puis utilisez trois panneaux d'exemple pour déterminer si vous pouvez visiter ou commander à un moment donné.",
+  "objective": "Les apprenants liront un panneau d'horaires de magasin et diront si le magasin est ouvert, ou s'il prend encore des commandes, à un jour et une heure donnés.",
+  "level": "Intermédiaire (niveau bas)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Répondez en coréen (oui/non et pourquoi) : [안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+    "Répondez en coréen (oui/non et pourquoi) : [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+    "Répondez en coréen (oui/non et pourquoi) : [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+    "Répondez en coréen (oui/non et pourquoi) : [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+    "Répondez en coréen (oui/non et pourquoi) : [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+    "Répondez en coréen (oui/non et pourquoi) : [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+  ],
+  "answers": [
+    "아니요. 월요일은 정기휴무예요. (Non. Le lundi est le jour de fermeture régulier.)",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (Non. C'est la pause de 15h00 à 16h30.)",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (Non. Les commandes s'arrêtent à 19h30. Le magasin est ouvert jusqu'à 20h00, mais on ne peut plus commander.)",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Oui. Les horaires du week-end vont jusqu'à 22h00, et la dernière commande est à 21h30.)",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (Non. C'est fermé les jours fériés. Même si c'est un jour de semaine, le magasin ferme pendant les jours fériés.)",
+    "네. 24시간 영업, 연중무휴예요. (Oui. C'est ouvert 24 heures sur 24, tous les jours de l'année.)"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "1. 안내판에 자주 나오는 말 8개 (8 MENTIONS DES PANNEAUX)",
+      "paragraphs": [
+        "영업시간 (yeongeop sigan) : les heures pendant lesquelles le magasin est ouvert.",
+        "정기휴무 (jeonggi hyumu) : le jour de fermeture régulier du magasin. Sur les panneaux, cela ressemble souvent à 매주 월요일 휴무 (fermé tous les lundis).",
+        "브레이크 타임 (beureikeu taim) : une pause au milieu de la journée, généralement entre le déjeuner et le dîner. La porte est fermée et vous ne pouvez pas entrer.",
+        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam) : la dernière heure à laquelle on peut commander. Le magasin est encore ouvert, mais il n'accepte plus de nouvelles commandes.",
+        "연중무휴 (yeonjung muhyu) : ouvert tous les jours de l'année, sans jour de fermeture régulier.",
+        "24시간 영업 (isipsa sigan yeongeop) : ouvert jour et nuit.",
+        "공휴일 휴무 (gonghyuil hyumu) : fermé les jours fériés.",
+        "평일 (pyeongil) / 주말 (jumal) : les jours de semaine (lundi–vendredi) et le week-end (samedi–dimanche). Beaucoup de magasins ont des horaires différents pour chacun."
+      ]
+    },
+    {
+      "heading": "2. 안내판 읽는 순서 (COMMENT VÉRIFIER : 4 ÉTAPES)",
+      "paragraphs": [
+        "① 요일 확인 : Ce jour est-il un 휴무 (jour de fermeture) ? Vérifiez 정기휴무 et 공휴일 휴무.",
+        "② 평일/주말 확인 : Quels horaires s'appliquent, ceux de semaine ou ceux du week-end ?",
+        "③ 시간 확인 : La plupart des panneaux utilisent le format 24 heures. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Votre heure se situe-t-elle entre l'heure d'ouverture et l'heure de fermeture ? Vérifiez aussi si elle tombe pendant le 브레이크 타임.",
+        "④ 주문 확인 : Si vous voulez manger ou commander, vérifiez aussi l'heure du 라스트 오더 (주문 마감). 마감 30분 전 signifie « 30 minutes avant la fermeture »."
+      ]
+    },
+    {
+      "heading": "3. 안내판 1 : 카페 하루",
+      "paragraphs": [
+        "영업시간",
+        "평일 10:00 ~ 21:00",
+        "주말 11:00 ~ 22:00",
+        "라스트 오더 : 마감 30분 전",
+        "정기휴무 : 매주 월요일 휴무"
+      ]
+    },
+    {
+      "heading": "4. 안내판 2 : 엄마손 칼국수",
+      "paragraphs": [
+        "영업시간 11:00 ~ 20:00",
+        "브레이크 타임 15:00 ~ 16:30",
+        "주문 마감 19:30",
+        "매주 일요일 휴무 · 공휴일 휴무"
+      ]
+    },
+    {
+      "heading": "5. 안내판 3 : 우리동네 편의점",
+      "paragraphs": [
+        "24시간 영업",
+        "연중무휴"
+      ]
+    }
+  ],
+  "note": "Note pour l'enseignant : Les trois panneaux sont fictifs, créés pour la classe, et ne correspondent pas à de vrais commerces ni à de vrais horaires. L'idée principale à enseigner est la différence entre « le magasin est ouvert » et « on peut encore commander » (exercices 3 et 4). Avant que les apprenants commencent les exercices, faites-leur dire à voix haute les heures au format 24 heures en coréen (15:30 → 오후 3시 30분).",
+  "category": "etc"
+}

@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "할인",
+    "시식",
+    "1+1(원 플러스 원), 유통기한",
+    "카트, 장바구니",
+    "계산대, 셀프 계산대",
+    "봉투, 적립"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Completa el espacio en blanco. (Hoy los productos están más baratos.) 오늘 우유를 ______해요.",
+    "Completa el espacio en blanco. (Probaste comida gratis en la tienda.) ______ 코너에서 김치를 먹어 봤어요.",
+    "Completa ambos espacios en blanco. (Le preguntas a un empleado si te dan uno gratis al comprar otro. Luego revisas la fecha en el empaque.) 이 요구르트 ______이에요? 아, 그런데 ______이 내일까지네요.",
+    "Completa ambos espacios en blanco. (Primero vas a comprar mucho, así que necesitas algo con ruedas. Luego solo vas a comprar leche, así que llevas algo ligero en la mano.) 오늘은 살 게 많아요. ______를 가져올게요. 우유만 사요. ______만 들고 가요.",
+    "Completa ambos espacios en blanco. (La fila con cajero es muy larga, así que escaneas y pagas tú mismo.) ______에 줄이 너무 길어요. 우리는 ______에서 계산해요.",
+    "Completa ambos espacios en blanco en esta conversación en la caja. 직원: ______ 필요하세요? 손님: 아니요, 괜찮아요. 포인트 ______해 주세요."
+  ],
+  "keyword": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "level": "Principiante",
+  "minutes": 15,
+  "objective": "Los estudiantes pueden reconocer y usar 10 palabras clave de supermercado (장바구니, 카트, 계산대, 셀프 계산대, 봉투, 할인, 1+1[원 플러스 원], 유통기한, 시식, 적립) en oraciones cortas y naturales para encontrar productos, revisar precios y fechas, y pagar en la caja. Ejemplos: '봉투 필요 없어요.', '이거 1+1이에요?', '포인트 적립해 주세요.'",
+  "summary": "Diez palabras cotidianas para hacer compras en un supermercado coreano. Los estudiantes toman una cesta o un carrito, buscan ofertas, promociones de 1+1 y muestras gratis, revisan la fecha de caducidad, y pagan en una caja normal o en una caja de autopago, diciendo que no necesitan bolsa y pidiendo que les acumulen puntos. Los seis ejercicios practican las diez palabras clave.",
+  "tags": [],
+  "task": null,
+  "title": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "words": [
+    {
+      "korean": "장바구니",
+      "roman": "jangbaguni",
+      "meaning": "cesta de compras (que se lleva en la mano dentro de la tienda); también una bolsa de compras reutilizable",
+      "example": "장바구니는 입구에 있어요.",
+      "exampleMeaning": "Las cestas de compras están en la entrada."
+    },
+    {
+      "korean": "카트",
+      "roman": "kateu",
+      "meaning": "carrito de compras (con ruedas)",
+      "example": "카트 좀 밀어 줄래요?",
+      "exampleMeaning": "¿Podrías empujar el carrito por mí?"
+    },
+    {
+      "korean": "계산대",
+      "roman": "gyesandae",
+      "meaning": "mostrador de caja (donde un cajero te cobra)",
+      "example": "계산대가 어디예요?",
+      "exampleMeaning": "¿Dónde está la caja?"
+    },
+    {
+      "korean": "셀프 계산대",
+      "roman": "selpeu gyesandae",
+      "meaning": "caja de autopago",
+      "example": "셀프 계산대에서는 바코드를 직접 찍어요.",
+      "exampleMeaning": "En la caja de autopago, tú mismo escaneas los códigos de barras."
+    },
+    {
+      "korean": "봉투",
+      "roman": "bongtu",
+      "meaning": "bolsa que te dan en la caja (de plástico o de papel)",
+      "example": "봉투 필요 없어요.",
+      "exampleMeaning": "No necesito bolsa."
+    },
+    {
+      "korean": "할인",
+      "roman": "harin",
+      "meaning": "oferta, descuento (un precio más bajo de lo habitual)",
+      "example": "이 과자 지금 할인 중이에요.",
+      "exampleMeaning": "Estos snacks están en oferta ahora mismo."
+    },
+    {
+      "korean": "1+1 (원 플러스 원)",
+      "roman": "won peulleoseu won",
+      "meaning": "compra uno y llévate otro gratis",
+      "example": "이거 1+1이에요?",
+      "exampleMeaning": "¿Esto es de compra uno y llévate otro gratis?"
+    },
+    {
+      "korean": "유통기한",
+      "roman": "yutonggihan",
+      "meaning": "fecha de caducidad (la fecha impresa en los alimentos)",
+      "example": "이 두부는 유통기한이 지났어요.",
+      "exampleMeaning": "Este tofu ya pasó su fecha de caducidad."
+    },
+    {
+      "korean": "시식",
+      "roman": "sisik",
+      "meaning": "muestra gratis, degustación (comida que se ofrece para probar en la tienda)",
+      "example": "만두 시식해 보세요!",
+      "exampleMeaning": "¡Prueba una muestra gratis de dumplings (mandu)!"
+    },
+    {
+      "korean": "적립",
+      "roman": "jeongnip",
+      "meaning": "acumulación (de puntos en una tarjeta de membresía de la tienda)",
+      "example": "포인트 적립해 주세요.",
+      "exampleMeaning": "Por favor, agregue los puntos a mi cuenta."
+    }
+  ],
+  "category": "vocab"
+}

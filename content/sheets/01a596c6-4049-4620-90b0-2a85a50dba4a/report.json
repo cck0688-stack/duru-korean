@@ -1,0 +1,950 @@
+{
+  "id": "01a596c6-4049-4620-90b0-2a85a50dba4a",
+  "title": "버스 도착 안내판 읽기: 몇 분 후에 와요? 몇 번째 전이에요?",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words '번째 전' 예문: '내 버스는 지금 2번째 전이에요.'의 '내 버스'는 영어 'my bus'를 그대로 옮긴 말투라 한국어로는 부자연스럽고, 해요체와도 어울리지 않음. '제가 탈 버스는 지금 2번째 전이에요.'로 고치고, 번역도 'The bus I'm taking is two stops away now.'에 맞출 것.",
+        "words '도착': 뜻풀이는 'arrival (at this stop)'인데 예문 '기차가 10분 늦게 도착했어요.'는 정류장이 아니라 기차 도착이라 서로 맞지 않음. 예문을 '버스가 정류장에 도착했어요. (The bus arrived at the stop.)'처럼 바꾸거나, 뜻풀이를 'arrival'로 넓힐 것."
+      ],
+      "audit": []
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "passage[1] (the bus display in the story): the five buses are written in one line with no separator. It reads '…— 곧 도착 520번 (시청역 방면) — 2분 후 도착 [전 정류장 출발] 305번 …', so learners can take '곧 도착' as part of bus 520's line, or '[전 정류장 출발]' as part of bus 305's line. Questions 1, 2 and 4 depend on reading this display. The new display in question 6 already separates buses with ' / ', so the two are also inconsistent. Fix: put a line break or ' / ' after each bus, e.g. '[버스 도착 안내] 101번 (시청역 방면) — 곧 도착 / 520번 (시청역 방면) — 2분 후 도착 [전 정류장 출발] / 305번 (한국대학교 방면) — 7분 후 도착 [3번째 전] / 62번 (한국대학교 방면) — 출발 대기 / N30번 (시청역 방면) — 운행 종료'."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "시청역 방면이에요. (시청역 쪽으로 가요.)",
+      "after": "7분 후에 도착해요. 지금 세 정류장 전에 있어요. (3번째 전이에요.)"
+    },
+    {
+      "at": "answers[2]",
+      "before": "7분 후에 도착해요. 지금 세 정류장 전에 있어요. (3번째 전이에요.)",
+      "after": "출발 대기 – (b), 운행 종료 – (a), 곧 도착 – (d), 전 정류장 출발 – (c)"
+    },
+    {
+      "at": "answers[3]",
+      "before": "출발 대기 – (b), 운행 종료 – (a), 곧 도착 – (d), 전 정류장 출발 – (c)",
+      "after": "X – 101번은 시청역 방면이에요. 한국대학교에 가지 않아요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "X – 101번은 시청역 방면이에요. 한국대학교에 가지 않아요.",
+      "after": "62번은 '출발 대기'예요. 아직 차고지에서 출발하지 않아서 오래 기다려야 해요."
+    },
+    {
+      "at": "answers[5]",
+      "before": "62번은 '출발 대기'예요. 아직 차고지에서 출발하지 않아서 오래 기다려야 해요.",
+      "after": "27번을 타요. 시청역 방면이고 3분 후에 도착해요. (2번째 전이에요. 14번은 12분 뒤에 오고, 41번은 운행 종료이고, 88번은 시장 방면이에요.)"
+    },
+    {
+      "at": "answers[6]",
+      "before": "27번을 타요. 시청역 방면이고 3분 후에 도착해요. (2번째 전이에요. 14번은 12분 뒤에 오고, 41번은 운행 종료이고, 88번은 시장 방면이에요.)",
+      "after": ""
+    },
+    {
+      "at": "exercises[1]",
+      "before": "Look at the display in the story. Where is bus 520 going? Answer in Korean.",
+      "after": "Look at the display in the story. How many minutes until bus 305 arrives, and how many stops away is it now? Answer in Korean."
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Look at the display in the story. How many minutes until bus 305 arrives, and how many stops away is it now? Answer in Korean.",
+      "after": "Match each label with its meaning: 출발 대기 / 운행 종료 / 곧 도착 / 전 정류장 출발. (a) 오늘은(지금은) 버스가 더 오지 않아요. (b) 버스가 아직 차고지에서 출발하지 않았어요. (c) 버스가 바로 앞 정류장을 떠났어요. (d) 버스가 금방 와요."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "Match each label with its meaning: 출발 대기 / 운행 종료 / 곧 도착 / 전 정류장 출발. (a) 오늘은(지금은) 버스가 더 오지 않아요. (b) 버스가 아직 차고지에서 출발하지 않았어요. (c) 버스가 바로 앞 정류장을 떠났어요. (d) 버스가 금방 와요.",
+      "after": "Write O if the sentence is true and X if it is false, then give the reason in Korean: 안나 씨는 101번을 타면 한국대학교에 갈 수 있어요."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "Write O if the sentence is true and X if it is false, then give the reason in Korean: 안나 씨는 101번을 타면 한국대학교에 갈 수 있어요.",
+      "after": "Why didn't Anna wait for bus 62? Answer in Korean using the label from the display."
+    },
+    {
+      "at": "exercises[5]",
+      "before": "Why didn't Anna wait for bus 62? Answer in Korean using the label from the display.",
+      "after": "You want to go to 시청역. Read this new display and choose your bus. Give the reason in Korean. [버스 도착 안내] 14번 (시청역 방면) — 12분 후 도착 [6번째 전] / 27번 (시청역 방면) — 3분 후 도착 [2번째 전] / 41번 (시청역 방면) — 운행 종료 / 88번 (시장 방면) — 곧 도착"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "You want to go to 시청역. Read this new display and choose your bus. Give the reason in Korean. [버스 도착 안내] 14번 (시청역 방면) — 12분 후 도착 [6번째 전] / 27번 (시청역 방면) — 3분 후 도착 [2번째 전] / 41번 (시청역 방면) — 운행 종료 / 88번 (시장 방면) — 곧 도착",
+      "after": ""
+    },
+    {
+      "at": "level",
+      "before": "Beginner (high) – A2",
+      "after": "Beginner (high)"
+    },
+    {
+      "at": "objective",
+      "before": "Learners can read a Korean bus arrival display. For any bus, they can find where it is going (○○ 방면), how many minutes until it arrives (○분 후 도착, 곧 도착), how many stops away it is (○번째 전, 전 정류장 출발), and what the status labels 출발 대기 and 운행 종료 mean. They can then decide which bus to take.",
+      "after": "Learners can read a Korean bus arrival display (direction, arrival time, stops away, status such as 출발 대기 and 운행 종료) and use it to choose a bus."
+    },
+    {
+      "at": "passage[2]",
+      "before": "[버스 도착 안내] 101번 (시청역 방면) — 곧 도착 520번 (시청역 방면) — 2분 후 도착 [전 정류장 출발] 305번 (한국대학교 방면) — 7분 후 도착 [3번째 전] 62번 (한국대학교 방면) — 출발 대기 N30번 (시청역 방면) — 운행 종료",
+      "after": "[버스 도착 안내] 101번 (시청역 방면) — 곧 도착 / 520번 (시청역 방면) — 2분 후 도착 [전 정류장 출발] / 305번 (한국대학교 방면) — 7분 후 도착 [3번째 전] / 62번 (한국대학교 방면) — 출발 대기 / N30번 (시청역 방면) — 운행 종료"
+    },
+    {
+      "at": "passage[4]",
+      "before": "그때 101번 버스가 왔어요. 안내판에 '곧 도착'이 나와 있던 버스예요. 안나 씨는 타고 싶었지만 101번은 시청역 방면이에요. 한국대학교에는 가지 않아요. 520번도 '전 정류장 출발'이라서 금방 와요. 하지만 이 버스도 시청역 방면이에요. N30번은 밤에만 다니는 심야버스예요. 그래서 지금은 '운행 종료'예요.",
+      "after": "그때 101번 버스가 왔어요. 안나 씨는 타고 싶었지만 101번은 시청역 방면이에요. 한국대학교에는 가지 않아요. 520번도 '전 정류장 출발'이라서 금방 와요. 하지만 이 버스도 시청역 방면이에요. N30번은 밤에만 다니는 심야버스예요. 그래서 지금은 '운행 종료'예요."
+    },
+    {
+      "at": "passage[5]",
+      "before": "안나 씨는 305번을 기다리기로 했어요. 7분 후에 타면 수업에 늦지 않아요. 몇 분 뒤에 안내판을 다시 봤어요. 305번 옆에 '곧 도착'이 나왔어요. 안나 씨는 가방에서 교통카드를 꺼냈어요.",
+      "after": "안나 씨는 305번을 기다리기로 했어요. 7분 후에 타면 수업에 늦지 않아요."
+    },
+    {
+      "at": "summary",
+      "before": "Anna is waiting at the bus stop near her home and needs to get to class at 10:00. She reads the bus arrival display to find the right bus. She checks where each bus is going, how many minutes away it is, and how many stops away it is. She also learns what 출발 대기 and 운행 종료 mean, and then she decides which bus to wait for. Afterward, learners read the display from the story and a new one and choose a bus themselves.",
+      "after": "Anna reads a bus arrival display to pick a bus to her 10:00 class; learners then read displays and choose a bus themselves."
+    },
+    {
+      "at": "words[1].korean",
+      "before": "정류장",
+      "after": "안내판"
+    },
+    {
+      "at": "words[1].roman",
+      "before": "jeongnyujang",
+      "after": "annaepan"
+    },
+    {
+      "at": "words[1].meaning",
+      "before": "bus stop",
+      "after": "information display (here, the electronic board that shows arriving buses)"
+    },
+    {
+      "at": "words[1].example",
+      "before": "다음 정류장에서 내려요.",
+      "after": "안내판에 버스 번호가 나와요."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "I get off at the next stop.",
+      "after": "The bus numbers are shown on the display."
+    },
+    {
+      "at": "words[2].korean",
+      "before": "안내판",
+      "after": "방면"
+    },
+    {
+      "at": "words[2].roman",
+      "before": "annaepan",
+      "after": "bangmyeon"
+    },
+    {
+      "at": "words[2].meaning",
+      "before": "information display (here, the electronic board that shows arriving buses)",
+      "after": "toward, in the direction of (shows where the bus is heading)"
+    },
+    {
+      "at": "words[2].example",
+      "before": "안내판에 버스 번호가 나와요.",
+      "after": "이 버스는 서울역 방면이에요."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "The bus numbers are shown on the display.",
+      "after": "This bus is going toward Seoul Station."
+    },
+    {
+      "at": "words[3].korean",
+      "before": "도착",
+      "after": "곧"
+    },
+    {
+      "at": "words[3].roman",
+      "before": "dochak",
+      "after": "got"
+    },
+    {
+      "at": "words[3].meaning",
+      "before": "arrival (at this stop)",
+      "after": "very soon, almost here"
+    },
+    {
+      "at": "words[3].example",
+      "before": "기차가 10분 늦게 도착했어요.",
+      "after": "잠깐만요, 버스가 곧 와요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "The train arrived 10 minutes late.",
+      "after": "Wait a moment, the bus is coming very soon."
+    },
+    {
+      "at": "words[4].korean",
+      "before": "방면",
+      "after": "번째 전"
+    },
+    {
+      "at": "words[4].roman",
+      "before": "bangmyeon",
+      "after": "beonjjae jeon"
+    },
+    {
+      "at": "words[4].meaning",
+      "before": "toward, in the direction of (shows where the bus is heading)",
+      "after": "stops away (○번째 전 = the bus is ○ stops before this one)"
+    },
+    {
+      "at": "words[4].example",
+      "before": "이 버스는 서울역 방면이에요.",
+      "after": "제가 탈 버스는 지금 2번째 전이에요."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "This bus is going toward Seoul Station.",
+      "after": "The bus I'm taking is two stops away now."
+    },
+    {
+      "at": "words[5].korean",
+      "before": "곧",
+      "after": "전 정류장"
+    },
+    {
+      "at": "words[5].roman",
+      "before": "got",
+      "after": "jeon jeongnyujang"
+    },
+    {
+      "at": "words[5].meaning",
+      "before": "very soon, almost here",
+      "after": "the stop just before this one"
+    },
+    {
+      "at": "words[5].example",
+      "before": "잠깐만요, 버스가 곧 와요.",
+      "after": "버스가 전 정류장에서 출발했어요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "Wait a moment, the bus is coming very soon.",
+      "after": "The bus has left the stop just before this one."
+    },
+    {
+      "at": "words[6].korean",
+      "before": "번째 전",
+      "after": "출발 대기"
+    },
+    {
+      "at": "words[6].roman",
+      "before": "beonjjae jeon",
+      "after": "chulbal daegi"
+    },
+    {
+      "at": "words[6].meaning",
+      "before": "stops away (○번째 전 = the bus is ○ stops before this one)",
+      "after": "waiting to start (the bus has not left the depot yet)"
+    },
+    {
+      "at": "words[6].example",
+      "before": "내 버스는 지금 2번째 전이에요.",
+      "after": "62번은 아직 출발 대기라서 한참 기다려야 해요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "My bus is two stops away now.",
+      "after": "Bus 62 hasn't left yet, so we'll have to wait a long time."
+    },
+    {
+      "at": "words[7].korean",
+      "before": "전 정류장",
+      "after": "차고지"
+    },
+    {
+      "at": "words[7].roman",
+      "before": "jeon jeongnyujang",
+      "after": "chagoji"
+    },
+    {
+      "at": "words[7].meaning",
+      "before": "the stop just before this one",
+      "after": "bus depot, where the buses start their route"
+    },
+    {
+      "at": "words[7].example",
+      "before": "버스가 전 정류장에서 출발했어요.",
+      "after": "첫차는 새벽에 차고지에서 나와요."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "The bus has left the stop just before this one.",
+      "after": "The first bus leaves the depot early in the morning."
+    },
+    {
+      "at": "words[8].korean",
+      "before": "출발 대기",
+      "after": "운행 종료"
+    },
+    {
+      "at": "words[8].roman",
+      "before": "chulbal daegi",
+      "after": "unhaeng jongnyo"
+    },
+    {
+      "at": "words[8].meaning",
+      "before": "waiting to start (the bus has not left the depot yet)",
+      "after": "service over (this bus is not running any more today, or for now)"
+    },
+    {
+      "at": "words[8].example",
+      "before": "62번은 아직 출발 대기라서 한참 기다려야 해요.",
+      "after": "벌써 운행 종료예요? 택시를 타야겠어요."
+    },
+    {
+      "at": "words[8].exampleMeaning",
+      "before": "Bus 62 hasn't left yet, so we'll have to wait a long time.",
+      "after": "The service is already over? I'll have to take a taxi."
+    },
+    {
+      "at": "words[9].korean",
+      "before": "차고지",
+      "after": ""
+    },
+    {
+      "at": "words[9].roman",
+      "before": "chagoji",
+      "after": ""
+    },
+    {
+      "at": "words[9].meaning",
+      "before": "bus depot, where the buses start their route",
+      "after": ""
+    },
+    {
+      "at": "words[9].example",
+      "before": "첫차는 새벽에 차고지에서 나와요.",
+      "after": ""
+    },
+    {
+      "at": "words[9].exampleMeaning",
+      "before": "The first bus leaves the depot early in the morning.",
+      "after": ""
+    },
+    {
+      "at": "words[10].korean",
+      "before": "운행 종료",
+      "after": ""
+    },
+    {
+      "at": "words[10].roman",
+      "before": "unhaeng jongnyo",
+      "after": ""
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "service over (this bus is not running any more today, or for now)",
+      "after": ""
+    },
+    {
+      "at": "words[10].example",
+      "before": "벌써 운행 종료예요? 택시를 타야겠어요.",
+      "after": ""
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "The service is already over? I'll have to take a taxi.",
+      "after": ""
+    },
+    {
+      "at": "words[11].korean",
+      "before": "심야버스",
+      "after": ""
+    },
+    {
+      "at": "words[11].roman",
+      "before": "simyabeoseu",
+      "after": ""
+    },
+    {
+      "at": "words[11].meaning",
+      "before": "late-night bus (runs only at night)",
+      "after": ""
+    },
+    {
+      "at": "words[11].example",
+      "before": "밤늦게 집에 갈 때는 심야버스를 타요.",
+      "after": ""
+    },
+    {
+      "at": "words[11].exampleMeaning",
+      "before": "When I go home late at night, I take the night bus.",
+      "after": ""
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "summary",
+          "before": "Anna is waiting at the bus stop near her home and needs to get to class at 10:00. She reads the bus arrival display to find the right bus. She checks where each bus is going, how many minutes away it is, and how many stops away it is. She also learns what 출발 대기 and 운행 종료 mean, and then she decides which bus to wait for. Afterward, learners read the display from the story and a new one and choose a bus themselves.",
+          "after": "Anna reads the bus arrival display to choose a bus that gets her to class at 10:00. Then learners read her display and a new one and choose a bus themselves."
+        },
+        {
+          "at": "objective",
+          "before": "Learners can read a Korean bus arrival display. For any bus, they can find where it is going (○○ 방면), how many minutes until it arrives (○분 후 도착, 곧 도착), how many stops away it is (○번째 전, 전 정류장 출발), and what the status labels 출발 대기 and 운행 종료 mean. They can then decide which bus to take.",
+          "after": "Learners can read a Korean bus arrival display. They can find each bus's direction, arrival time, how many stops away it is, and its status (출발 대기, 운행 종료), and use this to choose a bus."
+        },
+        {
+          "at": "exercises[1]",
+          "before": "Look at the display in the story. Where is bus 520 going? Answer in Korean.",
+          "after": "Look at the display in the story. How many minutes until bus 305 arrives, and how many stops away is it now? Answer in Korean."
+        },
+        {
+          "at": "exercises[2]",
+          "before": "Look at the display in the story. How many minutes until bus 305 arrives, and how many stops away is it now? Answer in Korean.",
+          "after": "Match each label with its meaning: 출발 대기 / 운행 종료 / 곧 도착 / 전 정류장 출발. (a) 오늘은(지금은) 버스가 더 오지 않아요. (b) 버스가 아직 차고지에서 출발하지 않았어요. (c) 버스가 바로 앞 정류장을 떠났어요. (d) 버스가 금방 와요."
+        },
+        {
+          "at": "exercises[3]",
+          "before": "Match each label with its meaning: 출발 대기 / 운행 종료 / 곧 도착 / 전 정류장 출발. (a) 오늘은(지금은) 버스가 더 오지 않아요. (b) 버스가 아직 차고지에서 출발하지 않았어요. (c) 버스가 바로 앞 정류장을 떠났어요. (d) 버스가 금방 와요.",
+          "after": "Write O if the sentence is true and X if it is false, then give the reason in Korean: 안나 씨는 101번을 타면 한국대학교에 갈 수 있어요."
+        },
+        {
+          "at": "exercises[4]",
+          "before": "Write O if the sentence is true and X if it is false, then give the reason in Korean: 안나 씨는 101번을 타면 한국대학교에 갈 수 있어요.",
+          "after": "Why didn't Anna wait for bus 62? Answer in Korean using the label from the display."
+        },
+        {
+          "at": "exercises[5]",
+          "before": "Why didn't Anna wait for bus 62? Answer in Korean using the label from the display.",
+          "after": "You want to go to 시청역. Read this new display and choose your bus. Give the reason in Korean. [버스 도착 안내] 14번 (시청역 방면) — 12분 후 도착 [6번째 전] / 27번 (시청역 방면) — 3분 후 도착 [2번째 전] / 41번 (시청역 방면) — 운행 종료 / 88번 (시장 방면) — 곧 도착"
+        },
+        {
+          "at": "exercises[6]",
+          "before": "You want to go to 시청역. Read this new display and choose your bus. Give the reason in Korean. [버스 도착 안내] 14번 (시청역 방면) — 12분 후 도착 [6번째 전] / 27번 (시청역 방면) — 3분 후 도착 [2번째 전] / 41번 (시청역 방면) — 운행 종료 / 88번 (시장 방면) — 곧 도착",
+          "after": ""
+        },
+        {
+          "at": "answers[1]",
+          "before": "시청역 방면이에요. (시청역 쪽으로 가요.)",
+          "after": "7분 후에 도착해요. 지금 세 정류장 전에 있어요. (3번째 전이에요.)"
+        },
+        {
+          "at": "answers[2]",
+          "before": "7분 후에 도착해요. 지금 세 정류장 전에 있어요. (3번째 전이에요.)",
+          "after": "출발 대기 – (b), 운행 종료 – (a), 곧 도착 – (d), 전 정류장 출발 – (c)"
+        },
+        {
+          "at": "answers[3]",
+          "before": "출발 대기 – (b), 운행 종료 – (a), 곧 도착 – (d), 전 정류장 출발 – (c)",
+          "after": "X – 101번은 시청역 방면이에요. 한국대학교에 가지 않아요."
+        },
+        {
+          "at": "answers[4]",
+          "before": "X – 101번은 시청역 방면이에요. 한국대학교에 가지 않아요.",
+          "after": "62번은 '출발 대기'예요. 아직 차고지에서 출발하지 않아서 오래 기다려야 해요."
+        },
+        {
+          "at": "answers[5]",
+          "before": "62번은 '출발 대기'예요. 아직 차고지에서 출발하지 않아서 오래 기다려야 해요.",
+          "after": "27번을 타요. 시청역 방면이고 3분 후에 도착해요. (2번째 전이에요. 14번은 12분 뒤에 오고, 41번은 운행 종료이고, 88번은 시장 방면이에요.)"
+        },
+        {
+          "at": "answers[6]",
+          "before": "27번을 타요. 시청역 방면이고 3분 후에 도착해요. (2번째 전이에요. 14번은 12분 뒤에 오고, 41번은 운행 종료이고, 88번은 시장 방면이에요.)",
+          "after": ""
+        },
+        {
+          "at": "passage[4]",
+          "before": "그때 101번 버스가 왔어요. 안내판에 '곧 도착'이 나와 있던 버스예요. 안나 씨는 타고 싶었지만 101번은 시청역 방면이에요. 한국대학교에는 가지 않아요. 520번도 '전 정류장 출발'이라서 금방 와요. 하지만 이 버스도 시청역 방면이에요. N30번은 밤에만 다니는 심야버스예요. 그래서 지금은 '운행 종료'예요.",
+          "after": "그때 101번 버스가 왔어요. 안나 씨는 타고 싶었지만 101번은 시청역 방면이에요. 한국대학교에는 가지 않아요. 520번도 '전 정류장 출발'이라서 금방 와요. 하지만 이 버스도 시청역 방면이에요. N30번은 밤에만 다니는 심야버스예요. 그래서 지금은 '운행 종료'예요."
+        },
+        {
+          "at": "passage[5]",
+          "before": "안나 씨는 305번을 기다리기로 했어요. 7분 후에 타면 수업에 늦지 않아요. 몇 분 뒤에 안내판을 다시 봤어요. 305번 옆에 '곧 도착'이 나왔어요. 안나 씨는 가방에서 교통카드를 꺼냈어요.",
+          "after": "안나 씨는 305번을 기다리기로 했어요. 7분 후에 타면 수업에 늦지 않아요."
+        },
+        {
+          "at": "words[11].korean",
+          "before": "심야버스",
+          "after": ""
+        },
+        {
+          "at": "words[11].roman",
+          "before": "simyabeoseu",
+          "after": ""
+        },
+        {
+          "at": "words[11].meaning",
+          "before": "late-night bus (runs only at night)",
+          "after": ""
+        },
+        {
+          "at": "words[11].example",
+          "before": "밤늦게 집에 갈 때는 심야버스를 타요.",
+          "after": ""
+        },
+        {
+          "at": "words[11].exampleMeaning",
+          "before": "When I go home late at night, I take the night bus.",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "summary",
+          "before": "Anna reads the bus arrival display to choose a bus that gets her to class at 10:00. Then learners read her display and a new one and choose a bus themselves.",
+          "after": "Anna reads a bus arrival display to pick a bus to her 10:00 class; learners then read displays and choose a bus themselves."
+        },
+        {
+          "at": "objective",
+          "before": "Learners can read a Korean bus arrival display. They can find each bus's direction, arrival time, how many stops away it is, and its status (출발 대기, 운행 종료), and use this to choose a bus.",
+          "after": "Learners can read a Korean bus arrival display (direction, arrival time, stops away, status such as 출발 대기 and 운행 종료) and use it to choose a bus."
+        },
+        {
+          "at": "words[1].korean",
+          "before": "정류장",
+          "after": "안내판"
+        },
+        {
+          "at": "words[1].roman",
+          "before": "jeongnyujang",
+          "after": "annaepan"
+        },
+        {
+          "at": "words[1].meaning",
+          "before": "bus stop",
+          "after": "information display (here, the electronic board that shows arriving buses)"
+        },
+        {
+          "at": "words[1].example",
+          "before": "다음 정류장에서 내려요.",
+          "after": "안내판에 버스 번호가 나와요."
+        },
+        {
+          "at": "words[1].exampleMeaning",
+          "before": "I get off at the next stop.",
+          "after": "The bus numbers are shown on the display."
+        },
+        {
+          "at": "words[2].korean",
+          "before": "안내판",
+          "after": "방면"
+        },
+        {
+          "at": "words[2].roman",
+          "before": "annaepan",
+          "after": "bangmyeon"
+        },
+        {
+          "at": "words[2].meaning",
+          "before": "information display (here, the electronic board that shows arriving buses)",
+          "after": "toward, in the direction of (shows where the bus is heading)"
+        },
+        {
+          "at": "words[2].example",
+          "before": "안내판에 버스 번호가 나와요.",
+          "after": "이 버스는 서울역 방면이에요."
+        },
+        {
+          "at": "words[2].exampleMeaning",
+          "before": "The bus numbers are shown on the display.",
+          "after": "This bus is going toward Seoul Station."
+        },
+        {
+          "at": "words[3].korean",
+          "before": "도착",
+          "after": "곧"
+        },
+        {
+          "at": "words[3].roman",
+          "before": "dochak",
+          "after": "got"
+        },
+        {
+          "at": "words[3].meaning",
+          "before": "arrival (at this stop)",
+          "after": "very soon, almost here"
+        },
+        {
+          "at": "words[3].example",
+          "before": "버스가 정류장에 도착했어요.",
+          "after": "잠깐만요, 버스가 곧 와요."
+        },
+        {
+          "at": "words[3].exampleMeaning",
+          "before": "The bus arrived at the stop.",
+          "after": "Wait a moment, the bus is coming very soon."
+        },
+        {
+          "at": "words[4].korean",
+          "before": "방면",
+          "after": "번째 전"
+        },
+        {
+          "at": "words[4].roman",
+          "before": "bangmyeon",
+          "after": "beonjjae jeon"
+        },
+        {
+          "at": "words[4].meaning",
+          "before": "toward, in the direction of (shows where the bus is heading)",
+          "after": "stops away (○번째 전 = the bus is ○ stops before this one)"
+        },
+        {
+          "at": "words[4].example",
+          "before": "이 버스는 서울역 방면이에요.",
+          "after": "제가 탈 버스는 지금 2번째 전이에요."
+        },
+        {
+          "at": "words[4].exampleMeaning",
+          "before": "This bus is going toward Seoul Station.",
+          "after": "The bus I'm taking is two stops away now."
+        },
+        {
+          "at": "words[5].korean",
+          "before": "곧",
+          "after": "전 정류장"
+        },
+        {
+          "at": "words[5].roman",
+          "before": "got",
+          "after": "jeon jeongnyujang"
+        },
+        {
+          "at": "words[5].meaning",
+          "before": "very soon, almost here",
+          "after": "the stop just before this one"
+        },
+        {
+          "at": "words[5].example",
+          "before": "잠깐만요, 버스가 곧 와요.",
+          "after": "버스가 전 정류장에서 출발했어요."
+        },
+        {
+          "at": "words[5].exampleMeaning",
+          "before": "Wait a moment, the bus is coming very soon.",
+          "after": "The bus has left the stop just before this one."
+        },
+        {
+          "at": "words[6].korean",
+          "before": "번째 전",
+          "after": "출발 대기"
+        },
+        {
+          "at": "words[6].roman",
+          "before": "beonjjae jeon",
+          "after": "chulbal daegi"
+        },
+        {
+          "at": "words[6].meaning",
+          "before": "stops away (○번째 전 = the bus is ○ stops before this one)",
+          "after": "waiting to start (the bus has not left the depot yet)"
+        },
+        {
+          "at": "words[6].example",
+          "before": "제가 탈 버스는 지금 2번째 전이에요.",
+          "after": "62번은 아직 출발 대기라서 한참 기다려야 해요."
+        },
+        {
+          "at": "words[6].exampleMeaning",
+          "before": "The bus I'm taking is two stops away now.",
+          "after": "Bus 62 hasn't left yet, so we'll have to wait a long time."
+        },
+        {
+          "at": "words[7].korean",
+          "before": "전 정류장",
+          "after": "차고지"
+        },
+        {
+          "at": "words[7].roman",
+          "before": "jeon jeongnyujang",
+          "after": "chagoji"
+        },
+        {
+          "at": "words[7].meaning",
+          "before": "the stop just before this one",
+          "after": "bus depot, where the buses start their route"
+        },
+        {
+          "at": "words[7].example",
+          "before": "버스가 전 정류장에서 출발했어요.",
+          "after": "첫차는 새벽에 차고지에서 나와요."
+        },
+        {
+          "at": "words[7].exampleMeaning",
+          "before": "The bus has left the stop just before this one.",
+          "after": "The first bus leaves the depot early in the morning."
+        },
+        {
+          "at": "words[8].korean",
+          "before": "출발 대기",
+          "after": "운행 종료"
+        },
+        {
+          "at": "words[8].roman",
+          "before": "chulbal daegi",
+          "after": "unhaeng jongnyo"
+        },
+        {
+          "at": "words[8].meaning",
+          "before": "waiting to start (the bus has not left the depot yet)",
+          "after": "service over (this bus is not running any more today, or for now)"
+        },
+        {
+          "at": "words[8].example",
+          "before": "62번은 아직 출발 대기라서 한참 기다려야 해요.",
+          "after": "벌써 운행 종료예요? 택시를 타야겠어요."
+        },
+        {
+          "at": "words[8].exampleMeaning",
+          "before": "Bus 62 hasn't left yet, so we'll have to wait a long time.",
+          "after": "The service is already over? I'll have to take a taxi."
+        },
+        {
+          "at": "words[9].korean",
+          "before": "차고지",
+          "after": ""
+        },
+        {
+          "at": "words[9].roman",
+          "before": "chagoji",
+          "after": ""
+        },
+        {
+          "at": "words[9].meaning",
+          "before": "bus depot, where the buses start their route",
+          "after": ""
+        },
+        {
+          "at": "words[9].example",
+          "before": "첫차는 새벽에 차고지에서 나와요.",
+          "after": ""
+        },
+        {
+          "at": "words[9].exampleMeaning",
+          "before": "The first bus leaves the depot early in the morning.",
+          "after": ""
+        },
+        {
+          "at": "words[10].korean",
+          "before": "운행 종료",
+          "after": ""
+        },
+        {
+          "at": "words[10].roman",
+          "before": "unhaeng jongnyo",
+          "after": ""
+        },
+        {
+          "at": "words[10].meaning",
+          "before": "service over (this bus is not running any more today, or for now)",
+          "after": ""
+        },
+        {
+          "at": "words[10].example",
+          "before": "벌써 운행 종료예요? 택시를 타야겠어요.",
+          "after": ""
+        },
+        {
+          "at": "words[10].exampleMeaning",
+          "before": "The service is already over? I'll have to take a taxi.",
+          "after": ""
+        }
+      ]
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "\"sangat segera\" is unnatural Indonesian for \"very soon\".",
+          "fix": "sebentar lagi, hampir tiba"
+        },
+        {
+          "line": 11,
+          "problem": "\"Bus yang saya naiki\" means the bus the speaker is already riding, which contradicts it being two stops away. The English means the bus the speaker is going to take.",
+          "fix": "Bus yang akan saya naiki sekarang tinggal dua halte lagi."
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "\"rất sắp đến\" is unnatural Vietnamese because \"sắp\" doesn't normally take the intensifier \"rất\". Use \"sắp đến ngay\" to say \"very soon\".",
+          "fix": "sắp đến ngay, gần đến rồi"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 9,
+          "problem": "\"está chegando bem agora\" means 'arriving right now', not 'coming very soon'; meaning shifted.",
+          "fix": "Espere um momento, o ônibus já está quase chegando."
+        },
+        {
+          "line": 20,
+          "problem": "Ungrammatical: distance expression requires the preposition 'a' (\"a quantas paradas ele está\").",
+          "fix": "Observe o painel da história. Quantos minutos faltam para o ônibus 305 chegar, e a quantas paradas ele está agora? Responda em coreano."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "\"거의 다 와서\" ends in the connecting ending -아서, so it reads as an unfinished clause and is unnatural as a gloss for \"almost here\".",
+          "fix": "곧, 거의 다 옴"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'Beginner (high)' means the upper part of the beginner level. '初级(高级)' reads as 'beginner (advanced)', which contradicts itself and uses 高级, the term for the advanced level.",
+          "fix": "初级(高)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T18:57:26.033Z"
+}

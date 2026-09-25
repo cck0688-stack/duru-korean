@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "할인",
+    "시식",
+    "1+1(원 플러스 원), 유통기한",
+    "카트, 장바구니",
+    "계산대, 셀프 계산대",
+    "봉투, 적립"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Isi bagian yang kosong. (Barang-barang lebih murah hari ini.) 오늘 우유를 ______해요.",
+    "Isi bagian yang kosong. (Kamu mencicipi makanan secara gratis di toko.) ______ 코너에서 김치를 먹어 봤어요.",
+    "Isi kedua bagian yang kosong. (Kamu bertanya kepada pegawai apakah kamu dapat satu gratis jika membeli satu. Lalu kamu mengecek tanggal pada kemasannya.) 이 요구르트 ______이에요? 아, 그런데 ______이 내일까지네요.",
+    "Isi kedua bagian yang kosong. (Pertama, kamu akan membeli banyak barang, jadi kamu perlu sesuatu yang beroda. Lalu, kamu hanya membeli susu, jadi kamu membawa sesuatu yang ringan dengan tangan.) 오늘은 살 게 많아요. ______를 가져올게요. 우유만 사요. ______만 들고 가요.",
+    "Isi kedua bagian yang kosong. (Antrean di kasir dengan petugas terlalu panjang, jadi kamu memindai dan membayar sendiri.) ______에 줄이 너무 길어요. 우리는 ______에서 계산해요.",
+    "Isi kedua bagian yang kosong dalam percakapan di kasir ini. 직원: ______ 필요하세요? 손님: 아니요, 괜찮아요. 포인트 ______해 주세요."
+  ],
+  "keyword": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "level": "Pemula",
+  "minutes": 15,
+  "objective": "Pelajar dapat mengenali dan menggunakan 10 kata kunci supermarket (장바구니, 카트, 계산대, 셀프 계산대, 봉투, 할인, 1+1[원 플러스 원], 유통기한, 시식, 적립) dalam kalimat pendek dan alami untuk mencari barang, mengecek harga dan tanggal, serta membayar di kasir. Contoh: '봉투 필요 없어요.', '이거 1+1이에요?', '포인트 적립해 주세요.'",
+  "summary": "Sepuluh kata sehari-hari untuk belanja di supermarket Korea. Pelajar mengambil keranjang atau troli belanja, mencari diskon, promo 1+1, dan sampel gratis, mengecek tanggal kedaluwarsa, lalu membayar di kasir biasa atau kasir mandiri sambil bilang tidak perlu kantong dan meminta poin ditambahkan. Keenam latihan ini melatih semua sepuluh kata target.",
+  "tags": [],
+  "task": null,
+  "title": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "words": [
+    {
+      "korean": "장바구니",
+      "roman": "jangbaguni",
+      "meaning": "keranjang belanja (dibawa dengan tangan di dalam toko); juga bisa berarti tas belanja yang bisa dipakai berulang kali",
+      "example": "장바구니는 입구에 있어요.",
+      "exampleMeaning": "Keranjang belanja ada di pintu masuk."
+    },
+    {
+      "korean": "카트",
+      "roman": "kateu",
+      "meaning": "troli belanja (yang beroda)",
+      "example": "카트 좀 밀어 줄래요?",
+      "exampleMeaning": "Bisakah kamu mendorong trolinya untukku?"
+    },
+    {
+      "korean": "계산대",
+      "roman": "gyesandae",
+      "meaning": "meja kasir (tempat kasir menghitung belanjaan Anda)",
+      "example": "계산대가 어디예요?",
+      "exampleMeaning": "Di mana kasirnya?"
+    },
+    {
+      "korean": "셀프 계산대",
+      "roman": "selpeu gyesandae",
+      "meaning": "kasir mandiri (self-checkout)",
+      "example": "셀프 계산대에서는 바코드를 직접 찍어요.",
+      "exampleMeaning": "Di kasir mandiri, kamu memindai barkodenya sendiri."
+    },
+    {
+      "korean": "봉투",
+      "roman": "bongtu",
+      "meaning": "kantong yang diberikan di kasir (plastik atau kertas)",
+      "example": "봉투 필요 없어요.",
+      "exampleMeaning": "Saya tidak perlu kantong."
+    },
+    {
+      "korean": "할인",
+      "roman": "harin",
+      "meaning": "diskon, potongan harga (harga lebih murah dari biasanya)",
+      "example": "이 과자 지금 할인 중이에요.",
+      "exampleMeaning": "Camilan ini sedang diskon sekarang."
+    },
+    {
+      "korean": "1+1 (원 플러스 원)",
+      "roman": "won peulleoseu won",
+      "meaning": "beli satu gratis satu",
+      "example": "이거 1+1이에요?",
+      "exampleMeaning": "Apakah ini beli satu gratis satu?"
+    },
+    {
+      "korean": "유통기한",
+      "roman": "yutonggihan",
+      "meaning": "tanggal kedaluwarsa (tanggal yang tercetak pada makanan)",
+      "example": "이 두부는 유통기한이 지났어요.",
+      "exampleMeaning": "Tahu ini sudah melewati tanggal kedaluwarsanya."
+    },
+    {
+      "korean": "시식",
+      "roman": "sisik",
+      "meaning": "sampel gratis, tester (makanan yang ditawarkan untuk dicoba di toko)",
+      "example": "만두 시식해 보세요!",
+      "exampleMeaning": "Coba sampel gratis mandunya!"
+    },
+    {
+      "korean": "적립",
+      "roman": "jeongnip",
+      "meaning": "penambahan poin (poin pada keanggotaan toko)",
+      "example": "포인트 적립해 주세요.",
+      "exampleMeaning": "Tolong tambahkan poinnya ke akun saya."
+    }
+  ],
+  "category": "vocab"
+}

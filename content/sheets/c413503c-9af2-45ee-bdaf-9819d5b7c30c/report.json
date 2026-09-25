@@ -1,0 +1,991 @@
+{
+  "id": "c413503c-9af2-45ee-bdaf-9819d5b7c30c",
+  "title": "약국에서 감기약 사기",
+  "category": "reallife",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "answers, 5th: 하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요.) → 하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Dialogue, pharmacist's 2nd line and Exercise 3 '언제부터 그랬어요?': the pharmacist uses the honorific -시- for the customer everywhere else ('불편하세요', '드시는 거', '식사하시고 드세요'), but this line drops it and becomes less polite to the customer. Change it to '언제부터 그러셨어요?' in both places.",
+        "Exercises 1, 4 and 5 all use the same '하루 두 번' (twice a day), and the answers to 4 and 5 are almost the same frame ('하루 두 번 …' + a dosing verb). This gives little practice with counting tablets (한 번에 ~ 알씩) or with checking 식후, so the worksheet gets thin. Change Exercise 5 to 'You think the pharmacist said two tablets at a time. Ask a question to check, ending in 먹으면 돼요?' (answer: '한 번에 두 알씩 먹으면 돼요?'). Or change Exercise 4 to a different frequency and timing, such as 하루 한 번 and 자기 전에."
+      ],
+      "audit": []
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "answers, #3: 그저께부터요. → 그저께부터요. (그제부터요.)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[3]",
+      "before": "그저께부터요.",
+      "after": "그저께부터요. (그제부터요.)"
+    },
+    {
+      "at": "answers[4]",
+      "before": "네, 있어요.",
+      "after": "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)"
+    },
+    {
+      "at": "answers[5]",
+      "before": "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요.)",
+      "after": "한 번에 두 알씩 먹으면 돼요? (한 번에 두 알 먹으면 돼요?)"
+    },
+    {
+      "at": "answers[6]",
+      "before": "하루 두 번 먹으면 돼요? (하루에 두 번 먹으면 돼요?)",
+      "after": ""
+    },
+    {
+      "at": "dialogue[3].korean",
+      "before": "언제부터 그랬어요?",
+      "after": "언제부터 그러셨어요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "The pharmacist asks '언제부터 그랬어요?' Your symptoms started the day before yesterday. Give a short answer ending in '-부터요'.",
+      "after": "The pharmacist asks '언제부터 그러셨어요?' Your symptoms started the day before yesterday. Give a short answer ending in '-부터요'."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "The pharmacist asks '다른 약 드시는 거 있어요?' You are taking another medicine. Give a short answer.",
+      "after": "Write this instruction in Korean the way a pharmacist would say it: 'Take it twice a day, after meals.'"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "Write this instruction in Korean the way a pharmacist would say it: 'Take it twice a day, after meals.'",
+      "after": "You think the pharmacist said to take two tablets at a time, but you're not sure. Ask a question to check. End it with '먹으면 돼요?', like the customer does in the dialogue."
+    },
+    {
+      "at": "exercises[6]",
+      "before": "You think the pharmacist said to take it twice a day, but you're not sure. Ask a question to check. End it with '먹으면 돼요?', like the customer does in the dialogue.",
+      "after": ""
+    },
+    {
+      "at": "objective",
+      "before": "Learners can buy over-the-counter cold medicine at a pharmacy. They can state a symptom with '-이/가 아파요' or '-이/가 나요', answer '언제부터 그랬어요?' and '다른 약 드시는 거 있어요?' with short replies, understand dosing instructions (하루 ~ 번, 한 번에 ~ 알씩, 식후에), and check those instructions with '~ 먹으면 돼요?'",
+      "after": "Learners can state symptoms ('-이/가 아파요', '-이/가 나요'), understand dosing instructions (하루 ~ 번, 한 번에 ~ 알씩, 식후에), and check them with '~ 먹으면 돼요?'"
+    },
+    {
+      "at": "summary",
+      "before": "A short, real exchange at a Korean pharmacy. A customer with a sore throat and runny nose tells the pharmacist their symptoms, answers the usual follow-up questions, and buys cold medicine without a prescription. The customer then checks how to take it, and the pharmacist confirms.",
+      "after": "A customer with a cold describes their symptoms at a Korean pharmacy and buys cold medicine without a prescription."
+    },
+    {
+      "at": "words[1].korean",
+      "before": "약국",
+      "after": "불편하다"
+    },
+    {
+      "at": "words[1].roman",
+      "before": "yakguk",
+      "after": "bulpyeonhada"
+    },
+    {
+      "at": "words[1].meaning",
+      "before": "pharmacy",
+      "after": "to feel unwell (in part of the body)"
+    },
+    {
+      "at": "words[1].example",
+      "before": "이 근처에 약국 있어요?",
+      "after": "속이 좀 불편해요."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "Is there a pharmacy near here?",
+      "after": "My stomach feels a bit upset."
+    },
+    {
+      "at": "words[2].korean",
+      "before": "불편하다",
+      "after": "콧물"
+    },
+    {
+      "at": "words[2].roman",
+      "before": "bulpyeonhada",
+      "after": "konmul"
+    },
+    {
+      "at": "words[2].meaning",
+      "before": "to feel unwell (in part of the body)",
+      "after": "runny nose"
+    },
+    {
+      "at": "words[2].example",
+      "before": "속이 좀 불편해요.",
+      "after": "콧물이 계속 나요."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "My stomach feels a bit upset.",
+      "after": "My nose keeps running."
+    },
+    {
+      "at": "words[3].korean",
+      "before": "콧물",
+      "after": "기침"
+    },
+    {
+      "at": "words[3].roman",
+      "before": "konmul",
+      "after": "gichim"
+    },
+    {
+      "at": "words[3].meaning",
+      "before": "runny nose",
+      "after": "cough"
+    },
+    {
+      "at": "words[3].example",
+      "before": "콧물이 계속 나요.",
+      "after": "밤에 기침을 많이 해요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "My nose keeps running.",
+      "after": "I cough a lot at night."
+    },
+    {
+      "at": "words[4].korean",
+      "before": "열",
+      "after": "감기약"
+    },
+    {
+      "at": "words[4].roman",
+      "before": "yeol",
+      "after": "gamgiyak"
+    },
+    {
+      "at": "words[4].meaning",
+      "before": "fever",
+      "after": "cold medicine"
+    },
+    {
+      "at": "words[4].example",
+      "before": "아이가 밤에 열이 났어요.",
+      "after": "감기약 좀 주세요."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "My child had a fever last night.",
+      "after": "Could I get some cold medicine?"
+    },
+    {
+      "at": "words[5].korean",
+      "before": "기침",
+      "after": "하루 세 번"
+    },
+    {
+      "at": "words[5].roman",
+      "before": "gichim",
+      "after": "haru se beon"
+    },
+    {
+      "at": "words[5].meaning",
+      "before": "cough",
+      "after": "three times a day"
+    },
+    {
+      "at": "words[5].example",
+      "before": "밤에 기침을 많이 해요.",
+      "after": "하루 세 번 드시면 돼요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "I cough a lot at night.",
+      "after": "You just take it three times a day."
+    },
+    {
+      "at": "words[6].korean",
+      "before": "감기약",
+      "after": "식후"
+    },
+    {
+      "at": "words[6].roman",
+      "before": "gamgiyak",
+      "after": "sikhu"
+    },
+    {
+      "at": "words[6].meaning",
+      "before": "cold medicine",
+      "after": "after a meal"
+    },
+    {
+      "at": "words[6].example",
+      "before": "감기약 좀 주세요.",
+      "after": "이 약은 꼭 식후에 드세요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "Could I get some cold medicine?",
+      "after": "Make sure you take this medicine after eating."
+    },
+    {
+      "at": "words[7].korean",
+      "before": "하루 세 번",
+      "after": "알"
+    },
+    {
+      "at": "words[7].roman",
+      "before": "haru se beon",
+      "after": "al"
+    },
+    {
+      "at": "words[7].meaning",
+      "before": "three times a day",
+      "after": "tablet (counter for pills)"
+    },
+    {
+      "at": "words[7].example",
+      "before": "하루 세 번 드시면 돼요.",
+      "after": "한 번에 두 알씩 드세요."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "You just take it three times a day.",
+      "after": "Take two tablets each time."
+    },
+    {
+      "at": "words[8].korean",
+      "before": "식후",
+      "after": "그저께"
+    },
+    {
+      "at": "words[8].roman",
+      "before": "sikhu",
+      "after": "geujeokke"
+    },
+    {
+      "at": "words[8].meaning",
+      "before": "after a meal",
+      "after": "the day before yesterday"
+    },
+    {
+      "at": "words[8].example",
+      "before": "이 약은 꼭 식후에 드세요.",
+      "after": "그저께 병원에 갔어요."
+    },
+    {
+      "at": "words[8].exampleMeaning",
+      "before": "Make sure you take this medicine after eating.",
+      "after": "I went to the doctor the day before yesterday."
+    },
+    {
+      "at": "words[9].korean",
+      "before": "알",
+      "after": ""
+    },
+    {
+      "at": "words[9].roman",
+      "before": "al",
+      "after": ""
+    },
+    {
+      "at": "words[9].meaning",
+      "before": "tablet (counter for pills)",
+      "after": ""
+    },
+    {
+      "at": "words[9].example",
+      "before": "한 번에 두 알씩 드세요.",
+      "after": ""
+    },
+    {
+      "at": "words[9].exampleMeaning",
+      "before": "Take two tablets each time.",
+      "after": ""
+    },
+    {
+      "at": "words[10].korean",
+      "before": "그저께",
+      "after": ""
+    },
+    {
+      "at": "words[10].roman",
+      "before": "geujeokke",
+      "after": ""
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "the day before yesterday",
+      "after": ""
+    },
+    {
+      "at": "words[10].example",
+      "before": "그저께 병원에 갔어요.",
+      "after": ""
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "I went to the doctor the day before yesterday.",
+      "after": ""
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "answers[4]",
+          "before": "네, 있어요.",
+          "after": "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)"
+        },
+        {
+          "at": "answers[5]",
+          "before": "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)",
+          "after": "하루 두 번 먹으면 돼요? (하루에 두 번 먹으면 돼요?)"
+        },
+        {
+          "at": "answers[6]",
+          "before": "하루 두 번 먹으면 돼요? (하루에 두 번 먹으면 돼요?)",
+          "after": ""
+        },
+        {
+          "at": "exercises[4]",
+          "before": "The pharmacist asks '다른 약 드시는 거 있어요?' You are taking another medicine. Give a short answer.",
+          "after": "Write this instruction in Korean the way a pharmacist would say it: 'Take it twice a day, after meals.'"
+        },
+        {
+          "at": "exercises[5]",
+          "before": "Write this instruction in Korean the way a pharmacist would say it: 'Take it twice a day, after meals.'",
+          "after": "You think the pharmacist said to take it twice a day, but you're not sure. Ask a question to check. End it with '먹으면 돼요?', like the customer does in the dialogue."
+        },
+        {
+          "at": "exercises[6]",
+          "before": "You think the pharmacist said to take it twice a day, but you're not sure. Ask a question to check. End it with '먹으면 돼요?', like the customer does in the dialogue.",
+          "after": ""
+        },
+        {
+          "at": "objective",
+          "before": "Learners can buy over-the-counter cold medicine at a pharmacy. They can state a symptom with '-이/가 아파요' or '-이/가 나요', answer '언제부터 그랬어요?' and '다른 약 드시는 거 있어요?' with short replies, understand dosing instructions (하루 ~ 번, 한 번에 ~ 알씩, 식후에), and check those instructions with '~ 먹으면 돼요?'",
+          "after": "Learners can buy cold medicine at a pharmacy. They can state a symptom ('-이/가 아파요', '-이/가 나요'), answer the pharmacist's questions, understand dosing instructions (하루 ~ 번, 한 번에 ~ 알씩, 식후에), and check them with '~ 먹으면 돼요?'"
+        },
+        {
+          "at": "summary",
+          "before": "A short, real exchange at a Korean pharmacy. A customer with a sore throat and runny nose tells the pharmacist their symptoms, answers the usual follow-up questions, and buys cold medicine without a prescription. The customer then checks how to take it, and the pharmacist confirms.",
+          "after": "At a Korean pharmacy, a customer with a cold describes their symptoms, answers the pharmacist's questions, and buys cold medicine without a prescription. The customer then checks how to take it."
+        },
+        {
+          "at": "words[4].korean",
+          "before": "열",
+          "after": "기침"
+        },
+        {
+          "at": "words[4].roman",
+          "before": "yeol",
+          "after": "gichim"
+        },
+        {
+          "at": "words[4].meaning",
+          "before": "fever",
+          "after": "cough"
+        },
+        {
+          "at": "words[4].example",
+          "before": "아이가 밤에 열이 났어요.",
+          "after": "밤에 기침을 많이 해요."
+        },
+        {
+          "at": "words[4].exampleMeaning",
+          "before": "My child had a fever last night.",
+          "after": "I cough a lot at night."
+        },
+        {
+          "at": "words[5].korean",
+          "before": "기침",
+          "after": "감기약"
+        },
+        {
+          "at": "words[5].roman",
+          "before": "gichim",
+          "after": "gamgiyak"
+        },
+        {
+          "at": "words[5].meaning",
+          "before": "cough",
+          "after": "cold medicine"
+        },
+        {
+          "at": "words[5].example",
+          "before": "밤에 기침을 많이 해요.",
+          "after": "감기약 좀 주세요."
+        },
+        {
+          "at": "words[5].exampleMeaning",
+          "before": "I cough a lot at night.",
+          "after": "Could I get some cold medicine?"
+        },
+        {
+          "at": "words[6].korean",
+          "before": "감기약",
+          "after": "하루 세 번"
+        },
+        {
+          "at": "words[6].roman",
+          "before": "gamgiyak",
+          "after": "haru se beon"
+        },
+        {
+          "at": "words[6].meaning",
+          "before": "cold medicine",
+          "after": "three times a day"
+        },
+        {
+          "at": "words[6].example",
+          "before": "감기약 좀 주세요.",
+          "after": "하루 세 번 드시면 돼요."
+        },
+        {
+          "at": "words[6].exampleMeaning",
+          "before": "Could I get some cold medicine?",
+          "after": "You just take it three times a day."
+        },
+        {
+          "at": "words[7].korean",
+          "before": "하루 세 번",
+          "after": "식후"
+        },
+        {
+          "at": "words[7].roman",
+          "before": "haru se beon",
+          "after": "sikhu"
+        },
+        {
+          "at": "words[7].meaning",
+          "before": "three times a day",
+          "after": "after a meal"
+        },
+        {
+          "at": "words[7].example",
+          "before": "하루 세 번 드시면 돼요.",
+          "after": "이 약은 꼭 식후에 드세요."
+        },
+        {
+          "at": "words[7].exampleMeaning",
+          "before": "You just take it three times a day.",
+          "after": "Make sure you take this medicine after eating."
+        },
+        {
+          "at": "words[8].korean",
+          "before": "식후",
+          "after": "알"
+        },
+        {
+          "at": "words[8].roman",
+          "before": "sikhu",
+          "after": "al"
+        },
+        {
+          "at": "words[8].meaning",
+          "before": "after a meal",
+          "after": "tablet (counter for pills)"
+        },
+        {
+          "at": "words[8].example",
+          "before": "이 약은 꼭 식후에 드세요.",
+          "after": "한 번에 두 알씩 드세요."
+        },
+        {
+          "at": "words[8].exampleMeaning",
+          "before": "Make sure you take this medicine after eating.",
+          "after": "Take two tablets each time."
+        },
+        {
+          "at": "words[9].korean",
+          "before": "알",
+          "after": "그저께"
+        },
+        {
+          "at": "words[9].roman",
+          "before": "al",
+          "after": "geujeokke"
+        },
+        {
+          "at": "words[9].meaning",
+          "before": "tablet (counter for pills)",
+          "after": "the day before yesterday"
+        },
+        {
+          "at": "words[9].example",
+          "before": "한 번에 두 알씩 드세요.",
+          "after": "그저께 병원에 갔어요."
+        },
+        {
+          "at": "words[9].exampleMeaning",
+          "before": "Take two tablets each time.",
+          "after": "I went to the doctor the day before yesterday."
+        },
+        {
+          "at": "words[10].korean",
+          "before": "그저께",
+          "after": ""
+        },
+        {
+          "at": "words[10].roman",
+          "before": "geujeokke",
+          "after": ""
+        },
+        {
+          "at": "words[10].meaning",
+          "before": "the day before yesterday",
+          "after": ""
+        },
+        {
+          "at": "words[10].example",
+          "before": "그저께 병원에 갔어요.",
+          "after": ""
+        },
+        {
+          "at": "words[10].exampleMeaning",
+          "before": "I went to the doctor the day before yesterday.",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "from": 2,
+      "longer": [
+        "es",
+        "vi",
+        "id",
+        "pt-BR",
+        "fr",
+        "de"
+      ],
+      "cut": [
+        {
+          "at": "summary",
+          "before": "At a Korean pharmacy, a customer with a cold describes their symptoms, answers the pharmacist's questions, and buys cold medicine without a prescription. The customer then checks how to take it.",
+          "after": "A customer with a cold describes their symptoms at a Korean pharmacy and buys cold medicine without a prescription."
+        },
+        {
+          "at": "objective",
+          "before": "Learners can buy cold medicine at a pharmacy. They can state a symptom ('-이/가 아파요', '-이/가 나요'), answer the pharmacist's questions, understand dosing instructions (하루 ~ 번, 한 번에 ~ 알씩, 식후에), and check them with '~ 먹으면 돼요?'",
+          "after": "Learners can state symptoms ('-이/가 아파요', '-이/가 나요'), understand dosing instructions (하루 ~ 번, 한 번에 ~ 알씩, 식후에), and check them with '~ 먹으면 돼요?'"
+        },
+        {
+          "at": "words[1].korean",
+          "before": "약국",
+          "after": "불편하다"
+        },
+        {
+          "at": "words[1].roman",
+          "before": "yakguk",
+          "after": "bulpyeonhada"
+        },
+        {
+          "at": "words[1].meaning",
+          "before": "pharmacy",
+          "after": "to feel unwell (in part of the body)"
+        },
+        {
+          "at": "words[1].example",
+          "before": "이 근처에 약국 있어요?",
+          "after": "속이 좀 불편해요."
+        },
+        {
+          "at": "words[1].exampleMeaning",
+          "before": "Is there a pharmacy near here?",
+          "after": "My stomach feels a bit upset."
+        },
+        {
+          "at": "words[2].korean",
+          "before": "불편하다",
+          "after": "콧물"
+        },
+        {
+          "at": "words[2].roman",
+          "before": "bulpyeonhada",
+          "after": "konmul"
+        },
+        {
+          "at": "words[2].meaning",
+          "before": "to feel unwell (in part of the body)",
+          "after": "runny nose"
+        },
+        {
+          "at": "words[2].example",
+          "before": "속이 좀 불편해요.",
+          "after": "콧물이 계속 나요."
+        },
+        {
+          "at": "words[2].exampleMeaning",
+          "before": "My stomach feels a bit upset.",
+          "after": "My nose keeps running."
+        },
+        {
+          "at": "words[3].korean",
+          "before": "콧물",
+          "after": "기침"
+        },
+        {
+          "at": "words[3].roman",
+          "before": "konmul",
+          "after": "gichim"
+        },
+        {
+          "at": "words[3].meaning",
+          "before": "runny nose",
+          "after": "cough"
+        },
+        {
+          "at": "words[3].example",
+          "before": "콧물이 계속 나요.",
+          "after": "밤에 기침을 많이 해요."
+        },
+        {
+          "at": "words[3].exampleMeaning",
+          "before": "My nose keeps running.",
+          "after": "I cough a lot at night."
+        },
+        {
+          "at": "words[4].korean",
+          "before": "기침",
+          "after": "감기약"
+        },
+        {
+          "at": "words[4].roman",
+          "before": "gichim",
+          "after": "gamgiyak"
+        },
+        {
+          "at": "words[4].meaning",
+          "before": "cough",
+          "after": "cold medicine"
+        },
+        {
+          "at": "words[4].example",
+          "before": "밤에 기침을 많이 해요.",
+          "after": "감기약 좀 주세요."
+        },
+        {
+          "at": "words[4].exampleMeaning",
+          "before": "I cough a lot at night.",
+          "after": "Could I get some cold medicine?"
+        },
+        {
+          "at": "words[5].korean",
+          "before": "감기약",
+          "after": "하루 세 번"
+        },
+        {
+          "at": "words[5].roman",
+          "before": "gamgiyak",
+          "after": "haru se beon"
+        },
+        {
+          "at": "words[5].meaning",
+          "before": "cold medicine",
+          "after": "three times a day"
+        },
+        {
+          "at": "words[5].example",
+          "before": "감기약 좀 주세요.",
+          "after": "하루 세 번 드시면 돼요."
+        },
+        {
+          "at": "words[5].exampleMeaning",
+          "before": "Could I get some cold medicine?",
+          "after": "You just take it three times a day."
+        },
+        {
+          "at": "words[6].korean",
+          "before": "하루 세 번",
+          "after": "식후"
+        },
+        {
+          "at": "words[6].roman",
+          "before": "haru se beon",
+          "after": "sikhu"
+        },
+        {
+          "at": "words[6].meaning",
+          "before": "three times a day",
+          "after": "after a meal"
+        },
+        {
+          "at": "words[6].example",
+          "before": "하루 세 번 드시면 돼요.",
+          "after": "이 약은 꼭 식후에 드세요."
+        },
+        {
+          "at": "words[6].exampleMeaning",
+          "before": "You just take it three times a day.",
+          "after": "Make sure you take this medicine after eating."
+        },
+        {
+          "at": "words[7].korean",
+          "before": "식후",
+          "after": "알"
+        },
+        {
+          "at": "words[7].roman",
+          "before": "sikhu",
+          "after": "al"
+        },
+        {
+          "at": "words[7].meaning",
+          "before": "after a meal",
+          "after": "tablet (counter for pills)"
+        },
+        {
+          "at": "words[7].example",
+          "before": "이 약은 꼭 식후에 드세요.",
+          "after": "한 번에 두 알씩 드세요."
+        },
+        {
+          "at": "words[7].exampleMeaning",
+          "before": "Make sure you take this medicine after eating.",
+          "after": "Take two tablets each time."
+        },
+        {
+          "at": "words[8].korean",
+          "before": "알",
+          "after": "그저께"
+        },
+        {
+          "at": "words[8].roman",
+          "before": "al",
+          "after": "geujeokke"
+        },
+        {
+          "at": "words[8].meaning",
+          "before": "tablet (counter for pills)",
+          "after": "the day before yesterday"
+        },
+        {
+          "at": "words[8].example",
+          "before": "한 번에 두 알씩 드세요.",
+          "after": "그저께 병원에 갔어요."
+        },
+        {
+          "at": "words[8].exampleMeaning",
+          "before": "Take two tablets each time.",
+          "after": "I went to the doctor the day before yesterday."
+        },
+        {
+          "at": "words[9].korean",
+          "before": "그저께",
+          "after": ""
+        },
+        {
+          "at": "words[9].roman",
+          "before": "geujeokke",
+          "after": ""
+        },
+        {
+          "at": "words[9].meaning",
+          "before": "the day before yesterday",
+          "after": ""
+        },
+        {
+          "at": "words[9].example",
+          "before": "그저께 병원에 갔어요.",
+          "after": ""
+        },
+        {
+          "at": "words[9].exampleMeaning",
+          "before": "I went to the doctor the day before yesterday.",
+          "after": ""
+        }
+      ]
+    }
+  ],
+  "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 6,
+          "problem": "'Me duele un poco el estómago' means 'my stomach hurts'. The English says 'feels a bit upset'. This is the example for 불편하다 ('to feel unwell'), so it shouldn't describe pain, which is 아프다.",
+          "fix": "Tengo el estómago un poco revuelto."
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 42,
+          "problem": "The English sentence the learner has to put into Korean was itself translated ('하루에 두 번, 식후에 드세요.'). This gives away the answer, so the exercise no longer asks what the English asks. The sentence to translate must stay in English.",
+          "fix": "다음 지시를 약사가 말하는 방식으로 한국어로 쓰세요: 'Take it twice a day, after meals.'"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "「上級」は「advanced」という意味の独立したレベル名で、「初級(上級)」は自己矛盾しています。原文の「(high)」は初級の中の上の段階を指します。",
+          "fix": "初級(上)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'高级' means 'advanced' (a separate proficiency level), so '初级(高级)' reads as 'Beginner (Advanced)', which contradicts itself. The English means the upper part of the beginner level.",
+          "fix": "初级(高)"
+        },
+        {
+          "line": 39,
+          "problem": "The Korean quote is altered: the space after the comma in '하루 두 번, 한 번에' was removed ('하루 두 번,한 번에'). The Korean must stay exactly as in the English line.",
+          "fix": "药剂师说:'하루 두 번, 한 번에 한 알씩 드세요.' 一天要吃几片药?请用中文或韩文回答。"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 4,
+          "problem": "'A neighborhood pharmacy in Korea' is rendered as 'a pharmacy in a Korean district', which suggests a Korean quarter (like a Koreatown) instead of an ordinary local pharmacy in Korea.",
+          "fix": "Eine Apotheke (약국) in der Nachbarschaft in Korea, an einem Wochentag. Ein Kunde mit einer Erkältung kommt herein, um ohne Rezept Medizin zu kaufen."
+        },
+        {
+          "line": 6,
+          "problem": "'Mir ist der Magen etwas flau' is unnatural German; the idiomatic phrase is 'Mir ist etwas flau im Magen'.",
+          "fix": "Mir ist etwas flau im Magen."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T18:40:29.645Z"
+}

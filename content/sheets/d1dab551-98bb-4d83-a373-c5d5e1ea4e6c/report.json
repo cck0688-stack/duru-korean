@@ -1,0 +1,194 @@
+{
+  "id": "d1dab551-98bb-4d83-a373-c5d5e1ea4e6c",
+  "title": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "category": "vocab",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "shortened": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 7,
+          "problem": "Unnatural Indonesian: the formal question word 'Bisakah' is paired with the casual verb form 'dorongkan', and 'dorongkan' already means 'push for someone', so 'untukku' repeats it.",
+          "fix": "Bisakah kamu mendorong trolinya untukku?"
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"leve 1 e pague 1\" means 'take 1, pay for 1', which is just a normal purchase. The phrase for buy-one-get-one-free is \"leve 2, pague 1\".",
+          "fix": "Dez palavras do dia a dia para fazer compras em um supermercado coreano. Os alunos pegam uma cesta ou um carrinho, procuram promoções, ofertas de leve 2, pague 1, e amostras grátis, conferem a validade e pagam no caixa normal ou no autoatendimento, dizendo que não precisam de sacola e pedindo para acumular pontos. Os seis exercícios praticam as dez palavras-alvo."
+        },
+        {
+          "line": 16,
+          "problem": "\"leve 1 e pague 1\" does not mean buy one, get one free. It should be \"leve 2, pague 1\".",
+          "fix": "leve 2, pague 1 (compre um, leve outro grátis)"
+        },
+        {
+          "line": 17,
+          "problem": "\"leve 1 e pague 1\" does not mean buy-one-get-one-free. It should be \"leve 2, pague 1\".",
+          "fix": "Isso é leve 2, pague 1?"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 22,
+          "problem": "The gloss defines 적립 as the points themselves ('포인트'). The English defines it as the act of earning points on a store membership.",
+          "fix": "적립 (매장 회원 카드에 포인트를 쌓는 것)"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 22,
+          "problem": "The English defines 적립 as 'earning' points (the act of accumulating them). '积分（会员卡上累积的积分）' turns it into the points themselves, so the gloss no longer describes the action.",
+          "fix": "累积积分（在商店会员账户上累积积分）"
+        },
+        {
+          "line": 24,
+          "problem": "The hint says 'Items are cheaper today'. The Chinese changes this to 'today milk is cheaper than usual', which narrows the hint to milk.",
+          "fix": "填空题。（今天商品比平时便宜。）오늘 우유를 ______해요."
+        },
+        {
+          "line": 27,
+          "problem": "The English says you carry 'something light' in your hand, a clue that points to the basket. '用手轻松地拿着东西走' means 'carry things easily', so the clue that the object is light is lost.",
+          "fix": "填空两处。（首先你要买很多东西，所以需要带轮子的工具。然后你只买牛奶，所以用手提着一个轻便的东西。）오늘은 살 게 많아요. ______를 가져올게요. 우유만 사요. ______만 들고 가요."
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 4,
+          "problem": "'carried by hand' is reduced to 'wird im Laden getragen', which drops 'by hand'. That detail is what sets the basket apart from the wheeled cart, and exercise 27 relies on it.",
+          "fix": "Einkaufskorb (wird im Laden in der Hand getragen); auch eine wiederverwendbare Einkaufstasche"
+        },
+        {
+          "line": 19,
+          "problem": "'ist über dem Haltbarkeitsdatum' is unidiomatic German.",
+          "fix": "Dieser Tofu hat das Haltbarkeitsdatum überschritten."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T19:01:33.656Z"
+}
