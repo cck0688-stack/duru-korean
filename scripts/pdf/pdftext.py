@@ -113,10 +113,43 @@ def compare(old, new, title, drop, labels, frame=()):
     }
 
 
+MM = 72 / 25.4          # PDF points in a millimetre
+FRAME_TOP, FRAME_BOTTOM = 44, 27   # the header and footer margins, mm
+
+
+def room(path):
+    """How much room a sheet has, in mm. On two pages: the free space
+    above the answers pinned at the foot of the last page. Longer: how
+    much would have to go for the last page's content to fit on the one
+    before it (negative)."""
+    with pymupdf.open(path) as doc:
+        n = len(doc)
+        top, bot = FRAME_TOP * MM, doc[0].rect.height - FRAME_BOTTOM * MM
+
+        def blocks(page):
+            return [b for b in page.get_text('blocks') if b[1] > top - 2 and b[3] < bot]
+
+        last = blocks(doc[-1])
+        heads = [b for b in last if b[4].strip().startswith('✓')]
+        if not heads:
+            return {'pages': n, 'room': None}
+        a0 = min(b[1] for b in heads)
+        above = [b for b in last if b[3] <= a0 + 1 and b not in heads]
+        if n <= 2:
+            return {'pages': n, 'room': round((a0 - (max(b[3] for b in above) if above else top)) / MM)}
+        before = blocks(doc[-2])
+        free = bot - (max(b[3] for b in before) if before else top)
+        spill = (max(b[3] for b in above) - top + 4 * MM) if above else 0
+        answers = max(b[3] for b in last) - a0 + 10 * MM
+        return {'pages': n, 'room': -round((answers + spill - free) / MM)}
+
+
 def main():
     req = json.load(sys.stdin)
     if req['op'] == 'text':
         out = {'pages': pages(req['path'])}
+    elif req['op'] == 'room':
+        out = room(req['path'])
     elif req['op'] == 'compare':
         out = compare(req['old'], req['new'], req.get('title', ''), req.get('drop', []), req.get('labels', []),
                       req.get('frame', []))

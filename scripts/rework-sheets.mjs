@@ -362,7 +362,22 @@ export async function applyOne(session, browser, r, dir) {
     const out = await renderSheet(sheet, { category: r.category, lang, browser });
     if (!out.check.ok) { result.failed.push(lang + ': ' + out.check.why.join('; ')); continue; }
     const f = files[lang];
-    const note = lang + ' ' + out.check.pages + '쪽';
+    let note = lang + ' ' + out.check.pages + '쪽';
+    if (DRY) {
+      // How much room is left (or missing), so a sheet near the limit is
+      // known by its margin and not only by its page count.
+      // Over two pages, the room missing is measured set compact, as the
+      // sheet will be once it fits.
+      const measured = out.check.pages > 2
+        ? (await renderSheet(sheet, { category: r.category, lang, browser, compact: true, check: false })).pdf
+        : out.pdf;
+      const tmp = path.join(os.tmpdir(), r.id + '-' + lang + '.pdf');
+      fs.writeFileSync(tmp, measured);
+      try {
+        const got = py({ op: 'room', path: tmp });
+        if (got.room != null) note += '(' + (got.room >= 0 ? '+' : '') + got.room + 'mm)';
+      } catch (err) { /* the count alone is still right */ }
+    }
     if (DRY) { (f ? result.replaced : result.added).push(note); continue; }
     try {
       if (f) {
