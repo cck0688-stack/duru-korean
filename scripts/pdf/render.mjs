@@ -415,17 +415,13 @@ export async function renderSheet(sheet, opts = {}) {
     // past two is set compact (sheet-v2.css: the same design, closer),
     // and that is kept when it saves a page. One that is long even then
     // stays as long as it is — nothing is squeezed past legible.
+    // The compact try is a fresh render set compact from the start: the
+    // same page switched to compact after laying out loose was seen to
+    // break a page later (CI, 2026-09-26: 3 pages where a fresh compact
+    // render gave 2 with room to spare).
     if (opts.compact === undefined && design === 'v2' && pages(pdf) > 2) {
-      const before = await page.evaluate(() => document.body.className);
-      await cls('fit', false);
-      await cls('compact', true);
-      const closer = await settle();
-      if (pages(closer) < pages(pdf)) {
-        pdf = closer;
-      } else {
-        await page.evaluate((c) => { document.body.className = c; }, before);
-        pdf = await print();
-      }
+      const closer = await renderSheet(sheet, { ...opts, compact: true, browser });
+      if (closer.check ? closer.check.pages < pages(pdf) : pages(closer.pdf) < pages(pdf)) return closer;
     }
     const bodyClass = await page.evaluate(() => document.body.className);
     let used = html.replace(/<body(?: class="[^"]*")?>/, bodyClass ? '<body class="' + bodyClass + '">' : '<body>');
