@@ -429,6 +429,14 @@
       "before": "덥은 → 더운, 길은 → 긴 (오늘은 정말 더운 날이에요. 그래서 머리가 긴 사람들은 머리를 묶었어요.)",
       "after": "덥은 → 더운, 길은 → 긴",
       "why": "shorter answer key (id/de ran onto a third page)"
+    },
+    {
+      "op": "replace",
+      "path": "forms[0..3].form",
+      "before": "동사 + … / 형용사 + …",
+      "after": "Verb + … / Adjective + … (each language's own word; ko keeps 동사/형용사)",
+      "why": "The English sheet labelled patterns with Korean grammar words; learners read these in their language (and the Japanese translation failed on them). Japanese brought up to date by hand (ㄹ-adjective line, answer 6).",
+      "all_languages": true
     }
   ]
 }

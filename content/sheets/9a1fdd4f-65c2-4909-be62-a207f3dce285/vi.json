@@ -5,7 +5,7 @@
     "노는",
     "가까운",
     "멋있는",
-    "덥은 → 더운, 길은 → 긴 (오늘은 정말 더운 날이에요. 그래서 머리가 긴 사람들은 머리를 묶었어요.)"
+    "덥은 → 더운, 길은 → 긴"
   ],
   "checkThese": [],
   "exercises": [
@@ -18,38 +18,38 @@
   ],
   "forms": [
     {
-      "form": "동사 + -는 (hiện tại)",
-      "when": "Hành động đang xảy ra ngay bây giờ hoặc xảy ra thường xuyên. Thêm -는 vào thân động từ, dù thân đó kết thúc bằng nguyên âm hay phụ âm: 먹다 → 먹는, 마시다 → 마시는. (Thân từ kết thúc bằng ㄹ thì lược bỏ ㄹ: 살다 → 사는. Xem phần thân từ ㄹ bên dưới.)",
+      "form": "Động từ + -는 (hiện tại)",
+      "when": "Hành động đang xảy ra ngay bây giờ hoặc xảy ra thường xuyên. Thêm -는 vào thân động từ, dù thân từ kết thúc bằng nguyên âm hay phụ âm: 먹다 → 먹는, 마시다 → 마시는. (Thân từ kết thúc bằng ㄹ thì lược bỏ ㄹ: 살다 → 사는. Xem hàng thân từ ㄹ bên dưới.)",
       "means": "(danh từ) mà ai đó làm / đang làm",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
-      "exampleMeaning": "Người đang uống cà phê ngay bây giờ là bạn của tôi.",
+      "exampleMeaning": "Người đang uống cà phê bây giờ là bạn tôi.",
       "mark": [
         "마시는"
       ]
     },
     {
-      "form": "동사 + -(으)ㄴ (quá khứ)",
-      "when": "Hành động đã kết thúc rồi. Nếu thân từ kết thúc bằng phụ âm, thêm -은 (먹다 → 먹은). Nếu kết thúc bằng nguyên âm, thêm -ㄴ (보다 → 본).",
+      "form": "Động từ + -(으)ㄴ (quá khứ)",
+      "when": "Hành động đã kết thúc. Nếu thân từ kết thúc bằng phụ âm, thêm -은 (먹다 → 먹은). Nếu kết thúc bằng nguyên âm, thêm -ㄴ (보다 → 본).",
       "means": "(danh từ) mà ai đó đã làm",
       "example": "어제 먹은 음식이 좀 짰어요.",
-      "exampleMeaning": "Món ăn tôi đã ăn hôm qua hơi mặn.",
+      "exampleMeaning": "Món ăn tôi ăn hôm qua hơi mặn.",
       "mark": [
         "먹은"
       ]
     },
     {
-      "form": "동사 + -(으)ㄹ (tương lai / dự định)",
+      "form": "Động từ + -(으)ㄹ (tương lai / dự định)",
       "when": "Hành động chưa xảy ra, hoặc là điều bạn dự định hay cần làm. Nếu thân từ kết thúc bằng phụ âm, thêm -을 (먹다 → 먹을). Nếu kết thúc bằng nguyên âm, thêm -ㄹ (보다 → 볼).",
       "means": "(danh từ) mà ai đó sẽ làm / định làm",
       "example": "이번 주말에 볼 영화를 아직 못 정했어요.",
-      "exampleMeaning": "Tôi vẫn chưa quyết định được phim sẽ xem vào cuối tuần này.",
+      "exampleMeaning": "Tôi vẫn chưa quyết định xem phim gì vào cuối tuần này.",
       "mark": [
         "볼"
       ]
     },
     {
-      "form": "형용사 + -(으)ㄴ",
-      "when": "Dùng dạng này cho bất kỳ tính từ nào miêu tả danh từ. Nếu thân từ kết thúc bằng phụ âm, thêm -은 (작다 → 작은). Nếu kết thúc bằng nguyên âm, thêm -ㄴ (크다 → 큰).",
+      "form": "Tính từ + -(으)ㄴ",
+      "when": "Dùng cách này cho bất kỳ tính từ nào miêu tả danh từ. Nếu thân từ kết thúc bằng phụ âm, thêm -은 (작다 → 작은). Nếu kết thúc bằng nguyên âm, thêm -ㄴ (크다 → 큰).",
       "means": "(danh từ) mà ~",
       "example": "작은 가방 말고 큰 가방 있어요?",
       "exampleMeaning": "Bạn có túi to thay vì túi nhỏ không?",
@@ -59,8 +59,8 @@
       ]
     },
     {
-      "form": "Từ 있다 / 없다 + -는",
-      "when": "Các từ kết thúc bằng 있다 hoặc 없다 (맛있다, 재미없다, 있다, 없다) dùng -는 (không phải -은) để bổ nghĩa cho danh từ ở thì hiện tại, ngay cả khi chúng hoạt động như tính từ trong tiếng Anh.",
+      "form": "있다 / 없다 + -는",
+      "when": "Các từ kết thúc bằng 있다 hoặc 없다 (맛있다, 재미없다, 있다, 없다) dùng -는 (không phải -은) để miêu tả danh từ ở thì hiện tại, ngay cả khi chúng hoạt động như tính từ trong tiếng Anh.",
       "means": "(danh từ) mà ~ / có ~",
       "example": "재미없는 영화는 끝까지 못 봐요.",
       "exampleMeaning": "Tôi không thể ngồi xem hết một bộ phim chán.",
@@ -69,21 +69,21 @@
       ]
     },
     {
-      "form": "Thân từ ㄹ + -는 / -ㄴ / -ㄹ",
-      "when": "Khi thân từ kết thúc bằng ㄹ, ㄹ bị lược bỏ trước -는 và -ㄴ. Với -ㄹ, hai chữ ㄹ hợp thành một. Không thêm 으. Động từ: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들.",
-      "means": "ý nghĩa giống như trên (hiện tại / quá khứ / tương lai, hoặc trạng thái tính từ)",
+      "form": "thân từ ㄹ + -는 / -ㄴ / -ㄹ",
+      "when": "Khi thân từ kết thúc bằng ㄹ, ㄹ bị lược bỏ trước -는 và -ㄴ. Với -ㄹ, hai ㄹ hợp thành một. Không thêm 으. Động từ: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들. Tính từ: 길다 → 긴, 멀다 → 먼.",
+      "means": "cùng ý nghĩa như trên (hiện tại / quá khứ / tương lai, hoặc trạng thái tính từ)",
       "example": "이건 제가 직접 만든 케이크예요.",
-      "exampleMeaning": "Đây là chiếc bánh tôi tự làm.",
+      "exampleMeaning": "Đây là bánh tôi tự làm.",
       "mark": [
         "만든"
       ]
     },
     {
-      "form": "Tính từ ㅂ bất quy tắc + -ㄴ",
+      "form": "tính từ bất quy tắc ㅂ + -ㄴ",
       "when": "Hầu hết tính từ kết thúc bằng ㅂ đổi ㅂ thành 우 rồi thêm -ㄴ: 춥다 → 추운, 어렵다 → 어려운. Một số ít là quy tắc và giữ nguyên ㅂ, ví dụ 좁다 → 좁은.",
       "means": "(danh từ) mà ~",
       "example": "어려운 단어는 선생님께 물어보세요.",
-      "exampleMeaning": "Hãy hỏi giáo viên của bạn về những từ khó.",
+      "exampleMeaning": "Hãy hỏi giáo viên về những từ khó.",
       "mark": [
         "어려운"
       ]
@@ -92,8 +92,8 @@
   "keyword": "-는 / -(으)ㄴ / -(으)ㄹ",
   "level": "Trung cấp (thấp)",
   "minutes": 15,
-  "objective": "Người học sẽ có thể tạo đúng đuôi bổ nghĩa cho danh từ (-는, -(으)ㄴ, -(으)ㄹ) cho động từ, tính từ và các thân từ bất quy tắc.",
-  "summary": "Trong tiếng Hàn, từ miêu tả đứng trước danh từ: động từ dùng -는 (hiện tại), -(으)ㄴ (quá khứ), hoặc -(으)ㄹ (tương lai), còn tính từ dùng -(으)ㄴ. Các từ 있다/없다 dùng -는, thân từ kết thúc bằng ㄹ thì lược bỏ ㄹ, và hầu hết tính từ có thân kết thúc bằng ㅂ thì đổi ㅂ thành 우.",
+  "objective": "Người học sẽ có thể tạo đúng vĩ tố bổ nghĩa cho danh từ (-는, -(으)ㄴ, -(으)ㄹ) cho động từ, tính từ và các thân từ bất quy tắc.",
+  "summary": "Trong tiếng Hàn, từ miêu tả đứng trước danh từ: động từ dùng -는 (hiện tại), -(으)ㄴ (quá khứ), hoặc -(으)ㄹ (tương lai), còn tính từ dùng -(으)ㄴ. Các từ có 있다/없다 dùng -는, thân từ kết thúc bằng ㄹ thì lược bỏ ㄹ, và hầu hết tính từ có ㅂ đổi ㅂ thành 우.",
   "tags": [],
   "task": {
     "title": "",
@@ -104,7 +104,7 @@
     "맛있은 음식 (X) → 맛있는 음식 (O): Các từ kết thúc bằng 있다/없다 dùng -는 (không phải -은), ngay cả khi bạn đang miêu tả một tính chất.",
     "예쁘는 가방 (X) → 예쁜 가방 (O): Tính từ không dùng -는 (trừ các từ kết thúc bằng 있다/없다). Chúng dùng -(으)ㄴ.",
     "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): Với thân từ ㄹ, lược bỏ ㄹ rồi thêm -ㄴ. Không thêm 은. Tương tự với 만들은 (X) → 만든 (O).",
-    "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Với một thói quen đang diễn ra hiện nay, dùng -는. -(으)ㄴ trên động từ nghĩa là hành động đã kết thúc và ở quá khứ."
+    "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Đối với một thói quen đang diễn ra hiện tại, dùng -는. -(으)ㄴ trên động từ có nghĩa là hành động đã kết thúc và thuộc quá khứ."
   ],
   "watchOutMark": [
     [

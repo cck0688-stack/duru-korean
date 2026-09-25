@@ -5,21 +5,21 @@
     "노는",
     "가까운",
     "멋있는",
-    "덥은 → 더운, 길은 → 긴 (오늘은 정말 더운 날이에요. 그래서 머리가 긴 사람들은 머리를 묶었어요.)"
+    "덥은 → 더운, 길은 → 긴"
   ],
   "checkThese": [],
   "exercises": [
-    "Ubah kata kerja dalam tanda kurung agar sesuai dengan kalimat: 어제 도서관에서 (읽다 → ____) 책은 정말 재미있었어요.",
-    "Ubah kata kerja dalam tanda kurung agar sesuai dengan kalimat: 내일 면접 때 (입다 → ____) 옷을 미리 골라 놨어요.",
-    "Ubah kata kerja dalam tanda kurung agar sesuai dengan kalimat: 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요.",
-    "Ubah kata sifat dalam tanda kurung agar sesuai dengan kalimat: 집에서 (가깝다 → ____) 병원이 어디예요?",
-    "Ubah kata dalam tanda kurung agar sesuai dengan kalimat: 저기 (멋있다 → ____) 모자를 쓴 사람이 우리 선생님이에요.",
-    "Ada dua kesalahan dalam kalimat-kalimat ini. Temukan dan perbaikilah: 오늘은 정말 덥은 날이에요. 그래서 머리가 길은 사람들은 머리를 묶었어요."
+    "Ubah kata kerja dalam kurung agar sesuai dengan kalimat: 어제 도서관에서 (읽다 → ____) 책은 정말 재미있었어요.",
+    "Ubah kata kerja dalam kurung agar sesuai dengan kalimat: 내일 면접 때 (입다 → ____) 옷을 미리 골라 놨어요.",
+    "Ubah kata kerja dalam kurung agar sesuai dengan kalimat: 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요.",
+    "Ubah kata sifat dalam kurung agar sesuai dengan kalimat: 집에서 (가깝다 → ____) 병원이 어디예요?",
+    "Ubah kata dalam kurung agar sesuai dengan kalimat: 저기 (멋있다 → ____) 모자를 쓴 사람이 우리 선생님이에요.",
+    "Ada dua kesalahan dalam kalimat-kalimat ini. Temukan dan perbaiki: 오늘은 정말 덥은 날이에요. 그래서 머리가 길은 사람들은 머리를 묶었어요."
   ],
   "forms": [
     {
-      "form": "동사 + -는 (sekarang)",
-      "when": "Tindakan sedang terjadi sekarang atau terjadi secara rutin. Tambahkan -는 pada akar kata kerja, baik yang berakhiran huruf hidup maupun huruf mati: 먹다 → 먹는, 마시다 → 마시는. (Akar kata yang berakhiran ㄹ menghilangkan ㄹ-nya: 살다 → 사는. Lihat baris akar kata ㄹ di bawah.)",
+      "form": "Kata kerja + -는 (sekarang)",
+      "when": "Tindakan sedang terjadi sekarang atau terjadi secara rutin. Tambahkan -는 pada batang kata kerja, baik yang berakhiran vokal maupun konsonan: 먹다 → 먹는, 마시다 → 마시는. (Batang kata yang berakhiran ㄹ menghilangkan ㄹ-nya: 살다 → 사는. Lihat baris batang kata ㄹ di bawah.)",
       "means": "(kata benda) yang dilakukan / sedang dilakukan seseorang",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
       "exampleMeaning": "Orang yang sedang minum kopi sekarang adalah teman saya.",
@@ -28,18 +28,18 @@
       ]
     },
     {
-      "form": "동사 + -(으)ㄴ (lampau)",
-      "when": "Tindakan sudah selesai. Jika akar kata berakhiran huruf mati, tambahkan -은 (먹다 → 먹은). Jika berakhiran huruf hidup, tambahkan -ㄴ (보다 → 본).",
-      "means": "(kata benda) yang telah dilakukan seseorang",
+      "form": "Kata kerja + -(으)ㄴ (lampau)",
+      "when": "Tindakan sudah selesai. Jika batang kata berakhiran konsonan, tambahkan -은 (먹다 → 먹은). Jika berakhiran vokal, tambahkan -ㄴ (보다 → 본).",
+      "means": "(kata benda) yang dilakukan seseorang",
       "example": "어제 먹은 음식이 좀 짰어요.",
-      "exampleMeaning": "Makanan yang saya makan kemarin agak asin.",
+      "exampleMeaning": "Makanan yang saya makan kemarin sedikit asin.",
       "mark": [
         "먹은"
       ]
     },
     {
-      "form": "동사 + -(으)ㄹ (akan datang / rencana)",
-      "when": "Tindakan belum terjadi, atau sesuatu yang Anda rencanakan atau perlu lakukan. Jika akar kata berakhiran huruf mati, tambahkan -을 (먹다 → 먹을). Jika berakhiran huruf hidup, tambahkan -ㄹ (보다 → 볼).",
+      "form": "Kata kerja + -(으)ㄹ (akan datang / rencana)",
+      "when": "Tindakan belum terjadi, atau merupakan sesuatu yang Anda rencanakan atau perlu lakukan. Jika batang kata berakhiran konsonan, tambahkan -을 (먹다 → 먹을). Jika berakhiran vokal, tambahkan -ㄹ (보다 → 볼).",
       "means": "(kata benda) yang akan dilakukan seseorang",
       "example": "이번 주말에 볼 영화를 아직 못 정했어요.",
       "exampleMeaning": "Saya masih belum memutuskan film yang akan ditonton akhir pekan ini.",
@@ -48,19 +48,19 @@
       ]
     },
     {
-      "form": "형용사 + -(으)ㄴ",
-      "when": "Gunakan ini untuk kata sifat apa pun yang menerangkan kata benda. Jika akar kata berakhiran huruf mati, tambahkan -은 (작다 → 작은). Jika berakhiran huruf hidup, tambahkan -ㄴ (크다 → 큰).",
+      "form": "Kata sifat + -(으)ㄴ",
+      "when": "Gunakan ini untuk kata sifat apa pun yang menjelaskan kata benda. Jika batang kata berakhiran konsonan, tambahkan -은 (작다 → 작은). Jika berakhiran vokal, tambahkan -ㄴ (크다 → 큰).",
       "means": "(kata benda) yang ~",
       "example": "작은 가방 말고 큰 가방 있어요?",
-      "exampleMeaning": "Apakah Anda punya tas besar sebagai pengganti yang kecil?",
+      "exampleMeaning": "Apakah Anda punya tas besar, bukan yang kecil?",
       "mark": [
         "작은",
         "큰"
       ]
     },
     {
-      "form": "kata 있다 / 없다 + -는",
-      "when": "Kata yang berakhiran 있다 atau 없다 (맛있다, 재미없다, 있다, 없다) menggunakan -는 (bukan -은) untuk menerangkan kata benda dalam bentuk sekarang, meskipun dalam bahasa Inggris kata-kata ini berfungsi seperti kata sifat.",
+      "form": "Kata 있다 / 없다 + -는",
+      "when": "Kata yang berakhiran 있다 atau 없다 (맛있다, 재미없다, 있다, 없다) menggunakan -는 (bukan -은) untuk menjelaskan kata benda dalam bentuk sekarang, meskipun fungsinya seperti kata sifat dalam bahasa Inggris.",
       "means": "(kata benda) yang ~ / yang memiliki ~",
       "example": "재미없는 영화는 끝까지 못 봐요.",
       "exampleMeaning": "Saya tidak tahan duduk menonton film yang membosankan.",
@@ -69,9 +69,9 @@
       ]
     },
     {
-      "form": "Akar kata ㄹ + -는 / -ㄴ / -ㄹ",
-      "when": "Ketika akar kata berakhiran ㄹ, ㄹ dihilangkan sebelum -는 dan -ㄴ. Dengan -ㄹ, kedua ㄹ digabung menjadi satu. Jangan tambahkan 으. Kata kerja: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들.",
-      "means": "makna yang sama seperti di atas (sekarang / lampau / akan datang, atau keadaan sifat)",
+      "form": "Batang kata ㄹ + -는 / -ㄴ / -ㄹ",
+      "when": "Ketika batang kata berakhiran ㄹ, ㄹ-nya hilang sebelum -는 dan -ㄴ. Dengan -ㄹ, kedua ㄹ tersebut menyatu menjadi satu. Jangan tambahkan 으. Kata kerja: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들. Kata sifat: 길다 → 긴, 멀다 → 먼.",
+      "means": "makna yang sama seperti di atas (sekarang / lampau / akan datang, atau keadaan kata sifat)",
       "example": "이건 제가 직접 만든 케이크예요.",
       "exampleMeaning": "Ini adalah kue yang saya buat sendiri.",
       "mark": [
@@ -80,7 +80,7 @@
     },
     {
       "form": "Kata sifat tidak beraturan ㅂ + -ㄴ",
-      "when": "Sebagian besar kata sifat yang berakhiran ㅂ mengubah ㅂ menjadi 우 lalu menambahkan -ㄴ: 춥다 → 추운, 어렵다 → 어려운. Beberapa kata beraturan dan tetap mempertahankan ㅂ, misalnya 좁다 → 좁은.",
+      "when": "Sebagian besar kata sifat yang berakhiran ㅂ mengubah ㅂ menjadi 우 lalu menambahkan -ㄴ: 춥다 → 추운, 어렵다 → 어려운. Beberapa kata bersifat beraturan dan tetap mempertahankan ㅂ, misalnya 좁다 → 좁은.",
       "means": "(kata benda) yang ~",
       "example": "어려운 단어는 선생님께 물어보세요.",
       "exampleMeaning": "Tanyakan kepada guru Anda tentang kata-kata yang sulit.",
@@ -90,10 +90,10 @@
     }
   ],
   "keyword": "-는 / -(으)ㄴ / -(으)ㄹ",
-  "level": "Menengah (rendah)",
+  "level": "Tingkat menengah (rendah)",
   "minutes": 15,
-  "objective": "Peserta didik akan mampu membentuk akhiran penerang kata benda yang tepat (-는, -(으)ㄴ, -(으)ㄹ) untuk kata kerja, kata sifat, dan akar kata tidak beraturan.",
-  "summary": "Kata yang menerangkan diletakkan sebelum kata benda dalam bahasa Korea: kata kerja menggunakan -는 (sekarang), -(으)ㄴ (lampau), atau -(으)ㄹ (akan datang), sedangkan kata sifat menggunakan -(으)ㄴ. Kata 있다/없다 menggunakan -는, akar kata yang berakhiran ㄹ menghilangkan ㄹ-nya, dan sebagian besar kata sifat berakhiran ㅂ mengubah ㅂ menjadi 우.",
+  "objective": "Pelajar akan mampu membentuk akhiran pewatas kata benda yang tepat (-는, -(으)ㄴ, -(으)ㄹ) untuk kata kerja, kata sifat, dan batang kata tidak beraturan.",
+  "summary": "Kata yang menjelaskan diletakkan sebelum kata benda dalam bahasa Korea: kata kerja menggunakan -는 (sekarang), -(으)ㄴ (lampau), atau -(으)ㄹ (akan datang), dan kata sifat menggunakan -(으)ㄴ. Kata 있다/없다 menggunakan -는, batang kata yang berakhiran ㄹ menghilangkan ㄹ-nya, dan sebagian besar kata sifat yang berakhiran ㅂ mengubah ㅂ menjadi 우.",
   "tags": [],
   "task": {
     "title": "",
@@ -101,10 +101,10 @@
   },
   "title": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
   "watchOut": [
-    "맛있은 음식 (X) → 맛있는 음식 (O): Kata yang berakhiran 있다/없다 menggunakan -는 (bukan -은), bahkan ketika Anda menjelaskan suatu sifat.",
+    "맛있은 음식 (X) → 맛있는 음식 (O): Kata yang berakhiran 있다/없다 menggunakan -는 (bukan -은), meskipun Anda sedang menjelaskan suatu sifat.",
     "예쁘는 가방 (X) → 예쁜 가방 (O): Kata sifat tidak menggunakan -는 (kecuali kata yang berakhiran 있다/없다). Kata sifat menggunakan -(으)ㄴ.",
-    "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): Untuk akar kata yang berakhiran ㄹ, hilangkan ㄹ lalu tambahkan -ㄴ. Jangan tambahkan 은. Hal yang sama berlaku untuk 만들은 (X) → 만든 (O).",
-    "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Untuk kebiasaan yang sedang berlangsung sekarang, gunakan -는. -(으)ㄴ pada kata kerja berarti tindakan sudah selesai dan terjadi di masa lampau."
+    "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): Untuk batang kata ㄹ, hilangkan ㄹ-nya lalu tambahkan -ㄴ. Jangan tambahkan 은. Hal yang sama berlaku untuk 만들은 (X) → 만든 (O).",
+    "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Untuk kebiasaan yang sedang berlangsung sekarang, gunakan -는. -(으)ㄴ pada kata kerja berarti tindakan tersebut sudah selesai dan terjadi di masa lampau."
   ],
   "watchOutMark": [
     [

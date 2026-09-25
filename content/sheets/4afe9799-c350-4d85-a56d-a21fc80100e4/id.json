@@ -1,8 +1,8 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
   "keyword": "받침",
-  "summary": "Berlatih membaca dan menghasilkan bunyi akhir yang tidak dilepas (unreleased) untuk batchim ㄱ/ㄷ/ㅂ. Peserta belajar menghubungkan masing-masing dengan bunyi akhir kata bahasa Inggris yang mirip (back/bat/cap) tetapi tanpa pelepasan udara, lalu membaca dan memilih kata-kata sederhana yang mengandung batchim ini.",
-  "objective": "Peserta belajar tingkat pemula akan menghasilkan bunyi akhir yang tidak dilepas [k], [t], [p] untuk batchim ㄱ, ㄷ, ㅂ; menghubungkannya dengan akhiran bahasa Inggris yang mirip (“back/bat/cap” tanpa pelepasan); serta membaca dan memilih dengan tepat kata-kata sederhana dalam bahasa Korea yang mengandung batchim ini.",
+  "summary": "Latih bunyi konsonan akhir tak lepas untuk batchim ㄱ/ㄷ/ㅂ: seperti akhir kata back/bat/cap, tetapi tanpa pelepasan udara. Kemudian baca dan pilih kata-kata sederhana yang memiliki batchim ini.",
+  "objective": "Pelajar dapat menghasilkan bunyi akhir tak lepas [k], [t], [p] untuk batchim ㄱ, ㄷ, ㅂ, serta membaca dan memilih kata-kata sederhana yang mengandungnya.",
   "level": "Pemula",
   "minutes": 15,
   "tags": [
@@ -13,15 +13,15 @@
     "beginner"
   ],
   "task": {
-    "title": "Ucapkan: hentikan bunyi akhirnya",
-    "line": "Bacalah dengan suara keras: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. Pada setiap batchim ㄱ/ㄷ/ㅂ, tahan aliran udara dengan pangkal lidah (ㄱ), ujung lidah (ㄷ), atau bibir (ㅂ), lalu hentikan bunyinya tanpa melepaskannya."
+    "title": "Ucapkan: hentikan bunyi akhir",
+    "line": "Baca dengan suara nyaring: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. Pada setiap batchim ㄱ/ㄷ/ㅂ, tahan udara dengan pangkal lidah (ㄱ), ujung lidah (ㄷ), atau bibir (ㅂ) dan hentikan tanpa melepaskan bunyinya."
   },
   "exercises": [
     "Pilih kata yang bunyi akhirnya [k]: (국 / 곧 / 밥)",
     "Apa bunyi akhir dari kata ini? 곧 (k / t / p)",
-    "Akhiran kata bahasa Inggris manakah yang paling mendekati bunyi akhir dari 받 dalam 받다? (back / bat / cap)",
-    "Pilih romanisasi yang benar untuk: 벽 (byeok / byeog / byuk)",
-    "Bacalah kalimat ini dengan suara keras, hentikan bunyi pada 「집」 tanpa melepaskan bunyi akhirnya. Lalu, pilih bunyi akhirnya: 우리 집 좋아요. (k / t / p)"
+    "Akhiran kata bahasa Inggris mana yang paling mirip dengan bunyi akhir 받 pada 받다? (back / bat / cap)",
+    "Pilih romanisasi yang benar: 벽 (byeok / byeog / byuk)",
+    "Baca kalimat ini dengan suara nyaring, hentikan 「집」 tanpa melepaskan bunyi akhirnya. Kemudian pilih bunyi akhirnya: 우리 집 좋아요. (k / t / p)"
   ],
   "answers": [
     "국",
@@ -34,18 +34,18 @@
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "bunyi akhir [k] (tak bersuara, tidak dilepas)",
-      "as": "seperti akhir kata “back” (berhenti; tanpa pelepasan)"
+      "sound": "bunyi akhir [k] (tak bersuara, tak lepas)",
+      "as": "seperti akhir kata \"back\" (berhenti; tanpa pelepasan)"
     },
     {
       "letter": "ㄷ",
-      "sound": "bunyi akhir [t] (tak bersuara, tidak dilepas)",
-      "as": "seperti akhir kata “bat” (berhenti; tanpa pelepasan)"
+      "sound": "bunyi akhir [t] (tak bersuara, tak lepas)",
+      "as": "seperti akhir kata \"bat\" (berhenti; tanpa pelepasan)"
     },
     {
       "letter": "ㅂ",
-      "sound": "bunyi akhir [p] (tak bersuara, tidak dilepas)",
-      "as": "seperti akhir kata “cap” (berhenti; tanpa pelepasan)"
+      "sound": "bunyi akhir [p] (tak bersuara, tak lepas)",
+      "as": "seperti akhir kata \"cap\" (berhenti; tanpa pelepasan)"
     }
   ],
   "words": [
@@ -54,14 +54,14 @@
       "roman": "guk",
       "meaning": "sup",
       "example": "국도 드세요.",
-      "exampleMeaning": "Makan sup juga, ya."
+      "exampleMeaning": "Makan sup juga ya."
     },
     {
       "korean": "속",
       "roman": "sok",
       "meaning": "di dalam",
-      "example": "가방 속 봤어요?",
-      "exampleMeaning": "Apakah kamu melihat ke dalam tas itu?"
+      "example": "가방 속에 있어요.",
+      "exampleMeaning": "Itu ada di dalam tas."
     },
     {
       "korean": "벽",
@@ -82,7 +82,7 @@
       "roman": "batda",
       "meaning": "menerima",
       "example": "편지 받고 기뻤어요.",
-      "exampleMeaning": "Saya senang bisa menerima surat itu."
+      "exampleMeaning": "Saya senang menerima surat itu."
     },
     {
       "korean": "믿다",

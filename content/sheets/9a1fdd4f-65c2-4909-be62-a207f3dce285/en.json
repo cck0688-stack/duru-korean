@@ -18,7 +18,7 @@
   ],
   "forms": [
     {
-      "form": "동사 + -는 (present)",
+      "form": "Verb + -는 (present)",
       "when": "The action is happening now or happens regularly. Add -는 to the verb stem, whether it ends in a vowel or a consonant: 먹다 → 먹는, 마시다 → 마시는. (Stems ending in ㄹ drop the ㄹ: 살다 → 사는. See the ㄹ-stem row below.)",
       "means": "the (noun) that someone does / is doing",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "form": "동사 + -(으)ㄴ (past)",
+      "form": "Verb + -(으)ㄴ (past)",
       "when": "The action is already finished. If the stem ends in a consonant, add -은 (먹다 → 먹은). If it ends in a vowel, add -ㄴ (보다 → 본).",
       "means": "the (noun) that someone did",
       "example": "어제 먹은 음식이 좀 짰어요.",
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "form": "동사 + -(으)ㄹ (future / planned)",
+      "form": "Verb + -(으)ㄹ (future / planned)",
       "when": "The action has not happened yet, or it is something you plan or need to do. If the stem ends in a consonant, add -을 (먹다 → 먹을). If it ends in a vowel, add -ㄹ (보다 → 볼).",
       "means": "the (noun) that someone will do / is going to do",
       "example": "이번 주말에 볼 영화를 아직 못 정했어요.",
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "form": "형용사 + -(으)ㄴ",
+      "form": "Adjective + -(으)ㄴ",
       "when": "Use this for any adjective describing a noun. If the stem ends in a consonant, add -은 (작다 → 작은). If it ends in a vowel, add -ㄴ (크다 → 큰).",
       "means": "a (noun) that is ~",
       "example": "작은 가방 말고 큰 가방 있어요?",

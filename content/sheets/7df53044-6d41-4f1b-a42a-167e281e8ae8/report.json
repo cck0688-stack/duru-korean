@@ -620,5 +620,117 @@
       },
       "why": "The sheet ran to three pages even in English: shorter wording, same questions and answers. 포함 is a common word, and 지훈 explains what is 포함 in the passage."
     }
-  ]
+  ],
+  "retranslated": {
+    "at": "2026-09-25T23:27:24.410Z",
+    "translations": {
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "\"dormitorio\" means \"bedroom\" in Spanish. The English \"dorm\" is a student residence (\"residencia estudiantil\"), so the meaning changes.",
+            "fix": "Linh, una estudiante vietnamita que deja su residencia estudiantil a finales de octubre, compara dos anuncios de habitaciones (one-room) según el costo, los artículos incluidos y la fecha de mudanza."
+          }
+        ]
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 16,
+            "problem": "'wones' is the Spanish plural of 'won'. Brazilian Portuguese uses 'wons'.",
+            "fix": "Escreva os valores em wons: 앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요."
+          },
+          {
+            "line": 17,
+            "problem": "'Answer in Korean' became just 'Responda', so the instruction to answer in Korean is lost.",
+            "fix": "Responda em coreano: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요."
+          },
+          {
+            "line": 18,
+            "problem": "'Answer in Korean' became just 'Responda', so the instruction to answer in Korean is lost.",
+            "fix": "Responda em coreano: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?"
+          },
+          {
+            "line": 19,
+            "problem": "'Answer in Korean' became just 'Responda', so the instruction to answer in Korean is lost.",
+            "fix": "Responda em coreano: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요."
+          },
+          {
+            "line": 20,
+            "problem": "'Answer in Korean' became just 'Responda', so the instruction to answer in Korean is lost.",
+            "fix": "Responda em coreano: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 두 가지 쓰세요."
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 17,
+            "problem": "The English says \"Answer in Korean,\" but the Korean says only \"Answer the following question.\" The requirement to answer in Korean is missing.",
+            "fix": "한국어로 답하세요: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요."
+          },
+          {
+            "line": 18,
+            "problem": "The English says \"Answer in Korean,\" but the Korean says only \"Answer the following question.\" The requirement to answer in Korean is missing.",
+            "fix": "한국어로 답하세요: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?"
+          },
+          {
+            "line": 19,
+            "problem": "The English says \"Answer in Korean,\" but the Korean says only \"Answer the following question.\" The requirement to answer in Korean is missing.",
+            "fix": "한국어로 답하세요: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요."
+          },
+          {
+            "line": 20,
+            "problem": "The English says \"Answer in Korean,\" but the Korean says only \"Answer the following question.\" The requirement to answer in Korean is missing.",
+            "fix": "한국어로 답하세요: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 두 가지 쓰세요."
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

@@ -1,7 +1,7 @@
 {
   "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
   "keyword": "영업시간",
-  "summary": "Aprende 8 términos que aparecen en los carteles de horarios de las tiendas coreanas y luego usa tres carteles de ejemplo para decidir si puedes visitar la tienda o hacer un pedido en un momento dado.",
+  "summary": "Aprende 8 términos que aparecen en los carteles de horario de tiendas coreanas y luego usa dos carteles de ejemplo para decidir si puedes visitar o pedir en un momento dado.",
   "objective": "Los estudiantes leerán un cartel de horario de una tienda y dirán si la tienda está abierta, o si todavía acepta pedidos, en un día y hora determinados.",
   "level": "Intermedio (bajo)",
   "minutes": 20,
@@ -15,43 +15,41 @@
     "Responde en coreano (sí/no y por qué): [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
     "Responde en coreano (sí/no y por qué): [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
     "Responde en coreano (sí/no y por qué): [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
-    "Responde en coreano (sí/no y por qué): [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
-    "Responde en coreano (sí/no y por qué): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+    "Responde en coreano (sí/no y por qué): [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?"
   ],
   "answers": [
-    "아니요. 월요일은 정기휴무예요. (No. El lunes es el día de descanso habitual.)",
-    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (No. Es la hora de descanso, de 15:00 a 16:30.)",
-    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (No. Los pedidos se cierran a las 19:30. La tienda está abierta hasta las 20:00, pero ya no se puede pedir.)",
-    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Sí. El horario de fin de semana es hasta las 22:00, y la última hora para pedir es las 21:30.)",
-    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (No. Cierra los días festivos, aunque el festivo caiga en un día laborable.)",
-    "네. 24시간 영업, 연중무휴예요. (Sí. Está abierto 24 horas, todos los días del año.)"
+    "아니요. 월요일은 정기휴무예요.",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요.",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요.",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요.",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요."
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "1. 안내판에 자주 나오는 말 8개 (8 TÉRMINOS DE LOS CARTELES)",
+      "heading": "8 términos que se ven a menudo en los carteles de las tiendas",
       "paragraphs": [
-        "영업시간 (yeongeop sigan): las horas en que la tienda está abierta al público.",
-        "정기휴무 (jeonggi hyumu): el día de descanso habitual de la tienda. En los carteles suele aparecer como 매주 월요일 휴무 (cerrado todos los lunes).",
-        "브레이크 타임 (beureikeu taim): un descanso a mitad del día, normalmente entre el almuerzo y la cena. La puerta está cerrada y no se puede entrar.",
-        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): la última hora en la que puedes pedir. La tienda todavía está abierta, pero ya no acepta nuevos pedidos.",
-        "연중무휴 (yeonjung muhyu): abierto todos los días del año, sin día de descanso fijo.",
-        "24시간 영업 (isipsa sigan yeongeop): abierto las 24 horas del día.",
+        "영업시간 (yeongeop sigan): el horario en que la tienda está abierta al público.",
+        "정기휴무 (jeonggi hyumu): el día de descanso regular de la tienda. En los carteles suele verse como 매주 월요일 휴무 (cerrado todos los lunes).",
+        "브레이크 타임 (beureikeu taim): un descanso a media jornada, normalmente entre el almuerzo y la cena. La puerta está cerrada y no puedes entrar.",
+        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): la última hora en la que puedes pedir. La tienda sigue abierta, pero ya no acepta nuevos pedidos.",
+        "연중무휴 (yeonjung muhyu): abierto todos los días del año, sin día de descanso regular.",
+        "24시간 영업 (isipsa sigan yeongeop): abierto las 24 horas, día y noche.",
         "공휴일 휴무 (gonghyuil hyumu): cerrado los días festivos.",
-        "평일 (pyeongil) / 주말 (jumal): días laborables (de lunes a viernes) y fin de semana (sábado y domingo). Muchas tiendas tienen horarios diferentes para cada uno."
+        "평일 (pyeongil) / 주말 (jumal): los días de semana (de lunes a viernes) y el fin de semana (sábado y domingo). Muchas tiendas tienen horarios diferentes para cada uno."
       ]
     },
     {
-      "heading": "2. 안내판 읽는 순서 (CÓMO COMPROBARLO: 4 PASOS)",
+      "heading": "Cómo leer un cartel: 4 pasos",
       "paragraphs": [
-        "① 요일 확인: ¿Ese día es un 휴무 (día de descanso)? Comprueba el 정기휴무 y el 공휴일 휴무.",
-        "② 평일/주말 확인: ¿Qué horario se aplica, el de días laborables o el de fin de semana?",
-        "③ 시간 확인: La mayoría de los carteles usan el formato de 24 horas. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. ¿Tu hora está entre la hora de apertura y la de cierre? Comprueba también si cae dentro del 브레이크 타임.",
-        "④ 주문 확인: Si quieres comer o pedir algo, comprueba también la hora del 라스트 오더 (주문 마감). 마감 30분 전 significa '30 minutos antes del cierre'."
+        "① 요일 확인: ¿Ese día es un 휴무 (día de descanso)? Revisa 정기휴무 y 공휴일 휴무.",
+        "② 평일/주말 확인: ¿Qué horario aplica, el de días de semana o el de fin de semana?",
+        "③ 시간 확인: La mayoría de los carteles usan el formato de 24 horas (15:00 = 오후 3시). ¿Tu hora está dentro del horario de apertura y no cae en el 브레이크 타임?",
+        "④ 주문 확인: Para comer o pedir, revisa también la hora de 라스트 오더 (주문 마감). 마감 30분 전 = 30 minutos antes del cierre."
       ]
     },
     {
-      "heading": "3. 안내판 1: 카페 하루",
+      "heading": "안내판 1: 카페 하루",
       "paragraphs": [
         "영업시간",
         "평일 10:00 ~ 21:00",
@@ -61,22 +59,15 @@
       ]
     },
     {
-      "heading": "4. 안내판 2: 엄마손 칼국수",
+      "heading": "안내판 2: 엄마손 칼국수",
       "paragraphs": [
         "영업시간 11:00 ~ 20:00",
         "브레이크 타임 15:00 ~ 16:30",
         "주문 마감 19:30",
         "매주 일요일 휴무 · 공휴일 휴무"
       ]
-    },
-    {
-      "heading": "5. 안내판 3: 우리동네 편의점",
-      "paragraphs": [
-        "24시간 영업",
-        "연중무휴"
-      ]
     }
   ],
-  "note": "Nota para el profesor: Los tres carteles son inventados para usar en clase, así que no corresponden a negocios ni horarios reales. La idea principal que hay que enseñar es la diferencia entre 'la tienda está abierta' y 'todavía se puede pedir' (ejercicios 3 y 4). Antes de que los estudiantes empiecen los ejercicios, pídeles que digan en voz alta las horas en formato de 24 horas en coreano (15:30 → 오후 3시 30분).",
+  "note": "Los dos carteles son inventados para la práctica; no son tiendas ni horarios reales. El punto clave: 'la tienda está abierta' no es lo mismo que 'todavía puedes pedir' (ejercicios 3 y 4).",
   "category": "etc"
 }

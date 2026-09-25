@@ -1,8 +1,8 @@
 {
   "title": "원룸 광고 두 개, 어느 방이 좋을까?",
-  "keyword": "원룸 광고 두 개, 어느 방이 좋을까?",
-  "summary": "Linh, seorang mahasiswi asal Vietnam yang akan meninggalkan asramanya pada akhir Oktober, membandingkan dua iklan kamar one-room berdasarkan biaya, fasilitas terpasang, dan tanggal pindah.",
-  "objective": "Pembelajar dapat membaca dua iklan singkat kamar one-room dan membandingkan uang jaminan serta sewa bulanan (보증금 1000/월세 50), biaya perawatan gedung (관리비 별도, 포함), fasilitas terpasang (풀옵션), dan tanggal pindah (즉시 입주, 10월 말 입주 가능).",
+  "keyword": "원룸 광고",
+  "summary": "Linh, seorang mahasiswi asal Vietnam yang akan meninggalkan asramanya pada akhir Oktober, membandingkan dua iklan kamar one-room berdasarkan biaya, fasilitas terpasang, dan tanggal pindah masuk.",
+  "objective": "Pembelajar dapat membaca dua iklan singkat kamar one-room dan membandingkan uang jaminan serta uang sewa (보증금 1000/월세 50), biaya perawatan (관리비 별도, 포함), fasilitas terpasang (풀옵션), dan tanggal pindah masuk (즉시 입주, 10월 말 입주 가능).",
   "level": "Menengah",
   "minutes": 25,
   "tags": [],
@@ -11,18 +11,18 @@
     "line": ""
   },
   "exercises": [
-    "Tuliskan jumlah uangnya dalam won: 앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요.",
-    "Jawablah dalam bahasa Korea: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요.",
-    "Jawablah dalam bahasa Korea: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?",
-    "Jawablah dalam bahasa Korea, dan sertakan ungkapan-ungkapan yang digunakan pada masing-masing iklan: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요.",
-    "Temukan dua alasan dalam bacaan dan jawablah dalam bahasa Korea: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요."
+    "Tulis jumlahnya dalam won: 앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요.",
+    "Jawab dalam bahasa Korea: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요.",
+    "Jawab dalam bahasa Korea: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?",
+    "Jawab dalam bahasa Korea: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요.",
+    "Jawab dalam bahasa Korea: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 두 가지 쓰세요."
   ],
   "answers": [
     "보증금 10,000,000원(천만 원), 월세 한 달에 500,000원(오십만 원)",
-    "앱에서 본 방: 관리비 7만 원, 인터넷과 수도가 포함되어 있다. / 전단지 방: 관리비 5만 원(별도), 수도는 포함되어 있지만 인터넷은 포함되어 있지 않다. 인터넷은 따로 신청하고 요금을 따로 내야 한다.",
-    "앱에서 본 방(풀옵션이라서 방에 세탁기가 있다). 전단지 방에서는 1층에 있는 공용 세탁기를 쓴다.",
-    "앱에서 본 방: 지금 바로 들어갈 수 있다('즉시 입주'). / 전단지 방: 10월 말부터 들어갈 수 있다('10월 말 입주 가능').",
-    "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)"
+    "앱에서 본 방: 관리비 7만 원(인터넷·수도 포함). / 전단지 방: 관리비 5만 원(수도 포함, 인터넷 별도).",
+    "앱에서 본 방(풀옵션). 전단지 방에서는 1층 공용 세탁기를 쓴다.",
+    "앱에서 본 방: 지금 바로('즉시 입주'). / 전단지 방: 10월 말부터('10월 말 입주 가능').",
+    "① 보증금이 500만 원이라서 낼 수 있다. ② 월세와 관리비를 합해도 50만 원이다. (입주 날짜가 잘 맞는다는 것도 정답)"
   ],
   "checkThese": [],
   "passage": [
@@ -35,63 +35,42 @@
     {
       "korean": "보증금",
       "roman": "bojeunggeum",
-      "meaning": "uang jaminan (sejumlah besar uang yang dibayarkan kepada pemilik rumah saat menyewa, dan dikembalikan saat pindah keluar)",
+      "meaning": "uang jaminan (dibayar saat menyewa, dikembalikan saat pindah keluar)",
       "example": "이사 나갈 때 보증금을 돌려받았어요.",
-      "exampleMeaning": "Saya mendapatkan kembali uang jaminan saya ketika saya pindah keluar."
+      "exampleMeaning": "Saya mendapatkan uang jaminan saya kembali saat pindah keluar."
     },
     {
       "korean": "월세",
       "roman": "wolse",
-      "meaning": "sewa bulanan",
+      "meaning": "uang sewa bulanan",
       "example": "이 동네는 월세가 좀 비싼 편이에요.",
-      "exampleMeaning": "Sewa bulanan di lingkungan ini agak mahal."
+      "exampleMeaning": "Uang sewa bulanan di lingkungan ini agak mahal."
     },
     {
       "korean": "관리비",
       "roman": "gwallibi",
-      "meaning": "biaya perawatan gedung (biaya bulanan gedung yang dibayar selain sewa)",
+      "meaning": "biaya perawatan (dibayar setiap bulan di luar uang sewa)",
       "example": "관리비는 매달 25일까지 내면 돼요.",
-      "exampleMeaning": "Kamu bisa membayar biaya perawatan gedung paling lambat tanggal 25 setiap bulan."
+      "exampleMeaning": "Anda bisa membayar biaya perawatan paling lambat tanggal 25 setiap bulan."
     },
     {
       "korean": "별도",
       "roman": "byeoldo",
-      "meaning": "terpisah; dikenakan biaya tambahan, tidak termasuk dalam harga yang tertera",
+      "meaning": "terpisah; dikenakan biaya tambahan",
       "example": "배송비는 별도입니다.",
-      "exampleMeaning": "Ongkos kirim dikenakan secara terpisah."
-    },
-    {
-      "korean": "포함",
-      "roman": "poham",
-      "meaning": "termasuk (dalam suatu harga atau biaya)",
-      "example": "아침 식사가 포함된 가격이에요.",
-      "exampleMeaning": "Harga tersebut sudah termasuk sarapan."
-    },
-    {
-      "korean": "풀옵션",
-      "roman": "puropsyeon",
-      "meaning": "(untuk sewa) sudah dilengkapi dengan peralatan utama, seperti AC, mesin cuci, dan kulkas",
-      "example": "풀옵션 원룸이라서 세탁기를 안 사도 돼요.",
-      "exampleMeaning": "Ini kamar one-room yang sudah lengkap fasilitasnya, jadi saya tidak perlu membeli mesin cuci."
+      "exampleMeaning": "Biaya pengiriman dikenakan secara terpisah."
     },
     {
       "korean": "입주",
       "roman": "ipju",
-      "meaning": "pindah masuk (ke rumah sewaan atau rumah baru)",
+      "meaning": "pindah masuk (ke rumah sewa atau rumah baru)",
       "example": "새 아파트에 다음 달에 입주해요.",
-      "exampleMeaning": "Kami akan pindah ke apartemen baru bulan depan."
-    },
-    {
-      "korean": "즉시",
-      "roman": "jeuksi",
-      "meaning": "segera, langsung",
-      "example": "문제가 생기면 즉시 연락 주세요.",
-      "exampleMeaning": "Jika ada masalah, hubungi saya segera."
+      "exampleMeaning": "Kami akan pindah masuk ke apartemen baru bulan depan."
     },
     {
       "korean": "공용",
       "roman": "gongyong",
-      "meaning": "bersama (digunakan oleh semua orang di gedung tersebut)",
+      "meaning": "bersama (digunakan oleh semua penghuni gedung)",
       "example": "이 건물은 화장실이 공용이에요.",
       "exampleMeaning": "Kamar mandi di gedung ini digunakan bersama."
     }

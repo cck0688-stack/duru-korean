@@ -344,5 +344,82 @@
       ],
       "why": "matches the renumbered exercises; 형이 회사에 다녀요 added"
     }
-  ]
+  ],
+  "retranslated": {
+    "at": "2026-09-25T23:25:07.017Z",
+    "translations": {
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 22,
+            "problem": "The Korean example sentence's final period was changed to the Japanese full stop (읽어요。). The Korean must stay exactly as in the English line (읽어요.).",
+            "fix": "場所の後に에か에서を付けて、해요体の文を作ってください(例:도서관 / 책을 읽다 → 도서관에서 책을 읽어요.):① 카페 / 친구를 만나다 ② 동생이 / 방 / 있다 ③ 형이 / 회사 / 다니다"
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"高级\" is itself the name of a level (advanced), so \"初级(高级)\" reads like \"beginner (advanced)\" and contradicts itself. The English means the upper part of the beginner level.",
+            "fix": "初级(高阶)"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"Fortgeschritten\" means \"advanced\", so the label reads like a higher level than intended. \"Beginner (high)\" means the upper stage of the beginner level.",
+            "fix": "Anfänger (obere Stufe)"
+          }
+        ]
+      }
+    }
+  }
 }

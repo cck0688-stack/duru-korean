@@ -5,7 +5,7 @@
     "노는",
     "가까운",
     "멋있는",
-    "덥은 → 더운, 길은 → 긴 (오늘은 정말 더운 날이에요. 그래서 머리가 긴 사람들은 머리를 묶었어요.)"
+    "덥은 → 더운, 길은 → 긴"
   ],
   "checkThese": [],
   "exercises": [
@@ -18,8 +18,8 @@
   ],
   "forms": [
     {
-      "form": "동사 + -는 (presente)",
-      "when": "La acción está sucediendo ahora o sucede regularmente. Añade -는 a la raíz del verbo, ya sea que termine en vocal o en consonante: 먹다 → 먹는, 마시다 → 마시는. (Las raíces terminadas en ㄹ pierden la ㄹ: 살다 → 사는. Consulta la fila de raíces en ㄹ más abajo.)",
+      "form": "Verbo + -는 (presente)",
+      "when": "La acción está ocurriendo ahora o sucede habitualmente. Añade -는 a la raíz del verbo, ya sea que termine en vocal o en consonante: 먹다 → 먹는, 마시다 → 마시는. (Las raíces que terminan en ㄹ pierden la ㄹ: 살다 → 사는. Ver la fila de raíces en ㄹ más abajo.)",
       "means": "el/la (sustantivo) que alguien hace / está haciendo",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
       "exampleMeaning": "La persona que está tomando café ahora mismo es mi amigo/a.",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "form": "동사 + -(으)ㄴ (pasado)",
+      "form": "Verbo + -(으)ㄴ (pasado)",
       "when": "La acción ya terminó. Si la raíz termina en consonante, añade -은 (먹다 → 먹은). Si termina en vocal, añade -ㄴ (보다 → 본).",
       "means": "el/la (sustantivo) que alguien hizo",
       "example": "어제 먹은 음식이 좀 짰어요.",
@@ -38,8 +38,8 @@
       ]
     },
     {
-      "form": "동사 + -(으)ㄹ (futuro / planeado)",
-      "when": "La acción todavía no ha sucedido, o es algo que planeas o necesitas hacer. Si la raíz termina en consonante, añade -을 (먹다 → 먹을). Si termina en vocal, añade -ㄹ (보다 → 볼).",
+      "form": "Verbo + -(으)ㄹ (futuro / planeado)",
+      "when": "La acción todavía no ha ocurrido, o es algo que planeas o necesitas hacer. Si la raíz termina en consonante, añade -을 (먹다 → 먹을). Si termina en vocal, añade -ㄹ (보다 → 볼).",
       "means": "el/la (sustantivo) que alguien hará / va a hacer",
       "example": "이번 주말에 볼 영화를 아직 못 정했어요.",
       "exampleMeaning": "Todavía no he decidido qué película ver este fin de semana.",
@@ -48,9 +48,9 @@
       ]
     },
     {
-      "form": "형용사 + -(으)ㄴ",
-      "when": "Usa esto para cualquier adjetivo que describa un sustantivo. Si la raíz termina en consonante, añade -은 (작다 → 작은). Si termina en vocal, añade -ㄴ (크다 → 큰).",
-      "means": "un/una (sustantivo) que es ~",
+      "form": "Adjetivo + -(으)ㄴ",
+      "when": "Úsalo para cualquier adjetivo que describa un sustantivo. Si la raíz termina en consonante, añade -은 (작다 → 작은). Si termina en vocal, añade -ㄴ (크다 → 큰).",
+      "means": "un/a (sustantivo) que es ~",
       "example": "작은 가방 말고 큰 가방 있어요?",
       "exampleMeaning": "¿Tienes una bolsa grande en lugar de una pequeña?",
       "mark": [
@@ -59,18 +59,18 @@
       ]
     },
     {
-      "form": "Palabras terminadas en 있다 / 없다 + -는",
-      "when": "Las palabras terminadas en 있다 o 없다 (맛있다, 재미없다, 있다, 없다) llevan -는 (no -은) para describir un sustantivo en presente, incluso cuando funcionan como adjetivos en español.",
-      "means": "un/una (sustantivo) que es ~ / que tiene ~",
+      "form": "Palabras 있다 / 없다 + -는",
+      "when": "Las palabras que terminan en 있다 o 없다 (맛있다, 재미없다, 있다, 없다) llevan -는 (no -은) para describir un sustantivo en presente, aunque funcionen como adjetivos en español.",
+      "means": "un/a (sustantivo) que es ~ / que tiene ~",
       "example": "재미없는 영화는 끝까지 못 봐요.",
-      "exampleMeaning": "No puedo aguantar sentado/a una película aburrida.",
+      "exampleMeaning": "No aguanto ver una película aburrida.",
       "mark": [
         "재미없는"
       ]
     },
     {
       "form": "Raíz en ㄹ + -는 / -ㄴ / -ㄹ",
-      "when": "Cuando la raíz termina en ㄹ, la ㄹ desaparece antes de -는 y -ㄴ. Con -ㄹ, las dos ㄹ se combinan en una sola. No añadas 으. Verbos: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들.",
+      "when": "Cuando la raíz termina en ㄹ, la ㄹ desaparece antes de -는 y -ㄴ. Con -ㄹ, las dos ㄹ se fusionan en una. No añadas 으. Verbos: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들. Adjetivos: 길다 → 긴, 멀다 → 먼.",
       "means": "los mismos significados que arriba (presente / pasado / futuro, o estado del adjetivo)",
       "example": "이건 제가 직접 만든 케이크예요.",
       "exampleMeaning": "Este es un pastel que hice yo mismo/a.",
@@ -80,8 +80,8 @@
     },
     {
       "form": "Adjetivo irregular en ㅂ + -ㄴ",
-      "when": "La mayoría de los adjetivos terminados en ㅂ cambian la ㅂ por 우 y luego añaden -ㄴ: 춥다 → 추운, 어렵다 → 어려운. Algunos son regulares y mantienen la ㅂ, por ejemplo 좁다 → 좁은.",
-      "means": "un/una (sustantivo) que es ~",
+      "when": "La mayoría de los adjetivos que terminan en ㅂ cambian la ㅂ por 우 y luego añaden -ㄴ: 춥다 → 추운, 어렵다 → 어려운. Algunos son regulares y mantienen la ㅂ, por ejemplo 좁다 → 좁은.",
+      "means": "un/a (sustantivo) que es ~",
       "example": "어려운 단어는 선생님께 물어보세요.",
       "exampleMeaning": "Pregúntale a tu profesor/a sobre las palabras difíciles.",
       "mark": [
@@ -92,8 +92,8 @@
   "keyword": "-는 / -(으)ㄴ / -(으)ㄹ",
   "level": "Intermedio (bajo)",
   "minutes": 15,
-  "objective": "Los estudiantes podrán formar correctamente la terminación que modifica al sustantivo (-는, -(으)ㄴ, -(으)ㄹ) para verbos, adjetivos y raíces irregulares.",
-  "summary": "En coreano, las palabras que describen van antes del sustantivo: los verbos llevan -는 (presente), -(으)ㄴ (pasado) o -(으)ㄹ (futuro), y los adjetivos llevan -(으)ㄴ. Las palabras terminadas en 있다/없다 llevan -는, las raíces en ㄹ pierden la ㄹ, y la mayoría de los adjetivos en ㅂ cambian la ㅂ por 우.",
+  "objective": "Los estudiantes podrán formar la terminación correcta que modifica al sustantivo (-는, -(으)ㄴ, -(으)ㄹ) para verbos, adjetivos y raíces irregulares.",
+  "summary": "En coreano, las palabras descriptivas van antes del sustantivo: los verbos llevan -는 (presente), -(으)ㄴ (pasado) o -(으)ㄹ (futuro), y los adjetivos llevan -(으)ㄴ. Las palabras 있다/없다 llevan -는, las raíces en ㄹ pierden la ㄹ, y la mayoría de los adjetivos en ㅂ cambian la ㅂ por 우.",
   "tags": [],
   "task": {
     "title": "",
@@ -101,10 +101,10 @@
   },
   "title": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
   "watchOut": [
-    "맛있은 음식 (X) → 맛있는 음식 (O): Las palabras terminadas en 있다/없다 llevan -는 (no -은), incluso cuando describes una cualidad.",
-    "예쁘는 가방 (X) → 예쁜 가방 (O): Los adjetivos no llevan -는 (excepto las palabras terminadas en 있다/없다). Llevan -(으)ㄴ.",
+    "맛있은 음식 (X) → 맛있는 음식 (O): Las palabras que terminan en 있다/없다 llevan -는 (no -은), incluso cuando describes una cualidad.",
+    "예쁘는 가방 (X) → 예쁜 가방 (O): Los adjetivos no llevan -는 (excepto las palabras que terminan en 있다/없다). Llevan -(으)ㄴ.",
     "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): Con las raíces en ㄹ, elimina la ㄹ y añade -ㄴ. No añadas 은. Lo mismo ocurre con 만들은 (X) → 만든 (O).",
-    "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Para un hábito que ocurre ahora, usa -는. -(으)ㄴ en un verbo significa que la acción ya terminó y está en el pasado."
+    "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Para un hábito que ocurre en el presente, usa -는. -(으)ㄴ en un verbo significa que la acción ya terminó y está en el pasado."
   ],
   "watchOutMark": [
     [

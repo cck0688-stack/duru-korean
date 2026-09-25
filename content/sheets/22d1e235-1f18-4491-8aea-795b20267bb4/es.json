@@ -1,21 +1,23 @@
 {
   "answers": [
-    "- 저는 백화점에 가요. - 오늘 식당에서 점심을 먹어요. - 우리는 3시에 서울역에 도착해요. - 고양이가 소파에 있어요. - 지훈 씨가 회사에서 일해요.",
-    "- 주말에 공원에서 사진을 찍어요. - 내일 시장에 가요.",
-    "- 카페에서 친구를 만나요. - 동생이 방에 있어요. - 은행에 가요.",
-    "- 우리 집에 놀러 오세요. - 교실에 사람이 없어요."
+    "① 에 ② 에서 ③ 에",
+    "① 에 ② 에서",
+    "① 주말에 공원에서 사진을 찍어요. ② 내일 시장에 가요.",
+    "① 카페에서 친구를 만나요. ② 동생이 방에 있어요. ③ 형이 회사에 다녀요.",
+    "① 우리 집에 놀러 오세요. ② 교실에 사람이 없어요."
   ],
   "checkThese": [],
   "exercises": [
-    "Completa cada espacio en blanco con 에 o 에서: 빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 백화점( ) 가요. - 오늘 식당( ) 점심을 먹어요. - 우리는 3시에 서울역( ) 도착해요. - 고양이가 소파( ) 있어요. - 지훈 씨가 회사( ) 일해요.",
-    "Corrige la partícula incorrecta y reescribe cada oración: 틀린 조사를 고치세요. - 주말에 공원에 사진을 찍어요. - 내일 시장에서 가요.",
-    "Forma una oración en el estilo 해요 usando las palabras dadas, añadiendo 에 o 에서 después del lugar: 주어진 낱말에 ‘에’ 또는 ‘에서’를 넣어 ‘-아요/어요’ 문장을 만드세요. (예: 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.) - 카페 / 친구를 만나다 - 동생이 / 방 / 있다 - 은행 / 가다",
-    "Elige la oración correcta en cada par y escribe solo esa oración: 둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요. a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
+    "Completa cada espacio en blanco con 에 o 에서: ① 저는 백화점( ) 가요. ② 오늘 식당( ) 점심을 먹어요. ③ 우리는 3시에 서울역( ) 도착해요.",
+    "Completa cada espacio en blanco con 에 o 에서: ① 고양이가 소파( ) 있어요. ② 지훈 씨가 회사( ) 일해요.",
+    "Corrige la partícula incorrecta y vuelve a escribir cada oración: ① 주말에 공원에 사진을 찍어요. ② 내일 시장에서 가요.",
+    "Forma una oración en el estilo 해요, añadiendo 에 o 에서 después del lugar (ej. 도서관 / 책을 읽다 → 도서관에서 책을 읽어요.): ① 카페 / 친구를 만나다 ② 동생이 / 방 / 있다 ③ 형이 / 회사 / 다니다",
+    "Elige la oración correcta en cada par y escríbela: ① a) 우리 집에서 놀러 오세요. b) 우리 집에 놀러 오세요. ② a) 교실에 사람이 없어요. b) 교실에서 사람이 없어요."
   ],
   "forms": [
     {
       "form": "N에 (destino)",
-      "when": "Con verbos de movimiento/llegada como 가다, 오다, 다니다, 도착하다, después de sustantivos de lugar.",
+      "when": "Se usa con verbos de movimiento/llegada como 가다, 오다, 다니다, 도착하다 después de sustantivos de lugar.",
       "means": "a (destino)",
       "example": "학교에 가요.",
       "exampleMeaning": "Voy a la escuela.",
@@ -25,7 +27,7 @@
     },
     {
       "form": "N에 (existencia)",
-      "when": "Con verbos de existencia como 있다/없다, después de sustantivos de lugar.",
+      "when": "Se usa con verbos de existencia como 있다/없다 después de sustantivos de lugar.",
       "means": "en (existencia; estar/quedarse)",
       "example": "저는 집에 있어요.",
       "exampleMeaning": "Estoy en casa.",
@@ -35,8 +37,8 @@
     },
     {
       "form": "N에서",
-      "when": "Con verbos de actividad como 공부하다, 일하다, 운동하다, 만나다, 먹다, después de sustantivos de lugar.",
-      "means": "en (el lugar donde ocurre una acción)",
+      "when": "Se usa con verbos de actividad como 공부하다, 일하다, 운동하다, 만나다, 먹다 después de sustantivos de lugar.",
+      "means": "en (lugar donde ocurre una acción)",
       "example": "도서관에서 공부해요.",
       "exampleMeaning": "Estudio en la biblioteca.",
       "mark": [
@@ -45,10 +47,10 @@
     }
   ],
   "keyword": "장소 조사 ‘에’ vs ‘에서’",
-  "level": "Principiante (alto)",
+  "level": "Principiante (avanzado)",
   "minutes": 15,
-  "objective": "Los estudiantes producirán correctamente oraciones cortas usando '에' con verbos de movimiento/existencia (por ejemplo, 가다, 오다, 다니다, 도착하다, 있다) y '에서' con verbos de actividad (por ejemplo, 먹다, 공부하다, 일하다, 운동하다), y corregirán por sí mismos errores frecuentes como '학교에서 다녀요(X) → 학교에 다녀요(O)' y '도서관에 공부해요(X) → 도서관에서 공부해요(O)'.",
-  "summary": "Práctica orientada a principiantes para elegir la partícula de lugar correcta en coreano: usa '에' para destino/existencia con verbos como 가다, 오다, 다니다, 도착하다, 있다; usa '에서' para el lugar donde ocurre una acción con verbos como 공부하다, 일하다, 운동하다, 만나다, 먹다. Incluye corrección de errores comunes con oraciones cortas y naturales.",
+  "objective": "Los estudiantes pueden usar 에 con verbos de movimiento y existencia (가다, 오다, 다니다, 도착하다, 있다) y 에서 con verbos de actividad (먹다, 공부하다, 일하다, 운동하다), y corregir errores comunes como 학교에서 다녀요 (X) → 학교에 다녀요 (O).",
+  "summary": "Elige la partícula de lugar correcta: 에 para el lugar adonde vas o donde algo está (가다, 오다, 다니다, 도착하다, 있다), 에서 para el lugar donde ocurre una acción (공부하다, 일하다, 만나다, 먹다). Incluye la corrección de errores comunes.",
   "tags": [],
   "task": {
     "title": "",
@@ -56,7 +58,7 @@
   },
   "title": "장소 조사 ‘에’ vs ‘에서’ 바로 쓰기",
   "watchOut": [
-    "학교에서 다녀요(X) → 학교에 다녀요(O): Para marcar el destino de 가다/오다/다니다/도착하다, usa 에 (con 가다/오다, 에서 significa 'desde', no 'hacia').",
+    "학교에서 다녀요(X) → 학교에 다녀요(O): Para marcar el destino de 가다/오다/다니다/도착하다, usa 에 (con 가다/오다, 에서 significa 'desde', no 'a').",
     "도서관에 공부해요(X) → 도서관에서 공부해요(O): Usa 에서 para el lugar donde ocurre una acción como 공부하다/일하다/운동하다/만나다/먹다.",
     "집에서 있어요(X) → 집에 있어요(O): Usa 에 con 있다/없다 para indicar dónde está alguien o algo."
   ],

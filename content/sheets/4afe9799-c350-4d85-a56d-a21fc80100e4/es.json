@@ -1,8 +1,8 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
   "keyword": "받침",
-  "summary": "Practicar la lectura y producción de las oclusivas finales no explosivas (sin liberación) para el batchim ㄱ/ㄷ/ㅂ. Los estudiantes las relacionan con sonidos finales similares del inglés (back/bat/cap) pero sin liberación, y luego leen y eligen palabras sencillas que contienen estos batchim.",
-  "objective": "Los estudiantes principiantes producirán las oclusivas finales no explosivas [k], [t], [p] para el batchim ㄱ, ㄷ, ㅂ; las relacionarán con terminaciones similares del inglés (\"back/bat/cap\" sin liberación); y leerán y seleccionarán correctamente palabras coreanas sencillas que contienen estos batchim.",
+  "summary": "Practica las oclusivas finales no liberadas (sin explosión) para el batchim ㄱ/ㄷ/ㅂ: como el final de las palabras inglesas \"back/bat/cap\", pero sin liberar el aire. Luego lee y elige palabras sencillas que contengan estos batchim.",
+  "objective": "Los estudiantes pueden producir los sonidos finales no liberados [k], [t], [p] para el batchim ㄱ, ㄷ, ㅂ, y leer y elegir palabras sencillas que los contengan.",
   "level": "Principiante",
   "minutes": 15,
   "tags": [
@@ -14,12 +14,12 @@
   ],
   "task": {
     "title": "Dilo: detén el sonido final",
-    "line": "Lee en voz alta: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. En cada batchim ㄱ/ㄷ/ㅂ, bloquea el aire con la parte posterior de la lengua (ㄱ), la punta de la lengua (ㄷ) o los labios (ㅂ) y detén el sonido sin liberarlo."
+    "line": "Lee en voz alta: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. En cada batchim ㄱ/ㄷ/ㅂ, bloquea el aire con la parte posterior de la lengua (ㄱ), la punta de la lengua (ㄷ) o los labios (ㅂ) y detente sin liberar el sonido."
   },
   "exercises": [
     "Elige la palabra cuyo sonido final es [k]: (국 / 곧 / 밥)",
     "¿Cuál es el sonido final de esta palabra? 곧 (k / t / p)",
-    "¿Qué terminación del inglés se acerca más al sonido final de 받 en 받다? (back / bat / cap)",
+    "¿Qué terminación de palabra en inglés se acerca más al sonido final de 받 en 받다? (back / bat / cap)",
     "Elige la romanización correcta: 벽 (byeok / byeog / byuk)",
     "Lee la oración en voz alta, deteniendo 「집」 sin liberar el sonido final. Luego elige su sonido final: 우리 집 좋아요. (k / t / p)"
   ],
@@ -34,17 +34,17 @@
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "[k] final (sorda, no explosiva)",
+      "sound": "sonido final [k] (sordo, no liberado)",
       "as": "como el final de \"back\" (oclusiva; sin liberación)"
     },
     {
       "letter": "ㄷ",
-      "sound": "[t] final (sorda, no explosiva)",
+      "sound": "sonido final [t] (sordo, no liberado)",
       "as": "como el final de \"bat\" (oclusiva; sin liberación)"
     },
     {
       "letter": "ㅂ",
-      "sound": "[p] final (sorda, no explosiva)",
+      "sound": "sonido final [p] (sordo, no liberado)",
       "as": "como el final de \"cap\" (oclusiva; sin liberación)"
     }
   ],
@@ -60,15 +60,15 @@
       "korean": "속",
       "roman": "sok",
       "meaning": "dentro",
-      "example": "가방 속 봤어요?",
-      "exampleMeaning": "¿Miraste dentro de la bolsa?"
+      "example": "가방 속에 있어요.",
+      "exampleMeaning": "Está dentro de la bolsa."
     },
     {
       "korean": "벽",
       "roman": "byeok",
       "meaning": "pared",
       "example": "저기 벽 보세요.",
-      "exampleMeaning": "Mira esa pared de allí."
+      "exampleMeaning": "Mira la pared de allí."
     },
     {
       "korean": "곧",

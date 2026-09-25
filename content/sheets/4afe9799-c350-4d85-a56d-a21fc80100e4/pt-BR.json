@@ -1,8 +1,8 @@
 {
   "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
   "keyword": "받침",
-  "summary": "Pratique a leitura e produção das consoantes finais não liberadas (batchim) ㄱ/ㄷ/ㅂ. Os alunos relacionam cada uma a sons finais semelhantes em inglês (back/bat/cap), mas sem liberação de ar, e depois leem e escolhem palavras simples que contenham esses batchim.",
-  "objective": "Alunos iniciantes vão produzir as consoantes finais não liberadas [k], [t], [p] para os batchim ㄱ, ㄷ, ㅂ; relacioná-las a finais semelhantes em inglês (\"back/bat/cap\", sem liberação de ar); e ler e selecionar corretamente palavras simples em coreano que contenham esses batchim.",
+  "summary": "Pratique as consoantes finais não liberadas (batchim) ㄱ/ㄷ/ㅂ: como o final de back/bat/cap (em inglês), mas sem liberação do som. Depois leia e escolha palavras simples que contenham esses batchim.",
+  "objective": "O aluno consegue produzir os sons finais não liberados [k], [t], [p] para os batchim ㄱ, ㄷ, ㅂ, além de ler e escolher palavras simples que os contenham.",
   "level": "Iniciante",
   "minutes": 15,
   "tags": [
@@ -13,15 +13,15 @@
     "beginner"
   ],
   "task": {
-    "title": "Diga em voz alta: interrompa o som final",
+    "title": "Fale: pare o som final",
     "line": "Leia em voz alta: 국도 드세요. / 문 닫고 나가세요. / 밥 주세요. Em cada batchim ㄱ/ㄷ/ㅂ, bloqueie o ar com a parte de trás da língua (ㄱ), a ponta da língua (ㄷ) ou os lábios (ㅂ) e pare sem liberar o som."
   },
   "exercises": [
     "Escolha a palavra cujo som final é [k]: (국 / 곧 / 밥)",
     "Qual é o som final desta palavra? 곧 (k / t / p)",
-    "Qual final de palavra em inglês é mais próximo do som final de 받 em 받다? (back / bat / cap)",
+    "Qual final de palavra em inglês é mais parecido com o som final de 받 em 받다? (back / bat / cap)",
     "Escolha a romanização correta: 벽 (byeok / byeog / byuk)",
-    "Leia a frase em voz alta, interrompendo 「집」 sem liberar o som final. Depois escolha seu som final: 우리 집 좋아요. (k / t / p)"
+    "Leia a frase em voz alta, parando em 「집」 sem liberar o som final. Depois escolha o som final: 우리 집 좋아요. (k / t / p)"
   ],
   "answers": [
     "국",
@@ -34,18 +34,18 @@
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "som final [k] (surdo, não liberado)",
-      "as": "como o final de \"back\" (interrupção; sem liberação)"
+      "sound": "som final [k] (surdo, sem liberação)",
+      "as": "como o final de \"back\" (oclusiva; sem liberação)"
     },
     {
       "letter": "ㄷ",
-      "sound": "som final [t] (surdo, não liberado)",
-      "as": "como o final de \"bat\" (interrupção; sem liberação)"
+      "sound": "som final [t] (surdo, sem liberação)",
+      "as": "como o final de \"bat\" (oclusiva; sem liberação)"
     },
     {
       "letter": "ㅂ",
-      "sound": "som final [p] (surdo, não liberado)",
-      "as": "como o final de \"cap\" (interrupção; sem liberação)"
+      "sound": "som final [p] (surdo, sem liberação)",
+      "as": "como o final de \"cap\" (oclusiva; sem liberação)"
     }
   ],
   "words": [
@@ -54,35 +54,35 @@
       "roman": "guk",
       "meaning": "sopa",
       "example": "국도 드세요.",
-      "exampleMeaning": "Coma um pouco de sopa também."
+      "exampleMeaning": "Tome um pouco de sopa também."
     },
     {
       "korean": "속",
       "roman": "sok",
       "meaning": "dentro",
-      "example": "가방 속 봤어요?",
-      "exampleMeaning": "Você olhou dentro da bolsa?"
+      "example": "가방 속에 있어요.",
+      "exampleMeaning": "Está dentro da bolsa."
     },
     {
       "korean": "벽",
       "roman": "byeok",
       "meaning": "parede",
       "example": "저기 벽 보세요.",
-      "exampleMeaning": "Olhe para a parede ali."
+      "exampleMeaning": "Olhe para aquela parede ali."
     },
     {
       "korean": "곧",
       "roman": "got",
-      "meaning": "em breve; logo",
+      "meaning": "logo",
       "example": "곧 갈게요.",
-      "exampleMeaning": "Eu vou logo."
+      "exampleMeaning": "Vou logo."
     },
     {
       "korean": "받다",
       "roman": "batda",
       "meaning": "receber",
       "example": "편지 받고 기뻤어요.",
-      "exampleMeaning": "Fiquei feliz em receber a carta."
+      "exampleMeaning": "Fiquei feliz por receber a carta."
     },
     {
       "korean": "믿다",
@@ -96,7 +96,7 @@
       "roman": "datda",
       "meaning": "fechar",
       "example": "문 닫고 나가세요.",
-      "exampleMeaning": "Feche a porta ao sair."
+      "exampleMeaning": "Feche a porta quando sair."
     },
     {
       "korean": "밥",
@@ -108,7 +108,7 @@
     {
       "korean": "집",
       "roman": "jip",
-      "meaning": "casa; lar",
+      "meaning": "casa",
       "example": "우리 집 좋아요.",
       "exampleMeaning": "Nossa casa é bonita."
     },
