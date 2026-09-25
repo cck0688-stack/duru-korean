@@ -7,3 +7,4 @@ node_modules/
 sim-report.md
 sim-report.json
 sim-shots/
+__pycache__/
