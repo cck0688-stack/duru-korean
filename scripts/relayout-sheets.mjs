@@ -46,7 +46,7 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC
 // "The same thing": no character gained or lost, and the order kept.
 export const SAME = { hist: 0.002, ratio: 0.995 };
 const TRIES = 2;
-const AT_ONCE = 3;
+const AT_ONCE = 4;
 
 const args = process.argv.slice(2);
 const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); return h ? h.slice(n.length + 3) : null; };
@@ -187,9 +187,10 @@ export async function relayout(token, cfg, browser, r) {
   let dropNote = false;
   let done = 0, kept = 0;
 
-  // English first: whether the note goes is decided there.
-  const order = Object.keys(read).sort((a, b) => (b === en.f.lang) - (a === en.f.lang));
-  for (const lang of order) {
+  // English first: whether the note goes is decided there. The rest
+  // then a few at a time — a read-back is a model call, and eight of
+  // them one after another make a slow sheet.
+  const one = async (lang) => {
     const it = read[lang];
     let hint = '';
     let result = null;
@@ -223,12 +224,12 @@ export async function relayout(token, cfg, browser, r) {
             (t + 1 < TRIES ? ' — 다시' : ''));
       }
     }
-    if (!result) { kept += 1; log('    ' + lang + ': 그대로 둡니다'); continue; }
+    if (!result) { kept += 1; log('    ' + lang + ': 그대로 둡니다'); return; }
 
     const { out, cmp } = result;
     log('    ' + lang + ': ' + (it.f.page_count || '?') + '쪽 → ' + out.check.pages + '쪽 (같음 ' +
         (cmp.ratio * 100).toFixed(1) + '%)' + (DRY ? ' (연습)' : ''));
-    if (DRY) { done += 1; continue; }
+    if (DRY) { done += 1; return; }
     try {
       await replace(token, it.loc, out.pdf);
       // A published file's draft copy is what gets published again if
@@ -246,7 +247,9 @@ export async function relayout(token, cfg, browser, r) {
     } catch (err) {
       kept += 1; log('    ' + lang + ': 교체 실패 — ' + err.message);
     }
-  }
+  };
+  await one(en.f.lang);
+  await pool(Object.keys(read).filter((l) => l !== en.f.lang), AT_ONCE, one);
   if (dropNote) log('    (영어판의 만드는 과정 메모를 모든 언어에서 뺐습니다)');
   return { done, kept };
 }
