@@ -28,6 +28,9 @@ from collections import Counter
 import pymupdf
 
 PAGE_NO = re.compile(r'^\s*\d+\s*/\s*\d+\s*$')
+# Sheets made before the template numbered its lists itself printed
+# "1." where it now prints "1)".
+ITEM_NO = re.compile(r'^(\d{1,2})[.)]\s*')
 SPACE = re.compile(r'\s+')
 
 
@@ -42,7 +45,7 @@ def bare(text, title, drop, labels):
         s = line.strip()
         if not s or s == 'durukorean.com' or PAGE_NO.match(s):
             continue
-        lines.append(s)
+        lines.append(ITEM_NO.sub(r'\1)', s))
     # Lower case: headings are printed in capitals by the stylesheet.
     out = SPACE.sub('', ''.join(lines)).casefold()
     # Text left out of the new edition on purpose (a note that should
