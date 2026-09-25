@@ -791,5 +791,10 @@
   "review.relaid": "Set again in the new layout. It is off the shelf until you check it and press Approve and publish.",
   "admin.moveTo": "Move to",
   "admin.move": "Move",
-  "admin.moved": "Moved to {cat}."
+  "admin.moved": "Moved to {cat}.",
+  "resource.eyebrowFree": "Free resource",
+  "resource.eyebrowBook": "Book resource",
+  "resource.aboutEyebrow": "About this resource",
+  "resource.availableIn": "Available in",
+  "resource.fieldKeyword": "File name keyword (English, short — saved as keyword(en).pdf)"
 }

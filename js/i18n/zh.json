@@ -791,5 +791,10 @@
   "review.relaid": "已按新版式重新排版。在您检查并点击“批准并发布”之前不会发布。",
   "admin.moveTo": "移动到",
   "admin.move": "移动",
-  "admin.moved": "已移动到{cat}。"
+  "admin.moved": "已移动到{cat}。",
+  "resource.eyebrowFree": "免费资料",
+  "resource.eyebrowBook": "教材资料",
+  "resource.aboutEyebrow": "关于本资料",
+  "resource.availableIn": "提供语言",
+  "resource.fieldKeyword": "文件名关键词（简短英文 — 保存为 keyword(en).pdf）"
 }

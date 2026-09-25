@@ -791,5 +791,10 @@
   "review.relaid": "Đã dàn trang lại theo bố cục mới. Tài liệu tạm gỡ xuống cho đến khi bạn kiểm tra và bấm Duyệt và đăng.",
   "admin.moveTo": "Chuyển sang",
   "admin.move": "Chuyển",
-  "admin.moved": "Đã chuyển sang {cat}."
+  "admin.moved": "Đã chuyển sang {cat}.",
+  "resource.eyebrowFree": "Tài liệu miễn phí",
+  "resource.eyebrowBook": "Tài liệu sách",
+  "resource.aboutEyebrow": "Về tài liệu này",
+  "resource.availableIn": "Có sẵn bằng",
+  "resource.fieldKeyword": "Từ khóa tên tệp (tiếng Anh, ngắn — lưu thành keyword(en).pdf)"
 }

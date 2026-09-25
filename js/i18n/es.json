@@ -791,5 +791,10 @@
   "review.relaid": "Rehecho con el nuevo diseño. No está publicado hasta que lo revises y pulses Aprobar y publicar.",
   "admin.moveTo": "Mover a",
   "admin.move": "Mover",
-  "admin.moved": "Movido a {cat}."
+  "admin.moved": "Movido a {cat}.",
+  "resource.eyebrowFree": "Recurso gratuito",
+  "resource.eyebrowBook": "Recurso del libro",
+  "resource.aboutEyebrow": "Sobre este recurso",
+  "resource.availableIn": "Disponible en",
+  "resource.fieldKeyword": "Palabra clave del archivo (inglés, corta — se guarda como keyword(en).pdf)"
 }

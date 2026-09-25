@@ -791,5 +791,10 @@
   "review.relaid": "새 편집으로 다시 만든 자료입니다. 확인하고 \"승인하고 게시\"를 누를 때까지 게시되지 않습니다.",
   "admin.moveTo": "카테고리 이동",
   "admin.move": "이동",
-  "admin.moved": "{cat}(으)로 옮겼습니다."
+  "admin.moved": "{cat}(으)로 옮겼습니다.",
+  "resource.eyebrowFree": "무료 자료",
+  "resource.eyebrowBook": "교재 자료",
+  "resource.aboutEyebrow": "자료 소개",
+  "resource.availableIn": "제공 언어",
+  "resource.fieldKeyword": "파일 이름 키워드 (짧은 영어 — keyword(en).pdf 로 저장)"
 }

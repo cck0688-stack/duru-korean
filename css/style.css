@@ -4413,3 +4413,106 @@ section { position: relative; }
 @media (max-width: 600px) {
   .story-list--list .story-card:not(.story-open) .story-body { margin-left: 0; }
 }
+
+/* ---- one download's page (resource.html), as the owner drew it ------ */
+/* A pale band: kind of resource, the title in Korean, one line on what
+   it is, and chips; then one white card lifted over the band's edge —
+   what it is for on the left, the download on the right. */
+.rd-hero {
+  background: linear-gradient(180deg, #eef2e5 0%, #f3f5ec 100%);
+  padding: 36px 0 110px;
+  overflow: hidden;
+}
+.rd-hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: center; }
+.rd-hero-text { min-width: 0; }
+.rd-back { display: inline-block; font-size: 13px; color: #5b6b66; text-decoration: none; margin-bottom: 14px; }
+.rd-back:hover { color: #16302b; text-decoration: underline; }
+.rd-eyebrow {
+  display: block; font-size: 12px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: #1f8a4c; margin-bottom: 10px;
+}
+.rd-hero h1 {
+  font-family: 'Noto Sans KR', sans-serif; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.2;
+  color: #16302b; margin: 0 0 10px; letter-spacing: -.01em;
+}
+.rd-subtitle { font-size: 17px; color: #5b6b66; margin: 0 0 20px; max-width: 760px; }
+.rd-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; }
+.rd-chip {
+  display: inline-flex; align-items: center; gap: 7px; background: #fff; border-radius: 999px;
+  padding: 7px 14px; font-size: 13px; color: #25413a; box-shadow: 0 1px 0 rgba(22, 48, 43, .06);
+}
+.rd-chip[hidden] { display: none; }
+.rd-chip-icon { width: 16px; height: 16px; fill: none; stroke: #1f8a4c; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.rd-chip-icon svg { display: block; }
+.rd-hero-art { justify-self: end; width: 100%; max-width: 300px; }
+.rd-art { width: 100%; height: auto; display: block; }
+.rd-art-blob { fill: #dfe8d3; }
+.rd-art-blob2 { fill: #e4ecd9; }
+.rd-art-book path, .rd-art-bulb path { fill: #f8faf4; stroke: #a9c29b; stroke-width: 3; stroke-linejoin: round; }
+.rd-art .rd-art-line { fill: none; stroke: #a9c29b; stroke-width: 3; stroke-linecap: round; }
+.rd-art .rd-art-rays { stroke: #b9cfae; }
+.rd-cover img { width: 100%; max-height: 240px; object-fit: cover; border-radius: 16px; box-shadow: 0 8px 24px rgba(22, 48, 43, .12); }
+.rd-cover .res-cover-glyph { display: none; }
+
+.rd-main { padding: 0 0 64px; }
+.rd-card {
+  position: relative; margin-top: -80px; background: #fff; border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(22, 48, 43, .09); padding: 34px 36px;
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0;
+}
+.rd-card[hidden] { display: none; }
+.rd-about { padding-right: 34px; border-right: 1px solid #e6ebe8; }
+.rd-about[hidden] + .rd-get { grid-column: 1 / -1; }
+.rd-card .rd-about-title { font-size: 30px; font-weight: 700; line-height: 1.22; color: #16302b; margin: 0 0 16px; letter-spacing: -.01em; text-transform: none; }
+.rd-about-text p { font-size: 15px; line-height: 1.75; color: #5b6b66; margin: 0 0 10px; }
+.rd-get { padding-left: 34px; display: flex; flex-direction: column; }
+.rd-download {
+  display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%;
+  min-height: 72px; border: 0; border-radius: 999px; cursor: pointer;
+  background: linear-gradient(180deg, #db4f33 0%, #cc3f25 100%); color: #fff;
+  font: inherit; font-size: 22px; font-weight: 500; padding: 0 28px;
+  box-shadow: 0 8px 20px rgba(204, 63, 37, .28); transition: transform .12s ease, box-shadow .12s ease;
+}
+.rd-download:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(204, 63, 37, .34); }
+.rd-download:disabled { opacity: .55; cursor: default; transform: none; }
+.rd-download svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.rd-download .rd-download-chev { width: 22px; height: 22px; margin-left: auto; }
+.rd-download .rd-download-icon { margin-left: auto; }
+.rd-note { text-align: center; font-size: 13px; color: #6b7a75; margin: 12px 0 0; }
+.rd-note[hidden] { display: none; }
+.rd-secondary { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.rd-secondary:empty { display: none; }
+.rd-linkbtn { background: none; border: 0; padding: 4px 6px; font: inherit; font-size: 14px; color: #1f6e46; text-decoration: underline; cursor: pointer; }
+.rd-linkbtn[hidden] { display: none; }
+.rd-langs {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid #e6ebe8;
+}
+.rd-lang-field { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
+.rd-lang-field:first-child { padding-right: 24px; margin-right: 24px; border-right: 1px solid #e6ebe8; }
+.rd-globe { width: 24px; height: 24px; fill: none; stroke: #16302b; stroke-width: 1.6; flex: none; margin-top: 1px; }
+.rd-lang-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.rd-lang-label { font-weight: 700; color: #16302b; font-size: 14px; }
+.rd-lang-field select {
+  font: inherit; font-size: 14px; padding: 6px 10px; border: 1px solid #d5ddd9; border-radius: 8px;
+  background: #fff; color: #16302b; min-width: 110px;
+}
+.rd-lang-list { color: #5b6b66; line-height: 1.6; }
+.rd-below { margin-top: 26px; }
+.rd-main .res-notice { margin: 12px 0 0; }
+
+@media (max-width: 900px) {
+  .rd-hero { padding: 24px 0 96px; }
+  .rd-hero-inner { grid-template-columns: 1fr; }
+  .rd-hero-art { display: none; }
+  .rd-card { grid-template-columns: 1fr; padding: 24px 20px; }
+  /* On a phone the download comes first; what it is for follows. */
+  .rd-about { padding-right: 0; border-right: 0; order: 2; }
+  .rd-get { padding-left: 0; order: 1; padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid #e6ebe8; }
+  .rd-card .rd-about-title { font-size: 23px; }
+  .rd-download { font-size: 19px; min-height: 62px; }
+}
+@media (max-width: 520px) {
+  .rd-langs { grid-template-columns: 1fr; gap: 16px; }
+  .rd-lang-field:first-child { padding-right: 0; margin-right: 0; border-right: 0; }
+}

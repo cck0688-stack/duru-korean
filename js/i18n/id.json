@@ -791,5 +791,10 @@
   "review.relaid": "Dibuat ulang dengan tata letak baru. Tidak tayang sampai Anda memeriksanya dan menekan Setujui dan terbitkan.",
   "admin.moveTo": "Pindahkan ke",
   "admin.move": "Pindahkan",
-  "admin.moved": "Dipindahkan ke {cat}."
+  "admin.moved": "Dipindahkan ke {cat}.",
+  "resource.eyebrowFree": "Materi gratis",
+  "resource.eyebrowBook": "Materi buku",
+  "resource.aboutEyebrow": "Tentang materi ini",
+  "resource.availableIn": "Tersedia dalam",
+  "resource.fieldKeyword": "Kata kunci nama berkas (bahasa Inggris, pendek — disimpan sebagai keyword(en).pdf)"
 }

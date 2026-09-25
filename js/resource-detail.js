@@ -78,39 +78,66 @@
 
     /* ---------------- Reading view ---------------- */
 
+    // The band's picture when the download has no cover of its own: an
+    // open book and a light bulb on soft shapes, in the page's greens.
+    var ART = '<svg class="rd-art" viewBox="0 0 360 220" aria-hidden="true">' +
+      '<path class="rd-art-blob" d="M92 196c-44-6-78-40-70-86 9-50 60-70 104-84 52-17 100-8 136 22 34 28 52 74 30 110-24 40-80 46-126 44-26-1-50-2-74-6z"/>' +
+      '<circle class="rd-art-blob2" cx="286" cy="62" r="46"/>' +
+      '<g class="rd-art-book"><path d="M70 150c22-12 48-12 70 0V78c-22-12-48-12-70 0z"/><path d="M140 150c22-12 48-12 70 0V78c-22-12-48-12-70 0z"/>' +
+      '<path class="rd-art-line" d="M82 96c14-5 30-5 44 0M82 112c14-5 30-5 44 0M152 96c14-5 30-5 44 0M152 112c14-5 30-5 44 0"/></g>' +
+      '<g class="rd-art-bulb"><path d="M286 34a26 26 0 0 0-15 47c4 3 6 7 6 12v4h18v-4c0-5 2-9 6-12a26 26 0 0 0-15-47z"/>' +
+      '<path class="rd-art-line" d="M278 104h16M280 111h12"/></g>' +
+      '<path class="rd-art-line rd-art-rays" d="M286 6v-2M320 20l2-2M252 20l-2-2M330 54h4M238 54h-4"/>' +
+      '<path class="rd-art-line rd-art-rays" d="M40 170l-10 6M34 150l-12-2M330 150l12 4M322 172l10 8"/>' +
+      '</svg>';
+
     function backHref() {
       return resource && resource.publish_location === 'book-resources' ? 'book-resources.html' : 'free-resources.html';
     }
 
+    // The page as the owner drew it (2026-09-25): a pale band with the
+    // title in Korean, what it is in a line, and chips for the shelf,
+    // the level, the topic and the file; under it one card — what the
+    // sheet is for on the left, the download on the right.
     function render() {
       var lang = R.siteLang();
+      var original = resource.title || '';
       var title = R.localized(resource, 'title', lang);
       document.title = title + ' — Duru Korean';
-      $('resTitle').textContent = title;
+      $('resTitle').textContent = original || title;
       var summary = R.localized(resource, 'description', lang);
+      $('resSubtitle').textContent = summary || '';
+      $('resSubtitle').hidden = !summary;
+      $('resEyebrow').textContent = resource.publish_location === 'book-resources'
+        ? t('resource.eyebrowBook', 'Book resource') : t('resource.eyebrowFree', 'Free resource');
       $('resCategory').textContent = R.categoryLabel(resource.category);
+      $('resCatIcon').innerHTML = '<svg class="rd-chip-icon" viewBox="0 0 24 24">' + R.categoryIcon(resource.category) + '</svg>';
+      $('resFactLevel').textContent = R.levelLabel(resource.learning_level || 'Any level');
+      var topic = (resource.tags || []).filter(Boolean)[0];
+      $('resTopicChip').hidden = !topic;
+      $('resTopic').textContent = topic ? String(topic).replace(/\b[a-z]/g, function (c) { return c.toUpperCase(); }) : '';
       $('resBack').href = backHref();
-      $('resCover').innerHTML = R.coverHTML(client, resource);
+      $('resCover').innerHTML = resource.cover_key
+        ? '<div class="rd-cover">' + R.coverHTML(client, resource) + '</div>'
+        : ART;
 
       var files = R.availableFiles(resource, isAdmin);
-      var formats = {};
-      files.forEach(function (f) { formats[String(f.file_type || '').toUpperCase()] = true; });
-      $('resFactType').textContent = R.categoryLabel(resource.category);
-      $('resFactLevel').textContent = R.levelLabel(resource.learning_level || 'Any level');
-      $('resFactFormat').textContent = Object.keys(formats).join(' / ') || '—';
       $('resFactLangs').textContent = files.length
         ? files.map(function (f) { return R.langLabel(f.lang); }).join(', ')
         : t('resource.noFilesYet', 'No file yet');
 
-      // The short description reads in the column people actually read,
-      // with the longer text under it; the banner keeps the title alone.
-      // Both are optional, so the section goes away when neither is set
-      // rather than announcing that nobody has written it.
+      // The heading is the title in the reader's language when the
+      // banner shows it in Korean; the text is the longer description
+      // an admin wrote, or else what the sheet is for.
       var body = R.localized(resource, 'body', lang);
-      document.querySelector('.res-body').hidden = !(summary || body);
-      $('resBody').innerHTML =
-        (summary ? '<p class="res-lead">' + esc(summary) + '</p>' : '') +
-        (body ? body.split(/\n{2,}/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('') : '');
+      var aboutTitle = title && title !== original ? title : '';
+      $('resAboutTitle').textContent = aboutTitle;
+      $('resAboutTitle').hidden = !aboutTitle;
+      var text = body || resource.objective || '';
+      $('resBody').innerHTML = text
+        ? text.split(/\n{2,}/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('')
+        : '';
+      document.querySelector('.res-body').hidden = !(aboutTitle || text);
 
       renderLanguagePicker(files);
       $('resAdmin').hidden = !isAdmin;
@@ -236,6 +263,7 @@
 
     function renderFileMeta() {
       var el = $('resFileMeta');
+      $('resFileChip').hidden = !chosen;
       if (!chosen) { el.textContent = ''; return; }
       var parts = [];
       if (chosen.page_count) parts.push(t('resource.pages', '{n} pages').replace('{n}', chosen.page_count));
@@ -249,12 +277,13 @@
       var have = !!chosen;
       var fmt = have ? String(chosen.file_type || '').toUpperCase() : 'PDF';
       prev.disabled = !have; dl.disabled = !have;
+      var label = $('resDownloadLabel');
       if (!currentUser) {
-        dl.textContent = t('resources.loginToDownload', 'Log in to download');
+        label.textContent = t('resources.loginToDownload', 'Log in to download');
         prev.hidden = true;
         note.hidden = false;
       } else {
-        dl.textContent = t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', fmt);
+        label.textContent = t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', fmt);
         prev.textContent = t('resource.previewFile', 'Preview {fmt}').replace('{fmt}', fmt);
         prev.hidden = !(have && R.PREVIEWABLE[chosen.file_type]);
         note.hidden = true;

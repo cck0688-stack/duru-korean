@@ -242,7 +242,7 @@ export async function render({ origin, kind, lang, page, slug, id }) {
   }
 
   if (kind === 'resource') {
-    const rows = await fromDb('resources?select=id,title,description,summary,i18n,category,learning_level,cover_key,' +
+    const rows = await fromDb('resources?select=id,title,description,summary,objective,body,i18n,category,learning_level,cover_key,' +
       'first_published_at,created_at,updated_at,resource_files(lang,file_type)&id=eq.' + encodeURIComponent(id) + '&limit=1');
     const r = rows && rows[0];
     const bare = '/resource/' + encodeURIComponent(id);
@@ -255,16 +255,26 @@ export async function render({ origin, kind, lang, page, slug, id }) {
     const desc = (tr.description && tr.description.trim()) || r.description || r.summary || '';
     const langs = [...new Set((r.resource_files || []).map((f) => f.lang))];
     const catName = dict['resources.cat.' + r.category] || r.category || '';
+    // As the page draws it (js/resource-detail.js): the title as written
+    // in the banner, the reader's language under "About this resource".
+    const original = r.title || title;
     const h1 = root.querySelector('#resTitle');
-    if (h1) h1.set_content(esc(title));
+    if (h1) h1.set_content(esc(original));
+    const sub = root.querySelector('#resSubtitle');
+    if (sub && desc) sub.set_content(esc(desc));
     const cat = root.querySelector('#resCategory');
     if (cat) cat.set_content(esc(catName));
     const detail = root.querySelector('#resDetail');
     if (detail) detail.removeAttribute('hidden');
+    const aboutTitle = root.querySelector('#resAboutTitle');
+    if (aboutTitle && title !== original) aboutTitle.set_content(esc(title));
+    const text = (tr.body && tr.body.trim()) || r.body || r.objective || '';
     const body = root.querySelector('#resBody');
-    if (body && desc) body.set_content('<p class="res-lead">' + esc(desc) + '</p>');
+    if (body && text) body.set_content(text.split(/\n{2,}/).map((x) => '<p>' + esc(x.trim()) + '</p>').join(''));
+    const NAMES = { en: 'English', vi: 'Tiếng Việt', es: 'Español', id: 'Bahasa Indonesia', 'pt-BR': 'Português (BR)',
+      ko: '한국어', ja: '日本語', zh: '中文' };
     const factLangs = root.querySelector('#resFactLangs');
-    if (factLangs) factLangs.set_content(esc(langs.join(', ')));
+    if (factLangs) factLangs.set_content(esc(langs.map((l) => NAMES[l] || l).join(', ')));
     // The address it now lives at is deeper than the template's, so its
     // relative links need the site root to resolve against.
     const head = root.querySelector('head');

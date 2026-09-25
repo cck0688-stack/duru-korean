@@ -41,17 +41,25 @@
   </div>
 </header>
 
-<section class="page-hero page-hero--resource">
-  <div class="wrap">
-    <span class="page-hero-mark" aria-hidden="true">자료</span>
-    <a class="res-back" id="resBack" href="free-resources.html" data-i18n="resource.backToList">← All downloads</a>
-    <span class="eyebrow" id="resCategory"></span>
-    <h1 id="resTitle">…</h1>
-    <div class="page-hero-rule"></div>
+<section class="rd-hero">
+  <div class="wrap rd-hero-inner">
+    <div class="rd-hero-text">
+      <a class="rd-back" id="resBack" href="free-resources.html" data-i18n="resource.backToList">← All downloads</a>
+      <span class="rd-eyebrow" id="resEyebrow" data-i18n="resource.eyebrowFree">Free resource</span>
+      <h1 id="resTitle">…</h1>
+      <p class="rd-subtitle" id="resSubtitle"></p>
+      <ul class="rd-chips" id="resChips">
+        <li class="rd-chip"><span class="rd-chip-icon" id="resCatIcon" aria-hidden="true"></span><span id="resCategory"></span></li>
+        <li class="rd-chip" id="resLevelChip"><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-6M12 20V9M19 20V4"/></svg><span id="resFactLevel"></span></li>
+        <li class="rd-chip" id="resTopicChip" hidden><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg><span id="resTopic"></span></li>
+        <li class="rd-chip" id="resFileChip" hidden><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/></svg><span id="resFileMeta"></span></li>
+      </ul>
+    </div>
+    <div class="rd-hero-art" id="resCover" aria-hidden="true"></div>
   </div>
 </section>
 
-<section class="section section-after-hero">
+<section class="rd-main">
   <div class="wrap">
 
     <div class="res-notfound" id="resNotFound" hidden>
@@ -60,46 +68,51 @@
       <a class="btn btn-ghost" href="free-resources.html" data-i18n="resource.backToList">← All downloads</a>
     </div>
 
-    <div class="res-detail" id="resDetail" hidden>
-      <div class="res-detail-media">
-        <div class="res-cover--large" id="resCover"></div>
-        <dl class="res-facts">
-          <div><dt data-i18n="resource.factType">Type</dt><dd id="resFactType"></dd></div>
-          <div><dt data-i18n="resource.factLevel">Level</dt><dd id="resFactLevel"></dd></div>
-          <div><dt data-i18n="resource.factFormat">Format</dt><dd id="resFactFormat"></dd></div>
-          <div><dt data-i18n="resource.factLanguages">Languages</dt><dd id="resFactLangs"></dd></div>
-        </dl>
+    <div class="rd-card" id="resDetail" hidden>
+      <div class="rd-about res-body">
+        <span class="rd-eyebrow" data-i18n="resource.aboutEyebrow">About this resource</span>
+        <h2 class="rd-about-title" id="resAboutTitle"></h2>
+        <div id="resBody" class="rd-about-text"></div>
       </div>
 
-      <div class="res-detail-main">
-        <div class="res-panel" id="resPanel">
-          <span class="res-panel-eyebrow" data-i18n="resource.getEyebrow">Get the file</span>
-          <label class="res-lang-field" for="resPdfLang">
-            <span data-i18n="resource.pdfLanguage">File language</span>
-            <select id="resPdfLang"></select>
+      <div class="rd-get" id="resPanel">
+        <button type="button" class="rd-download" id="resDownloadBtn">
+          <svg class="rd-download-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+          <span id="resDownloadLabel">Download</span>
+          <svg class="rd-download-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <p class="rd-note" id="resLoginNote" hidden data-i18n="resource.loginNote">Downloads are for signed-in learners — it takes a minute and it is free.</p>
+        <div class="rd-secondary">
+          <button type="button" class="rd-linkbtn" id="resPreviewBtn">Preview</button>
+          <button type="button" class="btn btn-primary res-publish-btn" id="resApproveBtn" hidden data-i18n="admin.publish">Publish</button>
+        </div>
+        <p class="res-notice" id="resLangNotice" hidden></p>
+
+        <div class="rd-langs">
+          <label class="rd-lang-field" for="resPdfLang">
+            <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+            <span class="rd-lang-body">
+              <span class="rd-lang-label" data-i18n="resource.pdfLanguage">File language</span>
+              <select id="resPdfLang"></select>
+            </span>
           </label>
-          <p class="res-notice" id="resLangNotice" hidden></p>
-          <p class="res-file-meta" id="resFileMeta"></p>
-          <div class="res-actions">
-            <button type="button" class="btn btn-outline-dark" id="resPreviewBtn">Preview</button>
-            <button type="button" class="btn btn-primary" id="resDownloadBtn">Download</button>
-            <button type="button" class="btn btn-primary res-publish-btn" id="resApproveBtn" hidden data-i18n="admin.publish">Publish</button>
+          <div class="rd-lang-field">
+            <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+            <span class="rd-lang-body">
+              <span class="rd-lang-label" data-i18n="resource.availableIn">Available in</span>
+              <span class="rd-lang-list" id="resFactLangs"></span>
+            </span>
           </div>
-          <p class="res-login-note" id="resLoginNote" hidden data-i18n="resource.loginNote">Downloads are for signed-in learners — it takes a minute and it is free.</p>
-          <p class="res-lang-hint" data-i18n="resource.langNote">Choosing a PDF language only changes which file you get. The site's own language is set from the menu at the top.</p>
         </div>
-
-        <div class="res-body">
-          <h2 data-i18n="resource.aboutHeading">About this download</h2>
-          <div id="resBody" class="res-body-text"></div>
-        </div>
-
-        <div class="res-admin" id="resAdmin" hidden>
-          <div class="res-status" id="resStatus" hidden></div>
-          <button type="button" class="btn btn-ghost" id="resEditToggle" data-i18n="resource.edit">Edit this download</button>
-        </div>
-        <div id="resEditor" hidden></div>
       </div>
+    </div>
+
+    <div class="rd-below">
+      <div class="res-admin" id="resAdmin" hidden>
+        <div class="res-status" id="resStatus" hidden></div>
+        <button type="button" class="btn btn-ghost" id="resEditToggle" data-i18n="resource.edit">Edit this download</button>
+      </div>
+      <div id="resEditor" hidden></div>
     </div>
 
   </div>
