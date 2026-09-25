@@ -57,6 +57,16 @@ on:
         description: 'How many per shelf (default 3)'
         type: string
         default: ''
+      force:
+        description: 'Make them even if this shelf already has its sheets today (Seoul date)'
+        type: boolean
+        default: false
+
+# The rework run (rework-sheets.yml) and this one share the model
+# account; one waits for the other instead of both running at once.
+concurrency:
+  group: rework-sheets
+  cancel-in-progress: false
 
 jobs:
   sheets:
@@ -76,7 +86,7 @@ jobs:
     # translated seven times and rendered eight times: an hour on a
     # slow day. The limit is here so that a hung provider call cannot
     # run all day, not because it is expected to be close.
-    timeout-minutes: 150
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
 
@@ -120,6 +130,7 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
           COUNT: ${{ inputs.count }}
+          FORCE: ${{ inputs.force }}
           SHELF: ${{ matrix.shelf }}
         run: |
           # A dispatch that names shelves runs only those: a job whose
@@ -131,4 +142,5 @@ jobs:
           args=(--only="$SHELF")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$COUNT" ]; then args+=(--count="$COUNT"); fi
+          if [ "$FORCE" = "true" ]; then args+=(--force); fi
           node scripts/generate-sheets.mjs "${args[@]}"

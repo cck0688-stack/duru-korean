@@ -365,7 +365,7 @@ export async function run() {
   // What is already on the shelf, so that nothing is written twice.
   // Rejected sheets stay in this list on purpose: a subject the owner
   // turned down once is not offered again under a new title.
-  const made = await call('resources?select=title,objective,category,origin&publish_location=eq.free-resources&limit=1000');
+  const made = await call('resources?select=title,objective,category,origin,created_at&publish_location=eq.free-resources&limit=1000');
   const existing = made.map((r) => r.title + (r.objective ? ' — ' + r.objective : ''));
   const autoCount = made.filter((r) => r.origin === 'auto').length;
 
@@ -373,6 +373,12 @@ export async function run() {
     ? arg('only').split(',').map((s) => s.trim()).filter((s) => SHELVES[s])
     : SHELF_ORDER.slice();
   const want = Number(arg('count')) || PER_SHELF;
+  // A shelf gets its three once a day, by the Seoul date: a run started
+  // by hand (the owner, 2026-09-26: "right after the rework") and the
+  // 04:00 run on the same day do not make six. --force makes them anyway.
+  const since = new Date(Date.parse(today + 'T00:00:00+09:00')).toISOString();
+  const madeToday = (cat) => made.filter((r) => r.origin === 'auto' && r.category === cat && r.created_at >= since).length;
+  const FORCE = args.includes('--force');
 
   log('자료실에 ' + made.length + '편 (자동 생성 ' + autoCount + '편). ' +
       '오늘: ' + shelves.join(', ') + ' × ' + want + '편');
@@ -392,7 +398,9 @@ export async function run() {
       // so a shelf keeps going with new subjects until it has its three,
       // up to twice as many attempts. A sheet that fails review is
       // never saved to make up the number.
-      let savedHere = 0;
+      const already = FORCE ? 0 : madeToday(category);
+      if (already >= want) { log('  · ' + category + ' — 오늘(' + today + ') 이미 ' + already + '편 만들었습니다. 건너뜁니다.'); continue; }
+      let savedHere = already;
       for (let i = 0; savedHere < want && i < want * 2; i += 1) {
         try {
           const out = await makeOne(cfg, category, { today, existing, writer }, browser);
