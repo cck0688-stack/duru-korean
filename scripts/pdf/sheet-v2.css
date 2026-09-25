@@ -103,6 +103,9 @@ table.forms { table-layout: fixed; }
 table.forms td:nth-child(1) { width: 36%; }
 table.forms td:nth-child(2) { width: 22%; }
 table.forms td:nth-child(3) { width: 42%; }
+/* The note under each form is how the form is made — read closely, not
+   glanced at: darker, upright, a size up from a romanisation line. */
+table.forms .rom { color: #3f4f4a; font-style: normal; font-size: 11px; line-height: 1.55; margin-top: 3px; }
 .rom { font-size: 10.5px; color: var(--soft); font-style: italic; }
 .ex-kr { font-size: 13.5px; }
 .ex-tr { font-size: 11px; color: var(--grey); }
@@ -214,6 +217,7 @@ html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormor
 .compact td { padding: 5px 12px; }
 .compact .word { font-size: 16px; }
 .compact .rom { font-size: 10px; line-height: 1.4; }
+.compact table.forms .rom { font-size: 10.5px; line-height: 1.5; }
 /* The grammar table: its first column carries the notes, so it gets the
    width and the rows get shorter. */
 .compact table.forms td:nth-child(1) { width: 46%; }

@@ -470,7 +470,7 @@ export function explanatoryText(sheet) {
   return at;
 }
 
-export async function translateSheet(translate, cfg, sheet, lang, fromName) {
+export async function translateSheet(translate, cfg, sheet, lang, fromName, extra) {
   const slots = explanatoryText(sheet);
   if (!slots.length) return JSON.parse(JSON.stringify(sheet));
 
@@ -493,7 +493,8 @@ export async function translateSheet(translate, cfg, sheet, lang, fromName) {
       '  not something to translate.',
       '- Keep a question a question and an instruction an instruction.',
       '',
-      'Target language: ' + lang + '. Return one entry, with that code.'
+      'Target language: ' + lang + '. Return one entry, with that code.',
+      ...(extra ? ['', extra] : [])
     ].join('\n')
   }, cfg);
 

@@ -23,7 +23,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { bodyFor, esc, SPROUT } from './templates.mjs';
+import { bodyFor, esc, keepEndings, SPROUT } from './templates.mjs';
 
 // Imported when a PDF is actually rendered, not when this file loads.
 // Playwright is a build-time dependency — it makes the files, it is not
@@ -243,11 +243,11 @@ export async function sheetHTML(sheet, opts = {}) {
     (v2 ? '' : masthead(sheet, L)) +
     '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' +
     (v2 && (opts.category || sheet.category) === 'hangul' ? titleHTML(sheet.title) : esc(sheet.title)) + '</h1>' +
-    (sheet.summary ? '<p class="summary">' + esc(sheet.summary) + '</p>' : '') +
+    (sheet.summary ? '<p class="summary">' + keepEndings(esc(sheet.summary)) + '</p>' : '') +
     (sheet.objective
       ? (v2
         ? '<div class="objective"><span class="obj-icon">' + SPROUT + '</span><div class="obj-text"><b>' +
-          esc(L.objective) + '</b><div class="obj-line">' + esc(sheet.objective) + '</div></div></div>'
+          esc(L.objective) + '</b><div class="obj-line">' + keepEndings(esc(sheet.objective)) + '</div></div></div>'
         : '<div class="objective"><b>' + esc(L.objective) + '</b><br>' + esc(sheet.objective) + '</div>')
       : '') +
     bodyFor(opts.category || sheet.category || 'etc', sheet, L) +

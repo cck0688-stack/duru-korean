@@ -75,7 +75,7 @@ async function signIn() {
 
 const auth = (token, extra) => ({ apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token, ...(extra || {}) });
 
-async function rest(token, p, init = {}) {
+export async function rest(token, p, init = {}) {
   const res = await fetch(SUPABASE_URL + '/rest/v1/' + p, {
     ...init, headers: auth(token, { 'Content-Type': 'application/json', ...(init.headers || {}) })
   });
@@ -86,13 +86,13 @@ async function rest(token, p, init = {}) {
 
 // "resource-drafts/<id>/en-v1.pdf" or "auto/<id>/en-v1.pdf" in the
 // public bucket: which bucket, and the key inside it.
-function where(f) {
+export function where(f) {
   if (f.published && f.storage_key) return { bucket: 'resources', key: f.storage_key.replace(/^resources\//, '') };
   if (f.draft_key) return { bucket: 'resource-drafts', key: f.draft_key.replace(/^resource-drafts\//, '') };
   return null;
 }
 
-async function download(token, loc) {
+export async function download(token, loc) {
   const res = await fetch(SUPABASE_URL + '/storage/v1/object/' + loc.bucket + '/' + loc.key, { headers: auth(token) });
   if (!res.ok) throw new Error(loc.bucket + ' 내려받기 실패 (' + res.status + ')');
   return Buffer.from(await res.arrayBuffer());
@@ -100,7 +100,7 @@ async function download(token, loc) {
 
 // The public bucket lets an admin add and delete but not overwrite, so
 // the old file goes first and the new one takes its key.
-async function replace(token, loc, bytes) {
+export async function replace(token, loc, bytes) {
   const put = () => fetch(SUPABASE_URL + '/storage/v1/object/' + loc.bucket + '/' + loc.key, {
     method: 'POST', headers: auth(token, { 'Content-Type': 'application/pdf', 'x-upsert': 'true' }), body: bytes
   });
@@ -114,7 +114,7 @@ async function replace(token, loc, bytes) {
 
 /* ---------------- reading the old sheet back ---------------- */
 
-function py(req) {
+export function py(req) {
   return JSON.parse(execFileSync('python3', [path.join(HERE, 'pdf', 'pdftext.py')],
     { input: JSON.stringify(req), maxBuffer: 32 * 1024 * 1024 }).toString());
 }
@@ -160,7 +160,7 @@ function prompt(category, lang) {
   ].join('\n');
 }
 
-async function readBack(cfg, category, lang, text, hint) {
+export async function readBack(cfg, category, lang, text, hint) {
   const out = await cfg.provider.chat(cfg, prompt(category, lang) + (hint ? '\n\n' + hint : ''),
     text, sheetSchema(category, cfg.provider.strictSchema !== false));
   const sheet = unnumbered(typeof out === 'string' ? JSON.parse(out) : out);
@@ -268,7 +268,7 @@ export async function relayout(token, cfg, browser, r) {
   return { done, kept };
 }
 
-async function pool(items, n, fn) {
+export async function pool(items, n, fn) {
   const queue = items.slice();
   await Promise.all(Array.from({ length: Math.min(n, queue.length) }, async () => {
     while (queue.length) await fn(queue.shift());

@@ -91,6 +91,7 @@ tr { break-inside: avoid; }
 /* The words in an example that show the pattern (templates.mjs,
    markedHTML). Bold and underlined, so it survives a black-and-white
    printer. */
+.nb { white-space: nowrap; }
 .mark { font-weight: 700; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 
 /* Reading passages want line height and a wider measure than a table. */

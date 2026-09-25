@@ -23,6 +23,16 @@ export function esc(s) {
 
 const list = (x) => (Array.isArray(x) ? x : []);
 
+// An ending is one thing: "-는", "-(으)ㄴ" never break after the hyphen
+// ("Add -" at the end of one line, "는" on the next). Takes escaped
+// text; a hyphen that starts a word and is followed by Hangul keeps
+// the Hangul with it.
+export function keepEndings(html) {
+  return String(html).replace(/(^|[\s(\/,])-(\(?[\u3131-\u318e\uac00-\ud7a3][\u3131-\u318e\uac00-\ud7a3()]*)/g,
+    '$1<span class="nb">-$2</span>');
+}
+const prose = (x) => keepEndings(esc(x));
+
 // A sprout, for the boxes that say what a sheet or a task is for.
 export const SPROUT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/>' +
   '<path class="leaf" d="M12 13C12 8.6 9 6 4.5 6c0 4.4 3 7 7.5 7z"/>' +
@@ -113,9 +123,9 @@ export function markedHTML(text, marks) {
 function grammar(s, L) {
   return '<section><h2>' + esc(L.pattern) + '</h2>' +
     '<table class="forms"><tbody>' + list(s.forms).map((f) =>
-      '<tr><td><div class="word" lang="ko">' + esc(f.form) + '</div>' +
-      (f.when ? '<div class="rom">' + esc(f.when) + '</div>' : '') + '</td>' +
-      '<td>' + esc(f.means) + '</td>' +
+      '<tr><td><div class="word" lang="ko">' + prose(f.form) + '</div>' +
+      (f.when ? '<div class="rom">' + prose(f.when) + '</div>' : '') + '</td>' +
+      '<td>' + prose(f.means) + '</td>' +
       '<td><div class="ex-kr" lang="ko">' + markedHTML(f.example, f.mark) + '</div>' +
       (f.exampleMeaning ? '<div class="ex-tr">' + esc(f.exampleMeaning) + '</div>' : '') +
       '</td></tr>').join('') + '</tbody></table></section>' +
@@ -123,7 +133,7 @@ function grammar(s, L) {
       ? '<section><h2>' + esc(L.watchOut) + '</h2>' +
         // The wrong form and the right one, underlined: "맛있은 음식 (X) → 맛있는 음식 (O)".
         list(s.watchOut).map((w, i) => '<div class="note" style="margin-bottom:8px">' +
-          markedHTML(w, list(s.watchOutMark)[i]) + '</div>').join('') +
+          keepEndings(markedHTML(w, list(s.watchOutMark)[i])) + '</div>').join('') +
         '</section>'
       : '') +
     practice(s, L);
