@@ -13,7 +13,7 @@
     "Junte as duas vogais. Qual letra você obtém? ㅜ + ㅓ = ?",
     "Escolha a palavra que significa 'orelha': 기 / 구 / 귀",
     "Escolha a grafia correta de 'cadeira': 으자 / 이자 / 의자",
-    "Complete o espaço em branco para dizer 'Está quente.': 더_요 (와 / 워 / 위)",
+    "Complete o espaço para dizer 'Está quente.': 더_요 (와 / 워 / 위)",
     "Leia a palavra em voz alta e depois escreva-a no alfabeto romano: 화장실"
   ],
   "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
@@ -31,18 +31,18 @@
     {
       "letter": "ㅟ",
       "sound": "wi (ㅜ + ㅣ pronunciados rapidamente)",
-      "as": "parecido com o 'we' do inglês, mas mais curto — comece com os lábios arredondados (ㅜ) e passe rapidamente para 'i' (ㅣ)"
+      "as": "como o 'we' do inglês, mas mais curto — comece com os lábios arredondados (ㅜ) e passe rapidamente para 'i' (ㅣ)"
     },
     {
       "letter": "ㅢ",
       "sound": "ui (ㅡ + ㅣ pronunciados rapidamente)",
-      "as": "não há equivalente exato em inglês — comece com ㅡ (lábios retos e relaxados, sem arredondar) e deslize rapidamente até 'i' (ㅣ); nesta folha, aparece apenas no início de palavra, como em 의자"
+      "as": "não tem equivalente próximo em inglês — comece com ㅡ (lábios retos e relaxados, não arredondados) e deslize rapidamente para 'i' (ㅣ); nesta ficha, aparece apenas no início de palavra, como em 의자"
     }
   ],
   "level": "Iniciante",
   "minutes": 15,
-  "objective": "Reconhecer e pronunciar ㅘ (wa), ㅝ (wo), ㅟ (wi) e o 의 (ui) no início de palavra como ditongos rápidos de duas vogais, além de ler e escolher corretamente as palavras 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 e 의사.",
-  "summary": "Esta folha de exercícios ensina quatro vogais compostas do coreano: ㅘ, ㅝ, ㅟ e ㅢ. Cada uma delas é formada por duas vogais pronunciadas rapidamente, uma após a outra, como um único som suave. Você verá quais duas vogais formam cada letra, vai relacionar três delas a sons parecidos do inglês e vai praticar a leitura de palavras simples do dia a dia, como 과자, 뭐, 귀 e 의자.",
+  "objective": "Reconheça e pronuncie ㅘ (wa), ㅝ (wo), ㅟ (wi) e 의 (ui) no início de palavra como junções rápidas de duas vogais, e leia e escolha corretamente as palavras 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 e 의사.",
+  "summary": "Esta ficha ensina quatro vogais compostas do coreano: ㅘ, ㅝ, ㅟ e ㅢ. Cada uma é formada por duas vogais pronunciadas rapidamente, uma após a outra, como um único som suave. Você vai ver quais duas vogais formam cada letra, relacionar três delas a sons familiares do inglês e praticar a leitura de palavras simples do dia a dia, como 과자, 뭐, 귀 e 의자.",
   "tags": [],
   "task": null,
   "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
@@ -78,9 +78,9 @@
     {
       "korean": "더워요",
       "roman": "deowoyo",
-      "meaning": "está quente/calor (clima)",
+      "meaning": "estar quente (clima)",
       "example": "오늘 정말 더워요.",
-      "exampleMeaning": "Hoje está fazendo muito calor."
+      "exampleMeaning": "Hoje está muito quente."
     },
     {
       "korean": "위",
@@ -94,14 +94,14 @@
       "roman": "gwi",
       "meaning": "orelha",
       "example": "귀가 아파요.",
-      "exampleMeaning": "Minha orelha está doendo."
+      "exampleMeaning": "Minha orelha dói."
     },
     {
       "korean": "의자",
       "roman": "uija",
       "meaning": "cadeira",
       "example": "의자에 앉으세요.",
-      "exampleMeaning": "Sente-se (na cadeira), por favor."
+      "exampleMeaning": "Por favor, sente-se (na cadeira)."
     },
     {
       "korean": "의사",

@@ -1,20 +1,4 @@
 {
-  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
-  "keyword": "",
-  "summary": "Learn the 8 labels you see most often on Korean shop-hours signs, then read three sample signs to decide whether you can visit or order at a given day and time.",
-  "objective": "Learners will read a shop's opening-hours sign and correctly answer yes/no questions about whether the shop is open, or still taking orders, on a given day and time.",
-  "level": "Beginner (high) – Intermediate (low)",
-  "minutes": 20,
-  "tags": [],
-  "task": null,
-  "exercises": [
-    "[안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
-    "[안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
-    "[안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
-    "[안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
-    "[안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
-    "[안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
-  ],
   "answers": [
     "아니요. 월요일은 정기휴무예요. (No. Monday is the regular day off.)",
     "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (No. It's the break time, 15:00–16:30.)",
@@ -24,6 +8,19 @@
     "네. 24시간 영업, 연중무휴예요. (Yes. It's open 24 hours, every day of the year.)"
   ],
   "checkThese": [],
+  "exercises": [
+    "[안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+    "[안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+    "[안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+  ],
+  "keyword": "영업시간",
+  "level": "Beginner (high) – Intermediate (low)",
+  "minutes": 20,
+  "note": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분). To extend the lesson, learners can take a photo of a real sign near them and write two yes/no questions about it for a partner.",
+  "objective": "Learners will read a shop's opening-hours sign and correctly answer yes/no questions about whether the shop is open, or still taking orders, on a given day and time.",
   "sections": [
     {
       "heading": "1. 안내판에 자주 나오는 말 8개 (8 SIGN LABELS)",
@@ -84,6 +81,9 @@
       ]
     }
   ],
-  "note": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분). To extend the lesson, learners can take a photo of a real sign near them and write two yes/no questions about it for a partner.",
+  "summary": "Learn the 8 labels you see most often on Korean shop-hours signs, then read three sample signs to decide whether you can visit or order at a given day and time.",
+  "tags": [],
+  "task": null,
+  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
   "category": "etc"
 }

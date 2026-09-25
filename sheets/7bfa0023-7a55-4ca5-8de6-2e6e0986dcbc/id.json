@@ -1,51 +1,53 @@
 {
   "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
-  "keyword": "",
-  "summary": "Pelajari 8 istilah yang paling sering muncul pada papan jam operasional toko di Korea, lalu baca tiga contoh papan untuk menentukan apakah kamu bisa berkunjung atau memesan pada hari dan jam tertentu.",
-  "objective": "Peserta akan membaca papan jam operasional sebuah toko dan menjawab dengan benar pertanyaan ya/tidak tentang apakah toko sedang buka, atau masih menerima pesanan, pada hari dan jam tertentu.",
-  "level": "Pemula (tingkat atas) – Menengah (tingkat bawah)",
+  "keyword": "영업시간",
+  "summary": "Pelajari 8 istilah yang ada pada papan jam operasional toko dalam bahasa Korea, lalu gunakan tiga contoh papan untuk menentukan apakah kamu bisa berkunjung atau memesan pada waktu tertentu.",
+  "objective": "Pembelajar akan membaca papan jam operasional toko dan mengatakan apakah toko tersebut buka, atau masih menerima pesanan, pada hari dan waktu tertentu.",
+  "level": "Menengah (rendah)",
   "minutes": 20,
   "tags": [],
-  "task": null,
+  "task": {
+    "title": "",
+    "line": ""
+  },
   "exercises": [
-    "[안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요? (Apakah kamu bisa pergi ke 카페 하루 pada hari Senin jam 2 siang?)",
-    "[안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요? (Apakah kamu bisa makan di 엄마손 칼국수 pada hari Selasa jam 3.30 sore?)",
-    "[안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요? (Apakah kamu bisa masuk ke 엄마손 칼국수 dan memesan kalguksu pada hari Jumat jam 7.45 malam?)",
-    "[안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요? (Apakah kamu bisa memesan kopi di 카페 하루 pada hari Sabtu jam 9 malam?)",
-    "[안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요? (Minggu ini hari Rabu adalah hari libur nasional. Apakah kamu bisa pergi ke 엄마손 칼국수 pada hari Rabu jam 12 siang?)",
-    "[안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요? (Apakah kamu bisa pergi ke 우리동네 편의점 pada hari Minggu jam 3 dini hari?)"
+    "Jawab dalam bahasa Korea (ya/tidak dan alasannya): [안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+    "Jawab dalam bahasa Korea (ya/tidak dan alasannya): [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+    "Jawab dalam bahasa Korea (ya/tidak dan alasannya): [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+    "Jawab dalam bahasa Korea (ya/tidak dan alasannya): [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+    "Jawab dalam bahasa Korea (ya/tidak dan alasannya): [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+    "Jawab dalam bahasa Korea (ya/tidak dan alasannya): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
   ],
   "answers": [
-    "아니요. 월요일은 정기휴무예요. (No. Monday is the regular day off.)",
-    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (No. It's the break time, 15:00–16:30.)",
-    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (No. Orders close at 19:30. The shop is open until 20:00, but you can't order.)",
-    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Yes. Weekend hours run until 22:00, and last order is at 21:30.)",
-    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (No. It closes on public holidays, even if the holiday falls on a weekday.)",
-    "네. 24시간 영업, 연중무휴예요. (Yes. It's open 24 hours, every day of the year.)"
+    "아니요. 월요일은 정기휴무예요. (Tidak. Senin adalah hari libur rutin.)",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (Tidak. Itu adalah waktu istirahat, pukul 15:00–16:30.)",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (Tidak. Pemesanan ditutup pukul 19:30. Toko buka sampai pukul 20:00, tetapi kamu tidak bisa memesan.)",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Ya. Jam operasional akhir pekan sampai pukul 22:00, dan pemesanan terakhir pukul 21:30.)",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (Tidak. Tutup pada hari libur nasional. Meskipun jatuh pada hari kerja, tetap tutup jika itu hari libur.)",
+    "네. 24시간 영업, 연중무휴예요. (Ya. Buka 24 jam, setiap hari sepanjang tahun.)"
   ],
   "checkThese": [],
   "sections": [
     {
       "heading": "1. 안내판에 자주 나오는 말 8개 (8 ISTILAH PADA PAPAN)",
       "paragraphs": [
-        "영업시간 (yeongeop sigan): jam-jam toko buka untuk beroperasi. — 영업시간이 어떻게 돼요? (Jam berapa saja toko buka?)",
-        "정기휴무 (jeonggi hyumu): hari libur tetap toko. Di papan biasanya tertulis seperti 매주 월요일 휴무 (tutup setiap hari Senin). — 그 식당은 매주 월요일이 정기휴무예요. (Restoran itu tutup setiap hari Senin.)",
-        "브레이크 타임 (beureikeu taim): jeda di tengah hari, biasanya antara jam makan siang dan makan malam. Pintu ditutup dan kamu tidak bisa masuk. — 지금 브레이크 타임이라서 4시 반에 다시 오세요. (Kami sedang istirahat sekarang, jadi silakan datang lagi jam 4.30.)",
-        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): waktu terakhir kamu bisa memesan. Toko masih buka, tapi sudah tidak menerima pesanan baru. — 죄송해요, 주문 마감 시간이 지났어요. (Maaf, waktu pemesanan sudah berakhir.)",
-        "연중무휴 (yeonjung muhyu): buka setiap hari sepanjang tahun, tanpa hari libur tetap. — 이 약국은 연중무휴라서 일요일에도 열어요. (Apotek ini buka setiap hari, jadi hari Minggu pun buka.)",
-        "24시간 영업 (isipsa sigan yeongeop): buka sepanjang siang dan malam. — 새벽에 배고프면 24시간 영업하는 편의점에 가요. (Kalau lapar dini hari, saya pergi ke minimarket yang buka 24 jam.)",
-        "공휴일 휴무 (gonghyuil hyumu): tutup pada hari libur nasional. — 내일은 공휴일이라서 문을 안 열어요. (Besok hari libur nasional, jadi kami tutup.)",
-        "평일 (pyeongil) / 주말 (jumal): hari kerja (Senin–Jumat) dan akhir pekan (Sabtu–Minggu). Banyak toko memiliki jam operasional yang berbeda untuk masing-masing. — 평일에는 사람이 적은데 주말에는 줄이 길어요. (Hari kerja sepi, tapi akhir pekan antreannya panjang.)"
+        "영업시간 (yeongeop sigan): jam-jam ketika toko buka untuk berjualan.",
+        "정기휴무 (jeonggi hyumu): hari libur rutin toko. Pada papan biasanya tertulis seperti 매주 월요일 휴무 (tutup setiap hari Senin).",
+        "브레이크 타임 (beureikeu taim): waktu istirahat di tengah hari, biasanya antara jam makan siang dan makan malam. Pintu ditutup dan kamu tidak bisa masuk.",
+        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): waktu terakhir kamu bisa memesan. Toko masih buka, tetapi tidak menerima pesanan baru lagi.",
+        "연중무휴 (yeonjung muhyu): buka setiap hari dalam setahun, tanpa hari libur rutin.",
+        "24시간 영업 (isipsa sigan yeongeop): buka sepanjang siang dan malam.",
+        "공휴일 휴무 (gonghyuil hyumu): tutup pada hari libur nasional.",
+        "평일 (pyeongil) / 주말 (jumal): hari kerja (Senin–Jumat) dan akhir pekan (Sabtu–Minggu). Banyak toko memiliki jam operasional yang berbeda untuk masing-masing."
       ]
     },
     {
       "heading": "2. 안내판 읽는 순서 (CARA MEMERIKSA: 4 LANGKAH)",
       "paragraphs": [
-        "① 요일 확인: Apakah hari itu 휴무 (hari libur)? Periksa 정기휴무 dan 공휴일 휴무.",
+        "① 요일 확인: Apakah hari itu adalah 휴무 (hari libur)? Periksa 정기휴무 dan 공휴일 휴무.",
         "② 평일/주말 확인: Jam operasional mana yang berlaku, jam hari kerja atau jam akhir pekan?",
-        "③ 시간 확인: Sebagian besar papan menggunakan format 24 jam. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Apakah waktumu berada di antara jam buka dan jam tutup? Periksa juga apakah waktu itu jatuh pada saat 브레이크 타임.",
-        "④ 주문 확인: Jika kamu ingin makan atau memesan, periksa juga waktu 라스트 오더 (주문 마감). 마감 30분 전 artinya '30 menit sebelum tutup'.",
-        "Tips: Tanda 연중무휴 berarti toko tidak memiliki hari libur tetap, tapi beberapa toko tetap tutup saat 설날 atau 추석 (hari raya besar Korea). Jika kamu berencana pergi saat hari libur, cari pengumuman terpisah."
+        "③ 시간 확인: Kebanyakan papan menggunakan format jam 24 jam. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Apakah waktumu berada di antara jam buka dan jam tutup? Periksa juga apakah waktu itu jatuh pada 브레이크 타임.",
+        "④ 주문 확인: Jika kamu ingin makan atau memesan, periksa juga waktu 라스트 오더 (주문 마감). 마감 30분 전 artinya '30 menit sebelum tutup'."
       ]
     },
     {
@@ -73,17 +75,8 @@
         "24시간 영업",
         "연중무휴"
       ]
-    },
-    {
-      "heading": "6. 가게에서 쓸 수 있는 말 (KALIMAT YANG BERGUNA)",
-      "paragraphs": [
-        "지금 문 열었어요? (Apakah sekarang buka?)",
-        "몇 시까지 해요? (Jam berapa tutup?) 'Tutup' di sini secara harfiah berarti 'sampai jam berapa kamu beroperasi'.",
-        "지금 주문돼요? (Apakah saya masih bisa memesan sekarang?)",
-        "Di pintu, kamu mungkin juga melihat 영업 중 (buka) atau 준비 중 (sedang bersiap / tutup sementara). 준비 중 sering terlihat saat 브레이크 타임."
-      ]
     }
   ],
-  "note": "Catatan untuk pengajar: Ketiga papan ini dibuat khusus untuk digunakan di kelas, jadi tidak menampilkan bisnis atau jam operasional yang sebenarnya. Ide utama yang perlu diajarkan adalah perbedaan antara 'toko sedang buka' dan 'kamu masih bisa memesan' (latihan 3 dan 4). Sebelum peserta memulai latihan, minta mereka menyebutkan jam dalam format 24 jam dengan lantang dalam bahasa Korea (15:30 → 오후 3시 30분). Untuk memperluas pelajaran, peserta bisa memotret papan asli di dekat mereka dan menulis dua pertanyaan ya/tidak tentangnya untuk pasangannya.",
+  "note": "Catatan untuk pengajar: Ketiga papan ini dibuat khusus untuk digunakan di kelas, jadi tidak mencantumkan bisnis atau jam operasional yang nyata. Inti yang perlu diajarkan adalah perbedaan antara 'toko sedang buka' dan 'kamu masih bisa memesan' (soal 3 dan 4). Sebelum pembelajar mulai mengerjakan soal, minta mereka menyebutkan waktu 24 jam dalam bahasa Korea dengan lantang (15:30 → 오후 3시 30분).",
   "category": "etc"
 }

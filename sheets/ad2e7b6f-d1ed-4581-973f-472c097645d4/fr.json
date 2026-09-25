@@ -9,40 +9,40 @@
   ],
   "checkThese": [],
   "exercises": [
-    "Combine les deux voyelles. Quelle lettre obtiens-tu ? ㅗ + ㅏ = ?",
-    "Combine les deux voyelles. Quelle lettre obtiens-tu ? ㅜ + ㅓ = ?",
-    "Choisis le mot qui signifie « oreille » : 기 / 구 / 귀",
-    "Choisis l'orthographe correcte de « chaise » : 으자 / 이자 / 의자",
-    "Complète le mot pour dire « Il fait chaud. » : 더_요 (와 / 워 / 위)",
-    "Lis le mot à voix haute, puis écris-le en alphabet romain : 화장실"
+    "Assemblez les deux voyelles. Quelle lettre obtenez-vous ? ㅗ + ㅏ = ?",
+    "Assemblez les deux voyelles. Quelle lettre obtenez-vous ? ㅜ + ㅓ = ?",
+    "Choisissez le mot qui signifie « oreille » : 기 / 구 / 귀",
+    "Choisissez l'orthographe correcte de « chaise » : 으자 / 이자 / 의자",
+    "Complétez pour dire « Il fait chaud. » : 더_요 (와 / 워 / 위)",
+    "Lisez le mot à voix haute, puis transcrivez-le en alphabet latin : 화장실"
   ],
   "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
   "letters": [
     {
       "letter": "ㅘ",
       "sound": "wa (ㅗ + ㅏ prononcés rapidement)",
-      "as": "comme le « wa » dans « wander » — commence avec les lèvres arrondies (ㅗ) puis ouvre rapidement la bouche vers « a » (ㅏ)"
+      "as": "comme le 'wa' dans 'wander' — commencez avec les lèvres arrondies (ㅗ) et ouvrez rapidement vers 'a' (ㅏ)"
     },
     {
       "letter": "ㅝ",
       "sound": "wo (ㅜ + ㅓ prononcés rapidement)",
-      "as": "comme le « wo » dans « won » — commence avec les lèvres arrondies (ㅜ) puis passe rapidement à ㅓ"
+      "as": "comme le 'wo' dans 'won' — commencez avec les lèvres arrondies (ㅜ) et passez rapidement à ㅓ"
     },
     {
       "letter": "ㅟ",
       "sound": "wi (ㅜ + ㅣ prononcés rapidement)",
-      "as": "comme le « we » anglais, mais plus court — commence avec les lèvres arrondies (ㅜ) puis passe rapidement à « i » (ㅣ)"
+      "as": "comme le 'we' anglais, mais plus court — commencez avec les lèvres arrondies (ㅜ) et passez rapidement à 'i' (ㅣ)"
     },
     {
       "letter": "ㅢ",
       "sound": "ui (ㅡ + ㅣ prononcés rapidement)",
-      "as": "pas d'équivalent proche en anglais — commence avec ㅡ (lèvres plates et détendues, pas arrondies) puis glisse rapidement vers « i » (ㅣ) ; dans cette fiche, uniquement en début de mot, comme dans 의자"
+      "as": "aucun équivalent proche en anglais — commencez avec ㅡ (lèvres plates et détendues, non arrondies) et glissez rapidement vers 'i' (ㅣ) ; dans cette fiche, uniquement en début de mot, comme dans 의자"
     }
   ],
   "level": "Débutant",
   "minutes": 15,
   "objective": "Reconnaître et prononcer ㅘ (wa), ㅝ (wo), ㅟ (wi) et 의 (ui) en début de mot comme des glissements rapides de deux voyelles, et lire et choisir correctement les mots 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 et 의사.",
-  "summary": "Cette fiche enseigne quatre voyelles composées coréennes : ㅘ, ㅝ, ㅟ et ㅢ. Chacune est constituée de deux voyelles prononcées rapidement l'une après l'autre, comme un seul son fluide. Vous verrez quelles deux voyelles composent chaque lettre, vous associerez trois d'entre elles à des sons anglais familiers, et vous vous entraînerez à lire des mots simples du quotidien comme 과자, 뭐, 귀 et 의자.",
+  "summary": "Cette fiche enseigne quatre voyelles composées coréennes : ㅘ, ㅝ, ㅟ et ㅢ. Chacune correspond à deux voyelles prononcées rapidement l'une après l'autre, comme un seul son fluide. Vous verrez quelles deux voyelles composent chaque lettre, vous relierez trois d'entre elles à des sons anglais familiers, et vous vous entraînerez à lire des mots simples du quotidien comme 과자, 뭐, 귀 et 의자.",
   "tags": [],
   "task": null,
   "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
@@ -73,7 +73,7 @@
       "roman": "mwo",
       "meaning": "quoi (familier)",
       "example": "이거 뭐예요?",
-      "exampleMeaning": "C'est quoi ça ?"
+      "exampleMeaning": "Qu'est-ce que c'est ?"
     },
     {
       "korean": "더워요",

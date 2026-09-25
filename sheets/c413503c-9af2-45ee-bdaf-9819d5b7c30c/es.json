@@ -1,18 +1,36 @@
 {
+  "title": "약국에서 감기약 사기",
+  "keyword": "약국에서 감기약 사기",
+  "summary": "Un cliente con resfriado describe sus síntomas en una farmacia coreana y compra medicina para el resfriado sin receta.",
+  "objective": "Los estudiantes pueden expresar síntomas ('-이/가 아파요', '-이/가 나요'), entender las instrucciones de dosificación (하루 ~ 번, 한 번에 ~ 알씩, 식후에) y confirmarlas con '~ 먹으면 돼요?'",
+  "level": "Principiante (avanzado)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "El farmacéutico dice: '하루 두 번, 한 번에 한 알씩 드세요.' ¿Cuántas tabletas se toman en un día? Responde en español o en coreano.",
+    "Te duele la garganta y tienes tos. Responde a la pregunta del farmacéutico '어디가 불편하세요?' en una sola oración. Une los dos síntomas con '-고'.",
+    "El farmacéutico pregunta '언제부터 그러셨어요?' Tus síntomas comenzaron anteayer. Da una respuesta breve que termine en '-부터요'.",
+    "Escribe esta instrucción en coreano de la forma en que la diría un farmacéutico: 'Tómelo dos veces al día, después de las comidas.'",
+    "Crees que el farmacéutico dijo que tomaras dos tabletas cada vez, pero no estás seguro/a. Haz una pregunta para confirmarlo. Termínala con '먹으면 돼요?', como hace el cliente en el diálogo."
+  ],
   "answers": [
-    "두 알 (2 tablets)",
+    "두 알 (2 tabletas)",
     "목이 아프고 기침이 나요. (목이 아프고 기침도 나요. / 목이 아프고 기침을 해요.)",
-    "그저께부터요.",
-    "네, 있어요.",
-    "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요.)",
-    "하루 두 번 먹으면 돼요? (하루에 두 번 먹으면 돼요?)"
+    "그저께부터요. (그제부터요.)",
+    "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요. / 하루 두 번 식후에 드시면 돼요.)",
+    "한 번에 두 알씩 먹으면 돼요? (한 번에 두 알 먹으면 돼요?)"
   ],
   "checkThese": [],
+  "setting": "Una farmacia de barrio (약국) en Corea, un día de semana. Un cliente con resfriado entra a comprar medicina sin receta.",
   "dialogue": [
     {
       "who": "약사",
       "korean": "어서 오세요. 어디가 불편하세요?",
-      "meaning": "Bienvenido, ¿qué le pasa?"
+      "meaning": "Bienvenido/a. ¿Qué le pasa?"
     },
     {
       "who": "손님",
@@ -21,8 +39,8 @@
     },
     {
       "who": "약사",
-      "korean": "언제부터 그랬어요?",
-      "meaning": "¿Desde cuándo le pasa eso?"
+      "korean": "언제부터 그러셨어요?",
+      "meaning": "¿Desde cuándo tiene esos síntomas?"
     },
     {
       "who": "손님",
@@ -32,22 +50,22 @@
     {
       "who": "약사",
       "korean": "다른 약 드시는 거 있어요?",
-      "meaning": "¿Está tomando alguna otra medicina?"
+      "meaning": "¿Está tomando algún otro medicamento?"
     },
     {
       "who": "손님",
       "korean": "아니요, 없어요.",
-      "meaning": "No, no estoy tomando ninguna."
+      "meaning": "No, no estoy tomando nada."
     },
     {
       "who": "약사",
       "korean": "그럼 이 감기약 드세요. 하루 세 번, 한 번에 한 알씩 식후에 드세요.",
-      "meaning": "Entonces tome esta medicina para el resfriado. Tome una pastilla cada vez, tres veces al día, después de las comidas."
+      "meaning": "Entonces tome esta medicina para el resfriado. Tome una tableta cada vez, tres veces al día, después de las comidas."
     },
     {
       "who": "손님",
       "korean": "밥 먹고 먹으면 돼요?",
-      "meaning": "¿Entonces la tomo después de comer?"
+      "meaning": "Entonces, ¿la tomo después de comer?"
     },
     {
       "who": "약사",
@@ -55,31 +73,7 @@
       "meaning": "Sí, así es. Tómela después de comer."
     }
   ],
-  "exercises": [
-    "El farmacéutico dice: '하루 두 번, 한 번에 한 알씩 드세요.' ¿Cuántas pastillas se toman en un día? Responde en español o en coreano.",
-    "Te duele la garganta y tienes tos. Responde a la pregunta del farmacéutico '어디가 불편하세요?' en una sola frase. Une los dos síntomas con '-고'.",
-    "El farmacéutico pregunta '언제부터 그랬어요?' Tus síntomas comenzaron anteayer. Da una respuesta breve terminada en '-부터요'.",
-    "El farmacéutico pregunta '다른 약 드시는 거 있어요?' Estás tomando otra medicina. Da una respuesta breve.",
-    "Escribe esta instrucción en coreano tal como la diría un farmacéutico: 'Tómelo dos veces al día, después de las comidas.'",
-    "Crees que el farmacéutico dijo que lo tomes dos veces al día, pero no estás seguro/a. Haz una pregunta para confirmarlo. Termínala con '먹으면 돼요?', como hace el cliente en el diálogo."
-  ],
-  "keyword": "약국에서 감기약 사기",
-  "level": "Principiante (alto)",
-  "minutes": 15,
-  "objective": "Los estudiantes pueden comprar medicina para el resfriado sin receta en una farmacia. Pueden expresar un síntoma con '-이/가 아파요' o '-이/가 나요', responder '언제부터 그랬어요?' y '다른 약 드시는 거 있어요?' con respuestas breves, entender instrucciones de dosis (하루 ~ 번, 한 번에 ~ 알씩, 식후에), y confirmar esas instrucciones con '~ 먹으면 돼요?'",
-  "setting": "Una farmacia (약국) de barrio en Corea, un día entre semana. Un cliente resfriado entra a comprar medicina sin receta.",
-  "summary": "Un intercambio breve y real en una farmacia coreana. Un cliente con dolor de garganta y moqueo le cuenta sus síntomas al farmacéutico, responde a las preguntas habituales de seguimiento y compra medicina para el resfriado sin receta. Luego el cliente pregunta cómo tomarla, y el farmacéutico se lo confirma.",
-  "tags": [],
-  "task": null,
-  "title": "약국에서 감기약 사기",
   "words": [
-    {
-      "korean": "약국",
-      "roman": "yakguk",
-      "meaning": "farmacia",
-      "example": "이 근처에 약국 있어요?",
-      "exampleMeaning": "¿Hay una farmacia cerca de aquí?"
-    },
     {
       "korean": "불편하다",
       "roman": "bulpyeonhada",
@@ -90,16 +84,9 @@
     {
       "korean": "콧물",
       "roman": "konmul",
-      "meaning": "moqueo / nariz que gotea",
+      "meaning": "moqueo",
       "example": "콧물이 계속 나요.",
-      "exampleMeaning": "No me para de moquear la nariz."
-    },
-    {
-      "korean": "열",
-      "roman": "yeol",
-      "meaning": "fiebre",
-      "example": "아이가 밤에 열이 났어요.",
-      "exampleMeaning": "Mi hijo tuvo fiebre anoche."
+      "exampleMeaning": "No paro de tener moqueo."
     },
     {
       "korean": "기침",
@@ -125,16 +112,16 @@
     {
       "korean": "식후",
       "roman": "sikhu",
-      "meaning": "después de comer",
+      "meaning": "después de una comida",
       "example": "이 약은 꼭 식후에 드세요.",
       "exampleMeaning": "Asegúrate de tomar esta medicina después de comer."
     },
     {
       "korean": "알",
       "roman": "al",
-      "meaning": "pastilla (clasificador para pastillas)",
+      "meaning": "tableta (contador para pastillas)",
       "example": "한 번에 두 알씩 드세요.",
-      "exampleMeaning": "Toma dos pastillas cada vez."
+      "exampleMeaning": "Toma dos tabletas cada vez."
     },
     {
       "korean": "그저께",

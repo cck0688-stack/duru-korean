@@ -19,7 +19,7 @@
   "forms": [
     {
       "form": "동사 + -는 (present)",
-      "when": "The action is happening now or happens regularly. Add -는 to the verb stem, whether it ends in a vowel or a consonant: 먹다 → 먹는, 마시다 → 마시는. (For ㄹ-stems, see below.)",
+      "when": "The action is happening now or happens regularly. Add -는 to the verb stem, whether it ends in a vowel or a consonant: 먹다 → 먹는, 마시다 → 마시는. (Stems ending in ㄹ drop the ㄹ: 살다 → 사는. See the ㄹ-stem row below.)",
       "means": "the (noun) that someone does / is doing",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
       "exampleMeaning": "The person who is drinking coffee right now is my friend.",
@@ -49,7 +49,7 @@
     },
     {
       "form": "형용사 + -(으)ㄴ",
-      "when": "Use this for adjectives describing a noun (except words ending in 있다/없다, which take -는). It shows the current state, so there is no separate present form with -는. If the stem ends in a consonant, add -은 (작다 → 작은). If it ends in a vowel, add -ㄴ (크다 → 큰).",
+      "when": "Use this for any adjective describing a noun. If the stem ends in a consonant, add -은 (작다 → 작은). If it ends in a vowel, add -ㄴ (크다 → 큰).",
       "means": "a (noun) that is ~",
       "example": "작은 가방 말고 큰 가방 있어요?",
       "exampleMeaning": "Do you have a big bag instead of a small one?",
@@ -60,7 +60,7 @@
     },
     {
       "form": "있다 / 없다 words + -는",
-      "when": "Words ending in 있다 or 없다 (맛있다, 재미없다, 있다, 없다) take -는, not -(으)ㄴ, to describe a present state, even when they work like adjectives in English.",
+      "when": "Words ending in 있다 or 없다 (맛있다, 재미없다, 있다, 없다) take -는 (not -은) to describe a noun in the present, even when they work like adjectives in English.",
       "means": "a (noun) that is ~ / that has ~",
       "example": "재미없는 영화는 끝까지 못 봐요.",
       "exampleMeaning": "I can't sit through a boring movie.",
@@ -70,7 +70,7 @@
     },
     {
       "form": "ㄹ-stem + -는 / -ㄴ / -ㄹ",
-      "when": "When the stem ends in ㄹ, the ㄹ drops before -는 and -ㄴ. With -ㄹ, the two ㄹ merge into one. Do not add 으. Verbs: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들. The same rule applies to adjectives: 멀다 → 먼.",
+      "when": "When the stem ends in ㄹ, the ㄹ drops before -는 and -ㄴ. With -ㄹ, the two ㄹ merge into one. Do not add 으. Verbs: 살다 → 사는 / 산 / 살, 만들다 → 만드는 / 만든 / 만들.",
       "means": "same meanings as above (present / past / future, or adjective state)",
       "example": "이건 제가 직접 만든 케이크예요.",
       "exampleMeaning": "This is a cake I made myself.",
@@ -89,11 +89,11 @@
       ]
     }
   ],
-  "keyword": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
+  "keyword": "-는 / -(으)ㄴ / -(으)ㄹ",
   "level": "Intermediate (low)",
   "minutes": 15,
-  "objective": "Learners will be able to choose and form the correct noun-modifying ending (-는, -(으)ㄴ, -(으)ㄹ) for verbs, adjectives, 있다/없다 words, ㄹ-stems, and ㅂ-irregular adjectives.",
-  "summary": "Korean puts describing words before the noun. Which ending you use depends on two things: whether the word is a verb or an adjective, and the time of the action. Verbs take -는 (now), -(으)ㄴ (past), or -(으)ㄹ (future or planned). Adjectives take -(으)ㄴ. Words ending in 있다/없다 take -는 (not -(으)ㄴ) to describe a present state. ㄹ-stems drop their ㄹ, and most ㅂ-adjectives change ㅂ to 우.",
+  "objective": "Learners will be able to form the correct noun-modifying ending (-는, -(으)ㄴ, -(으)ㄹ) for verbs, adjectives, and irregular stems.",
+  "summary": "Describing words go before the noun in Korean: verbs take -는 (now), -(으)ㄴ (past), or -(으)ㄹ (future), and adjectives take -(으)ㄴ. 있다/없다 words take -는, ㄹ-stems drop ㄹ, and most ㅂ-adjectives change ㅂ to 우.",
   "tags": [],
   "task": {
     "title": "",
@@ -101,10 +101,9 @@
   },
   "title": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
   "watchOut": [
-    "맛있은 음식 (X) → 맛있는 음식 (O): Words ending in 있다/없다 take -는, not -(으)ㄴ, even when you are describing a quality.",
-    "예쁘는 가방 (X) → 예쁜 가방 (O): Adjectives (except words ending in 있다/없다) do not take -는. They take -(으)ㄴ.",
+    "맛있은 음식 (X) → 맛있는 음식 (O): Words ending in 있다/없다 take -는 (not -은), even when you are describing a quality.",
+    "예쁘는 가방 (X) → 예쁜 가방 (O): Adjectives do not take -는 (except words ending in 있다/없다). They take -(으)ㄴ.",
     "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): With ㄹ-stems, drop the ㄹ and add -ㄴ. Do not add 은. The same goes for 만들은 (X) → 만든 (O).",
-    "춥은 날씨 (X) → 추운 날씨 (O): Most ㅂ-adjectives change ㅂ to 우 before -ㄴ.",
     "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): For a habit that is happening now, use -는. -(으)ㄴ on a verb means the action is finished and in the past."
   ],
   "watchOutMark": [
@@ -122,10 +121,6 @@
       "산",
       "만들은",
       "만든"
-    ],
-    [
-      "춥은",
-      "추운"
     ],
     [
       "먹은",

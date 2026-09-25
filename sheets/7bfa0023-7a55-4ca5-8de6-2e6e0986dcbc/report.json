@@ -22,10 +22,264 @@
       "round": 1,
       "mechanical": [],
       "review": [],
+      "audit": [
+        "exercises[0]: [안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요? → Answer in Korean (yes/no and why): [안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+        "exercises[1]: [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요? → Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+        "exercises[2]: [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요? → Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+        "exercises[3]: [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요? → Answer in Korean (yes/no and why): [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+        "exercises[4]: [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요? → Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+        "exercises[5]: [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요? → Answer in Korean (yes/no and why): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?",
+        "sections[5].paragraphs[1]: 몇 시까지 해요? (What time do you close?) 'Close' here literally means 'until what time do you operate'. → 몇 시까지 해요? (What time do you close?) Literally, the Korean means 'Until what time do you operate?'"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
       "audit": []
     }
   ],
-  "fixes": [],
+  "fixes": [
+    {
+      "at": "exercises[1]",
+      "before": "[안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+      "after": "Answer in Korean (yes/no and why): [안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "[안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+      "after": "Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "[안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+      "after": "Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "[안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+      "after": "Answer in Korean (yes/no and why): [안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "[안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+      "after": "Answer in Korean (yes/no and why): [안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "[안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?",
+      "after": "Answer in Korean (yes/no and why): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+    },
+    {
+      "at": "level",
+      "before": "Beginner (high) – Intermediate (low)",
+      "after": "Intermediate (low)"
+    },
+    {
+      "at": "note",
+      "before": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분). To extend the lesson, learners can take a photo of a real sign near them and write two yes/no questions about it for a partner.",
+      "after": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분)."
+    },
+    {
+      "at": "objective",
+      "before": "Learners will read a shop's opening-hours sign and correctly answer yes/no questions about whether the shop is open, or still taking orders, on a given day and time.",
+      "after": "Learners will read a shop-hours sign and say whether the shop is open, or still taking orders, at a given day and time."
+    },
+    {
+      "at": "sections[1].paragraphs[1]",
+      "before": "영업시간 (yeongeop sigan): the hours the shop is open for business. — 영업시간이 어떻게 돼요? (What are your opening hours?)",
+      "after": "영업시간 (yeongeop sigan): the hours the shop is open for business."
+    },
+    {
+      "at": "sections[1].paragraphs[2]",
+      "before": "정기휴무 (jeonggi hyumu): the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday). — 그 식당은 매주 월요일이 정기휴무예요. (That restaurant is closed every Monday.)",
+      "after": "정기휴무 (jeonggi hyumu): the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday)."
+    },
+    {
+      "at": "sections[1].paragraphs[3]",
+      "before": "브레이크 타임 (beureikeu taim): a break in the middle of the day, usually between lunch and dinner. The door is closed and you can't come in. — 지금 브레이크 타임이라서 4시 반에 다시 오세요. (We're on our break now, so please come back at 4:30.)",
+      "after": "브레이크 타임 (beureikeu taim): a break in the middle of the day, usually between lunch and dinner. The door is closed and you can't come in."
+    },
+    {
+      "at": "sections[1].paragraphs[4]",
+      "before": "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): the last time you can order. The shop is still open, but it won't take new orders. — 죄송해요, 주문 마감 시간이 지났어요. (Sorry, we've stopped taking orders.)",
+      "after": "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): the last time you can order. The shop is still open, but it won't take new orders."
+    },
+    {
+      "at": "sections[1].paragraphs[5]",
+      "before": "연중무휴 (yeonjung muhyu): open every day of the year, with no regular day off. — 이 약국은 연중무휴라서 일요일에도 열어요. (This pharmacy is open every day, so it's open on Sundays too.)",
+      "after": "연중무휴 (yeonjung muhyu): open every day of the year, with no regular day off."
+    },
+    {
+      "at": "sections[1].paragraphs[6]",
+      "before": "24시간 영업 (isipsa sigan yeongeop): open all day and all night. — 새벽에 배고프면 24시간 영업하는 편의점에 가요. (If I'm hungry late at night, I go to a 24-hour convenience store.)",
+      "after": "24시간 영업 (isipsa sigan yeongeop): open all day and all night."
+    },
+    {
+      "at": "sections[1].paragraphs[7]",
+      "before": "공휴일 휴무 (gonghyuil hyumu): closed on public holidays. — 내일은 공휴일이라서 문을 안 열어요. (Tomorrow is a public holiday, so we're closed.)",
+      "after": "공휴일 휴무 (gonghyuil hyumu): closed on public holidays."
+    },
+    {
+      "at": "sections[1].paragraphs[8]",
+      "before": "평일 (pyeongil) / 주말 (jumal): weekdays (Monday–Friday) and the weekend (Saturday–Sunday). Many shops have different hours for each. — 평일에는 사람이 적은데 주말에는 줄이 길어요. (It's quiet on weekdays, but on weekends there's a long line.)",
+      "after": "평일 (pyeongil) / 주말 (jumal): weekdays (Monday–Friday) and the weekend (Saturday–Sunday). Many shops have different hours for each."
+    },
+    {
+      "at": "sections[2].paragraphs[5]",
+      "before": "Tip: A 연중무휴 sign means the shop has no regular day off, but some shops still close on 설날 or 추석 (the big Korean holidays). If you plan to go on a holiday, look for a separate notice.",
+      "after": ""
+    },
+    {
+      "at": "sections[6].heading",
+      "before": "6. 가게에서 쓸 수 있는 말 (USEFUL PHRASES)",
+      "after": ""
+    },
+    {
+      "at": "sections[6].paragraphs[1]",
+      "before": "지금 문 열었어요? (Are you open now?)",
+      "after": ""
+    },
+    {
+      "at": "sections[6].paragraphs[2]",
+      "before": "몇 시까지 해요? (What time do you close?) 'Close' here literally means 'until what time do you operate'.",
+      "after": ""
+    },
+    {
+      "at": "sections[6].paragraphs[3]",
+      "before": "지금 주문돼요? (Can I still order now?)",
+      "after": ""
+    },
+    {
+      "at": "sections[6].paragraphs[4]",
+      "before": "On the door you might also see 영업 중 (open) or 준비 중 (preparing / closed for now). You often see 준비 중 during the 브레이크 타임.",
+      "after": ""
+    },
+    {
+      "at": "summary",
+      "before": "Learn the 8 labels you see most often on Korean shop-hours signs, then read three sample signs to decide whether you can visit or order at a given day and time.",
+      "after": "Learn 8 labels on Korean shop-hours signs, then use three sample signs to decide if you can visit or order at a given time."
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "note",
+          "before": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분). To extend the lesson, learners can take a photo of a real sign near them and write two yes/no questions about it for a partner.",
+          "after": "Teacher note: The three signs are made up to use in class, so they don't list real businesses or real hours. The main idea to teach is the difference between 'the shop is open' and 'you can still order' (exercises 3 and 4). Before learners start the exercises, have them say the 24-hour times in Korean out loud (15:30 → 오후 3시 30분)."
+        },
+        {
+          "at": "objective",
+          "before": "Learners will read a shop's opening-hours sign and correctly answer yes/no questions about whether the shop is open, or still taking orders, on a given day and time.",
+          "after": "Learners will read a shop-hours sign and answer yes/no questions about whether the shop is open, or still taking orders, at a given day and time."
+        },
+        {
+          "at": "sections[1].paragraphs[1]",
+          "before": "영업시간 (yeongeop sigan): the hours the shop is open for business. — 영업시간이 어떻게 돼요? (What are your opening hours?)",
+          "after": "영업시간 (yeongeop sigan): the hours the shop is open for business."
+        },
+        {
+          "at": "sections[1].paragraphs[2]",
+          "before": "정기휴무 (jeonggi hyumu): the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday). — 그 식당은 매주 월요일이 정기휴무예요. (That restaurant is closed every Monday.)",
+          "after": "정기휴무 (jeonggi hyumu): the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday)."
+        },
+        {
+          "at": "sections[1].paragraphs[3]",
+          "before": "브레이크 타임 (beureikeu taim): a break in the middle of the day, usually between lunch and dinner. The door is closed and you can't come in. — 지금 브레이크 타임이라서 4시 반에 다시 오세요. (We're on our break now, so please come back at 4:30.)",
+          "after": "브레이크 타임 (beureikeu taim): a break in the middle of the day, usually between lunch and dinner. The door is closed and you can't come in."
+        },
+        {
+          "at": "sections[1].paragraphs[4]",
+          "before": "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): the last time you can order. The shop is still open, but it won't take new orders. — 죄송해요, 주문 마감 시간이 지났어요. (Sorry, we've stopped taking orders.)",
+          "after": "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): the last time you can order. The shop is still open, but it won't take new orders."
+        },
+        {
+          "at": "sections[1].paragraphs[5]",
+          "before": "연중무휴 (yeonjung muhyu): open every day of the year, with no regular day off. — 이 약국은 연중무휴라서 일요일에도 열어요. (This pharmacy is open every day, so it's open on Sundays too.)",
+          "after": "연중무휴 (yeonjung muhyu): open every day of the year, with no regular day off."
+        },
+        {
+          "at": "sections[1].paragraphs[6]",
+          "before": "24시간 영업 (isipsa sigan yeongeop): open all day and all night. — 새벽에 배고프면 24시간 영업하는 편의점에 가요. (If I'm hungry late at night, I go to a 24-hour convenience store.)",
+          "after": "24시간 영업 (isipsa sigan yeongeop): open all day and all night."
+        },
+        {
+          "at": "sections[1].paragraphs[7]",
+          "before": "공휴일 휴무 (gonghyuil hyumu): closed on public holidays. — 내일은 공휴일이라서 문을 안 열어요. (Tomorrow is a public holiday, so we're closed.)",
+          "after": "공휴일 휴무 (gonghyuil hyumu): closed on public holidays."
+        },
+        {
+          "at": "sections[1].paragraphs[8]",
+          "before": "평일 (pyeongil) / 주말 (jumal): weekdays (Monday–Friday) and the weekend (Saturday–Sunday). Many shops have different hours for each. — 평일에는 사람이 적은데 주말에는 줄이 길어요. (It's quiet on weekdays, but on weekends there's a long line.)",
+          "after": "평일 (pyeongil) / 주말 (jumal): weekdays (Monday–Friday) and the weekend (Saturday–Sunday). Many shops have different hours for each."
+        },
+        {
+          "at": "sections[2].paragraphs[5]",
+          "before": "Tip: A 연중무휴 sign means the shop has no regular day off, but some shops still close on 설날 or 추석 (the big Korean holidays). If you plan to go on a holiday, look for a separate notice.",
+          "after": ""
+        },
+        {
+          "at": "sections[6].heading",
+          "before": "6. 가게에서 쓸 수 있는 말 (USEFUL PHRASES)",
+          "after": ""
+        },
+        {
+          "at": "sections[6].paragraphs[1]",
+          "before": "지금 문 열었어요? (Are you open now?)",
+          "after": ""
+        },
+        {
+          "at": "sections[6].paragraphs[2]",
+          "before": "몇 시까지 해요? (What time do you close?) Literally, the Korean means 'Until what time do you operate?'",
+          "after": ""
+        },
+        {
+          "at": "sections[6].paragraphs[3]",
+          "before": "지금 주문돼요? (Can I still order now?)",
+          "after": ""
+        },
+        {
+          "at": "sections[6].paragraphs[4]",
+          "before": "On the door you might also see 영업 중 (open) or 준비 중 (preparing / closed for now). You often see 준비 중 during the 브레이크 타임.",
+          "after": ""
+        },
+        {
+          "at": "summary",
+          "before": "Learn the 8 labels you see most often on Korean shop-hours signs, then read three sample signs to decide whether you can visit or order at a given day and time.",
+          "after": "Learn 8 common labels on Korean shop-hours signs, then use three sample signs to decide if you can visit or order at a given time."
+        }
+      ]
+    },
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "summary",
+          "before": "Learn 8 common labels on Korean shop-hours signs, then use three sample signs to decide if you can visit or order at a given time.",
+          "after": "Learn 8 labels on Korean shop-hours signs, then use three sample signs to decide if you can visit or order at a given time."
+        },
+        {
+          "at": "objective",
+          "before": "Learners will read a shop-hours sign and answer yes/no questions about whether the shop is open, or still taking orders, at a given day and time.",
+          "after": "Learners will read a shop-hours sign and say whether the shop is open, or still taking orders, at a given day and time."
+        }
+      ]
+    }
+  ],
   "translations": {
     "vi": {
       "lang": "vi",
@@ -35,74 +289,49 @@
     },
     "id": {
       "lang": "id",
-      "tries": 2,
-      "lost": [],
-      "fixes": [
-        {
-          "line": 36,
-          "problem": "The English gloss 'What time do you close?' was changed to 'Sampai jam berapa buka?' ('Until what time are you open?'). The next sentence explains the word 'Tutup' (close), which is no longer in the translated question, so the explanation doesn't make sense.",
-          "fix": "몇 시까지 해요? (Jam berapa tutup?) 'Tutup' di sini secara harfiah berarti 'sampai jam berapa kamu beroperasi'."
-        }
-      ]
-    },
-    "pt-BR": {
-      "lang": "pt-BR",
-      "tries": 3,
-      "lost": [],
-      "fixes": [
-        {
-          "line": 36,
-          "problem": "The gloss 'What time do you close?' was changed to 'Até que horas vocês funcionam?'. The note still explains the word 'fechar', which no longer appears in the gloss, and it now just repeats the gloss instead of contrasting the natural meaning with the literal one.",
-          "fix": "몇 시까지 해요? (Que horas vocês fecham?) Aqui, 'fechar' significa literalmente 'até que horas vocês funcionam'."
-        }
-      ]
-    },
-    "ja": {
-      "lang": "ja",
-      "tries": 1,
-      "lost": [],
-      "fixes": [
-        {
-          "line": 36,
-          "problem": "The English gloss is 'What time do you close?' and the note explains that 'close' literally means 'until what time do you operate'. The Japanese translated the gloss as the literal meaning (何時まで営業していますか?), so the note's reference to 「閉店」 doesn't match anything in the gloss and the note no longer makes sense.",
-          "fix": "몇 시까지 해요? (何時に閉まりますか?) ここでの「閉まる」は、文字通りには「何時まで営業していますか」という意味です。"
-        },
-        {
-          "line": 8,
-          "problem": "The English 'a break in the middle of the day, usually between lunch and dinner' is turned into a firm definition (昼の営業と夜の営業の間にある休憩時間), which drops the 'usually'. The same idea is then repeated with 通常ランチとディナーの間にあり, which is redundant and unnatural.",
-          "fix": "브레이크 타임 (beureikeu taim):日中の休憩時間で、通常ランチとディナーの間にあります。ドアが閉まっていて入店できません。— 지금 브레이크 타임이라서 4시 반에 다시 오세요. (今は休憩時間なので、4時半にまた来てください。)"
-        }
-      ]
-    },
-    "ko": {
-      "lang": "ko",
       "tries": 1,
       "lost": [],
       "fixes": []
     },
     "es": {
       "lang": "es",
-      "tries": 3,
-      "lost": [
-        "월요일 오후",
-        "화요일 오후",
-        "분에 엄마손 칼국수에서 밥을 먹을 수 있어요",
-        "금요일 저녁",
-        "분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요",
-        "토요일 밤",
-        "시에 카페 하루에서 커피를 주문할 수 있어요",
-        "이번 주 수요일은 공휴일이에요",
-        "수요일 낮",
-        "시에 엄마손 칼국수에 갈 수 있어요",
-        "일요일 새벽",
-        "시에 우리동네 편의점에 갈 수 있어요"
-      ],
-      "fixes": [],
-      "failed": true
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 41,
+          "problem": "\"El pedido se cierra a las 19:30\" doesn't sound natural in Spanish. The singular suggests one specific order is being closed, not that the shop stops taking orders at 19:30.",
+          "fix": "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (No. Los pedidos se cierran a las 19:30. La tienda está abierta hasta las 20:00, pero ya no se puede pedir.)"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'(low)' is translated as '(básico)', which means 'basic'. That names a different level. The English means the lower band of Intermediate.",
+          "fix": "Intermediário (inicial)"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
     },
     "fr": {
       "lang": "fr",
-      "tries": 2,
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
@@ -113,13 +342,8 @@
       "fixes": [
         {
           "line": 1,
-          "problem": "Level labels mistranslated: 'Beginner (high)' rendered as 初级(中高) and 'Intermediate (low)' as 中级(初级), which is wrong and awkward.",
-          "fix": "初级(高)–中级(低)"
-        },
-        {
-          "line": 36,
-          "problem": "The gloss was changed to 营业到几点?, so the following note explaining that '关门' literally means '营业到几点' no longer refers to anything in the gloss. The note is now incoherent.",
-          "fix": "몇 시까지 해요?(几点关门?)这里的“关门”字面意思是“营业到几点”。"
+          "problem": "\"中级(初级)\" means \"Intermediate (Beginner)\", which contradicts itself and mistranslates \"Intermediate (low)\". It should say low intermediate.",
+          "fix": "中级(低阶)"
         }
       ]
     },
@@ -130,13 +354,8 @@
       "fixes": [
         {
           "line": 9,
-          "problem": "\"die letzte Zeit, zu der man bestellen kann\" is unnatural German, and \"die letzte Zeit\" can be read as \"recently\". It should say the last point in time.",
-          "fix": "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): der letzte Zeitpunkt, zu dem man bestellen kann. Das Geschäft ist noch geöffnet, nimmt aber keine neuen Bestellungen mehr an. — 죄송해요, 주문 마감 시간이 지났어요. (Es tut mir leid, die Bestellzeit ist schon vorbei.)"
-        },
-        {
-          "line": 11,
-          "problem": "\"Supermarkt\" is the wrong term: 편의점 means a convenience store, not a supermarket.",
-          "fix": "24시간 영업 (isipsa sigan yeongeop): Tag und Nacht durchgehend geöffnet. — 새벽에 배고프면 24시간 영업하는 편의점에 가요. (Wenn ich spätnachts Hunger habe, gehe ich in einen rund um die Uhr geöffneten Convenience-Store.)"
+          "problem": "„die letzte Zeit“ usually means „recently“ in German, so the phrase is unnatural and can be misread. The meaning here is the latest time you can order.",
+          "fix": "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): der letzte Zeitpunkt, zu dem man bestellen kann. Der Laden hat noch geöffnet, nimmt aber keine neuen Bestellungen mehr an."
         }
       ]
     }
@@ -157,6 +376,11 @@
       "ok": true,
       "why": []
     },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
     "pt-BR": {
       "pages": 3,
       "ok": true,
@@ -167,17 +391,12 @@
       "ok": true,
       "why": []
     },
-    "ko": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
-    "es": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
     "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
       "pages": 3,
       "ok": true,
       "why": []
@@ -193,5 +412,5 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T12:21:57.466Z"
+  "preparedAt": "2026-09-25T18:48:43.209Z"
 }

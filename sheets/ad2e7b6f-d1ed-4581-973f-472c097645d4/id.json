@@ -14,35 +14,35 @@
     "Pilih kata yang berarti 'telinga': 기 / 구 / 귀",
     "Pilih ejaan yang benar untuk 'kursi': 으자 / 이자 / 의자",
     "Isi bagian yang kosong untuk mengatakan 'Panas.': 더_요 (와 / 워 / 위)",
-    "Baca kata ini dengan suara keras, lalu tuliskan dalam huruf Latin: 화장실"
+    "Baca kata ini dengan lantang, lalu tulis dalam huruf Latin: 화장실"
   ],
   "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
   "letters": [
     {
       "letter": "ㅘ",
       "sound": "wa (ㅗ + ㅏ diucapkan dengan cepat)",
-      "as": "seperti 'wa' pada kata 'wander' — mulai dengan bibir bulat (ㅗ) lalu segera membuka ke 'a' (ㅏ)"
+      "as": "seperti 'wa' pada kata 'wander' — mulai dengan bibir membulat (ㅗ) lalu cepat terbuka menjadi 'a' (ㅏ)"
     },
     {
       "letter": "ㅝ",
       "sound": "wo (ㅜ + ㅓ diucapkan dengan cepat)",
-      "as": "seperti 'wo' pada kata 'won' — mulai dengan bibir bulat (ㅜ) lalu segera bergerak ke ㅓ"
+      "as": "seperti 'wo' pada kata 'won' — mulai dengan bibir membulat (ㅜ) lalu cepat berpindah ke ㅓ"
     },
     {
       "letter": "ㅟ",
       "sound": "wi (ㅜ + ㅣ diucapkan dengan cepat)",
-      "as": "seperti 'we' dalam bahasa Inggris, tapi lebih pendek — mulai dengan bibir bulat (ㅜ) lalu segera bergerak ke 'ee' (ㅣ)"
+      "as": "seperti 'we' dalam bahasa Inggris, tapi lebih pendek — mulai dengan bibir membulat (ㅜ) lalu cepat berpindah ke 'ee' (ㅣ)"
     },
     {
       "letter": "ㅢ",
       "sound": "ui (ㅡ + ㅣ diucapkan dengan cepat)",
-      "as": "tidak ada padanan yang mirip dalam bahasa Inggris — mulai dengan ㅡ (bibir datar dan rileks, tidak bulat) lalu segera meluncur ke 'ee' (ㅣ); dalam lembar kerja ini hanya muncul di awal kata, seperti pada 의자"
+      "as": "tidak ada padanan yang dekat dalam bahasa Inggris — mulai dengan ㅡ (bibir datar dan rileks, tidak membulat) lalu meluncur cepat ke 'ee' (ㅣ); dalam lembar kerja ini hanya digunakan di awal kata, seperti pada 의자"
     }
   ],
   "level": "Pemula",
   "minutes": 15,
-  "objective": "Mengenali dan melafalkan ㅘ (wa), ㅝ (wo), ㅟ (wi), dan 의 (ui) di awal kata sebagai luncuran dua vokal yang cepat, serta membaca dan memilih dengan benar kata-kata 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자, dan 의사.",
-  "summary": "Lembar kerja ini mengajarkan empat vokal rangkap bahasa Korea: ㅘ, ㅝ, ㅟ, dan ㅢ. Masing-masing adalah dua vokal yang diucapkan dengan cepat berurutan, menjadi satu bunyi yang mengalir. Kamu akan melihat dua vokal apa saja yang membentuk setiap huruf, menghubungkan tiga di antaranya dengan bunyi bahasa Inggris yang familiar, dan berlatih membaca kata-kata sehari-hari yang mudah seperti 과자, 뭐, 귀, dan 의자.",
+  "objective": "Mengenali dan melafalkan ㅘ (wa), ㅝ (wo), ㅟ (wi), dan 의 (ui) di awal kata sebagai luncuran cepat dua vokal, serta membaca dan memilih dengan benar kata-kata 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자, dan 의사.",
+  "summary": "Lembar kerja ini mengajarkan empat vokal gabungan bahasa Korea: ㅘ, ㅝ, ㅟ, dan ㅢ. Setiap huruf adalah dua vokal yang diucapkan dengan cepat berurutan, menjadi satu bunyi yang halus. Kamu akan melihat dua vokal apa yang membentuk setiap huruf, menghubungkan tiga di antaranya dengan bunyi bahasa Inggris yang familiar, dan berlatih membaca kata-kata sehari-hari yang mudah seperti 과자, 뭐, 귀, dan 의자.",
   "tags": [],
   "task": null,
   "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
@@ -50,7 +50,7 @@
     {
       "korean": "과자",
       "roman": "gwaja",
-      "meaning": "camilan (keripik, biskuit, kerupuk)",
+      "meaning": "camilan (keripik, kue kering, biskuit)",
       "example": "과자 먹을래요?",
       "exampleMeaning": "Mau camilan?"
     },
@@ -59,7 +59,7 @@
       "roman": "sagwa",
       "meaning": "apel",
       "example": "사과가 달아요.",
-      "exampleMeaning": "Apelnya manis."
+      "exampleMeaning": "Apel itu manis."
     },
     {
       "korean": "화장실",
@@ -80,14 +80,14 @@
       "roman": "deowoyo",
       "meaning": "panas (cuaca)",
       "example": "오늘 정말 더워요.",
-      "exampleMeaning": "Hari ini benar-benar panas."
+      "exampleMeaning": "Hari ini panas sekali."
     },
     {
       "korean": "위",
       "roman": "wi",
       "meaning": "di atas",
       "example": "책상 위에 있어요.",
-      "exampleMeaning": "Ada di atas meja."
+      "exampleMeaning": "Itu ada di atas meja."
     },
     {
       "korean": "귀",

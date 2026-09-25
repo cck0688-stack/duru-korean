@@ -44,7 +44,7 @@
       ]
     }
   ],
-  "keyword": "에 vs 에서",
+  "keyword": "장소 조사 ‘에’ vs ‘에서’",
   "level": "Beginner (A1–A2)",
   "minutes": 15,
   "objective": "Learners will correctly produce short sentences using '에' with motion/existence verbs (e.g., 가다, 오다, 다니다, 도착하다, 있다) and '에서' with activity verbs (e.g., 먹다, 공부하다, 일하다, 운동하다), and self-correct frequent errors such as '학교에서 가요(X) → 학교에 가요(O)' and '도서관에 공부해요(X) → 도서관에서 공부해요(O)'.",
@@ -67,8 +67,8 @@
       "도서관에서"
     ],
     [
-      "집에서",
-      "집에"
+      "집에",
+      "집에서"
     ]
   ],
   "category": "grammar"

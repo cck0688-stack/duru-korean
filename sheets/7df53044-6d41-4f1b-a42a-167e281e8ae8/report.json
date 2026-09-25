@@ -22,37 +22,388 @@
       "round": 1,
       "mechanical": [],
       "review": [],
+      "audit": [
+        "exercises[0]: 앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요. → Write the amounts in won: 앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요.",
+        "exercises[1]: 전단지에 있는 방의 '보증금 500 / 월세 45'를 원 단위로 바꿔 쓰세요. → Write the amounts in won: 전단지에 있는 방의 '보증금 500 / 월세 45'를 원 단위로 바꿔 쓰세요.",
+        "exercises[2]: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요. → Answer in Korean: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요.",
+        "exercises[3]: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까? → Answer in Korean: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?",
+        "exercises[4]: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요. → Answer in Korean, and include the words used in each listing: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요.",
+        "exercises[5]: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요. → Find two reasons in the passage and answer in Korean: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    },
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
       "audit": []
     }
   ],
-  "fixes": [],
-  "translations": {
-    "es": {
-      "lang": "es",
-      "tries": 1,
-      "lost": [],
-      "fixes": []
+  "fixes": [
+    {
+      "at": "answers[2]",
+      "before": "보증금 5,000,000원(오백만 원), 월세 한 달에 450,000원(사십오만 원)",
+      "after": "앱에서 본 방: 관리비 7만 원, 인터넷과 수도가 포함되어 있다. / 전단지 방: 관리비 5만 원(별도), 수도는 포함되어 있지만 인터넷은 포함되어 있지 않다. 인터넷은 따로 신청하고 요금을 따로 내야 한다."
     },
-    "pt-BR": {
-      "lang": "pt-BR",
-      "tries": 2,
+    {
+      "at": "answers[3]",
+      "before": "앱에서 본 방: 관리비 7만 원, 인터넷과 수도가 포함되어 있다. / 전단지 방: 관리비 5만 원(별도), 수도는 포함되어 있지만 인터넷은 포함되어 있지 않다. 인터넷은 따로 신청하고 요금을 따로 내야 한다.",
+      "after": "앱에서 본 방(풀옵션이라서 방에 세탁기가 있다). 전단지 방에서는 1층에 있는 공용 세탁기를 쓴다."
+    },
+    {
+      "at": "answers[4]",
+      "before": "앱에서 본 방(풀옵션이라서 방에 세탁기가 있다). 전단지 방에서는 1층에 있는 공용 세탁기를 쓴다.",
+      "after": "앱에서 본 방: 지금 바로 들어갈 수 있다('즉시 입주'). / 전단지 방: 10월 말부터 들어갈 수 있다('10월 말 입주 가능')."
+    },
+    {
+      "at": "answers[5]",
+      "before": "앱에서 본 방: 지금 바로 들어갈 수 있다('즉시 입주'). / 전단지 방: 10월 말부터 들어갈 수 있다('10월 말 입주 가능').",
+      "after": "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)"
+    },
+    {
+      "at": "answers[6]",
+      "before": "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)",
+      "after": ""
+    },
+    {
+      "at": "exercises[1]",
+      "before": "앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요.",
+      "after": "Write the amounts in won: 앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요."
+    },
+    {
+      "at": "exercises[2]",
+      "before": "전단지에 있는 방의 '보증금 500 / 월세 45'를 원 단위로 바꿔 쓰세요.",
+      "after": "Answer in Korean: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요.",
+      "after": "Answer in Korean: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?",
+      "after": "Answer in Korean, and include the words used in each listing: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요."
+    },
+    {
+      "at": "exercises[5]",
+      "before": "두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요.",
+      "after": "Find two reasons in the passage and answer in Korean: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요."
+    },
+    {
+      "at": "exercises[6]",
+      "before": "린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요.",
+      "after": ""
+    },
+    {
+      "at": "objective",
+      "before": "Learners can read two short Korean one-room listings and, for each room, find and compare four things: the deposit and monthly rent (for example, 보증금 1000/월세 50 means a 10,000,000 won deposit and 500,000 won a month), the maintenance fee and what it includes or excludes (관리비 별도, 인터넷·수도 포함), the built-in items (풀옵션: 에어컨, 세탁기, 냉장고), and the move-in date (즉시 입주, 10월 말 입주 가능).",
+      "after": "Learners can read two short one-room listings and compare deposit and rent (보증금 1000/월세 50), maintenance fees (관리비 별도, 포함), built-in items (풀옵션), and move-in dates (즉시 입주, 10월 말 입주 가능)."
+    },
+    {
+      "at": "passage[3]",
+      "before": "다음 날 린은 학교 앞 게시판에서 원룸 전단지를 봤다. [보증금 500 / 월세 45 / 관리비 5만 원 별도 (수도 포함, 인터넷 별도) / 에어컨·냉장고 있음, 세탁기는 1층 공용 / 10월 말 입주 가능] 지훈은 \"관리비 별도는 관리비를 월세하고 따로 낸다는 뜻이야. 앱에서 본 방도 월세에 관리비를 더해서 내야 해. 그런데 이 방은 관리비에 수도는 포함돼 있지만 인터넷은 포함돼 있지 않아. 그러니까 인터넷은 네가 따로 신청하고 요금도 따로 내야 해.\"라고 말했다.",
+      "after": "다음 날 린은 학교 앞 게시판에서 원룸 전단지를 봤다. [보증금 500 / 월세 45 / 관리비 5만 원 별도 (수도 포함, 인터넷 별도) / 에어컨·냉장고 있음, 세탁기는 1층 공용 / 10월 말 입주 가능] 지훈은 \"관리비 별도는 관리비를 월세하고 따로 낸다는 뜻이야. 그런데 이 방은 관리비에 수도는 포함돼 있지만 인터넷은 포함돼 있지 않아. 그러니까 인터넷은 네가 따로 신청하고 요금도 따로 내야 해.\"라고 말했다."
+    },
+    {
+      "at": "summary",
+      "before": "A four-paragraph story about Linh, a Vietnamese student in Korea who must leave her dorm at the end of October. She compares two one-room listings: one from a real-estate app and one from a flyer. Learners find and compare the deposit, monthly rent, maintenance fee (what it includes and excludes), built-in items, and move-in date for each room.",
+      "after": "Linh, a Vietnamese student leaving her dorm at the end of October, compares two one-room listings by cost, built-in items, and move-in date."
+    },
+    {
+      "at": "words[10].korean",
+      "before": "전단지",
+      "after": ""
+    },
+    {
+      "at": "words[10].roman",
+      "before": "jeondanji",
+      "after": ""
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "flyer, leaflet",
+      "after": ""
+    },
+    {
+      "at": "words[10].example",
+      "before": "지하철역 앞에서 누가 전단지를 나눠 주고 있었어요.",
+      "after": ""
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "Someone was handing out flyers in front of the subway station.",
+      "after": ""
+    },
+    {
+      "at": "words[11].korean",
+      "before": "단위",
+      "after": ""
+    },
+    {
+      "at": "words[11].roman",
+      "before": "danwi",
+      "after": ""
+    },
+    {
+      "at": "words[11].meaning",
+      "before": "unit (the amount that numbers are counted in)",
+      "after": ""
+    },
+    {
+      "at": "words[11].example",
+      "before": "쌀은 보통 킬로그램 단위로 팔아요.",
+      "after": ""
+    },
+    {
+      "at": "words[11].exampleMeaning",
+      "before": "Rice is usually sold by the kilogram.",
+      "after": ""
+    },
+    {
+      "at": "words[12].korean",
+      "before": "부담",
+      "after": ""
+    },
+    {
+      "at": "words[12].roman",
+      "before": "budam",
+      "after": ""
+    },
+    {
+      "at": "words[12].meaning",
+      "before": "(financial) burden, something hard to afford",
+      "after": ""
+    },
+    {
+      "at": "words[12].example",
+      "before": "학생한테는 월세 60만 원이 부담이 돼요.",
+      "after": ""
+    },
+    {
+      "at": "words[12].exampleMeaning",
+      "before": "For a student, 600,000 won a month in rent is hard to afford.",
+      "after": ""
+    }
+  ],
+  "shortened": [
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "summary",
+          "before": "A four-paragraph story about Linh, a Vietnamese student in Korea who must leave her dorm at the end of October. She compares two one-room listings: one from a real-estate app and one from a flyer. Learners find and compare the deposit, monthly rent, maintenance fee (what it includes and excludes), built-in items, and move-in date for each room.",
+          "after": "Linh, a Vietnamese student who must leave her dorm at the end of October, compares two one-room listings (one from an app, one from a flyer) by deposit, monthly rent, maintenance fee, built-in items, and move-in date."
+        },
+        {
+          "at": "objective",
+          "before": "Learners can read two short Korean one-room listings and, for each room, find and compare four things: the deposit and monthly rent (for example, 보증금 1000/월세 50 means a 10,000,000 won deposit and 500,000 won a month), the maintenance fee and what it includes or excludes (관리비 별도, 인터넷·수도 포함), the built-in items (풀옵션: 에어컨, 세탁기, 냉장고), and the move-in date (즉시 입주, 10월 말 입주 가능).",
+          "after": "Learners can read two short Korean one-room listings and compare each room's deposit and monthly rent (보증금 1000/월세 50), maintenance fee and what it includes (관리비 별도, 포함), built-in items (풀옵션), and move-in date (즉시 입주, 10월 말 입주 가능)."
+        },
+        {
+          "at": "exercises[2]",
+          "before": "Write the amounts in won: 전단지에 있는 방의 '보증금 500 / 월세 45'를 원 단위로 바꿔 쓰세요.",
+          "after": "Answer in Korean: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요."
+        },
+        {
+          "at": "exercises[3]",
+          "before": "Answer in Korean: 두 방의 관리비는 각각 얼마입니까? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요.",
+          "after": "Answer in Korean: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?"
+        },
+        {
+          "at": "exercises[4]",
+          "before": "Answer in Korean: 방 안에 세탁기가 있는 방은 어느 방입니까? 다른 방에서는 세탁기를 어떻게 씁니까?",
+          "after": "Answer in Korean, and include the words used in each listing: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요."
+        },
+        {
+          "at": "exercises[5]",
+          "before": "Answer in Korean, and include the words used in each listing: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요.",
+          "after": "Find two reasons in the passage and answer in Korean: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요."
+        },
+        {
+          "at": "exercises[6]",
+          "before": "Find two reasons in the passage and answer in Korean: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요.",
+          "after": ""
+        },
+        {
+          "at": "answers[2]",
+          "before": "보증금 5,000,000원(오백만 원), 월세 한 달에 450,000원(사십오만 원)",
+          "after": "앱에서 본 방: 관리비 7만 원, 인터넷과 수도가 포함되어 있다. / 전단지 방: 관리비 5만 원(별도), 수도는 포함되어 있지만 인터넷은 포함되어 있지 않다. 인터넷은 따로 신청하고 요금을 따로 내야 한다."
+        },
+        {
+          "at": "answers[3]",
+          "before": "앱에서 본 방: 관리비 7만 원, 인터넷과 수도가 포함되어 있다. / 전단지 방: 관리비 5만 원(별도), 수도는 포함되어 있지만 인터넷은 포함되어 있지 않다. 인터넷은 따로 신청하고 요금을 따로 내야 한다.",
+          "after": "앱에서 본 방(풀옵션이라서 방에 세탁기가 있다). 전단지 방에서는 1층에 있는 공용 세탁기를 쓴다."
+        },
+        {
+          "at": "answers[4]",
+          "before": "앱에서 본 방(풀옵션이라서 방에 세탁기가 있다). 전단지 방에서는 1층에 있는 공용 세탁기를 쓴다.",
+          "after": "앱에서 본 방: 지금 바로 들어갈 수 있다('즉시 입주'). / 전단지 방: 10월 말부터 들어갈 수 있다('10월 말 입주 가능')."
+        },
+        {
+          "at": "answers[5]",
+          "before": "앱에서 본 방: 지금 바로 들어갈 수 있다('즉시 입주'). / 전단지 방: 10월 말부터 들어갈 수 있다('10월 말 입주 가능').",
+          "after": "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)"
+        },
+        {
+          "at": "answers[6]",
+          "before": "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)",
+          "after": ""
+        },
+        {
+          "at": "passage[3]",
+          "before": "다음 날 린은 학교 앞 게시판에서 원룸 전단지를 봤다. [보증금 500 / 월세 45 / 관리비 5만 원 별도 (수도 포함, 인터넷 별도) / 에어컨·냉장고 있음, 세탁기는 1층 공용 / 10월 말 입주 가능] 지훈은 \"관리비 별도는 관리비를 월세하고 따로 낸다는 뜻이야. 앱에서 본 방도 월세에 관리비를 더해서 내야 해. 그런데 이 방은 관리비에 수도는 포함돼 있지만 인터넷은 포함돼 있지 않아. 그러니까 인터넷은 네가 따로 신청하고 요금도 따로 내야 해.\"라고 말했다.",
+          "after": "다음 날 린은 학교 앞 게시판에서 원룸 전단지를 봤다. [보증금 500 / 월세 45 / 관리비 5만 원 별도 (수도 포함, 인터넷 별도) / 에어컨·냉장고 있음, 세탁기는 1층 공용 / 10월 말 입주 가능] 지훈은 \"관리비 별도는 관리비를 월세하고 따로 낸다는 뜻이야. 그런데 이 방은 관리비에 수도는 포함돼 있지만 인터넷은 포함돼 있지 않아. 그러니까 인터넷은 네가 따로 신청하고 요금도 따로 내야 해.\"라고 말했다."
+        },
+        {
+          "at": "words[11].korean",
+          "before": "단위",
+          "after": ""
+        },
+        {
+          "at": "words[11].roman",
+          "before": "danwi",
+          "after": ""
+        },
+        {
+          "at": "words[11].meaning",
+          "before": "unit (the amount that numbers are counted in)",
+          "after": ""
+        },
+        {
+          "at": "words[11].example",
+          "before": "쌀은 보통 킬로그램 단위로 팔아요.",
+          "after": ""
+        },
+        {
+          "at": "words[11].exampleMeaning",
+          "before": "Rice is usually sold by the kilogram.",
+          "after": ""
+        },
+        {
+          "at": "words[12].korean",
+          "before": "부담",
+          "after": ""
+        },
+        {
+          "at": "words[12].roman",
+          "before": "budam",
+          "after": ""
+        },
+        {
+          "at": "words[12].meaning",
+          "before": "(financial) burden, something hard to afford",
+          "after": ""
+        },
+        {
+          "at": "words[12].example",
+          "before": "학생한테는 월세 60만 원이 부담이 돼요.",
+          "after": ""
+        },
+        {
+          "at": "words[12].exampleMeaning",
+          "before": "For a student, 600,000 won a month in rent is hard to afford.",
+          "after": ""
+        }
+      ]
+    },
+    {
+      "from": 3,
+      "cut": [
+        {
+          "at": "summary",
+          "before": "Linh, a Vietnamese student who must leave her dorm at the end of October, compares two one-room listings (one from an app, one from a flyer) by deposit, monthly rent, maintenance fee, built-in items, and move-in date.",
+          "after": "Linh, a Vietnamese student leaving her dorm at the end of October, compares two one-room listings by cost, built-in items, and move-in date."
+        },
+        {
+          "at": "objective",
+          "before": "Learners can read two short Korean one-room listings and compare each room's deposit and monthly rent (보증금 1000/월세 50), maintenance fee and what it includes (관리비 별도, 포함), built-in items (풀옵션), and move-in date (즉시 입주, 10월 말 입주 가능).",
+          "after": "Learners can read two short one-room listings and compare deposit and rent (보증금 1000/월세 50), maintenance fees (관리비 별도, 포함), built-in items (풀옵션), and move-in dates (즉시 입주, 10월 말 입주 가능)."
+        },
+        {
+          "at": "words[10].korean",
+          "before": "전단지",
+          "after": ""
+        },
+        {
+          "at": "words[10].roman",
+          "before": "jeondanji",
+          "after": ""
+        },
+        {
+          "at": "words[10].meaning",
+          "before": "flyer, leaflet",
+          "after": ""
+        },
+        {
+          "at": "words[10].example",
+          "before": "지하철역 앞에서 누가 전단지를 나눠 주고 있었어요.",
+          "after": ""
+        },
+        {
+          "at": "words[10].exampleMeaning",
+          "before": "Someone was handing out flyers in front of the subway station.",
+          "after": ""
+        }
+      ]
+    }
+  ],
+  "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
     "id": {
       "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"Barang bawaan\" means things someone brings with them, like belongings or luggage. That is not what \"built-in items\" means, and it contradicts the gloss in brackets. The phrase should just be \"fasilitas terpasang\".",
+          "fix": "Linh, seorang mahasiswi asal Vietnam yang akan meninggalkan asramanya pada akhir Oktober, membandingkan dua iklan kamar one-room berdasarkan biaya, fasilitas terpasang, dan tanggal pindah."
+        }
+      ]
+    },
+    "es": {
+      "lang": "es",
       "tries": 2,
       "lost": [],
       "fixes": [
         {
-          "line": 28,
-          "problem": "The Korean question has been changed. Indonesian 'Ubahlah' was added, and the Korean was split into a separate quoted fragment ('앱에서 본 방의'). The result is broken, mixed-language text, and the Korean no longer matches the English line character for character.",
-          "fix": "앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요."
+          "line": 2,
+          "problem": "\"dormitorio\" means 'bedroom' in Spanish, not a student dorm (residence hall).",
+          "fix": "Linh, una estudiante vietnamita que deja su residencia estudiantil a finales de octubre, compara dos anuncios de habitaciones (one-room) según el precio, los artículos incluidos y la fecha de mudanza."
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 19,
+          "problem": "The English says \"contact me\", but the translation drops \"me\". It has no \"comigo\", so it no longer says who to contact.",
+          "fix": "Se houver algum problema, entre em contato comigo imediatamente."
         },
         {
-          "line": 29,
-          "problem": "The Korean question has been changed. Indonesian 'Ubahlah' was added, and the Korean was split into a separate quoted fragment ('전단지에 있는 방의'). The result is broken, mixed-language text, and the Korean no longer matches the English line character for character.",
-          "fix": "전단지에 있는 방의 '보증금 500 / 월세 45'를 원 단위로 바꿔 쓰세요."
+          "line": 22,
+          "problem": "\"wones\" is not the usual Brazilian Portuguese plural of \"won\". The usual form is \"wons\".",
+          "fix": "Escreva os valores em wons: 앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요."
         }
       ]
     },
@@ -62,15 +413,9 @@
       "lost": [],
       "fixes": []
     },
-    "vi": {
-      "lang": "vi",
-      "tries": 2,
-      "lost": [],
-      "fixes": []
-    },
-    "ja": {
-      "lang": "ja",
-      "tries": 2,
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
       "lost": [],
       "fixes": []
     },
@@ -81,38 +426,36 @@
       "fixes": [
         {
           "line": 9,
-          "problem": "\"by the 25th\" includes the 25th itself; \"avant le 25\" means before the 25th, so the deadline moves back by one day.",
+          "problem": "\"by the 25th\" includes the 25th as the last possible day; \"avant le 25\" strictly means before the 25th, which changes the deadline.",
           "fix": "Vous pouvez payer les charges au plus tard le 25 de chaque mois."
         }
       ]
     },
-    "zh": {
-      "lang": "zh",
-      "tries": 2,
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
       "lost": [],
-      "fixes": [
-        {
-          "line": 4,
-          "problem": "The headword 押金 is repeated inside the parentheses as a label (\"押金(押金:…\"). The English has no such repeat, and it reads unnaturally.",
-          "fix": "押金(租房时先付给房东的一大笔钱,搬走时会退还)"
-        }
-      ]
+      "fixes": []
     },
     "de": {
       "lang": "de",
-      "tries": 3,
+      "tries": 1,
       "lost": [],
-      "fixes": [
-        {
-          "line": 31,
-          "problem": "The German 'Wie wird die Waschmaschine im anderen Zimmer benutzt?' says the other room has its own washing machine ('the washing machine in the other room'). That contradicts the first question, which implies only one room has a washer inside. The English and Korean ask how you use a washing machine (do laundry) if you live in the other room.",
-          "fix": "방 안에 세탁기가 있는 방은 어느 방입니까? In welchem Zimmer gibt es eine Waschmaschine im Zimmer selbst? 다른 방에서는 세탁기를 어떻게 씁니까? Wie benutzt man im anderen Zimmer eine Waschmaschine?"
-        }
-      ]
+      "fixes": []
     }
   },
   "pages": {
     "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
       "pages": 3,
       "ok": true,
       "why": []
@@ -127,22 +470,12 @@
       "ok": true,
       "why": []
     },
-    "id": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
     "ko": {
       "pages": 3,
       "ok": true,
       "why": []
     },
-    "vi": {
-      "pages": 3,
-      "ok": true,
-      "why": []
-    },
-    "ja": {
+    "zh": {
       "pages": 3,
       "ok": true,
       "why": []
@@ -152,7 +485,7 @@
       "ok": true,
       "why": []
     },
-    "zh": {
+    "ja": {
       "pages": 3,
       "ok": true,
       "why": []
@@ -163,5 +496,5 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T12:18:55.769Z"
+  "preparedAt": "2026-09-25T18:38:15.648Z"
 }

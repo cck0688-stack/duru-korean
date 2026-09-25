@@ -1,0 +1,94 @@
+{
+  "title": "버스 도착 안내판 읽기: 몇 분 후에 와요? 몇 번째 전이에요?",
+  "keyword": "버스 도착 안내판",
+  "summary": "Anna consulte un panneau d'arrivée de bus pour choisir un bus pour son cours de 10h00 ; les apprenants lisent ensuite des panneaux et choisissent eux-mêmes un bus.",
+  "objective": "Les apprenants peuvent lire un panneau d'arrivée de bus coréen (direction, heure d'arrivée, nombre d'arrêts restants, statut comme 출발 대기 et 운행 종료) et l'utiliser pour choisir un bus.",
+  "level": "Débutant (niveau avancé)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Regardez le panneau dans l'histoire. Dans combien de minutes le bus 305 arrive-t-il, et à combien d'arrêts se trouve-t-il maintenant ? Répondez en coréen.",
+    "Associez chaque étiquette à sa signification : 출발 대기 / 운행 종료 / 곧 도착 / 전 정류장 출발. (a) 오늘은(지금은) 버스가 더 오지 않아요. (b) 버스가 아직 차고지에서 출발하지 않았어요. (c) 버스가 바로 앞 정류장을 떠났어요. (d) 버스가 금방 와요.",
+    "Écrivez O si la phrase est vraie et X si elle est fausse, puis donnez la raison en coréen : 안나 씨는 101번을 타면 한국대학교에 갈 수 있어요.",
+    "Pourquoi Anna n'a-t-elle pas attendu le bus 62 ? Répondez en coréen en utilisant l'étiquette du panneau.",
+    "Vous voulez aller à 시청역. Lisez ce nouveau panneau et choisissez votre bus. Donnez la raison en coréen. [버스 도착 안내] 14번 (시청역 방면) — 12분 후 도착 [6번째 전] / 27번 (시청역 방면) — 3분 후 도착 [2번째 전] / 41번 (시청역 방면) — 운행 종료 / 88번 (시장 방면) — 곧 도착"
+  ],
+  "answers": [
+    "7분 후에 도착해요. 지금 세 정류장 전에 있어요. (3번째 전이에요.)",
+    "출발 대기 – (b), 운행 종료 – (a), 곧 도착 – (d), 전 정류장 출발 – (c)",
+    "X – 101번은 시청역 방면이에요. 한국대학교에 가지 않아요.",
+    "62번은 '출발 대기'예요. 아직 차고지에서 출발하지 않아서 오래 기다려야 해요.",
+    "27번을 타요. 시청역 방면이고 3분 후에 도착해요. (2번째 전이에요. 14번은 12분 뒤에 오고, 41번은 운행 종료이고, 88번은 시장 방면이에요.)"
+  ],
+  "checkThese": [],
+  "passage": [
+    "아침 9시 반이에요. 안나 씨는 집 앞 버스 정류장에 서 있어요. 오늘 10시에 한국대학교에서 수업이 있어요. 한국대학교에 가는 버스는 305번과 62번이에요. 안나 씨는 정류장에 있는 버스 도착 안내판을 봤어요.",
+    "[버스 도착 안내] 101번 (시청역 방면) — 곧 도착 / 520번 (시청역 방면) — 2분 후 도착 [전 정류장 출발] / 305번 (한국대학교 방면) — 7분 후 도착 [3번째 전] / 62번 (한국대학교 방면) — 출발 대기 / N30번 (시청역 방면) — 운행 종료",
+    "안나 씨는 먼저 62번을 찾았어요. 그런데 '출발 대기'라고 쓰여 있었어요. 버스가 아직 차고지에서 출발하지 않았다는 뜻이에요. 그래서 62번은 오래 기다려야 해요. 305번 옆에는 '7분 후 도착'이 있고, '3번째 전'도 있었어요. 버스가 지금 세 정류장 전에 있다는 뜻이에요.",
+    "그때 101번 버스가 왔어요. 안나 씨는 타고 싶었지만 101번은 시청역 방면이에요. 한국대학교에는 가지 않아요. 520번도 '전 정류장 출발'이라서 금방 와요. 하지만 이 버스도 시청역 방면이에요. N30번은 밤에만 다니는 심야버스예요. 그래서 지금은 '운행 종료'예요.",
+    "안나 씨는 305번을 기다리기로 했어요. 7분 후에 타면 수업에 늦지 않아요."
+  ],
+  "words": [
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "panneau d'information (ici, l'écran électronique qui affiche les bus qui arrivent)",
+      "example": "안내판에 버스 번호가 나와요.",
+      "exampleMeaning": "Les numéros de bus sont indiqués sur le panneau."
+    },
+    {
+      "korean": "방면",
+      "roman": "bangmyeon",
+      "meaning": "vers, en direction de (indique où se dirige le bus)",
+      "example": "이 버스는 서울역 방면이에요.",
+      "exampleMeaning": "Ce bus va vers la gare de Séoul."
+    },
+    {
+      "korean": "곧",
+      "roman": "got",
+      "meaning": "très bientôt, presque arrivé",
+      "example": "잠깐만요, 버스가 곧 와요.",
+      "exampleMeaning": "Attendez un instant, le bus arrive très bientôt."
+    },
+    {
+      "korean": "번째 전",
+      "roman": "beonjjae jeon",
+      "meaning": "nombre d'arrêts restants (○번째 전 = le bus est à ○ arrêts avant celui-ci)",
+      "example": "제가 탈 버스는 지금 2번째 전이에요.",
+      "exampleMeaning": "Le bus que je prends est maintenant à deux arrêts."
+    },
+    {
+      "korean": "전 정류장",
+      "roman": "jeon jeongnyujang",
+      "meaning": "l'arrêt juste avant celui-ci",
+      "example": "버스가 전 정류장에서 출발했어요.",
+      "exampleMeaning": "Le bus a quitté l'arrêt juste avant celui-ci."
+    },
+    {
+      "korean": "출발 대기",
+      "roman": "chulbal daegi",
+      "meaning": "en attente de départ (le bus n'a pas encore quitté le dépôt)",
+      "example": "62번은 아직 출발 대기라서 한참 기다려야 해요.",
+      "exampleMeaning": "Le bus 62 n'est pas encore parti, donc nous devrons attendre longtemps."
+    },
+    {
+      "korean": "차고지",
+      "roman": "chagoji",
+      "meaning": "dépôt de bus, là où les bus commencent leur trajet",
+      "example": "첫차는 새벽에 차고지에서 나와요.",
+      "exampleMeaning": "Le premier bus quitte le dépôt tôt le matin."
+    },
+    {
+      "korean": "운행 종료",
+      "roman": "unhaeng jongnyo",
+      "meaning": "service terminé (ce bus ne circule plus aujourd'hui, ou pour le moment)",
+      "example": "벌써 운행 종료예요? 택시를 타야겠어요.",
+      "exampleMeaning": "Le service est déjà terminé ? Je vais devoir prendre un taxi."
+    }
+  ],
+  "category": "reading"
+}

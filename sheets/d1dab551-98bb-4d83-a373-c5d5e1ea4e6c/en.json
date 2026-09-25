@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "할인",
+    "시식",
+    "1+1(원 플러스 원), 유통기한",
+    "카트, 장바구니",
+    "계산대, 셀프 계산대",
+    "봉투, 적립"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Fill in the blank. (Items are cheaper today.) 오늘 우유를 ______해요.",
+    "Fill in the blank. (You tasted food for free in the store.) ______ 코너에서 김치를 먹어 봤어요.",
+    "Fill in both blanks. (You ask a clerk whether you get one free if you buy one. Then you check the date on the package.) 이 요구르트 ______이에요? 아, 그런데 ______이 내일까지네요.",
+    "Fill in both blanks. (First you are buying a lot, so you need something with wheels. Then you are buying only milk, so you carry something light in your hand.) 오늘은 살 게 많아요. ______를 가져올게요. 우유만 사요. ______만 들고 가요.",
+    "Fill in both blanks. (The line with a cashier is long, so you scan and pay by yourself.) ______에 줄이 너무 길어요. 우리는 ______에서 계산해요.",
+    "Fill in both blanks in this conversation at the checkout. 직원: ______ 필요하세요? 손님: 아니요, 괜찮아요. 포인트 ______해 주세요."
+  ],
+  "keyword": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "level": "Beginner",
+  "minutes": 15,
+  "objective": "Learners can recognize and use 10 key supermarket words (장바구니, 카트, 계산대, 셀프 계산대, 봉투, 할인, 1+1[원 플러스 원], 유통기한, 시식, 적립) in short, natural sentences to find items, check prices and dates, and pay at the checkout. Examples: '봉투 필요 없어요.', '이거 1+1이에요?', '포인트 적립해 주세요.'",
+  "summary": "Ten everyday words for shopping at a Korean supermarket. Learners pick up a basket or cart, look for sales, 1+1 deals and free samples, check the expiration date, and pay at a regular or self-checkout, saying no to a bag and asking to earn points. The six exercises practice all ten target words.",
+  "tags": [],
+  "task": null,
+  "title": "마트에서 장보기: 꼭 필요한 낱말 10개",
+  "words": [
+    {
+      "korean": "장바구니",
+      "roman": "jangbaguni",
+      "meaning": "shopping basket (carried by hand in the store); also a reusable shopping bag",
+      "example": "장바구니는 입구에 있어요.",
+      "exampleMeaning": "The shopping baskets are at the entrance."
+    },
+    {
+      "korean": "카트",
+      "roman": "kateu",
+      "meaning": "shopping cart (with wheels)",
+      "example": "카트 좀 밀어 줄래요?",
+      "exampleMeaning": "Could you push the cart for me?"
+    },
+    {
+      "korean": "계산대",
+      "roman": "gyesandae",
+      "meaning": "checkout counter (where a cashier rings you up)",
+      "example": "계산대가 어디예요?",
+      "exampleMeaning": "Where is the checkout?"
+    },
+    {
+      "korean": "셀프 계산대",
+      "roman": "selpeu gyesandae",
+      "meaning": "self-checkout",
+      "example": "셀프 계산대에서는 바코드를 직접 찍어요.",
+      "exampleMeaning": "At the self-checkout, you scan the barcodes yourself."
+    },
+    {
+      "korean": "봉투",
+      "roman": "bongtu",
+      "meaning": "bag given at the checkout (plastic or paper)",
+      "example": "봉투 필요 없어요.",
+      "exampleMeaning": "I don't need a bag."
+    },
+    {
+      "korean": "할인",
+      "roman": "harin",
+      "meaning": "sale, discount (a lower price than usual)",
+      "example": "이 과자 지금 할인 중이에요.",
+      "exampleMeaning": "These snacks are on sale right now."
+    },
+    {
+      "korean": "1+1 (원 플러스 원)",
+      "roman": "won peulleoseu won",
+      "meaning": "buy one, get one free",
+      "example": "이거 1+1이에요?",
+      "exampleMeaning": "Is this buy-one-get-one-free?"
+    },
+    {
+      "korean": "유통기한",
+      "roman": "yutonggihan",
+      "meaning": "expiration date (the date printed on food)",
+      "example": "이 두부는 유통기한이 지났어요.",
+      "exampleMeaning": "This tofu is past its expiration date."
+    },
+    {
+      "korean": "시식",
+      "roman": "sisik",
+      "meaning": "free sample, tasting (food offered to try in the store)",
+      "example": "만두 시식해 보세요!",
+      "exampleMeaning": "Try a free sample of dumplings!"
+    },
+    {
+      "korean": "적립",
+      "roman": "jeongnip",
+      "meaning": "earning (points on a store membership)",
+      "example": "포인트 적립해 주세요.",
+      "exampleMeaning": "Please add the points to my account."
+    }
+  ],
+  "category": "vocab"
+}

@@ -13,36 +13,36 @@
     "Setze die beiden Vokale zusammen. Welchen Buchstaben erhältst du? ㅜ + ㅓ = ?",
     "Wähle das Wort, das 'Ohr' bedeutet: 기 / 구 / 귀",
     "Wähle die richtige Schreibweise von 'Stuhl': 으자 / 이자 / 의자",
-    "Fülle die Lücke, um 'Es ist heiß.' zu sagen: 더_요 (와 / 워 / 위)",
-    "Lies das Wort laut vor und schreibe es dann in lateinischer Umschrift: 화장실"
+    "Fülle die Lücke aus, um zu sagen 'Es ist heiß.': 더_요 (와 / 워 / 위)",
+    "Lies das Wort laut vor und schreibe es dann in lateinischen Buchstaben: 화장실"
   ],
   "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
   "letters": [
     {
       "letter": "ㅘ",
-      "sound": "wa (ㅗ + ㅏ schnell gesprochen)",
-      "as": "wie das 'wa' im englischen 'wander' — beginne mit gerundeten Lippen (ㅗ) und öffne schnell zu 'a' (ㅏ)"
+      "sound": "wa (ㅗ + ㅏ schnell hintereinander gesprochen)",
+      "as": "wie das 'wa' in 'wander' — beginne mit gerundeten Lippen (ㅗ) und öffne schnell zu 'a' (ㅏ)"
     },
     {
       "letter": "ㅝ",
-      "sound": "wo (ㅜ + ㅓ schnell gesprochen)",
+      "sound": "wo (ㅜ + ㅓ schnell hintereinander gesprochen)",
       "as": "wie das 'wo' in 'won' — beginne mit gerundeten Lippen (ㅜ) und gehe schnell zu ㅓ über"
     },
     {
       "letter": "ㅟ",
-      "sound": "wi (ㅜ + ㅣ schnell gesprochen)",
-      "as": "wie das englische 'we', aber kürzer — beginne mit gerundeten Lippen (ㅜ) und gehe schnell zu 'ie' (ㅣ) über"
+      "sound": "wi (ㅜ + ㅣ schnell hintereinander gesprochen)",
+      "as": "wie das englische 'we', nur kürzer — beginne mit gerundeten Lippen (ㅜ) und gehe schnell zu 'ie' (ㅣ) über"
     },
     {
       "letter": "ㅢ",
-      "sound": "ui (ㅡ + ㅣ schnell gesprochen)",
-      "as": "kein nahes englisches Äquivalent — beginne mit ㅡ (Lippen flach und entspannt, nicht gerundet) und gleite schnell zu 'ie' (ㅣ); in diesem Arbeitsblatt nur am Wortanfang, wie in 의자"
+      "sound": "ui (ㅡ + ㅣ schnell hintereinander gesprochen)",
+      "as": "keine nahe englische Entsprechung — beginne mit ㅡ (Lippen flach und entspannt, nicht gerundet) und gleite schnell zu 'ie' (ㅣ); in diesem Arbeitsblatt nur am Wortanfang, wie in 의자"
     }
   ],
   "level": "Anfänger",
   "minutes": 15,
-  "objective": "Erkenne und sprich ㅘ (wa), ㅝ (wo), ㅟ (wi) und das wortanfängliche 의 (ui) als schnelle Zwei-Vokal-Gleitlaute aus, und lies bzw. wähle korrekt die Wörter 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 und 의사.",
-  "summary": "Dieses Arbeitsblatt vermittelt vier koreanische zusammengesetzte Vokale: ㅘ, ㅝ, ㅟ und ㅢ. Jeder davon besteht aus zwei Vokalen, die schnell hintereinander als ein einziger, fließender Laut ausgesprochen werden. Du siehst, aus welchen zwei Vokalen jeder Buchstabe besteht, verknüpfst drei davon mit vertrauten englischen Lauten und übst das Lesen einfacher Alltagswörter wie 과자, 뭐, 귀 und 의자.",
+  "objective": "Erkenne und sprich ㅘ (wa), ㅝ (wo), ㅟ (wi) und das wortanfängliche 의 (ui) als schnelle Zwei-Vokal-Gleitlaute aus, und lies und wähle korrekt die Wörter 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 und 의사.",
+  "summary": "Dieses Arbeitsblatt vermittelt vier koreanische zusammengesetzte Vokale: ㅘ, ㅝ, ㅟ und ㅢ. Jeder besteht aus zwei Vokalen, die schnell hintereinander als ein einziger, fließender Laut gesprochen werden. Du erfährst, aus welchen zwei Vokalen jeder Buchstabe besteht, lernst drei davon anhand vertrauter englischer Laute kennen und übst das Lesen einfacher Alltagswörter wie 과자, 뭐, 귀 und 의자.",
   "tags": [],
   "task": null,
   "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
@@ -52,7 +52,7 @@
       "roman": "gwaja",
       "meaning": "Snack (Chips, Kekse, Cracker)",
       "example": "과자 먹을래요?",
-      "exampleMeaning": "Möchtest du etwas naschen?"
+      "exampleMeaning": "Möchtest du Snacks?"
     },
     {
       "korean": "사과",
@@ -87,7 +87,7 @@
       "roman": "wi",
       "meaning": "oben auf, auf",
       "example": "책상 위에 있어요.",
-      "exampleMeaning": "Es liegt auf dem Schreibtisch."
+      "exampleMeaning": "Es ist auf dem Schreibtisch."
     },
     {
       "korean": "귀",
@@ -106,7 +106,7 @@
     {
       "korean": "의사",
       "roman": "uisa",
-      "meaning": "Arzt/Ärztin",
+      "meaning": "Arzt",
       "example": "제 친구는 의사예요.",
       "exampleMeaning": "Mein Freund ist Arzt."
     }

@@ -9,10 +9,10 @@
   ],
   "checkThese": [],
   "exercises": [
-    "Une las dos vocales. ¿Qué letra obtienes? ㅗ + ㅏ = ?",
-    "Une las dos vocales. ¿Qué letra obtienes? ㅜ + ㅓ = ?",
+    "Junta las dos vocales. ¿Qué letra obtienes? ㅗ + ㅏ = ?",
+    "Junta las dos vocales. ¿Qué letra obtienes? ㅜ + ㅓ = ?",
     "Elige la palabra que significa 'oreja': 기 / 구 / 귀",
-    "Elige la forma correcta de escribir 'silla': 으자 / 이자 / 의자",
+    "Elige la ortografía correcta de 'silla': 으자 / 이자 / 의자",
     "Completa el espacio en blanco para decir 'Hace calor.': 더_요 (와 / 워 / 위)",
     "Lee la palabra en voz alta y luego escríbela en alfabeto romano: 화장실"
   ],
@@ -20,29 +20,29 @@
   "letters": [
     {
       "letter": "ㅘ",
-      "sound": "wa (ㅗ + ㅏ pronunciadas rápidamente)",
-      "as": "como el 'wa' en la palabra inglesa 'wander' — comienza con los labios redondeados (ㅗ) y ábrelos rápidamente hacia 'a' (ㅏ)"
+      "sound": "wa (ㅗ + ㅏ dicho rápidamente)",
+      "as": "como 'wa' en 'wander' — comienza con los labios redondeados (ㅗ) y abre rápidamente a 'a' (ㅏ)"
     },
     {
       "letter": "ㅝ",
-      "sound": "wo (ㅜ + ㅓ pronunciadas rápidamente)",
-      "as": "como el 'wo' en la palabra inglesa 'won' — comienza con los labios redondeados (ㅜ) y muévete rápidamente hacia ㅓ"
+      "sound": "wo (ㅜ + ㅓ dicho rápidamente)",
+      "as": "como 'wo' en 'won' — comienza con los labios redondeados (ㅜ) y pasa rápidamente a ㅓ"
     },
     {
       "letter": "ㅟ",
-      "sound": "wi (ㅜ + ㅣ pronunciadas rápidamente)",
-      "as": "como el 'we' en inglés, pero más corto — comienza con los labios redondeados (ㅜ) y muévete rápidamente hacia 'ee' (ㅣ)"
+      "sound": "wi (ㅜ + ㅣ dicho rápidamente)",
+      "as": "como el inglés 'we', pero más corto — comienza con los labios redondeados (ㅜ) y pasa rápidamente a 'ee' (ㅣ)"
     },
     {
       "letter": "ㅢ",
-      "sound": "ui (ㅡ + ㅣ pronunciadas rápidamente)",
-      "as": "no tiene un equivalente cercano en inglés — comienza con ㅡ (labios planos y relajados, no redondeados) y desliza rápidamente hacia 'ee' (ㅣ); en esta hoja de trabajo solo aparece al inicio de una palabra, como en 의자"
+      "sound": "ui (ㅡ + ㅣ dicho rápidamente)",
+      "as": "no hay un equivalente cercano en inglés — comienza con ㅡ (labios planos y relajados, no redondeados) y deslízate rápidamente a 'ee' (ㅣ); en esta hoja de trabajo solo aparece al inicio de una palabra, como en 의자"
     }
   ],
   "level": "Principiante",
   "minutes": 15,
   "objective": "Reconoce y pronuncia ㅘ (wa), ㅝ (wo), ㅟ (wi) y 의 (ui) al inicio de palabra como deslizamientos rápidos de dos vocales, y lee y elige correctamente las palabras 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 y 의사.",
-  "summary": "Esta hoja de trabajo enseña cuatro vocales compuestas del coreano: ㅘ, ㅝ, ㅟ y ㅢ. Cada una es la unión de dos vocales pronunciadas rápidamente, una tras otra, como un solo sonido fluido. Verás qué dos vocales forman cada letra, relacionarás tres de ellas con sonidos conocidos del inglés y practicarás leyendo palabras sencillas y cotidianas como 과자, 뭐, 귀 y 의자.",
+  "summary": "Esta hoja de trabajo enseña cuatro vocales compuestas del coreano: ㅘ, ㅝ, ㅟ y ㅢ. Cada una es dos vocales dichas rápidamente una tras otra, como un solo sonido fluido. Verás qué dos vocales forman cada letra, relacionarás tres de ellas con sonidos familiares del inglés y practicarás la lectura de palabras sencillas y cotidianas como 과자, 뭐, 귀 y 의자.",
   "tags": [],
   "task": null,
   "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
@@ -50,16 +50,16 @@
     {
       "korean": "과자",
       "roman": "gwaja",
-      "meaning": "bocadillo (papas fritas, galletas, crackers)",
+      "meaning": "snack (papas fritas, galletas, crackers)",
       "example": "과자 먹을래요?",
-      "exampleMeaning": "¿Quieres algunos bocadillos?"
+      "exampleMeaning": "¿Quieres unos snacks?"
     },
     {
       "korean": "사과",
       "roman": "sagwa",
       "meaning": "manzana",
       "example": "사과가 달아요.",
-      "exampleMeaning": "La manzana está dulce."
+      "exampleMeaning": "La manzana es dulce."
     },
     {
       "korean": "화장실",
@@ -78,7 +78,7 @@
     {
       "korean": "더워요",
       "roman": "deowoyo",
-      "meaning": "hace calor (clima)",
+      "meaning": "(hace) calor (clima)",
       "example": "오늘 정말 더워요.",
       "exampleMeaning": "Hoy hace mucho calor."
     },
@@ -87,7 +87,7 @@
       "roman": "wi",
       "meaning": "encima de, sobre",
       "example": "책상 위에 있어요.",
-      "exampleMeaning": "Está encima del escritorio."
+      "exampleMeaning": "Está sobre el escritorio."
     },
     {
       "korean": "귀",
@@ -106,7 +106,7 @@
     {
       "korean": "의사",
       "roman": "uisa",
-      "meaning": "médico(a)",
+      "meaning": "médico, doctor",
       "example": "제 친구는 의사예요.",
       "exampleMeaning": "Mi amigo es médico."
     }
