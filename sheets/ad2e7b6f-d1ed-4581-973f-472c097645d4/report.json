@@ -1,0 +1,188 @@
+{
+  "id": "ad2e7b6f-d1ed-4581-973f-472c097645d4",
+  "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "Typo: '韝国語' has the wrong character; it should be '韓国語' (Korean language).",
+          "fix": "このワークシートでは、韓国語の二重母音ㅘ、ㅝ、ㅟ、ㅢの4つを学びます。それぞれ2つの母音を素早く続けて発音し、1つの滑らかな音にしたものです。各文字がどの2つの母音からできているかを確認し、そのうち3つを馴染みのある英語の音と結びつけ、과자、뭐、귀、의자のような身近な単語を読む練習をします。"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 10,
+          "problem": "'casual' is translated as 반말 (the informal speech level), but 뭐 is just the everyday spoken form of 무엇. It is used in polite sentences too, like line 11's 이게 뭐예요?, so the label is wrong.",
+          "fix": "뭐 (구어체)"
+        },
+        {
+          "line": 32,
+          "problem": "The English gloss 'ear' was replaced with the Korean answer 귀. The question now gives away the answer instead of asking for the word that means 'ear'.",
+          "fix": "'ear'를 뜻하는 단어를 고르세요: 기 / 구 / 귀"
+        },
+        {
+          "line": 33,
+          "problem": "The English gloss 'chair' was replaced with the correct spelling 의자. The spelling question now contains its own answer.",
+          "fix": "'chair'를 뜻하는 단어의 올바른 철자를 고르세요: 으자 / 이자 / 의자"
+        },
+        {
+          "line": 34,
+          "problem": "The prompt 'It's hot.' was rendered as '더워요(덥다)', which shows the missing syllable 워. The blank no longer tests anything.",
+          "fix": "'It's hot.'(날씨가 덥다)라는 뜻이 되도록 빈칸을 채우세요: 더_요 (와 / 워 / 위)"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 4,
+          "problem": "'crackers' is mistranslated as 点心 (pastries/dim sum); the list should cover chips, cookies and crackers.",
+          "fix": "零食（薯片、曲奇、苏打饼干）"
+        },
+        {
+          "line": 19,
+          "problem": "Says 'sit' twice (坐到…坐下), which is redundant and unnatural in Chinese.",
+          "fix": "请（在椅子上）坐下。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 23,
+          "problem": "\"ouvre-toi\" is reflexive, so it tells the learner to open themselves. The English means opening the mouth from rounded lips to 'a', so the French is wrong here and reads unnaturally.",
+          "fix": "comme le « wa » dans « wander » — commence avec les lèvres arrondies (ㅗ) puis ouvre rapidement la bouche vers « a » (ㅏ)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 23,
+          "problem": "'wander' is also a German word (imperative of 'wandern'), and German readers pronounce its 'w' like an English 'v'. Unless the text says the word is English, the comparison points to 'va' instead of the English 'wa' sound.",
+          "fix": "wie das 'wa' im englischen 'wander' — beginne mit gerundeten Lippen (ㅗ) und öffne schnell zu 'a' (ㅏ)"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T12:02:50.153Z"
+}

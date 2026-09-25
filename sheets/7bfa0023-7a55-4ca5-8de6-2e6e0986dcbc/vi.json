@@ -1,0 +1,89 @@
+{
+  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
+  "keyword": "",
+  "summary": "Học 8 nhãn thường gặp nhất trên bảng giờ mở cửa của cửa hàng Hàn Quốc, sau đó đọc ba bảng hiệu mẫu để xác định xem bạn có thể ghé thăm hoặc đặt món vào một ngày và giờ cụ thể hay không.",
+  "objective": "Người học sẽ đọc bảng giờ mở cửa của một cửa hàng và trả lời đúng các câu hỏi có/không về việc cửa hàng có đang mở cửa, hay có còn nhận đặt món, vào một ngày và giờ cụ thể hay không.",
+  "level": "Sơ cấp (cao) – Trung cấp (thấp)",
+  "minutes": 20,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "[안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+    "[안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+    "[안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+  ],
+  "answers": [
+    "아니요. 월요일은 정기휴무예요. (No. Monday is the regular day off.)",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (No. It's the break time, 15:00–16:30.)",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (No. Orders close at 19:30. The shop is open until 20:00, but you can't order.)",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Yes. Weekend hours run until 22:00, and last order is at 21:30.)",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (No. It closes on public holidays, even if the holiday falls on a weekday.)",
+    "네. 24시간 영업, 연중무휴예요. (Yes. It's open 24 hours, every day of the year.)"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "1. 안내판에 자주 나오는 말 8개 (8 NHÃN TRÊN BẢNG HIỆU)",
+      "paragraphs": [
+        "영업시간 (yeongeop sigan): giờ mà cửa hàng mở cửa kinh doanh. — 영업시간이 어떻게 돼요? (Giờ mở cửa của bạn là mấy giờ?)",
+        "정기휴무 (jeonggi hyumu): ngày nghỉ định kỳ của cửa hàng. Trên bảng hiệu thường viết như 매주 월요일 휴무 (nghỉ vào thứ Hai hàng tuần). — 그 식당은 매주 월요일이 정기휴무예요. (Nhà hàng đó nghỉ vào thứ Hai hàng tuần.)",
+        "브레이크 타임 (beureikeu taim): khoảng nghỉ giữa ngày, thường là giữa bữa trưa và bữa tối. Cửa đóng và bạn không thể vào. — 지금 브레이크 타임이라서 4시 반에 다시 오세요. (Bây giờ đang là giờ nghỉ giữa ca, nên xin hãy quay lại lúc 4 giờ rưỡi.)",
+        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): thời điểm cuối cùng bạn có thể đặt món. Cửa hàng vẫn đang mở, nhưng sẽ không nhận đơn mới nữa. — 죄송해요, 주문 마감 시간이 지났어요. (Xin lỗi, đã qua giờ nhận đặt món rồi.)",
+        "연중무휴 (yeonjung muhyu): mở cửa tất cả các ngày trong năm, không có ngày nghỉ định kỳ. — 이 약국은 연중무휴라서 일요일에도 열어요. (Hiệu thuốc này mở cửa quanh năm, nên Chủ nhật cũng mở.)",
+        "24시간 영업 (isipsa sigan yeongeop): mở cửa suốt ngày đêm. — 새벽에 배고프면 24시간 영업하는 편의점에 가요. (Nếu đói vào lúc nửa đêm, tôi đến cửa hàng tiện lợi mở cửa 24 giờ.)",
+        "공휴일 휴무 (gonghyuil hyumu): đóng cửa vào các ngày lễ. — 내일은 공휴일이라서 문을 안 열어요. (Ngày mai là ngày lễ nên cửa hàng không mở cửa.)",
+        "평일 (pyeongil) / 주말 (jumal): ngày trong tuần (thứ Hai–thứ Sáu) và cuối tuần (thứ Bảy–Chủ nhật). Nhiều cửa hàng có giờ mở cửa khác nhau cho mỗi loại. — 평일에는 사람이 적은데 주말에는 줄이 길어요. (Ngày thường thì ít người, nhưng cuối tuần thì xếp hàng dài.)"
+      ]
+    },
+    {
+      "heading": "2. 안내판 읽는 순서 (CÁCH KIỂM TRA: 4 BƯỚC)",
+      "paragraphs": [
+        "① 요일 확인: Ngày đó có phải là 휴무 (ngày nghỉ) không? Kiểm tra 정기휴무 và 공휴일 휴무.",
+        "② 평일/주말 확인: Áp dụng giờ nào — giờ ngày thường hay giờ cuối tuần?",
+        "③ 시간 확인: Hầu hết các bảng hiệu dùng hệ 24 giờ. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Giờ của bạn có nằm trong khoảng giữa giờ mở cửa và giờ đóng cửa không? Cũng kiểm tra xem giờ đó có rơi vào 브레이크 타임 hay không.",
+        "④ 주문 확인: Nếu bạn muốn ăn hoặc đặt món, hãy kiểm tra thêm giờ 라스트 오더 (주문 마감). 마감 30분 전 nghĩa là '30 phút trước giờ đóng cửa'.",
+        "Mẹo: Bảng hiệu 연중무휴 nghĩa là cửa hàng không có ngày nghỉ định kỳ, nhưng một số cửa hàng vẫn đóng cửa vào dịp 설날 hoặc 추석 (các ngày lễ lớn của Hàn Quốc). Nếu bạn định đi vào ngày lễ, hãy tìm thông báo riêng."
+      ]
+    },
+    {
+      "heading": "3. 안내판 1: 카페 하루",
+      "paragraphs": [
+        "영업시간",
+        "평일 10:00 ~ 21:00",
+        "주말 11:00 ~ 22:00",
+        "라스트 오더: 마감 30분 전",
+        "정기휴무: 매주 월요일 휴무"
+      ]
+    },
+    {
+      "heading": "4. 안내판 2: 엄마손 칼국수",
+      "paragraphs": [
+        "영업시간 11:00 ~ 20:00",
+        "브레이크 타임 15:00 ~ 16:30",
+        "주문 마감 19:30",
+        "매주 일요일 휴무 · 공휴일 휴무"
+      ]
+    },
+    {
+      "heading": "5. 안내판 3: 우리동네 편의점",
+      "paragraphs": [
+        "24시간 영업",
+        "연중무휴"
+      ]
+    },
+    {
+      "heading": "6. 가게에서 쓸 수 있는 말 (CÁC CÂU HỮU ÍCH)",
+      "paragraphs": [
+        "지금 문 열었어요? (Bây giờ có mở cửa không?)",
+        "몇 시까지 해요? (Mấy giờ đóng cửa?) 'Đóng cửa' ở đây nghĩa đen là 'hoạt động đến mấy giờ'.",
+        "지금 주문돼요? (Bây giờ có thể đặt món không?)",
+        "Trên cửa bạn cũng có thể thấy 영업 중 (đang mở cửa) hoặc 준비 중 (đang chuẩn bị / tạm đóng cửa). Bạn thường thấy 준비 중 trong giờ 브레이크 타임."
+      ]
+    }
+  ],
+  "note": "Ghi chú cho giáo viên: Ba bảng hiệu này được tạo ra để dùng trong lớp học, vì vậy chúng không liệt kê các cửa hàng hay giờ giấc có thật. Ý chính cần dạy là sự khác biệt giữa 'cửa hàng đang mở cửa' và 'bạn vẫn có thể đặt món' (bài tập 3 và 4). Trước khi người học bắt đầu làm bài tập, hãy cho họ đọc to giờ theo hệ 24 giờ bằng tiếng Hàn (15:30 → 오후 3시 30분). Để mở rộng bài học, người học có thể chụp ảnh một bảng hiệu thật gần đó và viết hai câu hỏi có/không về nó cho bạn cùng lớp.",
+  "category": "etc"
+}

@@ -1,0 +1,109 @@
+{
+  "answers": [
+    "자동발매기",
+    "지하철 = subway, 승차권 = ticket (paper)",
+    "환승",
+    "출구",
+    "개찰구",
+    "교통카드",
+    "갈아타 (환승하도 정답)",
+    "안내판",
+    "역무원"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Write the Korean word for 'ticket machine'.",
+    "Write the English meaning of each word: 지하철 / 승차권",
+    "Write the Korean word for 'transfer (noun)'.",
+    "Fill in the blank with a word from the list: 몇 번 ___로 나가요?",
+    "Fill in the blank: ___를 지나서 오른쪽으로 가세요. (hint: ticket gate)",
+    "Fill in the blank: ___에 돈을 충전했어요. (hint: transport card)",
+    "Fill in the blank: 2호선으로 ___세요. (hint: change trains)",
+    "Choose the word that means 'information sign / signboard': 안내판 / 개찰구 / 출구 / 자동발매기",
+    "Fill in the blank: 길을 몰라요. ___에게 물어볼까요? (hint: station staff)"
+  ],
+  "keyword": "지하철 이용 어휘",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "objective": "Learn 10 key subway vocabulary items (ticket purchase, ticket gate, transfer, exit) with short example sentences that you can use immediately.",
+  "summary": "This worksheet teaches 10 core Korean words for using the subway: buying tickets, passing the ticket gate, transferring, and finding exits. Each word has a short, practical example sentence.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "subway",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "I take the subway."
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "ticket gate",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "Please tap your card at the gate."
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "transport card",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "I have my transport card ready."
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "ticket (paper)",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "Please give me one ticket."
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "ticket machine",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "I buy a ticket from the machine."
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "transfer (changing trains)",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "I transfer here."
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "to transfer / change trains",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "Please transfer at the next station."
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "exit",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "Go out through exit 3."
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "information sign / signboard",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "Look at the information sign."
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "station staff",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "Ask the station staff."
+    }
+  ],
+  "category": "vocab"
+}

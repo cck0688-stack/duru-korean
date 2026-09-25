@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "Kurze Übung zum Erkennen und Aussprechen der koreanischen Vokale ㅓ, ㅗ und ㅜ. Zeigt drei einfache Wörter für jeden Vokal sowie kurze Beispielsätze.",
+  "objective": "Die Lernenden können die koreanischen Vokale ㅓ, ㅗ und ㅜ in einfachen Wörtern erkennen und richtig aussprechen.",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Welcher Vokal steckt in der Silbe '서'? (Schreibe ㅓ, ㅗ oder ㅜ)",
+    "Lies laut vor: 거기 / 고기. Schreibe den Vokal der ersten Silbe jedes Wortes auf. Bei welchem Wort rundest du die Lippen?",
+    "Lies laut vor: 소 / 수. Bei beiden Vokalen werden die Lippen gerundet. Bei welchem ist der Mund stärker geschlossen?",
+    "Ordne diesen Wörtern den enthaltenen Vokal (ㅓ, ㅗ oder ㅜ) zu (schreibe die drei Zeichen in der richtigen Reihenfolge): 엄마 / 오이 / 수박",
+    "In der Minimalreihe '서 / 소 / 수' – welche Silbe enthält ㅜ?",
+    "Ordne diese Wörter anhand des Vokals der ersten Silbe den Gruppen ㅓ, ㅗ und ㅜ zu: 먹다, 주다, 고기, 서점, 포도, 우유"
+  ],
+  "answers": [
+    "ㅓ",
+    "거기: ㅓ / 고기: ㅗ — you round your lips for 고기",
+    "수 (ㅜ)",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "ähnlich wie 'eo' (ein halboffener Vokal)",
+      "as": "ungefähr wie das 'uh' im englischen Wort 'cup'"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "ähnlich wie 'o' (ein gerundeter hinterer Vokal)",
+      "as": "ungefähr wie das 'o' im englischen Wort 'go'"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "ähnlich wie 'u' (ein gerundeter hinterer Vokal)",
+      "as": "ungefähr wie das 'oo' im englischen Wort 'food'"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "Mama",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "Mama ist gekommen."
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "essen",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "Ich esse Reis."
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "Buchladen",
+      "example": "서점에 가요.",
+      "exampleMeaning": "Ich gehe zum Buchladen."
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "Gurke",
+      "example": "오이가 맛있어요.",
+      "exampleMeaning": "Die Gurke ist lecker."
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "Traube",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "Es gibt Trauben."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "Fleisch",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "Ich mag Fleisch."
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "Milch",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "Ich trinke Milch."
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "Wassermelone",
+      "example": "수박이 커요.",
+      "exampleMeaning": "Die Wassermelone ist groß."
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "geben",
+      "example": "선물을 줘요.",
+      "exampleMeaning": "Ich gebe ein Geschenk."
+    }
+  ],
+  "category": "hangul"
+}

@@ -1,0 +1,277 @@
+{
+  "id": "fa76762f-bf12-4122-8e44-4384cbcf2dfb",
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "Exercise 1: The instruction says '다음 낱말을 듣고' (listen to the word), but the worksheet has no audio, so it cannot be done from the page. The word 코 is also printed, so learners can see the answer (ㅋ) without hearing anything, and there is only one item. Change the instruction to '다음 낱말을 소리 내어 읽고 첫소리를 고르세요' (read the word aloud and choose the first sound), or add audio and hide the written word. Add at least 3 items (for example 코 / 껌 / 고기).",
+    "Exercise 2: Asking Beginner learners at the Hangul stage to explain in Korean how the air and force differ (말해 보세요) is above their level. The model answer uses phrases like '바람을 세게 내뿜음' and '힘을 주어 단단하게' that these learners cannot produce. Change it to an activity learners can do, such as 'hold paper or your hand in front of your mouth and check which sound moves it most,' and give the answer as a choice (strong / weak / none) or a match to the English hints.",
+    "Exercise 5: It uses exactly the same three words as the task (가게, 카메라, 꽃), and 꽃 also appears in Exercise 4. Each word starts with a different letter, so learners only need to recognize the letter shapes, not the sounds. Meanwhile 껌 and 꼬마 from the word list never appear in any exercise. Use words that are not in the task (for example 고기, 콩, 껌, 꼬마) or add distractors, such as two choices per hint.",
+    "Exercises 3 and 4: One glance at the letter shape gives the answer, so neither exercise practices hearing and saying the difference, which is the learning goal. Use sets that differ only in the first sound, such as 굴 / 쿨 / 꿀 or 개 / 캐 / 깨, and have learners read aloud and connect each word to its sound hint, so they practice the difference in both air and force."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "letters ㄱ (and objective, summary, exercise 5 answer 'ski→가게'): At the start of a word, ㄱ is not 'no puff'. In today's Seoul Korean it is lightly aspirated (less than ㅋ, but not zero). The unaspirated k in English 'ski' is actually closer to ㄲ. So the 'k in ski (no puff)' anchor and '공기를 세게 내보내지 않음' teach the ㄱ/ㄲ contrast wrongly. Change it to something like 'light puff, weaker than ㅋ, lower and softer voice'. Either drop the 'ski' anchor or move it to ㄲ. Rewrite the hint and answer in exercise 5 to match.",
+        "letters ㄱ sound: '뒤쪽에서 가볍게 막았다가' doesn't say what is doing the blocking. Change it to '혀 뒤쪽을 여린입천장에 가볍게 댔다가 떼며 소리를 냄' or similar.",
+        "Exercises 1–3: The objective says learners will 'hear and pronounce' ㄱ·ㅋ·ㄲ, but these items only ask the learner to find a letter that is printed right there. They test spotting a shape, not telling sounds apart. All three also repeat the same frame, '보기에서 ~로 시작하는 낱말을 고르세요'. Replace at least one with a listening item (the teacher reads a word, the learner picks ㄱ, ㅋ or ㄲ) and add a reading-aloud item with minimal pairs such as 개/캐/깨 or 굴/쿨/꿀. Vary the question formats.",
+        "Word 코, example translation: '코가 커요.' has no possessor, so 'My nose is big.' adds meaning that isn't in the Korean. Change it to 'The nose is big.' or '(He/She) has a big nose.'"
+      ],
+      "audit": []
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "letters ㄱ의 sound 설명: '공기가 약하게 나오지만 ㅋ보다 훨씬 약함'은 잘못된 문장입니다. '-지만'은 앞뒤 내용이 반대일 때 쓰는데, 여기서는 앞뒤가 둘 다 '약하다'는 같은 내용입니다. '공기가 약하게 나오며, ㅋ보다 훨씬 약함' 또는 '공기가 약하게 나옴. ㅋ보다 훨씬 약함'으로 고쳐야 합니다.",
+        "문제 1: 학습자가 보는 문제에 '(선생님이 읽을 낱말: 코)'가 그대로 적혀 있습니다. 그래서 듣기 문제가 아니라 읽기 문제가 되고, 정답(ㅋ)이 미리 드러납니다. 이 괄호는 문제에서 빼서 교사용 정답이나 메모로 옮겨야 합니다.",
+        "문제 2: 이 문제는 '다음 낱말'을 읽으라고 하는데, '캐'와 '쿨'은 초급 학습자가 아는 한국어 낱말로 보기 어렵습니다. '캐'는 동사 '캐다'의 어간이고, '쿨'은 외래어 cool로 쓰는 경우가 드뭅니다. 문제 설명을 '다음 글자를 소리 내어 읽고'로 바꾸거나, 실제 낱말로 바꿔야 합니다. 예: 개/캐/깨 → 기/키/끼 대신 '공/콩/꽁'처럼 음절 연습이라고 밝히기, 또는 굴/쿨/꿀 → 가/카/까."
+      ],
+      "audit": [
+        "exercises 1번: 선생님이 읽어 주는 낱말을 잘 듣고, 첫소리가 ㄱ, ㅋ, ㄲ 중 무엇인지 고르세요. (선생님이 읽을 낱말: 코) → 선생님이 읽어 주는 낱말을 잘 듣고, 첫소리가 ㄱ, ㅋ, ㄲ 중 무엇인지 고르세요.",
+        "exercises 2번: 다음 낱말을 소리 내어 읽고 → 다음 글자를 소리 내어 읽고",
+        "letters ㄱ sound: 공기가 약하게 나오지만 ㅋ보다 훨씬 약함. → 공기가 약하게 나오며, ㅋ보다 훨씬 약함."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Exercise 1 can't be solved from the worksheet alone. It says '선생님이 읽어 주는 낱말을 잘 듣고' (listen to the word your teacher reads), but the sheet never says which word the teacher reads. The answer 'ㅋ (코)' therefore comes out of nowhere, and a self-studying learner can't check it. Fix: print the word(s) to read in the exercise, e.g. '선생님이 읽어 주는 낱말(코)을 듣고…', or add a list of words for the teacher to read. Then make each word match its answer, e.g. '코 → ㅋ'.",
+        "The task field is empty (both title and line are \"\"). The sheet is missing its task. Fix: fill it in to match the goal of this sheet (hearing the difference between ㄱ, ㅋ and ㄲ at the start of a word), e.g. title '가게·카메라·꽃 소리 구별하기' with a one-line task description."
+      ],
+      "audit": [
+        "exercises[0] (1번 문제): 선생님이 읽어 주는 낱말을 잘 듣고, 첫소리가 ㄱ, ㅋ, ㄲ 중 무엇인지 고르세요. → 다음 낱말을 듣고, 첫소리가 ㄱ, ㅋ, ㄲ 중 무엇인지 고르세요: 코"
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "Exercise 1: The instruction says '다음 낱말을 듣고' (listen to the word), but the worksheet has no audio, so it cannot be done from the page. The word 코 is also printed, so learners can see the answer (ㅋ) without hearing anything, and there is only one item. Change the instruction to '다음 낱말을 소리 내어 읽고 첫소리를 고르세요' (read the word aloud and choose the first sound), or add audio and hide the written word. Add at least 3 items (for example 코 / 껌 / 고기).",
+        "Exercise 2: Asking Beginner learners at the Hangul stage to explain in Korean how the air and force differ (말해 보세요) is above their level. The model answer uses phrases like '바람을 세게 내뿜음' and '힘을 주어 단단하게' that these learners cannot produce. Change it to an activity learners can do, such as 'hold paper or your hand in front of your mouth and check which sound moves it most,' and give the answer as a choice (strong / weak / none) or a match to the English hints.",
+        "Exercise 5: It uses exactly the same three words as the task (가게, 카메라, 꽃), and 꽃 also appears in Exercise 4. Each word starts with a different letter, so learners only need to recognize the letter shapes, not the sounds. Meanwhile 껌 and 꼬마 from the word list never appear in any exercise. Use words that are not in the task (for example 고기, 콩, 껌, 꼬마) or add distractors, such as two choices per hint.",
+        "Exercises 3 and 4: One glance at the letter shape gives the answer, so neither exercise practices hearing and saying the difference, which is the learning goal. Use sets that differ only in the first sound, such as 굴 / 쿨 / 꿀 or 개 / 캐 / 깨, and have learners read aloud and connect each word to its sound hint, so they practice the difference in both air and force."
+      ],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "코",
+      "after": "ㅋ (코)"
+    },
+    {
+      "at": "answers[2]",
+      "before": "꼬마",
+      "after": "개·굴: ㄱ, 바람이 약하게 나오고 낮고 부드러운 소리 / 캐·쿨: ㅋ, 바람을 세게 내뿜음 / 깨·꿀: ㄲ, 바람 없이 힘을 주어 단단하게"
+    },
+    {
+      "at": "answers[5]",
+      "before": "ski→가게, key→카메라, kk→꽃",
+      "after": "light puff→가게, key→카메라, ski(tense kk)→꽃"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "보기에서 ㅋ(거센소리)로 시작하는 낱말을 고르세요: 가게 / 코 / 꽃",
+      "after": "다음 낱말을 듣고, 첫소리가 ㄱ, ㅋ, ㄲ 중 무엇인지 고르세요: 코"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "보기에서 ㄲ(된소리)로 시작하는 낱말을 고르세요: 가방 / 꼬마 / 카메라",
+      "after": "다음 글자를 소리 내어 읽고, 첫소리의 바람과 힘이 어떻게 다른지 말해 보세요: 개 / 캐 / 깨, 굴 / 쿨 / 꿀"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "보기에서 ㄱ(평음)으로 시작하는 낱말을 고르세요: 콩 / 꽃 / 고기",
+      "after": "첫소리가 다른 하나를 고르세요: 고기 / 콩 / 카메라"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "영어 힌트에 맞게 낱말을 고르세요: 'k' in \"ski\" / 'k' in \"key\" / tense 'kk' → 보기: 가게, 카메라, 꽃",
+      "after": "영어 힌트에 맞게 낱말을 고르세요: light puff, softer than ㅋ / 'k' in \"key\" / tense 'kk', like the 'k' in \"ski\" but tighter → 보기: 가게, 카메라, 꽃"
+    },
+    {
+      "at": "letters[1].sound",
+      "before": "평음. 뒤쪽에서 가볍게 막았다가 소리를 냄. 공기를 세게 내보내지 않음.",
+      "after": "평음. 혀 뒤쪽을 여린입천장에 가볍게 댔다가 떼며 소리를 냄. 공기가 약하게 나오며, ㅋ보다 훨씬 약함. 목소리는 낮고 부드럽게."
+    },
+    {
+      "at": "letters[1].as",
+      "before": "'k' in 'ski' (no puff)",
+      "after": "light puff, weaker than ㅋ (lower, softer voice)"
+    },
+    {
+      "at": "letters[3].as",
+      "before": "tense 'kk' (no exact English)",
+      "after": "tense 'kk', close to the 'k' in 'ski' but tighter (no puff)"
+    },
+    {
+      "at": "objective",
+      "before": "Beginner learners will accurately hear and pronounce ㄱ (plain), ㅋ (aspirated), and ㄲ (tense) in word-initial position, connect them to helpful English sound references (ㄱ ≈ k in \"ski,\" ㅋ ≈ k in \"key,\" ㄲ = tense \"kk,\" no exact English equivalent), and correctly read and select simple words containing these initials.",
+      "after": "Beginner learners will accurately hear and pronounce ㄱ (plain), ㅋ (aspirated), and ㄲ (tense) in word-initial position, connect them to helpful English sound references (ㄱ = light puff, weaker than ㅋ, with a lower, softer voice; ㅋ ≈ k in \"key\"; ㄲ = tense \"kk,\" close to the k in \"ski\" but tighter), and correctly read and select simple words containing these initials."
+    },
+    {
+      "at": "summary",
+      "before": "Practice distinguishing and pronouncing initial ㄱ (plain), ㅋ (aspirated), and ㄲ (tense). Use clear English sound anchors: ㄱ ≈ the k in \"ski,\" ㅋ ≈ the k in \"key,\" ㄲ = tense \"kk\" with no exact English match. Read and choose simple words that begin with these letters.",
+      "after": "Practice distinguishing and pronouncing initial ㄱ (plain), ㅋ (aspirated), and ㄲ (tense). Use clear English sound anchors: ㄱ = a light puff of air, weaker than ㅋ, with a lower, softer voice; ㅋ ≈ the k in \"key\"; ㄲ = tense \"kk,\" close to the k in \"ski\" but tighter. Read and choose simple words that begin with these letters."
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "가게·카메라·꽃 소리 구별하기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "가게, 카메라, 꽃을 소리 내어 읽고, 첫소리 ㄱ, ㅋ, ㄲ의 차이를 들어 보세요."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "My nose is big.",
+      "after": "(He/She) has a big nose."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 3,
+      "lost": [
+        "가게·카메라·꽃 소리 구별하기",
+        "꽃을 소리 내어 읽고",
+        "첫소리 ㄱ",
+        "ㄲ의 차이를 들어 보세요",
+        "평음",
+        "혀 뒤쪽을 여린입천장에 가볍게 댔다가 떼며 소리를 냄",
+        "공기가 약하게 나오며",
+        "ㅋ보다 훨씬 약함",
+        "목소리는 낮고 부드럽게",
+        "거센소리",
+        "ㄱ보다 공기를 세게 내뿜음",
+        "된소리",
+        "입에 힘을 주고 단단하게",
+        "짧게 터뜨림",
+        "공기를 세게 내보내지 않음"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 3,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 3,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T10:33:30.477Z"
+}

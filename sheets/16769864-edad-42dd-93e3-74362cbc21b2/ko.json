@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "한국어 모음 ㅓ, ㅗ, ㅜ를 구별하고 발음하는 간단한 연습입니다. 각 모음별로 쉬운 단어 세 개와 짧은 예문을 보여줍니다.",
+  "objective": "학습자는 간단한 단어 속에서 한국어 모음 ㅓ, ㅗ, ㅜ를 구별하고 정확하게 발음할 수 있습니다.",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "음절 '서'에 들어 있는 모음은 무엇일까요? (ㅓ, ㅗ, ㅜ 중에서 쓰세요)",
+    "소리 내어 읽어 보세요: 거기 / 고기. 각 단어의 첫 음절에 들어 있는 모음을 쓰세요. 어느 단어를 말할 때 입술을 둥글게 모으나요?",
+    "소리 내어 읽어 보세요: 소 / 수. 두 모음 모두 입술을 둥글게 모아요. 어느 쪽이 입을 더 오므리나요?",
+    "다음 단어에 들어 있는 모음(ㅓ, ㅗ, ㅜ)을 짝지어 보세요 (순서대로 세 개를 쓰세요): 엄마 / 오이 / 수박",
+    "최소 대립쌍 '서 / 소 / 수' 중에서 ㅜ가 들어 있는 음절은 무엇일까요?",
+    "다음 단어들을 첫 음절의 모음에 따라 ㅓ, ㅗ, ㅜ 그룹으로 분류하세요: 먹다, 주다, 고기, 서점, 포도, 우유"
+  ],
+  "answers": [
+    "ㅓ",
+    "거기: ㅓ / 고기: ㅗ — you round your lips for 고기",
+    "수 (ㅜ)",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "'eo'에 가까운 소리 (중저모음)",
+      "as": "영어 'cup'의 'uh'와 비슷한 소리"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "'o'에 가까운 소리 (원순 후설모음)",
+      "as": "영어 'go'의 'o'와 비슷한 소리"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "'u'에 가까운 소리 (원순 후설모음)",
+      "as": "영어 'food'의 'oo'와 비슷한 소리"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "엄마",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "엄마가 왔어요."
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "먹다",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "밥을 먹어요."
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "서점",
+      "example": "서점에 가요.",
+      "exampleMeaning": "서점에 가요."
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "오이",
+      "example": "오이가 맛있어요.",
+      "exampleMeaning": "오이가 맛있어요."
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "포도",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "포도가 있어요."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "고기",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "고기를 좋아해요."
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "우유",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "우유를 마셔요."
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "수박",
+      "example": "수박이 커요.",
+      "exampleMeaning": "수박이 커요."
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "주다",
+      "example": "선물을 줘요.",
+      "exampleMeaning": "선물을 줘요."
+    }
+  ],
+  "category": "hangul"
+}

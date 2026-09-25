@@ -1,0 +1,194 @@
+{
+  "id": "c413503c-9af2-45ee-bdaf-9819d5b7c30c",
+  "title": "약국에서 감기약 사기",
+  "category": "reallife",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 7,
+          "problem": "'Tidak enak badan' means feeling unwell in the whole body, which contradicts the note '(pada bagian tubuh tertentu)'. The gloss should mean discomfort in one part of the body.",
+          "fix": "merasa tidak nyaman (pada bagian tubuh tertentu)"
+        },
+        {
+          "line": 36,
+          "problem": "'Saya tidak minum' on its own sounds like 'I don't drink (alcohol)'. The reply should make clear it means not taking other medicine.",
+          "fix": "Tidak, saya tidak sedang minum obat lain."
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 10,
+          "problem": "Unnatural, clumsy Spanish ('No paro de tener la nariz que moquea') for 'My nose keeps running.'",
+          "fix": "No me para de moquear la nariz."
+        },
+        {
+          "line": 21,
+          "problem": "'contador' reads as a counting device; the grammatical term for a Korean counter word is 'clasificador' (or 'palabra contadora').",
+          "fix": "pastilla (clasificador para pastillas)"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "The English says the pharmacist \"confirms\", and in the dialogue the pharmacist just says \"Yes, that's right.\" \"Esclarece\" means \"clarifies\", which suggests the pharmacist adds or corrects information.",
+          "fix": "Uma conversa curta e real em uma farmácia coreana. Um cliente com dor de garganta e nariz escorrendo conta seus sintomas ao farmacêutico, responde às perguntas de praxe e compra um remédio para resfriado sem receita. Depois, o cliente verifica como deve tomar o remédio, e o farmacêutico confirma."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 7,
+          "problem": "The English gloss is only 'to feel unwell'. The Japanese adds 痛い ('hurts'), which changes the meaning: 불편하다 means discomfort or not feeling right, not pain. Pain is taught separately with -이/가 아파요.",
+          "fix": "(体の一部分が)具合が悪い、調子が悪い"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'高级' means 'advanced', so '初级(高级)' reads as 'Beginner (advanced)'. The English 'Beginner (high)' means the upper part of the beginner level.",
+          "fix": "初级(高)"
+        },
+        {
+          "line": 43,
+          "problem": "The English says 'Answer in English or Korean', but the translation says 'Chinese or Korean', which changes the instruction.",
+          "fix": "药剂师说:'하루 두 번, 한 번에 한 알씩 드세요.' 一天要吃几片药?请用英语或韩语回答。"
+        },
+        {
+          "line": 48,
+          "problem": "'以为' suggests the belief is mistaken. The English only says 'you think… but you're not sure', so '觉得' fits better.",
+          "fix": "你觉得药剂师说的是一天吃两次,但不太确定。请提出一个问题来确认,像对话中的顾客一样,以'먹으면 돼요?'结尾。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 36,
+          "problem": "'Nein, das nicht.' is unnatural and changes the meaning (reads as 'No, not that'); it does not answer 'Are you taking any other medicine?' with 'No, I'm not.'",
+          "fix": "Nein, nehme ich nicht."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T12:11:13.968Z"
+}

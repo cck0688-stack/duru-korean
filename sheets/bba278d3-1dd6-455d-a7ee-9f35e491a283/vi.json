@@ -1,0 +1,111 @@
+{
+  "answers": [
+    "포장",
+    "라지",
+    "아이스",
+    "당도",
+    "샷 추가",
+    "얼음",
+    "매장",
+    "따뜻한",
+    "사이즈",
+    "스몰"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "손님: 가져갈 거예요. ___으로 주세요. (mang đi)",
+    "손님: 아주 많이 마시고 싶어요. ___로 할게요. (cỡ lớn)",
+    "손님: 오늘은 덥네요. ___로 주세요. (đá)",
+    "직원: ___는 어떻게 해 드릴까요? 손님: 30%요. (mức độ ngọt)",
+    "손님: 진하게 마시고 싶어요. 에스프레소 ___ 가능해요? (thêm shot)",
+    "손님: ___ 없이 주세요. (đá)",
+    "직원: 포장이세요? 손님: 아니요, ___에서 먹고 갈게요. (uống tại chỗ)",
+    "손님: 오늘은 추워요. ___ 라테로 주세요. (nóng)",
+    "직원: 음료 ___는 어떤 걸로 드릴까요? (kích cỡ)",
+    "손님: 조금만 마실 거예요. 라테 ___ 한 잔이요. (nhỏ)"
+  ],
+  "keyword": "카페 주문 어휘",
+  "level": "Sơ cấp",
+  "minutes": 15,
+  "objective": "Học viên sẽ có thể hiểu và nói được 10 từ cốt lõi để hỏi và trả lời về kích cỡ, điều chỉnh đá và độ ngọt, thêm shot, và uống tại chỗ/mang đi khi gọi đồ ở quán cà phê.",
+  "summary": "Từ vựng tiếng Hàn cần thiết để gọi đồ uống ở quán cà phê: các lựa chọn kích cỡ, đá/nóng, mức đá và độ ngọt, thêm shot, và uống tại chỗ/mang đi. Bao gồm 10 từ thông dụng kèm câu ví dụ tự nhiên và phần luyện điền từ ngắn.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "카페 주문 필수 어휘 10",
+  "words": [
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "lựa chọn kích cỡ (cỡ ly)",
+      "example": "사이즈 어떻게 하실까요?",
+      "exampleMeaning": "Bạn muốn cỡ nào ạ?"
+    },
+    {
+      "korean": "스몰",
+      "roman": "seumol",
+      "meaning": "nhỏ (cỡ ly)",
+      "example": "스몰로 주세요.",
+      "exampleMeaning": "Cho tôi cỡ nhỏ."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "lớn (cỡ ly)",
+      "example": "라지 한 잔 주세요.",
+      "exampleMeaning": "Cho tôi một cỡ lớn."
+    },
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "đá / lạnh",
+      "example": "아이스 라테로 주세요.",
+      "exampleMeaning": "Cho tôi một ly latte đá."
+    },
+    {
+      "korean": "따뜻한",
+      "roman": "ttatteutan",
+      "meaning": "nóng/ấm (dành cho đồ uống)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "Cho tôi một ly Americano nóng."
+    },
+    {
+      "korean": "얼음",
+      "roman": "eoreum",
+      "meaning": "đá (lượng đá)",
+      "example": "얼음은 적게 해 주세요.",
+      "exampleMeaning": "Xin cho ít đá thôi."
+    },
+    {
+      "korean": "당도",
+      "roman": "dangdo",
+      "meaning": "mức độ ngọt",
+      "example": "당도는 50%로 해 주세요.",
+      "exampleMeaning": "Xin làm độ ngọt 50%."
+    },
+    {
+      "korean": "샷 추가",
+      "roman": "syat chuga",
+      "meaning": "thêm một shot espresso",
+      "example": "샷 추가해 주세요.",
+      "exampleMeaning": "Xin thêm một shot."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "mang đi / mang về",
+      "example": "포장으로 할게요.",
+      "exampleMeaning": "Cho tôi mang đi."
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "uống tại chỗ (uống ở quán)",
+      "example": "매장에서 마실게요.",
+      "exampleMeaning": "Tôi sẽ uống ở đây."
+    }
+  ],
+  "category": "vocab"
+}

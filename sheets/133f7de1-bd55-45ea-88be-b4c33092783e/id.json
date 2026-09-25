@@ -1,0 +1,94 @@
+{
+  "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
+  "keyword": "",
+  "summary": "Baca dua pengumuman apartemen singkat (pemberitahuan penghentian air dan pemadaman listrik akibat pemeriksaan), dan berlatih mencari dengan cepat informasi tanggal/waktu, tempat, alasan, serta apa yang harus dilakukan penghuni. Fokus pada delapan label/kata yang sering digunakan.",
+  "objective": "Pembelajar akan mampu membaca pengumuman gedung singkat tentang penghentian air/listrik dan pemeriksaan, serta dengan cepat menemukan tanggal, waktu, area yang terdampak, dan apa yang harus dilakukan penghuni; juga mengenali 8 label/kata yang sering digunakan (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Pemula Tinggi (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Pukul berapa 단수 pada 공지 A berakhir? Tulis dalam format yang digunakan di 공지문 (misalnya: 18:00).",
+    "Di mana 단수 pada 공지 A dilakukan? Lihat baris ‘장소’ di 공지문 lalu tulis jawabannya.",
+    "단전 pada 공지 B jatuh pada tanggal berapa dan hari apa? Tulis dalam format yang digunakan di 공지문 (misalnya: 10월 12일(월)).",
+    "Tulis satu hal yang harus dilakukan warga menurut 공지 B, persis seperti kalimat yang tertulis di 공지문.",
+    "Jika ingin bertanya tentang 단전 pada 공지 B, ke mana harus menghubungi? Bukan 전화번호, tetapi tulis nama 연락할 곳-nya.",
+    "Apa 사유 pada 공지 B? Lihat baris ‘사유’ di 공지문 lalu tulis jawabannya.",
+    "‘단수’ berarti menghentikan sementara pasokan apa? Lihat ‘자주 쓰는 표시/낱말’ lalu tulis jawabannya dalam satu kata."
+  ],
+  "answers": [
+    "14:00",
+    "101동 전체",
+    "10월 15일(목)",
+    "단전 전에 가전제품 플러그를 뽑아 주세요.",
+    "관리사무소",
+    "전기설비 정기 점검",
+    "물"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Petunjuk Belajar",
+      "paragraphs": [
+        "Anda akan berlatih membaca dengan cepat pengumuman tentang 단수, 단전, dan 점검 di apartemen atau gedung, serta mencari informasi yang diperlukan.",
+        "Secara khusus, Anda akan belajar cara memilih dan membaca hanya baris yang diperlukan dengan melihat label seperti ‘일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의’."
+      ]
+    },
+    {
+      "heading": "Label/Kata yang Sering Digunakan",
+      "paragraphs": [
+        "일시: kapan itu dilakukan (tanggal dan waktu)",
+        "장소: 어디에서 하는지(영향을 받는 곳)",
+        "사유: 왜 하는지(이유)",
+        "점검: 상태를 확인하거나 검사함",
+        "작업: 공사를 하거나 고치는 일",
+        "단수: 물 공급을 잠시 멈춤",
+        "단전: 전기 공급을 잠시 멈춤",
+        "문의: 연락할 곳(전화번호, 부서/사무실)"
+      ]
+    },
+    {
+      "heading": "예시 공지 A — Panduan 단수",
+      "paragraphs": [
+        "[공지 A] Panduan 단수",
+        "일시: 2026년 10월 12일(월) 09:30~14:00",
+        "장소: 101동 전체",
+        "사유: 건물 내부 배관 교체 작업",
+        "작업: 물 공급 중단 및 배관 교체",
+        "유의사항: 단수 전에 물을 미리 받아 두세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "예시 공지 B — Panduan 단전",
+      "paragraphs": [
+        "[공지 B] Panduan 단전",
+        "일시: 2026년 10월 15일(목) 13:00~16:00",
+        "장소: 102동 전체",
+        "사유: 전기설비 정기 점검",
+        "작업: 변전실 점검 및 전력 차단",
+        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "Cara Mencari dengan Cepat",
+      "paragraphs": [
+        "Lihat dulu labelnya (일시, 장소, 사유, 작업, 유의사항, 문의), lalu baca dengan tepat hanya baris yang diperlukan.",
+        "Biasakan diri dengan angka dan simbol (misalnya: 09:30, ~, (월), 동). Waktu biasanya ditulis dalam format 24 jam.",
+        "Untuk mengetahui apa yang harus dilakukan, carilah ungkapan permintaan seperti ‘-세요’ di baris ‘유의사항’."
+      ]
+    },
+    {
+      "heading": "Petunjuk Latihan",
+      "paragraphs": [
+        "Jawablah soal-soal di bawah ini. Carilah jawabannya di 공지문 A atau B, atau tulis berdasarkan ‘자주 쓰는 표시/낱말’. Jawaban yang Anda temukan di 공지문 harus ditulis persis sesuai format yang digunakan dalam 공지문. Tulis juga angka dan simbol (misalnya: ~, :) apa adanya."
+      ]
+    }
+  ],
+  "note": "Pengumuman dalam materi ini hanya contoh untuk latihan belajar, bukan jadwal atau kontak yang sebenarnya.",
+  "category": "etc"
+}

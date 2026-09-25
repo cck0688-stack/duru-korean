@@ -1,0 +1,148 @@
+{
+  "answers": [
+    "두 알 (2 tablets)",
+    "목이 아프고 기침이 나요. (목이 아프고 기침도 나요. / 목이 아프고 기침을 해요.)",
+    "그저께부터요.",
+    "네, 있어요.",
+    "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요.)",
+    "하루 두 번 먹으면 돼요? (하루에 두 번 먹으면 돼요?)"
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "약사",
+      "korean": "어서 오세요. 어디가 불편하세요?",
+      "meaning": "Willkommen. Was fehlt Ihnen?"
+    },
+    {
+      "who": "손님",
+      "korean": "목이 아프고 콧물이 나요.",
+      "meaning": "Mir tut der Hals weh und ich habe eine laufende Nase."
+    },
+    {
+      "who": "약사",
+      "korean": "언제부터 그랬어요?",
+      "meaning": "Seit wann ist das so?"
+    },
+    {
+      "who": "손님",
+      "korean": "어제부터요.",
+      "meaning": "Seit gestern."
+    },
+    {
+      "who": "약사",
+      "korean": "다른 약 드시는 거 있어요?",
+      "meaning": "Nehmen Sie noch andere Medikamente?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "Nein, nehme ich nicht."
+    },
+    {
+      "who": "약사",
+      "korean": "그럼 이 감기약 드세요. 하루 세 번, 한 번에 한 알씩 식후에 드세요.",
+      "meaning": "Dann nehmen Sie diese Erkältungsmedizin. Nehmen Sie jeweils eine Tablette, dreimal am Tag, nach den Mahlzeiten."
+    },
+    {
+      "who": "손님",
+      "korean": "밥 먹고 먹으면 돼요?",
+      "meaning": "Also nehme ich es nach dem Essen?"
+    },
+    {
+      "who": "약사",
+      "korean": "네, 맞아요. 식사하시고 드세요.",
+      "meaning": "Ja, genau. Nehmen Sie es nach dem Essen."
+    }
+  ],
+  "exercises": [
+    "Der Apotheker sagt: '하루 두 번, 한 번에 한 알씩 드세요.' Wie viele Tabletten nimmt man an einem Tag? Antworte auf Deutsch oder Koreanisch.",
+    "Dein Hals tut weh und du hustest. Beantworte die Frage des Apothekers '어디가 불편하세요?' in einem Satz. Verbinde die beiden Symptome mit '-고'.",
+    "Der Apotheker fragt '언제부터 그랬어요?'. Deine Beschwerden begannen vorgestern. Gib eine kurze Antwort, die mit '-부터요' endet.",
+    "Der Apotheker fragt '다른 약 드시는 거 있어요?'. Du nimmst ein anderes Medikament. Gib eine kurze Antwort.",
+    "Schreibe diese Anweisung auf Koreanisch so, wie ein Apotheker sie sagen würde: 'Nimm es zweimal am Tag, nach den Mahlzeiten.'",
+    "Du denkst, der Apotheker hat gesagt, man solle es zweimal am Tag nehmen, bist dir aber nicht sicher. Stelle eine Frage, um das zu überprüfen. Beende sie mit '먹으면 돼요?', so wie es der Kunde im Dialog tut."
+  ],
+  "keyword": "약국에서 감기약 사기",
+  "level": "Anfänger (hoch)",
+  "minutes": 15,
+  "objective": "Lernende können in einer Apotheke rezeptfreie Erkältungsmedizin kaufen. Sie können ein Symptom mit '-이/가 아파요' oder '-이/가 나요' ausdrücken, die Fragen '언제부터 그랬어요?' und '다른 약 드시는 거 있어요?' kurz beantworten, Einnahmehinweise verstehen (하루 ~ 번, 한 번에 ~ 알씩, 식후에) und diese Hinweise mit '~ 먹으면 돼요?' nachfragen.",
+  "setting": "Eine Nachbarschaftsapotheke (약국) in Korea, an einem Wochentag. Ein Kunde mit einer Erkältung kommt herein, um ohne Rezept Medikamente zu kaufen.",
+  "summary": "Ein kurzer, realistischer Dialog in einer koreanischen Apotheke. Ein Kunde mit Halsschmerzen und laufender Nase schildert dem Apotheker seine Beschwerden, beantwortet die üblichen Rückfragen und kauft rezeptfrei Erkältungsmedizin. Anschließend fragt der Kunde nach der Einnahme, und der Apotheker bestätigt sie.",
+  "tags": [],
+  "task": null,
+  "title": "약국에서 감기약 사기",
+  "words": [
+    {
+      "korean": "약국",
+      "roman": "yakguk",
+      "meaning": "Apotheke",
+      "example": "이 근처에 약국 있어요?",
+      "exampleMeaning": "Gibt es hier in der Nähe eine Apotheke?"
+    },
+    {
+      "korean": "불편하다",
+      "roman": "bulpyeonhada",
+      "meaning": "sich unwohl fühlen (an einem Körperteil)",
+      "example": "속이 좀 불편해요.",
+      "exampleMeaning": "Mir ist ein bisschen übel im Magen."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "laufende Nase",
+      "example": "콧물이 계속 나요.",
+      "exampleMeaning": "Meine Nase läuft ständig."
+    },
+    {
+      "korean": "열",
+      "roman": "yeol",
+      "meaning": "Fieber",
+      "example": "아이가 밤에 열이 났어요.",
+      "exampleMeaning": "Mein Kind hatte letzte Nacht Fieber."
+    },
+    {
+      "korean": "기침",
+      "roman": "gichim",
+      "meaning": "Husten",
+      "example": "밤에 기침을 많이 해요.",
+      "exampleMeaning": "Ich huste nachts viel."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "Erkältungsmedizin",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Könnte ich etwas gegen Erkältung bekommen?"
+    },
+    {
+      "korean": "하루 세 번",
+      "roman": "haru se beon",
+      "meaning": "dreimal am Tag",
+      "example": "하루 세 번 드시면 돼요.",
+      "exampleMeaning": "Du nimmst es einfach dreimal am Tag."
+    },
+    {
+      "korean": "식후",
+      "roman": "sikhu",
+      "meaning": "nach einer Mahlzeit",
+      "example": "이 약은 꼭 식후에 드세요.",
+      "exampleMeaning": "Achte darauf, dieses Medikament nach dem Essen einzunehmen."
+    },
+    {
+      "korean": "알",
+      "roman": "al",
+      "meaning": "Tablette (Zählwort für Pillen)",
+      "example": "한 번에 두 알씩 드세요.",
+      "exampleMeaning": "Nimm jedes Mal zwei Tabletten."
+    },
+    {
+      "korean": "그저께",
+      "roman": "geujeokke",
+      "meaning": "vorgestern",
+      "example": "그저께 병원에 갔어요.",
+      "exampleMeaning": "Ich war vorgestern beim Arzt."
+    }
+  ],
+  "category": "reallife"
+}

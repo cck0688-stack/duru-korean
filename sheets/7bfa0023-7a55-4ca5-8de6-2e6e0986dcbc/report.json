@@ -1,0 +1,197 @@
+{
+  "id": "7bfa0023-7a55-4ca5-8de6-2e6e0986dcbc",
+  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
+  "category": "etc",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 36,
+          "problem": "The English gloss 'What time do you close?' was changed to 'Sampai jam berapa buka?' ('Until what time are you open?'). The next sentence explains the word 'Tutup' (close), which is no longer in the translated question, so the explanation doesn't make sense.",
+          "fix": "몇 시까지 해요? (Jam berapa tutup?) 'Tutup' di sini secara harfiah berarti 'sampai jam berapa kamu beroperasi'."
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 3,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 36,
+          "problem": "The gloss 'What time do you close?' was changed to 'Até que horas vocês funcionam?'. The note still explains the word 'fechar', which no longer appears in the gloss, and it now just repeats the gloss instead of contrasting the natural meaning with the literal one.",
+          "fix": "몇 시까지 해요? (Que horas vocês fecham?) Aqui, 'fechar' significa literalmente 'até que horas vocês funcionam'."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 36,
+          "problem": "The English gloss is 'What time do you close?' and the note explains that 'close' literally means 'until what time do you operate'. The Japanese translated the gloss as the literal meaning (何時まで営業していますか?), so the note's reference to 「閉店」 doesn't match anything in the gloss and the note no longer makes sense.",
+          "fix": "몇 시까지 해요? (何時に閉まりますか?) ここでの「閉まる」は、文字通りには「何時まで営業していますか」という意味です。"
+        },
+        {
+          "line": 8,
+          "problem": "The English 'a break in the middle of the day, usually between lunch and dinner' is turned into a firm definition (昼の営業と夜の営業の間にある休憩時間), which drops the 'usually'. The same idea is then repeated with 通常ランチとディナーの間にあり, which is redundant and unnatural.",
+          "fix": "브레이크 타임 (beureikeu taim):日中の休憩時間で、通常ランチとディナーの間にあります。ドアが閉まっていて入店できません。— 지금 브레이크 타임이라서 4시 반에 다시 오세요. (今は休憩時間なので、4時半にまた来てください。)"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 3,
+      "lost": [
+        "월요일 오후",
+        "화요일 오후",
+        "분에 엄마손 칼국수에서 밥을 먹을 수 있어요",
+        "금요일 저녁",
+        "분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요",
+        "토요일 밤",
+        "시에 카페 하루에서 커피를 주문할 수 있어요",
+        "이번 주 수요일은 공휴일이에요",
+        "수요일 낮",
+        "시에 엄마손 칼국수에 갈 수 있어요",
+        "일요일 새벽",
+        "시에 우리동네 편의점에 갈 수 있어요"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "Level labels mistranslated: 'Beginner (high)' rendered as 初级(中高) and 'Intermediate (low)' as 中级(初级), which is wrong and awkward.",
+          "fix": "初级(高)–中级(低)"
+        },
+        {
+          "line": 36,
+          "problem": "The gloss was changed to 营业到几点?, so the following note explaining that '关门' literally means '营业到几点' no longer refers to anything in the gloss. The note is now incoherent.",
+          "fix": "몇 시까지 해요?(几点关门?)这里的“关门”字面意思是“营业到几点”。"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 9,
+          "problem": "\"die letzte Zeit, zu der man bestellen kann\" is unnatural German, and \"die letzte Zeit\" can be read as \"recently\". It should say the last point in time.",
+          "fix": "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): der letzte Zeitpunkt, zu dem man bestellen kann. Das Geschäft ist noch geöffnet, nimmt aber keine neuen Bestellungen mehr an. — 죄송해요, 주문 마감 시간이 지났어요. (Es tut mir leid, die Bestellzeit ist schon vorbei.)"
+        },
+        {
+          "line": 11,
+          "problem": "\"Supermarkt\" is the wrong term: 편의점 means a convenience store, not a supermarket.",
+          "fix": "24시간 영업 (isipsa sigan yeongeop): Tag und Nacht durchgehend geöffnet. — 새벽에 배고프면 24시간 영업하는 편의점에 가요. (Wenn ich spätnachts Hunger habe, gehe ich in einen rund um die Uhr geöffneten Convenience-Store.)"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T12:21:57.466Z"
+}

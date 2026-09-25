@@ -1,0 +1,388 @@
+{
+  "id": "b994e35e-80be-496b-9eeb-51938ff2f540",
+  "title": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
+  "category": "vocab",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "띄어쓰기: '일반쓰레기', '음식물쓰레기', '종량제봉투'는 표준국어대사전에 한 단어로 올라 있지 않으므로 '일반 쓰레기', '음식물 쓰레기', '종량제 봉투'로 띄어 써야 함. 같은 학습지 안의 '투명 페트병', '라벨 제거'와도 띄어쓰기가 맞지 않음. words, 예문, 문제, 정답에서 모두 고치고 로마자도 띄어 쓸 것(예: ilban sseuregi).",
+    "문제 10: '깨진 컵'의 정답을 '일반쓰레기' 하나로만 단정함. 깨진 유리나 도자기는 지자체에 따라 종량제 봉투가 아니라 불연성 쓰레기 마대(특수 마대)에 버려야 하는 곳이 많아 확인할 수 없는 규정을 단정한 것임. '사용한 휴지'처럼 분명한 일반 쓰레기로 바꾸거나 '(지역마다 다를 수 있어요)'를 덧붙일 것.",
+    "문제 10: 선택지 뒤의 '(이)에요' 표기가 틀림. 모음 뒤에서는 '예요'이므로 '일반 쓰레기예요/음식물 쓰레기예요'가 맞는데, 이 표기는 '일반쓰레기에요'라는 틀린 형태를 가르침. '이에요/예요' 또는 '(이)예요'로 고칠 것.",
+    "문제 3: '오늘은 우리 동네 재활용 _____이에요.'에만 영어 힌트가 없고, '배출일', '날'도 들어갈 수 있는데 '수거일'만 정답으로 함. '(collection day)' 힌트를 넣거나 다른 답도 인정할 것.",
+    "문제 5, 7, 9, 10: 네 문제가 모두 같은 세 선택지(일반쓰레기/재활용/음식물쓰레기)를 쓰고, 7번과 9번은 '(…)(으)로 버려요' 틀까지 같아 사실상 세 낱말만 반복함. 스티로폼, 투명 페트병, 종량제 봉투 등을 구분하는 연습이 없음. 적어도 두 문제는 다른 낱말을 다른 문장 틀로 연습하게 바꿀 것(예: '이 병은 (라벨 제거 / 분리) 후에 버려요', 스티로폼과 투명 페트병 분류 문제).",
+    "exercises[2] (3번): 빈칸에 알맞은 말을 쓰세요: 오늘은 우리 동네 재활용 _____이에요. → 빈칸에 알맞은 말을 쓰세요: 오늘은 우리 동네 재활용 _____이에요. (collection day)",
+    "exercises[9] (10번): 알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(이)에요. → 알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(으)로 버려요."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words[재활용] roman: 'jaehwalyong' is wrong. The word is pronounced [재화룡], so change it to 'jaehwaryong'.",
+        "words[음식물쓰레기] roman: 'eumsikmulsseuregi' is wrong. 음식물 is pronounced [음싱물] (nasalization), so change it to 'eumsingmulsseuregi'.",
+        "Exercise 2 ('재활용품을 버리기 전에 _____를 꼭 하세요') has more than one correct answer: '분리' fits just as naturally as '라벨 제거'. Label removal also applies only to bottles, not to all recyclables. Change the stem so it points to bottles, e.g. '페트병을 버리기 전에 _____를 꼭 하세요.'",
+        "The examples and exercises repeat the same frame: 7 of the 10 examples are commands ending in '~세요' (~에 버리세요, ~하세요), and all 5 exercises are the same fill-in-the-blank type. Five words (일반쓰레기, 재활용, 음식물쓰레기, 배출, 스티로폼) are never practiced. Change some examples to statements, questions, or '-아/어야 해요', and add an exercise of a different type that uses these words (e.g. choosing the right bag or category)."
+      ],
+      "audit": [
+        "words[1] 재활용 roman: jaehwalyong → jaehwaryong",
+        "words[2] 음식물쓰레기 roman: eumsikmulsseuregi → eumsingmulsseuregi",
+        "exercises[1] (2번): 빈칸에 알맞은 말을 쓰세요: 재활용품을 버리기 전에 _____를 꼭 하세요. → 빈칸에 알맞은 말을 쓰세요: 재활용품을 버리기 전에 _____를 꼭 하세요. (병에 붙은 라벨을 떼는 것)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercise 1 has more than one right answer. In '음료를 다 마셨다면 _____은 따로 모아 주세요.', only '투명 페트병' is accepted. But '재활용은 따로 모아 주세요' also makes sense, and in real life cans and glass bottles are collected separately too. The learner cannot tell which answer is wanted. Fix: give the answer away in the sentence, for example '음료를 다 마셨다면 라벨을 떼고 _____은 따로 모아 주세요. (clear PET bottle)'. Or change the exercise so the learner picks from the word list.",
+        "Exercise 2 also has another possible answer. '페트병을 버리기 전에 _____를 꼭 하세요.' can take '분리를' as well as '라벨 제거를'. Fix: make the clue specific, for example '페트병을 버리기 전에 병에 붙은 _____를 꼭 하세요.'",
+        "Half the words are never practiced. The five exercises only target 투명 페트병, 라벨 제거, 수거일, 분리 and 종량제봉투. 음식물쓰레기, 배출, 스티로폼 and 재활용 are never answers, and 일반쓰레기 only appears in the question. The objective says learners will use all 10 words and make short sentences, but there is no sentence-writing exercise. Fix: add blank-filling or choice exercises for 배출, 음식물쓰레기, 스티로폼, 재활용 and 일반쓰레기, and add at least one exercise where learners write a short sentence.",
+        "The example for 일반쓰레기 states a disposal rule as fact. '깨진 컵은 일반쓰레기예요.' says a broken cup is general waste. Rules for broken glass and ceramics differ by local government, and many areas require a special bag (불연성 마대 or 특수규격 마대). Fix: use an example that holds everywhere, for example '사용한 휴지는 일반쓰레기예요.' (Used tissues are general waste.)",
+        "The task section is empty: task.title and task.line are both blank strings. Fix: add a real-life task that matches the objective, or remove the empty fields. For example: 'Tell your neighbor what goes out on your building's collection day, in 3 sentences.'"
+      ],
+      "audit": [
+        "exercises 2번: 빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 _____를 꼭 하세요. → 빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 병에 붙은 비닐 라벨을 떼는 _____를 꼭 하세요."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "2번 문제: 정답을 넣으면 '비닐 라벨을 떼는 라벨 제거를 꼭 하세요'가 되어 같은 뜻을 두 번 말하게 됩니다. 어색한 문장입니다. '페트병을 버리기 전에 _____를 꼭 하세요. (label removal)'처럼 '떼는'을 빼고 영어 힌트를 붙이세요.",
+        "4번 문제: '_____하세요'에는 '분리' 말고도 '분리수거', '분리배출'이 모두 들어갈 수 있습니다. 그런데 정답은 '분리' 하나뿐이고 힌트도 없습니다. 영어 힌트 '(separate)'를 붙이거나, 답에 '분리수거/분리배출도 정답'이라고 적으세요.",
+        "9번 문제: 괄호 뒤 조사 '으로'는 받침이 있는 '재활용'에만 맞습니다. '음식물쓰레기로', '일반쓰레기로'가 맞는 형태라서, 조사만 보고도 답을 고를 수 있습니다. 조사를 '(으)로'로 바꾸세요.",
+        "7번 문제: 괄호 뒤 조사 '로'는 받침이 없는 '음식물쓰레기'에만 맞습니다. '스티로폼으로', '투명 페트병으로'가 맞는 형태라서 조사가 답을 알려 줍니다. 이것도 '(으)로'로 바꾸세요.",
+        "10번 문제: '사용한 휴지는 (…)예요'는 일반쓰레기 낱말의 예문 '사용한 휴지는 일반쓰레기예요.'를 그대로 옮긴 것입니다. 또 '예요'는 받침이 없는 말에만 붙습니다. '재활용'이라면 '재활용이에요'가 되어야 하므로 조사가 답을 좁혀 줍니다. 예문과 다른 상황으로 바꾸세요(예: '깨진 컵은 어디에 버려요?'). 끝맺음은 '(이)에요'로 쓰세요.",
+        "3번 문제와 11번 예시 답: '우리 동네 재활용 수거일', '우리 아파트 재활용 수거일은 화요일이에요'가 수거일 예문과 문장 틀이 같습니다. 11번 예시 답은 예문 첫 문장을 그대로 썼습니다. 반복되는 틀이라 학습지가 얇아집니다. 11번 예시 답을 다른 요일·품목으로 바꾸세요(예: '우리 집 음식물쓰레기 수거일은 월요일과 목요일이에요.')."
+      ],
+      "audit": [
+        "exercises[1] (2번 문제): 빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 병에 붙은 비닐 라벨을 떼는 _____를 꼭 하세요. → 빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 _____를 꼭 하세요. (label removal)",
+        "exercises[6] (7번 문제): (음식물쓰레기 / 스티로폼 / 투명 페트병)로 버려요. → (음식물쓰레기 / 스티로폼 / 투명 페트병)(으)로 버려요.",
+        "exercises[8] (9번 문제): (재활용 / 음식물쓰레기 / 일반쓰레기)으로 버려요. → (재활용 / 음식물쓰레기 / 일반쓰레기)(으)로 버려요."
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "띄어쓰기: '일반쓰레기', '음식물쓰레기', '종량제봉투'는 표준국어대사전에 한 단어로 올라 있지 않으므로 '일반 쓰레기', '음식물 쓰레기', '종량제 봉투'로 띄어 써야 함. 같은 학습지 안의 '투명 페트병', '라벨 제거'와도 띄어쓰기가 맞지 않음. words, 예문, 문제, 정답에서 모두 고치고 로마자도 띄어 쓸 것(예: ilban sseuregi).",
+        "문제 10: '깨진 컵'의 정답을 '일반쓰레기' 하나로만 단정함. 깨진 유리나 도자기는 지자체에 따라 종량제 봉투가 아니라 불연성 쓰레기 마대(특수 마대)에 버려야 하는 곳이 많아 확인할 수 없는 규정을 단정한 것임. '사용한 휴지'처럼 분명한 일반 쓰레기로 바꾸거나 '(지역마다 다를 수 있어요)'를 덧붙일 것.",
+        "문제 10: 선택지 뒤의 '(이)에요' 표기가 틀림. 모음 뒤에서는 '예요'이므로 '일반 쓰레기예요/음식물 쓰레기예요'가 맞는데, 이 표기는 '일반쓰레기에요'라는 틀린 형태를 가르침. '이에요/예요' 또는 '(이)예요'로 고칠 것.",
+        "문제 3: '오늘은 우리 동네 재활용 _____이에요.'에만 영어 힌트가 없고, '배출일', '날'도 들어갈 수 있는데 '수거일'만 정답으로 함. '(collection day)' 힌트를 넣거나 다른 답도 인정할 것.",
+        "문제 5, 7, 9, 10: 네 문제가 모두 같은 세 선택지(일반쓰레기/재활용/음식물쓰레기)를 쓰고, 7번과 9번은 '(…)(으)로 버려요' 틀까지 같아 사실상 세 낱말만 반복함. 스티로폼, 투명 페트병, 종량제 봉투 등을 구분하는 연습이 없음. 적어도 두 문제는 다른 낱말을 다른 문장 틀로 연습하게 바꿀 것(예: '이 병은 (라벨 제거 / 분리) 후에 버려요', 스티로폼과 투명 페트병 분류 문제)."
+      ],
+      "audit": [
+        "exercises[2] (3번): 빈칸에 알맞은 말을 쓰세요: 오늘은 우리 동네 재활용 _____이에요. → 빈칸에 알맞은 말을 쓰세요: 오늘은 우리 동네 재활용 _____이에요. (collection day)",
+        "exercises[9] (10번): 알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(이)에요. → 알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(으)로 버려요."
+      ]
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[6]",
+      "before": "",
+      "after": "배출"
+    },
+    {
+      "at": "answers[7]",
+      "before": "",
+      "after": "음식물쓰레기"
+    },
+    {
+      "at": "answers[8]",
+      "before": "",
+      "after": "스티로폼"
+    },
+    {
+      "at": "answers[9]",
+      "before": "",
+      "after": "재활용"
+    },
+    {
+      "at": "answers[10]",
+      "before": "",
+      "after": "일반쓰레기"
+    },
+    {
+      "at": "answers[11]",
+      "before": "",
+      "after": "예: 우리 집 음식물쓰레기 수거일은 월요일과 목요일이에요. 그래서 일요일 저녁과 수요일 저녁에 음식물쓰레기를 배출해요."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "빈칸에 알맞은 말을 쓰세요: 음료를 다 마셨다면 _____은 따로 모아 주세요.",
+      "after": "빈칸에 알맞은 말을 쓰세요: 음료를 다 마셨다면 라벨을 떼고 _____은 따로 모아 주세요. (clear PET bottle)"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "빈칸에 알맞은 말을 쓰세요: 재활용품을 버리기 전에 _____를 꼭 하세요.",
+      "after": "빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 _____를 꼭 하세요. (label removal)"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "빈칸에 알맞은 말을 쓰세요: 플라스틱과 종이는 함께 버리지 말고 _____하세요.",
+      "after": "빈칸에 알맞은 말을 쓰세요: 플라스틱과 종이는 함께 버리지 말고 _____하세요. (separate)"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "빈칸에 알맞은 말을 쓰세요: 일반쓰레기는 반드시 _____에 넣어야 해요.",
+      "after": "알맞은 것을 고르세요: 일반쓰레기는 (종량제봉투 / 재활용 / 음식물쓰레기)에 넣어서 배출해야 해요."
+    },
+    {
+      "at": "exercises[6]",
+      "before": "",
+      "after": "빈칸에 알맞은 말을 쓰세요: 쓰레기는 저녁 8시 이후에 _____해 주세요. (put out for collection)"
+    },
+    {
+      "at": "exercises[7]",
+      "before": "",
+      "after": "알맞은 것을 고르세요: 먹고 남은 반찬은 (음식물쓰레기 / 스티로폼 / 투명 페트병)(으)로 버려요."
+    },
+    {
+      "at": "exercises[8]",
+      "before": "",
+      "after": "빈칸에 알맞은 말을 쓰세요: 택배 상자 안에 있던 하얀 _____은 테이프를 떼고 버려요. (styrofoam)"
+    },
+    {
+      "at": "exercises[9]",
+      "before": "",
+      "after": "알맞은 것을 고르세요: 깨끗한 종이 상자와 캔은 (재활용 / 음식물쓰레기 / 일반쓰레기)(으)로 버려요."
+    },
+    {
+      "at": "exercises[10]",
+      "before": "",
+      "after": "알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(이)에요."
+    },
+    {
+      "at": "exercises[11]",
+      "before": "",
+      "after": "'수거일'과 '배출'을 사용해서 우리 집 쓰레기 버리는 날에 대해 짧은 문장을 쓰세요."
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "우리 집 쓰레기 버리는 날 알려 주기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "Tell your neighbor what goes out on your building's collection day, in 3 sentences."
+    },
+    {
+      "at": "words[1].example",
+      "before": "깨진 컵은 일반쓰레기에 버리세요.",
+      "after": "사용한 휴지는 일반쓰레기예요."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "Please throw the broken cup into general waste.",
+      "after": "Used tissues are general waste."
+    },
+    {
+      "at": "words[2].roman",
+      "before": "jaehwalyong",
+      "after": "jaehwaryong"
+    },
+    {
+      "at": "words[2].example",
+      "before": "플라스틱은 재활용으로 버리세요.",
+      "after": "플라스틱은 재활용으로 버려야 해요."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "Please throw plastic into recycling.",
+      "after": "Plastic has to be thrown out as recycling."
+    },
+    {
+      "at": "words[3].roman",
+      "before": "eumsikmulsseuregi",
+      "after": "eumsingmulsseuregi"
+    },
+    {
+      "at": "words[5].example",
+      "before": "쓰레기는 지정 장소에 배출하세요.",
+      "after": "쓰레기는 몇 시에 배출해요?"
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "Please put out the trash at the designated place.",
+      "after": "What time do we put out the trash?"
+    },
+    {
+      "at": "words[7].example",
+      "before": "종이와 플라스틱을 분리하세요.",
+      "after": "종이와 플라스틱을 분리해야 해요."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "Please separate paper and plastic.",
+      "after": "You have to separate paper and plastic."
+    },
+    {
+      "at": "words[10].example",
+      "before": "스티로폼은 내용물을 비우고 배출하세요.",
+      "after": "스티로폼도 재활용이 돼요?"
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "Empty the contents and put out the styrofoam for collection.",
+      "after": "Can styrofoam be recycled too?"
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Beginner-High\" was mistranslated as \"intermedio-bajo alto\" (intermediate-low high), which changes the level. It should say beginner.",
+          "fix": "Nivel principiante alto (A2)"
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 3,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 3,
+      "lost": [
+        "오늘은 우리 동네 재활용"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 23,
+          "problem": "「別々に」 means each item individually. The English \"separately\" means kept apart from other trash, so the meaning changes.",
+          "fix": "透明なペットボトルは分けて集めます。"
+        },
+        {
+          "line": 24,
+          "problem": "「スチロール樹脂」 is plain polystyrene. The English gloss says expanded polystyrene, which is 「発泡ポリスチレン」.",
+          "fix": "発泡スチロール(発泡ポリスチレン)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'Fortgeschritten-Anfänger' is a contradictory, unnatural level label and does not render 'Beginner-High'.",
+          "fix": "Anfänger – obere Stufe (A2)"
+        },
+        {
+          "line": 5,
+          "problem": "Inconsistent form of address: formal 'Sie/Ihrem' mixed with informal 'eurem'.",
+          "fix": "Erklären Sie Ihrem Nachbarn in 3 Sätzen, was an Ihrem Abholtag im Gebäude rausgestellt wird."
+        },
+        {
+          "line": 13,
+          "problem": "'designated' is omitted; the target term is the designated paid trash bag (종량제봉투).",
+          "fix": "Bitte den Müll in einen vorgeschriebenen gebührenpflichtigen Müllbeutel geben."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:31:38.308Z"
+}

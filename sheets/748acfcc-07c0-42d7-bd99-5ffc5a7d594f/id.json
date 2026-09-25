@@ -1,0 +1,94 @@
+{
+  "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12 읽기",
+  "keyword": "키오스크",
+  "summary": "Baca dan pahami 12 tombol/teks yang sangat umum di kios pemesanan mandiri kafe dan makanan cepat saji. Pelajar mencocokkan setiap label dengan fungsinya dan mengikuti alur pemesanan sederhana sendiri.",
+  "objective": "Di akhir, pelajar dapat mengenali 12 tombol/label kios yang sering muncul dan mengikuti alur dasar—makan di tempat/bawa pulang → pilih menu → pilih opsi → pilih metode pembayaran → dapatkan struk/nomor pesanan—tanpa bantuan.",
+  "level": "Pemula Atas (A2)",
+  "minutes": 15,
+  "tags": [
+    "키오스크",
+    "카페",
+    "패스트푸드",
+    "주문",
+    "읽기",
+    "실생활 한국어"
+  ],
+  "task": {
+    "title": "Coba pesan sendiri lewat kios",
+    "line": "Coba pesan Es Americano ukuran L untuk dibawa pulang lewat kios. Tuliskan tombol yang kamu tekan secara berurutan."
+  },
+  "exercises": [
+    "Situasi: Kamu akan makan bersama teman sambil duduk di meja di dalam toko. Di layar ada [매장] [포장]. Tombol mana yang kamu tekan?",
+    "Cocokkan: ① 단품 ② 세트 — ⓐ 버거 + 감자튀김 + 콜라 ⓑ 버거 하나",
+    "Layar: [HOT] [ICE] — Di luar sangat panas. Kamu memesan latte dingin. Tombol mana yang kamu tekan?",
+    "Kamu memilih 치즈버거 dan 콜라. Sekarang kamu akan membayar dengan kartu kredit. Tuliskan urutan dua tombol yang kamu tekan: [카드 결제] [결제하기]",
+    "Situasi: Kamu salah memilih menu. Kamu ingin memesan ulang dari awal. Di antara [결제하기] [취소] [추가], mana yang kamu tekan?",
+    "Layar: [카드 결제] [간편결제] — Kamu mengeluarkan kartu kredit dari dompet. Tombol mana yang kamu tekan?",
+    "Cocokkan nama tombol dengan artinya: ① 간편결제 ② 영수증 출력 — ⓐ 종이를 뽑아요 ⓑ 휴대전화로 돈을 내요",
+    "Situasi: Ketika makanan sudah siap, toko akan memanggil nomormu. Kamu ingin membawa kertas nomor karena takut lupa. Tombol mana yang kamu tekan?",
+    "Layar: ukuran [S] [M] [L] — Hari ini kamu ingin minum dengan gelas paling besar. Tombol mana yang kamu tekan?",
+    "Kamu ingin membawa pulang Es Americano dan meminumnya lebih kental. Tuliskan tombol yang kamu tekan secara berurutan: [샷 추가] [포장] [ICE]",
+    "Isilah bagian kosong dengan nama tombol yang tepat: Saya sudah selesai memilih. Sekarang saya menekan (    ).",
+    "Benar atau salah? '추가' ditekan saat ingin memesan ulang dari awal.",
+    "Tuliskan urutan pemesanan: 결제하기 / 매장·포장 선택 / 영수증 출력 / 메뉴 선택 / 결제수단 선택 / 옵션 선택"
+  ],
+  "answers": [
+    "매장",
+    "단품 – ⓑ, ② 세트 – ⓐ",
+    "ICE",
+    "결제하기 → 카드 결제",
+    "취소",
+    "카드 결제",
+    "간편결제 – ⓑ, ② 영수증 출력 – ⓐ",
+    "영수증 출력",
+    "L",
+    "포장 → ICE → 샷 추가",
+    "결제하기",
+    "틀려요. ‘추가’는 원하는 것을 더할 때 눌러요. 처음부터 다시 할 때는 ‘취소’를 눌러요.",
+    "매장·포장 선택 → 메뉴 선택 → 옵션 선택 → 결제하기 → 결제수단 선택 → 영수증 출력"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Cara membaca materi ini",
+      "paragraphs": [
+        "Baca sebentar tombol dan kalimat yang sering muncul di layar kios, lalu langsung hubungkan dengan artinya.",
+        "Pelajari saja kata-kata yang diperlukan secara sederhana, agar kamu bisa mengikuti alur pemesanan dasar sendiri."
+      ]
+    },
+    {
+      "heading": "주문 흐름 한눈에 보기",
+      "paragraphs": [
+        "매장/포장 선택 → 메뉴 선택(단품/세트) → 옵션 선택(HOT/ICE, 사이즈, 추가) → 결제하기 → 결제수단 선택(카드/간편결제) → 영수증/주문번호 확인"
+      ]
+    },
+    {
+      "heading": "12 tombol yang sering terlihat",
+      "paragraphs": [
+        "1) 매장 — 가게에서 먹을 때 눌러요. Contoh: 여기서 먹어요. 매장을 눌러요.",
+        "2) 포장 — 가지고 나갈 때 눌러요. Contoh: 바빠요. 포장을 눌러요.",
+        "3) 단품 — 사이드와 음료 없이, 메뉴만 살 때 눌러요. Contoh: 버거만 먹고 싶어요. 단품을 눌러요.",
+        "4) 세트 — 사이드와 음료가 함께 나와요. Contoh: 배고파요. 세트를 눌러요.",
+        "5) HOT / ICE — 음료 온도를 고를 때 눌러요. Contoh: 더워요. ICE를 눌러요.",
+        "6) 사이즈 — 컵이나 메뉴 크기를 고를 때 써요. 사이즈 S/M/L을 고를 수 있어요. Contoh: 많이 마실래요. L을 눌러요.",
+        "7) 추가 — 원하는 것을 더할 때 눌러요. Contoh: 샷을 더해요. '샷 추가'를 눌러요.",
+        "8) 취소 — 지금 주문을 그만둘 때 눌러요. Contoh: 주문을 안 할래요. 취소를 눌러요.",
+        "9) 결제하기 — 선택이 끝났을 때 결제 화면으로 가요. Contoh: 다 골랐어요. 결제하기를 눌러요.",
+        "10) 카드 결제 — 카드로 계산할 때 눌러요. Contoh: 신용카드로 해요. 카드 결제를 눌러요.",
+        "11) 간편결제 — 휴대전화로 결제할 때 눌러요. Contoh: 카카오페이로 해요. 간편결제를 눌러요.",
+        "12) 영수증 출력 — 종이 영수증을 뽑아요. 주문번호가 같이 나와요. Contoh: 주문번호를 확인하려고 영수증 출력을 눌러요."
+      ]
+    },
+    {
+      "heading": "Tips membaca: singkatan dan penulisan bahasa Inggris",
+      "paragraphs": [
+        "S/M/L: singkatan dari Small/Medium/Large. Di tombol biasanya ditampilkan singkat sebagai S, M, L.",
+        "HOT/ICE: minuman hangat ditulis HOT, minuman dingin ditulis ICE.",
+        "단품/세트: 단품 hanya menu saja, 세트 dilengkapi dengan sisi + minuman.",
+        "Jika menekan '취소', biasanya pesanan dibatalkan dan kembali ke layar awal. Jika menekan '뒤로가기', hanya kembali satu langkah (materi ini tidak memasukkan '뒤로가기' dalam daftar 12 tombol)."
+      ]
+    }
+  ],
+  "note": "예문은 실제 키오스크에서 흔히 보는 표현과 사용 흐름을 기준으로 만들었습니다. 본 자료는 읽기 중심이며, 매장별 화면 디자인은 다를 수 있습니다.",
+  "category": "etc"
+}

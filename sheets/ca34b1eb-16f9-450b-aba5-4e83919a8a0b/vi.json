@@ -1,0 +1,110 @@
+{
+  "answers": [
+    "풀",
+    "bal, pal, ppul",
+    "빵",
+    "팔",
+    "비가 와요",
+    "ㅂ: 방, 발 / ㅍ: 풀, 팔 / ㅃ: 뿔, 빵"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Đặt một tờ giấy ăn trước miệng và đọc 불, 풀 và 뿔. Từ nào sẽ làm tờ giấy lay động nhiều nhất? Hãy viết từ đó.",
+    "Hãy viết cách chuyển tự La-tinh hóa chuẩn (Revised Romanization) cho từng từ: 발, 팔, 뿔.",
+    "Bạn đang ở tiệm bánh và muốn mua bánh mì. Bạn sẽ nói từ nào: 방 hay 빵?",
+    "Từ nào có nghĩa là 'cánh tay': 발 hay 팔?",
+    "Câu nào có nghĩa là 'Trời đang mưa.': 비가 와요 hay 피가 와요?",
+    "Hãy phân loại các từ sau theo chữ cái đầu tiên (ㅂ, ㅍ hoặc ㅃ): 풀, 방, 뿔, 팔, 발, 빵."
+  ],
+  "keyword": "hangul",
+  "letters": [
+    {
+      "letter": "ㅂ",
+      "sound": "âm b/p thường: nhẹ, chỉ có ít hơi",
+      "as": "Gần giống âm \"p\" trong từ \"spin\" (ít hơi). Thường nghe giống âm \"b\" nhẹ."
+    },
+    {
+      "letter": "ㅍ",
+      "sound": "âm p bật hơi: luồng hơi mạnh",
+      "as": "Gần giống âm \"p\" trong từ \"pin\" (luồng hơi mạnh)."
+    },
+    {
+      "letter": "ㅃ",
+      "sound": "âm pp căng: môi mím chặt, cổ họng căng, không có hơi",
+      "as": "Không có âm tương đương chính xác trong tiếng Anh. Giống âm \"p\" trong \"spin\", nhưng phát âm mạnh và chặt hơn, không có hơi."
+    }
+  ],
+  "level": "Sơ cấp",
+  "minutes": 15,
+  "objective": "Phân biệt và phát âm ㅂ, ㅍ và ㅃ ở đầu từ. Chọn từ đúng trong các bộ cặp từ tối thiểu như 불/풀/뿔, 발/팔 và 방/빵.",
+  "summary": "Phiếu bài tập này giới thiệu ba phụ âm \"p/b\" đứng đầu từ trong tiếng Hàn: ㅂ (âm thường), ㅍ (âm bật hơi) và ㅃ (âm căng). Mỗi chữ cái có một gợi ý tiếng Anh và một số từ đơn giản đi kèm. Bạn sẽ học cách phân biệt các chữ cái này qua các cặp từ tối thiểu như 불/풀/뿔, 발/팔 và 방/빵. Các bài tập bao gồm kiểm tra bằng khăn giấy, đọc, phân loại và chọn từ đúng.",
+  "tags": [],
+  "task": null,
+  "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
+  "words": [
+    {
+      "korean": "불",
+      "roman": "bul",
+      "meaning": "đèn (ánh sáng đèn hoặc ánh sáng phòng)",
+      "example": "불 좀 꺼 주세요.",
+      "exampleMeaning": "Xin hãy tắt đèn."
+    },
+    {
+      "korean": "풀",
+      "roman": "pul",
+      "meaning": "keo dán",
+      "example": "풀 좀 빌려 주세요.",
+      "exampleMeaning": "Cho mình mượn keo dán được không?"
+    },
+    {
+      "korean": "뿔",
+      "roman": "ppul",
+      "meaning": "sừng (của động vật)",
+      "example": "이 소는 뿔이 길어요.",
+      "exampleMeaning": "Con bò này có sừng dài."
+    },
+    {
+      "korean": "발",
+      "roman": "bal",
+      "meaning": "chân (bàn chân)",
+      "example": "많이 걸어서 발이 아파요.",
+      "exampleMeaning": "Chân tôi đau vì đi bộ nhiều."
+    },
+    {
+      "korean": "팔",
+      "roman": "pal",
+      "meaning": "cánh tay",
+      "example": "어제 팔을 다쳤어요.",
+      "exampleMeaning": "Hôm qua tôi bị đau tay."
+    },
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "phòng",
+      "example": "제 방은 작아요.",
+      "exampleMeaning": "Phòng của tôi nhỏ."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "bánh mì",
+      "example": "아침에 빵을 먹어요.",
+      "exampleMeaning": "Buổi sáng tôi ăn bánh mì."
+    },
+    {
+      "korean": "비",
+      "roman": "bi",
+      "meaning": "mưa",
+      "example": "밖에 비가 와요.",
+      "exampleMeaning": "Bên ngoài trời đang mưa."
+    },
+    {
+      "korean": "피",
+      "roman": "pi",
+      "meaning": "máu",
+      "example": "손가락에서 피가 나요.",
+      "exampleMeaning": "Ngón tay tôi đang chảy máu."
+    }
+  ],
+  "category": "hangul"
+}

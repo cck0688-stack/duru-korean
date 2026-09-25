@@ -1,0 +1,115 @@
+{
+  "answers": [
+    "ㅘ",
+    "ㅝ",
+    "귀",
+    "의자",
+    "워 (더워요)",
+    "hwajangsil"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Ghép hai nguyên âm lại với nhau. Bạn được chữ cái nào? ㅗ + ㅏ = ?",
+    "Ghép hai nguyên âm lại với nhau. Bạn được chữ cái nào? ㅜ + ㅓ = ?",
+    "Chọn từ có nghĩa là 'tai': 기 / 구 / 귀",
+    "Chọn cách viết đúng của từ 'ghế': 으자 / 이자 / 의자",
+    "Điền vào chỗ trống để nói 'Trời nóng.': 더_요 (와 / 워 / 위)",
+    "Đọc to từ này lên, sau đó viết lại bằng chữ cái Latinh: 화장실"
+  ],
+  "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "letters": [
+    {
+      "letter": "ㅘ",
+      "sound": "wa (ㅗ + ㅏ đọc nhanh nối liền)",
+      "as": "giống âm 'wa' trong từ 'wander' — bắt đầu bằng cách tròn môi (ㅗ) rồi mở nhanh sang âm 'a' (ㅏ)"
+    },
+    {
+      "letter": "ㅝ",
+      "sound": "wo (ㅜ + ㅓ đọc nhanh nối liền)",
+      "as": "giống âm 'wo' trong từ 'won' — bắt đầu bằng cách tròn môi (ㅜ) rồi chuyển nhanh sang ㅓ"
+    },
+    {
+      "letter": "ㅟ",
+      "sound": "wi (ㅜ + ㅣ đọc nhanh nối liền)",
+      "as": "giống âm 'we' trong tiếng Anh nhưng ngắn hơn — bắt đầu bằng cách tròn môi (ㅜ) rồi chuyển nhanh sang âm 'i' (ㅣ)"
+    },
+    {
+      "letter": "ㅢ",
+      "sound": "ui (ㅡ + ㅣ đọc nhanh nối liền)",
+      "as": "không có âm tương đương gần trong tiếng Anh — bắt đầu bằng ㅡ (môi để bẹt, thả lỏng, không tròn môi) rồi lướt nhanh sang âm 'i' (ㅣ); trong phiếu bài tập này chỉ xuất hiện ở đầu từ, như trong 의자"
+    }
+  ],
+  "level": "Sơ cấp",
+  "minutes": 15,
+  "objective": "Nhận biết và phát âm ㅘ (wa), ㅝ (wo), ㅟ (wi) và 의 (ui) ở đầu từ như những âm lướt nhanh gồm hai nguyên âm, đồng thời đọc đúng và chọn đúng các từ 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 và 의사.",
+  "summary": "Phiếu bài tập này dạy bốn nguyên âm đôi trong tiếng Hàn: ㅘ, ㅝ, ㅟ và ㅢ. Mỗi nguyên âm là hai nguyên âm được đọc nhanh nối tiếp nhau thành một âm liền mạch. Bạn sẽ thấy hai nguyên âm nào tạo thành mỗi chữ cái, liên hệ ba trong số đó với các âm tiếng Anh quen thuộc, và luyện đọc những từ đơn giản thường dùng như 과자, 뭐, 귀 và 의자.",
+  "tags": [],
+  "task": null,
+  "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "words": [
+    {
+      "korean": "과자",
+      "roman": "gwaja",
+      "meaning": "đồ ăn vặt (bim bim, bánh quy, snack)",
+      "example": "과자 먹을래요?",
+      "exampleMeaning": "Bạn có muốn ăn đồ ăn vặt không?"
+    },
+    {
+      "korean": "사과",
+      "roman": "sagwa",
+      "meaning": "táo",
+      "example": "사과가 달아요.",
+      "exampleMeaning": "Quả táo này ngọt."
+    },
+    {
+      "korean": "화장실",
+      "roman": "hwajangsil",
+      "meaning": "nhà vệ sinh, toilet",
+      "example": "화장실이 어디예요?",
+      "exampleMeaning": "Nhà vệ sinh ở đâu vậy?"
+    },
+    {
+      "korean": "뭐",
+      "roman": "mwo",
+      "meaning": "gì (cách nói thân mật)",
+      "example": "이거 뭐예요?",
+      "exampleMeaning": "Cái này là cái gì vậy?"
+    },
+    {
+      "korean": "더워요",
+      "roman": "deowoyo",
+      "meaning": "nóng (thời tiết)",
+      "example": "오늘 정말 더워요.",
+      "exampleMeaning": "Hôm nay trời nóng thật đấy."
+    },
+    {
+      "korean": "위",
+      "roman": "wi",
+      "meaning": "ở trên, trên",
+      "example": "책상 위에 있어요.",
+      "exampleMeaning": "Nó ở trên bàn."
+    },
+    {
+      "korean": "귀",
+      "roman": "gwi",
+      "meaning": "tai",
+      "example": "귀가 아파요.",
+      "exampleMeaning": "Tai mình bị đau."
+    },
+    {
+      "korean": "의자",
+      "roman": "uija",
+      "meaning": "ghế",
+      "example": "의자에 앉으세요.",
+      "exampleMeaning": "Mời bạn ngồi xuống (ghế) nhé."
+    },
+    {
+      "korean": "의사",
+      "roman": "uisa",
+      "meaning": "bác sĩ",
+      "example": "제 친구는 의사예요.",
+      "exampleMeaning": "Bạn mình là bác sĩ."
+    }
+  ],
+  "category": "hangul"
+}

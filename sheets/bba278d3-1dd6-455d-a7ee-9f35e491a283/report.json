@@ -1,0 +1,231 @@
+{
+  "id": "bba278d3-1dd6-455d-a7ee-9f35e491a283",
+  "title": "카페 주문 필수 어휘 10",
+  "category": "vocab",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words > 따뜻한: roman 'ttatteuthan' is incorrect. 따뜻한 is pronounced [따뜨탄]: the final ㅅ plus the following ㅎ gives an aspirated ㅌ. Under Revised Romanization this is written 't', not 'th'. Change it to 'ttatteutan'."
+      ],
+      "audit": [
+        "words[4] (따뜻한) roman: ttatteuthan → ttatteutan"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercises test only 6 of the 10 target words. 매장 (for here), 따뜻한 (hot), 사이즈 and 스몰 are never practised, even though the objective promises all 10 words including 'for here/to go'. Add items, e.g. '손님: 여기서 마실 거예요. ___에서 마실게요. (for here)' → 매장; '손님: 추워요. ___ 아메리카노 주세요. (hot)' → 따뜻한; '직원: ___ 어떻게 하실까요? (size)' → 사이즈; '손님: 조금만 마실 거예요. ___로 주세요. (small)' → 스몰.",
+        "Exercises 4, 5 and 6 are near-verbatim copies of the example sentences for 당도 ('___는 50%로 해 주세요'), 샷 추가 ('___해 주세요') and 얼음 ('___은 적게 해 주세요'). Learners can answer by matching the sentence instead of recalling the word. Change the frames, e.g. Q4 '직원: ___는 어떻게 해 드릴까요? 손님: 30%요.', Q5 '손님: 진하게 마시고 싶어요. 에스프레소 ___ 가능해요?', Q6 '손님: ___ 없이 주세요.'",
+        "Exercises 1, 2 and 3 all use the same '___(으)로 주세요' frame. Together with the copied examples this makes the practice thin. Vary at least one, e.g. '___(으)로 할게요', '___ 한 잔 주세요', or a staff-and-customer exchange."
+      ],
+      "audit": [
+        "words[3] (아이스) example: 아이스 라떼로 주세요. → 아이스 라테로 주세요."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[7]",
+      "before": "",
+      "after": "매장"
+    },
+    {
+      "at": "answers[8]",
+      "before": "",
+      "after": "따뜻한"
+    },
+    {
+      "at": "answers[9]",
+      "before": "",
+      "after": "사이즈"
+    },
+    {
+      "at": "answers[10]",
+      "before": "",
+      "after": "스몰"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "손님: 아메리카노는 ___로 주세요. (big size)",
+      "after": "손님: 아주 많이 마시고 싶어요. ___로 할게요. (big size)"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "손님: 너무 달지 않게 ___는 50%로 해 주세요. (sweetness level)",
+      "after": "직원: ___는 어떻게 해 드릴까요? 손님: 30%요. (sweetness level)"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "손님: ___해 주세요. 오늘은 좀 졸려요. (add a shot)",
+      "after": "손님: 진하게 마시고 싶어요. 에스프레소 ___ 가능해요? (add a shot)"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "손님: 너무 차가운 건 싫어요. ___은 적게 해 주세요. (ice)",
+      "after": "손님: ___ 없이 주세요. (ice)"
+    },
+    {
+      "at": "exercises[7]",
+      "before": "",
+      "after": "직원: 포장이세요? 손님: 아니요, ___에서 먹고 갈게요. (for here)"
+    },
+    {
+      "at": "exercises[8]",
+      "before": "",
+      "after": "손님: 오늘은 추워요. ___ 라테로 주세요. (hot)"
+    },
+    {
+      "at": "exercises[9]",
+      "before": "",
+      "after": "직원: 음료 ___는 어떤 걸로 드릴까요? (size)"
+    },
+    {
+      "at": "exercises[10]",
+      "before": "",
+      "after": "손님: 조금만 마실 거예요. 라테 ___ 한 잔이요. (small)"
+    },
+    {
+      "at": "words[4].example",
+      "before": "아이스 라떼로 주세요.",
+      "after": "아이스 라테로 주세요."
+    },
+    {
+      "at": "words[5].roman",
+      "before": "ttatteuthan",
+      "after": "ttatteutan"
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 3,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T09:49:45.601Z"
+}

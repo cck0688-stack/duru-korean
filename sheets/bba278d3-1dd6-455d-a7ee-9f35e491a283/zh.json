@@ -1,0 +1,111 @@
+{
+  "answers": [
+    "포장",
+    "라지",
+    "아이스",
+    "당도",
+    "샷 추가",
+    "얼음",
+    "매장",
+    "따뜻한",
+    "사이즈",
+    "스몰"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "손님: 가져갈 거예요. ___으로 주세요. (外带)",
+    "손님: 아주 많이 마시고 싶어요. ___로 할게요. (大杯)",
+    "손님: 오늘은 덥네요. ___로 주세요. (冰的)",
+    "직원: ___는 어떻게 해 드릴까요? 손님: 30%요. (甜度)",
+    "손님: 진하게 마시고 싶어요. 에스프레소 ___ 가능해요? (加浓缩咖啡)",
+    "손님: ___ 없이 주세요. (冰块)",
+    "직원: 포장이세요? 손님: 아니요, ___에서 먹고 갈게요. (堂食)",
+    "손님: 오늘은 추워요. ___ 라테로 주세요. (热的)",
+    "직원: 음료 ___는 어떤 걸로 드릴까요? (尺寸)",
+    "손님: 조금만 마실 거예요. 라테 ___ 한 잔이요. (小杯)"
+  ],
+  "keyword": "카페 주문 어휘",
+  "level": "初级",
+  "minutes": 15,
+  "objective": "学生将能够理解并说出10个核心单词,用于在咖啡店点单时询问和回答关于杯型、冰量与甜度调整、加浓缩咖啡以及堂食/外带的问题。",
+  "summary": "咖啡店点饮品必备韩语单词:杯型选择、冰的/热的、冰量与甜度、加浓缩咖啡、堂食/外带。包含10个高频单词及自然例句,并附简短填空练习。",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "카페 주문 필수 어휘 10",
+  "words": [
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "尺寸选择(杯型)",
+      "example": "사이즈 어떻게 하실까요?",
+      "exampleMeaning": "您要什么尺寸?"
+    },
+    {
+      "korean": "스몰",
+      "roman": "seumol",
+      "meaning": "小杯(杯型)",
+      "example": "스몰로 주세요.",
+      "exampleMeaning": "请给我小杯。"
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "大杯(杯型)",
+      "example": "라지 한 잔 주세요.",
+      "exampleMeaning": "请给我一杯大杯。"
+    },
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "冰的",
+      "example": "아이스 라테로 주세요.",
+      "exampleMeaning": "请给我冰拿铁。"
+    },
+    {
+      "korean": "따뜻한",
+      "roman": "ttatteutan",
+      "meaning": "热的(饮品)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "请给我热美式。"
+    },
+    {
+      "korean": "얼음",
+      "roman": "eoreum",
+      "meaning": "冰块(冰量)",
+      "example": "얼음은 적게 해 주세요.",
+      "exampleMeaning": "请少放一点冰。"
+    },
+    {
+      "korean": "당도",
+      "roman": "dangdo",
+      "meaning": "甜度",
+      "example": "당도는 50%로 해 주세요.",
+      "exampleMeaning": "请把甜度调成50%。"
+    },
+    {
+      "korean": "샷 추가",
+      "roman": "syat chuga",
+      "meaning": "加浓缩咖啡",
+      "example": "샷 추가해 주세요.",
+      "exampleMeaning": "请帮我加一份浓缩咖啡。"
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "外带",
+      "example": "포장으로 할게요.",
+      "exampleMeaning": "请给我外带。"
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "堂食(在这里喝)",
+      "example": "매장에서 마실게요.",
+      "exampleMeaning": "我要在这里喝。"
+    }
+  ],
+  "category": "vocab"
+}

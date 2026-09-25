@@ -1,37 +1,41 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
-  "keyword": "hangul",
+  "keyword": "ㅈ·ㅊ·ㅉ",
   "summary": "Learn how ㅈ, ㅊ and ㅉ sound at the start of a word. They differ in breath and tension. Use them to pick the right verb in sets like 자다/차다/짜다 and 지다/치다/찌다.",
   "objective": "Beginner learners will tell apart and say word-initial ㅈ (plain), ㅊ (aspirated) and ㅉ (tense), then choose the right word in the sets 자다/차다/짜다 and 지다/치다/찌다.",
   "level": "Beginner",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "짝 활동: 자/차/짜 듣고 고르기",
+    "line": "짝이 자다·차다·짜다 중 하나를 말하면 듣고 뜻을 말해 보세요."
   },
   "exercises": [
     "Choose the right word: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
-    "Choose the right word: 이 라면에는 소금이 많아요. 너무 (자요 / 차요 / 짜요).",
-    "Choose the right word: 동생이 화가 나서 문을 발로 (자요 / 차요 / 짜요).",
-    "Choose the right word: 제 친구는 매일 기타를 (져요 / 쳐요 / 쪄요).",
-    "Choose the right words: 어제 축구 경기에서 (졌어요 / 쳤어요 / 쪘어요). 요즘 많이 먹어서 살이 (졌어요 / 쳤어요 / 쪘어요).",
-    "Hold a tissue in front of your mouth and say 자, 차, 짜. Which one makes the tissue move the most?"
+    "Choose the right word: 라면에 소금을 많이 넣었어요. 라면이 너무 (자요 / 차요 / 짜요).",
+    "Choose the right word: 축구할 때 발로 공을 (자요 / 차요 / 짜요).",
+    "Choose the right word: 주말에 친구와 테니스를 (져요 / 쳐요 / 쪄요).",
+    "Which word means \"to lose (a game)\"? (지다 / 치다 / 찌다)",
+    "Hold a tissue in front of your mouth and say 자, 차, 짜. Which one makes the tissue move the most?",
+    "Choose the right word: 방학 동안 많이 먹어서 살이 3킬로그램 (졌어요 / 쳤어요 / 쪘어요).",
+    "Choose the right word: 어제 축구 경기에서 우리 팀이 (졌어요 / 쳤어요 / 쪘어요)."
   ],
   "answers": [
     "자요",
     "짜요",
     "차요",
     "쳐요",
-    "졌어요, 쪘어요",
-    "차 (ㅊ has a strong puff of air)"
+    "지다",
+    "차 (ㅊ has a strong puff of air)",
+    "쪘어요",
+    "졌어요"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
       "sound": "j (plain): soft and relaxed, with only a little breath",
-      "as": "Close to the \"j\" in \"jam,\" but softer. At the start of a word it can sound like a very light \"ch\" with almost no air."
+      "as": "Close to the \"j\" in \"jam,\" but softer. At the start of a word it can sound like a light \"ch\" with a little air — less than ㅊ, more than ㅉ."
     },
     {
       "letter": "ㅊ",
@@ -76,7 +80,7 @@
     {
       "korean": "치다",
       "roman": "chida",
-      "meaning": "to play (an instrument such as the piano, guitar, or drums)",
+      "meaning": "to hit; to play (tennis, golf, piano, guitar, drums, etc.)",
       "example": "피아노를 쳐요.",
       "exampleMeaning": "I play the piano."
     },

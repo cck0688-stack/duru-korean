@@ -1,0 +1,94 @@
+{
+  "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
+  "keyword": "",
+  "summary": "Lesen Sie zwei kurze Hausmitteilungen (Wasserabsperrung und Stromausfall wegen einer Inspektion) und üben Sie, gezielt nach Datum/Uhrzeit, Ort, Grund und den Anweisungen für die Bewohner zu suchen. Konzentrieren Sie sich auf acht häufig vorkommende Begriffe/Wörter.",
+  "objective": "Die Lernenden können kurze Hausmitteilungen über Wasser-/Stromausfälle und Inspektionen lesen und schnell Datum, Uhrzeit, betroffenen Bereich sowie die Anweisungen für die Bewohner finden; außerdem erkennen sie 8 häufig vorkommende Begriffe/Wörter (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Fortgeschrittene Anfänger (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Um wie viel Uhr endet die Wasserabsperrung in Mitteilung A? Schreiben Sie es in dem in der Mitteilung verwendeten Format (z. B. 18:00).",
+    "Wo findet die Wasserabsperrung in Mitteilung A statt? Schauen Sie in die Zeile ‘장소’ der Mitteilung und schreiben Sie die Antwort.",
+    "An welchem Monat, Tag und Wochentag findet der Stromausfall in Mitteilung B statt? Schreiben Sie es in dem in der Mitteilung verwendeten Format (z. B. 10월 12일(월)).",
+    "Schreiben Sie eine Sache, die die Bewohner laut Mitteilung B tun müssen, genau so, wie es in der Mitteilung steht.",
+    "Wohin wendet man sich bei Fragen zum Stromausfall in Mitteilung B? Schreiben Sie nicht die Telefonnummer, sondern den Namen der Kontaktstelle.",
+    "Was ist der Grund für den Stromausfall in Mitteilung B? Schauen Sie in die Zeile ‘사유’ der Mitteilung und schreiben Sie die Antwort.",
+    "Wessen Versorgung wird bei ‘단수’ vorübergehend unterbrochen? Schauen Sie im Abschnitt ‘자주 쓰는 표시/낱말’ nach und schreiben Sie es mit einem Wort."
+  ],
+  "answers": [
+    "14:00",
+    "101동 전체",
+    "10월 15일(목)",
+    "단전 전에 가전제품 플러그를 뽑아 주세요.",
+    "관리사무소",
+    "전기설비 정기 점검",
+    "물"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Lernhinweise",
+      "paragraphs": [
+        "Man übt, in Wohnhäusern oder Gebäuden Hinweise zu 단수, 단전 und 점검 schnell zu lesen und die nötigen Informationen zu finden.",
+        "Besonders übt man, anhand von Markierungen (Labels) wie ‘일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의’ nur die benötigten Zeilen gezielt auszuwählen und zu lesen."
+      ]
+    },
+    {
+      "heading": "Häufig verwendete Begriffe/Wörter",
+      "paragraphs": [
+        "일시: Wann es stattfindet (Datum und Uhrzeit)",
+        "장소: Wo es stattfindet (der betroffene Ort)",
+        "사유: Warum es stattfindet (der Grund)",
+        "점검: Den Zustand überprüfen oder kontrollieren",
+        "작업: Bau- oder Reparaturarbeiten durchführen",
+        "단수: Die Wasserversorgung wird vorübergehend unterbrochen",
+        "단전: Die Stromversorgung wird vorübergehend unterbrochen",
+        "문의: Wo man sich melden kann (Telefonnummer, Abteilung/Büro)"
+      ]
+    },
+    {
+      "heading": "예시 공지 A — 단수 안내",
+      "paragraphs": [
+        "[공지 A] 단수 안내",
+        "일시: 2026년 10월 12일(월) 09:30~14:00",
+        "장소: 101동 전체",
+        "사유: 건물 내부 배관 교체 작업",
+        "작업: 물 공급 중단 및 배관 교체",
+        "유의사항: 단수 전에 물을 미리 받아 두세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "예시 공지 B — 단전 안내",
+      "paragraphs": [
+        "[공지 B] 단전 안내",
+        "일시: 2026년 10월 15일(목) 13:00~16:00",
+        "장소: 102동 전체",
+        "사유: 전기설비 정기 점검",
+        "작업: 변전실 점검 및 전력 차단",
+        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "빠르게 찾는 방법",
+      "paragraphs": [
+        "라벨(일시, 장소, 사유, 작업, 유의사항, 문의)을 먼저 보고, 필요한 줄만 정확히 읽으세요.",
+        "숫자와 기호(예: 09:30, ~, (월), 동)를 눈에 익히세요. 시간은 보통 24시간 표기입니다.",
+        "Um herauszufinden, was zu tun ist, suchen Sie in der Zeile ‘유의사항’ nach Bitte-Ausdrücken wie ‘-세요’."
+      ]
+    },
+    {
+      "heading": "Übungshinweise",
+      "paragraphs": [
+        "Lösen Sie die folgenden Aufgaben. Suchen Sie die Antworten in Mitteilung A oder B, oder orientieren Sie sich am Abschnitt ‘자주 쓰는 표시/낱말’. Antworten, die Sie in der Mitteilung finden, schreiben Sie genau in der Form, wie sie dort steht. Zahlen und Symbole (z. B. ~, :) übernehmen Sie ebenfalls unverändert."
+      ]
+    }
+  ],
+  "note": "이 자료의 공지문은 학습용 예시입니다. 실제 일정이나 연락처가 아닙니다.",
+  "category": "etc"
+}

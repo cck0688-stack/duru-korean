@@ -1,0 +1,303 @@
+{
+  "id": "4e05bccb-234b-4f94-9f2c-e1146cb54292",
+  "title": "미용실에서 기본 커트 부탁하기",
+  "category": "reallife",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "task.line: '귀 모양' means the shape of the ears themselves, not whether the ears are shown or covered. Change it to something like '원하는 길이, 앞머리, 귀를 보이게 할지 가릴지를 디자이너에게 말해 보세요.'",
+    "Exercises 4 and 5: the English prompt ('Not too short, please.' / 'Please make my ears visible.') is exactly a word card's meaning, and the answer is exactly that card's Korean headword ('너무 짧게는 말고요' / '귀는 보이게 해 주세요'), so learners just copy it. Questions 1 and 3 also repeat dialogue lines word for word, which makes the sheet thin. Rewrite with new content, e.g. 'Not too short on the back, please' → '뒷머리는 너무 짧게는 말고요.', and '앞머리는 눈썹이 보이게 해 주세요' for the …게 해 주세요 pattern.",
+    "The objective says 'request a basic cut (기본 커트)', but no question practises it. Add one, e.g. 'Translate to Korean: \"A basic cut, please.\"' → '기본 커트요.' or '기본 커트 해 주세요.'"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words '너무 짧게는 말고요' roman: 'neomu jjalbge-neun malgoyo'는 철자 전사로 로마자 표기법(발음 기준)에 어긋남. 짧게[짤께] → 'neomu jjalkkeneun malgoyo'로 고쳐야 함.",
+        "words '앞머리' roman: 'apmeori'는 비음화[암머리]를 반영하지 않음 → 'ammeori'로 고쳐야 함.",
+        "Exercise 2: 지시문에 'exactly ‘이 정도’'라고 정답을 그대로 주어 학습자가 떠올릴 것이 없음. 정답 노출 문구를 빼고 상황만 제시하거나(예: 'Fill in the blank: _____로만 잘라 주세요. (You are pointing to the length with your hand.)') 선택지(이 정도/조금만/너무)를 주는 방식으로 고쳐야 함.",
+        "words '너무 짧게는 말고요', '귀는 보이게 해 주세요', '귀는 가리게 해 주세요': example이 표제어와 똑같고 exampleMeaning도 meaning과 같아 예문 구실을 못 하고 학습지가 얇아짐. 다른 맥락 예문으로 바꿔야 함(예: '옆머리는 너무 짧게는 말고요.', '뒤는 목이 보이게 해 주세요.', '앞머리로 이마를 가리게 해 주세요.')."
+      ],
+      "audit": [
+        "words[2].roman (너무 짧게는 말고요): neomu jjalbge-neun malgoyo → neomu jjalkkeneun malgoyo",
+        "words[3].roman (앞머리): apmeori → ammeori"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Romanization is wrong for the word '너무 짧게는 말고요': 'neomu jjalkkeneun malgoyo' spells the spoken sound ([짤께는]). Revised Romanization doesn't show tensed consonants and goes by spelling (짧 → jjal, 게 → ge). Change it to 'neomu jjalgeneun malgoyo'.",
+        "No exercise covers one of the learning goals. The objective says learners can 'say whether they want bangs', but none of the five exercises uses 앞머리. Replace one exercise with a bangs question, for example 'Translate to Korean: \"Just a little bangs, please.\"' with the answer '앞머리 조금만 내려 주세요.'",
+        "Too many exercises repeat the same ear sentences. Exercise 1 (T/F: customer covers ears), exercise 3 (pick 보이게 or 가리게) and exercise 5 (make ears visible) all practice '귀는 보이게/가리게 해 주세요', so three of the five questions test one sentence pattern. Swap exercise 1 or exercise 3 for a question on something not yet practiced, such as bangs or '기본 커트요' (asking for a basic cut)."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "연습문제 1번 영어 제시문이 문법에 맞지 않고 뜻도 흐립니다. \"Just a little bangs, please.\"는 bangs를 셀 수 없는 양처럼 수식한 비문입니다. 게다가 '앞머리를 조금만 만들어 달라'로 읽혀, 정답 '앞머리 조금만 내려 주세요'의 뜻(앞머리를 살짝만 내려 달라)과 맞지 않습니다. \"Please bring my bangs down just a little.\" 또는 \"Just a light fringe, please.\"처럼 정답과 뜻이 맞는 문장으로 고치세요.",
+        "대화문 6번째 줄(손님) '네, 앞머리 조금만 내려 주세요.'의 번역 \"Yes, just a little for the bangs, please.\"는 무엇을 조금 해 달라는 것인지 알 수 없습니다. \"Yes, please bring my bangs down just a little.\"처럼 '내리다'의 뜻이 드러나게 고치세요.",
+        "task 항목의 title과 line이 빈 문자열이라 과제 부분이 비어 있습니다. 실제로 배포하는 학습지이므로 과제 제목과 지시문을 채우거나 항목을 빼세요. 예: title '미용실 역할극', line '원하는 길이, 앞머리, 귀 모양을 디자이너에게 말해 보세요.'"
+      ],
+      "audit": [
+        "exercises[0]: Translate to Korean: “Just a little bangs, please.” → Translate to Korean: “Please bring my bangs down just a little.”",
+        "summary: Practice the polite softener ‘…말고요’ as in ‘Not too short, please.’ → Practice the shortened negative request ‘…말고요’ (\"not …, please\") as in ‘Not too short, please.’"
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "task.line: '귀 모양' means the shape of the ears themselves, not whether the ears are shown or covered. Change it to something like '원하는 길이, 앞머리, 귀를 보이게 할지 가릴지를 디자이너에게 말해 보세요.'",
+        "Exercises 4 and 5: the English prompt ('Not too short, please.' / 'Please make my ears visible.') is exactly a word card's meaning, and the answer is exactly that card's Korean headword ('너무 짧게는 말고요' / '귀는 보이게 해 주세요'), so learners just copy it. Questions 1 and 3 also repeat dialogue lines word for word, which makes the sheet thin. Rewrite with new content, e.g. 'Not too short on the back, please' → '뒷머리는 너무 짧게는 말고요.', and '앞머리는 눈썹이 보이게 해 주세요' for the …게 해 주세요 pattern.",
+        "The objective says 'request a basic cut (기본 커트)', but no question practises it. Add one, e.g. 'Translate to Korean: \"A basic cut, please.\"' → '기본 커트요.' or '기본 커트 해 주세요.'"
+      ],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "T",
+      "after": "앞머리 조금만 내려 주세요."
+    },
+    {
+      "at": "dialogue[6].meaning",
+      "before": "Yes, just a little for the bangs, please.",
+      "after": "Yes, please bring my bangs down just a little."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "T/F. In the dialogue, the customer asks to cover their ears. (Write T or F)",
+      "after": "Translate to Korean: “Please bring my bangs down just a little.”"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Fill in the blank with exactly ‘이 정도’: _____로만 잘라 주세요. (You are pointing to the length.)",
+      "after": "Fill in the blank: _____로만 잘라 주세요. (You are pointing to the length with your hand.)"
+    },
+    {
+      "at": "summary",
+      "before": "A short, real-life salon dialogue to request a basic haircut: set the length with ‘이 정도’, choose bangs, and ask to show or cover ears. Practice the polite softener ‘…말고요’ as in ‘Not too short, please.’",
+      "after": "A short, real-life salon dialogue to request a basic haircut: set the length with ‘이 정도’, choose bangs, and ask to show or cover ears. Practice the shortened negative request ‘…말고요’ (\"not …, please\") as in ‘Not too short, please.’"
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "미용실 역할극"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "원하는 길이, 앞머리, 귀 모양을 디자이너에게 말해 보세요."
+    },
+    {
+      "at": "words[3].roman",
+      "before": "neomu jjalbge-neun malgoyo",
+      "after": "neomu jjalgeneun malgoyo"
+    },
+    {
+      "at": "words[3].example",
+      "before": "너무 짧게는 말고요.",
+      "after": "옆머리는 너무 짧게는 말고요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "Not too short, please.",
+      "after": "Not too short on the sides, please."
+    },
+    {
+      "at": "words[4].roman",
+      "before": "apmeori",
+      "after": "ammeori"
+    },
+    {
+      "at": "words[5].example",
+      "before": "귀는 보이게 해 주세요.",
+      "after": "옆머리를 짧게 잘라서 귀는 보이게 해 주세요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "Please make my ears visible.",
+      "after": "Please cut the sides short so my ears show."
+    },
+    {
+      "at": "words[6].example",
+      "before": "귀는 가리게 해 주세요.",
+      "after": "옆머리를 길게 남겨서 귀는 가리게 해 주세요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "Please cover my ears.",
+      "after": "Please leave the sides long so my ears are covered."
+    }
+  ],
+  "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 13,
+          "problem": "\"mái tóc\" means hair in general (a head of hair), not bangs; the term for bangs/fringe is \"tóc mái\" (or \"mái\" for short).",
+          "fix": "tóc mái (mái)"
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "「初級上級」は「初級」と「上級」が並んで矛盾しており、不自然です。Beginner-High は「初級上」とするのが自然です。",
+          "fix": "初級上(A2)"
+        },
+        {
+          "line": 24,
+          "problem": "英語は「このくらいの長さになるまで切る」(仕上がりの長さ)という意味ですが、訳文の「このくらいの長さだけ切って」は「このくらいの量を切り落とす」という意味になり、意味が変わっています。",
+          "fix": "基本的なカットでお願いします。このくらいの長さまでにだけ切ってください。"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "'request a basic haircut' is translated as '预约' (book an appointment), which changes the meaning; the dialogue is about asking the stylist for a cut, not booking one.",
+          "fix": "一段真实的美发店对话，用来要求剪一个基础发型：用'이 정도'确定长度，选择是否剪刘海，并说明是否要露出或遮住耳朵。练习简略的否定请求句型'…말고요'（表示“不要……”），例如“不要剪太短。”"
+        },
+        {
+          "line": 3,
+          "problem": "'request a basic cut' is translated as '预约基础理发' (book a basic haircut), which is a mistranslation.",
+          "fix": "学完后，学习者可以要求剪一个基础发型、用'이 정도'表示长度、说明是否要刘海、要求露出或遮住耳朵，并能自然地使用'너무 짧게는 말고요'。"
+        },
+        {
+          "line": 32,
+          "problem": "'bring my bangs down' means letting the bangs hang lower, but it is rendered as '剪短一点' (cut shorter), which adds a meaning that is not in the English and contradicts the rest of the line.",
+          "fix": "好的，请把刘海稍微往下放一点。"
+        },
+        {
+          "line": 37,
+          "problem": "The prompt sentence is changed: 'bring my bangs down just a little' is translated as '稍微剪短一点' (cut a little shorter), so learners would translate the wrong meaning.",
+          "fix": "请把下面这句话翻译成韩语：“请把刘海稍微往下放一点。”"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "The gloss of « …말고요 » adds « trop »: the English gloss is \"not …, please\", but the French says « pas trop…, s'il vous plaît » (\"not too …\"). This teaches a wrong meaning of the form; « trop » comes from 너무 in the example, not from 말고요.",
+          "fix": "Un dialogue court et réaliste dans un salon de coiffure pour demander une coupe de base : indiquer la longueur avec « 이 정도 », choisir la frange, et demander à faire voir ou cacher les oreilles. Pratiquez la forme négative abrégée « …말고요 » (« pas …, s'il vous plaît ») comme dans « Pas trop court, s'il vous plaît »."
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T10:41:22.018Z"
+}

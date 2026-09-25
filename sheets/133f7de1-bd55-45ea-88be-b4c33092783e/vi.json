@@ -1,0 +1,94 @@
+{
+  "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
+  "keyword": "",
+  "summary": "Đọc hai thông báo ngắn của chung cư (thông báo cắt nước và cắt điện do kiểm tra) và luyện tìm nhanh ngày/giờ, địa điểm, lý do và việc cư dân cần làm. Tập trung vào tám nhãn/từ thường gặp.",
+  "objective": "Người học sẽ có thể đọc các thông báo ngắn của tòa nhà về việc cắt nước/cắt điện và kiểm tra, nhanh chóng tìm ra ngày, giờ, khu vực bị ảnh hưởng và việc cư dân cần làm; đồng thời nhận biết 8 nhãn/từ thường gặp (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Sơ cấp cao (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Việc cắt nước ở thông báo A kết thúc lúc mấy giờ? Hãy viết theo định dạng dùng trong thông báo (ví dụ: 18:00).",
+    "Việc cắt nước ở thông báo A diễn ra ở đâu? Hãy xem dòng '장소' trong thông báo rồi viết.",
+    "Việc cắt điện ở thông báo B là ngày mấy tháng mấy, thứ mấy? Hãy viết theo định dạng dùng trong thông báo (ví dụ: 10월 12일(월)).",
+    "Hãy viết một việc mà cư dân cần làm theo thông báo B, viết nguyên câu như trong thông báo.",
+    "Nếu muốn hỏi thêm về việc cắt điện ở thông báo B thì liên hệ ở đâu? Đừng viết số điện thoại, hãy viết tên nơi liên hệ.",
+    "Lý do (사유) trong thông báo B là gì? Hãy xem dòng '사유' trong thông báo rồi viết.",
+    "'단수' là tạm ngừng cung cấp cái gì? Hãy xem phần 'Các nhãn/từ thường dùng' rồi viết một từ."
+  ],
+  "answers": [
+    "14:00",
+    "101동 전체",
+    "10월 15일(목)",
+    "단전 전에 가전제품 플러그를 뽑아 주세요.",
+    "관리사무소",
+    "전기설비 정기 점검",
+    "물"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Hướng dẫn học",
+      "paragraphs": [
+        "Luyện đọc nhanh các thông báo về cắt nước, cắt điện, kiểm tra ở chung cư hoặc tòa nhà, và tìm những thông tin cần thiết.",
+        "Đặc biệt, luyện cách nhìn các nhãn như '일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의' để chọn đọc đúng dòng cần thiết."
+      ]
+    },
+    {
+      "heading": "Các nhãn/từ thường dùng",
+      "paragraphs": [
+        "일시: 언제 하는지(날짜와 시간)",
+        "장소: 어디에서 하는지(영향을 받는 곳)",
+        "사유: 왜 하는지(이유)",
+        "점검: 상태를 확인하거나 검사함",
+        "작업: 공사를 하거나 고치는 일",
+        "단수: 물 공급을 잠시 멈춤",
+        "단전: 전기 공급을 잠시 멈춤",
+        "문의: 연락할 곳(전화번호, 부서/사무실)"
+      ]
+    },
+    {
+      "heading": "Thông báo ví dụ A — Thông báo cắt nước",
+      "paragraphs": [
+        "[Thông báo A] Thông báo cắt nước",
+        "일시: 2026년 10월 12일(월) 09:30~14:00",
+        "장소: 101동 전체",
+        "사유: 건물 내부 배관 교체 작업",
+        "작업: 물 공급 중단 및 배관 교체",
+        "유의사항: 단수 전에 물을 미리 받아 두세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "Thông báo ví dụ B — Thông báo cắt điện",
+      "paragraphs": [
+        "[Thông báo B] Thông báo cắt điện",
+        "일시: 2026년 10월 15일(목) 13:00~16:00",
+        "장소: 102동 전체",
+        "사유: 전기설비 정기 점검",
+        "작업: 변전실 점검 및 전력 차단",
+        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
+        "문의: 관리사무소 02-000-0000"
+      ]
+    },
+    {
+      "heading": "Cách tìm nhanh",
+      "paragraphs": [
+        "Hãy xem các nhãn (일시, 장소, 사유, 작업, 유의사항, 문의) trước, rồi chỉ đọc chính xác dòng cần thiết.",
+        "Hãy làm quen với các số và ký hiệu (ví dụ: 09:30, ~, (월), 동). Giờ thường được ghi theo định dạng 24 giờ.",
+        "Để biết cần phải làm gì, hãy tìm cách diễn đạt đề nghị như '-세요' trong dòng 'lưu ý' (유의사항)."
+      ]
+    },
+    {
+      "heading": "Hướng dẫn luyện tập",
+      "paragraphs": [
+        "Hãy làm các câu hỏi dưới đây. Tìm câu trả lời trong thông báo A hoặc B, hoặc xem phần 'Các nhãn/từ thường dùng' rồi viết ra. Nếu câu trả lời tìm thấy trong thông báo, hãy viết đúng nguyên dạng như trong thông báo. Số và ký hiệu (ví dụ: ~, :) cũng ghi giữ nguyên."
+      ]
+    }
+  ],
+  "note": "Thông báo trong tài liệu này chỉ là ví dụ dùng để học. Không phải lịch trình hay thông tin liên hệ thật.",
+  "category": "etc"
+}

@@ -1,0 +1,109 @@
+{
+  "answers": [
+    "자동발매기",
+    "지하철 = subway, 승차권 = ticket (paper)",
+    "환승",
+    "출구",
+    "개찰구",
+    "교통카드",
+    "갈아타 (환승하도 정답)",
+    "안내판",
+    "역무원"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "写出\"自动售票机\"对应的韩语单词。",
+    "写出下列每个单词的英文意思:지하철 / 승차권",
+    "写出\"换乘(名词)\"对应的韩语单词。",
+    "从词汇表中选择合适的词填空:몇 번 ___로 나가요?",
+    "填空:___를 지나서 오른쪽으로 가세요.(提示:检票口)",
+    "填空:___에 돈을 충전했어요.(提示:交通卡)",
+    "填空:2호선으로 ___세요.(提示:换乘)",
+    "选出意为\"指示牌/告示牌\"的单词:안내판 / 개찰구 / 출구 / 자동발매기",
+    "填空:길을 몰라요. ___에게 물어볼까요?(提示:车站工作人员)"
+  ],
+  "keyword": "지하철 이용 어휘",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "objective": "学习10个地铁核心词汇(购票、检票口、换乘、出口),并配有可以立即使用的简短例句。",
+  "summary": "本练习教授乘坐地铁所需的10个核心韩语单词:买票、通过检票口、换乘和寻找出口。每个单词都配有简短实用的例句。",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "地铁",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "我坐地铁。"
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "检票口",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "请在检票口刷卡。"
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "交通卡",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "我已经准备好交通卡了。"
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "车票(纸质)",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "请给我一张票。"
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "自动售票机",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "我在自动售票机买票。"
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "换乘",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "我在这里换乘。"
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "换乘(动词)",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "请在下一站换乘。"
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "出口",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "从3号出口出去。"
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "指示牌/告示牌",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "看一下指示牌。"
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "车站工作人员",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "询问车站工作人员。"
+    }
+  ],
+  "category": "vocab"
+}

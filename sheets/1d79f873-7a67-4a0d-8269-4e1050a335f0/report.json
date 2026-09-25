@@ -1,0 +1,281 @@
+{
+  "id": "1d79f873-7a67-4a0d-8269-4e1050a335f0",
+  "title": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "category": "reallife",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "학습 목표(objective)와 내용이 맞지 않음: 목표에는 'ask about fees(요금 묻기)'가 있는데 대화, 낱말, 문제 어디에도 요금 표현이 없음. 대화에 '얼마예요? / 한 번에 4,000원이에요' 같은 요금 문답과 '요금' 낱말을 넣거나, 목표에서 fees를 빼야 함. (금액을 넣는다면 실제 요금으로 단정하지 말고 예시로만 제시할 것)",
+        "문제가 학습 목표를 연습시키지 못함: 목표는 '묻고 말하기(ask/say)'인데 1~3번은 대화 내용을 확인하는 문제이고, 4번은 번역 한 문제뿐임. '몇 번이 비어 있어요?', '남은 시간이 얼마나 돼요?'처럼 질문을 직접 만들어 보는 문제를 넣어야 함.",
+        "대화 1행 번역이 부정확함: '4번 세탁기 지금 누구 거예요?'는 '누구의 것인가'를 묻는 말이므로 'Excuse me, whose is washing machine number 4 (right now)?'로 고쳐야 함. 지금 번역 'is ... in use by someone now?'는 예/아니요로 답하는 질문이 되어 원문과 뜻이 다름.",
+        "대화 2행 영어 문법 오류: 'There's 17 minutes left now.'를 'There are 17 minutes left now.'로 고쳐야 함.",
+        "level 표기 'A2 (초급 중급)'이 모순됨: '초급'과 '중급'이 함께 쓰여 수준이 분명하지 않음. A2에 맞게 'A2 (초급)' 또는 'A2 (초급 상)'으로 고쳐야 함."
+      ],
+      "audit": [
+        "dialogue 1번째 줄 meaning: Excuse me, is the washing machine number 4 in use by someone now? → Excuse me, whose is washing machine number 4 right now?",
+        "dialogue 7번째 줄 korean/meaning (민지): 감사합니다. 세제는 넣으셨어요? / Thank you. Did you put in the detergent? → 감사합니다. 세제는 어디에서 사요? / Thank you. Where do I buy detergent?",
+        "dialogue 8번째 줄 korean/meaning (철수): 네, 이미 넣었고 시작 버튼도 눌렀어요. / Yes, I already put it in and pressed the start button. → 저기 자판기에서 사요. 세제를 넣고 시작 버튼을 누르면 돼요. / You can buy it from the vending machine over there. Put in the detergent and press the start button.",
+        "objective: ask how much time is left, ask about fees or moving laundry, and start or move laundry to the dryer. → ask how much time is left, ask someone to move laundry, and start or move laundry to the dryer."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "연습 2번: 정답이 '남은 시간이 얼마나 돼요?' 하나뿐임. '얼마나 남았어요?', '시간이 얼마나 남았어요?'도 맞는 답이므로 정답표에 추가하거나 받아 줄 문형을 문제에 밝혀야 함.",
+        "연습 3번: 정답이 '몇 번이 비어 있어요?' 하나뿐임. 학습지의 건조기 예문도 '비었어요'를 쓰므로 '몇 번이 비었어요?', '건조기 몇 번이 비어 있어요?'도 정답으로 받아야 함.",
+        "연습 1번: '철수의 세탁기 번호는 몇 번이에요?'에 대한 가장 직접적인 답은 '4번이에요.'임. 정답을 '4번이에요. / 4번 세탁기예요.'로 고쳐야 함.",
+        "학습 목표의 'ask someone to move laundry'(빨래를 옮겨 달라고 부탁하기)를 연습하는 문제가 없음. 'Can you move it to the dryer when it's done?' → '끝나면 건조기로 옮겨 주실 수 있어요?' 같은 문제를 넣어야 함.",
+        "연습 2·3번 정답이 낱말 예문과 똑같음. 특히 '몇 번이 비어 있어요?'는 낱말 예문, 대화, 정답에 세 번 되풀이되어 문장을 만드는 연습이 아니라 베껴 쓰기가 됨. 한 문제는 다른 틀로 바꿔야 함(예: 'How many minutes are left on number 3?' → '3번은 몇 분 남았어요?').",
+        "task.title과 task.line이 빈 문자열이라 마무리 과제가 없음. 빨래방에서 번호 묻기·남은 시간 확인·건조기로 옮겨 달라고 부탁하기 역할극 같은 과제를 채워야 함."
+      ],
+      "audit": [
+        "answers 1번: 4번 세탁기예요. → 4번이에요.",
+        "answers 2번: 남은 시간이 얼마나 돼요? → 남은 시간이 얼마나 돼요? / 시간이 얼마나 남았어요? / 얼마나 남았어요?",
+        "answers 3번: 몇 번이 비어 있어요? → 몇 번이 비어 있어요? / 몇 번이 비었어요?"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "4번 세탁기예요.",
+      "after": "4번이에요. / 4번 세탁기예요."
+    },
+    {
+      "at": "answers[2]",
+      "before": "17분 남았어요.",
+      "after": "남은 시간이 얼마나 돼요? / 시간이 얼마나 남았어요? / 얼마나 남았어요?"
+    },
+    {
+      "at": "answers[3]",
+      "before": "2번 건조기로 옮긴다고 했어요.",
+      "after": "끝나면 2번 건조기로 옮겨 주실 수 있어요? / 끝나면 2번 건조기로 옮겨 주세요."
+    },
+    {
+      "at": "dialogue[1].meaning",
+      "before": "Excuse me, is the washing machine number 4 in use by someone now?",
+      "after": "Excuse me, whose is washing machine number 4 right now?"
+    },
+    {
+      "at": "dialogue[2].meaning",
+      "before": "Yes, it's mine. There's 17 minutes left now.",
+      "after": "Yes, it's mine. There are 17 minutes left now."
+    },
+    {
+      "at": "dialogue[7].korean",
+      "before": "감사합니다. 세제는 넣으셨어요?",
+      "after": "감사합니다. 세제는 어디에서 사요?"
+    },
+    {
+      "at": "dialogue[7].meaning",
+      "before": "Thank you. Did you put in the detergent?",
+      "after": "Thank you. Where do I buy detergent?"
+    },
+    {
+      "at": "dialogue[8].korean",
+      "before": "네, 이미 넣었고 시작 버튼도 눌렀어요.",
+      "after": "저기 자판기에서 사요. 세제를 넣고 시작 버튼을 누르면 돼요."
+    },
+    {
+      "at": "dialogue[8].meaning",
+      "before": "Yes, I already put it in and pressed the start button.",
+      "after": "You can buy it from the vending machine over there. Put in the detergent and press the start button."
+    },
+    {
+      "at": "exercises[2]",
+      "before": "철수 세탁기에 남은 시간은 얼마예요?",
+      "after": "남은 시간을 묻는 질문을 한국어로 만드세요: \"How much time is left?\""
+    },
+    {
+      "at": "exercises[3]",
+      "before": "철수가 끝나면 어디로 옮기겠다고 했어요? (몇 번)",
+      "after": "빨래를 옮겨 달라고 부탁하는 말을 한국어로 만드세요: \"Can you move it to dryer number 2 when it's done?\""
+    },
+    {
+      "at": "level",
+      "before": "A2 (초급 중급)",
+      "after": "A2 (초급 상)"
+    },
+    {
+      "at": "objective",
+      "before": "Be able to understand and say short questions and responses at a coin/self-service laundromat: ask for a machine number, ask how much time is left, ask about fees or moving laundry, and start or move laundry to the dryer.",
+      "after": "Be able to understand and say short questions and responses at a coin/self-service laundromat: ask for a machine number, ask how much time is left, ask someone to move laundry, and start or move laundry to the dryer."
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "빨래방 역할극"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "짝과 빨래방 손님이 되어 보세요. 세탁기 번호를 묻고, 남은 시간을 확인하고, 끝나면 비어 있는 건조기로 옮겨 달라고 부탁하세요."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 15,
+          "problem": "The English gloss is a general verb, \"to move (something to another machine/place)\". The Chinese changes \"something\" to \"衣服\" (clothes), which narrows the meaning of the vocabulary item.",
+          "fix": "移动;挪(把东西挪到另一台机器/地方)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 26,
+          "problem": "\"la déplacer … après qu'elle soit terminée\": \"la\" can only point back to \"la machine à laver\" from line 22, so the French asks to move the washing machine into the dryer. The English \"it\" means the laundry.",
+          "fix": "Ah, je vois. Pouvez-vous mettre le linge dans le sèche-linge juste après la fin du lavage ?"
+        },
+        {
+          "line": 32,
+          "problem": "\"je la déplacerai … une fois terminée\": \"la\" again points to the washing machine, so it says the machine will be moved to dryer number 2. The English means the laundry.",
+          "fix": "Alors je mettrai le linge dans le numéro 2 une fois le lavage terminé."
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "The idea of starting the machine is gone: 'start or move laundry to the dryer' became 'in den Trockner geben oder verlegen'. 'Verlegen' is also the wrong verb for moving laundry, since it means to misplace or relocate. 'Münz-/Waschsalon' leaves out 'self-service' and reads oddly.",
+          "fix": "Kurze Fragen und Antworten in einem Münz- bzw. Selbstbedienungswaschsalon verstehen und sagen können: nach einer Maschinennummer fragen, fragen, wie viel Zeit noch bleibt, jemanden bitten, die Wäsche umzuräumen, und die Maschine starten oder die Wäsche in den Trockner umräumen."
+        },
+        {
+          "line": 15,
+          "problem": "The gloss uses the wrong word. 'verlegen' means to misplace, relocate or postpone, not to move something into another machine.",
+          "fix": "etwas (in eine andere Maschine/an einen anderen Ort) umräumen, bringen"
+        },
+        {
+          "line": 39,
+          "problem": "'verlegen' is the wrong verb for moving laundry into the dryer. It is unnatural here and suggests misplacing it.",
+          "fix": "빨래를 옮겨 달라고 부탁하는 말을 한국어로 만드세요: \"Kannst du sie in Trockner Nummer 2 umräumen, wenn sie fertig ist?\""
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T09:32:06.708Z"
+}

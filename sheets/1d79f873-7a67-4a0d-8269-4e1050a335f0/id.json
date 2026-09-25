@@ -1,0 +1,121 @@
+{
+  "answers": [
+    "4번이에요. / 4번 세탁기예요.",
+    "남은 시간이 얼마나 돼요? / 시간이 얼마나 남았어요? / 얼마나 남았어요?",
+    "끝나면 2번 건조기로 옮겨 주실 수 있어요? / 끝나면 2번 건조기로 옮겨 주세요.",
+    "시작 버튼을 눌렀어요."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "민지",
+      "korean": "실례합니다, 4번 세탁기 지금 누구 거예요?",
+      "meaning": "Permisi, mesin cuci nomor 4 ini sekarang punya siapa?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 제 거예요. 지금 17분 남았어요.",
+      "meaning": "Ya, itu punya saya. Sekarang tersisa 17 menit."
+    },
+    {
+      "who": "민지",
+      "korean": "아, 알겠어요. 끝나면 건조기로 바로 옮겨 주실 수 있어요?",
+      "meaning": "Ah, begitu. Bisakah kamu memindahkannya ke pengering segera setelah selesai?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 괜찮아요. 건조기는 몇 번이 비어 있어요?",
+      "meaning": "Ya, boleh. Pengering nomor berapa yang kosong?"
+    },
+    {
+      "who": "민지",
+      "korean": "2번이 비어 있어요.",
+      "meaning": "Pengering nomor 2 kosong."
+    },
+    {
+      "who": "철수",
+      "korean": "그러면 끝나면 제가 2번으로 옮길게요.",
+      "meaning": "Kalau begitu, saya akan memindahkannya ke nomor 2 kalau sudah selesai."
+    },
+    {
+      "who": "민지",
+      "korean": "감사합니다. 세제는 어디에서 사요?",
+      "meaning": "Terima kasih. Di mana saya bisa membeli deterjen?"
+    },
+    {
+      "who": "철수",
+      "korean": "저기 자판기에서 사요. 세제를 넣고 시작 버튼을 누르면 돼요.",
+      "meaning": "Kamu bisa membelinya di mesin penjual otomatis di sana. Masukkan deterjennya lalu tekan tombol mulai."
+    }
+  ],
+  "exercises": [
+    "철수의 세탁기 번호는 몇 번이에요?",
+    "남은 시간을 묻는 질문을 한국어로 만드세요: \"Berapa lama waktu yang tersisa?\"",
+    "빨래를 옮겨 달라고 부탁하는 말을 한국어로 만드세요: \"Bisakah kamu memindahkannya ke pengering nomor 2 kalau sudah selesai?\"",
+    "다음 문장을 한국어로 적으세요: \"Saya menekan tombol mulai.\""
+  ],
+  "keyword": "",
+  "level": "A2 (초급 상)",
+  "minutes": 15,
+  "objective": "Mampu memahami dan mengucapkan pertanyaan serta jawaban singkat di laundry koin/self-service: menanyakan nomor mesin, menanyakan berapa lama waktu tersisa, meminta seseorang memindahkan cucian, dan memulai atau memindahkan cucian ke pengering.",
+  "setting": "무인(코인) 빨래방",
+  "summary": "Berlatih pertanyaan dan jawaban singkat yang praktis di laundry koin (self-service): menanyakan mesin yang mana, memeriksa sisa waktu, dan mengatur untuk memindahkan cucian ke pengering.",
+  "tags": [],
+  "task": {
+    "title": "빨래방 역할극",
+    "line": "짝과 빨래방 손님이 되어 보세요. 세탁기 번호를 묻고, 남은 시간을 확인하고, 끝나면 비어 있는 건조기로 옮겨 달라고 부탁하세요."
+  },
+  "title": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "words": [
+    {
+      "korean": "세탁기",
+      "roman": "setakgi",
+      "meaning": "mesin cuci",
+      "example": "세탁기 4번에 넣으세요.",
+      "exampleMeaning": "Masukkan ke mesin cuci nomor 4."
+    },
+    {
+      "korean": "건조기",
+      "roman": "geonjogi",
+      "meaning": "pengering",
+      "example": "건조기 2번이 비었어요.",
+      "exampleMeaning": "Pengering nomor 2 kosong."
+    },
+    {
+      "korean": "몇 번",
+      "roman": "myeot beon",
+      "meaning": "nomor berapa",
+      "example": "몇 번이 비어 있어요?",
+      "exampleMeaning": "Nomor berapa yang kosong?"
+    },
+    {
+      "korean": "남은 시간",
+      "roman": "nameun sigan",
+      "meaning": "waktu yang tersisa",
+      "example": "남은 시간이 얼마나 돼요?",
+      "exampleMeaning": "Berapa lama waktu yang tersisa?"
+    },
+    {
+      "korean": "옮기다",
+      "roman": "omgida",
+      "meaning": "memindahkan (sesuatu ke mesin/tempat lain)",
+      "example": "끝나면 건조기로 옮겨 주세요.",
+      "exampleMeaning": "Tolong pindahkan ke pengering kalau sudah selesai."
+    },
+    {
+      "korean": "시작 버튼",
+      "roman": "sijak beoteun",
+      "meaning": "tombol mulai",
+      "example": "시작 버튼을 눌러 주세요.",
+      "exampleMeaning": "Tolong tekan tombol mulai."
+    },
+    {
+      "korean": "세제",
+      "roman": "seje",
+      "meaning": "deterjen",
+      "example": "세제는 이미 넣었어요.",
+      "exampleMeaning": "Saya sudah memasukkan deterjennya."
+    }
+  ],
+  "category": "reallife"
+}

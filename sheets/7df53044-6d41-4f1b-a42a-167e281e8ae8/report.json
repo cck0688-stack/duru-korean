@@ -1,0 +1,167 @@
+{
+  "id": "7df53044-6d41-4f1b-a42a-167e281e8ae8",
+  "title": "원룸 광고 두 개, 어느 방이 좋을까?",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 28,
+          "problem": "The Korean question has been changed. Indonesian 'Ubahlah' was added, and the Korean was split into a separate quoted fragment ('앱에서 본 방의'). The result is broken, mixed-language text, and the Korean no longer matches the English line character for character.",
+          "fix": "앱에서 본 방의 '보증금 1000/월세 50'을 원 단위로 바꿔 쓰세요."
+        },
+        {
+          "line": 29,
+          "problem": "The Korean question has been changed. Indonesian 'Ubahlah' was added, and the Korean was split into a separate quoted fragment ('전단지에 있는 방의'). The result is broken, mixed-language text, and the Korean no longer matches the English line character for character.",
+          "fix": "전단지에 있는 방의 '보증금 500 / 월세 45'를 원 단위로 바꿔 쓰세요."
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 9,
+          "problem": "\"by the 25th\" includes the 25th itself; \"avant le 25\" means before the 25th, so the deadline moves back by one day.",
+          "fix": "Vous pouvez payer les charges au plus tard le 25 de chaque mois."
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 4,
+          "problem": "The headword 押金 is repeated inside the parentheses as a label (\"押金(押金:…\"). The English has no such repeat, and it reads unnaturally.",
+          "fix": "押金(租房时先付给房东的一大笔钱,搬走时会退还)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 3,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 31,
+          "problem": "The German 'Wie wird die Waschmaschine im anderen Zimmer benutzt?' says the other room has its own washing machine ('the washing machine in the other room'). That contradicts the first question, which implies only one room has a washer inside. The English and Korean ask how you use a washing machine (do laundry) if you live in the other room.",
+          "fix": "방 안에 세탁기가 있는 방은 어느 방입니까? In welchem Zimmer gibt es eine Waschmaschine im Zimmer selbst? 다른 방에서는 세탁기를 어떻게 씁니까? Wie benutzt man im anderen Zimmer eine Waschmaschine?"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T12:18:55.769Z"
+}

@@ -1,0 +1,79 @@
+{
+  "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
+  "keyword": "약 봉투",
+  "summary": "Uma ficha de leitura prática sobre o envelope de remédio da farmácia coreana (약 봉투). Os alunos leem três rótulos curtos de envelopes. Eles aprendem as palavras de dosagem que aparecem em quase todo envelope (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) e como dizê-las em voz alta usando os números nativos coreanos (하루 세 번, 한 알). Também aprendem dois avisos comuns: 졸음이 올 수 있어요 e 운전 주의.",
+  "objective": "Depois de ler um envelope de remédio da farmácia, os alunos conseguem identificar quatro coisas: quantas vezes por dia tomar o remédio, quando tomar (식전 / 식후 30분 / 취침 전), quanto tomar em cada vez (1포, 1알/1정) e por quantos dias (○일분). Eles também conseguem reconhecer os avisos 졸음이 올 수 있어요 e 운전 주의.",
+  "level": "Iniciante (nível alto)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Olhe o Envelope A. 이 약은 하루에 몇 번 먹어요?",
+    "Olhe o Envelope A. 이 약은 언제 먹어요? Escreva as palavras do envelope e o que elas significam.",
+    "Olhe o Envelope B. O envelope diz 1회 1정. 한 번에 몇 알 먹어요? Responda do jeito que as pessoas falam em voz alta.",
+    "Olhe o Envelope C. 이 약은 며칠 동안 먹어요?",
+    "Olhe o Envelope C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
+    "Olhe o Envelope A. 이 약을 먹고 운전해도 괜찮아요? Quais palavras do envelope indicam isso, e o que elas significam?"
+  ],
+  "answers": [
+    "하루 세 번 (1일 3회 = 3 times a day)",
+    "식후 30분 — 30 minutes after a meal (밥 먹고 30분 후)",
+    "한 알 (1정 = 1알 = one tablet)",
+    "7일 동안 (7일분 = a 7-day supply; also: 일주일 동안)",
+    "6시 30분 (식전 30분 = 30 minutes before the meal)",
+    "조심해야 해요. 봉투에 '졸음이 올 수 있어요. 운전 주의.'라고 쓰여 있어요. It may make you sleepy, so be careful about driving."
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "약 봉투 A (ENVELOPE A)",
+      "paragraphs": [
+        "이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의.",
+        "Na Coreia, a farmácia costuma colocar uma dose de comprimidos em um pequeno pacotinho chamado 포. Você abre um pacotinho e toma tudo o que está dentro dele."
+      ]
+    },
+    {
+      "heading": "봉투에 나오는 말 (PALAVRAS QUE APARECEM NO ENVELOPE)",
+      "paragraphs": [
+        "QUANTAS VEZES POR DIA — 1일 3회 (iril samhoe) = 3 vezes ao dia. 일 significa 'dia' e 회 significa 'vez(es)'. As pessoas dizem isso como 하루 세 번.",
+        "QUANTO EM CADA VEZ — 1회 1포 = um pacotinho a cada vez. 1정 = um comprimido. Você verá 정 no envelope, mas as pessoas falam 알: 1정 = 1알 = 한 알. Dois comprimidos = 2알 = 두 알.",
+        "QUANDO — 식전 (sikjeon) = antes da refeição. 식후 (sikhu) = depois da refeição. 식후 30분 = 30 minutos depois da refeição. 취침 전 (chwichim jeon) = antes de dormir. Na fala, você pode dizer 밥 먹기 전, 밥 먹고 나서 e 자기 전.",
+        "POR QUANTOS DIAS — 3일분 (samilbun) = provisão para 3 dias. Aqui, 분 significa 'quantidade/porção' e não tem nada a ver com minutos. 7일분 = remédio para 7 dias."
+      ]
+    },
+    {
+      "heading": "소리 내어 읽기 (LENDO EM VOZ ALTA)",
+      "paragraphs": [
+        "O envelope usa palavras e números sino-coreanos. Ao falar, use os números nativos coreanos (한, 두, 세) com os contadores 번 e 알.",
+        "1일 3회 → 하루 세 번 먹어요. 1회 2알 → 한 번에 두 알 먹어요. 취침 전 → 자기 전에 먹어요."
+      ]
+    },
+    {
+      "heading": "주의 (AVISOS)",
+      "paragraphs": [
+        "졸음이 올 수 있어요. (joreumi ol su isseoyo) = Este remédio pode dar sono.",
+        "운전 주의 (unjeon juui) = Cuidado ao dirigir.",
+        "Esses dois avisos costumam aparecer juntos. Alguns envelopes os colocam em uma única frase: 졸음이 올 수 있으니 운전에 주의하세요."
+      ]
+    },
+    {
+      "heading": "약 봉투 B, C (ENVELOPES B E C)",
+      "paragraphs": [
+        "[B] 이름: 존 님 | 복용법: 1일 1회, 1회 1정, 취침 전 | 5일분",
+        "[C] 이름: 하나 님 | 복용법: 1일 2회 (아침, 저녁), 1회 2알, 식전 30분 | 7일분"
+      ]
+    },
+    {
+      "heading": "약국에서 물어보기 (PERGUNTANDO NA FARMÁCIA)",
+      "paragraphs": [
+        "Se você não conseguir ler o envelope, pergunte ao farmacêutico:",
+        "이 약은 언제 먹어요? — Quando eu tomo este remédio? 하루에 몇 번 먹어요? — Quantas vezes por dia eu tomo? 한 번에 몇 알 먹어요? — Quantos eu tomo de cada vez?"
+      ]
+    }
+  ],
+  "note": "Todos os envelopes são exemplos inventados para prática de leitura. Eles não são orientação médica. Para remédios de verdade, siga sempre o que o farmacêutico ou médico disser.",
+  "category": "etc"
+}

@@ -1,0 +1,71 @@
+{
+  "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
+  "keyword": "",
+  "summary": "Apprendre à repérer et à dire rapidement le nom de la voie se terminant par ro/gil suivi du numéro de bâtiment, ainsi que, le cas échéant, le numéro de bâtiment/d'appartement (dong/ho) dans les adresses coréennes écrites, sur des textes ou des applications de carte.",
+  "objective": "À la fin de cette fiche, l'apprenant pourra 1) repérer et lire le nom de la voie se terminant par ro/gil suivi du numéro de bâtiment, et 2) trouver et dire rapidement et correctement le dong et le ho de l'appartement.",
+  "level": "Débutant avancé (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "Instructions de l'exercice",
+    "line": "Dans l'adresse ci-dessous, 1) trouvez et notez le 로/길+건물번호 (nom de voie + numéro de bâtiment), 2) le (아파트) 동·호 (있으면) (dong·ho de l'appartement, s'il y en a), puis 3) lisez les chiffres en écrivant leur lecture en hangeul.\nFormat de réponse : « nom de voie numéro de bâtiment; dong·ho (lecture : …) » ou « nom de voie numéro de bâtiment; aucun (lecture : …) ».\nLes adresses d'exemple ont été créées à des fins pédagogiques et peuvent ne pas correspondre à de vrais lieux."
+  },
+  "exercises": [
+    "전북 전주시 완산구 향교길 68",
+    "부산 해운대구 센텀중앙로 75, 센텀오피스텔 807호",
+    "경기 수원시 영통구 광교중앙로 170, 햇살아파트 305동 1102호",
+    "대전 유성구 대학로 291",
+    "서울 마포구 성미산로11길 24, 푸른빌라 301호"
+  ],
+  "answers": [
+    "향교길 68; 없음 (읽기: 향교길 육십팔)",
+    "센텀중앙로 75; 807호 (읽기: 센텀중앙로 칠십오; 팔백칠호)",
+    "광교중앙로 170; 305동 1102호 (읽기: 광교중앙로 백칠십; 삼백오동 천백이호)",
+    "대학로 291; 없음 (읽기: 대학로 이백구십일)",
+    "성미산로11길 24; 301호 (읽기: 성미산로 십일길 이십사; 삼백일호)"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Aperçu de l'adresse routière (도로명주소)",
+      "paragraphs": [
+        "Une adresse coréenne se compose globalement de la région (시/도, 시/군/구) + du nom de voie et du numéro de bâtiment + du (아파트) 동·호 de l'appartement.",
+        "Exemple : dans « 서울 종로구 자하문로17길 12, 한빛빌라 202호 », « 자하문로17길 12 » est le nom de voie et le numéro de bâtiment, et « 202호 » est le numéro de logement."
+      ]
+    },
+    {
+      "heading": "Trouver le 로/길 (RO/GIL) et le numéro de bâtiment",
+      "paragraphs": [
+        "Le nom de la voie se termine généralement par « …로 » ou « …길 ». Le chiffre qui suit est le numéro de bâtiment.",
+        "Exemple : « 세종대로 110 », « 자하문로17길 12 ».",
+        "Exemple de lecture : « 세종대로 백십 », « 자하문로 십칠길 십이 ». Lisez les chiffres clairement en utilisant les unités de mille/cent/dix."
+      ]
+    },
+    {
+      "heading": "Trouver le 동·호 (DONG/HO) de l'appartement",
+      "paragraphs": [
+        "Dans les appartements, résidences-services, etc., le dong et le ho viennent après le nom du complexe/bâtiment. Le « 동 » est le numéro du bâtiment, et le « 호 » est le numéro du logement/de l'unité.",
+        "Forme : « … 아파트 101동 1203호 » ou « … 오피스텔 1203호 » (il se peut qu'il n'y ait pas de dong).",
+        "Exemple de lecture : « 백일동 천이백삼호 »."
+      ]
+    },
+    {
+      "heading": "Notations fréquentes",
+      "paragraphs": [
+        "La virgule (,) est souvent utilisée pour séparer l'adresse de voie du nom du bâtiment, du dong et du ho. Exemple : « … 판교역로 146, 초록아파트 101동 402호 ».",
+        "Les noms de voies secondaires sont accolés au numéro. Exemple : « 자하문로17길 12 » (« …로17길 » constitue aussi le nom complet de la voie).",
+        "Il y a un espace entre le nom de la voie et le numéro de bâtiment. Exemple : « 세종대로 110 » / « 자하문로17길 12 ». Pour le dong et le ho, « 동 » et « 호 » sont accolés directement après le chiffre."
+      ]
+    },
+    {
+      "heading": "Astuces pour trouver rapidement",
+      "paragraphs": [
+        "1) Repérez d'abord des yeux le « 로 » ou le « 길 » à la fin du nom de la voie (par exemple, dans « 자하문로17길 », le nom de la voie va jusqu'à « 길 »). Le chiffre qui suit, après un espace, est le numéro de bâtiment.",
+        "2) Cherchez « 동 » et « 호 » après la virgule (,) ou après le nom du bâtiment. S'il n'y en a pas, écrivez « 없음 » dans la réponse, et à l'oral, il suffit de dire le nom de la voie et le numéro de bâtiment.",
+        "3) À l'oral, dites d'abord « nom de voie + numéro de bâtiment », puis le « dong·ho », dans cet ordre."
+      ]
+    }
+  ],
+  "note": "",
+  "category": "etc"
+}

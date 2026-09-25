@@ -1,0 +1,236 @@
+{
+  "id": "4b952c25-f8cf-4656-82b7-a359954a82f1",
+  "title": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [
+        "passage 가 2개뿐입니다 (최소 3)."
+      ],
+      "review": [
+        "objective와 지문 분량 불일치: objective는 '3–5 paragraph' 안내문을 읽는다고 했는데 passage는 2문단뿐입니다. 지문을 3문단 이상으로 늘리거나(예: 요금 안내 / 데이터 정책 / 통화·문자와 약정 조건) objective를 실제 분량에 맞게 고쳐야 합니다.",
+        "passage 1문단: 문장 중간에 줄바꿈 '\\n'이 들어가 있습니다('데이터는 월 15GB를 제공합니다.' 앞, '데이터 초과에 따른\\n추가 요금은 없습니다.'). 줄바꿈을 지우고 '…데이터 초과에 따른 추가 요금은 없습니다.'처럼 이어 써야 합니다.",
+        "passage 2문단: '포함량을 넘으면 통화와 문자는 별도 요금이 발생합니다.'가 어색합니다. '포함량'은 성분의 양을 말할 때 쓰는 말이고 요금제 안내에서는 '기본 제공량'이라고 합니다. '기본 제공량을 초과하면 통화와 문자에 별도 요금이 부과됩니다.'로 고쳐야 합니다(낱말 목록의 '기본 제공'과도 이어짐).",
+        "words의 exampleMeaning·meaning: 월정액 '29,000\\nwon', 약정 'hard to\\nswitch'와 'agree to\\nstay', 추가 요금 'no extra\\ncharge'처럼 영어 문장 중간에 줄바꿈이 들어가 있습니다. 한 줄로 이어 써야 합니다.",
+        "summary: 'voice/SMS\\\\nlimits'에서 이스케이프된 '\\\\n'이 글자 그대로 화면에 나옵니다. 'voice/SMS limits'로 고쳐야 합니다."
+      ],
+      "audit": [
+        "objective: After reading a 3–5 paragraph mobile plan notice, → After reading a short two-paragraph mobile plan notice,",
+        "summary: voice/SMS\\nlimits → voice/SMS limits",
+        "passage[0]: 월정액은 29,000원이며 약정 기간은 12개월입니다.\n데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른\n추가 요금은 없습니다. → 월정액은 29,000원이며 약정 기간은 12개월입니다. 데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
+        "words[0].exampleMeaning (월정액): The monthly fee for this plan is 29,000\nwon. → The monthly fee for this plan is 29,000 won.",
+        "words[1].meaning (약정): contract term; the set period you agree to\nstay on a plan → contract term; the set period you agree to stay on a plan",
+        "words[1].exampleMeaning (약정): It’s a 12-month contract, so it’s hard to\nswitch easily. → It’s a 12-month contract, so it’s hard to switch easily.",
+        "words[4].exampleMeaning (추가 요금): I’m relieved because there’s no extra\ncharge. → I’m relieved because there’s no extra charge."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "passage[1]",
+      "before": "가온모바일 'LTE 라이트 29' 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.\n데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른\n추가 요금은 없습니다.",
+      "after": "가온모바일 'LTE 라이트 29' 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다."
+    },
+    {
+      "at": "passage[2]",
+      "before": "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 포함량을 넘으면 통화와 문자는 별도 요금이 발생합니다.",
+      "after": "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다."
+    },
+    {
+      "at": "passage[3]",
+      "before": "",
+      "after": "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 초과하면 통화와 문자에 별도 요금이 부과됩니다."
+    },
+    {
+      "at": "summary",
+      "before": "Read a realistic Korean mobile plan notice and identify key details such as the monthly fee, data allowance, voice/SMS\\nlimits, contract term, and the policy after data is used up.",
+      "after": "Read a realistic Korean mobile plan notice and identify key details such as the monthly fee, data allowance, voice/SMS limits, contract term, and the policy after data is used up."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "The monthly fee for this plan is 29,000\nwon.",
+      "after": "The monthly fee for this plan is 29,000 won."
+    },
+    {
+      "at": "words[2].meaning",
+      "before": "contract term; the set period you agree to\nstay on a plan",
+      "after": "contract term; the set period you agree to stay on a plan"
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "It’s a 12-month contract, so it’s hard to\nswitch easily.",
+      "after": "It’s a 12-month contract, so it’s hard to switch easily."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "I’m relieved because there’s no extra\ncharge.",
+      "after": "I’m relieved because there’s no extra charge."
+    }
+  ],
+  "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 6,
+          "problem": "Ungrammatical relative clause: \"el período fijo que aceptas mantener el plan\" lacks the needed preposition (the period during which you agree to keep the plan).",
+          "fix": "duración del contrato; el período fijo durante el cual aceptas mantener el plan"
+        }
+      ]
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 10,
+          "problem": "\"no set limit on use\" is rendered as \"không có mức sử dụng cố định\" (no fixed usage amount), which loses the meaning of a limit.",
+          "fix": "không giới hạn (không có giới hạn sử dụng cố định)"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "「含有量」は物質の成分量を表す語で、プランに含まれる通話・SMSの量を表すには誤った用語です。",
+          "fix": "3〜5段落程度の携帯電話プラン案内を読んだ後、学習者は月額料金、データ提供量、通話・SMSの含まれる量、契約期間(または契約なし)、データ使用後のポリシー(速度制限・追加料金)を正確に見つけることができる。"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"中级初\" is a truncated, unnatural level label in Chinese; the standard expression is \"中级初阶\".",
+          "fix": "中级初阶(중급 초반)"
+        },
+        {
+          "line": 7,
+          "problem": "\"不容易轻易更换\" is redundant (不容易 + 轻易 both mean 'easily/not easy') and reads unnaturally.",
+          "fix": "因为是12个月的合约,所以不能轻易更换。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Mittelstufe Anfänger\" is unnatural German and does not properly render the level \"Intermediate Low\"; it reads as \"intermediate level beginner\".",
+          "fix": "Untere Mittelstufe (중급 초반)"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:23:13.399Z"
+}

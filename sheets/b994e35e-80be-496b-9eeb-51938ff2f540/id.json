@@ -1,0 +1,113 @@
+{
+  "title": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
+  "keyword": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
+  "summary": "Sepuluh kata bahasa Korea yang wajib diketahui untuk memilah sampah rumah tangga dan membuang sampah di apartemen/rumah, dengan contoh kalimat yang jelas dan alami, serta latihan singkat.",
+  "objective": "Pelajar akan memahami dan dapat menggunakan 10 kata kunci terkait pembuangan sampah rumah tangga dan daur ulang dengan percaya diri, serta dapat membuat kalimat singkat untuk digunakan dalam kehidupan sehari-hari.",
+  "level": "Pemula-Tinggi (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "우리 집 쓰레기 버리는 날 알려 주기",
+    "line": "Beri tahu tetangga apa yang harus dikeluarkan pada hari pengumpulan sampah di gedungmu, dalam 3 kalimat."
+  },
+  "exercises": [
+    "빈칸에 알맞은 말을 쓰세요: 음료를 다 마셨다면 라벨을 떼고 _____은 따로 모아 주세요. (botol PET bening)",
+    "빈칸에 알맞은 말을 쓰세요: 페트병을 버리기 전에 _____를 꼭 하세요. (pelepasan label)",
+    "빈칸에 알맞은 말을 쓰세요: 오늘은 우리 동년 재활용 _____이에요.",
+    "빈칸에 알맞은 말을 쓰세요: 플라스틱과 종이는 함께 버리지 말고 _____하세요. (pisahkan)",
+    "알맞은 것을 고르세요: 일반쓰레기는 (종량제봉투 / 재활용 / 음식물쓰레기)에 넣어서 배출해야 해요.",
+    "빈칸에 알맞은 말을 쓰세요: 쓰레기는 저녁 8시 이후에 _____해 주세요. (keluarkan untuk diambil petugas)",
+    "알맞은 것을 고르세요: 먹고 남은 반찬은 (음식물쓰레기 / 스티로폼 / 투명 페트병)(으)로 버려요.",
+    "빈칸에 알맞은 말을 쓰세요: 택배 상자 안에 있던 하얀 _____은 테이프를 떼고 버려요. (styrofoam)",
+    "알맞은 것을 고르세요: 깨끗한 종이 상자와 캔은 (재활용 / 음식물쓰레기 / 일반쓰레기)(으)로 버려요.",
+    "알맞은 것을 고르세요: 깨진 컵은 (일반쓰레기 / 재활용 / 음식물쓰레기)(이)에요.",
+    "'수거일'과 '배출'을 사용해서 우리 집 쓰레기 버리는 날에 대해 짧은 문장을 쓰세요."
+  ],
+  "answers": [
+    "투명 페트병",
+    "라벨 제거",
+    "수거일",
+    "분리",
+    "종량제봉투",
+    "배출",
+    "음식물쓰레기",
+    "스티로폼",
+    "재활용",
+    "일반쓰레기",
+    "예: 우리 집 음식물쓰레기 수거일은 월요일과 목요일이에요. 그래서 일요일 저녁과 수요일 저녁에 음식물쓰레기를 배출해요."
+  ],
+  "checkThese": [],
+  "words": [
+    {
+      "korean": "일반쓰레기",
+      "roman": "ilbansseuregi",
+      "meaning": "sampah umum; sampah yang tidak dapat didaur ulang",
+      "example": "사용한 휴지는 일반쓰레기예요.",
+      "exampleMeaning": "Tisu bekas adalah sampah umum."
+    },
+    {
+      "korean": "재활용",
+      "roman": "jaehwaryong",
+      "meaning": "daur ulang; kategori barang yang dapat didaur ulang",
+      "example": "플라스틱은 재활용으로 버려야 해요.",
+      "exampleMeaning": "Plastik harus dibuang sebagai barang daur ulang."
+    },
+    {
+      "korean": "음식물쓰레기",
+      "roman": "eumsingmulsseuregi",
+      "meaning": "sampah makanan (sisa makanan)",
+      "example": "남은 밥은 음식물쓰레기에 버려요.",
+      "exampleMeaning": "Saya membuang sisa nasi ke sampah makanan."
+    },
+    {
+      "korean": "종량제봉투",
+      "roman": "jongnyangjebongtu",
+      "meaning": "kantong sampah berbayar resmi (kantong sampah khusus berbayar)",
+      "example": "쓰레기는 종량제봉투에 담아 주세요.",
+      "exampleMeaning": "Tolong masukkan sampah ke dalam kantong sampah berbayar resmi."
+    },
+    {
+      "korean": "배출",
+      "roman": "baechul",
+      "meaning": "mengeluarkan (sampah) untuk diambil petugas",
+      "example": "쓰레기는 몇 시에 배출해요?",
+      "exampleMeaning": "Jam berapa kita mengeluarkan sampah?"
+    },
+    {
+      "korean": "수거일",
+      "roman": "sugeoil",
+      "meaning": "hari pengumpulan sampah",
+      "example": "우리 아파트 재활용 수거일은 화요일이에요.",
+      "exampleMeaning": "Hari pengumpulan sampah daur ulang di apartemen kami adalah hari Selasa."
+    },
+    {
+      "korean": "분리",
+      "roman": "bulli",
+      "meaning": "pemilahan; pemisahan (barang)",
+      "example": "종이와 플라스틱을 분리해야 해요.",
+      "exampleMeaning": "Kamu harus memisahkan kertas dan plastik."
+    },
+    {
+      "korean": "라벨 제거",
+      "roman": "rabel jegeo",
+      "meaning": "pelepasan label; melepas label",
+      "example": "병은 라벨 제거 후 버리세요.",
+      "exampleMeaning": "Lepas label dari botol sebelum membuangnya."
+    },
+    {
+      "korean": "투명 페트병",
+      "roman": "tumyeong peteubyeong",
+      "meaning": "botol PET bening",
+      "example": "투명 페트병은 따로 모아요.",
+      "exampleMeaning": "Kami mengumpulkan botol PET bening secara terpisah."
+    },
+    {
+      "korean": "스티로폼",
+      "roman": "seutiropom",
+      "meaning": "styrofoam (polistirena yang diekspansi)",
+      "example": "스티로폼도 재활용이 돼요?",
+      "exampleMeaning": "Apakah styrofoam juga bisa didaur ulang?"
+    }
+  ],
+  "category": "vocab"
+}

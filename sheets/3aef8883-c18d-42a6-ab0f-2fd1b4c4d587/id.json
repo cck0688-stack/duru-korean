@@ -1,0 +1,109 @@
+{
+  "answers": [
+    "자동발매기",
+    "지하철 = subway, 승차권 = ticket (paper)",
+    "환승",
+    "출구",
+    "개찰구",
+    "교통카드",
+    "갈아타 (환승하도 정답)",
+    "안내판",
+    "역무원"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Tulis kata bahasa Korea untuk 'mesin tiket'.",
+    "Tulis arti bahasa Inggris untuk setiap kata: 지하철 / 승차권",
+    "Tulis kata bahasa Korea untuk 'transfer (kata benda)'.",
+    "Isi bagian yang kosong dengan salah satu kata dari daftar: 몇 번 ___로 나가요?",
+    "Isi bagian yang kosong: ___를 지나서 오른쪽으로 가세요. (petunjuk: gerbang tiket)",
+    "Isi bagian yang kosong: ___에 돈을 충전했어요. (petunjuk: kartu transportasi)",
+    "Isi bagian yang kosong: 2호선으로 ___세요. (petunjuk: berganti kereta)",
+    "Pilih kata yang berarti 'papan informasi / papan petunjuk': 안내판 / 개찰구 / 출구 / 자동발매기",
+    "Isi bagian yang kosong: 길을 몰라요. ___에게 물어볼까요? (petunjuk: petugas stasiun)"
+  ],
+  "keyword": "지하철 이용 어휘",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "objective": "Pelajari 10 kosakata penting seputar kereta bawah tanah (pembelian tiket, gerbang tiket, transfer, pintu keluar) dengan contoh kalimat singkat yang bisa langsung Anda gunakan.",
+  "summary": "Lembar kerja ini mengajarkan 10 kata dasar bahasa Korea untuk menggunakan kereta bawah tanah: membeli tiket, melewati gerbang tiket, berpindah kereta, dan mencari pintu keluar. Setiap kata dilengkapi dengan contoh kalimat singkat yang praktis.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "kereta bawah tanah",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "Saya naik kereta bawah tanah."
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "gerbang tiket",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "Tempelkan kartu Anda di gerbang tiket."
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "kartu transportasi",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "Saya sudah menyiapkan kartu transportasi saya."
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "tiket (kertas)",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "Tolong berikan saya satu tiket."
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "mesin tiket",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "Saya membeli tiket dari mesin."
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "transfer (berganti kereta)",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "Saya berpindah kereta di sini."
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "berpindah / berganti kereta",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "Tolong berpindah kereta di stasiun berikutnya."
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "pintu keluar",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "Keluar melalui pintu keluar 3."
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "papan informasi / papan petunjuk",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "Lihat papan informasi."
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "petugas stasiun",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "Tanyakan kepada petugas stasiun."
+    }
+  ],
+  "category": "vocab"
+}

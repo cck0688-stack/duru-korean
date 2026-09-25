@@ -1,0 +1,111 @@
+{
+  "answers": [
+    "포장",
+    "라지",
+    "아이스",
+    "당도",
+    "샷 추가",
+    "얼음",
+    "매장",
+    "따뜻한",
+    "사이즈",
+    "스몰"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "손님: 가져갈 거예요. ___으로 주세요. (para llevar)",
+    "손님: 아주 많이 마시고 싶어요. ___로 할게요. (tamaño grande)",
+    "손님: 오늘은 덥네요. ___로 주세요. (frío/helado)",
+    "직원: ___는 어떻게 해 드릴까요? 손님: 30%요. (nivel de dulzor)",
+    "손님: 진하게 마시고 싶어요. 에스프레소 ___ 가능해요? (agregar un shot)",
+    "손님: ___ 없이 주세요. (hielo)",
+    "직원: 포장이세요? 손님: 아니요, ___에서 먹고 갈게요. (para aquí)",
+    "손님: 오늘은 추워요. ___ 라테로 주세요. (caliente)",
+    "직원: 음료 ___는 어떤 걸로 드릴까요? (tamaño)",
+    "손님: 조금만 마실 거예요. 라테 ___ 한 잔이요. (pequeño)"
+  ],
+  "keyword": "카페 주문 어휘",
+  "level": "Principiante",
+  "minutes": 15,
+  "objective": "Los estudiantes podrán entender y decir 10 palabras clave para preguntar y responder sobre el tamaño, los ajustes de hielo y dulzor, los shots extra, y para aquí/para llevar al pedir en una cafetería.",
+  "summary": "Palabras esenciales en coreano para pedir bebidas en una cafetería: opciones de tamaño, frío/caliente, niveles de hielo y dulzor, shot extra, y para aquí/para llevar. Incluye 10 palabras de alta frecuencia con oraciones de ejemplo naturales y una breve práctica de completar espacios.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "카페 주문 필수 어휘 10",
+  "words": [
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "opción de tamaño (tamaño del vaso)",
+      "example": "사이즈 어떻게 하실까요?",
+      "exampleMeaning": "¿Qué tamaño desea?"
+    },
+    {
+      "korean": "스몰",
+      "roman": "seumol",
+      "meaning": "pequeño (tamaño del vaso)",
+      "example": "스몰로 주세요.",
+      "exampleMeaning": "Pequeño, por favor."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "grande (tamaño del vaso)",
+      "example": "라지 한 잔 주세요.",
+      "exampleMeaning": "Uno grande, por favor."
+    },
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "frío/helado",
+      "example": "아이스 라테로 주세요.",
+      "exampleMeaning": "Un latte frío, por favor."
+    },
+    {
+      "korean": "따뜻한",
+      "roman": "ttatteutan",
+      "meaning": "caliente/tibio (para bebidas)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "Un americano caliente, por favor."
+    },
+    {
+      "korean": "얼음",
+      "roman": "eoreum",
+      "meaning": "hielo (cantidad de hielo)",
+      "example": "얼음은 적게 해 주세요.",
+      "exampleMeaning": "Póngale menos hielo, por favor."
+    },
+    {
+      "korean": "당도",
+      "roman": "dangdo",
+      "meaning": "nivel de dulzor",
+      "example": "당도는 50%로 해 주세요.",
+      "exampleMeaning": "Haga el dulzor al 50%, por favor."
+    },
+    {
+      "korean": "샷 추가",
+      "roman": "syat chuga",
+      "meaning": "agregar un shot extra de espresso",
+      "example": "샷 추가해 주세요.",
+      "exampleMeaning": "Agregue un shot, por favor."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "para llevar",
+      "example": "포장으로 할게요.",
+      "exampleMeaning": "Para llevar, por favor."
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "para aquí (tomar en el local)",
+      "example": "매장에서 마실게요.",
+      "exampleMeaning": "Lo voy a tomar aquí."
+    }
+  ],
+  "category": "vocab"
+}

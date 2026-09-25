@@ -1,0 +1,109 @@
+{
+  "answers": [
+    "자동발매기",
+    "지하철 = subway, 승차권 = ticket (paper)",
+    "환승",
+    "출구",
+    "개찰구",
+    "교통카드",
+    "갈아타 (환승하도 정답)",
+    "안내판",
+    "역무원"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Schreibe das koreanische Wort für „Fahrkartenautomat“.",
+    "Schreibe die deutsche Bedeutung jedes Wortes: 지하철 / 승차권",
+    "Schreibe das koreanische Wort für „Umsteigen“ (Substantiv).",
+    "Fülle die Lücke mit einem Wort aus der Liste: 몇 번 ___로 나가요?",
+    "Fülle die Lücke: ___를 지나서 오른쪽으로 가세요. (Hinweis: Sperre)",
+    "Fülle die Lücke: ___에 돈을 충전했어요. (Hinweis: Verkehrskarte)",
+    "Fülle die Lücke: 2호선으로 ___세요. (Hinweis: umsteigen)",
+    "Wähle das Wort, das „Infotafel / Schild“ bedeutet: 안내판 / 개찰구 / 출구 / 자동발매기",
+    "Fülle die Lücke: 길을 몰라요. ___에게 물어볼까요? (Hinweis: Bahnhofspersonal)"
+  ],
+  "keyword": "지하철 이용 어휘",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "objective": "Lerne 10 wichtige U-Bahn-Vokabeln (Fahrkartenkauf, Sperre, Umsteigen, Ausgang) mit kurzen Beispielsätzen, die du sofort verwenden kannst.",
+  "summary": "Dieses Arbeitsblatt vermittelt 10 wichtige koreanische Wörter für die U-Bahn-Nutzung: Fahrkarten kaufen, durch die Sperre gehen, umsteigen und Ausgänge finden. Zu jedem Wort gibt es einen kurzen, praktischen Beispielsatz.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "U-Bahn",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "Ich fahre mit der U-Bahn."
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "Sperre",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "Bitte halte deine Karte an die Sperre."
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "Verkehrskarte",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "Ich habe meine Verkehrskarte bereit."
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "Fahrschein (Papier)",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "Bitte geben Sie mir einen Fahrschein."
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "Fahrkartenautomat",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "Ich kaufe eine Fahrkarte am Automaten."
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "Umsteigen (Zug wechseln)",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "Ich steige hier um."
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "umsteigen / den Zug wechseln",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "Bitte steige an der nächsten Station um."
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "Ausgang",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "Geh durch Ausgang 3 hinaus."
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "Infotafel / Schild",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "Schau dir die Infotafel an."
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "Bahnhofspersonal",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "Frag das Bahnhofspersonal."
+    }
+  ],
+  "category": "vocab"
+}

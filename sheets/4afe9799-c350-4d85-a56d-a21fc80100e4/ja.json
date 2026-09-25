@@ -1,0 +1,125 @@
+{
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "keyword": "받침 ㄱ·ㄷ·ㅂ",
+  "summary": "パッチムㄱ/ㄷ/ㅂの無破裂終声を読んで聞き取る練習をします。学習者はそれぞれを似た英語の語末の音(back/bat/cap)と結びつけますが、破裂させずに発音します。その後、これらのパッチムを含む簡単な単語を読んで選びます。",
+  "objective": "初級学習者は、パッチムㄱ、ㄷ、ㅂの無破裂終声[k]、[t]、[p]を認識し、それらを似た英語の語末(「back/bat/cap」で破裂なし)と結びつけ、これらのパッチムを含む簡単な韓国語の単語を正確に読んで選べるようになります。",
+  "level": "初級",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "끝소리가 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
+    "아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p)",
+    "「집」의 끝소리와 가장 가까운 영어 낱말의 끝소리는? (back / bat / cap)",
+    "로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk)",
+    "끝소리가 [p]인 낱말을 모두 고르세요. (집 / 속 / 입 / 곧)"
+  ],
+  "answers": [
+    "국",
+    "t",
+    "cap",
+    "byeok",
+    "집, 입"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "끝소리 [k] (무성·불파)",
+      "as": "「back」の語末のような音(閉鎖音;開放なし)"
+    },
+    {
+      "letter": "ㄷ",
+      "sound": "끝소리 [t] (무성·불파)",
+      "as": "「bat」の語末のような音(閉鎖音;開放なし)"
+    },
+    {
+      "letter": "ㅂ",
+      "sound": "끝소리 [p] (무성·불파)",
+      "as": "「cap」の語末のような音(閉鎖音;開放なし)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "국",
+      "roman": "guk",
+      "meaning": "スープ",
+      "example": "국 주세요.",
+      "exampleMeaning": "スープをください。"
+    },
+    {
+      "korean": "속",
+      "roman": "sok",
+      "meaning": "中",
+      "example": "가방 속 책이 무거워요.",
+      "exampleMeaning": "かばんの中の本は重いです。"
+    },
+    {
+      "korean": "벽",
+      "roman": "byeok",
+      "meaning": "壁",
+      "example": "벽 색깔이 하얘요.",
+      "exampleMeaning": "壁は白いです。"
+    },
+    {
+      "korean": "곧",
+      "roman": "got",
+      "meaning": "もうすぐ",
+      "example": "곧 갈게요.",
+      "exampleMeaning": "もうすぐ行きます。"
+    },
+    {
+      "korean": "받다",
+      "roman": "batda",
+      "meaning": "もらう",
+      "example": "선물을 받고 싶어요.",
+      "exampleMeaning": "プレゼントをもらいたいです。"
+    },
+    {
+      "korean": "걷다",
+      "roman": "geotda",
+      "meaning": "歩く",
+      "example": "공원에서 걷고 있어요.",
+      "exampleMeaning": "公園を歩いています。"
+    },
+    {
+      "korean": "옷",
+      "roman": "ot",
+      "meaning": "服(パッチムㅅは語末で[t]と発音されます:옷 → [옫])",
+      "example": "옷 사러 가요.",
+      "exampleMeaning": "服を買うつもりです。"
+    },
+    {
+      "korean": "낮",
+      "roman": "nat",
+      "meaning": "昼(パッチムㅈは語末で[t]と発音されます:낮 → [낟])",
+      "example": "낮 12시에 만나요.",
+      "exampleMeaning": "昼の12時に会いましょう。"
+    },
+    {
+      "korean": "밥",
+      "roman": "bap",
+      "meaning": "ご飯;食事",
+      "example": "밥 먹었어요?",
+      "exampleMeaning": "ご飯食べましたか?"
+    },
+    {
+      "korean": "집",
+      "roman": "jip",
+      "meaning": "家",
+      "example": "우리 집은 커요.",
+      "exampleMeaning": "私たちの家は大きいです。"
+    },
+    {
+      "korean": "입",
+      "roman": "ip",
+      "meaning": "口",
+      "example": "입 크게 벌리세요.",
+      "exampleMeaning": "口を大きく開けてください。"
+    }
+  ],
+  "category": "hangul"
+}

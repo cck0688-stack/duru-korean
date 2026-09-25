@@ -1,0 +1,250 @@
+{
+  "id": "16769864-edad-42dd-93e3-74362cbc21b2",
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "Exercise 5 ('In the minimal set 서 / 소 / 수, which syllable has ㅜ?') repeats exercises 1 and 3. Exercise 1 already asked about 서, and exercise 3 already had the learner compare 소/수 and answer '수 (ㅜ)'. So exercise 5 only repeats a question already answered, with the same syllables, and makes the worksheet thinner. Replace it with an item that uses new words, e.g. 'Pick the word whose first syllable has ㅜ: 거울 / 두부 / 오리' (answer: 두부), or have the learner write the vowel in each syllable of a new word such as 두부 or 머리."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Exercise 3 (answer 3): The word '우유' has two vowels: ㅜ in '우' and ㅠ in '유'. The question 'Which vowel appears in the word '우유'?' does not limit the choices, so ㅠ is also a correct answer, but 'ㅜ' is the only answer given. Fix: ask about the first syllable, e.g. 'Which vowel is in the first syllable of '우유'? (Write ㅓ, ㅗ, or ㅜ)'. Or use a word that only has ㅜ, e.g. '구두' (shoes) or '두부' (tofu). The same issue affects exercise 4: '엄마' and '수박' also contain ㅏ, and '오이' also contains ㅣ. Add '(choose from ㅓ, ㅗ, ㅜ)' to exercise 4 so there is only one correct answer."
+      ],
+      "audit": [
+        "exercises[2] (3번): Which vowel appears in the word '우유'? → Which of ㅓ, ㅗ, ㅜ appears in the word '우유'?",
+        "exercises[3] (4번): Match these words to the vowel they contain (write three symbols in order): 엄마 / 오이 / 수박 → Match these words to the vowel (ㅓ, ㅗ, or ㅜ) they contain (write three symbols in order): 엄마 / 오이 / 수박"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "The objective says learners will 'recognize and correctly pronounce' ㅓ, ㅗ and ㅜ, but all six exercises (1–6) are written recognition tasks (write down the vowel symbol). None of them practises pronunciation. Add one or two pronunciation items, e.g. 'Read aloud: 서 / 소 / 수 — listen for the difference between ㅓ and ㅗ' or 'Which vowel do you round your lips for, ㅓ or ㅗ?'. Otherwise, change the objective to recognition only.",
+        "Three of the nine example sentences use the same 'X을/를 먹어요' frame (먹다: 밥을 먹어요, 오이: 오이를 먹어요, 수박: 수박을 먹어요). This makes the sheet thin. Change at least two of them to different frames, e.g. 수박: '수박이 커요.' (The watermelon is big.) and 오이: '오이가 맛있어요.' (The cucumber is tasty.).",
+        "The exercises also repeat the same pattern. Exercises 1, 2 and 3 all ask which vowel is in a single word, and exercises 4 and 6 are the same three-word matching task. Replace some of them with different task types, such as reading the ㅓ/ㅗ minimal pair 거기/고기 aloud or sorting the words by vowel."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Exercises 2 and 3 repeat the same task. Both ask only which vowel, ㅓ or ㅗ, rounds the lips: exercise 2 with 거기 / 고기, exercise 3 with the bare vowels. Nothing in the worksheet practises telling ㅗ and ㅜ apart by sound; exercise 5 only asks the learner to spot ㅜ in writing. That leaves a gap in the goal of pronouncing all three vowels correctly. Replace exercise 3 with a ㅗ-vs-ㅜ pronunciation task, for example: \"Read aloud: 소 / 수. Both vowels round the lips. For which one is your mouth more closed and your lips pushed further forward?\" The answer is 수 (ㅜ). Update answer 3 to match."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "Exercise 5 ('In the minimal set 서 / 소 / 수, which syllable has ㅜ?') repeats exercises 1 and 3. Exercise 1 already asked about 서, and exercise 3 already had the learner compare 소/수 and answer '수 (ㅜ)'. So exercise 5 only repeats a question already answered, with the same syllables, and makes the worksheet thinner. Replace it with an item that uses new words, e.g. 'Pick the word whose first syllable has ㅜ: 거울 / 두부 / 오리' (answer: 두부), or have the learner write the vowel in each syllable of a new word such as 두부 or 머리."
+      ],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[2]",
+      "before": "ㅗ",
+      "after": "거기: ㅓ / 고기: ㅗ — you round your lips for 고기"
+    },
+    {
+      "at": "answers[3]",
+      "before": "ㅜ",
+      "after": "수 (ㅜ)"
+    },
+    {
+      "at": "answers[6]",
+      "before": "먹다: ㅓ / 고기: ㅗ / 주다: ㅜ",
+      "after": "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Which vowel appears in the word '포도'?",
+      "after": "Read aloud: 거기 / 고기. Write the vowel in the first syllable of each word. For which word do you round your lips?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "Which vowel appears in the word '우유'?",
+      "after": "Read aloud: 소 / 수. Both vowels round the lips. For which one is your mouth more closed?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "Match these words to the vowel they contain (write three symbols in order): 엄마 / 오이 / 수박",
+      "after": "Match these words to the vowel (ㅓ, ㅗ, or ㅜ) they contain (write three symbols in order): 엄마 / 오이 / 수박"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "Look at the first syllable of each word and write its vowel: 먹다, 고기, 주다",
+      "after": "Sort these words into ㅓ, ㅗ, and ㅜ groups by the vowel in the first syllable: 먹다, 주다, 고기, 서점, 포도, 우유"
+    },
+    {
+      "at": "words[4].example",
+      "before": "오이를 먹어요.",
+      "after": "오이가 맛있어요."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "I eat cucumber.",
+      "after": "The cucumber is tasty."
+    },
+    {
+      "at": "words[8].example",
+      "before": "수박을 먹어요.",
+      "after": "수박이 커요."
+    },
+    {
+      "at": "words[8].exampleMeaning",
+      "before": "I eat watermelon.",
+      "after": "The watermelon is big."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 22,
+          "problem": "'eo' is the romanization of ㅓ and was replaced by 'é', a front vowel, which is misleading. Also, 'vogal aberta e mediana' is not the standard phonetic term for an open-mid vowel.",
+          "fix": "parecido com 'eo' (vogal média-aberta)"
+        },
+        {
+          "line": 23,
+          "problem": "The 'ó' in 'só' is a rounded vowel, but ㅓ (like the 'u' in English 'cup') is unrounded. This contradicts line 29, which asks the learner which word rounds the lips.",
+          "fix": "como o 'ó' de 'só', mas sem arredondar os lábios (aproximado)"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "「韓語」 is not the normal Japanese word for the Korean language; the standard term is 「韓国語」.",
+          "fix": "韓国語の母音ㅓ、ㅗ、ㅜを認識して発音する練習。各母音につき簡単な単語を3つと短い例文を示します。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 22,
+          "problem": "The romanization 'eo' (for ㅓ) was changed to « eu ». In standard romanization, 'eu' stands for a different vowel (ㅡ), so learners could confuse ㅓ with ㅡ. The romanization should stay 'eo'.",
+          "fix": "proche de « eo » (voyelle mi-ouverte)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T09:38:54.329Z"
+}

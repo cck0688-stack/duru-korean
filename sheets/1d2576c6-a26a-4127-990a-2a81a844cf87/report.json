@@ -1,0 +1,182 @@
+{
+  "id": "1d2576c6-a26a-4127-990a-2a81a844cf87",
+  "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "5번 문제(소_ = hand)는 4번 문제('hand' → 손)와 낱말·뜻이 똑같습니다. 4번을 풀면 5번 답(ㄴ)이 그대로 나오기 때문에 따로 연습하는 효과가 없습니다. 5번을 낱말 목록의 다른 낱말로 바꾸세요. 예를 들어 '사_ (meaning: mountain)'으로 하면 답은 ㄴ, '이르_ (meaning: name)'으로 하면 답은 ㅁ, '빠_ (meaning: bread)'으로 하면 답은 ㅇ입니다. 답에 맞춰 answers 5번도 고치세요.",
+        "1번(방/반/밤 중 고르기)과 3번(바_ 에 ㅇ/ㄴ/ㅁ 채우기)은 같은 '바+받침' 틀을 두 번 씁니다. 그래서 학습지에 실린 공, 빵, 눈, 산, 이름은 문제에서 한 번도 연습하지 않습니다. 3번을 다른 낱말로 바꾸세요. 예: '고_ (-ng) 누_ (-n) 이르_ (-m)'으로 하고 답은 'ㅇ, ㄴ, ㅁ'. 이렇게 하면 배운 낱말 읽기라는 목표를 문제에서 연습하게 됩니다."
+      ],
+      "audit": []
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "task: task.title and task.line are both empty strings, so the worksheet is missing its task. Fill them in, e.g. title '받침 소리 구별하기' and the instruction line 'Read each word aloud and sort it by its final sound: ㅇ(-ng), ㄴ(-n), ㅁ(-m).'",
+        "Exercise 5 ('빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 빠_ (meaning: bread)') uses the same fill-in-the-final-consonant format as exercise 3, so it adds little. Words are also reused across exercises (방 in 1 and 2, 손 in 2 and 4), which makes the worksheet thin. Replace exercise 5 with a different task type that uses listed words not tested yet (산, 밤, 눈), e.g. 'Group the words by final sound: 산 / 공 / 밤 → ㄴ / ㅇ / ㅁ' or 'Pick the word for night: 밤 / 반 / 방'."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[5]",
+      "before": "ㄴ",
+      "after": "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 바_ (-ng) 바_ (-n) 바_ (-m)",
+      "after": "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 소_ (meaning: hand)",
+      "after": "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "받침 소리 구별하기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "Read each word aloud and sort it by its final sound: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T10:15:09.929Z"
+}

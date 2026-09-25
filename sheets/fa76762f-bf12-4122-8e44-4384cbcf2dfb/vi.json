@@ -1,0 +1,111 @@
+{
+  "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
+  "keyword": "ㄱ·ㅋ·ㄲ",
+  "summary": "Luyện phân biệt và phát âm phụ âm đầu ㄱ (âm thường), ㅋ (âm bật hơi), và ㄲ (âm căng). Sử dụng các mốc âm tiếng Anh rõ ràng: ㄱ = một luồng hơi nhẹ, yếu hơn ㅋ, với giọng thấp và nhẹ nhàng hơn; ㅋ ≈ âm \"k\" trong từ \"key\"; ㄲ = âm \"kk\" căng, gần giống âm \"k\" trong từ \"ski\" nhưng chặt hơn. Đọc và chọn những từ đơn giản bắt đầu bằng các phụ âm này.",
+  "objective": "Người học trình độ sơ cấp sẽ nghe và phát âm chính xác ㄱ (âm thường), ㅋ (âm bật hơi), và ㄲ (âm căng) ở vị trí đầu từ, liên hệ chúng với các mốc âm tiếng Anh hữu ích (ㄱ = luồng hơi nhẹ, yếu hơn ㅋ, với giọng thấp và nhẹ nhàng hơn; ㅋ ≈ âm \"k\" trong \"key\"; ㄲ = âm \"kk\" căng, gần giống âm \"k\" trong \"ski\" nhưng chặt hơn), và đọc, chọn đúng những từ đơn giản có chứa các phụ âm đầu này.",
+  "level": "Sơ cấp",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "가게·카메라·꽃 소리 구별하기",
+    "line": "가게, 카메라, 꽃을 소리 내어 읽고, 첫소리 ㄱ, ㅋ, ㄲ의 차이를 들어 보세요."
+  },
+  "exercises": [
+    "다음 낱말을 듣고, 첫소리가 ㄱ, ㅋ, ㄲ 중 무엇인지 고르세요: 코",
+    "다음 글자를 소리 내어 읽고, 첫소리의 바람과 힘이 어떻게 다른지 말해 보세요: 개 / 캐 / 깨, 굴 / 쿨 / 꿀",
+    "첫소리가 다른 하나를 고르세요: 고기 / 콩 / 카메라",
+    "낱말을 초성 종류에 맞게 짝지으세요: 가방, 코, 꽃 → [ㄱ], [ㅋ], [ㄲ]",
+    "영어 힌트에 맞게 낱말을 고르세요: light puff, softer than ㅋ / 'k' in \"key\" / tense 'kk', like the 'k' in \"ski\" but tighter → 보기: 가게, 카메라, 꽃"
+  ],
+  "answers": [
+    "ㅋ (코)",
+    "개·굴: ㄱ, 바람이 약하게 나오고 낮고 부드러운 소리 / 캐·쿨: ㅋ, 바람을 세게 내뿜음 / 깨·꿀: ㄲ, 바람 없이 힘을 주어 단단하게",
+    "고기",
+    "가방-ㄱ, 코-ㅋ, 꽃-ㄲ",
+    "light puff→가게, key→카메라, ski(tense kk)→꽃"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "평음. 혀 뒤쪽을 여린입천장에 가볍게 댔다가 떼며 소리를 냄. 공기가 약하게 나오며, ㅋ보다 훨씬 약함. 목소리는 낮고 부드럽게.",
+      "as": "luồng hơi nhẹ, yếu hơn ㅋ (giọng thấp và nhẹ nhàng hơn)"
+    },
+    {
+      "letter": "ㅋ",
+      "sound": "거센소리. ㄱ보다 공기를 세게 내뿜음.",
+      "as": "âm 'k' trong 'key' (luồng hơi mạnh)"
+    },
+    {
+      "letter": "ㄲ",
+      "sound": "된소리. 입에 힘을 주고 단단하게, 짧게 터뜨림. 공기를 세게 내보내지 않음.",
+      "as": "âm 'kk' căng, gần giống âm 'k' trong 'ski' nhưng chặt hơn (không có luồng hơi)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "가방",
+      "roman": "gabang",
+      "meaning": "túi",
+      "example": "가방이 있어요.",
+      "exampleMeaning": "Có một cái túi."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "thịt",
+      "example": "고기를 먹어요.",
+      "exampleMeaning": "Tôi ăn thịt."
+    },
+    {
+      "korean": "가게",
+      "roman": "gage",
+      "meaning": "cửa hàng",
+      "example": "가게에 가요.",
+      "exampleMeaning": "Tôi đi đến cửa hàng."
+    },
+    {
+      "korean": "코",
+      "roman": "ko",
+      "meaning": "mũi",
+      "example": "코가 커요.",
+      "exampleMeaning": "(Anh ấy/Cô ấy) có mũi to."
+    },
+    {
+      "korean": "카메라",
+      "roman": "kamera",
+      "meaning": "máy ảnh",
+      "example": "카메라가 있어요.",
+      "exampleMeaning": "Có một cái máy ảnh."
+    },
+    {
+      "korean": "콩",
+      "roman": "kong",
+      "meaning": "đậu",
+      "example": "콩을 먹어요.",
+      "exampleMeaning": "Tôi ăn đậu."
+    },
+    {
+      "korean": "껌",
+      "roman": "kkeom",
+      "meaning": "kẹo cao su",
+      "example": "껌을 씹어요.",
+      "exampleMeaning": "Tôi nhai kẹo cao su."
+    },
+    {
+      "korean": "꼬마",
+      "roman": "kkoma",
+      "meaning": "đứa trẻ nhỏ",
+      "example": "꼬마가 웃어요.",
+      "exampleMeaning": "Đứa trẻ nhỏ mỉm cười."
+    },
+    {
+      "korean": "꽃",
+      "roman": "kkot",
+      "meaning": "hoa",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "Bông hoa đẹp."
+    }
+  ],
+  "category": "hangul"
+}

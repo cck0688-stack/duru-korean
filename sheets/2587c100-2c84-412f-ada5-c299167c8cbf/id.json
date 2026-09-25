@@ -1,0 +1,79 @@
+{
+  "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
+  "keyword": "약 봉투",
+  "summary": "Lembar bacaan praktis tentang amplop obat apotek Korea (약 봉투). Pelajar membaca tiga label amplop singkat. Mereka mempelajari kata-kata dosis yang muncul di hampir setiap amplop (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) dan cara mengucapkannya dengan angka asli Korea (하루 세 번, 한 알). Mereka juga mempelajari dua peringatan umum: 졸음이 올 수 있어요 dan 운전 주의.",
+  "objective": "Setelah membaca amplop obat apotek, pelajar dapat menemukan empat hal: berapa kali sehari obat diminum, kapan meminumnya (식전 / 식후 30분 / 취침 전), berapa banyak yang diminum setiap kali (1포, 1알/1정), dan untuk berapa hari (○일분). Mereka juga dapat mengenali peringatan 졸음이 올 수 있어요 dan 운전 주의.",
+  "level": "Pemula (tingkat tinggi)",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Lihat Amplop A. 이 약은 하루에 몇 번 먹어요?",
+    "Lihat Amplop A. 이 약은 언제 먹어요? Tuliskan kata-kata dari amplop dan artinya.",
+    "Lihat Amplop B. Amplop tersebut menuliskan 1회 1정. 한 번에 몇 알 먹어요? Jawablah dengan cara orang mengucapkannya.",
+    "Lihat Amplop C. 이 약은 며칠 동안 먹어요?",
+    "Lihat Amplop C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
+    "Lihat Amplop A. 이 약을 먹고 운전해도 괜찮아요? Kata-kata mana pada amplop yang memberitahu Anda, dan apa artinya?"
+  ],
+  "answers": [
+    "하루 세 번 (1일 3회 = 3 times a day)",
+    "식후 30분 — 30 minutes after a meal (밥 먹고 30분 후)",
+    "한 알 (1정 = 1알 = one tablet)",
+    "7일 동안 (7일분 = a 7-day supply; also: 일주일 동안)",
+    "6시 30분 (식전 30분 = 30 minutes before the meal)",
+    "조심해야 해요. 봉투에 '졸음이 올 수 있어요. 운전 주의.'라고 쓰여 있어요. It may make you sleepy, so be careful about driving."
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "약 봉투 A (AMPLOP A)",
+      "paragraphs": [
+        "이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의.",
+        "Di Korea, apotek sering memasukkan satu dosis obat ke dalam kantong kecil yang disebut 포. Anda membuka satu kantong dan meminum semua isinya."
+      ]
+    },
+    {
+      "heading": "봉투에 나오는 말 (KATA-KATA PADA AMPLOP)",
+      "paragraphs": [
+        "BERAPA KALI SEHARI — 1일 3회 (iril samhoe) = 3 kali sehari. 일 berarti 'hari' dan 회 berarti 'kali'. Orang mengucapkan ini sebagai 하루 세 번.",
+        "BERAPA BANYAK SETIAP KALI — 1회 1포 = satu kantong setiap kali. 1정 = satu tablet. Anda akan melihat 정 pada amplop, tetapi orang mengucapkannya sebagai 알: 1정 = 1알 = 한 알. Dua tablet = 2알 = 두 알.",
+        "KAPAN — 식전 (sikjeon) = sebelum makan. 식후 (sikhu) = setelah makan. 식후 30분 = 30 menit setelah makan. 취침 전 (chwichim jeon) = sebelum tidur. Dalam percakapan Anda bisa mengatakan 밥 먹기 전, 밥 먹고 나서, dan 자기 전.",
+        "BERAPA HARI — 3일분 (samilbun) = persediaan untuk 3 hari. 분 di sini berarti 'jumlah/porsi' dan tidak ada hubungannya dengan menit. 7일분 = obat untuk 7 hari."
+      ]
+    },
+    {
+      "heading": "소리 내어 읽기 (MEMBACANYA DENGAN SUARA)",
+      "paragraphs": [
+        "Amplop menggunakan kata dan angka Sino-Korea. Saat berbicara, gunakan angka asli Korea (한, 두, 세) dengan kata penggolong 번 dan 알.",
+        "1일 3회 → 하루 세 번 먹어요. 1회 2알 → 한 번에 두 알 먹어요. 취침 전 → 자기 전에 먹어요."
+      ]
+    },
+    {
+      "heading": "주의 (PERINGATAN)",
+      "paragraphs": [
+        "졸음이 올 수 있어요. (joreumi ol su isseoyo) = Obat ini mungkin membuat Anda mengantuk.",
+        "운전 주의 (unjeon juui) = Hati-hati saat mengemudi.",
+        "Kedua peringatan ini sering muncul bersamaan. Beberapa amplop menuliskannya dalam satu kalimat: 졸음이 올 수 있으니 운전에 주의하세요."
+      ]
+    },
+    {
+      "heading": "약 봉투 B, C (AMPLOP B DAN C)",
+      "paragraphs": [
+        "[B] 이름: 존 님 | 복용법: 1일 1회, 1회 1정, 취침 전 | 5일분",
+        "[C] 이름: 하나 님 | 복용법: 1일 2회 (아침, 저녁), 1회 2알, 식전 30분 | 7일분"
+      ]
+    },
+    {
+      "heading": "약국에서 물어보기 (BERTANYA DI APOTEK)",
+      "paragraphs": [
+        "Jika Anda tidak bisa membaca amplopnya, tanyakan pada apoteker:",
+        "이 약은 언제 먹어요? — Kapan saya minum obat ini? 하루에 몇 번 먹어요? — Berapa kali sehari? 한 번에 몇 알 먹어요? — Berapa butir setiap kali minum?"
+      ]
+    }
+  ],
+  "note": "Semua amplop adalah contoh karangan untuk latihan membaca. Ini bukan nasihat medis. Untuk obat sungguhan, selalu ikuti apa yang dikatakan apoteker atau dokter Anda.",
+  "category": "etc"
+}

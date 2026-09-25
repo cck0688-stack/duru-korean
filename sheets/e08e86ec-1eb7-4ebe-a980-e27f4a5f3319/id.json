@@ -1,0 +1,93 @@
+{
+  "title": "택배 받기·보내기: 기본 표현",
+  "keyword": "택배",
+  "summary": "Frasa pendek yang berguna untuk menerima dan mengirim paket di Korea di loket atau dengan kurir pengantar. Fokus pada memeriksa penerima, menanyakan/mengonfirmasi nomor resi, menerima atau menolak paket, dan meminta pengiriman.",
+  "objective": "Mampu memahami dan mengucapkan 10 kalimat pendek yang digunakan saat menerima dan mengirim paket di Korea di loket atau dengan kurir (konfirmasi penerima, menanyakan nomor resi, menerima/menolak, permintaan pengiriman).",
+  "level": "Tingkat dasar (A1)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "배달 기사(또는 창구 직원)가 '수취인 성함이 어떻게 되세요?'라고 물었습니다. 한국어로 답하세요. (예시 이름: 김민수)",
+    "'I want to send a package.'를 한국어로 어떻게 말하나요?",
+    "'What is the tracking number?'를 한국어로 어떻게 묻나요?",
+    "택배 상자가 망가졌습니다(The box is damaged). 짧게 거절 의사를 말하세요.",
+    "직원이 '서명해 주세요.'라고 말했습니다. 서명하겠다고 응답하세요."
+  ],
+  "answers": [
+    "예시 답안: 김민수입니다. / 저는 김민수입니다.",
+    "예시 답안: 택배로 보내고 싶습니다. / 택배를 보내고 싶어요(싶습니다). / 택배 보내고 싶어요. / 이거 택배로 보내려고요.",
+    "예시 답안: 운송장 번호가 어떻게 되나요? / 운송장 번호가 뭐예요?",
+    "예시 답안: 이건 받을 수 없어요.",
+    "예시 답안: 여기 서명할게요. / 네, 서명할게요."
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Ekspresi penting (10 buah)",
+      "paragraphs": [
+        "1) 택배 받으러 왔습니다. (taekbae badeureo watseumnida) — Saya datang untuk mengambil paket. — 창구에서 본인이 직접 물건을 찾을 때 씁니다. (Gunakan ini di loket saat Anda mengambil sendiri paket Anda.)",
+        "2) 수취인 성함이 어떻게 되세요? (suchwiin seonghami eotteoke doeseyo?) — Siapa nama penerima? — 직원이나 기사님이 확인할 때 물어봅니다. (Petugas atau kurir menanyakan ini untuk memeriksa.)",
+        "3) 저는 [이름]입니다. (jeoneun [ireum]imnida) — Saya [nama]. — 예: 저는 김민수입니다. (수취인 대답) (Contoh: Saya Kim Minsu. — jawaban penerima)",
+        "4) 운송장 번호가 어떻게 되나요? (unsongjang beonhoga eotteoke doenayo?) — Berapa nomor resinya? — 운송장(송장) 번호를 묻는 말입니다. (Pertanyaan untuk menanyakan nomor resi/surat jalan.)",
+        "5) 운송장 번호 알려 주세요. (unsongjang beonho allyeo juseyo) — Tolong beri tahu saya nomor resinya. — 상대에게 번호를 부탁할 때 씁니다. (Gunakan ini untuk meminta nomor kepada lawan bicara.)",
+        "6) 여기 서명할게요. (yeogi seomyeonghalgeyo) — Saya akan tanda tangan di sini. — 서명하겠다는 뜻, 사인할 때 씁니다. (Artinya Anda akan menandatangani; gunakan saat menandatangani.)",
+        "7) 이건 받을 수 없어요. (igeon badeul su eopseoyo) — Saya tidak bisa menerima ini. — 물건을 거절할 때 쓰는 표현입니다. (Ungkapan yang digunakan untuk menolak barang.)",
+        "8) 택배로 보내고 싶습니다. (taekbaero bonaego sipseumnida) — Saya ingin mengirim ini lewat paket. — 물건을 보내러 왔을 때 말합니다. (Katakan ini saat Anda datang untuk mengirim sesuatu.)",
+        "9) 보낼 물건은 이거예요. (bonael mulgeoneun igeoyeyo) — Ini barang yang ingin saya kirim. — 보내려는 물건을 보여 줄 때 씁니다. (Gunakan ini saat menunjukkan barang yang ingin dikirim.)",
+        "10) 착불로 보내 주세요. (chakbullo bonae juseyo) — Tolong kirim dengan biaya pengiriman dibayar oleh penerima. — 받는 사람이 배송비를 내는 방식으로 보내달라고 요청할 때. (Gunakan ini saat meminta agar dikirim dengan cara penerima membayar biaya pengiriman.)"
+      ]
+    },
+    {
+      "heading": "Kosakata (Vocabulary)",
+      "paragraphs": [
+        "택배 (taekbae) — paket, layanan pengiriman paket",
+        "수취인 (suchwiin) — penerima, orang yang menerima paket",
+        "성함 (seongham) — nama (kata sopan untuk 이름)",
+        "운송장 / 송장 (unsongjang / songjang) — surat jalan, label pengiriman; 운송장 번호 = nomor resi",
+        "서명 (seomyeong) — tanda tangan (= 사인)",
+        "착불 (chakbul) — biaya pengiriman dibayar oleh penerima (collect)",
+        "창구 (changgu) — loket, jendela layanan",
+        "기사님 (gisanim) — kurir pengantar (sopan)",
+        "물건 (mulgeon) — barang, benda"
+      ]
+    },
+    {
+      "heading": "Contoh percakapan singkat",
+      "paragraphs": [
+        "Contoh 1 (saat menerima): Kurir: '수취인 성함이 어떻게 되세요?' / Saya: '저는 김민수입니다.'",
+        "Contoh 2 (saat mengirim): Saya: '택배로 보내고 싶습니다.' / Petugas: '보내실 물건 주시겠어요?' / Saya: '보낼 물건은 이거예요.'"
+      ]
+    },
+    {
+      "heading": "Latihan tambahan (More practice)",
+      "paragraphs": [
+        "Berbicara (Speaking)",
+        "가) Anda datang ke loket untuk mengambil paket. Apa yang Anda katakan kepada petugas? (You came to the counter to pick up a parcel.)",
+        "나) Mintalah lawan bicara untuk memberi tahu Anda nomor resinya. (Ask someone to tell you the tracking number.)",
+        "다) Petugas berkata '보내실 물건 주시겠어요?'. Tunjukkan barang Anda sambil menjawab. (Show your item and answer.)",
+        "라) Anda ingin mengirim dengan biaya pengiriman dibayar oleh penerima. Katakan ini kepada petugas. (You want the recipient to pay the shipping fee.)",
+        "Mendengarkan dan memahami (Listening: choose the meaning)",
+        "마) Kurir: '수취인 성함이 어떻게 되세요?' — (a) Siapa nama penerima? (b) Di mana kotaknya?",
+        "바) Petugas: '운송장 번호 알려 주세요.' — (a) Tolong tanda tangan di sini. (b) Tolong beri tahu nomor resinya.",
+        "사) Petugas: '착불로 보내 드릴까요?' — (a) Apakah akan dikirim dengan biaya dibayar penerima? (b) Apakah akan dikirim hari ini?",
+        "아) Petugas: '서명해 주세요.' — (a) Tolong bayar. (b) Tolong tanda tangan.",
+        "Jawaban (Answers): 가) 택배 받으러 왔습니다. / 택배 찾으러 왔습니다. 나) 운송장 번호 알려 주세요. 다) 보낼 물건은 이거예요. 라) 착불로 보내 주세요. 마) (a) 바) (b) 사) (a) 아) (b)"
+      ]
+    },
+    {
+      "heading": "Tips",
+      "paragraphs": [
+        "이름과 주소는 미리 준비해 두세요(휴대폰 메모 등). (Siapkan nama dan alamat Anda sebelumnya, misalnya di catatan ponsel.)",
+        "포장이 손상되었으면 받기 전에 기사님이나 직원에게 말하세요. 처리 방법은 택배사마다 다릅니다. (Jika kemasan terlihat rusak, katakan kepada kurir atau petugas sebelum menerimanya. Prosesnya berbeda-beda tergantung perusahaan pengiriman.)",
+        "해요체(-어요/-아요)와 -습니다체 모두 공손한 말입니다. 예: '서명할게요', '받으러 왔습니다'. (Baik akhiran -어요/-아요 maupun -습니다 sama-sama sopan.)",
+        "초급 학습자용 한 장짜리 학습지입니다. 각 표현을 소리 내어 여러 번 말해 보세요."
+      ]
+    }
+  ],
+  "note": "",
+  "category": "etc"
+}

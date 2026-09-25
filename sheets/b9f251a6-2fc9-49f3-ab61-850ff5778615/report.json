@@ -1,0 +1,301 @@
+{
+  "id": "b9f251a6-2fc9-49f3-ab61-850ff5778615",
+  "title": "편의점에서 물건을 찾아요",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "Exercise 4 (answer 4): the passage's last paragraph already explains the sign word for word (\"안내문에 '음료수 → 오른쪽 냉장고'라고 쓰여 있으면 음료수는 오른쪽 냉장고에 있어요\"), so learners just copy it. It also asks about the same fact as exercise 2 (drinks = right-hand fridge). Since the passage has only one sign and interprets it itself, the stated objective of reading store signs is never practised. Fix: change the passage's sign example to one it does not explain (e.g. \"라면 → 중앙 진열대\" or \"아이스크림 → 뒤쪽 냉동고\"), rewrite exercise 4 as \"안내문에 '라면 → 중앙 진열대'라고 쓰여 있어요. 라면은 어디에 있어요?\" and change answer 4 to \"라면은 중앙 진열대에 있어요.\""
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words '즉석식품' has the wrong romanization. 'jiksuk sikpum' does not follow the Revised Romanization. 즉 is 'jeuk' and 석 is 'seok', so write 'jeukseok sikpum'.",
+        "Passage paragraph 4, '흔한 표현은 \"~ 어디에 있어요?\" 또는 \"찾아 주세요.\"', has no predicate, so the sentence is incomplete. '찾아 주세요' also doesn't say what to find, so it reads unnaturally. Change it to '자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요.'",
+        "Passage paragraph 2, '아이스티, 콜라, 주스가 냉장고에 차례로 있어요', is unnatural Korean. '차례로 있다' is not how people say it. Change it to '냉장고에 차례대로 진열되어 있어요' or '냉장고에 나란히 있어요'.",
+        "Passage paragraph 1 switches tense without reason. It starts in the past ('들어갔는데 … 못 찾았어요') and then goes to the present ('물어봅니다', '말합니다'). Pick one tense, for example '직원에게 물어봤어요. … 직원이 친절하게 말했어요.'",
+        "words '계산대' gives 'cashier' as a meaning, but that word means the person who takes payment, while 계산대 is the counter. Change the meaning to 'checkout counter' alone, or 'checkout counter / cash register'.",
+        "The objective and the exercises don't match. The objective says students will 'understand … store signs', but the passage mentions a sign (안내문) only once, and in general terms. No exercise uses a sign. Add a short sign text to the passage, for example '음료 → 오른쪽 냉장고', plus a question about it. Otherwise, remove 'store signs' from the objective.",
+        "The exercises repeat one question frame. Questions 1–4 all use 'X는 어디에 있어요?' and just swap the item. They also skip content from the passage, such as 즉석식품, 전자레인지, and 담배. Make the questions more varied. For example, ask 'What is inside the right-hand refrigerator?', ask where you can heat 즉석식품, or add a true/false item."
+      ],
+      "audit": [
+        "words[4].roman (즉석식품): jiksuk sikpum → jeukseok sikpum",
+        "passage[3], 두 번째 문장: 흔한 표현은 \"~ 어디에 있어요?\" 또는 \"찾아 주세요.\" → 흔한 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요.",
+        "passage[1], 두 번째 문장: 아이스티, 콜라, 주스가 냉장고에 차례로 있어요. → 아이스티, 콜라, 주스가 냉장고에 차례로 놓여 있어요.",
+        "passage[0], 두 번째·네 번째 문장 (과거 이야기 중 현재형으로 시제 불일치): 직원에게 물어봅니다. … 직원이 친절하게 말합니다. → 직원에게 물어봤어요. … 직원이 친절하게 말했어요.",
+        "objective / summary: understand ... store signs to find an item's location / Understand employee replies and shelf signs → The passage has no store signs to read. Either add sign text to the passage, e.g. a sign reading '음료수 → 오른쪽 냉장고', or change the objective to 'understand a convenience store employee's directions to find an item's location' and the summary to 'Understand employee replies to locate products.'",
+        "words[3].meaning (계산대): checkout counter / cashier → checkout counter"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "3번 문제(\"즉석식품은 어디에서 데울 수 있어요?\"): 본문에는 '전자레인지도 중앙에 있습니다'라는 위치만 나오고, 즉석식품을 데운다는 말은 없습니다. 그래서 학생이 본문만 읽고 답을 확인할 수 없습니다. 본문 3문단을 '즉석식품은 중앙 진열대 위에 있고, 중앙에 있는 전자레인지에서 데울 수 있어요.'처럼 고쳐서 정답의 근거를 본문에 넣어야 합니다.",
+        "본문의 문체가 섞여 있습니다. 대부분 해요체인데 '진열되어 있습니다', '전자레인지도 중앙에 있습니다', '확인할 수 있습니다'만 합쇼체입니다. 초급(A1–A2) 읽기 자료이므로 문체를 하나로 맞춰야 합니다. 예: '진열되어 있어요', '중앙에 있어요', '확인할 수 있어요'.",
+        "words '즉석식품'의 로마자 'jeukseok sikpum': 즉석식품은 한 낱말이므로 로마자 표기법에 따라 띄어 쓰지 않고 'jeukseoksikpum'으로 적어야 합니다.",
+        "task 항목의 title과 line이 모두 빈 문자열입니다. 학습지에 과제 부분이 비어 있으므로 내용을 채우세요. 예: title '편의점에서 물건 위치 묻기', line '직원에게 \"~ 어디에 있어요?\"로 물건 위치를 물어보세요.' 과제를 쓰지 않을 거라면 이 항목을 빼야 합니다."
+      ],
+      "audit": [
+        "passage 4번째 문단, 3번째 문장: 안내문을 보면 빠르게 칸 위치를 확인할 수 있습니다. → 안내문을 보면 빠르게 물건 위치를 확인할 수 있습니다."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "words 예문 반복: 냉장고(\"우유는 냉장고에 있어요.\"), 냉동고(\"아이스크림은 냉동고에 있어요.\"), 진열대(\"과자가 진열대에 있어요.\"), 칸(\"우유는 위 칸에 있어요.\") 네 개가 모두 'N은/는(이/가) ~에 있어요' 틀이다. 본문도 이 틀을 많이 쓰는데 우유도 예문에 두 번 나온다. 예문이 본문을 되풀이할 뿐이라 학습지가 얇아진다. 적어도 두 개는 다른 틀로 바꾼다. 예: 냉동고 → \"냉동고에서 아이스크림을 꺼내요.\"(I take ice cream out of the freezer.), 진열대 → \"직원이 진열대를 정리해요.\"(The clerk tidies the display shelf.), 칸 → \"위 칸에서 우유를 골라요.\"(I pick milk from the top shelf.)"
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "Exercise 4 (answer 4): the passage's last paragraph already explains the sign word for word (\"안내문에 '음료수 → 오른쪽 냉장고'라고 쓰여 있으면 음료수는 오른쪽 냉장고에 있어요\"), so learners just copy it. It also asks about the same fact as exercise 2 (drinks = right-hand fridge). Since the passage has only one sign and interprets it itself, the stated objective of reading store signs is never practised. Fix: change the passage's sign example to one it does not explain (e.g. \"라면 → 중앙 진열대\" or \"아이스크림 → 뒤쪽 냉동고\"), rewrite exercise 4 as \"안내문에 '라면 → 중앙 진열대'라고 쓰여 있어요. 라면은 어디에 있어요?\" and change answer 4 to \"라면은 중앙 진열대에 있어요.\""
+      ],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "왼쪽 냉장고 위 칸에 있어요.",
+      "after": "X (담배는 계산대 뒤에 있어요.)"
+    },
+    {
+      "at": "answers[2]",
+      "before": "오른쪽 냉장고 안에 있어요.",
+      "after": "음료수(아이스티, 콜라, 주스)가 있어요."
+    },
+    {
+      "at": "answers[3]",
+      "before": "냉동고에 있어요.",
+      "after": "중앙에 있는 전자레인지에서 데울 수 있어요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "계산대 옆 진열대에 있어요.",
+      "after": "음료수는 오른쪽 냉장고에 있다는 뜻이에요."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "우유는 어디에 있어요?",
+      "after": "맞으면 O, 틀리면 X를 쓰세요: 담배는 계산대 옆 진열대에 있어요."
+    },
+    {
+      "at": "exercises[2]",
+      "before": "음료수는 어느 냉장고에 있어요?",
+      "after": "오른쪽 냉장고 안에는 무엇이 있어요?"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "아이스크림은 어디에 있나요?",
+      "after": "즉석식품은 어디에서 데울 수 있어요?"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "과자 코너는 어디에 있어요?",
+      "after": "안내문에 \"음료수 → 오른쪽 냉장고\"라고 쓰여 있어요. 이 안내문은 무슨 뜻이에요?"
+    },
+    {
+      "at": "passage[1]",
+      "before": "편의점에 들어갔는데 필요한 물건을 못 찾았어요. 직원에게 물어봅니다. \"저기요, 우유 어디에 있어요?\" 직원이 친절하게 말합니다. \"우유는 왼쪽 냉장고 위 칸에 있어요.\"",
+      "after": "편의점에 들어갔는데 필요한 물건을 못 찾았어요. 직원에게 물어봤어요. \"저기요, 우유 어디에 있어요?\" 직원이 친절하게 말했어요. \"우유는 왼쪽 냉장고 위 칸에 있어요.\""
+    },
+    {
+      "at": "passage[2]",
+      "before": "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 차례로 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있습니다. 아이스크림도 냉동고에 있어요.",
+      "after": "음료수는 오른쪽 냉장고 안에 있어요. 아이스티, 콜라, 주스가 냉장고에 나란히 있어요. 냉동식품은 가게 뒤쪽 냉동고에 진열되어 있어요. 아이스크림도 냉동고에 있어요."
+    },
+    {
+      "at": "passage[3]",
+      "before": "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 전자레인지도 중앙에 있습니다. 담배는 계산대 뒤에 진열되어 있어요.",
+      "after": "과자 코너는 계산대 옆 진열대에 있어요. 즉석식품은 중앙 진열대 위에 있고, 중앙에 있는 전자레인지에서 데울 수 있어요. 담배는 계산대 뒤에 진열되어 있어요."
+    },
+    {
+      "at": "passage[4]",
+      "before": "물건을 못 찾으면 직원에게 물어보세요. 흔한 표현은 \"~ 어디에 있어요?\" 또는 \"찾아 주세요.\" 안내문을 보면 빠르게 칸 위치를 확인할 수 있습니다.",
+      "after": "물건을 못 찾으면 직원에게 물어보세요. 자주 쓰는 표현은 \"~ 어디에 있어요?\"나 \"~ 좀 찾아 주세요.\"예요. 안내문을 보면 빠르게 물건 위치를 확인할 수 있어요. 예를 들어 안내문에 \"음료수 → 오른쪽 냉장고\"라고 쓰여 있으면 음료수는 오른쪽 냉장고에 있어요."
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "편의점에서 물건 위치 묻기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "직원에게 \"~ 어디에 있어요?\"로 물건 위치를 물어보세요."
+    },
+    {
+      "at": "words[2].example",
+      "before": "아이스크림은 냉동고에 있어요.",
+      "after": "냉동고에서 아이스크림을 꺼내요."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "Ice cream is in the freezer.",
+      "after": "I take ice cream out of the freezer."
+    },
+    {
+      "at": "words[3].example",
+      "before": "과자가 진열대에 있어요.",
+      "after": "직원이 진열대를 정리해요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "Snacks are on the display shelf.",
+      "after": "The clerk tidies the display shelf."
+    },
+    {
+      "at": "words[4].meaning",
+      "before": "checkout counter / cashier",
+      "after": "checkout counter"
+    },
+    {
+      "at": "words[5].roman",
+      "before": "jiksuk sikpum",
+      "after": "jeukseoksikpum"
+    },
+    {
+      "at": "words[7].example",
+      "before": "우유는 위 칸에 있어요.",
+      "after": "위 칸에서 우유를 골라요."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "The milk is in the top compartment.",
+      "after": "I pick milk from the top shelf."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "\"lemari es beku\" literally means \"frozen refrigerator\". It is unnatural and does not mean \"frozen food case\".",
+          "fix": "freezer / lemari pembeku"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T09:24:02.981Z"
+}

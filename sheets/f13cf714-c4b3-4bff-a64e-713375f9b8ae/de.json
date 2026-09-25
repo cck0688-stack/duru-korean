@@ -1,0 +1,96 @@
+{
+  "title": "병원 예약 확인·변경 문자 읽기",
+  "keyword": "병원 예약 문자",
+  "summary": "Lies eine realistische Krankenhaus-SMS zu einem Termin, um Datum/Uhrzeit, Abteilung/Arzt, Ort, Vorbereitung sowie die Möglichkeit zur Änderung oder Stornierung zu erkennen.",
+  "objective": "Am Ende können die Lernenden eine Krankenhaus-SMS lesen und genau das Termindatum/die Uhrzeit, die Abteilung/den Arzt, den Standort der Klinik, die Vorbereitungsgegenstände sowie die genaue Methode zur Änderung oder Stornierung finden.",
+  "level": "Anfänger, obere Stufe (초급 상)",
+  "minutes": 15,
+  "tags": [
+    "병원",
+    "예약",
+    "문자 읽기"
+  ],
+  "task": {
+    "title": "병원 문자 확인하기",
+    "line": "병원에서 온 예약 문자를 읽고 필요한 정보를 찾아 보세요."
+  },
+  "exercises": [
+    "예약 날짜와 시간을 그대로 쓰세요.",
+    "진료과와 의사 이름을 쓰세요.",
+    "진료는 몇 층에서 하나요?",
+    "가지고 가야 하는 물건은 무엇인가요?",
+    "예약을 변경하려면, 그리고 취소하려면 이 문자에 각각 어떤 숫자로 답장해야 하나요?"
+  ],
+  "answers": [
+    "7월 18일(목) 오후 2:30",
+    "내과, 김수진",
+    "3층",
+    "신분증",
+    "변경: 1, 취소: 2"
+  ],
+  "checkThese": [],
+  "passage": [
+    "[한마음내과] 홍민수 님, 예약이 확인되었습니다. 오시는 날짜와 시간: 7월 18일(목) 오후 2:30. 진료과: 내과, 의사: 김수진 원장. 진료 위치: 3층. 주소: 서울 마포구 ○○로 12.",
+    "준비 안내: 신분증을 꼭 지참해 주세요. 10분 일찍 도착해 주세요.",
+    "예약 변경·취소: 변경은 이 문자에 1로 답장해 주세요. 취소는 2로 답장해 주세요. 또는 아래 링크에서 직접 하실 수 있습니다: hmhosp.kr/apt"
+  ],
+  "words": [
+    {
+      "korean": "진료과",
+      "roman": "jillyogwa",
+      "meaning": "medizinische Abteilung/Klinik, die man besucht",
+      "example": "진료과는 내과입니다.",
+      "exampleMeaning": "Die Abteilung ist Innere Medizin."
+    },
+    {
+      "korean": "원장",
+      "roman": "wonjang",
+      "meaning": "Klinikleiter; Chefarzt",
+      "example": "오늘 진료는 김수진 원장님이 하십니다.",
+      "exampleMeaning": "Die heutige Sprechstunde ist bei Direktor Kim Sujin."
+    },
+    {
+      "korean": "지참",
+      "roman": "jicham",
+      "meaning": "etwas mitbringen; einen erforderlichen Gegenstand mitnehmen",
+      "example": "신분증을 지참해 주세요.",
+      "exampleMeaning": "Bitte bring deinen Ausweis mit."
+    },
+    {
+      "korean": "링크",
+      "roman": "ringkeu",
+      "meaning": "Link (URL)",
+      "example": "링크를 눌러 예약을 바꿨어요.",
+      "exampleMeaning": "Ich habe den Termin geändert, indem ich auf den Link geklickt habe."
+    },
+    {
+      "korean": "변경",
+      "roman": "byeongyeong",
+      "meaning": "ändern (etwas bereits Festgelegtes anpassen)",
+      "example": "시간 변경을 원합니다.",
+      "exampleMeaning": "Ich möchte die Uhrzeit ändern."
+    },
+    {
+      "korean": "취소",
+      "roman": "chwiso",
+      "meaning": "Stornierung; stornieren",
+      "example": "예약 취소를 원해요.",
+      "exampleMeaning": "Ich möchte den Termin stornieren."
+    },
+    {
+      "korean": "위치",
+      "roman": "wichi",
+      "meaning": "Ort; wo sich etwas befindet",
+      "example": "병원 위치를 확인했어요.",
+      "exampleMeaning": "Ich habe den Standort des Krankenhauses überprüft."
+    },
+    {
+      "korean": "답장",
+      "roman": "dapjang",
+      "meaning": "antworten (auf eine SMS/Nachricht)",
+      "example": "이 문자에 1로 답장해 주세요.",
+      "exampleMeaning": "Bitte antworte auf diese SMS mit 1."
+    }
+  ],
+  "category": "reading"
+}

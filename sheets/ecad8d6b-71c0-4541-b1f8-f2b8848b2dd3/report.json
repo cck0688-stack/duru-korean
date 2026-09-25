@@ -1,0 +1,159 @@
+{
+  "id": "ecad8d6b-71c0-4541-b1f8-f2b8848b2dd3",
+  "title": "약국에서 증상 말하고 약 사기",
+  "category": "reallife",
+  "status": "published",
+  "published": true,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "pt-BR",
+    "vi"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 49,
+          "problem": "Missing crase: 'alérgico(a) a aspirina' should be 'alérgico(a) à aspirina' (the preposition 'a' merges with the feminine article before 'aspirina').",
+          "fix": "O farmacêutico pergunta: '알레르기 있으세요?' Você é alérgico(a) à aspirina (아스피린). Responda em coreano."
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 50,
+          "problem": "\"In English\" was translated literally as \"Dalam bahasa Inggris\". On the English worksheet it means the learner's own language, so Indonesian learners should be asked to answer in Indonesian.",
+          "fix": "Apoteker berkata: '하루 세 번, 식후 30분에 드세요.' Dalam bahasa Indonesia, berapa kali sehari Anda harus meminum obat ini, dan kapan?"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 50,
+          "problem": "The Korean quote was changed: the English line ends it with a full stop ('.'), but the Japanese line uses the Japanese full stop '。'. The Korean must stay character for character.",
+          "fix": "薬剤師が言います。「하루 세 번, 식후 30분에 드세요.」薬は一日何回、いつ飲めばいいですか?英語で答えてください。"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 50,
+          "problem": "'In English' means the learner's own language, not Korean. In the German version it should be German, and the answer on line 51 is in German. 'Antworten Sie auf Englisch' is a literal carry-over and doesn't match the answer.",
+          "fix": "Der Apotheker sagt: '하루 세 번, 식후 30분에 드세요.' Wie oft am Tag sollten Sie das Medikament einnehmen, und wann? Antworten Sie auf Deutsch."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:46:18.188Z"
+}

@@ -1,0 +1,83 @@
+{
+  "answers": [
+    "10월 15일(화) (10월 15일)",
+    "오전 9시부터 낮 12시까지 (09:00~12:00)",
+    "101동과 102동",
+    "1호기",
+    "지하 1층(B1) (지하 1층)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "지문을 보고 답하세요. 점검 날짜는 언제입니까?",
+    "지문을 보고 답하세요. 점검 시간은 몇 시부터 몇 시까지입니까?",
+    "지문을 보고 답하세요. 점검 대상은 어느 동입니까?",
+    "지문을 보고 답하세요. 점검 동안 완전히 멈추는 엘리베이터는 몇 호기입니까?",
+    "지문을 보고 답하세요. 점검 동안 2호기는 어느 층에 정차하지 않습니까?"
+  ],
+  "keyword": "아파트 엘리베이터 점검 안내문 읽기",
+  "level": "초급 중 (A2)",
+  "minutes": 15,
+  "objective": "Learners will read an apartment elevator inspection notice and accurately identify the date, time, affected buildings, and unavailable sections (which elevator and floors).",
+  "passage": [
+    "아파트 관리사무소에서 엘리베이터 정기점검을 합니다. 안전한 이용을 위해 아래 내용을 확인해 주세요.",
+    "점검 일시: 10월 15일(화) 오전 9시부터 낮 12시까지. 대상: 101동, 102동.",
+    "점검 동안 1호기는 운행을 전면 중지합니다. 2호기는 제한 운행을 하며, 지하 1층에는 정차하지 않고 1층부터 20층까지만 운행합니다.",
+    "계단 이용이 어려운 분은 미리 관리사무소에 연락해 주세요. 불편을 드려 죄송합니다."
+  ],
+  "summary": "Read a realistic apartment elevator inspection notice and answer questions to find the exact date, time, and unavailable sections (which cars/floors).",
+  "tags": [],
+  "task": null,
+  "title": "아파트 엘리베이터 점검 안내문 읽기",
+  "words": [
+    {
+      "korean": "정기점검",
+      "roman": "jeonggijeomgeom",
+      "meaning": "regular inspection",
+      "example": "엘리베이터 정기점검이 있습니다.",
+      "exampleMeaning": "There will be a regular inspection of the elevator."
+    },
+    {
+      "korean": "운행",
+      "roman": "unhaeng",
+      "meaning": "operation; running (of a vehicle/elevator)",
+      "example": "엘리베이터 운행이 중지됩니다.",
+      "exampleMeaning": "Elevator operation will stop."
+    },
+    {
+      "korean": "전면 중지",
+      "roman": "jeonmyeon jungji",
+      "meaning": "complete suspension; stopped entirely",
+      "example": "1호기는 전면 중지입니다.",
+      "exampleMeaning": "Car 1 is completely suspended."
+    },
+    {
+      "korean": "정차하다",
+      "roman": "jeongchahada",
+      "meaning": "to stop (at a floor/station)",
+      "example": "2호기는 지하 1층에 정차하지 않습니다.",
+      "exampleMeaning": "Elevator 2 does not stop at B1."
+    },
+    {
+      "korean": "관리사무소",
+      "roman": "gwallisamuso",
+      "meaning": "management office",
+      "example": "문의는 관리사무소로 하세요.",
+      "exampleMeaning": "Please contact the management office."
+    },
+    {
+      "korean": "호기",
+      "roman": "hogi",
+      "meaning": "car number (of an elevator)",
+      "example": "엘리베이터 1호기만 멈춥니다.",
+      "exampleMeaning": "Only elevator car 1 stops."
+    },
+    {
+      "korean": "제한",
+      "roman": "jehan",
+      "meaning": "limit; restriction",
+      "example": "2호기는 제한 운행을 합니다.",
+      "exampleMeaning": "Car 2 runs with restrictions."
+    }
+  ],
+  "category": "reading"
+}

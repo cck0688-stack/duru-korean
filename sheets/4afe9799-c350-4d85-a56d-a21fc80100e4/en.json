@@ -1,0 +1,125 @@
+{
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "keyword": "받침 ㄱ·ㄷ·ㅂ",
+  "summary": "Practice reading and recognizing unreleased final stops for batchim ㄱ/ㄷ/ㅂ. Learners link each to similar English word-final sounds (back/bat/cap) but with no release, then read and choose simple words that contain these batchim.",
+  "objective": "Beginner learners will recognize unreleased final stops [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ; connect them to similar English endings (“back/bat/cap” with no release); and accurately read and select simple Korean words that contain these batchim.",
+  "level": "Beginner",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "끝소리가 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
+    "아래 낱말의 끝소리는 무엇인가요? 곧 (k / t / p)",
+    "「집」의 끝소리와 가장 가까운 영어 낱말의 끝소리는? (back / bat / cap)",
+    "로마자 표기가 맞는 것을 고르세요: 벽 (byeok / byeog / byuk)",
+    "끝소리가 [p]인 낱말을 모두 고르세요. (집 / 속 / 입 / 곧)"
+  ],
+  "answers": [
+    "국",
+    "t",
+    "cap",
+    "byeok",
+    "집, 입"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄱ",
+      "sound": "끝소리 [k] (무성·불파)",
+      "as": "like the end of “back” (stop; no release)"
+    },
+    {
+      "letter": "ㄷ",
+      "sound": "끝소리 [t] (무성·불파)",
+      "as": "like the end of “bat” (stop; no release)"
+    },
+    {
+      "letter": "ㅂ",
+      "sound": "끝소리 [p] (무성·불파)",
+      "as": "like the end of “cap” (stop; no release)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "국",
+      "roman": "guk",
+      "meaning": "soup",
+      "example": "국 주세요.",
+      "exampleMeaning": "Soup, please."
+    },
+    {
+      "korean": "속",
+      "roman": "sok",
+      "meaning": "inside",
+      "example": "가방 속 책이 무거워요.",
+      "exampleMeaning": "The book in the bag is heavy."
+    },
+    {
+      "korean": "벽",
+      "roman": "byeok",
+      "meaning": "wall",
+      "example": "벽 색깔이 하얘요.",
+      "exampleMeaning": "The wall is white."
+    },
+    {
+      "korean": "곧",
+      "roman": "got",
+      "meaning": "soon",
+      "example": "곧 갈게요.",
+      "exampleMeaning": "I’ll go soon."
+    },
+    {
+      "korean": "받다",
+      "roman": "batda",
+      "meaning": "to receive",
+      "example": "선물을 받고 싶어요.",
+      "exampleMeaning": "I want to receive a present."
+    },
+    {
+      "korean": "걷다",
+      "roman": "geotda",
+      "meaning": "to walk",
+      "example": "공원에서 걷고 있어요.",
+      "exampleMeaning": "I am walking in the park."
+    },
+    {
+      "korean": "옷",
+      "roman": "ot",
+      "meaning": "clothes (batchim ㅅ is pronounced [t] at the end: 옷 → [옫])",
+      "example": "옷 사러 가요.",
+      "exampleMeaning": "I’m going to buy clothes."
+    },
+    {
+      "korean": "낮",
+      "roman": "nat",
+      "meaning": "daytime (batchim ㅈ is pronounced [t] at the end: 낮 → [낟])",
+      "example": "낮 12시에 만나요.",
+      "exampleMeaning": "Let’s meet at 12 noon."
+    },
+    {
+      "korean": "밥",
+      "roman": "bap",
+      "meaning": "cooked rice; meal",
+      "example": "밥 먹었어요?",
+      "exampleMeaning": "Did you eat?"
+    },
+    {
+      "korean": "집",
+      "roman": "jip",
+      "meaning": "house; home",
+      "example": "우리 집은 커요.",
+      "exampleMeaning": "Our house is big."
+    },
+    {
+      "korean": "입",
+      "roman": "ip",
+      "meaning": "mouth",
+      "example": "입 크게 벌리세요.",
+      "exampleMeaning": "Open your mouth wide."
+    }
+  ],
+  "category": "hangul"
+}

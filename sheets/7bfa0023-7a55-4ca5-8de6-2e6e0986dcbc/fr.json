@@ -1,0 +1,89 @@
+{
+  "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
+  "keyword": "",
+  "summary": "Apprenez les 8 mentions les plus courantes sur les panneaux d'horaires des commerces coréens, puis lisez trois exemples de panneaux pour déterminer si vous pouvez y aller ou commander à un jour et une heure donnés.",
+  "objective": "Les apprenants liront le panneau d'horaires d'un commerce et répondront correctement à des questions par oui ou non pour savoir si le commerce est ouvert, ou s'il accepte encore des commandes, à un jour et une heure donnés.",
+  "level": "Débutant (niveau avancé) – Intermédiaire (niveau bas)",
+  "minutes": 20,
+  "tags": [],
+  "task": null,
+  "exercises": [
+    "[안내판 1: 카페 하루] 월요일 오후 2시에 카페 하루에 갈 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 화요일 오후 3시 30분에 엄마손 칼국수에서 밥을 먹을 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 금요일 저녁 7시 45분에 엄마손 칼국수에 들어가서 칼국수를 주문할 수 있어요?",
+    "[안내판 1: 카페 하루] 토요일 밤 9시에 카페 하루에서 커피를 주문할 수 있어요?",
+    "[안내판 2: 엄마손 칼국수] 이번 주 수요일은 공휴일이에요. 수요일 낮 12시에 엄마손 칼국수에 갈 수 있어요?",
+    "[안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?"
+  ],
+  "answers": [
+    "아니요. 월요일은 정기휴무예요. (No. Monday is the regular day off.)",
+    "아니요. 3시부터 4시 30분까지 브레이크 타임이에요. (No. It's the break time, 15:00–16:30.)",
+    "아니요. 주문 마감이 저녁 7시 30분이에요. 가게는 8시까지 열지만 주문은 못 해요. (No. Orders close at 19:30. The shop is open until 20:00, but you can't order.)",
+    "네. 주말 영업시간은 밤 10시까지이고, 라스트 오더는 9시 30분이에요. (Yes. Weekend hours run until 22:00, and last order is at 21:30.)",
+    "아니요. 공휴일 휴무예요. 평일이라도 공휴일에는 문을 닫아요. (No. It closes on public holidays, even if the holiday falls on a weekday.)",
+    "네. 24시간 영업, 연중무휴예요. (Yes. It's open 24 hours, every day of the year.)"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "1. 안내판에 자주 나오는 말 8개 (8 MENTIONS DES PANNEAUX)",
+      "paragraphs": [
+        "영업시간 (yeongeop sigan) : les heures pendant lesquelles le commerce est ouvert. — 영업시간이 어떻게 돼요? (Quels sont vos horaires d'ouverture ?)",
+        "정기휴무 (jeonggi hyumu) : le jour de fermeture habituel du commerce. Sur les panneaux, on voit généralement quelque chose comme 매주 월요일 휴무 (fermé tous les lundis). — 그 식당은 매주 월요일이 정기휴무예요. (Ce restaurant est fermé tous les lundis.)",
+        "브레이크 타임 (beureikeu taim) : une pause en milieu de journée, généralement entre le déjeuner et le dîner. La porte est fermée et vous ne pouvez pas entrer. — 지금 브레이크 타임이라서 4시 반에 다시 오세요. (Nous sommes en pause en ce moment, merci de revenir à 16h30.)",
+        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam) : la dernière heure à laquelle vous pouvez commander. Le commerce est encore ouvert, mais il n'accepte plus de nouvelles commandes. — 죄송해요, 주문 마감 시간이 지났어요. (Désolé, l'heure limite pour commander est dépassée.)",
+        "연중무휴 (yeonjung muhyu) : ouvert tous les jours de l'année, sans jour de fermeture habituel. — 이 약국은 연중무휴라서 일요일에도 열어요. (Cette pharmacie est ouverte toute l'année, donc elle est aussi ouverte le dimanche.)",
+        "24시간 영업 (isipsa sigan yeongeop) : ouvert jour et nuit. — 새벽에 배고프면 24시간 영업하는 편의점에 가요. (Si j'ai faim tard dans la nuit, je vais dans une supérette ouverte 24h/24.)",
+        "공휴일 휴무 (gonghyuil hyumu) : fermé les jours fériés. — 내일은 공휴일이라서 문을 안 열어요. (Demain, c'est un jour férié, donc nous sommes fermés.)",
+        "평일 (pyeongil) / 주말 (jumal) : les jours de semaine (lundi–vendredi) et le week-end (samedi–dimanche). Beaucoup de commerces ont des horaires différents pour chacun. — 평일에는 사람이 적은데 주말에는 줄이 길어요. (En semaine il y a peu de monde, mais le week-end la file d'attente est longue.)"
+      ]
+    },
+    {
+      "heading": "2. 안내판 읽는 순서 (COMMENT VÉRIFIER : 4 ÉTAPES)",
+      "paragraphs": [
+        "① 요일 확인 : Ce jour-là est-il un 휴무 (jour de fermeture) ? Vérifiez 정기휴무 et 공휴일 휴무.",
+        "② 평일/주말 확인 : Quels horaires s'appliquent, ceux de la semaine ou ceux du week-end ?",
+        "③ 시간 확인 : La plupart des panneaux utilisent le format 24 heures. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Votre heure se situe-t-elle entre l'heure d'ouverture et l'heure de fermeture ? Vérifiez aussi si elle tombe pendant la 브레이크 타임.",
+        "④ 주문 확인 : Si vous voulez manger ou commander, vérifiez aussi l'heure de 라스트 오더 (주문 마감). 마감 30분 전 signifie « 30 minutes avant la fermeture ».",
+        "Astuce : Un panneau 연중무휴 signifie que le commerce n'a pas de jour de fermeture habituel, mais certains commerces ferment quand même à 설날 ou à 추석 (les grandes fêtes coréennes). Si vous prévoyez d'y aller un jour férié, cherchez un avis séparé."
+      ]
+    },
+    {
+      "heading": "3. 안내판 1: 카페 하루",
+      "paragraphs": [
+        "영업시간",
+        "평일 10:00 ~ 21:00",
+        "주말 11:00 ~ 22:00",
+        "라스트 오더: 마감 30분 전",
+        "정기휴무: 매주 월요일 휴무"
+      ]
+    },
+    {
+      "heading": "4. 안내판 2: 엄마손 칼국수",
+      "paragraphs": [
+        "영업시간 11:00 ~ 20:00",
+        "브레이크 타임 15:00 ~ 16:30",
+        "주문 마감 19:30",
+        "매주 일요일 휴무 · 공휴일 휴무"
+      ]
+    },
+    {
+      "heading": "5. 안내판 3: 우리동네 편의점",
+      "paragraphs": [
+        "24시간 영업",
+        "연중무휴"
+      ]
+    },
+    {
+      "heading": "6. 가게에서 쓸 수 있는 말 (EXPRESSIONS UTILES)",
+      "paragraphs": [
+        "지금 문 열었어요? (Êtes-vous ouverts maintenant ?)",
+        "몇 시까지 해요? (Jusqu'à quelle heure êtes-vous ouverts ?) Littéralement, cela signifie « jusqu'à quelle heure fonctionnez-vous ? ».",
+        "지금 주문돼요? (Puis-je encore commander maintenant ?)",
+        "Sur la porte, vous pourriez aussi voir 영업 중 (ouvert) ou 준비 중 (en préparation / fermé pour le moment). On voit souvent 준비 중 pendant la 브레이크 타임."
+      ]
+    }
+  ],
+  "note": "Note pour l'enseignant : Les trois panneaux sont fictifs et créés pour la classe ; ils ne correspondent donc à aucun commerce ni horaire réel. L'idée principale à enseigner est la différence entre « le commerce est ouvert » et « on peut encore commander » (exercices 3 et 4). Avant que les apprenants commencent les exercices, faites-leur dire à voix haute les heures au format 24 heures en coréen (15:30 → 오후 3시 30분). Pour prolonger la leçon, les apprenants peuvent prendre en photo un panneau réel près de chez eux et écrire deux questions par oui ou non à ce sujet pour un partenaire.",
+  "category": "etc"
+}

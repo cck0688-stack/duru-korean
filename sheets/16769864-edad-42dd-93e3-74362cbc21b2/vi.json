@@ -1,0 +1,113 @@
+{
+  "title": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "keyword": "모음 ㅓ·ㅗ·ㅜ 연습",
+  "summary": "Bài luyện tập ngắn để nhận biết và phát âm các nguyên âm tiếng Hàn ㅓ, ㅗ và ㅜ. Gồm ba từ đơn giản cho mỗi nguyên âm và các câu ví dụ ngắn.",
+  "objective": "Người học sẽ có thể nhận biết và phát âm đúng các nguyên âm tiếng Hàn ㅓ, ㅗ và ㅜ trong các từ đơn giản.",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Nguyên âm nào có trong âm tiết '서'? (Viết ㅓ, ㅗ hoặc ㅜ)",
+    "Đọc to: 거기 / 고기. Viết nguyên âm trong âm tiết đầu tiên của mỗi từ. Với từ nào thì bạn tròn môi?",
+    "Đọc to: 소 / 수. Cả hai nguyên âm đều tròn môi. Với từ nào thì miệng bạn khép hơn?",
+    "Nối các từ sau với nguyên âm (ㅓ, ㅗ hoặc ㅜ) mà chúng chứa (viết ba ký hiệu theo đúng thứ tự): 엄마 / 오이 / 수박",
+    "Trong bộ ba tối thiểu '서 / 소 / 수', âm tiết nào chứa ㅜ?",
+    "Sắp xếp các từ sau vào nhóm ㅓ, ㅗ và ㅜ theo nguyên âm trong âm tiết đầu tiên: 먹다, 주다, 고기, 서점, 포도, 우유"
+  ],
+  "answers": [
+    "ㅓ",
+    "거기: ㅓ / 고기: ㅗ — you round your lips for 고기",
+    "수 (ㅜ)",
+    "엄마: ㅓ / 오이: ㅗ / 수박: ㅜ",
+    "수",
+    "ㅓ: 먹다, 서점 / ㅗ: 고기, 포도 / ㅜ: 주다, 우유"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅓ",
+      "sound": "gần giống 'eo' (một nguyên âm mở-vừa)",
+      "as": "gần giống âm 'uh' trong từ tiếng Anh 'cup' (tương đối)"
+    },
+    {
+      "letter": "ㅗ",
+      "sound": "gần giống 'o' (nguyên âm sau, tròn môi)",
+      "as": "gần giống âm 'o' trong từ tiếng Anh 'go' (tương đối)"
+    },
+    {
+      "letter": "ㅜ",
+      "sound": "gần giống 'u' (nguyên âm sau, tròn môi)",
+      "as": "gần giống âm 'oo' trong từ tiếng Anh 'food' (tương đối)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "엄마",
+      "roman": "eomma",
+      "meaning": "mẹ",
+      "example": "엄마가 왔어요.",
+      "exampleMeaning": "Mẹ đã đến."
+    },
+    {
+      "korean": "먹다",
+      "roman": "meokda",
+      "meaning": "ăn",
+      "example": "밥을 먹어요.",
+      "exampleMeaning": "Tôi ăn cơm."
+    },
+    {
+      "korean": "서점",
+      "roman": "seojeom",
+      "meaning": "hiệu sách",
+      "example": "서점에 가요.",
+      "exampleMeaning": "Tôi đi đến hiệu sách."
+    },
+    {
+      "korean": "오이",
+      "roman": "oi",
+      "meaning": "dưa chuột",
+      "example": "오이가 맛있어요.",
+      "exampleMeaning": "Dưa chuột ngon."
+    },
+    {
+      "korean": "포도",
+      "roman": "podo",
+      "meaning": "nho",
+      "example": "포도가 있어요.",
+      "exampleMeaning": "Có nho."
+    },
+    {
+      "korean": "고기",
+      "roman": "gogi",
+      "meaning": "thịt",
+      "example": "고기를 좋아해요.",
+      "exampleMeaning": "Tôi thích thịt."
+    },
+    {
+      "korean": "우유",
+      "roman": "uyu",
+      "meaning": "sữa",
+      "example": "우유를 마셔요.",
+      "exampleMeaning": "Tôi uống sữa."
+    },
+    {
+      "korean": "수박",
+      "roman": "subak",
+      "meaning": "dưa hấu",
+      "example": "수박이 커요.",
+      "exampleMeaning": "Dưa hấu to."
+    },
+    {
+      "korean": "주다",
+      "roman": "juda",
+      "meaning": "cho, tặng",
+      "example": "선물을 줘요.",
+      "exampleMeaning": "Tôi tặng quà."
+    }
+  ],
+  "category": "hangul"
+}

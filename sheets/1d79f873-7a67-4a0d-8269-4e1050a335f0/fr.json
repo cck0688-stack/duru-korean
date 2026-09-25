@@ -1,0 +1,121 @@
+{
+  "answers": [
+    "4번이에요. / 4번 세탁기예요.",
+    "남은 시간이 얼마나 돼요? / 시간이 얼마나 남았어요? / 얼마나 남았어요?",
+    "끝나면 2번 건조기로 옮겨 주실 수 있어요? / 끝나면 2번 건조기로 옮겨 주세요.",
+    "시작 버튼을 눌렀어요."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "민지",
+      "korean": "실례합니다, 4번 세탁기 지금 누구 거예요?",
+      "meaning": "Excusez-moi, à qui est la machine à laver numéro 4 en ce moment ?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 제 거예요. 지금 17분 남았어요.",
+      "meaning": "Oui, c'est la mienne. Il reste 17 minutes maintenant."
+    },
+    {
+      "who": "민지",
+      "korean": "아, 알겠어요. 끝나면 건조기로 바로 옮겨 주실 수 있어요?",
+      "meaning": "Ah, je vois. Pouvez-vous mettre le linge dans le sèche-linge juste après la fin du lavage ?"
+    },
+    {
+      "who": "철수",
+      "korean": "네, 괜찮아요. 건조기는 몇 번이 비어 있어요?",
+      "meaning": "Oui, pas de problème. Quel numéro de sèche-linge est disponible ?"
+    },
+    {
+      "who": "민지",
+      "korean": "2번이 비어 있어요.",
+      "meaning": "Le sèche-linge numéro 2 est libre."
+    },
+    {
+      "who": "철수",
+      "korean": "그러면 끝나면 제가 2번으로 옮길게요.",
+      "meaning": "Alors je mettrai le linge dans le numéro 2 une fois le lavage terminé."
+    },
+    {
+      "who": "민지",
+      "korean": "감사합니다. 세제는 어디에서 사요?",
+      "meaning": "Merci. Où est-ce que j'achète de la lessive ?"
+    },
+    {
+      "who": "철수",
+      "korean": "저기 자판기에서 사요. 세제를 넣고 시작 버튼을 누르면 돼요.",
+      "meaning": "Vous pouvez en acheter au distributeur automatique là-bas. Mettez la lessive et appuyez sur le bouton de démarrage."
+    }
+  ],
+  "exercises": [
+    "철수의 세탁기 번호는 몇 번이에요?",
+    "남은 시간을 묻는 질문을 한국어로 만드세요: \"Combien de temps reste-t-il ?\"",
+    "빨래를 옮겨 달라고 부탁하는 말을 한국어로 만드세요: \"Pouvez-vous la déplacer dans le sèche-linge numéro 2 une fois terminée ?\"",
+    "다음 문장을 한국어로 적으세요: \"J'ai appuyé sur le bouton de démarrage.\""
+  ],
+  "keyword": "",
+  "level": "A2 (초급 상)",
+  "minutes": 15,
+  "objective": "Être capable de comprendre et de dire des questions et des réponses courtes dans une laverie à pièces/en libre-service : demander un numéro de machine, demander combien de temps il reste, demander à quelqu'un de déplacer le linge, et démarrer ou transférer le linge dans le sèche-linge.",
+  "setting": "무인(코인) 빨래방",
+  "summary": "Pratiquez des questions et des réponses courtes et pratiques dans une laverie automatique en libre-service : demander quelle machine utiliser, vérifier le temps restant et s'arranger pour transférer le linge dans le sèche-linge.",
+  "tags": [],
+  "task": {
+    "title": "빨래방 역할극",
+    "line": "짝과 빨래방 손님이 되어 보세요. 세탁기 번호를 묻고, 남은 시간을 확인하고, 끝나면 비어 있는 건조기로 옮겨 달라고 부탁하세요."
+  },
+  "title": "무인 빨래방에서 세탁기·건조기 쓰기",
+  "words": [
+    {
+      "korean": "세탁기",
+      "roman": "setakgi",
+      "meaning": "machine à laver",
+      "example": "세탁기 4번에 넣으세요.",
+      "exampleMeaning": "Mettez-le dans la machine à laver numéro 4."
+    },
+    {
+      "korean": "건조기",
+      "roman": "geonjogi",
+      "meaning": "sèche-linge",
+      "example": "건조기 2번이 비었어요.",
+      "exampleMeaning": "Le sèche-linge numéro 2 est libre."
+    },
+    {
+      "korean": "몇 번",
+      "roman": "myeot beon",
+      "meaning": "quel numéro",
+      "example": "몇 번이 비어 있어요?",
+      "exampleMeaning": "Quel numéro est disponible ?"
+    },
+    {
+      "korean": "남은 시간",
+      "roman": "nameun sigan",
+      "meaning": "temps restant",
+      "example": "남은 시간이 얼마나 돼요?",
+      "exampleMeaning": "Combien de temps reste-t-il ?"
+    },
+    {
+      "korean": "옮기다",
+      "roman": "omgida",
+      "meaning": "déplacer (quelque chose vers une autre machine/un autre endroit)",
+      "example": "끝나면 건조기로 옮겨 주세요.",
+      "exampleMeaning": "Veuillez le déplacer dans le sèche-linge une fois terminé."
+    },
+    {
+      "korean": "시작 버튼",
+      "roman": "sijak beoteun",
+      "meaning": "bouton de démarrage",
+      "example": "시작 버튼을 눌러 주세요.",
+      "exampleMeaning": "Veuillez appuyer sur le bouton de démarrage."
+    },
+    {
+      "korean": "세제",
+      "roman": "seje",
+      "meaning": "lessive",
+      "example": "세제는 이미 넣었어요.",
+      "exampleMeaning": "J'ai déjà mis la lessive."
+    }
+  ],
+  "category": "reallife"
+}

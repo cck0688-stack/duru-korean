@@ -1,0 +1,111 @@
+{
+  "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
+  "keyword": "받침",
+  "summary": "Luyện đọc và phát âm các phụ âm cuối ㅇ, ㄴ, ㅁ. Liên hệ chúng với các âm cuối tương tự trong tiếng Anh (-ng, -n, -m) và đọc các từ đơn giản có chứa những phụ âm cuối (batchim) này.",
+  "objective": "Người học sẽ phân biệt các phụ âm cuối ㅇ, ㄴ, ㅁ bằng âm thanh, liên hệ chúng với các âm cuối tương tự trong tiếng Anh (-ng, -n, -m) để phát âm chính xác, và đọc các từ đơn giản có chứa những phụ âm cuối này.",
+  "level": "Trình độ cơ bản (A1)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "받침 소리 구별하기",
+    "line": "Đọc to từng từ và phân loại theo âm cuối: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+  },
+  "exercises": [
+    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
+    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
+    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)",
+    "뜻에 맞는 낱말을 고르세요: 'hand' (tay) → 손 / 송 / 솜",
+    "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+  ],
+  "answers": [
+    "방",
+    "손(-n), 방(-ng), 봄(-m)",
+    "ㅇ, ㄴ, ㅁ",
+    "손",
+    "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅇ",
+      "sound": "ng (끝소리)",
+      "as": "giống âm cuối -ng trong tiếng Anh (sing)"
+    },
+    {
+      "letter": "ㄴ",
+      "sound": "n (끝소리)",
+      "as": "giống âm cuối -n trong tiếng Anh (sun)"
+    },
+    {
+      "letter": "ㅁ",
+      "sound": "m (끝소리)",
+      "as": "giống âm cuối -m trong tiếng Anh (gum)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "phòng",
+      "example": "방이 커요.",
+      "exampleMeaning": "Phòng rất rộng."
+    },
+    {
+      "korean": "공",
+      "roman": "gong",
+      "meaning": "quả bóng",
+      "example": "공을 차요.",
+      "exampleMeaning": "Tôi đá bóng."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "bánh mì",
+      "example": "빵 주세요.",
+      "exampleMeaning": "Cho tôi bánh mì."
+    },
+    {
+      "korean": "손",
+      "roman": "son",
+      "meaning": "tay",
+      "example": "손 씻어요.",
+      "exampleMeaning": "Tôi rửa tay."
+    },
+    {
+      "korean": "눈",
+      "roman": "nun",
+      "meaning": "tuyết; mắt (ở đây là: tuyết)",
+      "example": "눈이 와요.",
+      "exampleMeaning": "Trời đang có tuyết."
+    },
+    {
+      "korean": "산",
+      "roman": "san",
+      "meaning": "núi",
+      "example": "산에 가요.",
+      "exampleMeaning": "Tôi đi lên núi."
+    },
+    {
+      "korean": "밤",
+      "roman": "bam",
+      "meaning": "đêm (cũng có nghĩa là hạt dẻ)",
+      "example": "밤에 자요.",
+      "exampleMeaning": "Tôi ngủ vào ban đêm."
+    },
+    {
+      "korean": "봄",
+      "roman": "bom",
+      "meaning": "mùa xuân",
+      "example": "봄이 따뜻해요.",
+      "exampleMeaning": "Mùa xuân ấm áp."
+    },
+    {
+      "korean": "이름",
+      "roman": "ireum",
+      "meaning": "tên",
+      "example": "이름이 뭐예요?",
+      "exampleMeaning": "Tên bạn là gì?"
+    }
+  ],
+  "category": "hangul"
+}

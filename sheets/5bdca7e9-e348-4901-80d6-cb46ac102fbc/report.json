@@ -1,0 +1,236 @@
+{
+  "id": "5bdca7e9-e348-4901-80d6-cb46ac102fbc",
+  "title": "이유 말하기: -아서/어서와 -(으)니까",
+  "category": "grammar",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "학습 목표와 연습 문제가 맞지 않음: objective에는 '-아서/어서를 명령·제안 앞에 쓴 문장 고치기'가 있는데, 고치기 문제는 6번 하나뿐이고 이 문제는 과거 시제(-았/었어서) 오류만 다룸. 명령·제안 앞 -아서/어서 오류를 고치는 문제를 추가해야 함. 예: '틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 비가 와서 우산을 가져가세요.' → 정답 '비가 오니까 우산을 가져가세요.'",
+        "4번 지시문 '-아서/어서 계열의 명사 형태를 쓰세요'는 자연스러운 한국어 지시문이 아니고 무엇을 쓰라는 것인지 불분명함. '빈칸에 명사 + -(이)라서 형태를 쓰세요'로 고칠 것. 또는 지시문을 다른 문제처럼 '알맞은 형태'로 바꾼다면 '휴가니까'도 정답에 함께 넣어야 함."
+      ],
+      "audit": []
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "answers[3] (4번 정답): 휴가라서 (휴가여서) → 휴가라서"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[4]",
+      "before": "휴가라서 (휴가여서)",
+      "after": "휴가라서"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "빈칸에 -아서/어서 계열의 명사 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+      "after": "빈칸에 명사 + -(이)라서 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요."
+    },
+    {
+      "at": "objective",
+      "before": "Choose between -아서/어서 and -(으)니까 for a reason clause, build the correct form (including nouns and ㄹ/ㅂ irregular stems), and fix sentences that use -아서/어서 before a command/suggestion or with a past-tense marker.",
+      "after": "Choose between -아서/어서 and -(으)니까 for a reason clause (including before a command/suggestion), build the correct form (including nouns and ㄹ/ㅂ irregular stems), and fix sentences that use a past-tense marker before -아서/어서."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "\"forma la forma correcta\" repeats the same word as a verb and then a noun, which sounds unnatural in Spanish; \"build\" should be \"construye\".",
+          "fix": "Elige entre -아서/어서 y -(으)니까 para una cláusula de razón (incluso antes de una orden/sugerencia), construye la forma correcta (incluyendo sustantivos y raíces irregulares en ㄹ/ㅂ), y corrige oraciones que usan un marcador de pasado antes de -아서/어서."
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 3,
+      "lost": [
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 명사",
+        "라서 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 3,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 3,
+      "lost": [
+        "어간 끝 모음이 ㅏ",
+        "그 밖의 모음",
+        "이라서 / 라서",
+        "모음 어간",
+        "ㄹ 어간",
+        "받침 있는 어간",
+        "이니까 / 니까",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 명사",
+        "라서 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 3,
+      "lost": [
+        "이라서 / 라서",
+        "이니까 / 니까",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "빈칸에 명사",
+        "라서 형태를 쓰세요",
+        "빈칸에 알맞은 형태를 쓰세요",
+        "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 3,
+      "lost": [
+        "어간 끝 모음이 ㅏ",
+        "그 밖의 모음",
+        "모음 어간",
+        "ㄹ 어간",
+        "받침 있는 어간"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "\"Grundsatz\" means \"principle\", not \"reason clause\"; wrong term.",
+          "fix": "Wähle zwischen -아서/어서 und -(으)니까 für einen Begründungssatz (auch vor einem Befehl/Vorschlag), bilde die richtige Form (einschließlich Nomen und ㄹ/ㅂ-unregelmäßiger Stämme) und korrigiere Sätze, in denen ein Vergangenheitsmarker vor -아서/어서 verwendet wird."
+        },
+        {
+          "line": 27,
+          "problem": "The causal \"so\" is dropped. The two clauses are just placed side by side (a comma splice with a question), so the reason link the example is meant to show is lost.",
+          "fix": "Gerade sind viele Leute hier, sollen wir also ein anderes Mal wiederkommen?"
+        },
+        {
+          "line": 31,
+          "problem": "The causal \"so\" is dropped, so the sentence no longer shows the reason connection that is being taught.",
+          "fix": "Ich bin gerade in einer Besprechung, deshalb ruf bitte später an."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T12:09:27.137Z"
+}

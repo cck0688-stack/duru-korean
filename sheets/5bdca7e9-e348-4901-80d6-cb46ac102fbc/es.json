@@ -1,0 +1,143 @@
+{
+  "answers": [
+    "사니까",
+    "줘서 (주어서)",
+    "더우니까",
+    "휴가라서",
+    "휴일이니까",
+    "어제 잠을 못 자서 오늘 너무 피곤해요."
+  ],
+  "checkThese": [],
+  "exercises": [
+    "빈칸에 알맞은 형태를 쓰세요: 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+    "빈칸에 알맞은 형태를 쓰세요: 선물을 (주다) ____ 고마워요.",
+    "빈칸에 알맞은 형태를 쓰세요: 밖이 (덥다) ____ 안에 있읍시다.",
+    "빈칸에 명사 + -(이)라서 형태를 쓰세요: 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+    "빈칸에 알맞은 형태를 쓰세요: 내일은 (휴일) ____ 같이 영화 볼까요?",
+    "틀린 곳을 찾아 문장 전체를 고쳐 쓰세요: 어제 잠을 못 잤어서 오늘 너무 피곤해요."
+  ],
+  "forms": [
+    {
+      "form": "V/A + 아서 (어간 끝 모음이 ㅏ, ㅗ)",
+      "when": "La última vocal de la raíz es ㅏ u ㅗ. 가다 → 가서, 작다 → 작아서, 보다 → 봐서",
+      "means": "porque / así que (una razón o causa simple)",
+      "example": "방이 작아서 좀 불편해요.",
+      "exampleMeaning": "La habitación es pequeña, así que es un poco incómoda.",
+      "mark": [
+        "작아서"
+      ]
+    },
+    {
+      "form": "V/A + 어서 (그 밖의 모음)",
+      "when": "Cualquier otra vocal final. 먹다 → 먹어서, 마시다 → 마셔서, 어렵다 → 어려워서",
+      "means": "porque / así que",
+      "example": "커피를 많이 마셔서 잠이 안 와요.",
+      "exampleMeaning": "Tomé mucho café, así que no puedo dormirme.",
+      "mark": [
+        "마셔서"
+      ]
+    },
+    {
+      "form": "하다 → 해서",
+      "when": "Verbos y adjetivos que terminan en 하다. 피곤하다 → 피곤해서, 공부하다 → 공부해서",
+      "means": "porque / así que",
+      "example": "너무 피곤해서 일찍 잤어요.",
+      "exampleMeaning": "Estaba tan cansado/a que me acosté temprano.",
+      "mark": [
+        "피곤해서"
+      ]
+    },
+    {
+      "form": "N + 이라서 / 라서",
+      "when": "Sustantivos. Después de una consonante final: 이라서 (학생이라서). Después de una vocal: 라서 (친구라서). También se usa 이어서/여서.",
+      "means": "porque es N",
+      "example": "아직 학생이라서 돈이 별로 없어요.",
+      "exampleMeaning": "Todavía soy estudiante, así que no tengo mucho dinero.",
+      "mark": [
+        "학생이라서"
+      ]
+    },
+    {
+      "form": "V/A + 니까 (모음 어간, ㄹ 어간)",
+      "when": "La raíz termina en vocal: 가다 → 가니까. La raíz termina en ㄹ: se elimina el ㄹ y se añade 니까 (멀다 → 머니까).",
+      "means": "porque / ya que. Puede ir antes de una orden o sugerencia.",
+      "example": "그 식당은 머니까 택시를 탑시다.",
+      "exampleMeaning": "Ese restaurante está lejos, así que tomemos un taxi.",
+      "mark": [
+        "머니까"
+      ]
+    },
+    {
+      "form": "V/A + 으니까 (받침 있는 어간)",
+      "when": "La raíz termina en consonante: 먹다 → 먹으니까, 많다 → 많으니까. Irregular en ㅂ: ㅂ → 우 + 니까 (어렵다 → 어려우니까).",
+      "means": "porque / ya que. Puede ir antes de una orden o sugerencia.",
+      "example": "지금은 사람이 많으니까 다음에 올까요?",
+      "exampleMeaning": "Ahora mismo hay mucha gente, ¿por qué no volvemos otro día?",
+      "mark": [
+        "많으니까"
+      ]
+    },
+    {
+      "form": "N + 이니까 / 니까",
+      "when": "Sustantivos. Después de una consonante final: 이니까 (회의 중이니까). Después de una vocal: 니까 (친구니까).",
+      "means": "ya que es N. Puede ir antes de una orden o sugerencia.",
+      "example": "지금은 회의 중이니까 나중에 전화하세요.",
+      "exampleMeaning": "Estoy en una reunión ahora mismo, así que por favor llama más tarde.",
+      "mark": [
+        "중이니까"
+      ]
+    }
+  ],
+  "keyword": "-아서/어서, -(으)니까",
+  "level": "Nivel principiante avanzado (초급 후반)",
+  "minutes": 15,
+  "objective": "Elige entre -아서/어서 y -(으)니까 para una cláusula de razón (incluso antes de una orden/sugerencia), construye la forma correcta (incluyendo sustantivos y raíces irregulares en ㄹ/ㅂ), y corrige oraciones que usan un marcador de pasado antes de -아서/어서.",
+  "summary": "Tanto -아서/어서 como -(으)니까 expresan una razón (\"porque, así que\"). Esta hoja muestra cómo formar cada una con verbos, adjetivos y sustantivos (incluyendo raíces irregulares en ㄹ y ㅂ). También cubre las dos reglas que más rompen los estudiantes: solo -(으)니까 puede ir antes de una orden o sugerencia (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), y un marcador de pasado nunca va antes de -아서/어서 (no -았/었어서).",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "이유 말하기: -아서/어서와 -(으)니까",
+  "watchOut": [
+    "Si la segunda cláusula es una orden o sugerencia (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), usa -(으)니까, no -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
+    "Nunca pongas el marcador de pasado -았/었- antes de -아서/어서. La segunda cláusula ya indica el tiempo. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Con -(으)니까, el pasado sí está bien: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
+    "Los verbos y adjetivos con raíz en ㄹ eliminan el ㄹ antes de 니까, y no se añade 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Con -아서/어서 el ㄹ se mantiene: 멀어서, 알아서",
+    "La mayoría de los adjetivos con raíz en ㅂ cambian ㅂ por 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
+    "Cuando agradeces o te disculpas con alguien, usa -아서/어서, no -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
+    "Sustantivos: revisa si hay una consonante final (받침). 학생라서 (X) → 학생이라서 (O), 의사이라서 (X) → 의사라서 (O). 니까 funciona igual: 이니까 después de consonante, 니까 después de vocal."
+  ],
+  "watchOutMark": [
+    [
+      "고파서",
+      "고프니까"
+    ],
+    [
+      "먹었어서",
+      "먹어서"
+    ],
+    [
+      "멀으니까",
+      "머니까",
+      "알으니까",
+      "아니까"
+    ],
+    [
+      "어렵으니까",
+      "어려우니까",
+      "춥어서",
+      "추워서"
+    ],
+    [
+      "하니까",
+      "해서"
+    ],
+    [
+      "학생라서",
+      "학생이라서",
+      "의사이라서",
+      "의사라서"
+    ]
+  ],
+  "category": "grammar"
+}

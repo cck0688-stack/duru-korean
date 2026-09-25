@@ -1,0 +1,166 @@
+{
+  "id": "3c3e62af-06a5-49c0-85e7-84214b4d142e",
+  "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
+  "category": "reading",
+  "status": "published",
+  "published": true,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Exercise 3: '감기약을 바로 먹어도 돼요? 왜 그래요?' uses the wrong phrase. '왜 그래요?' means 'What's wrong?' or 'Why are you acting like that?', not 'Why?'. Learners would pick up the wrong meaning. Change it to '왜요?' or '왜 안 돼요?'. Full question: '감기약을 바로 먹어도 돼요? 왜요?'"
+      ],
+      "audit": [
+        "exercises, 3번: 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜 그래요? → 마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜요?"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "exercises[3]",
+      "before": "마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜 그래요?",
+      "after": "마리아 씨가 바빠서 아침을 못 먹었어요. 감기약을 바로 먹어도 돼요? 왜요?"
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"niveau intermédiaire faible\" is unnatural French for \"low intermediate\"; \"faible\" means weak, so it describes a weak learner rather than the lower part of the intermediate level.",
+          "fix": "Intermédiaire (intermédiaire inférieur)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "'去药店看病' means going to the pharmacy to see a doctor, which changes the meaning. The source says only 'a pharmacy visit': she fills a prescription there.",
+          "fix": "阅读完一篇关于去药店取药的四段故事后,学习者可以在韩国的药包上找到四项信息:一天要吃几次药(1일 3회 = 하루에 세 번)、什么时候吃(식전、식후 30분、자기 전)、这些药够吃几天(3일분),以及注意事项是什么意思(졸음 주의、운전 주의)。"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:52:15.547Z"
+}

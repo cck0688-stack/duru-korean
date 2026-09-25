@@ -1,0 +1,111 @@
+{
+  "title": "받침 ㅇ·ㄴ·ㅁ: 끝소리 읽기",
+  "keyword": "받침",
+  "summary": "Berlatih membaca dan melafalkan konsonan akhir ㅇ, ㄴ, ㅁ. Hubungkan dengan akhiran bahasa Inggris yang mirip (-ng, -n, -m) dan bacalah kata-kata sederhana yang mengandung batchim ini.",
+  "objective": "Peserta didik akan membedakan ㅇ, ㄴ, ㅁ akhir berdasarkan bunyinya, menghubungkannya dengan akhiran bahasa Inggris yang mirip (-ng, -n, -m) untuk pelafalan yang tepat, dan membaca kata-kata sederhana yang mengandung batchim ini.",
+  "level": "Pemula (A1)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "받침 소리 구별하기",
+    "line": "Bacalah setiap kata dengan lantang dan kelompokkan berdasarkan bunyi akhirnya: ㅇ(-ng), ㄴ(-n), ㅁ(-m)."
+  },
+  "exercises": [
+    "다음 중 끝소리가 [-ng]인 것을 고르세요: 방 / 반 / 밤",
+    "괄호에 영어식 힌트(-ng/-n/-m)를 쓰세요: 손(__) 방(__) 봄(__)",
+    "빈칸에 알맞은 받침(ㅇ/ㄴ/ㅁ)을 쓰세요: 고_ (-ng) 누_ (-n) 이르_ (-m)",
+    "뜻에 맞는 낱말을 고르세요: 'hand' → 손 / 송 / 솜",
+    "낱말을 받침 소리(ㅇ/ㄴ/ㅁ)에 따라 나누세요: 산 / 밤 / 눈 / 빵"
+  ],
+  "answers": [
+    "방",
+    "손(-n), 방(-ng), 봄(-m)",
+    "ㅇ, ㄴ, ㅁ",
+    "손",
+    "ㅇ: 빵 / ㄴ: 산, 눈 / ㅁ: 밤"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅇ",
+      "sound": "ng (끝소리)",
+      "as": "seperti akhiran bahasa Inggris -ng (sing)"
+    },
+    {
+      "letter": "ㄴ",
+      "sound": "n (끝소리)",
+      "as": "seperti akhiran bahasa Inggris -n (sun)"
+    },
+    {
+      "letter": "ㅁ",
+      "sound": "m (끝소리)",
+      "as": "seperti akhiran bahasa Inggris -m (gum)"
+    }
+  ],
+  "words": [
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "kamar",
+      "example": "방이 커요.",
+      "exampleMeaning": "Kamarnya besar."
+    },
+    {
+      "korean": "공",
+      "roman": "gong",
+      "meaning": "bola",
+      "example": "공을 차요.",
+      "exampleMeaning": "Saya menendang bola."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "roti",
+      "example": "빵 주세요.",
+      "exampleMeaning": "Roti, tolong."
+    },
+    {
+      "korean": "손",
+      "roman": "son",
+      "meaning": "tangan",
+      "example": "손 씻어요.",
+      "exampleMeaning": "Saya mencuci tangan."
+    },
+    {
+      "korean": "눈",
+      "roman": "nun",
+      "meaning": "salju; mata (di sini: salju)",
+      "example": "눈이 와요.",
+      "exampleMeaning": "Salju turun."
+    },
+    {
+      "korean": "산",
+      "roman": "san",
+      "meaning": "gunung",
+      "example": "산에 가요.",
+      "exampleMeaning": "Saya pergi ke gunung."
+    },
+    {
+      "korean": "밤",
+      "roman": "bam",
+      "meaning": "malam (juga berarti kastanye/chestnut)",
+      "example": "밤에 자요.",
+      "exampleMeaning": "Saya tidur di malam hari."
+    },
+    {
+      "korean": "봄",
+      "roman": "bom",
+      "meaning": "musim semi",
+      "example": "봄이 따뜻해요.",
+      "exampleMeaning": "Musim semi itu hangat."
+    },
+    {
+      "korean": "이름",
+      "roman": "ireum",
+      "meaning": "nama",
+      "example": "이름이 뭐예요?",
+      "exampleMeaning": "Siapa namamu?"
+    }
+  ],
+  "category": "hangul"
+}

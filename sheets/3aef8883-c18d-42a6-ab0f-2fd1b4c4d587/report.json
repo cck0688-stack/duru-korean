@@ -1,0 +1,316 @@
+{
+  "id": "3aef8883-c18d-42a6-ab0f-2fd1b4c4d587",
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "category": "vocab",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "Answer key for question 7 (2호선으로 ___세요): the note \"갈아타 (환승하도 정답)\" is confusing. Learners will read \"환승하도\" as one word, which does not exist. Show both answers clearly, e.g. \"갈아타 / 환승하 (both correct: 갈아타세요, 환승하세요)\"."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "Word '환승': the romanization 'hwansung' is wrong. Under Revised Romanization, ㅡ is written 'eu', so fix it to 'hwanseung'.",
+        "Word '역무원': the romanization 'yeokmuwon' is wrong. 역무 is pronounced [영무] because the ㄱ becomes ㅇ before ㅁ, and Revised Romanization spells that sound change. Fix it to 'yeongmuwon'.",
+        "Example for '출구': '출구 3번으로 나가세요.' is unnatural word order. Change it to the standard '3번 출구로 나가세요.' ('Go out through exit 3.').",
+        "Exercise 2 ('ticket (paper)'): the answer key accepts only '승차권'. But '표', which appears in the worksheet's own example ('자동발매기에서 표를 사요'), is also correct. Either accept '표' as well, or make the prompt narrower (for example, 'the formal word on signs for ticket') so that only 승차권 fits.",
+        "Exercises: there are only 4 items, all using the same 'Write the Korean word for ~' frame, and they test only 4 of the 10 words. The objective promises 10 words (buying tickets, ticket gate, transfer, exit), but the 개찰구, 교통카드, 갈아타다, 안내판 and 역무원 entries are never practiced, and neither are the example sentences. Add items that cover the missing words, and vary the format with fill-in-the-blank sentences (e.g. '다음 역에서 ___세요' → 갈아타) or meaning matching."
+      ],
+      "audit": [
+        "words[5] (환승) roman: hwansung → hwanseung",
+        "words[9] (역무원) roman: yeokmuwon → yeongmuwon",
+        "words[7] (출구) example: 출구 3번으로 나가세요. → 3번 출구로 나가세요.",
+        "answers[1] (exercise 2: 'ticket (paper)'): 승차권 → 승차권 (표도 정답)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "answers 7번 (exercises 7번: 다음 역에서 ___세요.): 갈아타 → 갈아타 (환승하도 정답)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Exercises 5, 6, 7 and 9: the blanks copy the word-list example sentences word for word, English included (개찰구에서 카드를 찍으세요 / 교통카드를 준비했어요 / 다음 역에서 갈아타세요 / 역무원에게 물어보세요). Learners can find the matching sentence and copy the word, so this doesn't practise using the vocabulary. Replace them with new sentences such as '개찰구를 지나서 오른쪽으로 가세요', '표가 없어요. ___에서 사세요. (자동발매기)', '2호선으로 ___세요. (갈아타)', and cut the English to a hint or remove it.",
+        "Exercises 1-4: all four repeat the same frame, 'Write the Korean word for ...', and three of the glosses are the word-list meanings copied exactly, so these are four identical recall items. Change two of them to another type, such as Korean-to-English, matching a word to a situation, or choosing the right word in a sentence (e.g. 몇 번 ___로 나가요? → 출구).",
+        "지하철 is not practised: the objective promises 10 key items, but only 9 of the 10 words appear in the exercises. Add one question for 지하철 (e.g. 학교에 ___을 타고 가요.) or replace it with a more useful station word (호선, 노선도, 충전 etc.).",
+        "Exercise 8: in the choices 안내판 / 역무원 / 출구, 역무원 means a person and is easy to rule out, so there is only one real distractor and the item tests little. Use closer choices, e.g. 안내판 / 개찰구 / 출구 / 자동발매기."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "Answer key for question 7 (2호선으로 ___세요): the note \"갈아타 (환승하도 정답)\" is confusing. Learners will read \"환승하도\" as one word, which does not exist. Show both answers clearly, e.g. \"갈아타 / 환승하 (both correct: 갈아타세요, 환승하세요)\"."
+      ],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[2]",
+      "before": "승차권",
+      "after": "지하철 = subway, 승차권 = ticket (paper)"
+    },
+    {
+      "at": "answers[5]",
+      "before": "",
+      "after": "개찰구"
+    },
+    {
+      "at": "answers[6]",
+      "before": "",
+      "after": "교통카드"
+    },
+    {
+      "at": "answers[7]",
+      "before": "",
+      "after": "갈아타 (환승하도 정답)"
+    },
+    {
+      "at": "answers[8]",
+      "before": "",
+      "after": "안내판"
+    },
+    {
+      "at": "answers[9]",
+      "before": "",
+      "after": "역무원"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Write the Korean word for 'ticket (paper)'.",
+      "after": "Write the English meaning of each word: 지하철 / 승차권"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "Write the Korean word for 'exit'.",
+      "after": "Fill in the blank with a word from the list: 몇 번 ___로 나가요?"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "",
+      "after": "Fill in the blank: ___를 지나서 오른쪽으로 가세요. (hint: ticket gate)"
+    },
+    {
+      "at": "exercises[6]",
+      "before": "",
+      "after": "Fill in the blank: ___에 돈을 충전했어요. (hint: transport card)"
+    },
+    {
+      "at": "exercises[7]",
+      "before": "",
+      "after": "Fill in the blank: 2호선으로 ___세요. (hint: change trains)"
+    },
+    {
+      "at": "exercises[8]",
+      "before": "",
+      "after": "Choose the word that means 'information sign / signboard': 안내판 / 개찰구 / 출구 / 자동발매기"
+    },
+    {
+      "at": "exercises[9]",
+      "before": "",
+      "after": "Fill in the blank: 길을 몰라요. ___에게 물어볼까요? (hint: station staff)"
+    },
+    {
+      "at": "words[6].roman",
+      "before": "hwansung",
+      "after": "hwanseung"
+    },
+    {
+      "at": "words[8].example",
+      "before": "출구 3번으로 나가세요.",
+      "after": "3번 출구로 나가세요."
+    },
+    {
+      "at": "words[10].roman",
+      "before": "yeokmuwon",
+      "after": "yeongmuwon"
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "'이 학습지는 … 배웁니다' makes the worksheet the one doing the learning, which is ungrammatical. The English says the worksheet teaches.",
+          "fix": "이 학습지에서는 지하철 이용에 필요한 핵심 한국어 단어 10개를 배웁니다: 표 구매, 개찰구 통과, 환승, 출구 찾기. 각 단어에는 바로 활용할 수 있는 짧은 예문이 있습니다."
+        },
+        {
+          "line": 24,
+          "problem": "The English prompt 'ticket machine' was replaced with the Korean answer '자동발매기', which gives the answer away. The task now asks for the Korean word for a Korean word.",
+          "fix": "'ticket machine'에 해당하는 한국어 단어를 쓰세요."
+        },
+        {
+          "line": 26,
+          "problem": "The English prompt 'transfer (noun)' was replaced with the Korean answer '환승', which gives the answer away.",
+          "fix": "'transfer(명사)'에 해당하는 한국어 단어를 쓰세요."
+        },
+        {
+          "line": 28,
+          "problem": "The English hint 'ticket gate' was translated into the answer '개찰구', so the hint gives the answer away.",
+          "fix": "빈칸을 채우세요: ___를 지나서 오른쪽으로 가세요. (힌트: ticket gate)"
+        },
+        {
+          "line": 29,
+          "problem": "The English hint 'transport card' was translated into the answer '교통카드', so the hint gives the answer away.",
+          "fix": "빈칸을 채우세요: ___에 돈을 충전했어요. (힌트: transport card)"
+        },
+        {
+          "line": 30,
+          "problem": "The English hint 'change trains' was translated into the answer word '환승하다', so the hint gives the answer away.",
+          "fix": "빈칸을 채우세요: 2호선으로 ___세요. (힌트: change trains)"
+        },
+        {
+          "line": 31,
+          "problem": "The English meaning 'information sign / signboard' was replaced with the Korean answer '안내판', so the question asks which word means itself.",
+          "fix": "'information sign / signboard'를 뜻하는 단어를 고르세요: 안내판 / 개찰구 / 출구 / 자동발매기"
+        },
+        {
+          "line": 32,
+          "problem": "The English hint 'station staff' was translated into the answer '역무원', so the hint gives the answer away.",
+          "fix": "빈칸을 채우세요: 길을 몰라요. ___에게 물어볼까요? (힌트: station staff)"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 28,
+          "problem": "The Korean sentence's period was changed to the Japanese full stop (가세요. → 가세요。). The Korean has to stay character for character.",
+          "fix": "空欄を埋めてください: ___를 지나서 오른쪽으로 가세요. (ヒント:改札口)"
+        },
+        {
+          "line": 29,
+          "problem": "The Korean sentence's period was changed to the Japanese full stop (충전했어요. → 충전했어요。). The Korean has to stay character for character.",
+          "fix": "空欄を埋めてください: ___에 돈을 충전했어요. (ヒント:交通カード)"
+        },
+        {
+          "line": 30,
+          "problem": "The Korean sentence's period was changed to the Japanese full stop (___세요. → ___세요。). The Korean has to stay character for character.",
+          "fix": "空欄を埋めてください: 2호선으로 ___세요. (ヒント:乗り換える)"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T09:21:10.680Z"
+}

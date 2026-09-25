@@ -1,0 +1,106 @@
+{
+  "answers": [
+    "사진을 찍어도 돼요? / 사진을 찍어도 될까요?",
+    "네, 앉아도 돼요. (네, 여기 앉아도 돼요.)",
+    "여기에서 떠들면 안 돼요.",
+    "오늘은 토요일이에요. 학교에 안 가도 돼요.",
+    "수업에 늦으면 안 돼요."
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Đổi thành câu hỏi xin phép: 사진을 찍다",
+    "Trả lời câu hỏi bằng cách cho phép: 여기 앉아도 돼요?",
+    "Viết thành câu cấm đoán: 도서관이에요. 여기에서 떠들다",
+    "Chọn trong ngoặc: 오늘은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).",
+    "Sửa câu sau cho đúng (diễn đạt sự cấm đoán): 수업에 늦으면 돼요."
+  ],
+  "forms": [
+    {
+      "form": "V-아/어도 돼요? / V-아/어도 될까요?",
+      "when": "Khi hỏi xin phép người khác (lịch sự hơn: 될까요)",
+      "means": "Tôi có thể...? / Như vậy có được không?",
+      "example": "창문을 열어도 될까요?",
+      "exampleMeaning": "Tôi có thể mở cửa sổ được không?",
+      "mark": [
+        "열어도",
+        "될까요?"
+      ]
+    },
+    {
+      "form": "V-아/어도 돼요.",
+      "when": "Khi cho phép người khác",
+      "means": "Bạn có thể... / Được phép...",
+      "example": "네, 창문을 열어도 돼요.",
+      "exampleMeaning": "Vâng, bạn có thể mở cửa sổ.",
+      "mark": [
+        "열어도",
+        "돼요"
+      ]
+    },
+    {
+      "form": "V-(으)면 안 돼요.",
+      "when": "Khi nói về quy tắc, điều cấm, điều cần lưu ý",
+      "means": "không được / không cho phép",
+      "example": "여기에서 담배를 피우면 안 돼요.",
+      "exampleMeaning": "Bạn không được hút thuốc ở đây.",
+      "mark": [
+        "피우면",
+        "안 돼요"
+      ]
+    },
+    {
+      "form": "안 V-아/어도 돼요. (= V-지 않아도 돼요.)",
+      "when": "Khi nói rằng không cần thiết phải làm việc gì đó",
+      "means": "không cần phải / không nhất thiết phải",
+      "example": "오늘은 숙제를 안 해도 돼요.",
+      "exampleMeaning": "Hôm nay bạn không cần phải làm bài tập.",
+      "mark": [
+        "안 해도",
+        "돼요"
+      ]
+    }
+  ],
+  "keyword": "",
+  "level": "Sơ cấp (A2)",
+  "minutes": 15,
+  "objective": "Sau bài học, người học có thể hỏi/xin phép và cho phép bằng -아/어도 되다, nói về điều cấm bằng -(으)면 안 되다, và phân biệt chính xác '안 V-아/어도 되다 (không cần phải)' với 'V-(으)면 안 되다 (không được)'.",
+  "summary": "Luyện hỏi và cho phép bằng -아/어도 되다, nói về điều cấm bằng -(으)면 안 되다, và phân biệt \"không cần phải\" (안 V-아/어도 되다) với \"không được\" (V-(으)면 안 되다).",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "허락·금지 말하기: -아/어도 되다, -(으)면 안 되다, ‘안 V-아/어도 되다’ 구분",
+  "watchOut": [
+    "'안 V-아/어도 돼요' (không cần làm) khác với 'V-(으)면 안 돼요' (không được làm). Ví dụ: 우산을 안 써도 돼요 (vì trời không mưa) so với 우산을 쓰면 안 돼요 (bị cấm).",
+    "Chính tả: viết '돼요' mới đúng ('되요' là sai (X)).",
+    "Mức độ lịch sự: '…될까요?' lịch sự hơn '…돼요?'.",
+    "Khi muốn nói 'không cần phải làm', đặt '안' trước động từ chính: 우산을 안 써도 돼요 (đúng) / 우산을 써도 안 돼요 (sai (X): nghĩa đã bị thay đổi)",
+    "Lưu ý cách chia động từ: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도."
+  ],
+  "watchOutMark": [
+    [
+      "안 써도 돼요",
+      "쓰면 안 돼요"
+    ],
+    [
+      "돼요",
+      "되요"
+    ],
+    [
+      "돼요?",
+      "될까요?"
+    ],
+    [
+      "안 써도 돼요",
+      "써도 안 돼요"
+    ],
+    [
+      "해도",
+      "마셔도",
+      "써도",
+      "들어도"
+    ]
+  ],
+  "category": "grammar"
+}

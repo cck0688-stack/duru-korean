@@ -1,0 +1,71 @@
+{
+  "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
+  "keyword": "",
+  "summary": "Lerne, in schriftlichen koreanischen Adressen (aus gedruckten Texten, Nachrichten oder Karten-Apps) schnell den Straßennamen, der auf ro/gil endet, zusammen mit der Gebäudenummer zu finden und auszusprechen – und, falls vorhanden, auch die Wohnblock- und Wohnungsnummer (dong/ho).",
+  "objective": "Am Ende dieses Arbeitsblatts können die Lernenden 1) den Straßennamen, der auf ro/gil endet, zusammen mit der Gebäudenummer erkennen und lesen, und 2) die Wohnblock- (dong) und Wohnungsnummer (ho) schnell und korrekt finden und aussprechen.",
+  "level": "Anfänger – Fortgeschritten (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "Übungsanleitung",
+    "line": "Finde in der untenstehenden Adresse 1) 로/길+건물번호 (Straßenname + Gebäudenummer) und 2) (아파트) 동·호 (Wohnblock/Wohnungsnummer, falls vorhanden), schreibe sie auf, und 3) schreibe die Zahlen ausgeschrieben auf Koreanisch (in Hangeul) auf.\nAntwortformat: '도로명 건물번호; 동·호 (읽기: …)' oder '도로명 건물번호; 없음 (읽기: …)'.\nDie Beispieladressen wurden nur zu Übungszwecken erstellt und stimmen möglicherweise nicht mit echten Orten überein."
+  },
+  "exercises": [
+    "전북 전주시 완산구 향교길 68",
+    "부산 해운대구 센텀중앙로 75, 센텀오피스텔 807호",
+    "경기 수원시 영통구 광교중앙로 170, 햇살아파트 305동 1102호",
+    "대전 유성구 대학로 291",
+    "서울 마포구 성미산로11길 24, 푸른빌라 301호"
+  ],
+  "answers": [
+    "향교길 68; 없음 (읽기: 향교길 육십팔)",
+    "센텀중앙로 75; 807호 (읽기: 센텀중앙로 칠십오; 팔백칠호)",
+    "광교중앙로 170; 305동 1102호 (읽기: 광교중앙로 백칠십; 삼백오동 천백이호)",
+    "대학로 291; 없음 (읽기: 대학로 이백구십일)",
+    "성미산로11길 24; 301호 (읽기: 성미산로 십일길 이십사; 삼백일호)"
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Straßennamenadresse auf einen Blick",
+      "paragraphs": [
+        "Eine koreanische Adresse besteht grob aus Region (시/도, 시/군/구) + Straßenname und Gebäudenummer + (아파트) 동·호.",
+        "예: '서울 종로구 자하문로17길 12, 한빛빌라 202호'에서 '자하문로17길 12'가 도로명과 건물번호, '202호'가 호수입니다."
+      ]
+    },
+    {
+      "heading": "로/길(RO/GIL)과 건물번호 찾기",
+      "paragraphs": [
+        "도로 이름은 보통 '…로' 또는 '…길'로 끝납니다. 그다음 오는 숫자가 건물번호입니다.",
+        "예: '세종대로 110', '자하문로17길 12'.",
+        "읽기 예시: '세종대로 백십', '자하문로 십칠길 십이'. 숫자는 천/백/십 단위를 써서 또박또박 읽습니다."
+      ]
+    },
+    {
+      "heading": "(아파트) 동·호(DONG/HO) finden",
+      "paragraphs": [
+        "Bei Apartments, Officetels usw. folgen nach dem Namen der Wohnanlage bzw. des Gebäudes 동 und 호. '동' ist die Gebäude-/Blocknummer, '호' ist die Wohnungs-/Zimmernummer.",
+        "Format: '… 아파트 101동 1203호' oder '… 오피스텔 1203호' (동 kann auch fehlen).",
+        "읽기 예시: '백일동 천이백삼호'."
+      ]
+    },
+    {
+      "heading": "Häufig vorkommende Schreibweisen",
+      "paragraphs": [
+        "Das Komma (,) wird oft verwendet, um die Straßennamenadresse vom Gebäudenamen·동·호 zu trennen. 예: '… 판교역로 146, 초록아파트 101동 402호'.",
+        "Bei abzweigenden Straßennamen wird die Nummer direkt angehängt. 예: '자하문로17길 12' ('…로17길' ist ebenfalls der vollständige Straßenname).",
+        "Zwischen Straßenname und Gebäudenummer wird ein Leerzeichen gesetzt. 예: '세종대로 110' / '자하문로17길 12'. Bei 동·호 werden '동' und '호' direkt nach der Zahl angehängt."
+      ]
+    },
+    {
+      "heading": "Tipps zum schnellen Finden",
+      "paragraphs": [
+        "1) Suche zuerst mit den Augen am Ende des Straßennamens nach '로' oder '길' (예: bei '자하문로17길' reicht der Straßenname bis '길'). Die Zahl, die danach mit einem Leerzeichen folgt, ist die Gebäudenummer.",
+        "2) Suche nach dem Komma (,) oder nach dem Gebäudenamen nach '동' und '호'. Falls es keine gibt, schreibe bei der Antwort '없음', und beim Sprechen genügt es, nur Straßenname und Gebäudenummer zu sagen.",
+        "3) Sage beim Sprechen zuerst '도로명+건물번호' (Straßenname + Gebäudenummer) und danach in dieser Reihenfolge '동·호'."
+      ]
+    }
+  ],
+  "note": "",
+  "category": "etc"
+}

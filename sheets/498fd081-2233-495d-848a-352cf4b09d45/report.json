@@ -1,0 +1,250 @@
+{
+  "id": "498fd081-2233-495d-848a-352cf4b09d45",
+  "title": "아파트 엘리베이터 점검 안내문 읽기",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "words[2] (전면 중지) example / exampleMeaning: 공사로 도로 통행을 전면 중지합니다. / Traffic on the road is completely stopped because of construction. → 공사로 지하철 운행을 전면 중지합니다. / Subway service is completely suspended because of construction."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "문제 5 '점검 동안 2호기는 어느 층에 정차하지 않습니까?': 지문은 '지하 1층에는 정차하지 않고 1층부터 20층까지만 운행합니다'라고 합니다. '까지만'은 21층 이상이 있을 수 있다는 뜻으로 읽힙니다. 그러면 2호기는 그 층에도 서지 않으므로 정답이 '지하 1층' 하나라고 할 수 없습니다. 학습지에는 건물이 몇 층인지 나오지 않습니다. 고치는 방법은 둘 중 하나입니다. 질문을 '2호기는 몇 층부터 몇 층까지 운행합니까?'(정답: 1층부터 20층까지)로 바꾸거나, 지문에 건물이 20층이라는 내용을 넣어 정답이 하나만 나오게 하세요."
+      ],
+      "audit": []
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "낱말 '전면 중지' 예문: 예문 \"1호기는 전면 중지입니다.\"는 부자연스럽습니다. '전면 중지'는 '운행' 같은 대상과 함께 '~이/가 전면 중지됩니다'로 씁니다. \"1호기는 운행이 전면 중지됩니다.\"로 고치고, 번역도 \"Car 1's operation will be completely suspended.\"로 맞추세요.",
+        "문제 1~5: 학습 목표에 '이용할 수 없는 곳(호기와 층)' 찾기가 들어 있는데, 2호기가 지하 1층에 정차하지 않는다는 핵심 정보를 묻는 문제가 없습니다. 또 다섯 문제가 모두 '지문을 보고 답하세요. ~입니까?' 틀로 정보를 하나씩 옮겨 쓰는 문제라 반복됩니다. 한 문제를 바꾸거나 새로 넣으세요. 예: '점검 동안 2호기를 타고 지하 1층에 갈 수 있습니까?'(정답: 아니요, 2호기는 지하 1층에 정차하지 않습니다.) 또는 '계단 이용이 어려운 사람은 어떻게 해야 합니까?'(정답: 미리 관리사무소에 연락해야 합니다.)"
+      ],
+      "audit": [
+        "words[2] (전면 중지) example / exampleMeaning: 1호기는 전면 중지입니다. / Car 1 is completely suspended. → 1호기는 운행을 전면 중지합니다. / Car 1 will completely stop operating."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "task: title과 line이 모두 빈 문자열입니다. 학습자에게 읽기 과제의 상황과 목표를 알려 주는 과제 설명(예: '관리사무소 안내문을 읽고 점검 날짜·시간·이용할 수 없는 엘리베이터를 찾으세요')을 채워야 합니다.",
+        "words 예문: '정차하다' 예문 '2호기는 지하 1층에 정차하지 않습니다.'가 5번 정답 '아니요, 2호기는 지하 1층에 정차하지 않습니다.'와 같습니다. '전면 중지' 예문 '1호기는 운행을 전면 중지합니다.'도 지문 문장 그대로여서 4번 정답(1호기)을 알려 줍니다. 그래서 지문을 읽지 않아도 문제를 풀 수 있습니다. 예문을 지문과 다른 새 문장으로 바꿔야 합니다(예: '이 버스는 다음 정류장에 정차하지 않습니다.', '공사로 도로 통행을 전면 중지합니다.').",
+        "words 예문 반복: '제한'(2호기는 제한 운행을 합니다), '운행'(엘리베이터 운행이 중지됩니다) 예문도 지문 문장을 거의 그대로 옮겨서 같은 문장이 되풀이되고 학습지가 얇아집니다. 엘리베이터가 아닌 다른 상황(버스, 지하철, 속도 제한 등)의 예문으로 바꿔 쓰임을 넓혀야 합니다.",
+        "exercises 5번: 1~4번은 '지문을 보고 답하세요.'로 시작하는데 5번만 빠져 있어 형식이 맞지 않습니다. '지문을 보고 답하세요. 점검 동안 2호기를 타고 지하 1층에 갈 수 있습니까?'로 맞추거나, 모든 문제에서 빼고 공통 안내로 옮겨야 합니다."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "words[2] (전면 중지) example / exampleMeaning: 공사로 도로 통행을 전면 중지합니다. / Traffic on the road is completely stopped because of construction. → 공사로 지하철 운행을 전면 중지합니다. / Subway service is completely suspended because of construction."
+      ]
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[5]",
+      "before": "지하 1층(B1) (지하 1층)",
+      "after": "아니요, 2호기는 지하 1층에 정차하지 않습니다."
+    },
+    {
+      "at": "exercises[5]",
+      "before": "지문을 보고 답하세요. 점검 동안 2호기는 어느 층에 정차하지 않습니까?",
+      "after": "지문을 보고 답하세요. 점검 동안 2호기를 타고 지하 1층에 갈 수 있습니까?"
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "관리사무소 안내문 읽기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "관리사무소 안내문을 읽고 점검 날짜·시간과 이용할 수 없는 엘리베이터를 찾으세요."
+    },
+    {
+      "at": "words[2].example",
+      "before": "엘리베이터 운행이 중지됩니다.",
+      "after": "이 버스는 밤 11시까지 운행합니다."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "Elevator operation will stop.",
+      "after": "This bus runs until 11 p.m."
+    },
+    {
+      "at": "words[3].example",
+      "before": "1호기는 전면 중지입니다.",
+      "after": "공사로 도로 통행을 전면 중지합니다."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "Car 1 is completely suspended.",
+      "after": "Traffic on the road is completely stopped because of construction."
+    },
+    {
+      "at": "words[4].example",
+      "before": "2호기는 지하 1층에 정차하지 않습니다.",
+      "after": "이 버스는 다음 정류장에 정차하지 않습니다."
+    },
+    {
+      "at": "words[4].exampleMeaning",
+      "before": "Elevator 2 does not stop at B1.",
+      "after": "This bus does not stop at the next bus stop."
+    },
+    {
+      "at": "words[7].example",
+      "before": "2호기는 제한 운행을 합니다.",
+      "after": "이 길은 속도 제한이 시속 30킬로미터입니다."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "Car 2 runs with restrictions.",
+      "after": "The speed limit on this road is 30 km/h."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 16,
+          "problem": "\"số hộc thang máy\" is not a real Vietnamese term and is unnatural. \"Hộc\" means a drawer or compartment, so it doesn't say \"elevator car number\". The English also has no second explanation that would need a parenthesis like this.",
+          "fix": "số hiệu (của thang máy)"
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"ascenseur d'appartement\" means an elevator inside a single flat; the source means the elevator of an apartment building (아파트).",
+          "fix": "Lisez un avis réaliste d'inspection d'ascenseur d'immeuble et répondez aux questions pour trouver la date exacte, l'heure et les sections indisponibles (quelles cabines/quels étages)."
+        },
+        {
+          "line": 3,
+          "problem": "\"ascenseur d'appartement\" wrongly refers to a single flat instead of an apartment building.",
+          "fix": "Les apprenants liront un avis d'inspection d'ascenseur d'immeuble et identifieront avec précision la date, l'heure, les bâtiments concernés et les sections indisponibles (quel ascenseur et quels étages)."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T10:00:23.572Z"
+}

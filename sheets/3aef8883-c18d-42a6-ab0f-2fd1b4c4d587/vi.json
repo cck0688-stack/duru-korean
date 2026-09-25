@@ -1,0 +1,109 @@
+{
+  "answers": [
+    "자동발매기",
+    "지하철 = subway, 승차권 = ticket (paper)",
+    "환승",
+    "출구",
+    "개찰구",
+    "교통카드",
+    "갈아타 (환승하도 정답)",
+    "안내판",
+    "역무원"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Viết từ tiếng Hàn có nghĩa là 'máy bán vé'.",
+    "Viết nghĩa tiếng Anh của mỗi từ: 지하철 / 승차권",
+    "Viết từ tiếng Hàn có nghĩa là 'chuyển tàu (danh từ)'.",
+    "Điền vào chỗ trống bằng một từ trong danh sách: 몇 번 ___로 나가요?",
+    "Điền vào chỗ trống: ___를 지나서 오른쪽으로 가세요. (gợi ý: cổng soát vé)",
+    "Điền vào chỗ trống: ___에 돈을 충전했어요. (gợi ý: thẻ giao thông)",
+    "Điền vào chỗ trống: 2호선으로 ___세요. (gợi ý: đổi tuyến)",
+    "Chọn từ có nghĩa là 'bảng chỉ dẫn / biển thông tin': 안내판 / 개찰구 / 출구 / 자동발매기",
+    "Điền vào chỗ trống: 길을 몰라요. ___에게 물어볼까요? (gợi ý: nhân viên nhà ga)"
+  ],
+  "keyword": "지하철 이용 어휘",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "objective": "Học 10 từ vựng quan trọng về tàu điện ngầm (mua vé, cổng soát vé, chuyển tuyến, lối ra) cùng các câu ví dụ ngắn mà bạn có thể dùng ngay.",
+  "summary": "Phiếu bài tập này dạy 10 từ vựng tiếng Hàn cốt lõi để đi tàu điện ngầm: mua vé, qua cổng soát vé, chuyển tuyến và tìm lối ra. Mỗi từ đi kèm một câu ví dụ ngắn, thực tế.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "tàu điện ngầm",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "Tôi đi tàu điện ngầm."
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "cổng soát vé",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "Vui lòng quẹt thẻ tại cổng."
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "thẻ giao thông",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "Tôi đã chuẩn bị sẵn thẻ giao thông."
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "vé (giấy)",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "Cho tôi một vé."
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "máy bán vé",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "Tôi mua vé từ máy bán vé."
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "chuyển tàu (đổi tuyến)",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "Tôi chuyển tàu ở đây."
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "chuyển tàu / đổi tuyến",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "Vui lòng chuyển tàu ở ga tiếp theo."
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "lối ra",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "Đi ra theo lối ra số 3."
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "bảng chỉ dẫn / biển thông tin",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "Hãy xem bảng chỉ dẫn."
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "nhân viên nhà ga",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "Hãy hỏi nhân viên nhà ga."
+    }
+  ],
+  "category": "vocab"
+}

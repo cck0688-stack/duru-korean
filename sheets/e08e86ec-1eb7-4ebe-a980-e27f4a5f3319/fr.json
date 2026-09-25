@@ -1,0 +1,93 @@
+{
+  "title": "택배 받기·보내기: 기본 표현",
+  "keyword": "택배",
+  "summary": "Expressions courtes utiles pour recevoir et envoyer des colis en Corée, au guichet ou avec un livreur. L'accent est mis sur la vérification du destinataire, la demande/confirmation du numéro de suivi, l'acceptation ou le refus d'un colis, et la demande d'expédition.",
+  "objective": "Être capable de comprendre et de dire 10 phrases courtes utilisées pour recevoir et envoyer des colis en Corée, au guichet ou avec un livreur (confirmation du destinataire, demande du numéro de suivi, acceptation/refus, demandes d'envoi).",
+  "level": "초급 (A1)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "배달 기사(또는 창구 직원)가 '수취인 성함이 어떻게 되세요?'라고 물었습니다. 한국어로 답하세요. (예시 이름: 김민수)",
+    "'Je veux envoyer un colis.'를 한국어로 어떻게 말하나요?",
+    "'Quel est le numéro de suivi ?'를 한국어로 어떻게 묻나요?",
+    "택배 상자가 망가졌습니다(La boîte est endommagée). 짧게 거절 의사를 말하세요.",
+    "직원이 '서명해 주세요.'라고 말했습니다. 서명하겠다고 응답하세요."
+  ],
+  "answers": [
+    "예시 답안: 김민수입니다. / 저는 김민수입니다.",
+    "예시 답안: 택배로 보내고 싶습니다. / 택배를 보내고 싶어요(싶습니다). / 택배 보내고 싶어요. / 이거 택배로 보내려고요.",
+    "예시 답안: 운송장 번호가 어떻게 되나요? / 운송장 번호가 뭐예요?",
+    "예시 답안: 이건 받을 수 없어요.",
+    "예시 답안: 여기 서명할게요. / 네, 서명할게요."
+  ],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "중요 표현 (10개)",
+      "paragraphs": [
+        "1) 택배 받으러 왔습니다. (taekbae badeureo watseumnida) — Je viens chercher un colis. — 창구에서 본인이 직접 물건을 찾을 때 씁니다. (Utilisez cette phrase au guichet quand vous récupérez vous-même votre colis.)",
+        "2) 수취인 성함이 어떻게 되세요? (suchwiin seonghami eotteoke doeseyo?) — Quel est le nom du destinataire ? — 직원이나 기사님이 확인할 때 물어봅니다. (Le personnel ou le livreur pose cette question pour vérifier.)",
+        "3) 저는 [이름]입니다. (jeoneun [ireum]imnida) — Je suis [nom]. — 예: 저는 김민수입니다. (수취인 대답) (Exemple : Je suis Kim Minsu. — réponse du destinataire)",
+        "4) 운송장 번호가 어떻게 되나요? (unsongjang beonhoga eotteoke doenayo?) — Quel est le numéro de suivi ? — 운송장(송장) 번호를 묻는 말입니다. (Question posée pour demander le numéro de suivi/lettre de transport.)",
+        "5) 운송장 번호 알려 주세요. (unsongjang beonho allyeo juseyo) — Veuillez me communiquer le numéro de suivi. — 상대에게 번호를 부탁할 때 씁니다. (Utilisez cette phrase pour demander le numéro à quelqu'un.)",
+        "6) 여기 서명할게요. (yeogi seomyeonghalgeyo) — Je vais signer ici. — 서명하겠다는 뜻, 사인할 때 씁니다. (Signifie que vous allez signer ; utilisez-la au moment de signer.)",
+        "7) 이건 받을 수 없어요. (igeon badeul su eopseoyo) — Je ne peux pas accepter ceci. — 물건을 거절할 때 쓰는 표현입니다. (Utilisez cette expression pour refuser un colis.)",
+        "8) 택배로 보내고 싶습니다. (taekbaero bonaego sipseumnida) — Je voudrais envoyer ceci par colis. — 물건을 보내러 왔을 때 말합니다. (Dites cela quand vous venez pour envoyer quelque chose.)",
+        "9) 보낼 물건은 이거예요. (bonael mulgeoneun igeoyeyo) — Voici l'article que je veux envoyer. — 보내려는 물건을 보여 줄 때 씁니다. (Utilisez cette phrase pour montrer l'article que vous voulez envoyer.)",
+        "10) 착불로 보내 주세요. (chakbullo bonae juseyo) — Veuillez l'envoyer en port dû (frais payés par le destinataire). — 받는 사람이 배송비를 내는 방식으로 보내달라고 요청할 때. (Utilisez cette phrase pour demander un envoi en port dû, payé par le destinataire.)"
+      ]
+    },
+    {
+      "heading": "어휘 (Vocabulaire)",
+      "paragraphs": [
+        "택배 (taekbae) — colis, service de livraison de colis",
+        "수취인 (suchwiin) — destinataire, la personne qui reçoit le colis",
+        "성함 (seongham) — nom (forme polie de 이름)",
+        "운송장 / 송장 (unsongjang / songjang) — lettre de transport, étiquette d'expédition ; 운송장 번호 = numéro de suivi",
+        "서명 (seomyeong) — signature (= 사인)",
+        "착불 (chakbul) — frais de port payés par le destinataire (port dû)",
+        "창구 (changgu) — guichet, comptoir de service",
+        "기사님 (gisanim) — livreur (forme polie)",
+        "물건 (mulgeon) — article, chose"
+      ]
+    },
+    {
+      "heading": "짧은 대화 예",
+      "paragraphs": [
+        "예1 (받을 때): 기사: '수취인 성함이 어떻게 되세요?' / 나: '저는 김민수입니다.'",
+        "예2 (보낼 때): 나: '택배로 보내고 싶습니다.' / 직원: '보내실 물건 주시겠어요?' / 나: '보낼 물건은 이거예요.'"
+      ]
+    },
+    {
+      "heading": "더 연습하기 (Plus d'entraînement)",
+      "paragraphs": [
+        "말하기 (Expression orale)",
+        "가) 창구에 택배를 찾으러 왔습니다. 직원에게 뭐라고 말하나요? (Vous êtes venu(e) au guichet pour récupérer un colis.)",
+        "나) 상대에게 운송장 번호를 알려 달라고 부탁하세요. (Demandez à quelqu'un de vous communiquer le numéro de suivi.)",
+        "다) 직원이 '보내실 물건 주시겠어요?'라고 합니다. 물건을 보여 주며 답하세요. (Montrez votre article et répondez.)",
+        "라) 받는 사람이 배송비를 내도록 보내고 싶습니다. 직원에게 말하세요. (Vous voulez que le destinataire paie les frais de port.)",
+        "듣고 이해하기 (Écoute : choisissez le sens)",
+        "마) 기사님: '수취인 성함이 어떻게 되세요?' — (a) Quel est le nom du destinataire ? (b) Où est la boîte ?",
+        "바) 직원: '운송장 번호 알려 주세요.' — (a) Veuillez signer ici. (b) Veuillez me communiquer le numéro de suivi.",
+        "사) 직원: '착불로 보내 드릴까요?' — (a) Dois-je l'envoyer en port dû (payé par le destinataire) ? (b) Dois-je l'envoyer aujourd'hui ?",
+        "아) 직원: '서명해 주세요.' — (a) Veuillez payer. (b) Veuillez signer.",
+        "정답 (Réponses) : 가) 택배 받으러 왔습니다. / 택배 찾으러 왔습니다. 나) 운송장 번호 알려 주세요. 다) 보낼 물건은 이거예요. 라) 착불로 보내 주세요. 마) (a) 바) (b) 사) (a) 아) (b)"
+      ]
+    },
+    {
+      "heading": "팁",
+      "paragraphs": [
+        "이름과 주소는 미리 준비해 두세요(휴대폰 메모 등). (Ayez votre nom et votre adresse prêts, par exemple dans une note sur votre téléphone.)",
+        "포장이 손상되었으면 받기 전에 기사님이나 직원에게 말하세요. 처리 방법은 택배사마다 다릅니다. (Si le colis semble endommagé, prévenez le livreur ou le personnel avant de l'accepter. La procédure varie selon la société de livraison.)",
+        "해요체(-어요/-아요)와 -습니다체 모두 공손한 말입니다. 예: '서명할게요', '받으러 왔습니다'. (Les terminaisons en -어요/-아요 et en -습니다 sont toutes deux polies.)",
+        "초급 학습자용 한 장짜리 학습지입니다. 각 표현을 소리 내어 여러 번 말해 보세요."
+      ]
+    }
+  ],
+  "note": "",
+  "category": "etc"
+}

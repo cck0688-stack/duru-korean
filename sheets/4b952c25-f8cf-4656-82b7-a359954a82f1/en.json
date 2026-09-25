@@ -1,0 +1,78 @@
+{
+  "title": "가온모바일 'LTE 라이트 29' 요금제 안내",
+  "keyword": "",
+  "summary": "Read a realistic Korean mobile plan notice and identify key details such as the monthly fee, data allowance, voice/SMS limits, contract term, and the policy after data is used up.",
+  "objective": "After reading a 3–5 paragraph mobile plan notice, learners can accurately find the monthly fee, data allowance, voice/SMS included amounts, the contract term (or no contract), and the post-data policy (speed cap/extra charges).",
+  "level": "Intermediate Low (중급 초반)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "이 요금제의 월정액은 얼마인가요?",
+    "데이터는 얼마를 제공하나요?",
+    "데이터 소진 후 속도/추가 요금 정책은 무엇인가요?",
+    "통화/문자는 얼마나 포함되어 있나요?",
+    "약정 기간은 어떻게 되나요?"
+  ],
+  "answers": [
+    "29,000원",
+    "월 15GB",
+    "소진 후 최대 1Mbps로 무제한 이용, 추가 요금 없음",
+    "통화 월 200분, 문자 월 200건",
+    "12개월"
+  ],
+  "checkThese": [],
+  "passage": [
+    "가온모바일 'LTE 라이트 29' 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
+    "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
+    "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 초과하면 통화와 문자에 별도 요금이 부과됩니다."
+  ],
+  "words": [
+    {
+      "korean": "월정액",
+      "roman": "woljeong-aek",
+      "meaning": "fixed monthly fee for the plan",
+      "example": "이 요금제의 월정액은 29,000원이에요.",
+      "exampleMeaning": "The monthly fee for this plan is 29,000 won."
+    },
+    {
+      "korean": "약정",
+      "roman": "yakjeong",
+      "meaning": "contract term; the set period you agree to stay on a plan",
+      "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
+      "exampleMeaning": "It’s a 12-month contract, so it’s hard to switch easily."
+    },
+    {
+      "korean": "소진",
+      "roman": "sojin",
+      "meaning": "running out (of your data)",
+      "example": "데이터가 소진되어 속도가 느려졌어요.",
+      "exampleMeaning": "My data ran out, so the speed got slow."
+    },
+    {
+      "korean": "무제한",
+      "roman": "mujehan",
+      "meaning": "unlimited (no set limit on use)",
+      "example": "주말에는 무제한 이용이 가능해요.",
+      "exampleMeaning": "On weekends, unlimited use is available."
+    },
+    {
+      "korean": "추가 요금",
+      "roman": "chuga yogeum",
+      "meaning": "extra charge beyond the plan",
+      "example": "추가 요금이 없어서 안심이에요.",
+      "exampleMeaning": "I’m relieved because there’s no extra charge."
+    },
+    {
+      "korean": "기본 제공",
+      "roman": "gibon jegong",
+      "meaning": "included allowance provided by the plan",
+      "example": "통화 200분이 기본 제공입니다.",
+      "exampleMeaning": "200 minutes of calls are included."
+    }
+  ],
+  "category": "reading"
+}

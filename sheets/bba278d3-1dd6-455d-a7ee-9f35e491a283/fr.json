@@ -1,0 +1,111 @@
+{
+  "answers": [
+    "포장",
+    "라지",
+    "아이스",
+    "당도",
+    "샷 추가",
+    "얼음",
+    "매장",
+    "따뜻한",
+    "사이즈",
+    "스몰"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "손님: 가져갈 거예요. ___으로 주세요. (à emporter)",
+    "손님: 아주 많이 마시고 싶어요. ___로 할게요. (grande taille)",
+    "손님: 오늘은 덥네요. ___로 주세요. (glacé)",
+    "직원: ___는 어떻게 해 드릴까요? 손님: 30%요. (niveau de sucre)",
+    "손님: 진하게 마시고 싶어요. 에스프레소 ___ 가능해요? (ajouter une dose)",
+    "손님: ___ 없이 주세요. (glaçons)",
+    "직원: 포장이세요? 손님: 아니요, ___에서 먹고 갈게요. (sur place)",
+    "손님: 오늘은 추워요. ___ 라테로 주세요. (chaud)",
+    "직원: 음료 ___는 어떤 걸로 드릴까요? (taille)",
+    "손님: 조금만 마실 거예요. 라테 ___ 한 잔이요. (petit)"
+  ],
+  "keyword": "카페 주문 어휘",
+  "level": "Débutant",
+  "minutes": 15,
+  "objective": "Les élèves seront capables de comprendre et de dire 10 mots essentiels pour demander et répondre à propos de la taille, des ajustements de glaçons et de sucre, des doses supplémentaires, et de sur place/à emporter lors d'une commande au café.",
+  "summary": "Mots coréens essentiels pour commander des boissons dans un café : options de taille, glacé/chaud, niveaux de glaçons et de sucre, dose supplémentaire, et sur place/à emporter. Comprend 10 mots à haute fréquence avec des phrases d'exemple naturelles et un court exercice à trous.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "카페 주문 필수 어휘 10",
+  "words": [
+    {
+      "korean": "사이즈",
+      "roman": "saijeu",
+      "meaning": "taille (taille du gobelet)",
+      "example": "사이즈 어떻게 하실까요?",
+      "exampleMeaning": "Quelle taille désirez-vous ?"
+    },
+    {
+      "korean": "스몰",
+      "roman": "seumol",
+      "meaning": "petit (taille du gobelet)",
+      "example": "스몰로 주세요.",
+      "exampleMeaning": "Un petit, s'il vous plaît."
+    },
+    {
+      "korean": "라지",
+      "roman": "raji",
+      "meaning": "grand (taille du gobelet)",
+      "example": "라지 한 잔 주세요.",
+      "exampleMeaning": "Un grand, s'il vous plaît."
+    },
+    {
+      "korean": "아이스",
+      "roman": "aiseu",
+      "meaning": "glacé",
+      "example": "아이스 라테로 주세요.",
+      "exampleMeaning": "Un latte glacé, s'il vous plaît."
+    },
+    {
+      "korean": "따뜻한",
+      "roman": "ttatteutan",
+      "meaning": "chaud (pour les boissons)",
+      "example": "따뜻한 아메리카노 주세요.",
+      "exampleMeaning": "Un americano chaud, s'il vous plaît."
+    },
+    {
+      "korean": "얼음",
+      "roman": "eoreum",
+      "meaning": "glaçons (quantité de glaçons)",
+      "example": "얼음은 적게 해 주세요.",
+      "exampleMeaning": "Mettez moins de glaçons, s'il vous plaît."
+    },
+    {
+      "korean": "당도",
+      "roman": "dangdo",
+      "meaning": "niveau de sucre",
+      "example": "당도는 50%로 해 주세요.",
+      "exampleMeaning": "Faites 50% de sucre, s'il vous plaît."
+    },
+    {
+      "korean": "샷 추가",
+      "roman": "syat chuga",
+      "meaning": "ajouter une dose d'espresso supplémentaire",
+      "example": "샷 추가해 주세요.",
+      "exampleMeaning": "Ajoutez une dose, s'il vous plaît."
+    },
+    {
+      "korean": "포장",
+      "roman": "pojang",
+      "meaning": "à emporter",
+      "example": "포장으로 할게요.",
+      "exampleMeaning": "À emporter, s'il vous plaît."
+    },
+    {
+      "korean": "매장",
+      "roman": "maejang",
+      "meaning": "sur place",
+      "example": "매장에서 마실게요.",
+      "exampleMeaning": "Je vais le boire ici."
+    }
+  ],
+  "category": "vocab"
+}

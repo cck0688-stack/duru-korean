@@ -1,0 +1,115 @@
+{
+  "answers": [
+    "ㅘ",
+    "ㅝ",
+    "귀",
+    "의자",
+    "워 (더워요)",
+    "hwajangsil"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Put the two vowels together. Which letter do you get? ㅗ + ㅏ = ?",
+    "Put the two vowels together. Which letter do you get? ㅜ + ㅓ = ?",
+    "Choose the word that means 'ear': 기 / 구 / 귀",
+    "Choose the correct spelling of 'chair': 으자 / 이자 / 의자",
+    "Fill in the blank to say 'It's hot.': 더_요 (와 / 워 / 위)",
+    "Read the word aloud, then write it in the Roman alphabet: 화장실"
+  ],
+  "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "letters": [
+    {
+      "letter": "ㅘ",
+      "sound": "wa (ㅗ + ㅏ said quickly)",
+      "as": "like 'wa' in 'wander' — start with rounded lips (ㅗ) and open quickly to 'a' (ㅏ)"
+    },
+    {
+      "letter": "ㅝ",
+      "sound": "wo (ㅜ + ㅓ said quickly)",
+      "as": "like 'wo' in 'won' — start with rounded lips (ㅜ) and move quickly to ㅓ"
+    },
+    {
+      "letter": "ㅟ",
+      "sound": "wi (ㅜ + ㅣ said quickly)",
+      "as": "like English 'we', but shorter — start with rounded lips (ㅜ) and move quickly to 'ee' (ㅣ)"
+    },
+    {
+      "letter": "ㅢ",
+      "sound": "ui (ㅡ + ㅣ said quickly)",
+      "as": "no close English match — start with ㅡ (lips flat and relaxed, not rounded) and slide quickly to 'ee' (ㅣ); in this worksheet only at the start of a word, as in 의자"
+    }
+  ],
+  "level": "Beginner",
+  "minutes": 15,
+  "objective": "Recognize and pronounce ㅘ (wa), ㅝ (wo), ㅟ (wi) and word-initial 의 (ui) as quick two-vowel glides, and correctly read and choose the words 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 and 의사.",
+  "summary": "This worksheet teaches four Korean compound vowels: ㅘ, ㅝ, ㅟ and ㅢ. Each one is two vowels said quickly one after the other, as a single smooth sound. You will see which two vowels make up each letter, link three of them to familiar English sounds, and practise reading easy everyday words such as 과자, 뭐, 귀 and 의자.",
+  "tags": [],
+  "task": null,
+  "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "words": [
+    {
+      "korean": "과자",
+      "roman": "gwaja",
+      "meaning": "snack (chips, cookies, crackers)",
+      "example": "과자 먹을래요?",
+      "exampleMeaning": "Do you want some snacks?"
+    },
+    {
+      "korean": "사과",
+      "roman": "sagwa",
+      "meaning": "apple",
+      "example": "사과가 달아요.",
+      "exampleMeaning": "The apple is sweet."
+    },
+    {
+      "korean": "화장실",
+      "roman": "hwajangsil",
+      "meaning": "restroom, toilet",
+      "example": "화장실이 어디예요?",
+      "exampleMeaning": "Where is the restroom?"
+    },
+    {
+      "korean": "뭐",
+      "roman": "mwo",
+      "meaning": "what (casual)",
+      "example": "이거 뭐예요?",
+      "exampleMeaning": "What is this?"
+    },
+    {
+      "korean": "더워요",
+      "roman": "deowoyo",
+      "meaning": "(it's) hot (weather)",
+      "example": "오늘 정말 더워요.",
+      "exampleMeaning": "It's really hot today."
+    },
+    {
+      "korean": "위",
+      "roman": "wi",
+      "meaning": "on top of, on",
+      "example": "책상 위에 있어요.",
+      "exampleMeaning": "It's on the desk."
+    },
+    {
+      "korean": "귀",
+      "roman": "gwi",
+      "meaning": "ear",
+      "example": "귀가 아파요.",
+      "exampleMeaning": "My ear hurts."
+    },
+    {
+      "korean": "의자",
+      "roman": "uija",
+      "meaning": "chair",
+      "example": "의자에 앉으세요.",
+      "exampleMeaning": "Please sit down (on the chair)."
+    },
+    {
+      "korean": "의사",
+      "roman": "uisa",
+      "meaning": "doctor",
+      "example": "제 친구는 의사예요.",
+      "exampleMeaning": "My friend is a doctor."
+    }
+  ],
+  "category": "hangul"
+}

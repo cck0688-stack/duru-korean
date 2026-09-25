@@ -1,0 +1,148 @@
+{
+  "answers": [
+    "두 알 (2 tablets)",
+    "목이 아프고 기침이 나요. (목이 아프고 기침도 나요. / 목이 아프고 기침을 해요.)",
+    "그저께부터요.",
+    "네, 있어요.",
+    "하루 두 번 식후에 드세요. (식후에 하루 두 번 드세요.)",
+    "하루 두 번 먹으면 돼요? (하루에 두 번 먹으면 돼요?)"
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "약사",
+      "korean": "어서 오세요. 어디가 불편하세요?",
+      "meaning": "Selamat datang. Ada keluhan apa?"
+    },
+    {
+      "who": "손님",
+      "korean": "목이 아프고 콧물이 나요.",
+      "meaning": "Tenggorokan saya sakit dan saya pilek."
+    },
+    {
+      "who": "약사",
+      "korean": "언제부터 그랬어요?",
+      "meaning": "Sejak kapan begitu?"
+    },
+    {
+      "who": "손님",
+      "korean": "어제부터요.",
+      "meaning": "Sejak kemarin."
+    },
+    {
+      "who": "약사",
+      "korean": "다른 약 드시는 거 있어요?",
+      "meaning": "Apakah Anda sedang minum obat lain?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "Tidak, saya tidak sedang minum obat lain."
+    },
+    {
+      "who": "약사",
+      "korean": "그럼 이 감기약 드세요. 하루 세 번, 한 번에 한 알씩 식후에 드세요.",
+      "meaning": "Kalau begitu, minumlah obat flu ini. Minum satu tablet setiap kali, tiga kali sehari, setelah makan."
+    },
+    {
+      "who": "손님",
+      "korean": "밥 먹고 먹으면 돼요?",
+      "meaning": "Jadi saya minum ini setelah makan?"
+    },
+    {
+      "who": "약사",
+      "korean": "네, 맞아요. 식사하시고 드세요.",
+      "meaning": "Ya, benar. Minumlah setelah makan."
+    }
+  ],
+  "exercises": [
+    "Apoteker berkata: '하루 두 번, 한 번에 한 알씩 드세요.' Berapa tablet yang Anda minum dalam sehari? Jawab dalam bahasa Inggris atau Korea.",
+    "Tenggorokan Anda sakit dan Anda batuk. Jawablah pertanyaan apoteker '어디가 불편하세요?' dalam satu kalimat. Gabungkan kedua gejala tersebut dengan '-고'.",
+    "Apoteker bertanya '언제부터 그랬어요?' Gejala Anda mulai sejak kemarin lusa. Berikan jawaban singkat yang diakhiri dengan '-부터요'.",
+    "Apoteker bertanya '다른 약 드시는 거 있어요?' Anda sedang minum obat lain. Berikan jawaban singkat.",
+    "Tulis instruksi ini dalam bahasa Korea seperti yang biasa diucapkan apoteker: 'Minum dua kali sehari, setelah makan.'",
+    "Anda mengira apoteker bilang untuk meminumnya dua kali sehari, tapi Anda tidak yakin. Ajukan pertanyaan untuk memastikan. Akhiri dengan '먹으면 돼요?', seperti yang dilakukan pelanggan dalam dialog."
+  ],
+  "keyword": "약국에서 감기약 사기",
+  "level": "Pemula (tingkat tinggi)",
+  "minutes": 15,
+  "objective": "Pelajar dapat membeli obat flu bebas (tanpa resep) di apotek. Mereka dapat menyebutkan gejala dengan '-이/가 아파요' atau '-이/가 나요', menjawab '언제부터 그랬어요?' dan '다른 약 드시는 거 있어요?' dengan jawaban singkat, memahami instruksi dosis (하루 ~ 번, 한 번에 ~ 알씩, 식후에), dan memastikan instruksi tersebut dengan '~ 먹으면 돼요?'",
+  "setting": "Sebuah apotek (약국) di lingkungan sekitar di Korea, pada hari kerja. Seorang pelanggan yang sedang flu datang untuk membeli obat tanpa resep.",
+  "summary": "Percakapan singkat dan nyata di sebuah apotek di Korea. Seorang pelanggan dengan tenggorokan sakit dan pilek menyampaikan gejalanya kepada apoteker, menjawab pertanyaan lanjutan yang biasa ditanyakan, dan membeli obat flu tanpa resep. Pelanggan kemudian memastikan cara meminumnya, dan apoteker mengonfirmasinya.",
+  "tags": [],
+  "task": null,
+  "title": "약국에서 감기약 사기",
+  "words": [
+    {
+      "korean": "약국",
+      "roman": "yakguk",
+      "meaning": "apotek",
+      "example": "이 근처에 약국 있어요?",
+      "exampleMeaning": "Apakah ada apotek di dekat sini?"
+    },
+    {
+      "korean": "불편하다",
+      "roman": "bulpyeonhada",
+      "meaning": "merasa tidak nyaman (pada bagian tubuh tertentu)",
+      "example": "속이 좀 불편해요.",
+      "exampleMeaning": "Perut saya sedikit tidak enak."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "pilek/hidung meler",
+      "example": "콧물이 계속 나요.",
+      "exampleMeaning": "Hidung saya terus meler."
+    },
+    {
+      "korean": "열",
+      "roman": "yeol",
+      "meaning": "demam",
+      "example": "아이가 밤에 열이 났어요.",
+      "exampleMeaning": "Anak saya demam semalam."
+    },
+    {
+      "korean": "기침",
+      "roman": "gichim",
+      "meaning": "batuk",
+      "example": "밤에 기침을 많이 해요.",
+      "exampleMeaning": "Saya banyak batuk di malam hari."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "obat flu",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Bisa minta obat flu?"
+    },
+    {
+      "korean": "하루 세 번",
+      "roman": "haru se beon",
+      "meaning": "tiga kali sehari",
+      "example": "하루 세 번 드시면 돼요.",
+      "exampleMeaning": "Anda cukup meminumnya tiga kali sehari."
+    },
+    {
+      "korean": "식후",
+      "roman": "sikhu",
+      "meaning": "setelah makan",
+      "example": "이 약은 꼭 식후에 드세요.",
+      "exampleMeaning": "Pastikan Anda meminum obat ini setelah makan."
+    },
+    {
+      "korean": "알",
+      "roman": "al",
+      "meaning": "tablet (kata penggolong untuk pil)",
+      "example": "한 번에 두 알씩 드세요.",
+      "exampleMeaning": "Minum dua tablet setiap kali."
+    },
+    {
+      "korean": "그저께",
+      "roman": "geujeokke",
+      "meaning": "kemarin lusa",
+      "example": "그저께 병원에 갔어요.",
+      "exampleMeaning": "Saya pergi ke dokter kemarin lusa."
+    }
+  ],
+  "category": "reallife"
+}

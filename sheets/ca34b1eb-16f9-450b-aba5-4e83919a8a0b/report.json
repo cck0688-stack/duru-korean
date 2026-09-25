@@ -1,0 +1,172 @@
+{
+  "id": "ca34b1eb-16f9-450b-aba5-4e83919a8a0b",
+  "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
+  "category": "hangul",
+  "status": "published",
+  "published": true,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 33,
+          "problem": "\"Urutkan\" means to put in order, but the task is to group the words by their first letter (ㅂ, ㅍ or ㅃ). \"Kelompokkan\" means \"group\".",
+          "fix": "Kelompokkan kata-kata ini berdasarkan huruf awalnya (ㅂ, ㅍ, atau ㅃ): 풀, 방, 뿔, 팔, 발, 빵."
+        },
+        {
+          "line": 2,
+          "problem": "\"mengurutkan\" (putting in order) gets the sorting exercise wrong, because it is about grouping words by category. \"mengelompokkan\" means \"grouping\".",
+          "fix": "Lembar kerja ini membahas tiga huruf 'p/b' bahasa Korea di awal kata: ㅂ biasa, ㅍ aspirasi, dan ㅃ tegang. Setiap huruf memiliki petunjuk dalam bahasa Inggris dan sekumpulan kata-kata mudah. Kamu akan belajar membedakan huruf-huruf ini menggunakan pasangan minimal seperti 불/풀/뿔, 발/팔, dan 방/빵. Latihannya meliputi tes tisu, membaca, mengelompokkan, dan memilih kata yang tepat."
+        }
+      ]
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 27,
+          "problem": "\"No exact English match\" was translated as \"Não há equivalente exato em português\". The source means there is no exact English match, not Portuguese, so the meaning changed.",
+          "fix": "Não há equivalente exato em inglês. É como o p de \"spin\" em inglês, mas dito de forma mais dura e tensa, sem nenhum ar."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 4,
+          "problem": "The gloss leaves out 'a lamp'. The English says 'a lamp or room light', but the translation only says 'room light'.",
+          "fix": "灯（台灯或房间的灯）"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 31,
+          "problem": "The English asks which word means the English word 'arm'. The Korean glosses it as '팔', so the question gives away its own answer: 'Which of 발 and 팔 means 팔?'",
+          "fix": "발과 팔 중 영어 'arm'을 뜻하는 단어는 무엇일까요?"
+        },
+        {
+          "line": 32,
+          "problem": "The English meaning 'It's raining.' is rendered as '비가 온다', which contains the answer (비). This turns the minimal-pair question into a giveaway.",
+          "fix": "'비가 와요'와 '피가 와요' 중 영어 'It's raining.'을 뜻하는 문장은 무엇일까요?"
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:40:57.664Z"
+}

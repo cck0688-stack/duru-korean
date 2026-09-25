@@ -1,0 +1,358 @@
+{
+  "id": "22d1e235-1f18-4491-8aea-795b20267bb4",
+  "title": "장소 조사 ‘에’ vs ‘에서’ 바로 쓰기",
+  "category": "grammar",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": false,
+  "unresolved": [
+    "answers[3](연습문제 4번 정답): 첫 문장 앞에 '1)'이 빠져 있다('엄마가 부엌에서 요리해요. 2) …'). 문제는 1)~3)으로 번호가 붙어 있으니 정답도 번호를 맞춰야 한다. '1) 엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요.'로 고친다.",
+    "연습문제 3번 두 번째 문항 '기차가 서울역( ) 출발해요'는 문법 설명(N에서, 출발점)의 예문 '서울역에서 출발해요'와 거의 같은 문장이라, 학습자가 조사를 판단하지 않고 예문을 보고 답을 옮길 수 있다. 다른 출발지와 동사로 바꾼다. 예: '저는 아침 8시에 집( ) 나가요.' → 정답은 '에서'.",
+    "answers[3] (4번 정답): 엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요. → 1) 엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요."
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "watchOut 1번의 '‘가다/오다/다니다/도착하다’에는 ‘에’를 쓴다'는 규칙이 너무 넓습니다. 이 동사들은 '에서'(출발점, from)와도 자연스럽게 쓰입니다. 예: '학교에서 와요(I come from school)', '서울역에서 출발해요'. 규칙을 '가는 곳(도착점)을 말할 때는 ‘에’, 출발한 곳을 말할 때는 ‘에서’(from)'로 고치고, forms에 'N에서 (출발점)' 설명을 한 줄 넣어야 합니다.",
+        "exercises 2번의 '학교에서 가요'는 '틀린 조사' 문제로 낼 수 없습니다. '학교에서 (집에) 가요'처럼 출발점 뜻의 바른 문장으로 읽힙니다. 답이 하나로 정해지는 문장으로 바꾸세요. 예: '다음 주에 부산에서 가요(X)'보다는 '학교에서 도착해요(X) → 학교에 도착해요(O)'. 아니면 문맥을 넣어 '매일 아침 8시에 학교에서 가요'처럼 목적지 뜻이 분명한 문장으로 만드세요.",
+        "exercises 4번 첫 쌍의 a) '버스 정류장에서 가요'도 출발점 뜻('I leave from the bus stop')으로 보면 틀린 문장이 아닙니다. 그런데 b)만 정답으로 처리했습니다. 이 쌍을 '버스 정류장에서 도착해요 / 버스 정류장에 도착해요'처럼 한쪽만 맞는 쌍으로 바꾸거나, 문맥을 넣어 목적지 뜻이 분명하게 하세요.",
+        "exercises 4번은 두 쌍 모두 a)/b)로 표시되어 있어 헷갈립니다. 또 '맞는 문장만 한 줄로 쓰세요'라고 했는데 정답은 두 문장입니다. 1) a/b, 2) a/b로 번호를 나누고 지시문을 '각 번호에서 맞는 문장을 쓰세요'로 고치세요.",
+        "문장이 너무 많이 겹칩니다. '학교에 가요', '도서관에서 공부해요'는 form 예문, 1번 문제, 2번 문제, watchOut에 모두 나옵니다. '저는 집에 있어요'도 form 예문, 4번 문제, watchOut에 겹치고, 3번에도 '집에 있어요'가 나옵니다. 문제에서는 다른 장소와 동사를 쓰세요. 예: 병원, 시장, 수영장 / 오다, 다니다, 운동하다.",
+        "objective와 forms에 제시한 오다, 다니다, 운동하다가 문제에 한 번도 나오지 않아 학습 목표를 다 연습시키지 못합니다. 이 동사들로 문제를 넣으세요. 예: '회사( ) 다녀요', '공원( ) 운동해요', '친구가 집( ) 와요'.",
+        "forms 2번째 항목의 when이 'With 존재 verbs'로 되어 있어 영어 설명 안에 한자어 '존재'가 섞였습니다. 초급 학습자는 이 말을 모릅니다. 'With existence verbs such as 있다/없다'로 고치세요."
+      ],
+      "audit": [
+        "watchOut 1번: 학교에서 가요(X) → 학교에 가요(O): ‘가다/오다/다니다/도착하다’에는 ‘에’를 쓴다. → 학교에서 가요(X) → 학교에 가요(O): 목적지(가는 곳)를 말할 때 ‘가다/오다/다니다/도착하다’에는 ‘에’를 쓴다. (‘에서’와 함께 쓰면 ‘~부터’라는 뜻이 된다: 미국에서 왔어요.)",
+        "forms 2번 when: With 존재 verbs such as 있다/없다 after place nouns. → With existence verbs such as 있다/없다 after place nouns."
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "answers[3] (Exercise 4 answer) is missing the '1)' label: it reads '버스 정류장에 도착해요. 2) 언니는 지금 은행에 있어요.' Change it to '1) 버스 정류장에 도착해요. 2) 언니는 지금 은행에 있어요.' so it matches the exercise numbering one-to-one.",
+        "watchOut[0] contradicts itself and forms[3]: it marks '학교에서 가요' as wrong (X), then says 에서 changes the meaning to 'from'. forms[3] also teaches 가다 + 에서 as 'from'. So '학교에서 가요' is a correct sentence ('I go from school'), wrong only when the intended meaning is a destination. The note also puts 다니다/도착하다 under the '~부터' explanation, which doesn't fit them. Rewrite as: '가는 곳(목적지)을 말할 때는 ‘에’를 쓴다. 학교에서 가요는 ‘학교부터 출발해요’라는 뜻이 되어 ‘학교에 가요’와 뜻이 다르다. (예: 미국에서 왔어요.)', and give the 'from' meaning only for 오다/가다/출발하다."
+      ],
+      "audit": [
+        "answers, item 4: 버스 정류장에 도착해요. 2) 언니는 지금 은행에 있어요. → 1) 버스 정류장에 도착해요. 2) 언니는 지금 은행에 있어요."
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "Answer 4 is missing the '1)' label. It starts \"버스 정류장에 도착해요. 2) …\" but the exercise has two numbered items, so the answers do not line up. Change it to \"1) 버스 정류장에 도착해요. 2) 언니는 지금 은행에 있어요.\"",
+        "watchOut 1: the paraphrase \"'학교부터 출발해요'라는 뜻\" is unnatural Korean, because 부터 is not normally attached straight to a place to mean a starting point. Change it to \"'학교에서 출발해요(from school)'라는 뜻\". Also change \"'오다/가다/출발하다'에 '에서'를 쓰면 '~부터'라는 뜻이 된다\" to \"'오다/가다/출발하다' 앞의 '에서'는 출발점(from)을 나타낸다 (예: 미국에서 왔어요)\".",
+        "forms item 4, 'N에서 (starting point)', is taught but never practised in any exercise and is missing from the objective. Add items such as '서울역( ) 출발해요 → 에서' and '미국( ) 왔어요 → 에서', or remove the form. As it stands, learners see a 에서 use with 오다/가다 that conflicts with the '에' only drill.",
+        "The same sentence frames repeat. 'place + 있어요 → 에' appears three times: exercise 1 (소파), exercise 3 (사무실) and exercise 4 (은행). The error 'place + 에서 도착해요' is corrected in both exercise 2 (부산역) and exercise 4 (버스 정류장). Exercises 1 and 3 are the same fill-in-the-blank type, and exercises 2 and 4 are the same fix-the-particle type. Swap the repeats for other verbs such as 없다, 살다, 가다, 오다, 쉬다 and 요리하다, and make one exercise a different type, such as sentence writing or the starting-point use.",
+        "task.title and task.line are empty strings and tags is an empty array. Fill in a task title with a one-line instruction, and add tags such as '조사' and '에/에서'."
+      ],
+      "audit": [
+        "answers[3] (exercise 4 answer): 버스 정류장에 도착해요. 2) 언니는 지금 은행에 있어요. → 1) 버스 정류장에 도착해요. 2) 언니는 지금 은행에 있어요."
+      ]
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [
+        "answers[3](연습문제 4번 정답): 첫 문장 앞에 '1)'이 빠져 있다('엄마가 부엌에서 요리해요. 2) …'). 문제는 1)~3)으로 번호가 붙어 있으니 정답도 번호를 맞춰야 한다. '1) 엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요.'로 고친다.",
+        "연습문제 3번 두 번째 문항 '기차가 서울역( ) 출발해요'는 문법 설명(N에서, 출발점)의 예문 '서울역에서 출발해요'와 거의 같은 문장이라, 학습자가 조사를 판단하지 않고 예문을 보고 답을 옮길 수 있다. 다른 출발지와 동사로 바꾼다. 예: '저는 아침 8시에 집( ) 나가요.' → 정답은 '에서'."
+      ],
+      "audit": [
+        "answers[3] (4번 정답): 엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요. → 1) 엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요."
+      ]
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "- 저는 학교에 가요. - 오늘 도서관에서 공부해요. - 우리는 3시에 서울역에 도착해요. - 고양이가 소파에 있어요. - 지훈 씨가 회사에서 일해요.",
+      "after": "- 저는 매일 회사에 다녀요. - 동생이 수영장에서 운동해요. - 친구가 내일 우리 집에 놀러 와요. - 고양이가 소파에 있어요. - 지훈 씨가 병원에서 일해요."
+    },
+    {
+      "at": "answers[2]",
+      "before": "- 학교에 가요. - 도서관에서 공부해요.",
+      "after": "- 기차가 부산역에 도착해요. - 시장에서 과일을 사요."
+    },
+    {
+      "at": "answers[3]",
+      "before": "- 주말에 친구를 공원에서 만나요. - 아버지가 집에 있어요. - 어제 카페에서 케이크를 먹었어요.",
+      "after": "- 주말에 친구를 공원에서 만나요. - 기차가 서울역에서 출발해요. - 저는 미국 사람이에요. 작년에 미국에서 왔어요. - 오늘은 집에서 쉬어요."
+    },
+    {
+      "at": "answers[4]",
+      "before": "- 버스 정류장에 가요. - 저는 집에 있어요.",
+      "after": "엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요."
+    },
+    {
+      "at": "exercises[1]",
+      "before": "빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 학교( ) 가요. - 오늘 도서관( ) 공부해요. - 우리는 3시에 서울역( ) 도착해요. - 고양이가 소파( ) 있어요. - 지훈 씨가 회사( ) 일해요.",
+      "after": "빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 매일 회사( ) 다녀요. - 동생이 수영장( ) 운동해요. - 친구가 내일 우리 집( ) 놀러 와요. - 고양이가 소파( ) 있어요. - 지훈 씨가 병원( ) 일해요."
+    },
+    {
+      "at": "exercises[2]",
+      "before": "틀린 조사를 고치세요. - 학교에서 가요. - 도서관에 공부해요.",
+      "after": "틀린 조사를 고치세요. - 기차가 부산역에서 도착해요. - 시장에 과일을 사요."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "알맞은 조사를 고르세요. (에 / 에서) - 주말에 친구를 공원( ) 만나요. - 아버지가 집( ) 있어요. - 어제 카페( ) 케이크를 먹었어요.",
+      "after": "알맞은 조사를 고르세요. (에 / 에서) - 주말에 친구를 공원( ) 만나요. - 기차가 서울역( ) 출발해요. - 저는 미국 사람이에요. 작년에 미국( ) 왔어요. - 오늘은 집( ) 쉬어요."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "둘 중 맞는 문장을 고르세요. 맞는 문장만 한 줄로 쓰세요. a) 버스 정류장에서 가요. b) 버스 정류장에 가요. a) 저는 집에서 있어요. b) 저는 집에 있어요.",
+      "after": "주어진 말과 ‘에’ 또는 ‘에서’를 써서 문장을 만드세요. 1) 엄마 / 부엌 / 요리하다 2) 저 / 내일 / 도서관 / 가다 3) 지금 / 교실 / 선생님 / 없다"
+    },
+    {
+      "at": "forms[2].when",
+      "before": "With 존재 verbs such as 있다/없다 after place nouns.",
+      "after": "With existence verbs such as 있다/없다 after place nouns."
+    },
+    {
+      "at": "forms[4].form",
+      "before": "",
+      "after": "N에서 (starting point)"
+    },
+    {
+      "at": "forms[4].when",
+      "before": "",
+      "after": "With motion verbs such as 오다, 가다, 출발하다 after place nouns, to say the place you come or leave from."
+    },
+    {
+      "at": "forms[4].means",
+      "before": "",
+      "after": "from (starting point)"
+    },
+    {
+      "at": "forms[4].example",
+      "before": "",
+      "after": "서울역에서 출발해요."
+    },
+    {
+      "at": "forms[4].exampleMeaning",
+      "before": "",
+      "after": "I leave from Seoul Station."
+    },
+    {
+      "at": "forms[4].mark[1]",
+      "before": "",
+      "after": "서울역에서"
+    },
+    {
+      "at": "objective",
+      "before": "Learners will correctly produce short sentences using '에' with motion/existence verbs (e.g., 가다, 오다, 다니다, 도착하다, 있다) and '에서' with activity verbs (e.g., 먹다, 공부하다, 일하다, 운동하다), and self-correct frequent errors such as '학교에서 가요(X) → 학교에 가요(O)' and '도서관에 공부해요(X) → 도서관에서 공부해요(O)'.",
+      "after": "Learners will correctly produce short sentences using '에' with motion/existence verbs (e.g., 가다, 오다, 다니다, 도착하다, 있다) and '에서' with activity verbs (e.g., 먹다, 공부하다, 일하다, 운동하다), use '에서' to mark a starting point with 오다/가다/출발하다 (e.g., 서울역에서 출발해요), and self-correct frequent errors such as '학교에서 가요 → 학교에 가요 (for a destination)' and '도서관에 공부해요(X) → 도서관에서 공부해요(O)'."
+    },
+    {
+      "at": "task.title",
+      "before": "",
+      "after": "장소 조사 ‘에’와 ‘에서’ 고르기"
+    },
+    {
+      "at": "task.line",
+      "before": "",
+      "after": "장소 뒤에 오는 동사를 보고 ‘에’와 ‘에서’ 중에서 알맞은 조사를 쓰세요."
+    },
+    {
+      "at": "watchOut[1]",
+      "before": "학교에서 가요(X) → 학교에 가요(O): ‘가다/오다/다니다/도착하다’에는 ‘에’를 쓴다.",
+      "after": "가는 곳(목적지)을 말할 때는 ‘에’를 쓴다: 학교에 가요(O). ‘학교에서 가요’는 ‘학교에서 출발해요(from school)’라는 뜻이 되어 ‘학교에 가요’와 뜻이 다르다. ‘오다/가다/출발하다’ 앞의 ‘에서’는 출발점(from)을 나타낸다 (예: 미국에서 왔어요)."
+    }
+  ],
+  "translations": {
+    "vi": {
+      "lang": "vi",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 3,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 8,
+          "problem": "The gloss adds '~(으)로', which is not in the English ('to') and is not taught on this worksheet. It also doesn't match the other glosses (lines 12, 16, 20), which give only the particle being taught.",
+          "fix": "~에 (목적지)"
+        },
+        {
+          "line": 19,
+          "problem": "The English says 'the place you come or leave from', but '떠나거나 출발하는 장소' only covers leaving/departing. The 'come from' meaning (e.g., 미국에서 왔어요) is missing.",
+          "fix": "장소 명사 뒤에 오다, 가다, 출발하다와 같은 이동 동사가 올 때, 오거나 떠나는 곳(출발한 장소)을 말할 때 사용합니다."
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 3,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 3,
+      "lost": [
+        "장소 조사",
+        "와",
+        "고르기",
+        "장소 뒤에 오는 동사를 보고",
+        "와",
+        "중에서 알맞은 조사를 쓰세요",
+        "가는 곳",
+        "목적지",
+        "을 말할 때는",
+        "를 쓴다",
+        "는",
+        "라는 뜻이 되어",
+        "와 뜻이 다르다",
+        "앞의",
+        "는 출발점",
+        "을 나타낸다",
+        "예",
+        "에는",
+        "를 쓴다",
+        "에는",
+        "를 쓴다",
+        "또는",
+        "를 쓰세요",
+        "틀린 조사를 고치세요",
+        "알맞은 조사를 고르세요",
+        "에 / 에서",
+        "주어진 말과",
+        "또는",
+        "를 써서 문장을 만드세요"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 3,
+      "lost": [
+        "장소 조사",
+        "와",
+        "고르기",
+        "장소 뒤에 오는 동사를 보고",
+        "와",
+        "중에서 알맞은 조사를 쓰세요",
+        "가는 곳",
+        "목적지",
+        "을 말할 때는",
+        "를 쓴다",
+        "는",
+        "학교에서 출발해요",
+        "라는 뜻이 되어",
+        "와 뜻이 다르다",
+        "앞의",
+        "는 출발점",
+        "을 나타낸다",
+        "예",
+        "에는",
+        "를 쓴다",
+        "에는",
+        "를 쓴다",
+        "빈칸에",
+        "를 쓰세요",
+        "틀린 조사를 고치세요",
+        "알맞은 조사를 고르세요",
+        "주어진 말과",
+        "또는",
+        "를 써서 문장을 만드세요"
+      ],
+      "fixes": [],
+      "failed": true
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T10:54:48.927Z"
+}

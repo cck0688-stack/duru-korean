@@ -1,0 +1,177 @@
+{
+  "id": "46e3c97d-89d2-49f5-8fc1-aee44b85d063",
+  "title": "식당에서 주문하고 부탁하기: 핵심 어휘 10",
+  "category": "vocab",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 13,
+          "problem": "\"Podemos ter alguns pratinhos?\" copies the English \"Could we have\" word for word and sounds unnatural in Brazilian Portuguese as a request to restaurant staff.",
+          "fix": "Pode trazer alguns pratinhos, por favor?"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 27,
+          "problem": "The period inside the Korean sentence was changed to a Japanese full stop (해 주세요。 그리고). The Korean has to stay character for character.",
+          "fix": "リストの中から適切な単語を選んで、2つの空欄を埋めましょう。トッポッキを辛さ控えめにしてほしくて、みんなで取り分けるための取り皿を2枚欲しいときです:떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요."
+        },
+        {
+          "line": 28,
+          "problem": "The period inside the Korean sentence was changed to a Japanese full stop (주세요。 그리고). The Korean has to stay character for character.",
+          "fix": "リストの中から適切な単語を選んで、3つの空欄を埋めましょう。手がベタベタしていて、おかずが全部なくなってしまったときです:___ 좀 주세요. 그리고 ___ 좀 ___ 주세요."
+        },
+        {
+          "line": 29,
+          "problem": "The period inside the Korean sentence was changed to a Japanese full stop (계산할게요。 그리고). The Korean has to stay character for character.",
+          "fix": "リストの中から適切な単語を選んで、2つの空欄を埋めましょう。友達とカウンターにいて、それぞれ自分の分を払い、レシートも欲しいときです:저희 ___ 계산할게요. 그리고 ___도 주세요."
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 15,
+          "problem": "The informal plural \"Habt ihr\" is the wrong register for restaurant staff. It goes against the polite requests the worksheet teaches and clashes with \"Können Sie\" in line 17.",
+          "fix": "Haben Sie Feuchttücher?"
+        },
+        {
+          "line": 16,
+          "problem": "\"eine Bitte, wie das Essen zubereitet wird\" is awkward German. It doesn't clearly say the request is about how the food is prepared.",
+          "fix": "weniger scharf (eine Bitte dazu, wie das Essen zubereitet werden soll)"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 18,
+          "problem": "The French leaves out \"a refill\". The English says the phrase is used to ask for a refill or an extra portion, but the French only mentions an extra portion, so the explanation is narrower than the English.",
+          "fix": "encore, s'il vous plaît (pour demander à être resservi ou une portion supplémentaire)"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T12:06:37.112Z"
+}

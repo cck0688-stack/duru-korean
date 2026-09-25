@@ -1,0 +1,197 @@
+{
+  "id": "2587c100-2c84-412f-ada5-c299167c8cbf",
+  "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
+  "category": "etc",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "'소리 내어 읽기' section, first paragraph, and the summary: 'use native Korean counters (하루 세 번, 한 알)' is wrong. The point being taught is to switch from Sino-Korean numbers (일, 삼) to native Korean numbers (하나→한, 둘→두, 셋→세). The counter 번 comes from Sino-Korean (番), not native Korean. Change it to 'When you talk, use native Korean numbers (한, 두, 세) with the counters 번 and 알.' Make the same change in the summary: 'with native Korean numbers (하루 세 번, 한 알)'.",
+        "'약 봉투 A' section, first paragraph: the fields have no separators, unlike envelopes B and C, which use '|'. It reads '...9월 24일 복용법: ... 식후 30분 3일분 주의: ...', so where one field ends and the next begins isn't clear. '식후 30분 3일분' is especially easy to misread, and this is the text exercises 1, 2 and 6 are based on. Write it the same way as B and C: '이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의.' Splitting it over several lines would also work."
+      ],
+      "audit": [
+        "sections[2] (소리 내어 읽기), paragraphs[0]: The envelope uses Sino-Korean words and numbers. When you talk, use native Korean counters. → The envelope uses Sino-Korean words and numbers. When you talk, use native Korean numbers with counters (하루 세 번, 한 알, 두 알).",
+        "summary: how to say them aloud with native Korean counters (하루 세 번, 한 알) → how to say them aloud with native Korean numbers (하루 세 번, 한 알)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": [
+        "sections[1] 봉투에 나오는 말, paragraph 1 (HOW MANY TIMES A DAY) romanization: 1일 3회 (il-il sam-hoe) → 1일 3회 (iril samhoe)",
+        "sections[1] 봉투에 나오는 말, paragraph 4 (HOW MANY DAYS) romanization: 3일분 (sam-ilbun) → 3일분 (samilbun)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "sections[1].paragraphs[1]",
+      "before": "이름: 마리아 님 | 조제일: 2026년 9월 24일 복용법: 1일 3회, 1회 1포, 식후 30분 3일분 주의: 졸음이 올 수 있어요. 운전 주의.",
+      "after": "이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의."
+    },
+    {
+      "at": "sections[2].paragraphs[1]",
+      "before": "HOW MANY TIMES A DAY — 1일 3회 (il-il sam-hoe) = 3 times a day. 일 means 'day' and 회 means 'time(s)'. People say this as 하루 세 번.",
+      "after": "HOW MANY TIMES A DAY — 1일 3회 (iril samhoe) = 3 times a day. 일 means 'day' and 회 means 'time(s)'. People say this as 하루 세 번."
+    },
+    {
+      "at": "sections[2].paragraphs[4]",
+      "before": "HOW MANY DAYS — 3일분 (sam-ilbun) = a 3-day supply. 분 here means 'amount/portion' and has nothing to do with minutes. 7일분 = medicine for 7 days.",
+      "after": "HOW MANY DAYS — 3일분 (samilbun) = a 3-day supply. 분 here means 'amount/portion' and has nothing to do with minutes. 7일분 = medicine for 7 days."
+    },
+    {
+      "at": "sections[3].paragraphs[1]",
+      "before": "The envelope uses Sino-Korean words and numbers. When you talk, use native Korean counters.",
+      "after": "The envelope uses Sino-Korean words and numbers. When you talk, use native Korean numbers (한, 두, 세) with the counters 번 and 알."
+    },
+    {
+      "at": "summary",
+      "before": "A practical reading sheet on the Korean pharmacy medicine envelope (약 봉투). Learners read three short envelope labels. They learn the dosage words that appear on almost every envelope (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) and how to say them aloud with native Korean counters (하루 세 번, 한 알). They also learn two common warnings: 졸음이 올 수 있어요 and 운전 주의.",
+      "after": "A practical reading sheet on the Korean pharmacy medicine envelope (약 봉투). Learners read three short envelope labels. They learn the dosage words that appear on almost every envelope (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) and how to say them aloud with native Korean numbers (하루 세 번, 한 알). They also learn two common warnings: 졸음이 올 수 있어요 and 운전 주의."
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "\"Beginner (high)\" means upper beginner level, but \"中高级\" says intermediate-advanced, which is a different level.",
+          "fix": "初级（高）"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 18,
+          "problem": "\"Soyez prudent en conduisant\" means \"be careful while driving\", which assumes the person drives. The English \"Be careful about driving\" warns about whether to drive at all, and question 31 relies on that meaning.",
+          "fix": "운전 주의 (unjeon juui) = Soyez prudent avant de prendre le volant."
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 3,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:58:56.420Z"
+}

@@ -1,0 +1,115 @@
+{
+  "answers": [
+    "ㅘ",
+    "ㅝ",
+    "귀",
+    "의자",
+    "워 (더워요)",
+    "hwajangsil"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "把这两个元音拼在一起，会得到哪个字母？ㅗ + ㅏ = ?",
+    "把这两个元音拼在一起，会得到哪个字母？ㅜ + ㅓ = ?",
+    "选出意思是'耳朵'的词：기 / 구 / 귀",
+    "选出'椅子'的正确拼写：으자 / 이자 / 의자",
+    "填空使句子意思为'很热。'：더_요（와 / 워 / 위）",
+    "大声读出这个词，然后用罗马字母写出来：화장실"
+  ],
+  "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "letters": [
+    {
+      "letter": "ㅘ",
+      "sound": "wa（ㅗ + ㅏ 快速连读）",
+      "as": "就像'wander'里的'wa'——先把嘴唇撮圆发ㅗ的音，然后迅速张开变成'a'（ㅏ）"
+    },
+    {
+      "letter": "ㅝ",
+      "sound": "wo（ㅜ + ㅓ 快速连读）",
+      "as": "就像'won'里的'wo'——先把嘴唇撮圆发ㅜ的音，然后迅速滑向ㅓ"
+    },
+    {
+      "letter": "ㅟ",
+      "sound": "wi（ㅜ + ㅣ 快速连读）",
+      "as": "类似英语的'we'，但更短促——先把嘴唇撮圆发ㅜ的音，然后迅速滑向'ee'（ㅣ）"
+    },
+    {
+      "letter": "ㅢ",
+      "sound": "ui（ㅡ + ㅣ 快速连读）",
+      "as": "英语里没有很接近的对应音——先发ㅡ的音（嘴唇放平放松，不要撮圆），然后迅速滑向'ee'（ㅣ）；在本练习卷中只出现在词首，如의자"
+    }
+  ],
+  "level": "初级",
+  "minutes": 15,
+  "objective": "能够辨认并正确发出ㅘ(wa)、ㅝ(wo)、ㅟ(wi)以及词首의(ui)这几个快速双元音滑音，并能正确读出和选出과자、사과、화장실、뭐、더워요、위、귀、의자、의사这些词。",
+  "summary": "这份练习卷教你四个韩语复合元音：ㅘ、ㅝ、ㅟ和ㅢ。每一个都是把两个元音快速连读成一个流畅的音。你会看到每个字母是由哪两个元音组成的，其中三个会对应你熟悉的英语发音，并练习读一些简单的日常词汇，如과자、뭐、귀和의자。",
+  "tags": [],
+  "task": null,
+  "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "words": [
+    {
+      "korean": "과자",
+      "roman": "gwaja",
+      "meaning": "零食（薯片、曲奇、苏打饼干）",
+      "example": "과자 먹을래요?",
+      "exampleMeaning": "你想吃点零食吗？"
+    },
+    {
+      "korean": "사과",
+      "roman": "sagwa",
+      "meaning": "苹果",
+      "example": "사과가 달아요.",
+      "exampleMeaning": "这个苹果很甜。"
+    },
+    {
+      "korean": "화장실",
+      "roman": "hwajangsil",
+      "meaning": "洗手间、厕所",
+      "example": "화장실이 어디예요?",
+      "exampleMeaning": "洗手间在哪里？"
+    },
+    {
+      "korean": "뭐",
+      "roman": "mwo",
+      "meaning": "什么（口语、非正式）",
+      "example": "이거 뭐예요?",
+      "exampleMeaning": "这是什么？"
+    },
+    {
+      "korean": "더워요",
+      "roman": "deowoyo",
+      "meaning": "（天气）热",
+      "example": "오늘 정말 더워요.",
+      "exampleMeaning": "今天真的很热。"
+    },
+    {
+      "korean": "위",
+      "roman": "wi",
+      "meaning": "在……上面、之上",
+      "example": "책상 위에 있어요.",
+      "exampleMeaning": "它在桌子上。"
+    },
+    {
+      "korean": "귀",
+      "roman": "gwi",
+      "meaning": "耳朵",
+      "example": "귀가 아파요.",
+      "exampleMeaning": "我耳朵疼。"
+    },
+    {
+      "korean": "의자",
+      "roman": "uija",
+      "meaning": "椅子",
+      "example": "의자에 앉으세요.",
+      "exampleMeaning": "请（在椅子上）坐下。"
+    },
+    {
+      "korean": "의사",
+      "roman": "uisa",
+      "meaning": "医生",
+      "example": "제 친구는 의사예요.",
+      "exampleMeaning": "我朋友是医生。"
+    }
+  ],
+  "category": "hangul"
+}

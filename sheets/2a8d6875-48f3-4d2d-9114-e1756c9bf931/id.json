@@ -1,0 +1,106 @@
+{
+  "answers": [
+    "개",
+    "배",
+    "레몬",
+    "계란",
+    "ㅐ",
+    "ㅖ"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "뜻에 맞는 낱말을 고르세요. anjing -> 개 / 게",
+    "뜻에 맞는 낱말을 고르세요. pir -> 배 / 베",
+    "맞는 철자를 고르세요. (lemon) 레몬 / 래몬",
+    "맞는 철자를 고르세요. (telur) 계란 / 게란",
+    "빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (buku): ㅐ / ㅔ / ㅖ",
+    "빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (cantik): ㅐ / ㅔ / ㅖ"
+  ],
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "letters": [
+    {
+      "letter": "ㅐ",
+      "sound": "ae",
+      "as": "seperti bunyi vokal pada kata \"bed\" dalam bahasa Inggris — dalam bahasa Korea standar sedikit lebih terbuka dibanding ㅔ, tetapi kebanyakan orang Korea saat ini mengucapkan ㅐ dan ㅔ dengan cara yang sama; bedakan keduanya lewat ejaan"
+    },
+    {
+      "letter": "ㅔ",
+      "sound": "e",
+      "as": "seperti bunyi vokal pada kata \"bed\""
+    },
+    {
+      "letter": "ㅖ",
+      "sound": "ye",
+      "as": "seperti \"ye\" pada kata \"yes\""
+    }
+  ],
+  "level": "Pemula (초급)",
+  "minutes": 12,
+  "objective": "Pembelajar akan membaca ㅐ dan ㅔ sebagai bunyi yang sama dan mempelajari mana yang digunakan pada setiap kata berdasarkan ejaannya, serta akan mengucapkan ㅖ sebagai [ye] pada 예 dan 례 (pada suku kata lain seperti 계, ㅖ juga bisa dibaca [e], sehingga 계란 dapat dibaca [계란] atau [게란]) saat membaca kata-kata sederhana yang mengandung huruf vokal ini.",
+  "summary": "Berlatih membaca huruf vokal Korea ㅐ, ㅔ, ㅖ dalam kata-kata sehari-hari. Karena kebanyakan penutur mengucapkan ㅐ dan ㅔ dengan cara yang sama, pelajari ejaan setiap kata. Baca ㅖ sebagai [ye] pada 예 dan 례; pada suku kata lain seperti 계, ㅖ juga bisa dibaca [e] (계란 → [계란] atau [게란]). Termasuk soal pilihan arti dan ejaan singkat untuk memperkuat ejaan yang benar.",
+  "tags": [],
+  "task": {
+    "title": "소리 내어 읽기",
+    "line": "다음 낱말을 소리 내어 읽어 보세요: 개, 배, 책, 게, 레몬, 예, 예쁘다, 계란"
+  },
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "words": [
+    {
+      "korean": "개",
+      "roman": "gae",
+      "meaning": "anjing",
+      "example": "저건 개예요.",
+      "exampleMeaning": "Itu adalah anjing."
+    },
+    {
+      "korean": "배",
+      "roman": "bae",
+      "meaning": "pir",
+      "example": "배가 맛있어요.",
+      "exampleMeaning": "Pir itu enak."
+    },
+    {
+      "korean": "책",
+      "roman": "chaek",
+      "meaning": "buku",
+      "example": "책이 있어요.",
+      "exampleMeaning": "Ada buku."
+    },
+    {
+      "korean": "게",
+      "roman": "ge",
+      "meaning": "kepiting",
+      "example": "게를 먹어요.",
+      "exampleMeaning": "Saya makan kepiting."
+    },
+    {
+      "korean": "레몬",
+      "roman": "remon",
+      "meaning": "lemon",
+      "example": "레몬 주세요.",
+      "exampleMeaning": "Tolong berikan saya lemon."
+    },
+    {
+      "korean": "예",
+      "roman": "ye",
+      "meaning": "ya (sopan)",
+      "example": "예, 맞아요.",
+      "exampleMeaning": "Ya, itu benar."
+    },
+    {
+      "korean": "예쁘다",
+      "roman": "yeppeuda",
+      "meaning": "cantik",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "Bunga itu cantik."
+    },
+    {
+      "korean": "계란",
+      "roman": "gyeran",
+      "meaning": "telur",
+      "example": "이건 계란이에요.",
+      "exampleMeaning": "Ini adalah telur."
+    }
+  ],
+  "category": "hangul"
+}

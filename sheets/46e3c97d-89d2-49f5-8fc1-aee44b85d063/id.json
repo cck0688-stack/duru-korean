@@ -1,0 +1,100 @@
+{
+  "answers": [
+    "메뉴판 좀 주세요.",
+    "불고기 3인분 주세요. (3 is read as 삼: 삼인분)",
+    "저기요, 저희 비빔밥 두 개 주문했어요.",
+    "떡볶이 덜 맵게 해 주세요. 그리고 앞접시 두 개 주세요.",
+    "물티슈 좀 주세요. 그리고 반찬 좀 더 주세요.",
+    "저희 따로 계산할게요. 그리고 영수증도 주세요. (각자 계산할게요 is also correct, but 각자 is not in the list.)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Isi bagian kosong dengan kata dari daftar. Kamu baru saja duduk dan ingin melihat makanan apa saja yang tersedia: ___ 좀 주세요.",
+    "Isi bagian kosong. Ada tiga orang, dan kamu ingin bulgogi untuk tiga orang: 불고기 ___ 주세요.",
+    "Isi bagian kosong dengan bentuk lampau dari 주문하다. Kamu sudah memesan 10 menit yang lalu, tapi makananmu belum datang: 저기요, 저희 비빔밥 두 개 ___.",
+    "Isi kedua bagian kosong dengan kata dari daftar. Kamu ingin tteokbokki-mu kurang pedas, dan kamu ingin dua piring kecil untuk berbagi: 떡볶이 ___ 해 주세요. 그리고 ___ 두 개 주세요.",
+    "Isi ketiga bagian kosong dengan kata dari daftar. Tanganmu lengket, dan semua lauknya sudah habis: ___ 좀 주세요. 그리고 ___ 좀 ___ 주세요.",
+    "Isi kedua bagian kosong dengan kata dari daftar. Kamu sedang di kasir bersama teman. Kalian masing-masing membayar makanan sendiri, dan kamu ingin struk: 저희 ___ 계산할게요. 그리고 ___도 주세요."
+  ],
+  "keyword": "식당 주문",
+  "level": "Pemula",
+  "minutes": 15,
+  "objective": "Pembelajar dapat menggunakan 10 kata kunci restoran (메뉴판, 인분, 주문하다, 반찬, 앞접시, 물티슈, 덜 맵게, 더 주세요, 따로 계산하다, 영수증) untuk membuat permintaan singkat dan sopan kepada staf restoran, mulai dari memesan sampai membayar.",
+  "summary": "Sepuluh kata yang kamu perlukan di restoran Korea, dari mulai duduk sampai membayar. Kamu belajar meminta menu, memesan berdasarkan jumlah porsi, meminta piring kecil, tisu basah, tambahan lauk atau rasa yang kurang pedas, membayar sendiri-sendiri, dan meminta struk. Setiap kata dilengkapi satu contoh kalimat nyata. Latihannya mengajakmu menggunakan kata-kata tersebut dalam situasi baru.",
+  "tags": [],
+  "task": null,
+  "title": "식당에서 주문하고 부탁하기: 핵심 어휘 10",
+  "words": [
+    {
+      "korean": "메뉴판",
+      "roman": "menyupan",
+      "meaning": "menu (menu fisik yang kamu pegang atau lihat di dinding)",
+      "example": "메뉴판에 사진이 있어요?",
+      "exampleMeaning": "Apakah menunya ada gambarnya?"
+    },
+    {
+      "korean": "인분",
+      "roman": "inbun",
+      "meaning": "porsi untuk satu orang, dipakai setelah angka (2인분 = makanan untuk dua orang)",
+      "example": "삼겹살 2인분 주세요.",
+      "exampleMeaning": "Tolong dua porsi samgyeopsal."
+    },
+    {
+      "korean": "주문하다",
+      "roman": "jumunhada",
+      "meaning": "memesan (makanan)",
+      "example": "여기요, 주문할게요.",
+      "exampleMeaning": "Permisi, kami mau pesan."
+    },
+    {
+      "korean": "반찬",
+      "roman": "banchan",
+      "meaning": "lauk-pauk kecil yang disajikan bersama makanan Korea",
+      "example": "이 반찬 이름이 뭐예요?",
+      "exampleMeaning": "Lauk ini namanya apa?"
+    },
+    {
+      "korean": "앞접시",
+      "roman": "apjeopsi",
+      "meaning": "piring kecil untuk mengambil bagianmu dari makanan yang disajikan bersama",
+      "example": "앞접시 좀 주시겠어요?",
+      "exampleMeaning": "Boleh minta piring kecil?"
+    },
+    {
+      "korean": "물티슈",
+      "roman": "multisyu",
+      "meaning": "tisu basah (untuk membersihkan tangan di meja)",
+      "example": "물티슈 있어요?",
+      "exampleMeaning": "Ada tisu basah?"
+    },
+    {
+      "korean": "덜 맵게",
+      "roman": "deol maepge",
+      "meaning": "kurang pedas (permintaan tentang cara memasak makanan)",
+      "example": "덜 맵게 할 수 있어요?",
+      "exampleMeaning": "Bisa dibuat kurang pedas?"
+    },
+    {
+      "korean": "더 주세요",
+      "roman": "deo juseyo",
+      "meaning": "tolong tambah (meminta isi ulang atau porsi tambahan)",
+      "example": "밥 한 공기 더 주세요.",
+      "exampleMeaning": "Tolong tambah satu mangkuk nasi lagi."
+    },
+    {
+      "korean": "따로 계산하다",
+      "roman": "ttaro gyesanhada",
+      "meaning": "membayar sendiri-sendiri (masing-masing orang membayar makanannya sendiri)",
+      "example": "계산은 따로 할게요.",
+      "exampleMeaning": "Kami akan bayar sendiri-sendiri."
+    },
+    {
+      "korean": "영수증",
+      "roman": "yeongsujeung",
+      "meaning": "struk",
+      "example": "영수증은 괜찮아요.",
+      "exampleMeaning": "Tidak usah pakai struk, terima kasih."
+    }
+  ],
+  "category": "vocab"
+}

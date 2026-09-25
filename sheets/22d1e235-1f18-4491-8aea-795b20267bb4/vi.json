@@ -1,0 +1,93 @@
+{
+  "answers": [
+    "- 저는 매일 회사에 다녀요. - 동생이 수영장에서 운동해요. - 친구가 내일 우리 집에 놀러 와요. - 고양이가 소파에 있어요. - 지훈 씨가 병원에서 일해요.",
+    "- 기차가 부산역에 도착해요. - 시장에서 과일을 사요.",
+    "- 주말에 친구를 공원에서 만나요. - 기차가 서울역에서 출발해요. - 저는 미국 사람이에요. 작년에 미국에서 왔어요. - 오늘은 집에서 쉬어요.",
+    "엄마가 부엌에서 요리해요. 2) 저는 내일 도서관에 가요. 3) 지금 교실에 선생님이 없어요."
+  ],
+  "checkThese": [],
+  "exercises": [
+    "빈칸에 ‘에’ 또는 ‘에서’를 쓰세요. - 저는 매일 회사( ) 다녀요. - 동생이 수영장( ) 운동해요. - 친구가 내일 우리 집( ) 놀러 와요. - 고양이가 소파( ) 있어요. - 지훈 씨가 병원( ) 일해요.",
+    "틀린 조사를 고치세요. - 기차가 부산역에서 도착해요. - 시장에 과일을 사요.",
+    "알맞은 조사를 고르세요. (에 / 에서) - 주말에 친구를 공원( ) 만나요. - 기차가 서울역( ) 출발해요. - 저는 미국 사람이에요. 작년에 미국( ) 왔어요. - 오늘은 집( ) 쉬어요.",
+    "주어진 말과 ‘에’ 또는 ‘에서’를 써서 문장을 만드세요. 1) 엄마 / 부엌 / 요리하다 2) 저 / 내일 / 도서관 / 가다 3) 지금 / 교실 / 선생님 / 없다"
+  ],
+  "forms": [
+    {
+      "form": "N에 (điểm đến)",
+      "when": "Dùng sau danh từ chỉ nơi chốn với các động từ chỉ sự di chuyển/đến nơi như 가다, 오다, 다니다, 도착하다.",
+      "means": "đến (điểm đến)",
+      "example": "학교에 가요.",
+      "exampleMeaning": "Tôi đi đến trường.",
+      "mark": [
+        "학교에"
+      ]
+    },
+    {
+      "form": "N에 (sự tồn tại)",
+      "when": "Dùng sau danh từ chỉ nơi chốn với các động từ chỉ sự tồn tại như 있다/없다.",
+      "means": "ở/tại (sự tồn tại; đang có mặt/ở lại)",
+      "example": "저는 집에 있어요.",
+      "exampleMeaning": "Tôi đang ở nhà.",
+      "mark": [
+        "집에"
+      ]
+    },
+    {
+      "form": "N에서",
+      "when": "Dùng sau danh từ chỉ nơi chốn với các động từ chỉ hành động như 공부하다, 일하다, 운동하다, 만나다, 먹다.",
+      "means": "tại (nơi diễn ra hành động)",
+      "example": "도서관에서 공부해요.",
+      "exampleMeaning": "Tôi học ở thư viện.",
+      "mark": [
+        "도서관에서"
+      ]
+    },
+    {
+      "form": "N에서 (điểm xuất phát)",
+      "when": "Dùng sau danh từ chỉ nơi chốn với các động từ chỉ sự di chuyển như 오다, 가다, 출발하다, để nói nơi bạn đến từ hoặc rời khỏi.",
+      "means": "từ (điểm xuất phát)",
+      "example": "서울역에서 출발해요.",
+      "exampleMeaning": "Tôi xuất phát từ ga Seoul.",
+      "mark": [
+        "서울역에서"
+      ]
+    }
+  ],
+  "keyword": "에 vs 에서",
+  "level": "Sơ cấp (A1–A2)",
+  "minutes": 15,
+  "objective": "Người học sẽ đặt đúng các câu ngắn dùng '에' với các động từ chỉ sự di chuyển/tồn tại (ví dụ: 가다, 오다, 다니다, 도착하다, 있다) và '에서' với các động từ chỉ hành động (ví dụ: 먹다, 공부하다, 일하다, 운동하다), dùng '에서' để đánh dấu điểm xuất phát với 오다/가다/출발하다 (ví dụ: 서울역에서 출발해요), và tự sửa các lỗi thường gặp như '학교에서 가요 → 학교에 가요 (đối với điểm đến)' và '도서관에 공부해요(X) → 도서관에서 공부해요(O)'.",
+  "summary": "Bài luyện tập dành cho người mới bắt đầu về cách chọn đúng trợ từ chỉ nơi chốn trong tiếng Hàn: dùng '에' cho điểm đến/sự tồn tại với các động từ như 가다, 오다, 다니다, 도착하다, 있다; dùng '에서' cho nơi diễn ra hành động với các động từ như 공부하다, 일하다, 운동하다, 만나다, 먹다. Bao gồm phần sửa lỗi thường gặp với các câu ngắn, tự nhiên.",
+  "tags": [
+    "조사",
+    "에/에서",
+    "장소",
+    "초급 문법"
+  ],
+  "task": {
+    "title": "장소 조사 ‘에’와 ‘에서’ 고르기",
+    "line": "장소 뒤에 오는 동사를 보고 ‘에’와 ‘에서’ 중에서 알맞은 조사를 쓰세요."
+  },
+  "title": "장소 조사 ‘에’ vs ‘에서’ 바로 쓰기",
+  "watchOut": [
+    "가는 곳(목적지)을 말할 때는 ‘에’를 쓴다: 학교에 가요(O). ‘학교에서 가요’는 ‘학교에서 출발해요(from school)’라는 뜻이 되어 ‘학교에 가요’와 뜻이 다르다. ‘오다/가다/출발하다’ 앞의 ‘에서’는 출발점(from)을 나타낸다 (예: 미국에서 왔어요).",
+    "도서관에 공부해요(X) → 도서관에서 공부해요(O): ‘공부하다/일하다/운동하다/만나다/먹다’에는 ‘에서’를 쓴다.",
+    "‘있다’에는 ‘에’를 쓴다: 저는 집에 있어요(O) / 집에서 있어요(X)."
+  ],
+  "watchOutMark": [
+    [
+      "학교에서",
+      "학교에"
+    ],
+    [
+      "도서관에",
+      "도서관에서"
+    ],
+    [
+      "집에서",
+      "집에"
+    ]
+  ],
+  "category": "grammar"
+}

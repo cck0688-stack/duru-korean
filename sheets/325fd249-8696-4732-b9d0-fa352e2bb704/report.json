@@ -1,0 +1,257 @@
+{
+  "id": "325fd249-8696-4732-b9d0-fa352e2bb704",
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "4번 문제의 '거센 소리'는 띄어쓰기가 틀렸습니다. 사전에 한 낱말로 올라 있으므로 '거센소리'로 붙여 써야 합니다.",
+        "letters의 ㄷ 항목 sound 'plain t (unaspirated), little or no puff'는 단어 첫소리에서는 사실이 아닙니다. 현대 서울말에서 첫소리 ㄷ은 기식이 어느 정도 있고, ㄸ에 비하면 기식이 거의 없지도 않습니다. 첫소리 ㄷ과 ㅌ은 기식이 얼마나 센지와 뒤따르는 모음의 높낮이로 구별됩니다. 이 설명으로는 학습자가 ㄷ을 ㄸ처럼 발음하게 되고, 달·돈·두부의 로마자 표기(d)와도 어긋납니다. 'lightly aspirated t (weaker puff than ㅌ, a bit like a soft d), following vowel lower in pitch'처럼 고쳐야 합니다."
+      ],
+      "audit": [
+        "letters[0] (ㄷ) sound: plain t (unaspirated), little or no puff → plain (lax) t, a light puff of air (lighter than ㅌ), lower pitch",
+        "letters[0] (ㄷ) as: like t in “stop” → between English d and t, softer than t in “top”",
+        "letters[2] (ㄸ) as: tense “tt” (no exact English equivalent) → close to t in “stop” (no puff), but tighter",
+        "exercises[0] (1번) 힌트: 영어 소리 힌트: t in “stop”. → 영어 소리 힌트: light t, between d and t, softer than t in “top”.",
+        "exercises[2] (3번) 힌트: 영어 소리 힌트: tense “tt” (no exact English). → 영어 소리 힌트: like t in “stop” (no puff), but tighter.",
+        "objective: ㄷ ≈ t in “stop”, ㅌ ≈ t in “top”, ㄸ = tense “tt”, no exact English equivalent → ㄷ = light t between d and t, ㅌ ≈ t in “top”, ㄸ ≈ t in “stop” but tighter",
+        "exercises[3] (4번) 지시문: ㅌ(거센 소리)로 → ㅌ(거센소리)으로"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercises 1–3 only copy the letter table: each hint repeats the English cue almost word for word, so learners match phrases and never read a Korean word, which misses the goal of reading words. All three also use the same sentence pattern, so the sheet is thin. Replace them with word-based items, e.g. 'Write the first consonant of 두부 / 토끼 / 또' (answers: ㄷ / ㅌ / ㄸ).",
+        "Exercise 4 is the only item where learners read Korean words (exercise 5 just converts one romanized word to a letter). Words from the list such as 돈, 두부, 타다, 토끼 and 또 are never tested. Add items that make learners read these words and sort them by first sound (ㄷ/ㅌ/ㄸ), e.g. 'Choose the word that starts with ㄸ: 돈 / 토끼 / 또' (answer: 또).",
+        "The instructions are too hard for the level: this is a Beginner sheet in the hangul category, but the instructions are Korean-only and use grammar terms ('알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요', 'ㅌ(거센소리)로 시작하는 말을 고르세요', '첫 자음(초성)만 한글로 쓰세요') that learners still learning the alphabet can't read. Add English instructions next to each one, e.g. 'Write the correct first consonant', 'Choose the word that starts with ㅌ (aspirated)'."
+      ],
+      "audit": []
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [
+        "연습 문제에서 같은 낱말이 반복됨: '토끼'가 1·2·3번에 세 번, '또'가 1·2번에 두 번 나옵니다. 반면 단어 목록의 '떡'은 5번에 로마자로만 나오고 '딸'은 4번에서 오답 선택지로만 쓰입니다. 예: 2번 선택지를 '돈 / 토마토 / 떡'(정답 떡)으로, 3번을 '달 / 두부 / 딸'(정답 달, 두부)로 바꿔 단어를 고르게 쓰세요.",
+        "세 소리가 고르게 연습되지 않음: 고르기 문제의 정답은 ㄸ(2·5번)과 ㅌ(3·4번)뿐이고, ㄷ은 1번 첫 자음 쓰기에만 나옵니다. 학습 목표가 ㄷ·ㅌ·ㄸ 구별이므로 ㄷ을 고르는 문제를 넣으세요. 예: 3번을 ㄷ 단어 짝(달, 두부)으로 바꾸거나 'ㄷ(예사소리)로 시작하는 말을 고르세요: 딸 / 돈 / 토끼'(정답 돈)를 넣으세요."
+      ],
+      "audit": []
+    },
+    {
+      "round": 4,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[1]",
+      "before": "ㄷ",
+      "after": "ㄷ / ㅌ / ㄸ"
+    },
+    {
+      "at": "answers[2]",
+      "before": "ㅌ",
+      "after": "떡"
+    },
+    {
+      "at": "answers[3]",
+      "before": "ㄸ",
+      "after": "달, 두부"
+    },
+    {
+      "at": "answers[4]",
+      "before": "토마토",
+      "after": "타다"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "영어 소리 힌트: t in “stop”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+      "after": "각 단어의 첫 자음(초성)을 쓰세요. Write the first consonant of each word: 두부 / 토끼 / 또"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "영어 소리 힌트: t in “top”. 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+      "after": "ㄸ(된소리)로 시작하는 말을 고르세요. Choose the word that starts with ㄸ (tense): 돈 / 토마토 / 떡"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "영어 소리 힌트: tense “tt” (no exact English). 알맞은 초성(ㄷ/ㅌ/ㄸ)을 쓰세요.",
+      "after": "첫소리가 같은 두 단어를 고르세요. Choose the two words that start with the same sound: 달 / 두부 / 딸"
+    },
+    {
+      "at": "exercises[4]",
+      "before": "ㅌ(거센 소리)로 시작하는 말을 고르세요: 달 / 토마토 / 딸",
+      "after": "ㅌ(거센소리)로 시작하는 말을 고르세요. Choose the word that starts with ㅌ (aspirated): 달 / 타다 / 딸"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요: tteok",
+      "after": "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요. Look at the romanization and write only the first consonant in Hangul: tteok"
+    },
+    {
+      "at": "letters[1].sound",
+      "before": "plain t (unaspirated), little or no puff",
+      "after": "plain (lax) t, a light puff of air (lighter than ㅌ), lower pitch"
+    },
+    {
+      "at": "letters[1].as",
+      "before": "like t in “stop”",
+      "after": "between English d and t, softer than t in “top”"
+    },
+    {
+      "at": "letters[3].as",
+      "before": "tense “tt” (no exact English equivalent)",
+      "after": "close to t in “stop” (no puff), but tighter"
+    },
+    {
+      "at": "objective",
+      "before": "Learners will identify and pronounce ㄷ (plain), ㅌ (aspirated), and ㄸ (tense) in word-initial position, link them to clear English cues (ㄷ ≈ t in “stop”, ㅌ ≈ t in “top”, ㄸ = tense “tt”, no exact English equivalent), and correctly read simple words containing these initials.",
+      "after": "Learners will identify and pronounce ㄷ (plain), ㅌ (aspirated), and ㄸ (tense) in word-initial position, link them to clear English cues (ㄷ = light t between d and t, ㅌ ≈ t in “top”, ㄸ ≈ t in “stop” but tighter), and correctly read simple words containing these initials."
+    }
+  ],
+  "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 3,
+          "problem": "The ㄸ cue adds 'stronger' (더 강하고), which the English doesn't say. The English only says 'but tighter', and 'stronger' could suggest aspiration.",
+          "fix": "학습자는 단어 첫소리에 오는 ㄷ(예사소리), ㅌ(거센소리), ㄸ(된소리)를 구별하여 발음하고, 이를 명확한 영어 발음 힌트(ㄷ = d와 t의 중간 정도의 가벼운 소리, ㅌ ≈ 'top'의 t 소리, ㄸ ≈ 'stop'의 t 소리와 비슷하지만 더 긴장된 소리)와 연결하며, 이러한 첫소리가 포함된 간단한 단어를 정확히 읽을 수 있습니다."
+        },
+        {
+          "line": 27,
+          "problem": "'no puff' is weakened to 'almost no puff' (숨이 거의 나오지 않음), and the contrast 'but' before 'tighter' is lost.",
+          "fix": "'stop'의 t 소리와 비슷하지만(숨이 나오지 않음) 더 긴장된 소리"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "“word-initial” was translated as 音节首 (syllable-initial), which changes the meaning. Line 3 correctly uses 词首 (word-initial).",
+          "fix": "练习区分并读出韩语词首辅音 ㄷ(平音)、ㅌ(送气音)和 ㄸ(紧音)。提供了有用的英语发音参考,帮助初学者建立发音联系,准确读出简单的单词。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": []
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:09:29.620Z"
+}

@@ -1,0 +1,106 @@
+{
+  "answers": [
+    "사진을 찍어도 돼요? / 사진을 찍어도 될까요?",
+    "네, 앉아도 돼요. (네, 여기 앉아도 돼요.)",
+    "여기에서 떠들면 안 돼요.",
+    "오늘은 토요일이에요. 학교에 안 가도 돼요.",
+    "수업에 늦으면 안 돼요."
+  ],
+  "checkThese": [],
+  "exercises": [
+    "허락을 묻는 질문으로 바꾸세요: 사진을 찍다",
+    "질문에 허락으로 대답하세요: 여기 앉아도 돼요?",
+    "금지 문장으로 쓰세요: 도서관이에요. 여기에서 떠들다",
+    "괄호에서 고르세요: 오늘은 토요일이에요. 학교에 (안 가도 돼요 / 가면 안 돼요).",
+    "문장을 올바르게 고치세요(금지): 수업에 늦으면 돼요."
+  ],
+  "forms": [
+    {
+      "form": "V-아/어도 돼요? / V-아/어도 될까요?",
+      "when": "상대에게 허락을 물을 때(정중: 될까요)",
+      "means": "Darf ich…? Ist es in Ordnung, wenn ich…?",
+      "example": "창문을 열어도 될까요?",
+      "exampleMeaning": "Darf ich das Fenster öffnen?",
+      "mark": [
+        "열어도",
+        "될까요?"
+      ]
+    },
+    {
+      "form": "V-아/어도 돼요.",
+      "when": "상대에게 허락을 줄 때",
+      "means": "Du darfst… / Es ist in Ordnung zu…",
+      "example": "네, 창문을 열어도 돼요.",
+      "exampleMeaning": "Ja, du darfst das Fenster öffnen.",
+      "mark": [
+        "열어도",
+        "돼요"
+      ]
+    },
+    {
+      "form": "V-(으)면 안 돼요.",
+      "when": "규칙·금지·주의를 말할 때",
+      "means": "nicht dürfen / nicht erlaubt sein",
+      "example": "여기에서 담배를 피우면 안 돼요.",
+      "exampleMeaning": "Du darfst hier nicht rauchen.",
+      "mark": [
+        "피우면",
+        "안 돼요"
+      ]
+    },
+    {
+      "form": "안 V-아/어도 돼요. (= V-지 않아도 돼요.)",
+      "when": "어떤 일을 할 필요가 없다고 말할 때",
+      "means": "nicht müssen / es ist nicht nötig zu",
+      "example": "오늘은 숙제를 안 해도 돼요.",
+      "exampleMeaning": "Du musst heute keine Hausaufgaben machen.",
+      "mark": [
+        "안 해도",
+        "돼요"
+      ]
+    }
+  ],
+  "keyword": "",
+  "level": "Anfänger (A2)",
+  "minutes": 15,
+  "objective": "Am Ende können die Lernenden mit -아/어도 되다 um Erlaubnis bitten bzw. Erlaubnis geben, mit -(으)면 안 되다 Verbote ausdrücken und ‚안 V-아/어도 되다 (nicht müssen)‘ korrekt von ‚V-(으)면 안 되다 (nicht dürfen)‘ unterscheiden.",
+  "summary": "Übe, mit -아/어도 되다 um Erlaubnis zu bitten und Erlaubnis zu geben, mit -(으)면 안 되다 Verbote auszudrücken, und unterscheide „nicht müssen“ (안 V-아/어도 되다) von „nicht dürfen“ (V-(으)면 안 되다).",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "허락·금지 말하기: -아/어도 되다, -(으)면 안 되다, ‘안 V-아/어도 되다’ 구분",
+  "watchOut": [
+    "‘안 V-아/어도 돼요’(하지 않아도 됨) ≠ ‘V-(으)면 안 돼요’(하면 안 됨). 예: 우산을 안 써도 돼요(비 안 옴) vs 우산을 쓰면 안 돼요(금지).",
+    "맞춤법: ‘돼요’가 맞습니다(‘되요’ X).",
+    "정중도: ‘…돼요?’보다 ‘…될까요?’가 더 공손합니다.",
+    "‘하지 않아도 됨’을 말할 때는 ‘안’을 본동사 앞에 씁니다: 우산을 안 써도 돼요 (O) / 우산을 써도 안 돼요 (X: 뜻이 달라짐)",
+    "활용 주의: 하다→해도, 마시다→마셔도, 쓰다→써도, 듣다→들어도."
+  ],
+  "watchOutMark": [
+    [
+      "안 써도 돼요",
+      "쓰면 안 돼요"
+    ],
+    [
+      "돼요",
+      "되요"
+    ],
+    [
+      "돼요?",
+      "될까요?"
+    ],
+    [
+      "안 써도 돼요",
+      "써도 안 돼요"
+    ],
+    [
+      "해도",
+      "마셔도",
+      "써도",
+      "들어도"
+    ]
+  ],
+  "category": "grammar"
+}

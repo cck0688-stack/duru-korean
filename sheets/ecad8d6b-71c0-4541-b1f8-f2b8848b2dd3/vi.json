@@ -1,0 +1,153 @@
+{
+  "answers": [
+    "나요",
+    "아파요",
+    "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+    "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
+    "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+    "Ba lần một ngày, 30 phút sau mỗi bữa ăn."
+  ],
+  "checkThese": [],
+  "dialogue": [
+    {
+      "who": "약사",
+      "korean": "어서 오세요. 어디가 아파서 오셨어요?",
+      "meaning": "Chào mừng bạn. Bạn cần gì ạ? (Bạn đau ở đâu?)"
+    },
+    {
+      "who": "손님",
+      "korean": "머리가 아프고 열이 나요.",
+      "meaning": "Tôi bị đau đầu và sốt."
+    },
+    {
+      "who": "약사",
+      "korean": "처방전 있으세요?",
+      "meaning": "Bạn có đơn thuốc không?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "Không, tôi không có."
+    },
+    {
+      "who": "약사",
+      "korean": "언제부터 아프셨어요?",
+      "meaning": "Bạn bị bệnh từ khi nào vậy?"
+    },
+    {
+      "who": "손님",
+      "korean": "어제 저녁부터요. 콧물도 조금 나요.",
+      "meaning": "Từ tối hôm qua. Mũi tôi cũng hơi chảy nước một chút."
+    },
+    {
+      "who": "약사",
+      "korean": "알레르기 있으세요?",
+      "meaning": "Bạn có bị dị ứng gì không?"
+    },
+    {
+      "who": "손님",
+      "korean": "아니요, 없어요.",
+      "meaning": "Không, tôi không có."
+    },
+    {
+      "who": "약사",
+      "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
+      "meaning": "Vậy thì hãy uống thuốc cảm này. Uống ngày ba lần, 30 phút sau bữa ăn."
+    },
+    {
+      "who": "손님",
+      "korean": "네, 알겠습니다. 감사합니다.",
+      "meaning": "Vâng, tôi hiểu rồi. Cảm ơn bạn."
+    }
+  ],
+  "exercises": [
+    "Chọn từ đúng để hoàn thành câu: 콧물이 ( 아파요 / 나요 ).",
+    "Chọn từ đúng để hoàn thành câu: 머리가 ( 아파요 / 나요 ).",
+    "Dược sĩ hỏi: '처방전 있으세요?' Bạn không có đơn thuốc. Hãy trả lời bằng tiếng Hàn.",
+    "Dược sĩ hỏi: '언제부터 아프셨어요?' Bạn bắt đầu cảm thấy không khỏe từ sáng nay (오늘 아침). Hãy trả lời bằng tiếng Hàn.",
+    "Dược sĩ hỏi: '알레르기 있으세요?' Bạn bị dị ứng với aspirin (아스피린). Hãy trả lời bằng tiếng Hàn.",
+    "Dược sĩ nói: '하루 세 번, 식후 30분에 드세요.' Bằng tiếng Anh, một ngày bạn uống thuốc mấy lần, và vào lúc nào?"
+  ],
+  "keyword": "약국에서 증상 말하고 약 사기",
+  "level": "Sơ cấp (cao)",
+  "minutes": 20,
+  "objective": "Đến cuối bài, người học có thể mua thuốc không kê đơn tại một hiệu thuốc ở Hàn Quốc: nói một triệu chứng bằng '머리가 아파요 / 콧물이 나요 / 열이 나요', trả lời các câu hỏi của dược sĩ (처방전 있으세요? 언제부터요? 알레르기 있으세요?), và hiểu hướng dẫn liều dùng '하루 세 번, 식후 30분에 드세요'.",
+  "setting": "Một hiệu thuốc nhỏ trong khu phố (동네 약국) ở Hàn Quốc vào một buổi tối trong tuần. Khách hàng bị cảm nhưng không đi khám bác sĩ, nên không có đơn thuốc. Họ nói chuyện với dược sĩ tại quầy.",
+  "summary": "Một đoạn hội thoại ngắn, thực tế tại một hiệu thuốc ở Hàn Quốc. Một khách hàng không có đơn thuốc mô tả triệu chứng đau đầu, sốt và sổ mũi, trả lời các câu hỏi của dược sĩ, và nhận hướng dẫn cách uống thuốc cảm.",
+  "tags": [],
+  "task": null,
+  "title": "약국에서 증상 말하고 약 사기",
+  "words": [
+    {
+      "korean": "머리",
+      "roman": "meori",
+      "meaning": "đầu",
+      "example": "머리가 너무 아파요.",
+      "exampleMeaning": "Đầu tôi đau quá."
+    },
+    {
+      "korean": "열이 나다",
+      "roman": "yeori nada",
+      "meaning": "bị sốt",
+      "example": "아이가 밤에 열이 났어요.",
+      "exampleMeaning": "Con tôi bị sốt vào ban đêm."
+    },
+    {
+      "korean": "콧물",
+      "roman": "konmul",
+      "meaning": "sổ mũi",
+      "example": "콧물이 계속 나요.",
+      "exampleMeaning": "Mũi tôi cứ chảy nước hoài."
+    },
+    {
+      "korean": "처방전",
+      "roman": "cheobangjeon",
+      "meaning": "đơn thuốc (do bác sĩ kê)",
+      "example": "처방전 없이 살 수 있어요?",
+      "exampleMeaning": "Tôi có thể mua cái này mà không cần đơn thuốc không?"
+    },
+    {
+      "korean": "언제부터",
+      "roman": "eonjebuteo",
+      "meaning": "từ khi nào",
+      "example": "언제부터 목이 아팠어요?",
+      "exampleMeaning": "Bạn bị đau họng từ khi nào vậy?"
+    },
+    {
+      "korean": "알레르기",
+      "roman": "allereugi",
+      "meaning": "dị ứng",
+      "example": "저는 땅콩 알레르기가 있어요.",
+      "exampleMeaning": "Tôi bị dị ứng với đậu phộng."
+    },
+    {
+      "korean": "감기약",
+      "roman": "gamgiyak",
+      "meaning": "thuốc cảm",
+      "example": "감기약 좀 주세요.",
+      "exampleMeaning": "Cho tôi xin thuốc cảm."
+    },
+    {
+      "korean": "하루",
+      "roman": "haru",
+      "meaning": "(mỗi) ngày",
+      "example": "하루에 몇 번 먹어요?",
+      "exampleMeaning": "Một ngày tôi uống mấy lần?"
+    },
+    {
+      "korean": "식후",
+      "roman": "sikhu",
+      "meaning": "sau bữa ăn",
+      "example": "식후 30분에 먹으면 돼요?",
+      "exampleMeaning": "Tôi có nên uống thuốc 30 phút sau khi ăn không?"
+    },
+    {
+      "korean": "드세요",
+      "roman": "deuseyo",
+      "meaning": "xin hãy uống (thuốc), thể lịch sự",
+      "example": "따뜻한 물이랑 같이 드세요.",
+      "exampleMeaning": "Hãy uống thuốc với nước ấm."
+    }
+  ],
+  "category": "reallife"
+}

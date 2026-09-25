@@ -1,0 +1,110 @@
+{
+  "answers": [
+    "풀",
+    "bal, pal, ppul",
+    "빵",
+    "팔",
+    "비가 와요",
+    "ㅂ: 방, 발 / ㅍ: 풀, 팔 / ㅃ: 뿔, 빵"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Tenez un mouchoir devant votre bouche et dites 불, 풀 et 뿔. Quel mot devrait faire bouger le mouchoir le plus ? Écrivez ce mot.",
+    "Écrivez la romanisation révisée de chaque mot : 발, 팔, 뿔.",
+    "Vous êtes dans une boulangerie et vous voulez du pain. Quel mot dites-vous : 방 ou 빵 ?",
+    "Quel mot signifie « bras » : 발 ou 팔 ?",
+    "Quelle phrase signifie « Il pleut. » : 비가 와요 ou 피가 와요 ?",
+    "Classez ces mots selon leur première lettre (ㅂ, ㅍ ou ㅃ) : 풀, 방, 뿔, 팔, 발, 빵."
+  ],
+  "keyword": "hangul",
+  "letters": [
+    {
+      "letter": "ㅂ",
+      "sound": "b/p simple : doux, avec juste un peu d'air",
+      "as": "Proche du p de « spin » en anglais (peu d'air). Souvent perçu comme un b doux."
+    },
+    {
+      "letter": "ㅍ",
+      "sound": "p aspiré : forte bouffée d'air",
+      "as": "Proche du p de « pin » en anglais (forte bouffée d'air)."
+    },
+    {
+      "letter": "ㅃ",
+      "sound": "pp tendu : lèvres serrées, gorge tendue, aucune bouffée d'air",
+      "as": "Aucun équivalent exact en anglais. Comme le p de « spin », mais prononcé plus fort et plus serré, sans air."
+    }
+  ],
+  "level": "Débutant",
+  "minutes": 15,
+  "objective": "Distinguez et prononcez les consonnes ㅂ, ㅍ et ㅃ en début de mot. Choisissez le bon mot parmi des paires minimales comme 불/풀/뿔, 발/팔 et 방/빵.",
+  "summary": "Cette fiche porte sur les trois consonnes coréennes « p/b » en début de mot : la consonne simple ㅂ, la consonne aspirée ㅍ et la consonne tendue ㅃ. Chaque lettre est accompagnée d'un repère en anglais et d'une série de mots simples. Vous apprendrez à distinguer ces lettres à l'aide de paires minimales comme 불/풀/뿔, 발/팔 et 방/빵. Les exercices comprennent un test au mouchoir, de la lecture, un classement et un choix du bon mot.",
+  "tags": [],
+  "task": null,
+  "title": "첫소리 ㅂ, ㅍ, ㅃ 구별하기",
+  "words": [
+    {
+      "korean": "불",
+      "roman": "bul",
+      "meaning": "lumière (une lampe ou l'éclairage d'une pièce)",
+      "example": "불 좀 꺼 주세요.",
+      "exampleMeaning": "Éteins la lumière, s'il te plaît."
+    },
+    {
+      "korean": "풀",
+      "roman": "pul",
+      "meaning": "colle",
+      "example": "풀 좀 빌려 주세요.",
+      "exampleMeaning": "Pourrais-je emprunter de la colle ?"
+    },
+    {
+      "korean": "뿔",
+      "roman": "ppul",
+      "meaning": "corne (d'un animal)",
+      "example": "이 소는 뿔이 길어요.",
+      "exampleMeaning": "Cette vache a de longues cornes."
+    },
+    {
+      "korean": "발",
+      "roman": "bal",
+      "meaning": "pied",
+      "example": "많이 걸어서 발이 아파요.",
+      "exampleMeaning": "J'ai mal aux pieds parce que j'ai beaucoup marché."
+    },
+    {
+      "korean": "팔",
+      "roman": "pal",
+      "meaning": "bras",
+      "example": "어제 팔을 다쳤어요.",
+      "exampleMeaning": "Je me suis fait mal au bras hier."
+    },
+    {
+      "korean": "방",
+      "roman": "bang",
+      "meaning": "chambre",
+      "example": "제 방은 작아요.",
+      "exampleMeaning": "Ma chambre est petite."
+    },
+    {
+      "korean": "빵",
+      "roman": "ppang",
+      "meaning": "pain",
+      "example": "아침에 빵을 먹어요.",
+      "exampleMeaning": "Je mange du pain le matin."
+    },
+    {
+      "korean": "비",
+      "roman": "bi",
+      "meaning": "pluie",
+      "example": "밖에 비가 와요.",
+      "exampleMeaning": "Il pleut dehors."
+    },
+    {
+      "korean": "피",
+      "roman": "pi",
+      "meaning": "sang",
+      "example": "손가락에서 피가 나요.",
+      "exampleMeaning": "Mon doigt saigne."
+    }
+  ],
+  "category": "hangul"
+}

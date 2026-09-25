@@ -1,0 +1,106 @@
+{
+  "answers": [
+    "개",
+    "배",
+    "레몬",
+    "계란",
+    "ㅐ",
+    "ㅖ"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "뜻에 맞는 낱말을 고르세요. cachorro -> 개 / 게",
+    "뜻에 맞는 낱말을 고르세요. pera -> 배 / 베",
+    "맞는 철자를 고르세요. (limão) 레몬 / 래몬",
+    "맞는 철자를 고르세요. (ovo) 계란 / 게란",
+    "빈칸에 알맞은 모음을 쓰세요. ㅊ_ㄱ (livro): ㅐ / ㅔ / ㅖ",
+    "빈칸에 알맞은 모음을 쓰세요. ㅇ_쁘다 (ser bonito(a)): ㅐ / ㅔ / ㅖ"
+  ],
+  "keyword": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "letters": [
+    {
+      "letter": "ㅐ",
+      "sound": "ae",
+      "as": "como a vogal em \"bed\" (inglês) — no coreano padrão, um pouco mais aberta do que ㅔ, mas a maioria dos coreanos hoje pronuncia ㅐ e ㅔ da mesma forma; diferencie-as pela grafia"
+    },
+    {
+      "letter": "ㅔ",
+      "sound": "e",
+      "as": "como a vogal em \"bed\" (inglês)"
+    },
+    {
+      "letter": "ㅖ",
+      "sound": "ye",
+      "as": "como o \"ye\" em \"yes\" (inglês)"
+    }
+  ],
+  "level": "Iniciante (초급)",
+  "minutes": 12,
+  "objective": "Os alunos vão ler ㅐ e ㅔ como o mesmo som e aprender qual deles é usado em cada palavra pela grafia, além de pronunciar ㅖ como [ye] em 예 e 례 (em outras sílabas, como 계, ㅖ também pode ser lido como [e], então 계란 pode ser lido como [계란] ou [게란]) ao ler palavras simples que contêm essas vogais.",
+  "summary": "Pratique a leitura das vogais coreanas ㅐ, ㅔ, ㅖ em palavras comuns. Como a maioria dos falantes pronuncia ㅐ e ㅔ da mesma forma, aprenda a grafia de cada palavra. Leia ㅖ como [ye] em 예 e 례; em outras sílabas, como 계, ㅖ também pode ser lido como [e] (계란 → [계란] ou [게란]). Inclui exercícios rápidos de escolha de significado e ortografia para reforçar a grafia correta.",
+  "tags": [],
+  "task": {
+    "title": "소리 내어 읽기",
+    "line": "다음 낱말을 소리 내어 읽어 보세요: 개, 배, 책, 게, 레몬, 예, 예쁘다, 계란"
+  },
+  "title": "모음 ㅐ·ㅔ·ㅖ 구별하고 읽기",
+  "words": [
+    {
+      "korean": "개",
+      "roman": "gae",
+      "meaning": "cachorro",
+      "example": "저건 개예요.",
+      "exampleMeaning": "Aquilo é um cachorro."
+    },
+    {
+      "korean": "배",
+      "roman": "bae",
+      "meaning": "pera",
+      "example": "배가 맛있어요.",
+      "exampleMeaning": "A pera está gostosa."
+    },
+    {
+      "korean": "책",
+      "roman": "chaek",
+      "meaning": "livro",
+      "example": "책이 있어요.",
+      "exampleMeaning": "Há um livro."
+    },
+    {
+      "korean": "게",
+      "roman": "ge",
+      "meaning": "caranguejo",
+      "example": "게를 먹어요.",
+      "exampleMeaning": "Eu como caranguejo."
+    },
+    {
+      "korean": "레몬",
+      "roman": "remon",
+      "meaning": "limão",
+      "example": "레몬 주세요.",
+      "exampleMeaning": "Por favor, me dê um limão."
+    },
+    {
+      "korean": "예",
+      "roman": "ye",
+      "meaning": "sim (formal)",
+      "example": "예, 맞아요.",
+      "exampleMeaning": "Sim, isso mesmo."
+    },
+    {
+      "korean": "예쁘다",
+      "roman": "yeppeuda",
+      "meaning": "ser bonito(a)",
+      "example": "꽃이 예뻐요.",
+      "exampleMeaning": "A flor é bonita."
+    },
+    {
+      "korean": "계란",
+      "roman": "gyeran",
+      "meaning": "ovo",
+      "example": "이건 계란이에요.",
+      "exampleMeaning": "Isto é um ovo."
+    }
+  ],
+  "category": "hangul"
+}

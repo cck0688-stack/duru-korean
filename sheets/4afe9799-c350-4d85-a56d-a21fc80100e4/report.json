@@ -1,0 +1,469 @@
+{
+  "id": "4afe9799-c350-4d85-a56d-a21fc80100e4",
+  "title": "받침 ㄱ·ㄷ·ㅂ: 끝소리 멈추기 연습",
+  "category": "hangul",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "letters의 sound 칸 세 곳(ㄱ·ㄷ·ㅂ): '무성·무폭발'의 '무폭발'은 음운 설명에서 쓰지 않는 말입니다. 표준 용어는 '불파음'이고, 쉽게 풀면 '터뜨리지 않음'입니다. 예: '끝소리 [k] (터뜨리지 않음·불파음)'.",
+        "3번 문제: '영어 끝소리와 가장 가까운 것은? 집'은 무엇을 무엇과 비교하는지 알 수 없는 문장입니다. '「집」의 끝소리와 가장 가까운 영어 낱말의 끝소리는? (back / bat / cap)'처럼 고쳐야 합니다.",
+        "5번 문제: '밑줄 친 낱말'이라고 했지만 학습지 텍스트에는 밑줄이 없습니다. '문장 「밥 주세요.」에서 「밥」의 끝소리를 고르세요: (k / t / p)'처럼 밑줄 없이도 알 수 있게 고쳐야 합니다.",
+        "5번 문제는 2번과 틀이 같습니다(낱말 하나를 주고 k/t/p 가운데 끝소리 고르기). 대상 낱말만 곧→밥으로 바뀌었을 뿐 새로 연습하는 것이 없습니다. 목표에 있는 '받침 ㄱ·ㄷ·ㅂ이 있는 낱말 읽고 고르기'를 새로 연습하도록 바꿔야 합니다. 예: '끝소리가 [p]인 낱말을 모두 고르세요 (집 / 속 / 입 / 곧)'.",
+        "받침 ㄷ 낱말이 '곧' 하나뿐입니다. ㄱ은 3개(국·속·벽), ㅂ은 3개(밥·집·입)라서 ㄷ 연습이 부족합니다. '받다'의 받-, '묻다'의 묻- 같은 어간은 단독 낱말이 아니므로, 초급에서 단독으로 쓰는 '맏이'나 발음이 [t]가 되는 ㅅ·ㅈ 받침 낱말(옷[옫], 낮[낟])을 설명과 함께 넣어 ㄷ도 2~3개로 맞추세요. 2번 문제의 정답인 '곧'도 목록에서 유일한 ㄷ 낱말이라 소거법으로 쉽게 풀립니다.",
+        "objective에는 '[k], [t], [p]를 소리 내기(produce)'가 있지만, 문제는 다섯 개 모두 고르기뿐이라 소리 내기 연습이 없습니다. '국, 곧, 밥을 소리 내어 읽고 끝소리를 터뜨리지 않았는지 확인하세요' 같은 소리 내기 문제를 추가하거나 목표에서 produce를 빼야 합니다."
+      ],
+      "audit": [
+        "exercises[4] (5번 지시문): 문장에서 밑줄 친 낱말의 끝소리를 고르세요: 밥 주세요. → 밥 (k / t / p) → 문장 속 낱말 '밥'의 끝소리를 고르세요: 밥 주세요. → 밥 (k / t / p)",
+        "letters[0].sound (ㄱ): 끝소리 [k] (무성·무폭발) → 끝소리 [k] (무성·불파)",
+        "letters[1].sound (ㄷ): 끝소리 [t] (무성·무폭발) → 끝소리 [t] (무성·불파)",
+        "letters[2].sound (ㅂ): 끝소리 [p] (무성·무폭발) → 끝소리 [p] (무성·불파)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [
+        "Exercise 1: \"끝소리 [k]인 낱말을 고르세요.\" is missing the subject particle 가. Change it to \"끝소리가 [k]인 낱말을 고르세요.\" to match exercise 5, which says \"끝소리가 [p]인\".",
+        "Word examples: 국이, 속에, 벽에, 옷이, 낮에 and 입이 are all followed by a particle that starts with a vowel. The batchim carries over into the next syllable ([구기], [소게], [벼게], [오시], [나제], [이비]), so it is not an unreleased final stop. This defeats the lesson goal. It also contradicts the notes on 옷 and 낮 ('ㅅ/ㅈ is pronounced [t]'): in 옷이 and 낮에, learners actually hear [s] and [j]. Change these examples so the batchim word is followed by a consonant or ends the word group. For example: '국 주세요.', '가방 속 책', '벽 색깔이 하얘요.', '옷 사러 가요.', '낮 12시에 만나요.', '입 크게 벌리세요.'.",
+        "The ㄷ sound [t] is practiced only with 곧. It is the only word in the list with an actual ㄷ batchim (옷 and 낮 are ㅅ/ㅈ), and 곧 appears again in exercises 1, 2 and 5. Add one or two more words with ㄷ batchim, such as 믿다, 걷다 or 받다, or use 옷 and 낮 in the exercises too, so the [t] practice isn't just one word repeated."
+      ],
+      "audit": [
+        "exercises[0] (1번 지시문): 끝소리 [k]인 낱말을 고르세요. (국 / 곧 / 밥) → 끝소리가 [k]인 낱말을 고르세요. (국 / 곧 / 밥)"
+      ]
+    },
+    {
+      "round": 3,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[5]",
+      "before": "p",
+      "after": "집, 입"
+    },
+    {
+      "at": "exercises[1]",
+      "before": "끝소리 [k]인 낱말을 고르세요. (국 / 곧 / 밥)",
+      "after": "끝소리가 [k]인 낱말을 고르세요. (국 / 곧 / 밥)"
+    },
+    {
+      "at": "exercises[3]",
+      "before": "영어 끝소리와 가장 가까운 것은? 집 (back / bat / cap)",
+      "after": "「집」의 끝소리와 가장 가까운 영어 낱말의 끝소리는? (back / bat / cap)"
+    },
+    {
+      "at": "exercises[5]",
+      "before": "문장에서 밑줄 친 낱말의 끝소리를 고르세요: 밥 주세요. → 밥 (k / t / p)",
+      "after": "끝소리가 [p]인 낱말을 모두 고르세요. (집 / 속 / 입 / 곧)"
+    },
+    {
+      "at": "letters[1].sound",
+      "before": "끝소리 [k] (무성·무폭발)",
+      "after": "끝소리 [k] (무성·불파)"
+    },
+    {
+      "at": "letters[2].sound",
+      "before": "끝소리 [t] (무성·무폭발)",
+      "after": "끝소리 [t] (무성·불파)"
+    },
+    {
+      "at": "letters[3].sound",
+      "before": "끝소리 [p] (무성·무폭발)",
+      "after": "끝소리 [p] (무성·불파)"
+    },
+    {
+      "at": "objective",
+      "before": "Beginner learners will produce unreleased final stops [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ; connect them to similar English endings (“back/bat/cap” with no release); and accurately read and select simple Korean words that contain these batchim.",
+      "after": "Beginner learners will recognize unreleased final stops [k], [t], [p] for batchim ㄱ, ㄷ, ㅂ; connect them to similar English endings (“back/bat/cap” with no release); and accurately read and select simple Korean words that contain these batchim."
+    },
+    {
+      "at": "summary",
+      "before": "Practice reading and producing unreleased final stops for batchim ㄱ/ㄷ/ㅂ. Learners link each to similar English word-final sounds (back/bat/cap) but with no release, then read and choose simple words that contain these batchim.",
+      "after": "Practice reading and recognizing unreleased final stops for batchim ㄱ/ㄷ/ㅂ. Learners link each to similar English word-final sounds (back/bat/cap) but with no release, then read and choose simple words that contain these batchim."
+    },
+    {
+      "at": "words[1].example",
+      "before": "국이 뜨거워요.",
+      "after": "국 주세요."
+    },
+    {
+      "at": "words[1].exampleMeaning",
+      "before": "The soup is hot.",
+      "after": "Soup, please."
+    },
+    {
+      "at": "words[2].example",
+      "before": "가방 속에 책이 있어요.",
+      "after": "가방 속 책이 무거워요."
+    },
+    {
+      "at": "words[2].exampleMeaning",
+      "before": "There is a book in the bag.",
+      "after": "The book in the bag is heavy."
+    },
+    {
+      "at": "words[3].example",
+      "before": "벽에 그림이 있어요.",
+      "after": "벽 색깔이 하얘요."
+    },
+    {
+      "at": "words[3].exampleMeaning",
+      "before": "There is a picture on the wall.",
+      "after": "The wall is white."
+    },
+    {
+      "at": "words[5].korean",
+      "before": "밥",
+      "after": "받다"
+    },
+    {
+      "at": "words[5].roman",
+      "before": "bap",
+      "after": "batda"
+    },
+    {
+      "at": "words[5].meaning",
+      "before": "cooked rice; meal",
+      "after": "to receive"
+    },
+    {
+      "at": "words[5].example",
+      "before": "밥 먹었어요?",
+      "after": "선물을 받고 싶어요."
+    },
+    {
+      "at": "words[5].exampleMeaning",
+      "before": "Did you eat?",
+      "after": "I want to receive a present."
+    },
+    {
+      "at": "words[6].korean",
+      "before": "집",
+      "after": "걷다"
+    },
+    {
+      "at": "words[6].roman",
+      "before": "jip",
+      "after": "geotda"
+    },
+    {
+      "at": "words[6].meaning",
+      "before": "house; home",
+      "after": "to walk"
+    },
+    {
+      "at": "words[6].example",
+      "before": "우리 집은 커요.",
+      "after": "공원에서 걷고 있어요."
+    },
+    {
+      "at": "words[6].exampleMeaning",
+      "before": "Our house is big.",
+      "after": "I am walking in the park."
+    },
+    {
+      "at": "words[7].korean",
+      "before": "입",
+      "after": "옷"
+    },
+    {
+      "at": "words[7].roman",
+      "before": "ip",
+      "after": "ot"
+    },
+    {
+      "at": "words[7].meaning",
+      "before": "mouth",
+      "after": "clothes (batchim ㅅ is pronounced [t] at the end: 옷 → [옫])"
+    },
+    {
+      "at": "words[7].example",
+      "before": "입이 아파요.",
+      "after": "옷 사러 가요."
+    },
+    {
+      "at": "words[7].exampleMeaning",
+      "before": "My mouth hurts.",
+      "after": "I’m going to buy clothes."
+    },
+    {
+      "at": "words[8].korean",
+      "before": "",
+      "after": "낮"
+    },
+    {
+      "at": "words[8].roman",
+      "before": "",
+      "after": "nat"
+    },
+    {
+      "at": "words[8].meaning",
+      "before": "",
+      "after": "daytime (batchim ㅈ is pronounced [t] at the end: 낮 → [낟])"
+    },
+    {
+      "at": "words[8].example",
+      "before": "",
+      "after": "낮 12시에 만나요."
+    },
+    {
+      "at": "words[8].exampleMeaning",
+      "before": "",
+      "after": "Let’s meet at 12 noon."
+    },
+    {
+      "at": "words[9].korean",
+      "before": "",
+      "after": "밥"
+    },
+    {
+      "at": "words[9].roman",
+      "before": "",
+      "after": "bap"
+    },
+    {
+      "at": "words[9].meaning",
+      "before": "",
+      "after": "cooked rice; meal"
+    },
+    {
+      "at": "words[9].example",
+      "before": "",
+      "after": "밥 먹었어요?"
+    },
+    {
+      "at": "words[9].exampleMeaning",
+      "before": "",
+      "after": "Did you eat?"
+    },
+    {
+      "at": "words[10].korean",
+      "before": "",
+      "after": "집"
+    },
+    {
+      "at": "words[10].roman",
+      "before": "",
+      "after": "jip"
+    },
+    {
+      "at": "words[10].meaning",
+      "before": "",
+      "after": "house; home"
+    },
+    {
+      "at": "words[10].example",
+      "before": "",
+      "after": "우리 집은 커요."
+    },
+    {
+      "at": "words[10].exampleMeaning",
+      "before": "",
+      "after": "Our house is big."
+    },
+    {
+      "at": "words[11].korean",
+      "before": "",
+      "after": "입"
+    },
+    {
+      "at": "words[11].roman",
+      "before": "",
+      "after": "ip"
+    },
+    {
+      "at": "words[11].meaning",
+      "before": "",
+      "after": "mouth"
+    },
+    {
+      "at": "words[11].example",
+      "before": "",
+      "after": "입 크게 벌리세요."
+    },
+    {
+      "at": "words[11].exampleMeaning",
+      "before": "",
+      "after": "Open your mouth wide."
+    }
+  ],
+  "translations": {
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 11,
+          "problem": "\"Tôi sẽ đi sớm\" reads as \"I'll leave early,\" not \"I'll go soon\" (곧). The meaning changes.",
+          "fix": "Tôi sắp đi rồi."
+        }
+      ]
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 27,
+          "problem": "\"stop\" is a phonetics term; \"parada\" is a literal, wrong translation. In Portuguese this is \"oclusiva\".",
+          "fix": "como o final de \"back\" (oclusiva; sem liberação)"
+        },
+        {
+          "line": 29,
+          "problem": "\"stop\" is a phonetics term; \"parada\" is a literal, wrong translation. In Portuguese this is \"oclusiva\".",
+          "fix": "como o final de \"bat\" (oclusiva; sem liberação)"
+        },
+        {
+          "line": 31,
+          "problem": "\"stop\" is a phonetics term; \"parada\" is a literal, wrong translation. In Portuguese this is \"oclusiva\".",
+          "fix": "como o final de \"cap\" (oclusiva; sem liberação)"
+        }
+      ]
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 19,
+          "problem": "\"12 noon\" is translated only as 十二点, which drops \"noon\" and could mean midnight. This sentence is the example for 낮 (daytime).",
+          "fix": "我们中午十二点见面吧。"
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 19,
+          "problem": "\"Noon\" is missing. 「12時に会いましょう」 only says \"at 12 o'clock\" and loses the daytime meaning, which is the point of this example sentence for 낮 (daytime).",
+          "fix": "昼の12時に会いましょう。"
+        }
+      ]
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "de": {
+      "lang": "de",
+      "tries": 2,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "\"unreleased\" is translated as \"unaspirierten\", which means unaspirated. That is a different phonetic property; the correct term is \"ungelöst\". \"Endlauten\" also drops the fact that these are stops.",
+          "fix": "Übe das Lesen und Erkennen von ungelösten Verschlusslauten im Auslaut für die Batchim ㄱ/ㄷ/ㅂ. Die Lernenden verbinden jeden Laut mit ähnlichen englischen Wortendlauten (back/bat/cap), jedoch ohne Lösung, und lesen und wählen dann einfache Wörter aus, die diese Batchim enthalten."
+        },
+        {
+          "line": 3,
+          "problem": "\"unreleased final stops\" is translated as \"unaspirierten (nicht gelösten) Endlaute\". \"Unaspiriert\" means unaspirated, which is the wrong term; it should be \"ungelöst\", and they should be called stops (Verschlusslaute).",
+          "fix": "Anfänger erkennen die ungelösten Verschlusslaute im Auslaut [k], [t], [p] für die Batchim ㄱ, ㄷ, ㅂ, verbinden sie mit ähnlichen englischen Endlauten („back/bat/cap“ ohne Lösung) und lesen sowie wählen korrekt einfache koreanische Wörter aus, die diese Batchim enthalten."
+        },
+        {
+          "line": 19,
+          "problem": "The reflexive pronoun is missing: \"sich treffen\" needs \"uns\" as the object, so \"Lass uns … treffen\" is grammatically incomplete.",
+          "fix": "Treffen wir uns um 12 Uhr mittags."
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T11:02:45.531Z"
+}

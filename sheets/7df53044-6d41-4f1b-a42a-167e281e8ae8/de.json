@@ -1,0 +1,120 @@
+{
+  "answers": [
+    "보증금 10,000,000원(천만 원), 월세 한 달에 500,000원(오십만 원)",
+    "보증금 5,000,000원(오백만 원), 월세 한 달에 450,000원(사십오만 원)",
+    "앱에서 본 방: 관리비 7만 원, 인터넷과 수도가 포함되어 있다. / 전단지 방: 관리비 5만 원(별도), 수도는 포함되어 있지만 인터넷은 포함되어 있지 않다. 인터넷은 따로 신청하고 요금을 따로 내야 한다.",
+    "앱에서 본 방(풀옵션이라서 방에 세탁기가 있다). 전단지 방에서는 1층에 있는 공용 세탁기를 쓴다.",
+    "앱에서 본 방: 지금 바로 들어갈 수 있다('즉시 입주'). / 전단지 방: 10월 말부터 들어갈 수 있다('10월 말 입주 가능').",
+    "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Schreiben Sie '보증금 1000/월세 50' für das Zimmer aus der App (앱에서 본 방의) in Won um (을 원 단위로 바꿔 쓰세요).",
+    "Schreiben Sie '보증금 500 / 월세 45' für das Zimmer aus dem Flyer (전단지에 있는 방의) in Won um (를 원 단위로 바꿔 쓰세요).",
+    "두 방의 관리비는 각각 얼마입니까? Wie hoch ist die Nebenkostenpauschale für die beiden Zimmer jeweils? 관리비에 포함된 것과 포함되지 않은 것도 쓰세요 – schreiben Sie auch, was in der Nebenkostenpauschale enthalten ist und was nicht.",
+    "방 안에 세탁기가 있는 방은 어느 방입니까? In welchem Zimmer gibt es eine Waschmaschine im Zimmer selbst? 다른 방에서는 세탁기를 어떻게 씁니까? Wie benutzt man im anderen Zimmer eine Waschmaschine?",
+    "두 방에는 각각 언제부터 들어가서 살 수 있습니까? Ab wann kann man jeweils in die beiden Zimmer einziehen? 광고에 쓰인 표현도 함께 쓰세요 – schreiben Sie auch die in der Anzeige verwendeten Ausdrücke dazu.",
+    "린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요. Finden Sie im Text zwei Gründe, warum Linh beschlossen hat, wegen des Zimmers aus dem Flyer anzurufen und nicht wegen des Zimmers aus der App."
+  ],
+  "keyword": "원룸",
+  "level": "Mittelstufe",
+  "minutes": 25,
+  "objective": "Die Lernenden können zwei kurze koreanische Einzimmerwohnungs-Angebote lesen und für jedes Zimmer vier Dinge finden und vergleichen: die Kaution und die Monatsmiete (zum Beispiel bedeutet 보증금 1000/월세 50 eine Kaution von 10.000.000 Won und eine Monatsmiete von 500.000 Won), die Nebenkostenpauschale und was darin enthalten oder nicht enthalten ist (관리비 별도, 인터넷·수도 포함), die vorhandene Ausstattung (풀옵션: 에어컨, 세탁기, 냉장고) und das Einzugsdatum (즉시 입주, 10월 말 입주 가능).",
+  "passage": [
+    "베트남에서 온 유학생 린은 지금 학교 기숙사에서 살고 있다. 그런데 기숙사 계약이 10월 말에 끝나서 11월부터 살 원룸을 찾아야 한다. 린이 가진 돈은 모두 800만 원쯤이다. 린은 이 돈으로 보증금을 내고, 월세와 관리비는 합쳐서 한 달에 55만 원을 넘지 않았으면 좋겠다고 생각한다.",
+    "린은 먼저 부동산 앱에서 마음에 드는 방을 하나 찾았다. 광고에는 이렇게 쓰여 있었다. [학교 정문 도보 5분 / 보증금 1000/월세 50 / 관리비 7만 원 (인터넷·수도 포함) / 풀옵션 (에어컨, 세탁기, 냉장고) / 즉시 입주] 린은 '1000/50'이 무슨 뜻인지 몰라서 한국 친구 지훈에게 물어봤다. 지훈은 \"광고에서는 돈을 만 원 단위로 써. 그러니까 보증금이 천만 원이고, 월세가 한 달에 오십만 원이라는 뜻이야.\"라고 설명해 주었다. 그리고 \"풀옵션은 에어컨, 세탁기, 냉장고 같은 게 방에 다 있다는 말이야. 즉시 입주는 지금 바로 들어가서 살 수 있다는 거고.\"라고 덧붙였다.",
+    "다음 날 린은 학교 앞 게시판에서 원룸 전단지를 봤다. [보증금 500 / 월세 45 / 관리비 5만 원 별도 (수도 포함, 인터넷 별도) / 에어컨·냉장고 있음, 세탁기는 1층 공용 / 10월 말 입주 가능] 지훈은 \"관리비 별도는 관리비를 월세하고 따로 낸다는 뜻이야. 앱에서 본 방도 월세에 관리비를 더해서 내야 해. 그런데 이 방은 관리비에 수도는 포함돼 있지만 인터넷은 포함돼 있지 않아. 그러니까 인터넷은 네가 따로 신청하고 요금도 따로 내야 해.\"라고 말했다.",
+    "린은 두 방을 비교해 봤다. 앱에서 본 방은 세탁기까지 있고 인터넷도 관리비에 들어 있어서 편하다. 하지만 보증금이 린이 가진 돈보다 많고, 월세와 관리비를 합하면 한 달에 57만 원이 된다. 전단지의 방은 보증금이 500만 원이라서 부담이 적고, 월세와 관리비를 합해도 50만 원이다. 인터넷 요금은 따로 내야 하지만, 입주 날짜도 기숙사에서 나오는 때와 잘 맞는다. 린은 전단지에 있는 번호로 전화해서 방을 보러 가도 되는지 물어보기로 했다."
+  ],
+  "summary": "Eine Geschichte in vier Absätzen über Linh, eine vietnamesische Studentin in Korea, die Ende Oktober ihr Wohnheim verlassen muss. Sie vergleicht zwei Einzimmerwohnungs-Angebote: eines aus einer Immobilien-App und eines aus einem Flyer. Die Lernenden finden und vergleichen für jedes Zimmer die Kaution, die Monatsmiete, die Nebenkostenpauschale (was enthalten ist und was nicht), die vorhandene Ausstattung und das Einzugsdatum.",
+  "tags": [],
+  "task": null,
+  "title": "원룸 광고 두 개, 어느 방이 좋을까?",
+  "words": [
+    {
+      "korean": "보증금",
+      "roman": "bojeunggeum",
+      "meaning": "Kaution (ein hoher Betrag, den man beim Anmieten an den Vermieter zahlt und der beim Auszug zurückerstattet wird)",
+      "example": "이사 나갈 때 보증금을 돌려받았어요.",
+      "exampleMeaning": "Ich habe meine Kaution zurückbekommen, als ich ausgezogen bin."
+    },
+    {
+      "korean": "월세",
+      "roman": "wolse",
+      "meaning": "Monatsmiete",
+      "example": "이 동네는 월세가 좀 비싼 편이에요.",
+      "exampleMeaning": "Die Monatsmiete ist in dieser Gegend etwas teuer."
+    },
+    {
+      "korean": "관리비",
+      "roman": "gwallibi",
+      "meaning": "Nebenkostenpauschale (eine monatliche Gebühr für das Gebäude, die zusätzlich zur Miete gezahlt wird)",
+      "example": "관리비는 매달 25일까지 내면 돼요.",
+      "exampleMeaning": "Sie können die Nebenkostenpauschale bis zum 25. jedes Monats bezahlen."
+    },
+    {
+      "korean": "별도",
+      "roman": "byeoldo",
+      "meaning": "separat; wird extra berechnet, nicht im angegebenen Preis enthalten",
+      "example": "배송비는 별도입니다.",
+      "exampleMeaning": "Der Versand wird separat berechnet."
+    },
+    {
+      "korean": "포함",
+      "roman": "poham",
+      "meaning": "enthalten sein (in einem Preis oder einer Gebühr)",
+      "example": "아침 식사가 포함된 가격이에요.",
+      "exampleMeaning": "Im Preis ist das Frühstück enthalten."
+    },
+    {
+      "korean": "풀옵션",
+      "roman": "puropsyeon",
+      "meaning": "(bei einer Mietwohnung) mit den wichtigsten Geräten ausgestattet, wie Klimaanlage, Waschmaschine und Kühlschrank",
+      "example": "풀옵션 원룸이라서 세탁기를 안 사도 돼요.",
+      "exampleMeaning": "Es ist ein voll ausgestattetes Einzimmerapartment, also muss ich keine Waschmaschine kaufen."
+    },
+    {
+      "korean": "입주",
+      "roman": "ipju",
+      "meaning": "einziehen (in eine Mietwohnung oder eine neue Wohnung)",
+      "example": "새 아파트에 다음 달에 입주해요.",
+      "exampleMeaning": "Wir ziehen nächsten Monat in die neue Wohnung ein."
+    },
+    {
+      "korean": "즉시",
+      "roman": "jeuksi",
+      "meaning": "sofort, unmittelbar",
+      "example": "문제가 생기면 즉시 연락 주세요.",
+      "exampleMeaning": "Wenn es ein Problem gibt, kontaktieren Sie mich sofort."
+    },
+    {
+      "korean": "공용",
+      "roman": "gongyong",
+      "meaning": "gemeinschaftlich genutzt (von allen im Gebäude benutzt)",
+      "example": "이 건물은 화장실이 공용이에요.",
+      "exampleMeaning": "Das Badezimmer in diesem Gebäude wird gemeinschaftlich genutzt."
+    },
+    {
+      "korean": "전단지",
+      "roman": "jeondanji",
+      "meaning": "Flyer, Handzettel",
+      "example": "지하철역 앞에서 누가 전단지를 나눠 주고 있었어요.",
+      "exampleMeaning": "Jemand hat vor dem U-Bahnhof Flyer verteilt."
+    },
+    {
+      "korean": "단위",
+      "roman": "danwi",
+      "meaning": "Einheit (die Menge, in der Zahlen gezählt werden)",
+      "example": "쌀은 보통 킬로그램 단위로 팔아요.",
+      "exampleMeaning": "Reis wird normalerweise nach Kilogramm verkauft."
+    },
+    {
+      "korean": "부담",
+      "roman": "budam",
+      "meaning": "(finanzielle) Belastung, etwas, das man sich schwer leisten kann",
+      "example": "학생한테는 월세 60만 원이 부담이 돼요.",
+      "exampleMeaning": "Für eine Studentin ist eine Monatsmiete von 600.000 Won schwer zu bezahlen."
+    }
+  ],
+  "category": "reading"
+}

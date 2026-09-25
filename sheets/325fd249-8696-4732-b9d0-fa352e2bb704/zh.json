@@ -1,0 +1,111 @@
+{
+  "title": "단어 첫소리 ㄷ·ㅌ·ㄸ: 소리 구별과 읽기",
+  "keyword": "단어 첫소리 ㄷ·ㅌ·ㄸ",
+  "summary": "练习区分并读出韩语词首辅音 ㄷ(平音)、ㅌ(送气音)和 ㄸ(紧音)。提供了有用的英语发音参考,帮助初学者建立发音联系,准确读出简单的单词。",
+  "objective": "学习者将能够识别并发出位于词首的 ㄷ(平音)、ㅌ(送气音)、ㄸ(紧音),并将它们与清晰的英语发音提示联系起来(ㄷ = 介于 d 和 t 之间的轻音，ㅌ ≈ “top”中的 t，ㄸ ≈ “stop”中的 t 但更紧),并能正确读出包含这些声母的简单单词。",
+  "level": "初级",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "각 단어의 첫 자음(초성)을 쓰세요。写出每个单词的第一个辅音（初声）：두부 / 토끼 / 또",
+    "ㄸ(된소리)로 시작하는 말을 고르세요。选出以 ㄸ（紧音）开头的词：돈 / 토마토 / 떡",
+    "첫소리가 같은 두 단어를 고르세요。选出首音相同的两个词：달 / 두부 / 딸",
+    "ㅌ(거센소리)로 시작하는 말을 고르세요。选出以 ㅌ（送气音）开头的词：달 / 타다 / 딸",
+    "로마자 표기를 보고, 첫 자음(초성)만 한글로 쓰세요。看罗马字标注，只写出第一个辅音（初声）的韩文：tteok"
+  ],
+  "answers": [
+    "ㄷ / ㅌ / ㄸ",
+    "떡",
+    "달, 두부",
+    "타다",
+    "ㄸ"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㄷ",
+      "sound": "平音（松音）t，气流较轻（比 ㅌ 轻），音调较低",
+      "as": "介于英语 d 和 t 之间，比“top”中的 t 更柔和"
+    },
+    {
+      "letter": "ㅌ",
+      "sound": "送气音 t，气流很强",
+      "as": "类似“top”中的 t"
+    },
+    {
+      "letter": "ㄸ",
+      "sound": "紧音 t，紧而短促",
+      "as": "接近“stop”中的 t（不送气），但更紧"
+    }
+  ],
+  "words": [
+    {
+      "korean": "달",
+      "roman": "dal",
+      "meaning": "月亮",
+      "example": "달이 예뻐요.",
+      "exampleMeaning": "月亮很漂亮。"
+    },
+    {
+      "korean": "돈",
+      "roman": "don",
+      "meaning": "钱",
+      "example": "돈이 없어요.",
+      "exampleMeaning": "我没有钱。"
+    },
+    {
+      "korean": "두부",
+      "roman": "dubu",
+      "meaning": "豆腐",
+      "example": "두부를 사요.",
+      "exampleMeaning": "我买豆腐。"
+    },
+    {
+      "korean": "토마토",
+      "roman": "tomato",
+      "meaning": "西红柿",
+      "example": "토마토를 먹어요.",
+      "exampleMeaning": "我吃西红柿。"
+    },
+    {
+      "korean": "타다",
+      "roman": "tada",
+      "meaning": "乘坐",
+      "example": "버스를 타요.",
+      "exampleMeaning": "我坐公交车。"
+    },
+    {
+      "korean": "토끼",
+      "roman": "tokki",
+      "meaning": "兔子",
+      "example": "토끼가 귀여워요.",
+      "exampleMeaning": "兔子很可爱。"
+    },
+    {
+      "korean": "딸",
+      "roman": "ttal",
+      "meaning": "女儿",
+      "example": "딸이 있어요.",
+      "exampleMeaning": "我有一个女儿。"
+    },
+    {
+      "korean": "떡",
+      "roman": "tteok",
+      "meaning": "年糕",
+      "example": "떡이 맛있어요.",
+      "exampleMeaning": "年糕很好吃。"
+    },
+    {
+      "korean": "또",
+      "roman": "tto",
+      "meaning": "再",
+      "example": "또 만나요.",
+      "exampleMeaning": "再见。"
+    }
+  ],
+  "category": "hangul"
+}

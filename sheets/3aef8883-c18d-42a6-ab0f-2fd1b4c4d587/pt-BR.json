@@ -1,0 +1,109 @@
+{
+  "answers": [
+    "자동발매기",
+    "지하철 = subway, 승차권 = ticket (paper)",
+    "환승",
+    "출구",
+    "개찰구",
+    "교통카드",
+    "갈아타 (환승하도 정답)",
+    "안내판",
+    "역무원"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Escreva a palavra em coreano para 'máquina de bilhetes'.",
+    "Escreva o significado em português de cada palavra: 지하철 / 승차권",
+    "Escreva a palavra em coreano para 'baldeação (substantivo)'.",
+    "Complete a lacuna com uma palavra da lista: 몇 번 ___로 나가요?",
+    "Complete a lacuna: ___를 지나서 오른쪽으로 가세요. (dica: catraca)",
+    "Complete a lacuna: ___에 돈을 충전했어요. (dica: cartão de transporte)",
+    "Complete a lacuna: 2호선으로 ___세요. (dica: trocar de trem)",
+    "Escolha a palavra que significa 'painel de informações': 안내판 / 개찰구 / 출구 / 자동발매기",
+    "Complete a lacuna: 길을 몰라요. ___에게 물어볼까요? (dica: funcionário da estação)"
+  ],
+  "keyword": "지하철 이용 어휘",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "objective": "Aprenda 10 palavras-chave de vocabulário do metrô (compra de bilhete, catraca, baldeação, saída) com frases de exemplo curtas que você pode usar imediatamente.",
+  "summary": "Esta folha de exercícios ensina 10 palavras essenciais em coreano para usar o metrô: comprar bilhetes, passar pela catraca, fazer baldeação e encontrar saídas. Cada palavra tem uma frase de exemplo curta e prática.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "metrô",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "Eu pego o metrô."
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "catraca",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "Passe seu cartão na catraca, por favor."
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "cartão de transporte",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "Tenho meu cartão de transporte pronto."
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "bilhete (de papel)",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "Me dê um bilhete, por favor."
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "máquina de bilhetes",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "Eu compro um bilhete na máquina."
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "baldeação (troca de trem)",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "Eu faço baldeação aqui."
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "fazer baldeação / trocar de trem",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "Faça baldeação na próxima estação, por favor."
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "saída",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "Saia pela saída 3."
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "painel de informações",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "Olhe o painel de informações."
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "funcionário da estação",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "Pergunte ao funcionário da estação."
+    }
+  ],
+  "category": "vocab"
+}

@@ -1,0 +1,109 @@
+{
+  "answers": [
+    "자동발매기",
+    "지하철 = subway, 승차권 = ticket (paper)",
+    "환승",
+    "출구",
+    "개찰구",
+    "교통카드",
+    "갈아타 (환승하도 정답)",
+    "안내판",
+    "역무원"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "'ticket machine'에 해당하는 한국어 단어를 쓰세요.",
+    "각 단어의 영어 뜻을 쓰세요: 지하철 / 승차권",
+    "'transfer(명사)'에 해당하는 한국어 단어를 쓰세요.",
+    "목록에 있는 단어로 빈칸을 채우세요: 몇 번 ___로 나가요?",
+    "빈칸을 채우세요: ___를 지나서 오른쪽으로 가세요. (힌트: ticket gate)",
+    "빈칸을 채우세요: ___에 돈을 충전했어요. (힌트: transport card)",
+    "빈칸을 채우세요: 2호선으로 ___세요. (힌트: change trains)",
+    "'information sign / signboard'를 뜻하는 단어를 고르세요: 안내판 / 개찰구 / 출구 / 자동발매기",
+    "빈칸을 채우세요: 길을 몰라요. ___에게 물어볼까요? (힌트: station staff)"
+  ],
+  "keyword": "지하철 이용 어휘",
+  "level": "초급 (A1)",
+  "minutes": 10,
+  "objective": "지하철 관련 핵심 단어 10개(표 구매, 개찰구, 환승, 출구)를 바로 쓸 수 있는 짧은 예문과 함께 배워 보세요.",
+  "summary": "이 학습지에서는 지하철 이용에 필요한 핵심 한국어 단어 10개를 배웁니다: 표 구매, 개찰구 통과, 환승, 출구 찾기. 각 단어에는 바로 활용할 수 있는 짧은 예문이 있습니다.",
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "title": "지하철 이용 어휘 (표 구매·개찰·환승·출구)",
+  "words": [
+    {
+      "korean": "지하철",
+      "roman": "jihacheol",
+      "meaning": "지하철",
+      "example": "지하철을 타요.",
+      "exampleMeaning": "저는 지하철을 타요."
+    },
+    {
+      "korean": "개찰구",
+      "roman": "gaechalgu",
+      "meaning": "개찰구",
+      "example": "개찰구에서 카드를 찍으세요.",
+      "exampleMeaning": "개찰구에서 카드를 찍으세요."
+    },
+    {
+      "korean": "교통카드",
+      "roman": "gyotongkadeu",
+      "meaning": "교통카드",
+      "example": "교통카드를 준비했어요.",
+      "exampleMeaning": "교통카드를 준비했어요."
+    },
+    {
+      "korean": "승차권",
+      "roman": "seungchagwon",
+      "meaning": "승차권",
+      "example": "승차권 한 장 주세요.",
+      "exampleMeaning": "승차권 한 장 주세요."
+    },
+    {
+      "korean": "자동발매기",
+      "roman": "jadongbalmaegi",
+      "meaning": "자동발매기",
+      "example": "자동발매기에서 표를 사요.",
+      "exampleMeaning": "자동발매기에서 승차권을 사요."
+    },
+    {
+      "korean": "환승",
+      "roman": "hwanseung",
+      "meaning": "환승",
+      "example": "여기에서 환승해요.",
+      "exampleMeaning": "여기서 환승해요."
+    },
+    {
+      "korean": "갈아타다",
+      "roman": "garatada",
+      "meaning": "환승하다",
+      "example": "다음 역에서 갈아타세요.",
+      "exampleMeaning": "다음 역에서 환승하세요."
+    },
+    {
+      "korean": "출구",
+      "roman": "chulgu",
+      "meaning": "출구",
+      "example": "3번 출구로 나가세요.",
+      "exampleMeaning": "3번 출구로 나가세요."
+    },
+    {
+      "korean": "안내판",
+      "roman": "annaepan",
+      "meaning": "안내판",
+      "example": "안내판을 봐요.",
+      "exampleMeaning": "안내판을 보세요."
+    },
+    {
+      "korean": "역무원",
+      "roman": "yeongmuwon",
+      "meaning": "역무원",
+      "example": "역무원에게 물어보세요.",
+      "exampleMeaning": "역무원에게 물어보세요."
+    }
+  ],
+  "category": "vocab"
+}

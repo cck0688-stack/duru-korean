@@ -1,0 +1,115 @@
+{
+  "answers": [
+    "ㅘ",
+    "ㅝ",
+    "귀",
+    "의자",
+    "워 (더워요)",
+    "hwajangsil"
+  ],
+  "checkThese": [],
+  "exercises": [
+    "Une las dos vocales. ¿Qué letra obtienes? ㅗ + ㅏ = ?",
+    "Une las dos vocales. ¿Qué letra obtienes? ㅜ + ㅓ = ?",
+    "Elige la palabra que significa 'oreja': 기 / 구 / 귀",
+    "Elige la forma correcta de escribir 'silla': 으자 / 이자 / 의자",
+    "Completa el espacio en blanco para decir 'Hace calor.': 더_요 (와 / 워 / 위)",
+    "Lee la palabra en voz alta y luego escríbela en alfabeto romano: 화장실"
+  ],
+  "keyword": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "letters": [
+    {
+      "letter": "ㅘ",
+      "sound": "wa (ㅗ + ㅏ pronunciadas rápidamente)",
+      "as": "como el 'wa' en la palabra inglesa 'wander' — comienza con los labios redondeados (ㅗ) y ábrelos rápidamente hacia 'a' (ㅏ)"
+    },
+    {
+      "letter": "ㅝ",
+      "sound": "wo (ㅜ + ㅓ pronunciadas rápidamente)",
+      "as": "como el 'wo' en la palabra inglesa 'won' — comienza con los labios redondeados (ㅜ) y muévete rápidamente hacia ㅓ"
+    },
+    {
+      "letter": "ㅟ",
+      "sound": "wi (ㅜ + ㅣ pronunciadas rápidamente)",
+      "as": "como el 'we' en inglés, pero más corto — comienza con los labios redondeados (ㅜ) y muévete rápidamente hacia 'ee' (ㅣ)"
+    },
+    {
+      "letter": "ㅢ",
+      "sound": "ui (ㅡ + ㅣ pronunciadas rápidamente)",
+      "as": "no tiene un equivalente cercano en inglés — comienza con ㅡ (labios planos y relajados, no redondeados) y desliza rápidamente hacia 'ee' (ㅣ); en esta hoja de trabajo solo aparece al inicio de una palabra, como en 의자"
+    }
+  ],
+  "level": "Principiante",
+  "minutes": 15,
+  "objective": "Reconoce y pronuncia ㅘ (wa), ㅝ (wo), ㅟ (wi) y 의 (ui) al inicio de palabra como deslizamientos rápidos de dos vocales, y lee y elige correctamente las palabras 과자, 사과, 화장실, 뭐, 더워요, 위, 귀, 의자 y 의사.",
+  "summary": "Esta hoja de trabajo enseña cuatro vocales compuestas del coreano: ㅘ, ㅝ, ㅟ y ㅢ. Cada una es la unión de dos vocales pronunciadas rápidamente, una tras otra, como un solo sonido fluido. Verás qué dos vocales forman cada letra, relacionarás tres de ellas con sonidos conocidos del inglés y practicarás leyendo palabras sencillas y cotidianas como 과자, 뭐, 귀 y 의자.",
+  "tags": [],
+  "task": null,
+  "title": "이중 모음 ㅘ·ㅝ·ㅟ·ㅢ 읽기",
+  "words": [
+    {
+      "korean": "과자",
+      "roman": "gwaja",
+      "meaning": "bocadillo (papas fritas, galletas, crackers)",
+      "example": "과자 먹을래요?",
+      "exampleMeaning": "¿Quieres algunos bocadillos?"
+    },
+    {
+      "korean": "사과",
+      "roman": "sagwa",
+      "meaning": "manzana",
+      "example": "사과가 달아요.",
+      "exampleMeaning": "La manzana está dulce."
+    },
+    {
+      "korean": "화장실",
+      "roman": "hwajangsil",
+      "meaning": "baño, servicio",
+      "example": "화장실이 어디예요?",
+      "exampleMeaning": "¿Dónde está el baño?"
+    },
+    {
+      "korean": "뭐",
+      "roman": "mwo",
+      "meaning": "qué (informal)",
+      "example": "이거 뭐예요?",
+      "exampleMeaning": "¿Qué es esto?"
+    },
+    {
+      "korean": "더워요",
+      "roman": "deowoyo",
+      "meaning": "hace calor (clima)",
+      "example": "오늘 정말 더워요.",
+      "exampleMeaning": "Hoy hace mucho calor."
+    },
+    {
+      "korean": "위",
+      "roman": "wi",
+      "meaning": "encima de, sobre",
+      "example": "책상 위에 있어요.",
+      "exampleMeaning": "Está encima del escritorio."
+    },
+    {
+      "korean": "귀",
+      "roman": "gwi",
+      "meaning": "oreja",
+      "example": "귀가 아파요.",
+      "exampleMeaning": "Me duele la oreja."
+    },
+    {
+      "korean": "의자",
+      "roman": "uija",
+      "meaning": "silla",
+      "example": "의자에 앉으세요.",
+      "exampleMeaning": "Por favor, siéntate (en la silla)."
+    },
+    {
+      "korean": "의사",
+      "roman": "uisa",
+      "meaning": "médico(a)",
+      "example": "제 친구는 의사예요.",
+      "exampleMeaning": "Mi amigo es médico."
+    }
+  ],
+  "category": "hangul"
+}

@@ -1,0 +1,86 @@
+{
+  "title": "아파트 엘리베이터 점검 안내문 읽기",
+  "keyword": "아파트 엘리베이터 점검 안내문 읽기",
+  "summary": "Bacalah pengumuman pemeriksaan lift apartemen yang realistis dan jawab pertanyaan untuk menemukan tanggal, waktu, dan bagian yang tidak dapat digunakan (lift dan lantai mana) secara tepat.",
+  "objective": "Pembelajar akan membaca pengumuman pemeriksaan lift apartemen dan mengidentifikasi dengan tepat tanggal, waktu, gedung yang terkena dampak, serta bagian yang tidak dapat digunakan (lift dan lantai mana).",
+  "level": "초급 중 (A2)",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "관리사무소 안내문 읽기",
+    "line": "관리사무소 안내문을 읽고 점검 날짜·시간과 이용할 수 없는 엘리베이터를 찾으세요."
+  },
+  "exercises": [
+    "지문을 보고 답하세요. 점검 날짜는 언제입니까?",
+    "지문을 보고 답하세요. 점검 시간은 몇 시부터 몇 시까지입니까?",
+    "지문을 보고 답하세요. 점검 대상은 어느 동입니까?",
+    "지문을 보고 답하세요. 점검 동안 완전히 멈추는 엘리베이터는 몇 호기입니까?",
+    "지문을 보고 답하세요. 점검 동안 2호기를 타고 지하 1층에 갈 수 있습니까?"
+  ],
+  "answers": [
+    "10월 15일(화) (10월 15일)",
+    "오전 9시부터 낮 12시까지 (09:00~12:00)",
+    "101동과 102동",
+    "1호기",
+    "아니요, 2호기는 지하 1층에 정차하지 않습니다."
+  ],
+  "checkThese": [],
+  "passage": [
+    "아파트 관리사무소에서 엘리베이터 정기점검을 합니다. 안전한 이용을 위해 아래 내용을 확인해 주세요.",
+    "점검 일시: 10월 15일(화) 오전 9시부터 낮 12시까지. 대상: 101동, 102동.",
+    "점검 동안 1호기는 운행을 전면 중지합니다. 2호기는 제한 운행을 하며, 지하 1층에는 정차하지 않고 1층부터 20층까지만 운행합니다.",
+    "계단 이용이 어려운 분은 미리 관리사무소에 연락해 주세요. 불편을 드려 죄송합니다."
+  ],
+  "words": [
+    {
+      "korean": "정기점검",
+      "roman": "jeonggijeomgeom",
+      "meaning": "pemeriksaan rutin",
+      "example": "엘리베이터 정기점검이 있습니다.",
+      "exampleMeaning": "Akan ada pemeriksaan rutin lift."
+    },
+    {
+      "korean": "운행",
+      "roman": "unhaeng",
+      "meaning": "pengoperasian; berjalan (kendaraan/lift)",
+      "example": "이 버스는 밤 11시까지 운행합니다.",
+      "exampleMeaning": "Bus ini beroperasi hingga pukul 11 malam."
+    },
+    {
+      "korean": "전면 중지",
+      "roman": "jeonmyeon jungji",
+      "meaning": "penghentian total; berhenti sepenuhnya",
+      "example": "공사로 도로 통행을 전면 중지합니다.",
+      "exampleMeaning": "Lalu lintas di jalan itu benar-benar terhenti karena ada konstruksi."
+    },
+    {
+      "korean": "정차하다",
+      "roman": "jeongchahada",
+      "meaning": "berhenti (di lantai/halte)",
+      "example": "이 버스는 다음 정류장에 정차하지 않습니다.",
+      "exampleMeaning": "Bus ini tidak berhenti di halte berikutnya."
+    },
+    {
+      "korean": "관리사무소",
+      "roman": "gwallisamuso",
+      "meaning": "kantor pengelola",
+      "example": "문의는 관리사무소로 하세요.",
+      "exampleMeaning": "Silakan hubungi kantor pengelola."
+    },
+    {
+      "korean": "호기",
+      "roman": "hogi",
+      "meaning": "nomor unit (lift)",
+      "example": "엘리베이터 1호기만 멈춥니다.",
+      "exampleMeaning": "Hanya lift nomor 1 yang berhenti."
+    },
+    {
+      "korean": "제한",
+      "roman": "jehan",
+      "meaning": "batas; pembatasan",
+      "example": "이 길은 속도 제한이 시속 30킬로미터입니다.",
+      "exampleMeaning": "Batas kecepatan di jalan ini adalah 30 km/jam."
+    }
+  ],
+  "category": "reading"
+}
