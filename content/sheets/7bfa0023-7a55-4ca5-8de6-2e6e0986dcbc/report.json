@@ -497,6 +497,61 @@
       "before": "네. 24시간 영업, 연중무휴예요. (Yes. It's open 24 hours, every day of the year.)",
       "after": "네. 24시간 영업, 연중무휴예요.",
       "why": "The English translation after each Korean answer is dropped (the questions ask for Korean; the sheet ran to three pages)."
+    },
+    {
+      "op": "drop",
+      "path": "exercises[5]",
+      "before": "Answer in Korean (yes/no and why): [안내판 3: 우리동네 편의점] 일요일 새벽 3시에 우리동네 편의점에 갈 수 있어요?",
+      "after": null,
+      "why": "The sheet ran to three pages even in English. The 24-hour convenience-store item (the easiest) and its sign go; 24시간 영업 and 연중무휴 stay in the label list."
+    },
+    {
+      "op": "drop",
+      "path": "answers[5]",
+      "before": "네. 24시간 영업, 연중무휴예요.",
+      "after": null,
+      "why": "with its exercise"
+    },
+    {
+      "op": "drop",
+      "path": "sections[4]",
+      "before": {
+        "heading": "안내판 3: 우리동네 편의점",
+        "paragraphs": [
+          "24시간 영업",
+          "연중무휴"
+        ]
+      },
+      "after": null,
+      "why": "the sign that exercise used"
+    },
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "Learn 8 labels on Korean shop-hours signs, then use three sample signs to decide if you can visit or order at a given time.",
+      "after": "Learn 8 labels on Korean shop-hours signs, then use two sample signs to decide if you can visit or order at a given time.",
+      "why": "two signs now"
+    },
+    {
+      "op": "replace",
+      "path": "note",
+      "before": "The three signs are made up for practice; they are not real shops or hours. The key point: 'the shop is open' is not the same as 'you can still order' (exercises 3 and 4).",
+      "after": "The two signs are made up for practice; they are not real shops or hours. The key point: 'the shop is open' is not the same as 'you can still order' (exercises 3 and 4).",
+      "why": "two signs now"
+    },
+    {
+      "op": "replace",
+      "path": "sections[1].paragraphs[2]",
+      "before": "③ 시간 확인: Most signs use the 24-hour clock. 15:00 = 오후 3시, 21:30 = 밤 9시 30분. Is your time between the opening time and the closing time? Also check whether it falls during the 브레이크 타임.",
+      "after": "③ 시간 확인: Most signs use the 24-hour clock (15:00 = 오후 3시). Is your time within the opening hours, and not in the 브레이크 타임?",
+      "why": "The sheet ran to three pages even in English."
+    },
+    {
+      "op": "replace",
+      "path": "sections[1].paragraphs[3]",
+      "before": "④ 주문 확인: If you want to eat or order, check the 라스트 오더 (주문 마감) time too. 마감 30분 전 means '30 minutes before closing'.",
+      "after": "④ 주문 확인: To eat or order, also check the 라스트 오더 (주문 마감) time. 마감 30분 전 = 30 minutes before closing.",
+      "why": "The sheet ran to three pages even in English."
     }
   ]
 }

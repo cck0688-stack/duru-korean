@@ -48,25 +48,11 @@
       "exampleMeaning": "Xe buýt này đang đi về hướng Ga Seoul."
     },
     {
-      "korean": "곧",
-      "roman": "got",
-      "meaning": "sắp đến ngay, gần đến rồi",
-      "example": "잠깐만요, 버스가 곧 와요.",
-      "exampleMeaning": "Chờ một chút, xe buýt sắp đến rồi."
-    },
-    {
       "korean": "번째 전",
       "roman": "beonjjae jeon",
       "meaning": "số trạm còn lại (○번째 전 = xe buýt còn cách đây ○ trạm nữa)",
       "example": "제가 탈 버스는 지금 2번째 전이에요.",
       "exampleMeaning": "Xe buýt tôi định đi giờ còn cách đây hai trạm nữa."
-    },
-    {
-      "korean": "전 정류장",
-      "roman": "jeon jeongnyujang",
-      "meaning": "trạm ngay trước trạm này",
-      "example": "버스가 전 정류장에서 출발했어요.",
-      "exampleMeaning": "Xe buýt đã xuất phát từ trạm ngay trước trạm này."
     },
     {
       "korean": "출발 대기",

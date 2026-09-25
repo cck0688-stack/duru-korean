@@ -48,25 +48,11 @@
       "exampleMeaning": "Este ônibus está indo em direção à Estação de Seul."
     },
     {
-      "korean": "곧",
-      "roman": "got",
-      "meaning": "muito em breve, quase chegando",
-      "example": "잠깐만요, 버스가 곧 와요.",
-      "exampleMeaning": "Espere um momento, o ônibus já está quase chegando."
-    },
-    {
       "korean": "번째 전",
       "roman": "beonjjae jeon",
       "meaning": "paradas restantes (○번째 전 = o ônibus está ○ paradas antes desta)",
       "example": "제가 탈 버스는 지금 2번째 전이에요.",
       "exampleMeaning": "O ônibus que eu vou pegar está a duas paradas daqui agora."
-    },
-    {
-      "korean": "전 정류장",
-      "roman": "jeon jeongnyujang",
-      "meaning": "a parada logo antes desta",
-      "example": "버스가 전 정류장에서 출발했어요.",
-      "exampleMeaning": "O ônibus já saiu da parada logo antes desta."
     },
     {
       "korean": "출발 대기",

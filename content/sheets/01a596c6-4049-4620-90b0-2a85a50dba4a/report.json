@@ -963,6 +963,20 @@
       "after": "27번을 타요. 시청역 방면이고 3분 후에 도착해요.",
       "why": "Shorter answer key (same answer) — the sheet ran to three pages.",
       "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "words[2]",
+      "before": "곧",
+      "why": "Translations ran onto a third page. 곧 and 전 정류장 are explained in the passage and exercise 2 (곧 도착, 전 정류장 출발).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "words[4]",
+      "before": "전 정류장",
+      "why": "Translations ran onto a third page. 곧 and 전 정류장 are explained in the passage and exercise 2 (곧 도착, 전 정류장 출발).",
+      "all_languages": true
     }
   ]
 }

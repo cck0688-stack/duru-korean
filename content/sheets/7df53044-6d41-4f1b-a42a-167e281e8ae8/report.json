@@ -532,6 +532,93 @@
       "before": "보증금이 500만 원이라서 린이 가진 800만 원으로 낼 수 있다. 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 기숙사에서 나오는 때와 잘 맞는다는 것도 정답)",
       "after": "① 보증금이 500만 원이라서 800만 원으로 낼 수 있다. ② 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 잘 맞는다는 것도 정답)",
       "why": "Answer key shortened (same facts) — the sheet ran to three pages."
+    },
+    {
+      "op": "drop",
+      "path": "words[5]",
+      "before": {
+        "korean": "풀옵션",
+        "roman": "puropsyeon",
+        "meaning": "(of a rental) furnished with the main appliances, such as an air conditioner, a washing machine, and a refrigerator",
+        "example": "풀옵션 원룸이라서 세탁기를 안 사도 돼요.",
+        "exampleMeaning": "It's a furnished one-room, so I don't need to buy a washing machine."
+      },
+      "after": null,
+      "why": "The sheet ran to three pages even in English. 풀옵션 is explained word for word by 지훈 in the passage."
+    },
+    {
+      "op": "drop",
+      "path": "words[6]",
+      "before": {
+        "korean": "즉시",
+        "roman": "jeuksi",
+        "meaning": "right away, immediately",
+        "example": "문제가 생기면 즉시 연락 주세요.",
+        "exampleMeaning": "If there's a problem, contact me right away."
+      },
+      "after": null,
+      "why": "The sheet ran to three pages even in English. 즉시 is explained word for word by 지훈 in the passage."
+    },
+    {
+      "op": "replace",
+      "path": "words.보증금.meaning",
+      "before": "deposit (a large sum paid to the landlord when you rent, returned when you move out)",
+      "after": "deposit (paid when you rent, returned when you move out)",
+      "why": "The sheet ran to three pages even in English. Shorter gloss, same meaning."
+    },
+    {
+      "op": "replace",
+      "path": "words.관리비.meaning",
+      "before": "maintenance fee (a monthly building fee paid on top of rent)",
+      "after": "maintenance fee (paid every month on top of rent)",
+      "why": "The sheet ran to three pages even in English. Shorter gloss, same meaning."
+    },
+    {
+      "op": "replace",
+      "path": "words.별도.meaning",
+      "before": "separate; charged extra, not included in the stated price",
+      "after": "separate; charged extra",
+      "why": "The sheet ran to three pages even in English. Shorter gloss, same meaning."
+    },
+    {
+      "op": "replace",
+      "path": "exercises[3]",
+      "before": "Answer in Korean, and include the words used in each listing: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요.",
+      "after": "Answer in Korean: 두 방에는 각각 언제부터 들어가서 살 수 있습니까? 광고에 쓰인 표현도 함께 쓰세요.",
+      "why": "The sheet ran to three pages even in English: shorter wording, same questions and answers."
+    },
+    {
+      "op": "replace",
+      "path": "exercises[4]",
+      "before": "Find two reasons in the passage and answer in Korean: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 지문에서 두 가지 찾아 쓰세요.",
+      "after": "Answer in Korean: 린이 앱에서 본 방이 아니라 전단지에 있는 방에 전화하기로 한 이유를 두 가지 쓰세요.",
+      "why": "The sheet ran to three pages even in English: shorter wording, same questions and answers."
+    },
+    {
+      "op": "replace",
+      "path": "answers[1]",
+      "before": "앱에서 본 방: 관리비 7만 원(인터넷·수도 포함). / 전단지 방: 관리비 5만 원(수도 포함, 인터넷은 따로 신청하고 요금도 따로 낸다).",
+      "after": "앱에서 본 방: 관리비 7만 원(인터넷·수도 포함). / 전단지 방: 관리비 5만 원(수도 포함, 인터넷 별도).",
+      "why": "The sheet ran to three pages even in English: shorter wording, same questions and answers."
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "① 보증금이 500만 원이라서 800만 원으로 낼 수 있다. ② 월세와 관리비를 합해도 50만 원이라서 55만 원을 넘지 않는다. (입주 날짜가 잘 맞는다는 것도 정답)",
+      "after": "① 보증금이 500만 원이라서 낼 수 있다. ② 월세와 관리비를 합해도 50만 원이다. (입주 날짜가 잘 맞는다는 것도 정답)",
+      "why": "The sheet ran to three pages even in English: shorter wording, same questions and answers."
+    },
+    {
+      "op": "drop",
+      "path": "words[4]",
+      "before": {
+        "korean": "포함",
+        "roman": "poham",
+        "meaning": "being included (in a price or fee)",
+        "example": "아침 식사가 포함된 가격이에요.",
+        "exampleMeaning": "The price includes breakfast."
+      },
+      "why": "The sheet ran to three pages even in English: shorter wording, same questions and answers. 포함 is a common word, and 지훈 explains what is 포함 in the passage."
     }
   ]
 }

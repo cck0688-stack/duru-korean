@@ -48,25 +48,11 @@
       "exampleMeaning": "Bus ini menuju ke arah Stasiun Seoul."
     },
     {
-      "korean": "곧",
-      "roman": "got",
-      "meaning": "sebentar lagi, hampir tiba",
-      "example": "잠깐만요, 버스가 곧 와요.",
-      "exampleMeaning": "Tunggu sebentar, bus akan segera tiba."
-    },
-    {
       "korean": "번째 전",
       "roman": "beonjjae jeon",
       "meaning": "jumlah halte lagi (○번째 전 = bus berada ○ halte sebelum halte ini)",
       "example": "제가 탈 버스는 지금 2번째 전이에요.",
       "exampleMeaning": "Bus yang akan saya naiki sekarang tinggal dua halte lagi."
-    },
-    {
-      "korean": "전 정류장",
-      "roman": "jeon jeongnyujang",
-      "meaning": "halte tepat sebelum halte ini",
-      "example": "버스가 전 정류장에서 출발했어요.",
-      "exampleMeaning": "Bus itu sudah berangkat dari halte tepat sebelum halte ini."
     },
     {
       "korean": "출발 대기",

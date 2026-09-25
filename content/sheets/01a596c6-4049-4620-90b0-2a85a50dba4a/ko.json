@@ -48,25 +48,11 @@
       "exampleMeaning": "이 버스는 서울역 방면으로 가고 있습니다."
     },
     {
-      "korean": "곧",
-      "roman": "got",
-      "meaning": "곧, 거의 다 옴",
-      "example": "잠깐만요, 버스가 곧 와요.",
-      "exampleMeaning": "잠깐만 기다리세요, 버스가 곧 도착해요."
-    },
-    {
       "korean": "번째 전",
       "roman": "beonjjae jeon",
       "meaning": "○번째 전 (버스가 이 정류장보다 ○ 정류장 앞에 있다는 뜻)",
       "example": "제가 탈 버스는 지금 2번째 전이에요.",
       "exampleMeaning": "제가 탈 버스는 지금 두 정류장 전이에요."
-    },
-    {
-      "korean": "전 정류장",
-      "roman": "jeon jeongnyujang",
-      "meaning": "바로 앞 정류장",
-      "example": "버스가 전 정류장에서 출발했어요.",
-      "exampleMeaning": "버스가 바로 앞 정류장에서 출발했어요."
     },
     {
       "korean": "출발 대기",
