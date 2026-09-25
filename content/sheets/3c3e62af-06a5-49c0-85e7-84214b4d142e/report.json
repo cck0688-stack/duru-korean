@@ -899,6 +899,22 @@
       "after": "아침 7시 30분에 먹어요.",
       "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
       "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[6].meaning",
+      "before": "a three-day supply (3일 = three days, -분 = portion/amount for the number before it: 3일분 = for three days, 2인분 = for two people)",
+      "after": "a three-day supply (-분 = the amount for the number before it; 2인분 = for two people)",
+      "why": "A translation still ran onto a third page: trimmed in every language (no retranslation needed). Each language shortened by hand the same way.",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers[2]",
+      "before": "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일이니까 모두 아홉 번 먹어요.",
+      "after": "3일 동안 먹을 약이라는 뜻이에요. 모두 아홉 번 먹어요.",
+      "why": "Answer box one line shorter so fr/de fit two pages.",
+      "all_languages": true
     }
   ],
   "retranslated": {

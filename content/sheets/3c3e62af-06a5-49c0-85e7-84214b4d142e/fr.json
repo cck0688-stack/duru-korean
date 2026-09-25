@@ -20,7 +20,7 @@
   "answers": [
     "하루에 세 번, (아침, 점심, 저녁) 식후 30분에 먹어요.",
     "자기 전에만 먹어요. 점심 먹고 나서 먹으면 안 돼요.",
-    "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일이니까 모두 아홉 번 먹어요.",
+    "3일 동안 먹을 약이라는 뜻이에요. 모두 아홉 번 먹어요.",
     "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 사흘 동안 버스를 타기로 했어요.",
     "아침 7시 30분에 먹어요."
   ],
@@ -77,7 +77,7 @@
     {
       "korean": "3일분",
       "roman": "samilbun",
-      "meaning": "une réserve pour trois jours (3일 = trois jours, -분 = quantité/portion correspondant au nombre indiqué avant : 3일분 = pour trois jours, 2인분 = pour deux personnes)",
+      "meaning": "une réserve pour trois jours (-분 = quantité pour le nombre qui précède ; 2인분 = pour deux personnes)",
       "example": "약사가 5일분 약을 줬어요.",
       "exampleMeaning": "Le pharmacien m'a donné une réserve de médicaments pour cinq jours."
     },

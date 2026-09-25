@@ -684,6 +684,13 @@
       "after": "오늘 아침부터요.",
       "why": "Translation ran onto a third page: trimmed in every language (no retranslation needed).",
       "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "words[0]",
+      "before": "머리 — head",
+      "why": "A translation still ran onto a third page: trimmed in every language (no retranslation needed). 머리가 아파요 is taught in the dialogue with its meaning.",
+      "all_languages": true
     }
   ],
   "retranslated": {
