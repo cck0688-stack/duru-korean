@@ -640,10 +640,57 @@
   "manual": [
     {
       "op": "replace",
-      "path": "sections[4].heading",
-      "before": "Practice guide",
-      "after": "Note",
-      "why": "The section holds only the disclaimer; the heading promised practice instructions."
+      "path": "summary",
+      "before": "Read two short apartment notices (water shut-off and power outage due to inspection) and practice scanning for date/time, place, reason, and what residents should do. Focus on eight frequent labels/words.",
+      "after": "Read two short apartment notices (water shut-off and power outage) and practice finding the date, time, place, reason, and what residents should do.",
+      "why": "Three pages in es/id/pt-BR/fr/de: tightened so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "Learners will be able to read short building notices about water/power outages and inspections and quickly find date, time, affected area, and what residents should do; and recognize 8 frequent labels/words (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+      "after": "Learners will quickly find the date, time, affected area, and what to do in short water or power outage notices, and recognize 8 frequent labels (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+      "why": "Three pages in es/id/pt-BR/fr/de: tightened so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "replace",
+      "path": "sections[3].paragraphs[0]",
+      "before": "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need.",
+      "after": "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need. The notices use 24-hour time: ~ means from–to, 동 is the building number, and 층 is the floor.",
+      "why": "Three pages in es/id/pt-BR/fr/de: tightened so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "sections[3].paragraphs[1]",
+      "before": "Get used to numbers and symbols",
+      "why": "merged into the first line"
+    },
+    {
+      "op": "replace",
+      "path": "sections[3].paragraphs[1]",
+      "before": "To find what residents should do, look in the 유의사항 (precautions) line for request endings like -세요.",
+      "after": "What residents should do is in the 유의사항 (precautions) line, usually with the request ending -세요.",
+      "why": "Three pages in es/id/pt-BR/fr/de: tightened so every language fits the two-page rule without squeezing."
+    },
+    {
+      "op": "drop",
+      "path": "sections[4]",
+      "before": "learning examples",
+      "why": "The disclaimer moves to the note box (the section heading promised practice instructions)."
+    },
+    {
+      "op": "replace",
+      "path": "note",
+      "before": "",
+      "after": "The notices here are learning examples, not real schedules or contact numbers.",
+      "why": "disclaimer, now in the note box"
+    },
+    {
+      "op": "replace",
+      "path": "exercises[4]",
+      "before": "Write the contact place and phone number exactly as written in the notices: 두 공지의 문의처는 어디입니까?",
+      "after": "Write the contact exactly as in the notices (place and phone number): 두 공지의 문의처는 어디입니까?",
+      "why": "Three pages in es/id/pt-BR/fr/de: tightened so every language fits the two-page rule without squeezing."
     }
   ]
 }
