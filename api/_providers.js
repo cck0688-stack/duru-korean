@@ -48,6 +48,11 @@ export const LANGUAGES = {
   zh: 'Simplified Chinese'
 };
 
+// Every language something can be translated into: the site's eight,
+// plus the two the downloads are also made in (2026-09-25). LANGUAGES
+// stays the list the site accepts and serves; this one only names.
+export const LANGUAGE_NAMES = Object.assign({}, LANGUAGES, { fr: 'French', de: 'German' });
+
 export class TranslateError extends Error {
   constructor(status, message) {
     super(message);
@@ -83,7 +88,7 @@ function systemPrompt(fromName, targets, count, note) {
     '  writer typed — "2) 번호가 있으면" — that number is part of the sentence and must stay,',
     '  exactly as it is written, with the same bracket or full stop after it.',
     '',
-    'Target languages: ' + targets.map(function (c) { return LANGUAGES[c] + ' (' + c + ')'; }).join(', ') + '.',
+    'Target languages: ' + targets.map(function (c) { return LANGUAGE_NAMES[c] + ' (' + c + ')'; }).join(', ') + '.',
     'Return one entry per target language, with its code exactly as given above.'
   ].join('\n');
 }
@@ -658,9 +663,11 @@ const DEEPL_TARGET = {
   ko: 'KO',
   ja: 'JA',
   zh: 'ZH',
-  vi: 'VI'
+  vi: 'VI',
+  fr: 'FR',
+  de: 'DE'
 };
-const DEEPL_SOURCE = { en: 'EN', es: 'ES', id: 'ID', 'pt-BR': 'PT', ko: 'KO', ja: 'JA', zh: 'ZH', vi: 'VI' };
+const DEEPL_SOURCE = { en: 'EN', es: 'ES', id: 'ID', 'pt-BR': 'PT', ko: 'KO', ja: 'JA', zh: 'ZH', vi: 'VI', fr: 'FR', de: 'DE' };
 
 const deepl = {
   envKeys: ['DEEPL_API_KEY'],
@@ -681,7 +688,7 @@ const deepl = {
     for (const code of opts.targets) {
       const target = DEEPL_TARGET[code];
       if (!target) {
-        throw new TranslateError(400, 'DeepL does not translate into ' + LANGUAGES[code] + '. Use another provider for it.');
+        throw new TranslateError(400, 'DeepL does not translate into ' + LANGUAGE_NAMES[code] + '. Use another provider for it.');
       }
       const response = await send(cfg, 'DeepL', base + '/translate', {
         method: 'POST',
@@ -697,7 +704,7 @@ const deepl = {
         })
       });
       if (response.status === 400) {
-        throw new TranslateError(400, 'DeepL would not translate into ' + LANGUAGES[code] +
+        throw new TranslateError(400, 'DeepL would not translate into ' + LANGUAGE_NAMES[code] +
           '. It may not offer that language — use another provider for it.');
       }
       if (response.status === 456) {

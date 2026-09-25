@@ -272,7 +272,7 @@ export async function render({ origin, kind, lang, page, slug, id }) {
     const body = root.querySelector('#resBody');
     if (body && text) body.set_content(text.split(/\n{2,}/).map((x) => '<p>' + esc(x.trim()) + '</p>').join(''));
     const NAMES = { en: 'English', vi: 'Tiếng Việt', es: 'Español', id: 'Bahasa Indonesia', 'pt-BR': 'Português (BR)',
-      ko: '한국어', ja: '日本語', zh: '中文' };
+      ko: '한국어', ja: '日本語', zh: '中文', fr: 'Français', de: 'Deutsch' };
     const factLangs = root.querySelector('#resFactLangs');
     if (factLangs) factLangs.set_content(esc(langs.map((l) => NAMES[l] || l).join(', ')));
     // The address it now lives at is deeper than the template's, so its

@@ -88,6 +88,11 @@ tr { break-inside: avoid; }
 .ex-kr { font-family: 'Noto Sans KR', sans-serif; font-size: 12px; }
 .ex-tr { font-size: 10.5px; color: #5b6b66; }
 
+/* The words in an example that show the pattern (templates.mjs,
+   markedHTML). Bold and underlined, so it survives a black-and-white
+   printer. */
+.mark { font-weight: 700; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+
 /* Reading passages want line height and a wider measure than a table. */
 .passage { font-family: 'Noto Sans KR', sans-serif; font-size: 13.5px; line-height: 2.05; }
 .passage p { margin: 0 0 11px; }

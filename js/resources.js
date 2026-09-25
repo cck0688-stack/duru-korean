@@ -95,7 +95,7 @@
     // Asked of the database, one count per language, only when the
     // chosen language turned out empty.
     function langsPresent() {
-      var codes = R.LANGS.map(function (l) { return l.code; });
+      var codes = R.FILE_LANGS.map(function (l) { return l.code; });
       return Promise.all(codes.map(function (c) {
         return filtered('id,hit:resource_files!inner(id)', { count: 'exact', head: true }, c)
           .then(function (res) { return !res.error && res.count > 0; }, function () { return false; });
@@ -157,10 +157,10 @@
     // what to do when the chosen language has nothing.
     function buildLangSelect() {
       if (!langSel) return;
-      langSel.innerHTML = R.LANGS.map(function (l) {
+      langSel.innerHTML = R.FILE_LANGS.map(function (l) {
         return '<option value="' + esc(l.code) + '">' + esc(l.label) + '</option>';
       }).join('');
-      if (!R.LANGS.some(function (l) { return l.code === state.lang; })) state.lang = 'en';
+      if (!R.FILE_LANGS.some(function (l) { return l.code === state.lang; })) state.lang = 'en';
       langSel.value = state.lang;
     }
 
@@ -541,7 +541,7 @@
         return '<div class="res-picked-row">' +
           '<span class="res-picked-name" title="' + esc(p.file.name) + '">' + esc(p.file.name) + '</span>' +
           '<span class="res-picked-size">' + esc(R.formatSize(p.file.size)) + '</span>' +
-          '<select data-i="' + i + '">' + R.LANGS.map(function (l) {
+          '<select data-i="' + i + '">' + R.FILE_LANGS.map(function (l) {
             return '<option value="' + l.code + '"' + (l.code === p.lang ? ' selected' : '') + '>' + esc(l.label) + '</option>';
           }).join('') + '</select>' +
           '<button type="button" class="res-linkbtn res-linkbtn--danger" data-drop="' + i + '">' + esc(t('resource.removeFile', 'Remove')) + '</button>' +

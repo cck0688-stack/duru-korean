@@ -26,6 +26,13 @@
     { code: 'ja', label: '日本語', short: 'JA' },
     { code: 'zh', label: '中文', short: 'ZH' }
   ];
+  // The languages a download's files come in: the site's eight, and two
+  // the site itself does not speak yet (2026-09-25). Files only — the
+  // blog, the site picker and the title translations stay on LANGS.
+  var FILE_LANGS = LANGS.concat([
+    { code: 'fr', label: 'Français', short: 'FR' },
+    { code: 'de', label: 'Deutsch', short: 'DE' }
+  ]);
   // The shelves, in the order they are shown. This is the one list:
   // the cards on the downloads page, the picker in the admin editor and
   // the label on a resource page all read it, so adding a shelf is
@@ -137,10 +144,10 @@
   // that language; guessing saves picking it by hand for every file.
   function guessLang(name) {
     var base = String(name || '').replace(/\.[a-z0-9]+$/i, '').toLowerCase();
-    for (var i = 0; i < LANGS.length; i++) {
-      var code = LANGS[i].code.toLowerCase();
+    for (var i = 0; i < FILE_LANGS.length; i++) {
+      var code = FILE_LANGS[i].code.toLowerCase();
       var tail = new RegExp('[-_. ]' + code.replace('-', '[-_]?') + '$');
-      if (tail.test(base)) return LANGS[i].code;
+      if (tail.test(base)) return FILE_LANGS[i].code;
     }
     return null;
   }
@@ -173,7 +180,7 @@
     return LANGS.some(function (l) { return l.code === code; }) ? code : 'en';
   }
   function langEntry(code) {
-    return LANGS.filter(function (l) { return l.code === code; })[0] || { code: code, label: code, short: String(code || '').slice(0, 2).toUpperCase() };
+    return FILE_LANGS.filter(function (l) { return l.code === code; })[0] || { code: code, label: code, short: String(code || '').slice(0, 2).toUpperCase() };
   }
   function langLabel(code) { return langEntry(code).label; }
   function langShort(code) { return langEntry(code).short; }
@@ -205,7 +212,7 @@
   function availableFiles(resource, includeHidden) {
     var files = (resource && resource.resource_files) || [];
     files = files.filter(function (f) { return includeHidden || f.published !== false; });
-    var order = LANGS.map(function (l) { return l.code; });
+    var order = FILE_LANGS.map(function (l) { return l.code; });
     return files.slice().sort(function (a, b) {
       var ia = order.indexOf(a.lang), ib = order.indexOf(b.lang);
       return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
@@ -423,7 +430,7 @@
 
   window.DURU_RES = {
     BUCKET: BUCKET, DRAFTS: DRAFTS, COVERS: COVERS,
-    publishResource: publishResource, publishFiles: publishFiles, rejectResource: rejectResource, isPending: isPending, LANGS: LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
+    publishResource: publishResource, publishFiles: publishFiles, rejectResource: rejectResource, isPending: isPending, LANGS: LANGS, FILE_LANGS: FILE_LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
     MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX, ACCEPT: ACCEPT, PREVIEWABLE: PREVIEWABLE,
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,

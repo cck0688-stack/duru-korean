@@ -86,6 +86,24 @@ function reading(s, L) {
     practice(s, L);
 }
 
+// An example sentence with the words that show the pattern in bold and
+// underlined — "지금 커피를 **마시는** 사람이…" (the owner, 2026-09-25).
+// `marks` are copied from the sentence by the writer; one that is not
+// in it marks nothing, so a wrong mark can hide nothing and add nothing.
+export function markedHTML(text, marks) {
+  const s = String(text == null ? '' : text);
+  const want = list(marks).map((m) => String(m || '').trim()).filter((m) => m && s.includes(m))
+    .sort((a, b) => b.length - a.length);
+  if (!want.length) return esc(s);
+  let out = '';
+  let i = 0;
+  while (i < s.length) {
+    const hit = want.find((m) => s.startsWith(m, i));
+    if (hit) { out += '<b class="mark">' + esc(hit) + '</b>'; i += hit.length; } else { out += esc(s[i]); i += 1; }
+  }
+  return out;
+}
+
 /* ---- grammar ----------------------------------------------------- */
 // The pattern stated once, then what it does, then where it goes
 // wrong. The last part is what people actually keep the sheet for.
@@ -95,7 +113,7 @@ function grammar(s, L) {
       '<tr><td><div class="word" lang="ko">' + esc(f.form) + '</div>' +
       (f.when ? '<div class="rom">' + esc(f.when) + '</div>' : '') + '</td>' +
       '<td>' + esc(f.means) + '</td>' +
-      '<td><div class="ex-kr" lang="ko">' + esc(f.example) + '</div>' +
+      '<td><div class="ex-kr" lang="ko">' + markedHTML(f.example, f.mark) + '</div>' +
       (f.exampleMeaning ? '<div class="ex-tr">' + esc(f.exampleMeaning) + '</div>' : '') +
       '</td></tr>').join('') + '</tbody></table></section>' +
     (list(s.watchOut).length

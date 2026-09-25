@@ -376,7 +376,7 @@
       var files = R.availableFiles(r, true);
       var taken = {};
       files.forEach(function (f) { taken[f.lang] = true; });
-      var free = R.LANGS.filter(function (l) { return !taken[l.code]; });
+      var free = R.FILE_LANGS.filter(function (l) { return !taken[l.code]; });
 
       editor.innerHTML =
         '<div class="res-editor">' +

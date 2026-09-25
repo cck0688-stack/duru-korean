@@ -110,7 +110,21 @@ const LABELS = {
         letters: 'As letras', letter: 'Letra', sound: 'Som', practice: 'Cubra e copie',
         nowTheWords: 'Agora as palavras', yourTurn: 'Sua vez', goodToKnow: 'Bom saber —',
         level: 'Nível', minutes: 'min', objective: 'Para que serve esta folha',
-        answers: 'Respostas', sources: 'Fontes consultadas' }
+        answers: 'Respostas', sources: 'Fontes consultadas' },
+  fr: { words: 'Vocabulaire', word: 'Mot', phrase: 'Expression', meaning: 'Sens', inUse: 'En contexte',
+        passage: 'Lisez ce texte', glossary: 'Mots du texte', pattern: 'La structure',
+        watchOut: 'Attention', dialogue: 'Le dialogue', phrases: 'Expressions à retenir',
+        letters: 'Les lettres', letter: 'Lettre', sound: 'Son', practice: 'Repasser et recopier',
+        nowTheWords: 'Maintenant, les mots', yourTurn: 'À vous', goodToKnow: 'Bon à savoir —',
+        level: 'Niveau', minutes: 'min', objective: 'Objectif de cette fiche',
+        answers: 'Corrigé', sources: 'Sources consultées' },
+  de: { words: 'Wortschatz', word: 'Wort', phrase: 'Ausdruck', meaning: 'Bedeutung', inUse: 'Im Satz',
+        passage: 'Lies diesen Text', glossary: 'Wörter im Text', pattern: 'Die Struktur',
+        watchOut: 'Achtung', dialogue: 'Das Gespräch', phrases: 'Ausdrücke zum Merken',
+        letters: 'Die Buchstaben', letter: 'Buchstabe', sound: 'Laut', practice: 'Nachfahren und abschreiben',
+        nowTheWords: 'Jetzt die Wörter', yourTurn: 'Jetzt du', goodToKnow: 'Gut zu wissen —',
+        level: 'Niveau', minutes: 'Min.', objective: 'Ziel dieses Arbeitsblatts',
+        answers: 'Lösungen', sources: 'Geprüfte Quellen' }
 };
 
 export function labelsFor(lang) { return LABELS[lang] || LABELS.en; }
@@ -225,7 +239,7 @@ export async function sheetHTML(sheet, opts = {}) {
 
   return '<!doctype html><html lang="' + esc(lang) + '"><head><meta charset="utf-8">' +
     '<title>' + esc(sheet.title) + '</title>' +
-    '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2' + (opts.compact ? ' compact' : '') + '"' : '') + '>' +
+    '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2' + (opts.compact === true ? ' compact' : '') + '"' : '') + '>' +
     (v2 ? '' : masthead(sheet, L)) +
     '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' +
     (v2 && (opts.category || sheet.category) === 'hangul' ? titleHTML(sheet.title) : esc(sheet.title)) + '</h1>' +
@@ -367,31 +381,51 @@ export async function renderSheet(sheet, opts = {}) {
       displayHeaderFooter: true,
       ...frame
     });
-    let pdf = await print();
-    let used = html;
+    const { pageBreakdown } = await import('./check.mjs');
+    const pages = (x) => pageBreakdown(x).pages;
+    const cls = (name, on) => page.evaluate(([n, o]) => document.body.classList.toggle(n, o), [name, on]);
+
     // The owner's rule (2026-09-25): the answers follow the questions,
     // not a page of their own. When they do not fit under the last
     // question — the sheet is a page longer with them than without —
     // the sheet is set a little tighter and the answers in two columns,
     // and that is kept if it saves the page.
-    if (opts.fit !== false && await page.$('.answers')) {
-      const { pageBreakdown } = await import('./check.mjs');
-      const pages = (x) => pageBreakdown(x).pages;
-      const withAnswers = pages(pdf);
+    const settle = async () => {
+      let out = await print();
+      if (opts.fit === false || !await page.$('.answers')) return out;
+      const withAnswers = pages(out);
       await page.evaluate(() => { document.querySelector('.answers').style.display = 'none'; });
       const without = pages(await print());
       await page.evaluate(() => { document.querySelector('.answers').style.display = ''; });
       if (withAnswers > without) {
-        await page.evaluate(() => document.body.classList.add('fit'));
+        await cls('fit', true);
         const tight = await print();
-        if (pages(tight) < withAnswers) {
-          pdf = tight;
-          used = html.replace(/<body(?: class="([^"]*)")?>/, (m, c) => '<body class="' + (c ? c + ' ' : '') + 'fit">');
-        } else {
-          await page.evaluate(() => document.body.classList.remove('fit'));
-        }
+        if (pages(tight) < withAnswers) return tight;
+        await cls('fit', false);
+      }
+      return out;
+    };
+
+    if (opts.compact === true) await cls('compact', true);
+    let pdf = await settle();
+    // And (the owner, 2026-09-25): a sheet is two pages. One that runs
+    // past two is set compact (sheet-v2.css: the same design, closer),
+    // and that is kept when it saves a page. One that is long even then
+    // stays as long as it is — nothing is squeezed past legible.
+    if (opts.compact === undefined && design === 'v2' && pages(pdf) > 2) {
+      const before = await page.evaluate(() => document.body.className);
+      await cls('fit', false);
+      await cls('compact', true);
+      const closer = await settle();
+      if (pages(closer) < pages(pdf)) {
+        pdf = closer;
+      } else {
+        await page.evaluate((c) => { document.body.className = c; }, before);
+        pdf = await print();
       }
     }
+    const bodyClass = await page.evaluate(() => document.body.className);
+    let used = html.replace(/<body(?: class="[^"]*")?>/, bodyClass ? '<body class="' + bodyClass + '">' : '<body>');
     // The owner's rule (2026-09-25): the answers sit at the very foot of
     // the last page, however much room that leaves above them, so a
     // learner working down the page does not see them first. A gap goes
@@ -399,8 +433,6 @@ export async function renderSheet(sheet, opts = {}) {
     // found by trying, because only the printed PDF knows where Chromium
     // breaks its pages. A dozen quick prints for a sheet.
     if (opts.pin !== false && await page.$('.answers')) {
-      const { pageBreakdown } = await import('./check.mjs');
-      const pages = (x) => pageBreakdown(x).pages;
       const want = pages(pdf);
       const gap = (px) => page.evaluate((h) => {
         let el = document.querySelector('.answers-gap');
