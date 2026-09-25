@@ -412,8 +412,10 @@ export { TranslateError };
 // Every field that explains, paired with where it lives. The Korean
 // fields — korean, example, passage, form, letter, dialogue.korean —
 // are deliberately absent.
+// `level` too: "Intermediate (low)" is printed on every page of every
+// edition, and was left in English on all of them.
 const EXPLAINS = [
-  ['summary'], ['objective'], ['note'], ['setting']
+  ['level'], ['summary'], ['objective'], ['note'], ['setting']
 ];
 
 export function explanatoryText(sheet) {
@@ -435,6 +437,11 @@ export function explanatoryText(sheet) {
     push(null, (s, v) => { s.words[i].exampleMeaning = v; }, w.exampleMeaning);
   });
   (sheet.forms || []).forEach((f, i) => {
+    // The form's name is Korean with an English label on it — "동사 +
+    // -는 (present)", "있다 / 없다 words + -는" — and the label is prose.
+    // Sent every time (a translation keeps the Korean, checked by
+    // proofread.mjs), so the slots line up between editions.
+    push(null, (s, v) => { s.forms[i].form = v; }, f.form);
     push(null, (s, v) => { s.forms[i].when = v; }, f.when);
     push(null, (s, v) => { s.forms[i].means = v; }, f.means);
     push(null, (s, v) => { s.forms[i].exampleMeaning = v; }, f.exampleMeaning);
