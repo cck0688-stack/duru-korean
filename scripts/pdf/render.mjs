@@ -193,9 +193,12 @@ function answersPage(sheet, L) {
   if (!answers.length) return '';
   // Numbered the same way the questions are — "1)" — so the two halves
   // of the sheet read as one list, not as "1." over here and "1)" there.
-  const list = answers.map((a, i) => '<div class="a"><span class="n">' + (i + 1) + ')</span>' +
-      esc(typeof a === 'string' ? a : a.answer) +
-      (a && a.why ? ' <span class="ex-tr">— ' + esc(a.why) + '</span>' : '') + '</div>').join('');
+  // The number and the answer side by side, so a long answer's second
+  // line starts under its first word, not under the number (the owner,
+  // 2026-09-25).
+  const list = answers.map((a, i) => '<div class="a"><span class="n">' + (i + 1) + ')</span><span class="a-text">' +
+      keepEndings(esc(typeof a === 'string' ? a : a.answer)) +
+      (a && a.why ? ' <span class="ex-tr">— ' + esc(a.why) + '</span>' : '') + '</span></div>').join('');
   return '<div class="answers"><h2>' + esc(L.answers) + '</h2>' +
     (L.design === 'v2' ? '<div class="answer-box">' + list + '</div>' : list) + '</div>';
 }
