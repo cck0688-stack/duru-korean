@@ -46,8 +46,11 @@ on:
 permissions:
   contents: write
 
+# A retranslate touches other sheets than a prepare and is short, so it
+# runs beside one instead of queueing (the group keeps one waiting run
+# only: a queued one would be replaced by the next dispatch or the daily run).
 concurrency:
-  group: rework-sheets
+  group: ${{ inputs.mode == 'retranslate' && 'rework-retranslate' || 'rework-sheets' }}
   cancel-in-progress: false
 
 jobs:
@@ -133,4 +136,11 @@ jobs:
           git add -A sheets
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -q -m "Prepared worksheets ($(ls sheets | wc -l) so far)"
-          git push -q origin rework-output
+          # A retranslate may have pushed meanwhile: different sheets, so
+          # taking its commit first never conflicts.
+          for i in 1 2 3 4; do
+            git push -q origin rework-output && exit 0
+            git pull -q --rebase origin rework-output || true
+            sleep $((i * 5))
+          done
+          exit 1
