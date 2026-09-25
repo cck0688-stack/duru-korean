@@ -252,5 +252,136 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T15:25:22.148Z"
+  "preparedAt": "2026-09-25T15:25:22.148Z",
+  "retranslated": {
+    "at": "2026-09-25T18:32:08.299Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 21,
+            "problem": "Meaning changed: the English says there is no exact English match, but the translation says there is no equivalent 'en español'. It also drops the specific hint about the \"tch\" in \"pitch\" and replaces it with a generic \"ch\". Spanish \"ch\" has little breath, so it's actually close to ㅉ, which makes the claim misleading.",
+            "fix": "No tiene un equivalente exacto en inglés. Piensa en la \"tch\" de \"pitch\" en inglés, pero tensa la garganta y la lengua y no dejes salir aire."
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 12,
+            "problem": "The first meaning 'to hit' is missing. 'tocar; jogar' only covers 'to play'.",
+            "fix": "bater; tocar/jogar (piano, tênis de mesa, tênis etc.)"
+          },
+          {
+            "line": 20,
+            "problem": "'sharp' is translated as 'forte' ('strong'), which changes the description. 'sharp' here means crisp or clipped.",
+            "fix": "jj (tenso): apertado, seco e sem nenhuma saída de ar"
+          },
+          {
+            "line": 21,
+            "problem": "The source says there is no exact match in English, but the translation says 'em português'. This changes the meaning, and the line then compares the sound to an English word ('pitch').",
+            "fix": "Não tem equivalente exato em inglês. Pense no som de \"tch\" em \"pitch\" (inglês), mas aperte a garganta e a língua e não solte nenhum ar."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 20,
+            "problem": "The translation leaves out \"sharp\" and adds \"throat and tongue\" (목과 혀에), which comes from line 21. The English here only says the sound is tight and sharp with no puff of air.",
+            "fix": "ㅉ(경음): 힘이 꽉 들어가고 날카로우며, 숨이 전혀 나오지 않아요."
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 16,
+            "problem": "\"only a little breath\" is translated as 息はほとんど出ません (\"almost no breath comes out\"). This changes the description of ㅈ and contradicts line 17, which says it has a little air (息が少しだけ混じった).",
+            "fix": "j(平音):柔らかく力を抜いた音で、息は少しだけ出ます"
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 12,
+            "problem": "'弹奏' is wrongly applied to table tennis and tennis (you cannot '弹奏乒乓球'); the sense split is wrong: 打 goes with ball games, 弹 with piano.",
+            "fix": "打(乒乓球、网球等);弹(钢琴)"
+          },
+          {
+            "line": 17,
+            "problem": "The hedge 'can sound like' is lost; the translation states it always sounds like a light 'ch'.",
+            "fix": "接近\"jam\"中的\"j\"音,但更柔和。在词首时,它可能听起来像轻声的\"ch\",只带一点点气流。"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "\"Wortpaaren\" (word pairs) is wrong: each set has three words (자다/차다/짜다, 지다/치다/찌다). The English says \"sets\".",
+            "fix": "Lerne, wie ㅈ, ㅊ und ㅉ am Wortanfang klingen. Sie unterscheiden sich durch Atem und Anspannung. Nutze das, um in Wortgruppen wie 자다/차다/짜다 und 지다/치다/찌다 das richtige Verb zu wählen."
+          },
+          {
+            "line": 21,
+            "problem": "The English says there is no exact match in English, but the German says \"im Deutschen\". That changes the meaning and doesn't fit the English example word \"pitch\" in the next sentence.",
+            "fix": "Keine exakte Entsprechung im Englischen. Denk an das „tch“ in „pitch“, aber spanne Kehle und Zunge an und lass keine Luft entweichen."
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "\"sets\" of three verbs is translated as \"paires\" (pairs), but 자다/차다/짜다 and 지다/치다/찌다 each have three members.",
+            "fix": "Apprenez comment sonnent ㅈ, ㅊ et ㅉ en début de mot. Ils se distinguent par le souffle et la tension. Utilisez-les pour choisir le bon verbe dans des séries comme 자다/차다/짜다 et 지다/치다/찌다."
+          },
+          {
+            "line": 3,
+            "problem": "\"sets\" of three words is translated as \"paires\" (pairs), but each set has three members.",
+            "fix": "Les débutants apprendront à distinguer et à prononcer ㅈ (simple), ㅊ (aspiré) et ㅉ (tendu) en début de mot, puis à choisir le bon mot dans les séries 자다/차다/짜다 et 지다/치다/찌다."
+          },
+          {
+            "line": 21,
+            "problem": "The English says there is no exact English match. The French says \"en français\", which changes the meaning, and the line then compares the sound to English \"pitch\".",
+            "fix": "Il n'existe pas d'équivalent exact en anglais. Pensez au son « tch » de « pitch » en anglais, mais en serrant la gorge et la langue, sans laisser sortir d'air."
+          }
+        ]
+      }
+    }
+  }
 }

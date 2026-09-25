@@ -1,8 +1,8 @@
 {
   "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
   "keyword": "ㄱ·ㅋ·ㄲ",
-  "summary": "Luyện phân biệt và phát âm phụ âm đầu ㄱ (âm thường), ㅋ (âm bật hơi), và ㄲ (âm căng). Sử dụng các mốc âm tiếng Anh rõ ràng: ㄱ ≈ âm nhẹ nằm giữa 'g' và 'k' trong tiếng Anh, ㅋ ≈ âm 'k' trong từ \"key\", ㄲ = âm 'kk' căng, không có âm tương đương chính xác trong tiếng Anh. Đọc và chọn những từ đơn giản bắt đầu bằng các phụ âm này.",
-  "objective": "Người học trình độ sơ cấp sẽ nghe và phát âm chính xác các phụ âm đầu ㄱ (âm thường), ㅋ (âm bật hơi), và ㄲ (âm căng) ở vị trí đầu từ, liên hệ chúng với các mốc âm tiếng Anh hữu ích (ㄱ ≈ nằm giữa 'g' và 'k' trong tiếng Anh, có một luồng hơi nhẹ; ㅋ ≈ âm 'k' trong \"key\"; ㄲ = âm 'kk' căng, không có âm tương đương chính xác trong tiếng Anh), đồng thời đọc và chọn đúng những từ đơn giản chứa các phụ âm đầu này.",
+  "summary": "Luyện phân biệt và phát âm phụ âm đầu ㄱ (âm thường), ㅋ (âm bật hơi) và ㄲ (âm căng). Dùng các âm tiếng Anh tham chiếu dễ hiểu: ㄱ ≈ âm nhẹ nằm giữa g và k trong tiếng Anh, ㅋ ≈ âm k trong từ “key”, ㄲ = âm “kk” căng, không có âm tương đương chính xác trong tiếng Anh. Đọc và chọn những từ đơn giản bắt đầu bằng các phụ âm này.",
+  "objective": "Người học trình độ sơ cấp sẽ nghe và phát âm chính xác ㄱ (âm thường), ㅋ (âm bật hơi) và ㄲ (âm căng) ở vị trí đầu từ, liên hệ chúng với các âm tiếng Anh tham chiếu hữu ích (ㄱ ≈ nằm giữa g và k trong tiếng Anh, có một luồng hơi nhẹ; ㅋ ≈ âm k trong từ “key”; ㄲ = âm “kk” căng, không có âm tương đương chính xác), đồng thời đọc và chọn đúng những từ đơn giản chứa các phụ âm đầu này.",
   "level": "Sơ cấp",
   "minutes": 15,
   "tags": [],
@@ -12,33 +12,33 @@
   },
   "exercises": [
     "Chọn từ bắt đầu bằng ㅋ (âm bật hơi): 가게 / 코 / 꽃",
-    "Đọc cách phiên âm La-tinh và chọn từ tiếng Hàn tương ứng: kkoma → 가방 / 꼬마 / 카메라",
+    "Đọc phần phiên âm La-tinh và chọn từ tiếng Hàn tương ứng: kkoma → 가방 / 꼬마 / 카메라",
     "Chọn từ bắt đầu bằng ㄱ (âm thường): 콩 / 껌 / 고기",
     "Nối mỗi từ với phụ âm đầu của nó: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
-    "Nối mỗi gợi ý tiếng Anh với từ có âm đầu phù hợp: nằm giữa 'g' và 'k' (hơi nhẹ) / âm 'k' trong \"key\" / âm 'kk' căng → Các lựa chọn: 꽃, 가게, 카메라"
+    "Nối mỗi gợi ý tiếng Anh với từ có âm đầu phù hợp: nằm giữa 'g' và 'k' (hơi nhẹ) / âm 'k' trong \"key\" / âm 'kk' căng → Lựa chọn: 꽃, 가게, 카메라"
   ],
   "answers": [
     "코",
     "꼬마",
     "고기",
     "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
-    "between g and k→가게, key→카메라, kk→꽃"
+    "giữa g và k→가게, key→카메라, kk→꽃"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "Phụ âm thường (lỏng). Phần gốc lưỡi khép nhẹ vào ngạc mềm rồi bật ra. Ở đầu từ, có một luồng hơi nhẹ thoát ra: yếu hơn ㅋ và nhẹ hơn ㄲ.",
-      "as": "nằm giữa 'g' và 'k' trong tiếng Anh (hơi nhẹ)"
+      "sound": "Phụ âm thường (lỏng). Gốc lưỡi khẽ chạm vào ngạc mềm rồi buông ra. Ở đầu từ, có một luồng hơi nhẹ thoát ra: yếu hơn ㅋ và nhẹ hơn ㄲ.",
+      "as": "nằm giữa g và k trong tiếng Anh (hơi nhẹ)"
     },
     {
       "letter": "ㅋ",
-      "sound": "Phụ âm bật hơi. Vị trí lưỡi giống ㄱ, nhưng được bật ra với luồng hơi mạnh.",
-      "as": "âm 'k' trong \"key\" (hơi mạnh)"
+      "sound": "Phụ âm bật hơi. Vị trí lưỡi giống ㄱ, nhưng khi buông ra có một luồng hơi mạnh.",
+      "as": "âm k trong từ 'key' (hơi mạnh)"
     },
     {
       "letter": "ㄲ",
-      "sound": "Phụ âm căng. Vị trí lưỡi giống ㄱ, nhưng cổ họng và lưỡi căng lại, âm được bật ra dứt khoát, không có hơi thoát ra.",
+      "sound": "Phụ âm căng. Vị trí lưỡi giống ㄱ, nhưng họng và lưỡi được căng lên và âm được phát ra dứt khoát, không có luồng hơi thoát ra.",
       "as": "âm 'kk' căng (không có âm tương đương chính xác trong tiếng Anh)"
     }
   ],
@@ -46,7 +46,7 @@
     {
       "korean": "가방",
       "roman": "gabang",
-      "meaning": "túi xách",
+      "meaning": "cái túi",
       "example": "가방이 있어요.",
       "exampleMeaning": "Có một cái túi."
     },
@@ -97,7 +97,7 @@
       "roman": "kkoma",
       "meaning": "đứa trẻ nhỏ",
       "example": "꼬마가 웃어요.",
-      "exampleMeaning": "Đứa trẻ nhỏ mỉm cười."
+      "exampleMeaning": "Đứa trẻ nhỏ cười."
     },
     {
       "korean": "꽃",

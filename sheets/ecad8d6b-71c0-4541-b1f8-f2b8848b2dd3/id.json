@@ -1,46 +1,46 @@
 {
   "title": "약국에서 증상 말하고 약 사기",
   "keyword": "약국에서 증상 말하고 약 사기",
-  "summary": "Percakapan singkat dan realistis di sebuah apotek Korea. Seorang pelanggan tanpa resep menjelaskan sakit kepala, demam, dan pilek, menjawab pertanyaan apoteker, dan mendapat petunjuk cara minum obat flu.",
-  "objective": "Pada akhirnya, pelajar dapat membeli obat bebas di apotek Korea: menyebutkan satu gejala dengan '머리가 아파요 / 콧물이 나요 / 열이 나요', menjawab pertanyaan apoteker (처방전 있으세요? 언제부터요? 알레르기 있으세요?), dan memahami petunjuk dosis '하루 세 번, 식후 30분에 드세요'.",
-  "level": "Pemula (tinggi)",
+  "summary": "Percakapan singkat di apotek Korea: seorang pelanggan tanpa resep dokter menjelaskan gejala pilek yang dialaminya, menjawab pertanyaan apoteker, dan mempelajari cara minum obatnya.",
+  "objective": "Peserta dapat menyebutkan gejala yang dialami (머리가 아파요 / 열이 나요 / 콧물이 나요), menjawab pertanyaan apoteker (처방전 있으세요? 언제부터 아프셨어요? 알레르기 있으세요?), dan memahami kalimat '하루 세 번, 식후 30분에 드세요'.",
+  "level": "Pemula (tingkat tinggi)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "약국에서 약 사기",
-    "line": "Kamu demam dan pilek sejak kemarin. Sampaikan gejalamu kepada apoteker, jawab pertanyaan mereka, dan ulangi cara minum obatnya."
+    "title": "Membeli obat di apotek",
+    "line": "Kamu mengalami demam dan pilek sejak kemarin. Sampaikan gejalamu kepada apoteker, jawab pertanyaannya, dan ulangi cara minum obat yang dijelaskan."
   },
   "exercises": [
     "Apoteker bertanya: '처방전 있으세요?' Kamu tidak punya resep. Jawablah dalam bahasa Korea.",
-    "Apoteker bertanya: '언제부터 아프셨어요?' Kamu mulai merasa sakit pagi ini (오늘 아침). Jawablah dalam bahasa Korea.",
-    "Apoteker bertanya: '알레르기 있으세요?' Kamu alergi terhadap aspirin (아스피린). Jawablah dalam bahasa Korea.",
-    "Apoteker berkata: '하루 세 번, 식후 30분에 드세요.' Dalam bahasa Inggris, berapa kali sehari kamu harus minum obat ini, dan kapan?",
-    "Apoteker bertanya: '어디가 아파서 오셨어요?' Kamu sakit kepala dan pilek. Jawablah dalam bahasa Korea."
+    "Apoteker bertanya: '언제부터 아프셨어요?' Kamu mulai merasa sakit sejak pagi ini (오늘 아침). Jawablah dalam bahasa Korea.",
+    "Apoteker bertanya: '알레르기 있으세요?' Kamu alergi aspirin (아스피린). Jawablah dalam bahasa Korea.",
+    "Apoteker berkata: '하루 세 번, 식후 30분에 드세요.' Dalam bahasa Inggris, jelaskan: seberapa sering dan kapan waktu minum obat ini?",
+    "Apoteker bertanya: '어디가 아파서 오셨어요?' Kamu mengalami sakit kepala dan pilek. Jawablah dalam bahasa Korea."
   ],
   "answers": [
-    "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+    "아니요, 없어요. (없어요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
-    "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
-    "Tiga kali sehari, 30 menit setelah setiap makan.",
-    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
+    "네, 아스피린 알레르기가 있어요.",
+    "Tiga kali sehari, 30 menit setelah setiap kali makan.",
+    "머리가 아프고 콧물이 나요."
   ],
   "checkThese": [],
-  "setting": "Sebuah apotek kecil di lingkungan (동네 약국) di Korea pada suatu sore hari kerja. Pelanggan sedang flu tetapi tidak pergi ke dokter, jadi tidak punya resep. Mereka berbicara dengan apoteker di meja kasir.",
+  "setting": "",
   "dialogue": [
     {
       "who": "약사",
       "korean": "어서 오세요. 어디가 아파서 오셨어요?",
-      "meaning": "Selamat datang. Ada keluhan apa? (Di bagian mana yang sakit?)"
+      "meaning": "Selamat datang. Ada keluhan apa? (Bagian mana yang sakit?)"
     },
     {
       "who": "손님",
       "korean": "머리가 아프고 열이 나요.",
-      "meaning": "Saya sakit kepala dan demam."
+      "meaning": "Kepala saya sakit dan saya demam."
     },
     {
       "who": "약사",
       "korean": "처방전 있으세요?",
-      "meaning": "Apakah Anda punya resep?"
+      "meaning": "Apakah Anda punya resep dokter?"
     },
     {
       "who": "손님",
@@ -71,11 +71,6 @@
       "who": "약사",
       "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
       "meaning": "Kalau begitu, minumlah obat flu ini. Minum tiga kali sehari, 30 menit setelah makan."
-    },
-    {
-      "who": "손님",
-      "korean": "네, 알겠습니다. 감사합니다.",
-      "meaning": "Baik, saya mengerti. Terima kasih."
     }
   ],
   "words": [
@@ -89,23 +84,23 @@
     {
       "korean": "열이 나다",
       "roman": "yeori nada",
-      "meaning": "demam",
+      "meaning": "mengalami demam",
       "example": "아이가 밤에 열이 났어요.",
       "exampleMeaning": "Anakku demam semalam."
     },
     {
       "korean": "콧물",
       "roman": "konmul",
-      "meaning": "pilek / ingus",
+      "meaning": "hidung meler / pilek",
       "example": "콧물이 계속 나요.",
       "exampleMeaning": "Hidungku terus meler."
     },
     {
       "korean": "처방전",
       "roman": "cheobangjeon",
-      "meaning": "resep (dari dokter)",
+      "meaning": "resep dokter",
       "example": "처방전 없이 살 수 있어요?",
-      "exampleMeaning": "Bisakah saya membeli ini tanpa resep?"
+      "exampleMeaning": "Apakah saya bisa membeli ini tanpa resep dokter?"
     },
     {
       "korean": "언제부터",
@@ -119,21 +114,14 @@
       "roman": "allereugi",
       "meaning": "alergi",
       "example": "저는 땅콩 알레르기가 있어요.",
-      "exampleMeaning": "Saya alergi kacang."
-    },
-    {
-      "korean": "하루",
-      "roman": "haru",
-      "meaning": "(per) hari",
-      "example": "하루에 몇 번 먹어요?",
-      "exampleMeaning": "Berapa kali sehari saya harus meminumnya?"
+      "exampleMeaning": "Saya alergi kacang tanah."
     },
     {
       "korean": "식후",
       "roman": "sikhu",
       "meaning": "setelah makan",
       "example": "식후 30분에 먹으면 돼요?",
-      "exampleMeaning": "Apakah saya harus meminumnya 30 menit setelah makan?"
+      "exampleMeaning": "Apakah obat ini harus diminum 30 menit setelah makan?"
     },
     {
       "korean": "드세요",

@@ -1,9 +1,9 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
   "keyword": "ㅈㅊㅉ 소리",
-  "summary": "Aprenda como soam o ㅈ, o ㅊ e o ㅉ no início de uma palavra. Eles se diferenciam pela quantidade de ar e pela tensão. Use isso para escolher o verbo certo em conjuntos como 자다/차다/짜다 e 지다/치다/찌다.",
-  "objective": "Os alunos de nível iniciante vão diferenciar e pronunciar o ㅈ (simples), o ㅊ (aspirado) e o ㅉ (tenso) no início de palavra, e depois escolher a palavra certa nos conjuntos 자다/차다/짜다 e 지다/치다/찌다.",
-  "level": "Nível iniciante",
+  "summary": "Aprenda como ㅈ, ㅊ e ㅉ soam no início de uma palavra. Eles se diferenciam pela quantidade de ar e pela tensão. Use-os para escolher o verbo certo em conjuntos como 자다/차다/짜다 e 지다/치다/찌다.",
+  "objective": "Alunos iniciantes vão diferenciar e pronunciar o ㅈ (simples), o ㅊ (aspirado) e o ㅉ (tenso) no início de palavra, e depois escolher a palavra certa nos conjuntos 자다/차다/짜다 e 지다/치다/찌다.",
+  "level": "Iniciante",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -15,33 +15,35 @@
     "Escolha a palavra certa: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
     "Escolha a palavra certa: 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
     "Escolha a palavra certa: 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
-    "Qual palavra significa \"perder (um jogo)\"? (지다 / 치다 / 찌다)",
-    "Segure um lenço de papel na frente da boca e diga 자, 차, 짜. Qual deles faz o lenço se mover mais?"
+    "Escolha a palavra certa: 동생이 화가 나서 문을 발로 (잤어요 / 찼어요 / 짰어요).",
+    "Escolha a palavra certa: 어제 농구 경기에서 2점 차이로 (졌어요 / 쳤어요 / 쪘어요).",
+    "Segure um lenço de papel na frente da boca e diga 자, 차, 짜. Qual deles faz o lenço se mexer mais?"
   ],
   "answers": [
     "자요",
     "짜요",
     "쳐요",
     "쪄요",
-    "지다",
-    "차 (ㅊ has a strong puff of air)"
+    "찼어요",
+    "졌어요",
+    "차 (o ㅊ tem uma forte rajada de ar)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
-      "sound": "j (simples): som suave e relaxado, com apenas um pouco de ar",
-      "as": "Parecido com o \"j\" de \"jam\" em inglês, mas mais suave. No início da palavra pode soar como um \"tch\" leve, com apenas um pouco de ar."
+      "sound": "j (simples): suave e relaxado, com pouco ar",
+      "as": "Parecido com o \"j\" em \"jam\" (inglês), mas mais suave. No início da palavra pode soar como um \"tch\" leve, com pouco ar."
     },
     {
       "letter": "ㅊ",
       "sound": "ch (aspirado): vem com uma forte rajada de ar",
-      "as": "Parecido com o \"ch\" de \"church\" em inglês. Solte uma explosão clara de ar."
+      "as": "Parecido com o \"ch\" em \"church\" (inglês). Solte uma rajada clara de ar."
     },
     {
       "letter": "ㅉ",
-      "sound": "jj (tenso): som apertado, seco e sem nenhuma saída de ar",
-      "as": "Não existe equivalente exato em inglês. Pense no som \"tch\" de \"pitch\" em inglês, mas apertando a garganta e a língua e sem soltar nenhum ar."
+      "sound": "jj (tenso): apertado, seco e sem nenhuma saída de ar",
+      "as": "Não tem equivalente exato em inglês. Pense no som de \"tch\" em \"pitch\" (inglês), mas aperte a garganta e a língua e não solte nenhum ar."
     }
   ],
   "words": [
@@ -62,21 +64,21 @@
     {
       "korean": "짜다",
       "roman": "jjada",
-      "meaning": "estar salgado",
+      "meaning": "ser/estar salgado",
       "example": "국이 짜요.",
       "exampleMeaning": "A sopa está salgada."
     },
     {
       "korean": "지다",
       "roman": "jida",
-      "meaning": "perder (um jogo ou uma partida)",
+      "meaning": "perder (um jogo ou partida)",
       "example": "우리 팀이 졌어요.",
       "exampleMeaning": "Nosso time perdeu."
     },
     {
       "korean": "치다",
       "roman": "chida",
-      "meaning": "bater; tocar (piano, tênis de mesa, tênis, etc.)",
+      "meaning": "bater; tocar/jogar (piano, tênis de mesa, tênis etc.)",
       "example": "피아노를 쳐요.",
       "exampleMeaning": "Eu toco piano."
     },

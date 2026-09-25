@@ -1,31 +1,31 @@
 {
   "title": "약국에서 증상 말하고 약 사기",
   "keyword": "약국에서 증상 말하고 약 사기",
-  "summary": "Una conversación breve y realista en una farmacia coreana. Un cliente sin receta describe un dolor de cabeza, fiebre y secreción nasal, responde a las preguntas del farmacéutico y recibe instrucciones para tomar un medicamento para el resfriado.",
-  "objective": "Al final, los estudiantes podrán comprar un medicamento sin receta en una farmacia coreana: decir un síntoma con '머리가 아파요 / 콧물이 나요 / 열이 나요', responder a las preguntas del farmacéutico (처방전 있으세요? 언제부터요? 알레르기 있으세요?) y entender la instrucción de dosificación '하루 세 번, 식후 30분에 드세요'.",
-  "level": "Principiante (alto)",
+  "summary": "Una breve conversación en una farmacia coreana: un cliente sin receta describe sus síntomas de resfriado, responde a las preguntas del farmacéutico y aprende cómo tomar el medicamento.",
+  "objective": "Los estudiantes pueden decir sus síntomas (머리가 아파요 / 열이 나요 / 콧물이 나요), responder a las preguntas del farmacéutico (처방전 있으세요? 언제부터 아프셨어요? 알레르기 있으세요?), y entender '하루 세 번, 식후 30분에 드세요'.",
+  "level": "Principiante (avanzado)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "약국에서 약 사기",
-    "line": "Has tenido fiebre y secreción nasal desde ayer. Cuéntale al farmacéutico tus síntomas, responde a sus preguntas y repite cómo debes tomar el medicamento."
+    "title": "Comprar medicamentos en una farmacia",
+    "line": "Tienes fiebre y te moquea la nariz desde ayer. Cuéntale al farmacéutico tus síntomas, responde a sus preguntas y repite cómo debes tomar el medicamento."
   },
   "exercises": [
-    "El farmacéutico pregunta: '처방전 있으세요?' No tienes una. Responde en coreano.",
+    "El farmacéutico pregunta: '처방전 있으세요?' No tienes receta. Responde en coreano.",
     "El farmacéutico pregunta: '언제부터 아프셨어요?' Empezaste a sentirte mal esta mañana (오늘 아침). Responde en coreano.",
-    "El farmacéutico pregunta: '알레르기 있으세요?' Eres alérgico/a a la aspirina (아스피린). Responde en coreano.",
-    "El farmacéutico dice: '하루 세 번, 식후 30분에 드세요.' En español, ¿cuántas veces al día debes tomar el medicamento y cuándo?",
+    "El farmacéutico pregunta: '알레르기 있으세요?' Eres alérgico a la aspirina (아스피린). Responde en coreano.",
+    "El farmacéutico dice: '하루 세 번, 식후 30분에 드세요.' En español: ¿con qué frecuencia y en qué momento se debe tomar?",
     "El farmacéutico pregunta: '어디가 아파서 오셨어요?' Tienes dolor de cabeza y te moquea la nariz. Responde en coreano."
   ],
   "answers": [
-    "아니요, 없어요. (없어요. / 아니요, 없는데요.)",
+    "아니요, 없어요. (없어요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
-    "네, 아스피린 알레르기가 있어요. (네, 아스피린에 알레르기가 있어요.)",
+    "네, 아스피린 알레르기가 있어요.",
     "Tres veces al día, 30 minutos después de cada comida.",
-    "머리가 아프고 콧물이 나요. (머리가 아파요. 그리고 콧물이 나요. / 머리가 아파요. 콧물도 나요.)"
+    "머리가 아프고 콧물이 나요."
   ],
   "checkThese": [],
-  "setting": "Una pequeña farmacia de barrio (동네 약국) en Corea, en la tarde de un día laborable. El cliente tiene un resfriado, pero no fue al médico, así que no tiene receta. Habla con el farmacéutico en el mostrador.",
+  "setting": "",
   "dialogue": [
     {
       "who": "약사",
@@ -55,7 +55,7 @@
     {
       "who": "손님",
       "korean": "어제 저녁부터요. 콧물도 조금 나요.",
-      "meaning": "Desde ayer por la tarde. También me moquea un poco la nariz."
+      "meaning": "Desde ayer por la noche. También me moquea un poco la nariz."
     },
     {
       "who": "약사",
@@ -71,11 +71,6 @@
       "who": "약사",
       "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
       "meaning": "Entonces tome este medicamento para el resfriado. Tómelo tres veces al día, 30 minutos después de las comidas."
-    },
-    {
-      "who": "손님",
-      "korean": "네, 알겠습니다. 감사합니다.",
-      "meaning": "De acuerdo, entiendo. Gracias."
     }
   ],
   "words": [
@@ -84,7 +79,7 @@
       "roman": "meori",
       "meaning": "cabeza",
       "example": "머리가 너무 아파요.",
-      "exampleMeaning": "Me duele mucho la cabeza."
+      "exampleMeaning": "Me duele muchísimo la cabeza."
     },
     {
       "korean": "열이 나다",
@@ -96,14 +91,14 @@
     {
       "korean": "콧물",
       "roman": "konmul",
-      "meaning": "moqueo / secreción nasal",
+      "meaning": "moqueo / nariz que gotea",
       "example": "콧물이 계속 나요.",
       "exampleMeaning": "Me sigue goteando la nariz."
     },
     {
       "korean": "처방전",
       "roman": "cheobangjeon",
-      "meaning": "receta médica",
+      "meaning": "receta (médica)",
       "example": "처방전 없이 살 수 있어요?",
       "exampleMeaning": "¿Puedo comprar esto sin receta?"
     },
@@ -119,14 +114,7 @@
       "roman": "allereugi",
       "meaning": "alergia",
       "example": "저는 땅콩 알레르기가 있어요.",
-      "exampleMeaning": "Soy alérgico a los cacahuetes."
-    },
-    {
-      "korean": "하루",
-      "roman": "haru",
-      "meaning": "al día / por día",
-      "example": "하루에 몇 번 먹어요?",
-      "exampleMeaning": "¿Cuántas veces al día debo tomarlo?"
+      "exampleMeaning": "Soy alérgico al maní."
     },
     {
       "korean": "식후",
@@ -138,7 +126,7 @@
     {
       "korean": "드세요",
       "roman": "deuseyo",
-      "meaning": "tome (el medicamento), forma cortés",
+      "meaning": "por favor, tómelo (medicamento), forma cortés",
       "example": "따뜻한 물이랑 같이 드세요.",
       "exampleMeaning": "Tómelo con agua tibia."
     }

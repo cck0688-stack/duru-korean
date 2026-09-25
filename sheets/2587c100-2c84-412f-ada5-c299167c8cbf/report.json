@@ -175,5 +175,82 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T15:32:50.248Z"
+  "preparedAt": "2026-09-25T15:32:50.248Z",
+  "retranslated": {
+    "at": "2026-09-25T18:27:06.677Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 14,
+            "problem": "'native Korean counters' is translated as 'numerales coreanos nativos' (native numerals). The term should be counters (contadores), meaning native numbers used with counters like 번 and 알.",
+            "fix": "El sobre usa palabras y números sino-coreanos. Al hablar, usa los contadores coreanos nativos."
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 14,
+            "problem": "'Native Korean counters' was translated as 'numerais coreanos nativos' (numerals), which changes the grammar term. The point is to use the counting words 번 and 알 with native Korean numbers.",
+            "fix": "O envelope usa palavras e números sino-coreanos. Quando você fala, use os contadores coreanos nativos."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"Beginner (high)\" means the upper part of the beginner level. \"初级(高级)\" reads as \"beginner (advanced)\", which contradicts itself and can be misread as an advanced level.",
+            "fix": "初级(高)"
+          }
+        ]
+      }
+    }
+  }
 }

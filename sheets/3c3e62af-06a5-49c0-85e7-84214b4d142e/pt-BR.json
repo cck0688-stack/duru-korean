@@ -1,14 +1,14 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
   "keyword": "약 봉투",
-  "summary": "Maria, moradora estrangeira na Coreia, fica resfriada. Ela leva a receita para ser aviada na farmácia do primeiro andar do hospital, onde o farmacêutico explica dois envelopes de remédio. Em casa, ela lê os envelopes novamente. Os alunos leem a história e descobrem com que frequência, quando e por quantos dias tomar cada remédio, e o que significa o aviso no envelope.",
-  "objective": "Depois de ler uma história de quatro parágrafos sobre uma visita à farmácia, os alunos conseguem identificar quatro informações no envelope de remédio coreano: quantas vezes ao dia tomar o remédio (1일 3회 = 하루에 세 번), quando tomá-lo (식전, 식후 30분, 자기 전), para quantos dias é a quantidade (3일분), e o que significa o aviso (졸음 주의, 운전 주의).",
-  "level": "Intermediário (baixo)",
+  "summary": "Maria pega um resfriado e recebe dois saquinhos de remédio na farmácia. Os alunos leem a história dela e descobrem com que frequência, quando e por quantos dias tomar cada remédio, além do que significa o aviso.",
+  "objective": "Os alunos podem encontrar quatro informações no saquinho de remédio coreano: quantas vezes ao dia (1일 3회 = 하루에 세 번), quando tomar (식전, 식후 30분, 자기 전), por quantos dias (3일분) e o que significa o aviso (졸음 주의, 운전 주의).",
+  "level": "Intermediário (inferior)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "Leia os envelopes de remédio",
-    "line": "Leia os dois envelopes de remédio e escreva com que frequência, quando e por quantos dias tomar cada um."
+    "title": "Leia os saquinhos de remédio",
+    "line": "Leia os dois saquinhos de remédio e escreva com que frequência, quando e por quantos dias tomar cada um."
   },
   "exercises": [
     "Responda em coreano: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
@@ -49,16 +49,16 @@
     {
       "korean": "빈속",
       "roman": "binsok",
-      "meaning": "estômago vazio",
+      "meaning": "de estômago vazio",
       "example": "빈속에 커피를 마시면 배가 아파요.",
-      "exampleMeaning": "Meu estômago dói quando tomo café com o estômago vazio."
+      "exampleMeaning": "Meu estômago dói quando bebo café de estômago vazio."
     },
     {
       "korean": "속이 쓰리다",
       "roman": "sogi sseurida",
-      "meaning": "sentir ardor ou dor no estômago",
+      "meaning": "sentir uma queimação ou dor no estômago",
       "example": "어제 술을 많이 마셔서 속이 쓰려요.",
-      "exampleMeaning": "Meu estômago está dolorido porque bebi muito ontem."
+      "exampleMeaning": "Meu estômago está doendo porque bebi muito ontem."
     },
     {
       "korean": "졸리다",
@@ -70,16 +70,16 @@
     {
       "korean": "주의",
       "roman": "juui",
-      "meaning": "atenção, cuidado (em placas e rótulos: 'cuidado com ~')",
+      "meaning": "cuidado, aviso (em placas e rótulos: 'cuidado com ~')",
       "example": "바닥에 '미끄럼 주의'라고 쓰여 있어요.",
       "exampleMeaning": "A placa no chão diz 'Cuidado: escorregadio'."
     },
     {
       "korean": "3일분",
       "roman": "samilbun",
-      "meaning": "quantidade para três dias (3일 = três dias, -분 = porção/quantidade referente ao número anterior: 3일분 = para três dias, 2인분 = para duas pessoas)",
+      "meaning": "um suprimento para três dias (3일 = três dias, -분 = porção/quantidade referente ao número anterior: 3일분 = para três dias, 2인분 = para duas pessoas)",
       "example": "약사가 5일분 약을 줬어요.",
-      "exampleMeaning": "O farmacêutico me deu remédio para cinco dias."
+      "exampleMeaning": "O farmacêutico me deu um suprimento de remédio para cinco dias."
     },
     {
       "korean": "사흘",

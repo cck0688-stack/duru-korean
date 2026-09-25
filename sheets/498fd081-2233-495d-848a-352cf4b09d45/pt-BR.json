@@ -1,8 +1,8 @@
 {
   "title": "아파트 엘리베이터 점검 안내문 읽기",
   "keyword": "엘리베이터 점검",
-  "summary": "Leia um aviso realista de inspeção de elevador de apartamento e responda às perguntas para descobrir a data exata, o horário e os trechos indisponíveis (quais elevadores/andares).",
-  "objective": "Os alunos vão ler um aviso de inspeção de elevador de apartamento e identificar corretamente a data, o horário, os prédios afetados e os trechos indisponíveis (qual elevador e quais andares).",
+  "summary": "Leia um aviso realista de inspeção do elevador de um apartamento e responda às perguntas para descobrir a data, o horário e os trechos indisponíveis (quais elevadores/andares) exatos.",
+  "objective": "Os alunos vão ler um aviso de inspeção do elevador de um apartamento e identificar corretamente a data, o horário, os prédios afetados e os trechos indisponíveis (qual elevador e quais andares).",
   "level": "Intermediário (inferior)",
   "minutes": 15,
   "tags": [
@@ -13,8 +13,8 @@
     "읽기"
   ],
   "task": {
-    "title": "엘리베이터 점검 안내문 읽기",
-    "line": "Leia o aviso e descubra qual elevador e qual andar não podem ser usados."
+    "title": "Leia o aviso do elevador",
+    "line": "Leia o aviso e descubra o elevador e o andar que não podem ser usados."
   },
   "exercises": [
     "Responda em coreano com base no texto: 점검 날짜는 언제입니까?",
@@ -24,11 +24,11 @@
     "Responda em coreano com base no texto: 점검 시간 동안 2호기는 어느 층에 정차하지 않습니까?"
   ],
   "answers": [
-    "10월 15일(목) (Also accepted: 10월 15일)",
-    "오전 9시부터 낮 12시까지 (Also accepted: 09:00~12:00, 오전 9시부터 12시까지, 9시부터 12시까지, 오전 9시~낮 12시)",
-    "101동과 102동 (Also accepted: 101동, 102동)",
+    "10월 15일(목) (Também aceito: 10월 15일)",
+    "오전 9시부터 낮 12시까지 (Também aceito: 09:00~12:00, 오전 9시부터 12시까지, 9시부터 12시까지, 오전 9시~낮 12시)",
+    "101동과 102동 (Também aceito: 101동, 102동)",
     "1호기",
-    "지하 1층(B1) (Also accepted: 지하 1층)"
+    "지하 1층(B1) (Também aceito: 지하 1층)"
   ],
   "checkThese": [],
   "passage": [
@@ -55,9 +55,9 @@
     {
       "korean": "전면 중지",
       "roman": "jeonmyeon jungji",
-      "meaning": "suspensão total; parado completamente",
-      "example": "공사로 도로 통행이 전면 중지됩니다.",
-      "exampleMeaning": "O trânsito na via será totalmente interrompido por causa da obra."
+      "meaning": "suspensão total; totalmente parado",
+      "example": "공사로 지하철 운행이 전면 중지됩니다.",
+      "exampleMeaning": "O serviço de metrô será totalmente suspenso por causa de obras."
     },
     {
       "korean": "정차하다",
@@ -69,16 +69,16 @@
     {
       "korean": "관리사무소",
       "roman": "gwallisamuso",
-      "meaning": "administração do condomínio",
+      "meaning": "escritório de administração",
       "example": "문의는 관리사무소로 하세요.",
-      "exampleMeaning": "Entre em contato com a administração do condomínio, por favor."
+      "exampleMeaning": "Entre em contato com o escritório de administração."
     },
     {
       "korean": "호기",
       "roman": "hogi",
       "meaning": "número do elevador",
       "example": "3호기를 이용해 주세요.",
-      "exampleMeaning": "Use o elevador número 3, por favor."
+      "exampleMeaning": "Use o elevador nº 3."
     },
     {
       "korean": "제한",

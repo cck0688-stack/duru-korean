@@ -275,5 +275,76 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T14:26:24.899Z"
+  "preparedAt": "2026-09-25T14:26:24.899Z",
+  "retranslated": {
+    "at": "2026-09-25T18:39:17.123Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 32,
+            "problem": "The three English sound hints were left in English inside the Japanese sentence. They should be translated the same way as in lines 23, 25 and 27, keeping the example sounds 'g', 'k', \"key\" and 'kk'.",
+            "fix": "英語のヒントを、最初の音がそれに合う単語と結び付けましょう:'g'と'k'の中間(軽い息)/ \"key\"の'k' / 緊張した'kk' → 選択肢:꽃, 가게, 카메라"
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 22,
+            "problem": "\"céu da boca mole\" mistranslates \"soft palate\": with \"mole\" placed after \"boca\", it reads as \"a soft mouth\". The standard term is \"palato mole\".",
+            "fix": "Consoante simples (branda). A parte de trás da língua se fecha levemente contra o palato mole e depois se solta. No início da palavra, sai um leve sopro de ar: mais fraco que o ㅋ e mais suave que o ㄲ."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

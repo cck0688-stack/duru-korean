@@ -1,8 +1,8 @@
 {
-  "title": "Reading Road-Name Addresses (도로명주소): Finding 로/길 + Building Number and Apartment 동·호",
+  "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
   "keyword": "도로명주소",
-  "summary": "Belajar untuk dengan cepat menemukan dan mengucapkan nama jalan yang berakhiran ro/gil beserta nomor bangunan, dan jika ada, nomor gedung/unit apartemen (dong/ho) dalam alamat tertulis berbahasa Korea dari cetakan, pesan teks, atau aplikasi peta.",
-  "objective": "Setelah menyelesaikan lembar kerja ini, peserta dapat 1) menemukan dan membaca nama jalan yang berakhiran ro/gil beserta nomor bangunan, dan 2) menemukan serta mengucapkan dong dan ho apartemen dengan cepat dan tepat.",
+  "summary": "Dengan cepat menemukan dan mengucapkan nama jalan (yang berakhiran 로/길) beserta nomor bangunan, serta 동·호 apartemen, dalam alamat berbahasa Korea.",
+  "objective": "Pembelajar dapat 1) menemukan dan membaca nama jalan yang berakhiran 로/길 beserta nomor bangunannya, dan 2) menemukan serta mengucapkan 동 dan 호 apartemen dengan cepat dan tepat.",
   "level": "Pemula (tinggi)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,11 @@
     "line": ""
   },
   "exercises": [
-    "Tulislah nama jalan + nomor bangunan dan 동/층/호 (tulis 없음 jika tidak ada): 광주 북구 무지개로 58",
-    "Tulislah nama jalan + nomor bangunan dan 동/층/호 (tulis 없음 jika tidak ada): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
-    "Tulislah cara mengucapkan alamat ini mulai dari nama jalan hingga 호, dengan membaca angka menggunakan angka Sino-Korea (tulis dalam Hangul). Jangan sertakan wilayah dan tanda kurung di akhir: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
-    "Tulislah nama jalan + nomor bangunan dan 동/층/호 (tulis 없음 jika tidak ada): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
-    "Alamat ini ditulis dalam gaya sehari-hari yang tidak resmi. Tulislah cara mengucapkannya mulai dari nama jalan hingga akhir, termasuk nama gedung sebelum 호, dan jangan sertakan wilayah, dengan membaca angka menggunakan angka Sino-Korea (tulis dalam Hangul): 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
+    "Tulis nama jalan + nomor bangunan beserta 동/층/호-nya (tulis 없음 jika tidak ada): 광주 북구 무지개로 58",
+    "Tulis nama jalan + nomor bangunan beserta 동/층/호-nya (tulis 없음 jika tidak ada): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
+    "Tulis cara mengucapkannya mulai dari nama jalan hingga 호, dengan angka Sino-Korea dalam Hangul; jangan sertakan wilayah dan tanda kurung di bagian akhir: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
+    "Tulis nama jalan + nomor bangunan beserta 동/층/호-nya (tulis 없음 jika tidak ada): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
+    "Gaya informal: tulis cara mengucapkannya dari nama jalan hingga akhir, dengan nama bangunan sebelum 호 dan angka Sino-Korea dalam Hangul; jangan sertakan wilayah: 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
   ],
   "answers": [
     "무지개로 58; 없음",
@@ -27,44 +27,42 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Sekilas tentang alamat berbasis nama jalan",
+      "heading": "Sekilas tentang alamat dengan nama jalan",
       "paragraphs": [
         "Alamat Korea dibaca dalam tiga bagian: wilayah (시/도, 시/군/구) + nama jalan dan nomor bangunan + (untuk apartemen) 동·호.",
-        "Contoh: dalam '서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)', '햇살로17길 12' adalah nama jalan dan nomor bangunan, dan '202호' adalah nomor unit. Tanda kurung di akhir berisi nama lingkungan (법정동) dan nama gedung."
+        "Contoh: dalam '서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)', '햇살로17길 12' adalah nama jalan dan nomor bangunan, sedangkan '202호' adalah nomor unit. Tanda kurung di bagian akhir berisi nama lingkungan (법정동) dan nama bangunan."
       ]
     },
     {
       "heading": "Menemukan 로/길 (ro/gil) dan nomor bangunan",
       "paragraphs": [
         "Nama jalan biasanya berakhiran '…로' (ro) atau '…길' (gil), termasuk '…번길' (beon-gil). Angka tepat setelah nama jalan adalah nomor bangunan.",
-        "Contoh: '세종대로 110', '햇살로17길 12'.",
-        "Cara membacanya: '세종대로 백십', '햇살로 십칠길 십이'. Bacalah angka dengan jelas menggunakan satuan angka Sino-Korea (천/백/십)."
+        "Contoh: '세종대로 110' dibaca '세종대로 백십', dan '햇살로17길 12' dibaca '햇살로 십칠길 십이'. Bacalah angka-angka tersebut dengan satuan bilangan Sino-Korea (천/백/십)."
       ]
     },
     {
       "heading": "Menemukan 동·호 (dong/ho) apartemen",
       "paragraphs": [
-        "Pada apartemen, officetel, dan bangunan sejenis, alamat detail (동·층·호) muncul setelah tanda koma. '동' adalah nomor gedung dalam kompleks, '층' adalah lantai, dan '호' adalah nomor unit (kamar).",
-        "Pola resmi: '…, 101동 1203호 (○○동, ○○아파트)' atau '…, 1203호 (○○동, ○○오피스텔)' (kadang tidak ada 동). Nama gedung ditulis dalam tanda kurung di akhir, bersama dengan nama lingkungan (법정동).",
-        "Gaya sehari-hari yang tidak resmi: banyak orang menulis nama gedung sebelum 동·호, misalnya '…, 초록아파트 101동 1203호'. Kamu akan sering melihat ini pada paket dan pesan teks, tetapi ini bukan format resmi.",
+        "Pada apartemen, officetel, dan bangunan sejenis, alamat detail (동·층·호) muncul setelah tanda koma. '동' adalah nomor gedung dalam kompleks, '층' adalah lantai, dan '호' adalah nomor unit (ruangan).",
+        "Pola resmi: '…, 101동 1203호 (○○동, ○○아파트)' atau '…, 1203호 (○○동, ○○오피스텔)' (kadang tidak ada 동). Nama bangunan ditulis dalam tanda kurung di bagian akhir, bersama dengan nama lingkungan (법정동).",
+        "Gaya informal sehari-hari: banyak orang menulis nama bangunan sebelum 동·호, misalnya '…, 초록아파트 101동 1203호'. Kamu akan sering melihat gaya ini pada paket kiriman dan pesan teks, tetapi ini bukan format resmi.",
         "Cara membacanya: '백일동 천이백삼호' (101동 1203호)."
       ]
     },
     {
       "heading": "Tips untuk menemukannya dengan cepat",
       "paragraphs": [
-        "1) Pertama, temukan akhir nama jalan, yaitu '로' atau '길/번길' terakhir. Untuk jalan cabang seperti '…로17길' atau '…로45번길', angka yang menempel pada kata tersebut adalah bagian dari nama jalan. Angka setelah spasi adalah nomor bangunan.",
-        "2) Carilah '동', '층', dan '호' tepat setelah tanda koma (dalam gaya tidak resmi, setelah nama gedung). Kata-kata dalam tanda kurung di akhir adalah nama lingkungan dan nama gedung, bukan unit. Jika tidak ada 동·층·호, sebutkan '없음' (tidak ada).",
-        "3) Saat mengucapkannya, sebutkan dulu 'nama jalan + nomor bangunan', baru kemudian '동·호'."
+        "1) Pertama, temukan akhir dari nama jalan, yaitu '로' atau '길/번길' yang terakhir. Untuk jalan cabang seperti '…로17길' atau '…로45번길', angka yang menempel pada kata tersebut adalah bagian dari nama jalan. Angka setelah spasi adalah nomor bangunan.",
+        "2) Carilah '동', '층', dan '호' tepat setelah tanda koma (pada gaya informal, setelah nama bangunan). Kata-kata dalam tanda kurung di bagian akhir adalah nama lingkungan dan nama bangunan, bukan nomor unit. Jika tidak ada 동·층·호, sebutkan '없음' (tidak ada)."
       ]
     },
     {
-      "heading": "Petunjuk latihan",
+      "heading": "Instruksi latihan",
       "paragraphs": [
-        "Format jawaban untuk menemukan: 'nama jalan nomor bangunan; 동·층·호' atau 'nama jalan nomor bangunan; 없음' (tidak ada). Untuk membaca: sebutkan hanya nama jalan + nomor bangunan lalu 동·호 (ditambah nama gedung jika ditulis sebelum 동·호, seperti pada gaya tidak resmi); jangan sertakan wilayah dan tanda kurung di akhir. Tulis angka dalam Hangul, misalnya '세종대로 백십'."
+        "Menemukan: tulis 'nama jalan nomor bangunan; 동·층·호', atau 'nama jalan nomor bangunan; 없음' (tidak ada). Membaca: ucapkan nama jalan + nomor bangunan terlebih dahulu, lalu 동·호 (beserta nama bangunan jika muncul sebelum 동·호); jangan sertakan wilayah dan tanda kurung di bagian akhir. Tulis angka dalam Hangul, misalnya '세종대로 백십'."
       ]
     }
   ],
-  "note": "Alamat-alamat contoh dibuat untuk latihan. Selain '세종대로 110', nama jalan, gedung, dan unit adalah rekaan dan tidak merujuk pada tempat nyata.",
+  "note": "Selain '세종대로 110', alamat-alamat contoh dibuat khusus untuk latihan dan tidak merujuk pada tempat nyata.",
   "category": "etc"
 }

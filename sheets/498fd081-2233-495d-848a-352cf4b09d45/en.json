@@ -13,7 +13,7 @@
     "읽기"
   ],
   "task": {
-    "title": "엘리베이터 점검 안내문 읽기",
+    "title": "Read the elevator notice",
     "line": "Read the notice and find the elevator and the floor that cannot be used."
   },
   "exercises": [
@@ -56,8 +56,8 @@
       "korean": "전면 중지",
       "roman": "jeonmyeon jungji",
       "meaning": "complete suspension; stopped entirely",
-      "example": "공사로 도로 통행이 전면 중지됩니다.",
-      "exampleMeaning": "Road traffic will be completely stopped because of construction."
+      "example": "공사로 지하철 운행이 전면 중지됩니다.",
+      "exampleMeaning": "Subway service will be completely suspended because of construction."
     },
     {
       "korean": "정차하다",

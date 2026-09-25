@@ -1,7 +1,7 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
   "keyword": "ㅈㅊㅉ 소리",
-  "summary": "Apprends comment se prononcent ㅈ, ㅊ et ㅉ au début d'un mot. Elles diffèrent par le souffle et la tension. Utilise-les pour choisir le bon verbe dans des séries comme 자다/차다/짜다 et 지다/치다/찌다.",
+  "summary": "Apprenez comment sonnent ㅈ, ㅊ et ㅉ en début de mot. Ils se distinguent par le souffle et la tension. Utilisez-les pour choisir le bon verbe dans des séries comme 자다/차다/짜다 et 지다/치다/찌다.",
   "objective": "Les débutants apprendront à distinguer et à prononcer ㅈ (simple), ㅊ (aspiré) et ㅉ (tendu) en début de mot, puis à choisir le bon mot dans les séries 자다/차다/짜다 et 지다/치다/찌다.",
   "level": "Débutant",
   "minutes": 15,
@@ -11,37 +11,39 @@
     "line": ""
   },
   "exercises": [
-    "Choisis le bon mot : 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
-    "Choisis le bon mot : 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
-    "Choisis le bon mot : 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
-    "Choisis le bon mot : 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
-    "Quel mot signifie « perdre (un match) » ? (지다 / 치다 / 찌다)",
-    "Tiens un mouchoir devant ta bouche et prononce 자, 차, 짜. Lequel fait le plus bouger le mouchoir ?"
+    "Choisissez le bon mot : 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
+    "Choisissez le bon mot : 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
+    "Choisissez le bon mot : 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
+    "Choisissez le bon mot : 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
+    "Choisissez le bon mot : 동생이 화가 나서 문을 발로 (잤어요 / 찼어요 / 짰어요).",
+    "Choisissez le bon mot : 어제 농구 경기에서 2점 차이로 (졌어요 / 쳤어요 / 쪘어요).",
+    "Tenez un mouchoir devant votre bouche et dites 자, 차, 짜. Lequel fait bouger le mouchoir le plus ?"
   ],
   "answers": [
     "자요",
     "짜요",
     "쳐요",
     "쪄요",
-    "지다",
-    "차 (ㅊ has a strong puff of air)"
+    "찼어요",
+    "졌어요",
+    "차 (ㅊ a un souffle d'air fort)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
-      "sound": "j (simple) : doux et détendu, avec très peu de souffle",
-      "as": "Proche du « j » dans « jam » (anglais), mais plus doux. Au début d'un mot, cela peut ressembler à un « ch » léger avec très peu d'air."
+      "sound": "j (simple) : doux et détendu, avec juste un peu de souffle",
+      "as": "Proche du « j » de « jam » en anglais, mais en plus doux. En début de mot, cela peut ressembler à un léger « tch » avec juste un peu d'air."
     },
     {
       "letter": "ㅊ",
-      "sound": "ch (aspiré) : accompagné d'un souffle d'air puissant",
-      "as": "Proche du « ch » dans « church » (anglais). Expulse un souffle net et marqué."
+      "sound": "ch (aspiré) : accompagné d'un souffle d'air fort",
+      "as": "Proche du « ch » de « church » en anglais. Expirez un souffle d'air net et marqué."
     },
     {
       "letter": "ㅉ",
-      "sound": "jj (tendu) : serré, net, et sans souffle d'air",
-      "as": "Il n'y a pas d'équivalent exact en anglais. Pense au « tch » de « pitch » (anglais), mais en serrant la gorge et la langue et sans laisser sortir d'air."
+      "sound": "jj (tendu) : serré, sec, et sans souffle d'air",
+      "as": "Il n'existe pas d'équivalent exact en anglais. Pensez au son « tch » de « pitch » en anglais, mais en serrant la gorge et la langue, sans laisser sortir d'air."
     }
   ],
   "words": [
@@ -69,7 +71,7 @@
     {
       "korean": "지다",
       "roman": "jida",
-      "meaning": "perdre (un match ou une partie)",
+      "meaning": "perdre (un match)",
       "example": "우리 팀이 졌어요.",
       "exampleMeaning": "Notre équipe a perdu."
     },

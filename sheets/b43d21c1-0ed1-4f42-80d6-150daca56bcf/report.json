@@ -646,5 +646,92 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T14:19:21.657Z"
+  "preparedAt": "2026-09-25T14:19:21.657Z",
+  "retranslated": {
+    "at": "2026-09-25T18:34:09.280Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 11,
+            "problem": "\"morno\" means lukewarm in Brazilian Portuguese, which changes the meaning of \"warm\" for a hot drink (따뜻한).",
+            "fix": "quente, quentinho (bebida quente)"
+          },
+          {
+            "line": 21,
+            "problem": "\"viagem\" on its own is broken; the Brazilian Portuguese takeout expression is \"para viagem\".",
+            "fix": "para levar, para viagem"
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 11,
+            "problem": "\"tiède\" means lukewarm, not warm/hot; it misrepresents 따뜻한 (a hot drink).",
+            "fix": "chaud, bien chaud (boisson chaude)"
+          },
+          {
+            "line": 22,
+            "problem": "\"Faites-le à emporter\" is unnatural French for requesting takeout.",
+            "fix": "À emporter, s'il vous plaît."
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 8,
+            "problem": "In German, \"Eiskaffee\" is coffee served with ice cream, not an iced coffee. \"Einen Eiskaffee Americano\" gets the drink wrong and is unnatural German.",
+            "fix": "Einen Eis-Americano, bitte."
+          }
+        ]
+      }
+    }
+  }
 }

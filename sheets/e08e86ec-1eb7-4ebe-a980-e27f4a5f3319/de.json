@@ -1,8 +1,8 @@
 {
   "title": "택배 받기·보내기: 기본 표현",
   "keyword": "",
-  "summary": "Nützliche kurze Ausdrücke für das Annehmen und Versenden von Paketen in Korea am Schalter oder beim Zustelldienst. Schwerpunkt auf der Bestätigung des Empfängers, dem Erfragen/Bestätigen der Sendungsnummer, dem Annehmen oder Ablehnen eines Pakets und dem Aufgeben einer Sendung.",
-  "objective": "Ziel ist es, 10 kurze Sätze zu verstehen und zu sagen, die beim Annehmen und Versenden von Paketen in Korea am Schalter oder beim Kurier verwendet werden (Bestätigung des Empfängers, Erfragen der Sendungsnummer, Annehmen/Ablehnen, Versandanfragen).",
+  "summary": "Kurze Redewendungen zum Empfangen und Versenden von Paketen in Korea: den Empfänger überprüfen, nach der Sendungsverfolgungsnummer fragen, ein Paket annehmen oder ablehnen und ein Paket versenden.",
+  "objective": "Verstehe und sage 10 kurze Sätze zum Empfangen und Versenden von Paketen am Schalter oder beim Kurierdienst.",
   "level": "Anfänger",
   "minutes": 15,
   "tags": [],
@@ -13,38 +13,38 @@
   "exercises": [
     "Antworte auf Koreanisch (verwende den Namen 김민수): 수취인 성함이 어떻게 되세요?",
     "Sag auf Koreanisch: 'Ich möchte ein Paket verschicken.'",
-    "Frag auf Koreanisch: 'Wie lautet die Sendungsnummer?'",
+    "Frage auf Koreanisch: 'Wie lautet die Sendungsverfolgungsnummer?'",
     "Das Paket ist beschädigt. Lehne es kurz auf Koreanisch ab.",
     "Antworte auf Koreanisch, dass du unterschreiben wirst: 서명해 주세요."
   ],
   "answers": [
-    "예시 답안 (Sample answer): 저는 김민수입니다. / Also correct: 김민수입니다.",
-    "예시 답안 (Sample answer): 택배로 보내고 싶습니다. / Also correct: 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
-    "예시 답안 (Sample answer): 운송장 번호가 어떻게 되나요? / Also correct: 운송장 번호가 뭐예요?",
-    "예시 답안 (Sample answer): 이건 받을 수 없어요. / Also correct: 받을 수 없어요. / 파손돼서 못 받겠어요.",
-    "예시 답안 (Sample answer): 여기 서명할게요. / Also correct: 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
+    "예시 답안 (Musterantwort): 저는 김민수입니다. / Ebenfalls richtig: 김민수입니다.",
+    "예시 답안 (Musterantwort): 택배로 보내고 싶습니다. / Ebenfalls richtig: 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
+    "예시 답안 (Musterantwort): 운송장 번호가 어떻게 되나요? / Ebenfalls richtig: 운송장 번호가 뭐예요?",
+    "예시 답안 (Musterantwort): 이건 받을 수 없어요. / Ebenfalls richtig: 받을 수 없어요. / 파손돼서 못 받겠어요.",
+    "예시 답안 (Musterantwort): 여기 서명할게요. / Ebenfalls richtig: 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "Wichtige Ausdrücke (10)",
+      "heading": "Schlüsselausdrücke (10)",
       "paragraphs": [
         "1) 택배 받으러 왔습니다. (Ich bin hier, um ein Paket abzuholen.) — Wird verwendet, wenn du selbst ein Paket am Schalter abholst. 택배 = Paket, Kurierlieferung.",
-        "2) 수취인 성함이 어떻게 되세요? (Wie ist der Name des Empfängers?) — Wird vom Angestellten oder Zusteller gefragt, um den Namen des Empfängers zu prüfen. 수취인 = Empfänger; 성함 = Name (höflich).",
+        "2) 수취인 성함이 어떻게 되세요? (Wie ist der Name des Empfängers?) — Wird vom Angestellten oder Fahrer gefragt, um den Namen des Empfängers zu prüfen. 수취인 = Empfänger; 성함 = Name (höflich).",
         "3) 저는 [이름]입니다. (Ich bin [Name].) — Die Antwort des Empfängers, z. B. 저는 김민수입니다.",
-        "4) 운송장 번호가 어떻게 되나요? (Wie lautet die Sendungsnummer?) — Fragt nach der Sendungsnummer (Frachtbrief, 송장). 운송장 = Frachtbrief, der Versandbeleg mit der Sendungsnummer.",
-        "5) 운송장 번호 알려 주세요. (Bitte sagen Sie mir die Sendungsnummer.) — Wird verwendet, um jemanden nach der Sendungsnummer zu fragen.",
-        "6) 여기 서명할게요. (Ich unterschreibe hier.) — 'Ich unterschreibe hier.' Wird beim Unterschreiben verwendet. 서명 = Unterschrift.",
+        "4) 운송장 번호가 어떻게 되나요? (Wie lautet die Sendungsverfolgungsnummer?) — Fragt nach der Sendungsverfolgungsnummer (Frachtbrief, 송장). 운송장 = Frachtbrief, der Versandschein mit der Sendungsverfolgungsnummer.",
+        "5) 운송장 번호 알려 주세요. (Bitte nenn mir die Sendungsverfolgungsnummer.) — Wird verwendet, um jemanden nach der Sendungsverfolgungsnummer zu fragen.",
+        "6) 여기 서명할게요. (Ich unterschreibe hier.) — Wird beim Unterschreiben verwendet. 서명 = Unterschrift.",
         "7) 이건 받을 수 없어요. (Das kann ich nicht annehmen.) — Wird verwendet, um ein Paket abzulehnen, z. B. wenn es 파손 (beschädigt) ist.",
         "8) 택배로 보내고 싶습니다. (Ich möchte ein Paket verschicken.) — Wird gesagt, wenn du kommst, um etwas zu verschicken.",
         "9) 보낼 물건은 이거예요. (Das ist der Gegenstand, den ich verschicken möchte.) — Wird verwendet, wenn du den Gegenstand zeigst, den du verschicken möchtest. 물건 = Gegenstand, Sache.",
-        "10) 착불로 보내 주세요. (Bitte schicken Sie es unfrei, d. h. der Empfänger zahlt die Versandkosten.) — Bittet darum, es so zu verschicken, dass der Empfänger die Versandkosten bei Ankunft zahlt. 착불 = Versandkosten werden vom Empfänger bezahlt (unfrei)."
+        "10) 착불로 보내 주세요. (Bitte verschicke es mit Zahlung durch den Empfänger.) — Bittet darum, es so zu verschicken, dass der Empfänger die Versandkosten bei Ankunft zahlt. 착불 = Versandkosten werden vom Empfänger bezahlt (unfreier Versand/Freight Collect)."
       ]
     },
     {
       "heading": "Kurze Dialoge",
       "paragraphs": [
-        "Beispiel 1 (Annehmen): Zusteller: '수취인 성함이 어떻게 되세요?' (Wie ist der Name des Empfängers?) / Ich: '저는 김민수입니다.' (Ich bin Kim Minsu.)",
+        "Beispiel 1 (Empfangen): Fahrer: '수취인 성함이 어떻게 되세요?' (Wie ist der Name des Empfängers?) / Ich: '저는 김민수입니다.' (Ich bin Kim Minsu.)",
         "Beispiel 2 (Versenden): Ich: '택배로 보내고 싶습니다.' (Ich möchte ein Paket verschicken.) / Angestellter: '보내실 물건이 뭐예요?' (Was möchten Sie verschicken?) / Ich: '보낼 물건은 이거예요.' (Das ist der Gegenstand, den ich verschicken möchte.)"
       ]
     },
@@ -52,20 +52,20 @@
       "heading": "Tipps",
       "paragraphs": [
         "Halte Name und Adresse im Voraus bereit (z. B. in einer Notiz auf dem Handy).",
-        "Bevor du ein Paket annimmst, prüfe kurz die Verpackung und lehne es sofort ab, wenn es ein Problem gibt.",
-        "Um höflich zu sprechen, füge nach der lockeren, informellen Endung (-아/어, -지 usw.) '요' hinzu: 받을 수 없어 → 받을 수 없어요. Du kannst '요' nicht an jede beliebige Endung anhängen (nicht 받을 수 없다요)."
+        "Bevor du ein Paket annimmst, überprüfe kurz die Verpackung und lehne es sofort ab, wenn es ein Problem gibt.",
+        "Um höflich zu sprechen, füge '요' nach der lockeren, informellen Endung hinzu (-아/어, -지 usw.): 받을 수 없어 → 받을 수 없어요. Du kannst '요' nicht an jede beliebige Endung anhängen (nicht 받을 수 없다요)."
       ]
     },
     {
-      "heading": "Mehr Sprechübungen",
+      "heading": "Weitere Sprechübung",
       "paragraphs": [
         "Du bist am Schalter, um dein Paket abzuholen. Was sagst du? → 택배 받으러 왔습니다.",
-        "Du möchtest, dass der Angestellte dir die Sendungsnummer nennt. → 운송장 번호 알려 주세요.",
+        "Du möchtest, dass der Angestellte dir die Sendungsverfolgungsnummer nennt. → 운송장 번호 알려 주세요.",
         "Der Angestellte fragt, was du verschicken möchtest. Zeig den Gegenstand. → 보낼 물건은 이거예요.",
         "Du möchtest, dass der Empfänger die Versandkosten zahlt. → 착불로 보내 주세요."
       ]
     }
   ],
-  "note": "Ein einseitiges Arbeitsblatt für Anfänger. Sprich jeden Ausdruck mehrmals laut aus.",
+  "note": "Für Anfänger: sprich jeden Ausdruck mehrmals laut aus.",
   "category": "etc"
 }

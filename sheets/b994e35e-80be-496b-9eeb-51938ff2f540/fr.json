@@ -1,8 +1,8 @@
 {
   "title": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
   "keyword": "vocab",
-  "summary": "Dix mots coréens essentiels pour trier les déchets ménagers et sortir les poubelles dans les appartements et les maisons, accompagnés de phrases d'exemple claires et naturelles ainsi que d'un court exercice pratique.",
-  "objective": "Les apprenants comprendront et utiliseront avec assurance 10 mots clés liés à l'élimination des déchets ménagers et au recyclage, et pourront former de courtes phrases utiles dans la vie quotidienne.",
+  "summary": "Dix mots coréens essentiels pour trier les déchets ménagers et sortir les ordures en appartement ou en maison, avec des phrases d'exemple claires et naturelles, suivies d'un petit exercice.",
+  "objective": "Les apprenants comprendront et sauront utiliser avec confiance 10 mots clés liés au tri et à l'élimination des déchets ménagers, et pourront former de courtes phrases pour la vie de tous les jours.",
   "level": "Débutant (niveau avancé)",
   "minutes": 15,
   "tags": [
@@ -13,15 +13,15 @@
     "주거"
   ],
   "task": {
-    "title": "우리 집 쓰레기 분류해 말하기",
-    "line": "Choisissez 5 objets que vous jetez chez vous et dites en coréen où va chacun d'eux, par exemple : « 이 캔은 헹군 다음 재활용으로 버려요. » Les règles peuvent varier selon les régions, alors vérifiez l'affichage de votre immeuble ou de votre mairie."
+    "title": "Trie tes propres déchets",
+    "line": "Choisis 5 objets que tu jettes chez toi et dis où va chacun d'eux en coréen, par exemple : '이 캔은 헹군 다음 재활용으로 버려요.' Les règles peuvent varier selon les quartiers, alors vérifie l'affichage de ton immeuble ou de ta mairie."
   },
   "exercises": [
-    "Complétez les espaces vides : 생수를 다 마신 _____은 라벨을 떼고 찌그러뜨려 주세요. 택배 상자 안의 흰 _____은 테이프를 떼고 버리세요.",
-    "Complétez les espaces vides : 페트병에 붙은 비닐을 떼는 것을 _____라고 해요. 그다음 페트병은 _____으로 버리세요.",
-    "Complétez les espaces vides : 오늘은 우리 동네 재활용 _____이에요. 관리사무소 안내에 따라 캔은 헹군 다음 재활용 수거함에 _____하세요.",
-    "Complétez les espaces vides : 플라스틱, 종이, 캔을 섞지 말고 _____해서 버리세요. 먹다 남은 김치는 _____에 버려요.",
-    "Complétez les espaces vides : 다 쓴 칫솔 같은 _____는 _____에 넣어요."
+    "Complète les blancs : 생수를 다 마신 _____은 라벨을 떼고 찌그러뜨려 주세요. 택배 상자 안의 흰 _____은 테이프를 떼고 버리세요.",
+    "Complète les blancs : 페트병에 붙은 비닐을 떼는 것을 _____라고 해요. 그다음 페트병은 _____으로 버리세요.",
+    "Complète les blancs : 오늘은 우리 동네 재활용 _____이에요. 관리사무소 안내에 따라 캔은 헹군 다음 재활용 수거함에 _____하세요.",
+    "Complète les blancs : 플라스틱, 종이, 캔을 섞지 말고 _____해서 버리세요. 먹다 남은 김치는 _____에 버려요.",
+    "Complète les blancs : 다 쓴 칫솔 같은 _____는 _____에 넣어요."
   ],
   "answers": [
     "투명 페트병 / 스티로폼",
@@ -37,14 +37,14 @@
       "roman": "ilban sseuregi",
       "meaning": "déchets généraux ; ordures non recyclables",
       "example": "더러운 휴지는 일반 쓰레기에 버리세요.",
-      "exampleMeaning": "Veuillez jeter les mouchoirs sales dans les déchets généraux."
+      "exampleMeaning": "Merci de jeter les mouchoirs sales dans les déchets généraux."
     },
     {
       "korean": "재활용",
       "roman": "jaehwaryong",
       "meaning": "recyclage ; catégorie des matières recyclables",
       "example": "플라스틱은 재활용으로 버리세요.",
-      "exampleMeaning": "Veuillez jeter le plastique dans le recyclage."
+      "exampleMeaning": "Merci de jeter le plastique dans le recyclage."
     },
     {
       "korean": "음식물 쓰레기",
@@ -56,51 +56,51 @@
     {
       "korean": "종량제 봉투",
       "roman": "jongnyangje bongtu",
-      "meaning": "sac poubelle payant officiel (sac de type « payer selon la quantité jetée »)",
+      "meaning": "sac poubelle payant obligatoire (sac prépayé, principe de la redevance incitative)",
       "example": "쓰레기는 종량제 봉투에 담아 주세요.",
-      "exampleMeaning": "Veuillez mettre les déchets dans un sac poubelle payant officiel."
+      "exampleMeaning": "Merci de mettre les ordures dans un sac payant obligatoire."
     },
     {
       "korean": "배출",
       "roman": "baechul",
-      "meaning": "sortir les déchets pour la collecte",
+      "meaning": "sortir (les poubelles) pour la collecte",
       "example": "쓰레기는 지정 장소에 배출하세요.",
-      "exampleMeaning": "Veuillez sortir les déchets à l'endroit désigné."
+      "exampleMeaning": "Merci de sortir les poubelles à l'endroit prévu."
     },
     {
       "korean": "수거일",
       "roman": "sugeoil",
       "meaning": "jour de collecte",
       "example": "우리 아파트 재활용 수거일은 화요일이에요.",
-      "exampleMeaning": "Le jour de collecte du recyclage de notre immeuble est le mardi."
+      "exampleMeaning": "Le jour de collecte du recyclage dans notre immeuble est le mardi."
     },
     {
       "korean": "분리",
       "roman": "bulli",
-      "meaning": "séparation ; tri (des objets)",
+      "meaning": "tri ; séparation (des déchets)",
       "example": "종이와 플라스틱을 분리하세요.",
-      "exampleMeaning": "Veuillez séparer le papier et le plastique."
+      "exampleMeaning": "Merci de trier le papier et le plastique séparément."
     },
     {
       "korean": "라벨 제거",
       "roman": "rabel jegeo",
       "meaning": "retrait de l'étiquette ; enlever l'étiquette",
       "example": "병은 라벨 제거 후 버리세요.",
-      "exampleMeaning": "Retirez l'étiquette de la bouteille avant de la jeter."
+      "exampleMeaning": "Retire l'étiquette de la bouteille avant de la jeter."
     },
     {
       "korean": "투명 페트병",
       "roman": "tumyeong peteubyeong",
-      "meaning": "bouteille en PET transparent",
+      "meaning": "bouteille PET transparente",
       "example": "투명 페트병은 따로 모아요.",
-      "exampleMeaning": "Nous collectons séparément les bouteilles en PET transparent."
+      "exampleMeaning": "Nous collectons séparément les bouteilles PET transparentes."
     },
     {
       "korean": "스티로폼",
       "roman": "seutiropom",
       "meaning": "polystyrène expansé (styromousse)",
       "example": "스티로폼은 내용물을 비우고 배출하세요.",
-      "exampleMeaning": "Videz le contenu et sortez le polystyrène expansé pour la collecte."
+      "exampleMeaning": "Vide le contenu et sors le polystyrène pour la collecte."
     }
   ],
   "category": "vocab"

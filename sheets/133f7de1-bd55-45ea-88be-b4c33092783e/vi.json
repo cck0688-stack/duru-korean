@@ -1,8 +1,8 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
   "keyword": "",
-  "summary": "Đọc hai thông báo ngắn của chung cư (cắt nước và mất điện do kiểm tra) và luyện cách đọc lướt để tìm ngày/giờ, địa điểm, lý do và việc cư dân cần làm. Tập trung vào tám từ/nhãn thường gặp.",
-  "objective": "Người học sẽ có thể đọc các thông báo ngắn của tòa nhà về cắt nước/mất điện và kiểm tra, nhanh chóng tìm ra ngày, giờ, khu vực bị ảnh hưởng và việc cư dân cần làm; đồng thời nhận biết 8 từ/nhãn thường gặp (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "summary": "Đọc hai thông báo ngắn của chung cư (thông báo cắt nước và thông báo mất điện) và luyện tìm ngày, giờ, địa điểm, lý do và việc cư dân cần làm.",
+  "objective": "Người học sẽ nhanh chóng tìm ra ngày, giờ, khu vực bị ảnh hưởng và việc cần làm trong các thông báo cắt nước hoặc mất điện ngắn, đồng thời nhận biết 8 nhãn thường gặp (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "level": "Sơ cấp (cao)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,11 @@
     "line": ""
   },
   "exercises": [
-    "Trả lời theo định dạng được dùng trong thông báo (ví dụ: 08:00): 공지 A의 단수는 몇 시에 끝납니까?",
+    "Trả lời theo định dạng dùng trong thông báo (ví dụ: 08:00): 공지 A의 단수는 몇 시에 끝납니까?",
     "Chép lại chính xác như trong thông báo: 공지 B의 사유는 무엇입니까?",
     "Chép lại chính xác như trong thông báo: 공지 A의 장소는 어디입니까?",
     "Chép lại câu chính xác như trong thông báo: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Viết địa điểm liên hệ và số điện thoại chính xác như trong các thông báo: 두 공지의 문의처는 어디입니까?"
+    "Viết thông tin liên hệ chính xác như trong thông báo (địa điểm và số điện thoại): 두 공지의 문의처는 어디입니까?"
   ],
   "answers": [
     "14:00",
@@ -27,16 +27,16 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Các từ/nhãn thường gặp",
+      "heading": "Các nhãn và từ thường gặp",
       "paragraphs": [
         "일시 (ilsi): ngày và giờ",
         "장소 (jangso): địa điểm, khu vực bị ảnh hưởng",
         "사유 (sayu): lý do",
-        "점검 (jeomgeom): kiểm tra",
+        "점검 (jeomgeom): kiểm tra, kiểm định",
         "작업 (jageop): công việc (thi công hoặc sửa chữa)",
         "단수 (dansu): cắt nước",
         "단전 (danjeon): mất điện (cắt điện theo kế hoạch)",
-        "문의 (munui): liên hệ, thắc mắc (số điện thoại, văn phòng)"
+        "문의 (munui): liên hệ, hỏi đáp (số điện thoại, văn phòng)"
       ]
     },
     {
@@ -66,18 +66,11 @@
     {
       "heading": "Cách đọc lướt nhanh",
       "paragraphs": [
-        "Trước tiên hãy nhìn vào các nhãn (일시, 장소, 사유, 작업, 유의사항, 문의), sau đó chỉ đọc những dòng bạn cần.",
-        "Hãy làm quen với các số và ký hiệu như 09:30, ~ (từ–đến), 층 (tầng), 동 (số tòa nhà). Các thông báo này dùng giờ theo hệ 24 giờ.",
-        "Để tìm việc cư dân cần làm, hãy xem trong dòng 유의사항 (lưu ý) các đuôi câu đề nghị như -세요."
-      ]
-    },
-    {
-      "heading": "Hướng dẫn luyện tập",
-      "paragraphs": [
-        "Các thông báo ở đây là ví dụ học tập, không phải lịch trình hay số liên hệ thật."
+        "Trước tiên hãy nhìn vào các nhãn (일시, 장소, 사유, 작업, 유의사항, 문의), sau đó chỉ đọc những dòng bạn cần. Các thông báo dùng giờ theo hệ 24 giờ: ~ nghĩa là từ–đến, 동 là số tòa nhà, và 층 là tầng.",
+        "Việc cư dân cần làm nằm ở dòng 유의사항 (lưu ý), thường kết thúc bằng đề nghị -세요."
       ]
     }
   ],
-  "note": "",
+  "note": "Các thông báo ở đây là ví dụ học tập, không phải lịch trình hay số điện thoại liên hệ thực tế.",
   "category": "etc"
 }

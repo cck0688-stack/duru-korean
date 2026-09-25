@@ -1,9 +1,9 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
   "keyword": "",
-  "summary": "Lee dos avisos cortos de apartamento (corte de agua y corte de electricidad por inspección) y practica buscar rápidamente la fecha/hora, el lugar, el motivo y lo que deben hacer los residentes. Enfócate en ocho etiquetas/palabras frecuentes.",
-  "objective": "Los estudiantes podrán leer avisos cortos de edificios sobre cortes de agua/electricidad e inspecciones, y encontrar rápidamente la fecha, la hora, el área afectada y lo que deben hacer los residentes; y reconocer 8 etiquetas/palabras frecuentes (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
-  "level": "Principiante (alto)",
+  "summary": "Lee dos avisos cortos de un edificio de apartamentos (corte de agua y corte de electricidad) y practica cómo encontrar la fecha, la hora, el lugar, el motivo y lo que deben hacer los residentes.",
+  "objective": "Los estudiantes encontrarán rápidamente la fecha, la hora, la zona afectada y qué hacer en avisos breves de corte de agua o electricidad, y reconocerán 8 etiquetas frecuentes (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Principiante (nivel alto)",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -15,7 +15,7 @@
     "Copia exactamente como está escrito en el aviso: 공지 B의 사유는 무엇입니까?",
     "Copia exactamente como está escrito en el aviso: 공지 A의 장소는 어디입니까?",
     "Copia la oración exactamente como está escrita en el aviso: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Escribe el lugar de contacto y el número de teléfono exactamente como están escritos en los avisos: 두 공지의 문의처는 어디입니까?"
+    "Escribe el contacto exactamente como aparece en los avisos (lugar y número de teléfono): 두 공지의 문의처는 어디입니까?"
   ],
   "answers": [
     "14:00",
@@ -30,7 +30,7 @@
       "heading": "Etiquetas y palabras frecuentes",
       "paragraphs": [
         "일시 (ilsi): fecha y hora",
-        "장소 (jangso): lugar, área afectada",
+        "장소 (jangso): lugar, zona afectada",
         "사유 (sayu): motivo",
         "점검 (jeomgeom): inspección, revisión",
         "작업 (jageop): trabajo (construcción o reparación)",
@@ -64,20 +64,13 @@
       ]
     },
     {
-      "heading": "Cómo escanear rápidamente",
+      "heading": "Cómo leer rápidamente",
       "paragraphs": [
-        "Primero mira las etiquetas (일시, 장소, 사유, 작업, 유의사항, 문의), luego lee solo las líneas que necesitas.",
-        "Acostúmbrate a números y símbolos como 09:30, ~ (desde–hasta), 층 (piso), 동 (número de edificio). Estos avisos usan el formato de 24 horas.",
-        "Para encontrar lo que deben hacer los residentes, busca en la línea de 유의사항 (precauciones) terminaciones de petición como -세요."
-      ]
-    },
-    {
-      "heading": "Guía de práctica",
-      "paragraphs": [
-        "Los avisos aquí son ejemplos de aprendizaje, no horarios ni números de contacto reales."
+        "Primero mira las etiquetas (일시, 장소, 사유, 작업, 유의사항, 문의), y luego lee solo las líneas que necesitas. Los avisos usan el formato de 24 horas: ~ significa \"desde–hasta\", 동 es el número del edificio y 층 es el piso.",
+        "Lo que deben hacer los residentes está en la línea de 유의사항 (precauciones), generalmente con la petición que termina en -세요."
       ]
     }
   ],
-  "note": "",
+  "note": "Los avisos aquí son ejemplos de aprendizaje, no horarios ni números de contacto reales.",
   "category": "etc"
 }

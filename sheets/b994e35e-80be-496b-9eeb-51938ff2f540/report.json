@@ -301,5 +301,82 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T15:05:02.093Z"
+  "preparedAt": "2026-09-25T15:05:02.093Z",
+  "retranslated": {
+    "at": "2026-09-25T18:35:31.387Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 11,
+            "problem": "\"jogo ... nos restos de comida\" is unnatural and changes the meaning. It reads as throwing the rice into the leftover food itself, not into the food-waste bin or category.",
+            "fix": "Eu jogo o arroz que sobrou no lixo de restos de comida."
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"(high)\" means the upper part of the beginner level, but 高级 means \"advanced,\" so 初级（高级） reads as \"Beginner (Advanced),\" which contradicts itself.",
+            "fix": "初级（上）"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 12,
+            "problem": "The note \"pay-as-you-throw bag\" is translated as \"sac spécial pour les ordures\" (special bag for rubbish). This loses the meaning that the bag's price is how you pay for your waste.",
+            "fix": "sac poubelle payant obligatoire (sac prépayé, principe de la redevance incitative)"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

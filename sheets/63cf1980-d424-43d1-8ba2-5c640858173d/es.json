@@ -1,8 +1,8 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
   "keyword": "ㅈㅊㅉ 소리",
-  "summary": "Aprende cómo suenan ㅈ, ㅊ y ㅉ al inicio de una palabra. Se diferencian por la aspiración y la tensión. Úsalas para elegir el verbo correcto en grupos como 자다/차다/짜다 y 지다/치다/찌다.",
-  "objective": "Los estudiantes principiantes distinguirán y pronunciarán la ㅈ (simple), la ㅊ (aspirada) y la ㅉ (tensa) al inicio de palabra, y luego elegirán la palabra correcta en los grupos 자다/차다/짜다 y 지다/치다/찌다.",
+  "summary": "Aprende cómo suenan ㅈ, ㅊ y ㅉ al inicio de una palabra. Se diferencian en la aspiración y la tensión. Úsalas para elegir el verbo correcto en grupos como 자다/차다/짜다 y 지다/치다/찌다.",
+  "objective": "Los estudiantes principiantes distinguirán y pronunciarán la ㅈ inicial (suave), la ㅊ (aspirada) y la ㅉ (tensa), y luego elegirán la palabra correcta en los grupos 자다/차다/짜다 y 지다/치다/찌다.",
   "level": "Principiante",
   "minutes": 15,
   "tags": [],
@@ -15,7 +15,8 @@
     "Elige la palabra correcta: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
     "Elige la palabra correcta: 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
     "Elige la palabra correcta: 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
-    "¿Qué palabra significa \"perder (un partido)\"? (지다 / 치다 / 찌다)",
+    "Elige la palabra correcta: 동생이 화가 나서 문을 발로 (잤어요 / 찼어요 / 짰어요).",
+    "Elige la palabra correcta: 어제 농구 경기에서 2점 차이로 (졌어요 / 쳤어요 / 쪘어요).",
     "Sostén un pañuelo de papel frente a tu boca y di 자, 차, 짜. ¿Cuál hace que el pañuelo se mueva más?"
   ],
   "answers": [
@@ -23,25 +24,26 @@
     "짜요",
     "쳐요",
     "쪄요",
-    "지다",
-    "차 (ㅊ has a strong puff of air)"
+    "찼어요",
+    "졌어요",
+    "차 (la ㅊ tiene un fuerte soplo de aire)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
-      "sound": "j (simple): suave y relajada, con muy poca aspiración",
-      "as": "Se parece a la 'j' en la palabra inglesa \"jam\", pero más suave. Al inicio de una palabra puede sonar como una 'ch' ligera con poco aire."
+      "sound": "j (suave): suave y relajada, con solo un poco de aire",
+      "as": "Se parece a la \"j\" de \"jam\" en inglés, pero más suave. Al inicio de una palabra puede sonar como una \"ch\" ligera con solo un poco de aire."
     },
     {
       "letter": "ㅊ",
-      "sound": "ch (aspirada): va acompañada de un fuerte golpe de aire",
-      "as": "Se parece a la 'ch' en la palabra inglesa \"church\". Expulsa un chorro de aire bien marcado."
+      "sound": "ch (aspirada): viene con un fuerte soplo de aire",
+      "as": "Se parece a la \"ch\" de \"church\" en inglés. Expulsa una ráfaga clara de aire."
     },
     {
       "letter": "ㅉ",
-      "sound": "jj (tensa): tensa, cortante y sin ningún golpe de aire",
-      "as": "No tiene un equivalente exacto en inglés. Piensa en la 'tch' de la palabra inglesa \"pitch\", pero tensando la garganta y la lengua, sin dejar salir aire."
+      "sound": "jj (tensa): tensa, marcada y sin soplo de aire",
+      "as": "No tiene un equivalente exacto en inglés. Piensa en la \"tch\" de \"pitch\" en inglés, pero tensa la garganta y la lengua y no dejes salir aire."
     }
   ],
   "words": [
@@ -57,7 +59,7 @@
       "roman": "chada",
       "meaning": "patear",
       "example": "공을 차요.",
-      "exampleMeaning": "Pateo la pelota."
+      "exampleMeaning": "Yo pateo la pelota."
     },
     {
       "korean": "짜다",
@@ -69,7 +71,7 @@
     {
       "korean": "지다",
       "roman": "jida",
-      "meaning": "perder (un partido o competencia)",
+      "meaning": "perder (un juego o partido)",
       "example": "우리 팀이 졌어요.",
       "exampleMeaning": "Nuestro equipo perdió."
     },
@@ -78,14 +80,14 @@
       "roman": "chida",
       "meaning": "golpear; tocar (piano, tenis de mesa, tenis, etc.)",
       "example": "피아노를 쳐요.",
-      "exampleMeaning": "Toco el piano."
+      "exampleMeaning": "Yo toco el piano."
     },
     {
       "korean": "찌다",
       "roman": "jjida",
-      "meaning": "engordar (subir de peso)",
+      "meaning": "subir de peso",
       "example": "살이 쪘어요.",
-      "exampleMeaning": "Engordé."
+      "exampleMeaning": "Subí de peso."
     }
   ],
   "category": "hangul"

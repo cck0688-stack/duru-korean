@@ -1,8 +1,8 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
   "keyword": "",
-  "summary": "Read two short apartment notices (water shut-off and power outage due to inspection) and practice scanning for date/time, place, reason, and what residents should do. Focus on eight frequent labels/words.",
-  "objective": "Learners will be able to read short building notices about water/power outages and inspections and quickly find date, time, affected area, and what residents should do; and recognize 8 frequent labels/words (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "summary": "Read two short apartment notices (water shut-off and power outage) and practice finding the date, time, place, reason, and what residents should do.",
+  "objective": "Learners will quickly find the date, time, affected area, and what to do in short water or power outage notices, and recognize 8 frequent labels (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "level": "Beginner (high)",
   "minutes": 15,
   "tags": [],
@@ -15,7 +15,7 @@
     "Copy exactly as written in the notice: 공지 B의 사유는 무엇입니까?",
     "Copy exactly as written in the notice: 공지 A의 장소는 어디입니까?",
     "Copy the sentence exactly as written in the notice: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Write the contact place and phone number exactly as written in the notices: 두 공지의 문의처는 어디입니까?"
+    "Write the contact exactly as in the notices (place and phone number): 두 공지의 문의처는 어디입니까?"
   ],
   "answers": [
     "14:00",
@@ -66,18 +66,11 @@
     {
       "heading": "How to scan quickly",
       "paragraphs": [
-        "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need.",
-        "Get used to numbers and symbols such as 09:30, ~ (from–to), 층 (floor), 동 (building number). These notices use 24-hour time.",
-        "To find what residents should do, look in the 유의사항 (precautions) line for request endings like -세요."
-      ]
-    },
-    {
-      "heading": "Practice guide",
-      "paragraphs": [
-        "The notices here are learning examples, not real schedules or contact numbers."
+        "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need. The notices use 24-hour time: ~ means from–to, 동 is the building number, and 층 is the floor.",
+        "What residents should do is in the 유의사항 (precautions) line, usually with the request ending -세요."
       ]
     }
   ],
-  "note": "",
+  "note": "The notices here are learning examples, not real schedules or contact numbers.",
   "category": "etc"
 }

@@ -414,5 +414,126 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T13:57:14.055Z"
+  "preparedAt": "2026-09-25T13:57:14.055Z",
+  "retranslated": {
+    "at": "2026-09-25T18:37:16.709Z",
+    "translations": {
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 3,
+            "problem": "\"bersama kurir\" means \"together with / accompanying a courier\", which changes the meaning; the English means dealing with a courier (the courier delivers or picks up the parcel).",
+            "fix": "Pahami dan ucapkan 10 kalimat singkat untuk menerima dan mengirim paket di loket atau dengan kurir."
+          }
+        ]
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 15,
+            "problem": "'contra entrega' normally means cash on delivery (paying for the goods on arrival), not freight collect. 착불 means only that the recipient pays the shipping fee, so the equivalent is 'porte debido' / 'envío por cobrar'.",
+            "fix": "10) 착불로 보내 주세요. (Por favor, envíelo con el pago a cargo del destinatario.) — Pide que se envíe de forma que el destinatario pague el costo de envío al recibirlo. 착불 = pago del envío a cargo del destinatario (porte debido, envío por cobrar)."
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 22,
+            "problem": "\"Bạn không thể thêm '요' vào bất kỳ đuôi câu nào\" means '요' can never be added to any ending, but the English says it can't be added to just any ending. Also, \"không phải 받을 수 없다요\" doesn't clearly say that this form is wrong.",
+            "fix": "Để nói một cách lịch sự, thêm '요' vào sau đuôi câu thân mật thông thường (-아/어, -지, v.v.): 받을 수 없어 → 받을 수 없어요. Không phải đuôi câu nào cũng thêm '요' được (không nói 받을 수 없다요)."
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 9,
+            "problem": "The Korean term 송장 from the English '(waybill, 송장)' was dropped; the Chinese only says 运单（快递单）.",
+            "fix": "4) 운송장 번호가 어떻게 되나요? (运单号是多少？)——询问运单（快递单，송장）号码。운송장 = 运单，带有追踪号码的快递单据。"
+          },
+          {
+            "line": 26,
+            "problem": "'请出示物品说明' means 'please show the item's description'. The English just says 'Show the item.'",
+            "fix": "柜员问你想寄什么。请出示物品。→ 보낼 물건은 이거예요。"
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 9,
+            "problem": "The Korean in parentheses was changed: the English has 송장 (\"waybill, 송장\"), but the Japanese has 운송장. The Korean must stay exactly as it is in the English.",
+            "fix": "4) 운송장 번호가 어떻게 되나요? (送り状番号は何ですか?) — 送り状(송장)番号を尋ねる表現。운송장 = 送り状、追跡番号が記載された配送伝票。"
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 29,
+            "problem": "The English prompt gives the meaning in English ('I want to send a package.'), but the Korean version quotes the target Korean sentence, which gives the answer away and changes what the exercise asks.",
+            "fix": "택배를 보내고 싶다고 한국어로 말해 보세요."
+          },
+          {
+            "line": 30,
+            "problem": "The English prompt gives the meaning in English ('What is the tracking number?'), but the Korean version quotes the target Korean question, which gives the answer away.",
+            "fix": "운송장 번호가 무엇인지 한국어로 물어보세요."
+          },
+          {
+            "line": 3,
+            "problem": "'택배 기사님과 함께' means 'together with the courier', not dealing with the courier ('with a courier'). Pairing it with '택배 카운터나' also reads awkwardly.",
+            "fix": "택배 카운터에서나 택배 기사님에게 택배를 받고 보낼 때 쓰는 짧은 문장 10개를 이해하고 말해 보세요."
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 15,
+            "problem": "'Nachnahme' means cash on delivery (the recipient pays for the goods), not freight collect. 착불 only means the recipient pays the shipping cost; the German term for that is 'unfrei'.",
+            "fix": "10) 착불로 보내 주세요. (Bitte verschicke es mit Zahlung durch den Empfänger.) — Bittet darum, es so zu verschicken, dass der Empfänger die Versandkosten bei Ankunft zahlt. 착불 = Versandkosten werden vom Empfänger bezahlt (unfreier Versand/Freight Collect)."
+          },
+          {
+            "line": 2,
+            "problem": "German does not allow a comma before 'und' at the end of a simple list.",
+            "fix": "Kurze Redewendungen zum Empfangen und Versenden von Paketen in Korea: den Empfänger überprüfen, nach der Sendungsverfolgungsnummer fragen, ein Paket annehmen oder ablehnen und ein Paket versenden."
+          }
+        ]
+      }
+    }
+  }
 }

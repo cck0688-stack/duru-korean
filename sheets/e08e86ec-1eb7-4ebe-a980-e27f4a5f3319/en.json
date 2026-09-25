@@ -1,8 +1,8 @@
 {
   "title": "택배 받기·보내기: 기본 표현",
   "keyword": "",
-  "summary": "Useful short phrases for receiving and sending parcels in Korea at a counter or with a delivery driver. Focus on checking recipient, asking/confirming tracking number, accepting or refusing a parcel, and requesting shipment.",
-  "objective": "Be able to understand and say 10 short sentences used when receiving and sending parcels in Korea at a counter or with a courier (recipient confirmation, asking for tracking number, accepting/refusing, sending requests).",
+  "summary": "Short phrases for receiving and sending parcels in Korea: checking the recipient, asking for the tracking number, accepting or refusing a parcel, and sending one.",
+  "objective": "Understand and say 10 short sentences for receiving and sending parcels at a counter or with a courier.",
   "level": "Beginner",
   "minutes": 15,
   "tags": [],
@@ -34,7 +34,7 @@
         "3) 저는 [이름]입니다. (I am [name].) — The recipient's answer, e.g. 저는 김민수입니다.",
         "4) 운송장 번호가 어떻게 되나요? (What is the tracking number?) — Asks for the tracking (waybill, 송장) number. 운송장 = waybill, the shipping slip with the tracking number.",
         "5) 운송장 번호 알려 주세요. (Please tell me the tracking number.) — Used to ask someone for the tracking number.",
-        "6) 여기 서명할게요. (I'll sign here.) — 'I'll sign here.' Used when signing. 서명 = signature.",
+        "6) 여기 서명할게요. (I'll sign here.) — Used when signing. 서명 = signature.",
         "7) 이건 받을 수 없어요. (I can't accept this.) — Used to refuse a parcel, e.g. when it is 파손 (damaged).",
         "8) 택배로 보내고 싶습니다. (I want to send a package.) — Said when you come to send something.",
         "9) 보낼 물건은 이거예요. (This is the item I want to send.) — Used when showing the item you want to send. 물건 = item, thing.",
@@ -66,6 +66,6 @@
       ]
     }
   ],
-  "note": "A one-page worksheet for beginners. Say each expression out loud several times.",
+  "note": "For beginners: say each expression out loud several times.",
   "category": "etc"
 }

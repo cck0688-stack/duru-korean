@@ -1,8 +1,8 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 몇 알 먹어요?",
   "keyword": "",
-  "summary": "Đây là một tờ bài tập đọc thực hành về phong bì thuốc ở hiệu thuốc Hàn Quốc (약 봉투). Người học đọc ba nhãn phong bì ngắn. Họ học các từ về liều lượng xuất hiện trên hầu hết các phong bì (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분) và cách đọc to chúng bằng các từ đếm thuần Hàn (하루 세 번, 한 알). Họ cũng học hai cảnh báo thường gặp: 졸음이 올 수 있어요 và 운전 주의.",
-  "objective": "Sau khi đọc một phong bì thuốc ở hiệu thuốc, người học có thể tìm ra bốn điều: uống thuốc mấy lần một ngày, uống khi nào (식전 / 식후 30분 / 취침 전), mỗi lần uống bao nhiêu (1포, 1알/1정), và uống trong bao nhiêu ngày (○일분). Họ cũng có thể nhận biết các cảnh báo 졸음이 올 수 있어요 và 운전 주의.",
+  "summary": "Đọc ba nhãn túi thuốc (약 봉투) ngắn. Học các từ chỉ liều lượng xuất hiện trên hầu hết mọi túi thuốc (1일 3회, 1회 1포, 식후 30분, 취침 전, 3일분), cách đọc to chúng (하루 세 번, 한 알), và hai lời cảnh báo thường gặp.",
+  "objective": "Người học có thể tìm ra một ngày uống mấy lần, uống khi nào (식전 / 식후 30분 / 취침 전), uống bao nhiêu (1포, 1알/1정) và uống trong bao nhiêu ngày (○일분), đồng thời nhận biết các cảnh báo 졸음이 올 수 있어요 và 운전 주의.",
   "level": "Sơ cấp (cao)",
   "minutes": 20,
   "tags": [],
@@ -11,43 +11,43 @@
     "line": ""
   },
   "exercises": [
-    "Hãy xem Phong bì A. 이 약은 하루에 몇 번 먹어요?",
-    "Hãy xem Phong bì A. 이 약은 언제 먹어요? Hãy viết các từ trên phong bì và ý nghĩa của chúng.",
-    "Hãy xem Phong bì B. Trên phong bì ghi 1회 1정. 한 번에 몇 알 먹어요? Hãy trả lời theo cách người ta thường nói.",
-    "Hãy xem Phong bì C. 이 약은 며칠 동안 먹어요?",
-    "Hãy xem Phong bì C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
-    "Hãy xem Phong bì A. 이 약을 먹고 운전해도 괜찮아요? Những từ nào trên phong bì cho bạn biết điều đó, và chúng có nghĩa là gì?"
+    "Hãy nhìn vào Túi thuốc A. 이 약은 하루에 몇 번 먹어요?",
+    "Hãy nhìn vào Túi thuốc A. 이 약은 언제 먹어요? Hãy viết ra các từ trên túi thuốc và ý nghĩa của chúng.",
+    "Hãy nhìn vào Túi thuốc B. Trên túi thuốc ghi 1회 1정. 한 번에 몇 알 먹어요? Hãy trả lời theo cách người ta thường nói.",
+    "Hãy nhìn vào Túi thuốc C. 이 약은 며칠 동안 먹어요?",
+    "Hãy nhìn vào Túi thuốc C. 저녁을 7시에 먹어요. 저녁 약은 몇 시에 먹어요?",
+    "Hãy nhìn vào Túi thuốc A. 이 약을 먹고 운전해도 괜찮아요? Từ nào trên túi thuốc cho bạn biết điều đó, và chúng nghĩa là gì?"
   ],
   "answers": [
-    "하루 세 번 (1일 3회 = 3 times a day)",
-    "식후 30분 — 30 minutes after a meal (밥 먹고 30분 후)",
-    "한 알 (1정 = 1알 = one tablet)",
-    "7일 동안 (7일분 = a 7-day supply; also: 일주일 동안)",
-    "6시 30분 (식전 30분 = 30 minutes before the meal)",
-    "조심해야 해요. 봉투에 '졸음이 올 수 있어요. 운전 주의.'라고 쓰여 있어요. It may make you sleepy, so be careful about driving."
+    "하루 세 번 (1일 3회 = 3 lần một ngày)",
+    "식후 30분 — 30 phút sau bữa ăn (밥 먹고 30분 후)",
+    "한 알 (1정 = 1알 = một viên)",
+    "7일 동안 (7일분 = lượng thuốc dùng cho 7 ngày; cũng có thể nói: 일주일 동안)",
+    "6시 30분 (식전 30분 = 30 phút trước bữa ăn)",
+    "조심해야 해요. 봉투에 '졸음이 올 수 있어요. 운전 주의.'라고 쓰여 있어요. Thuốc có thể gây buồn ngủ, nên hãy cẩn thận khi lái xe."
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "약 봉투 A (PHONG BÌ THUỐC A)",
+      "heading": "약 봉투 A (TÚI THUỐC A)",
       "paragraphs": [
         "이름: 마리아 님 | 조제일: 2026년 9월 24일 | 복용법: 1일 3회, 1회 1포, 식후 30분 | 3일분 | 주의: 졸음이 올 수 있어요. 운전 주의.",
-        "Ở Hàn Quốc, hiệu thuốc thường đóng một liều thuốc viên vào một gói nhỏ gọi là 포. Bạn mở một gói và uống hết những gì bên trong."
+        "Ở Hàn Quốc, nhà thuốc thường đóng gói một liều thuốc vào một túi nhỏ gọi là 포. Bạn mở một túi và uống hết những gì bên trong."
       ]
     },
     {
-      "heading": "봉투에 나오는 말 (CÁC TỪ TRÊN PHONG BÌ)",
+      "heading": "봉투에 나오는 말 (CÁC TỪ TRÊN TÚI THUỐC)",
       "paragraphs": [
-        "SỐ LẦN UỐNG TRONG NGÀY — 1일 3회 (iril samhoe) = 3 lần một ngày. 일 nghĩa là 'ngày' và 회 nghĩa là 'lần'. Người ta thường nói câu này là 하루 세 번.",
-        "MỖI LẦN UỐNG BAO NHIÊU — 1회 1포 = mỗi lần một gói. 1정 = một viên thuốc. Bạn sẽ thấy chữ 정 trên phong bì, nhưng người ta thường nói 알: 1정 = 1알 = 한 알. Hai viên = 2알 = 두 알.",
-        "KHI NÀO — 식전 (sikjeon) = trước bữa ăn. 식후 (sikhu) = sau bữa ăn. 식후 30분 = 30 phút sau bữa ăn. 취침 전 (chwichim jeon) = trước khi đi ngủ. Khi nói chuyện, bạn có thể nói 밥 먹기 전, 밥 먹고 나서, và 자기 전.",
-        "UỐNG BAO NHIÊU NGÀY — 3일분 (sam-ilbun) = lượng thuốc dùng cho 3 ngày. 분 ở đây nghĩa là 'phần/lượng' và không liên quan gì đến phút. 7일분 = thuốc dùng cho 7 ngày."
+        "SỐ LẦN UỐNG TRONG NGÀY — 1일 3회 (iril samhoe) = 3 lần một ngày. 일 nghĩa là 'ngày' và 회 nghĩa là 'lần'. Người ta thường nói cách này là 하루 세 번.",
+        "UỐNG BAO NHIÊU MỖI LẦN — 1회 1포 = mỗi lần một túi. 1정 = một viên. Bạn sẽ thấy chữ 정 trên túi thuốc, nhưng khi nói người ta dùng 알: 1정 = 1알 = 한 알. Hai viên = 2알 = 두 알.",
+        "KHI NÀO — 식전 (sikjeon) = trước bữa ăn. 식후 (sikhu) = sau bữa ăn. 식후 30분 = 30 phút sau bữa ăn. 취침 전 (chwichim jeon) = trước khi đi ngủ. Khi nói chuyện, bạn có thể dùng 밥 먹기 전, 밥 먹고 나서, và 자기 전.",
+        "UỐNG TRONG BAO NHIÊU NGÀY — 3일분 (sam-ilbun) = lượng thuốc dùng cho 3 ngày. 분 ở đây nghĩa là 'phần/lượng', không liên quan gì đến phút. 7일분 = thuốc dùng cho 7 ngày."
       ]
     },
     {
       "heading": "소리 내어 읽기 (ĐỌC THÀNH TIẾNG)",
       "paragraphs": [
-        "Phong bì sử dụng từ Hán Hàn và số Hán Hàn. Khi nói, hãy dùng các từ đếm thuần Hàn.",
+        "Trên túi thuốc dùng từ Hán-Hàn và số Hán-Hàn. Khi nói chuyện, hãy dùng số đếm thuần Hàn.",
         "1일 3회 → 하루 세 번 먹어요. 1회 2알 → 한 번에 두 알 먹어요. 취침 전 → 자기 전에 먹어요."
       ]
     },
@@ -56,24 +56,24 @@
       "paragraphs": [
         "졸음이 올 수 있어요. (joreumi ol su isseoyo) = Thuốc này có thể gây buồn ngủ.",
         "운전 주의 (unjeon juui) = Hãy cẩn thận khi lái xe.",
-        "Hai cảnh báo này thường xuất hiện cùng nhau. Một số phong bì gộp chúng thành một câu: 졸음이 올 수 있으니 운전에 주의하세요."
+        "Hai lời cảnh báo này thường xuất hiện cùng nhau. Một số túi thuốc gộp chúng thành một câu: 졸음이 올 수 있으니 운전에 주의하세요."
       ]
     },
     {
-      "heading": "약 봉투 B, C (PHONG BÌ THUỐC B, C)",
+      "heading": "약 봉투 B, C (TÚI THUỐC B VÀ C)",
       "paragraphs": [
         "[B] 이름: 존 님 | 복용법: 1일 1회, 1회 1정, 취침 전 | 5일분",
         "[C] 이름: 하나 님 | 복용법: 1일 2회 (아침, 저녁), 1회 2알, 식전 30분 | 7일분"
       ]
     },
     {
-      "heading": "약국에서 물어보기 (HỎI TẠI HIỆU THUỐC)",
+      "heading": "약국에서 물어보기 (HỎI Ở NHÀ THUỐC)",
       "paragraphs": [
-        "Nếu bạn không đọc được phong bì, hãy hỏi dược sĩ:",
+        "Nếu bạn không đọc được túi thuốc, hãy hỏi dược sĩ:",
         "이 약은 언제 먹어요? — Khi nào tôi uống thuốc này? 하루에 몇 번 먹어요? — Một ngày uống mấy lần? 한 번에 몇 알 먹어요? — Mỗi lần uống mấy viên?"
       ]
     }
   ],
-  "note": "Tất cả các phong bì đều là ví dụ hư cấu dùng để luyện đọc. Chúng không phải là lời khuyên y tế. Đối với thuốc thật, hãy luôn làm theo hướng dẫn của dược sĩ hoặc bác sĩ.",
+  "note": "Tất cả các túi thuốc đều là ví dụ hư cấu dùng để luyện đọc. Đây không phải là lời khuyên y tế. Với thuốc thật, hãy luôn làm theo hướng dẫn của dược sĩ hoặc bác sĩ.",
   "category": "etc"
 }

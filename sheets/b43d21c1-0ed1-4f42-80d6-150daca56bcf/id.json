@@ -1,21 +1,21 @@
 {
   "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
   "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
-  "summary": "Berlatih memesan di kafe dalam situasi nyata yang singkat di Korea. Kamu akan mendengar dan mengucapkan panas/dingin, memilih ukuran (reguler/besar), dan mengatakan untuk diminum di tempat/dibawa pulang dengan ungkapan-ungkapan alami.",
-  "objective": "Mampu memahami dan mengucapkan 6–8 pertanyaan dan jawaban singkat untuk memesan satu minuman di kafe di Korea, dengan memilih panas/dingin, ukuran (reguler/besar), dan untuk diminum di tempat/dibawa pulang.",
-  "level": "Pemula (tingkat tinggi)",
+  "summary": "Berlatih memesan singkat di kafe Korea: membaca dan mengucapkan panas/dingin, ukuran (reguler/besar), dan untuk di tempat/dibawa pulang.",
+  "objective": "Memahami dan mengucapkan pertanyaan serta jawaban singkat untuk memesan satu minuman di kafe Korea: panas/dingin, ukuran, dan untuk di tempat/dibawa pulang.",
+  "level": "Pemula (tingkat atas)",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "카페에서 주문해 보기",
-    "line": "Pesan satu minuman, dengan memilih suhu, ukuran, dan untuk diminum di tempat/dibawa pulang — misalnya: 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+    "title": "Memesan di kafe",
+    "line": "Memesan satu minuman dengan memilih suhu, ukuran, dan untuk di tempat/dibawa pulang — misalnya: 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
   },
   "exercises": [
-    "Pelanggan ingin minuman dingin. Pilih jawaban yang paling alami: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
-    "Pelanggan ingin ukuran yang lebih besar. Jawab dengan pola ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
+    "Pelanggan menginginkan minuman dingin. Pilih jawaban yang paling alami: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
+    "Pelanggan menginginkan ukuran yang lebih besar. Jawab dengan ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
     "Pelanggan akan minum di tempat. Lengkapi jawaban pelanggan: 직원: 매장이세요, 포장이세요? 손님: ______",
     "Isi bagian yang kosong (panas): _____ 아메리카노 한 잔 주세요.",
-    "Sebelum staf bertanya apa pun, pesan satu latte dingin ukuran besar untuk dibawa pulang sekaligus: 직원: 어서 오세요. 손님: ______"
+    "Sebelum staf bertanya apa pun, pesan sekaligus satu latte dingin ukuran besar untuk dibawa pulang: 직원: 어서 오세요. 손님: ______"
   ],
   "answers": [
     "아이스로요.",
@@ -25,7 +25,7 @@
     "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
   ],
   "checkThese": [],
-  "setting": "서울의 프랜차이즈 카페 카운터",
+  "setting": "Di konter sebuah kafe waralaba di Seoul",
   "dialogue": [
     {
       "who": "직원",
@@ -45,7 +45,7 @@
     {
       "who": "손님",
       "korean": "아이스로 주세요.",
-      "meaning": "Yang dingin, ya."
+      "meaning": "Yang dingin, tolong."
     },
     {
       "who": "직원",
@@ -60,7 +60,7 @@
     {
       "who": "직원",
       "korean": "매장이세요, 포장이세요?",
-      "meaning": "Untuk diminum di sini atau dibawa pulang?"
+      "meaning": "Untuk di sini atau dibawa pulang?"
     },
     {
       "who": "손님",
@@ -95,12 +95,12 @@
       "roman": "saijeu",
       "meaning": "ukuran (ukuran minuman)",
       "example": "사이즈는 어떻게 하세요?",
-      "exampleMeaning": "Mau ukuran berapa?"
+      "exampleMeaning": "Anda mau ukuran berapa?"
     },
     {
       "korean": "매장",
       "roman": "maejang",
-      "meaning": "untuk di tempat, diminum di dalam",
+      "meaning": "untuk di tempat, di dalam kafe",
       "example": "매장에서 먹고 갈게요.",
       "exampleMeaning": "Saya akan minum di sini."
     },
@@ -121,7 +121,7 @@
     {
       "korean": "포장",
       "roman": "pojang",
-      "meaning": "dibawa pulang, take away",
+      "meaning": "dibawa pulang, take out",
       "example": "포장해 주세요.",
       "exampleMeaning": "Tolong dibungkus untuk dibawa pulang."
     },

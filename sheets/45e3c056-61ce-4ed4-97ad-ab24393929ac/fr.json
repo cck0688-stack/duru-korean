@@ -1,8 +1,8 @@
 {
   "title": "은행 ATM 화면: 자주 보이는 12가지 버튼 읽기",
   "keyword": "",
-  "summary": "Lire et distinguer 12 boutons/étiquettes très courants des distributeurs automatiques de billets (DAB) coréens et comprendre ce que chacun fait. Développer la confiance nécessaire pour utiliser seul(e) tout le processus d'un DAB.",
-  "objective": "À la fin, l'apprenant peut lire avec précision 12 boutons/étiquettes fréquents de DAB en coréen (출금[현금인출], 입금, 이체[계좌이체], 잔액조회, 통장정리, 무통장 입금, 공과금 납부[지로], 영수증 출력, 언어 선택, 확인, 취소, 처음으로[초기화면]) et suivre le déroulement de base d'un DAB (insérer la carte → choisir le service, ou choisir le service d'abord sur certains appareils → entrer le code PIN → choisir le montant/compte → option reçu → prendre l'argent/la carte) de façon autonome.",
+  "summary": "Apprenez à lire 12 boutons courants des distributeurs automatiques coréens, comprenez ce que fait chacun d'eux, et suivez seul(e) le déroulement complet d'une opération au distributeur.",
+  "objective": "Les apprenants peuvent lire 12 boutons courants des distributeurs coréens et suivre seuls le parcours de base (choisir le service → insérer la carte → saisir le code PIN → choisir le montant/compte → option de reçu → récupérer l'argent/la carte).",
   "level": "Débutant",
   "minutes": 20,
   "tags": [],
@@ -12,16 +12,16 @@
   },
   "exercises": [
     "Lisez le message à l'écran et choisissez 예 ou 아니요 : 화면에 '영수증이 필요하십니까? 예/아니요'가 나왔어요. 종이 영수증이 필요 없어요. 무엇을 누르나요?",
-    "Écrivez d'abord l'étiquette coréenne du bouton sur lequel vous appuyez, puis mettez les étapes suivantes dans l'ordre montré dans le déroulement 이체 de cette fiche : 상황: 다른 사람 계좌로 돈을 보내야 해요. (확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력)",
-    "Mettez les étapes de 출금 dans l'ordre montré dans cette fiche : 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인",
-    "Associez chaque situation à l'étiquette de bouton coréenne correspondante : (a) 고지서로 전기요금을 내고 싶어요. (b) 카드로 내 계좌에 현금을 넣고 싶어요. (c) 카드나 통장 없이 계좌번호로 돈을 넣고 싶어요. (d) 통장에 그동안의 거래 내역을 찍고 싶어요. (e) 현금을 뽑고 싶어요. (f) 계좌에 남은 돈을 확인하고 싶어요.",
-    "Sur quel bouton appuyez-vous ? Répondez avec l'étiquette coréenne : (a) 거래가 끝난 후에 메뉴에서 종이 영수증을 뽑고 싶어요. (b) 화면에 '금액을 선택하세요.'가 나와서 금액을 골랐어요. 다음으로 가고 싶어요. (c) 거래를 그만하고 싶어요. (d) 첫 화면으로 돌아가고 싶어요.",
-    "Écrivez l'étiquette coréenne correspondant à cette romanisation : eoneo seontaek"
+    "Écrivez d'abord le libellé coréen du bouton sur lequel vous appuyez, puis mettez les étapes suivantes dans l'ordre du parcours 이체 de cette fiche : 상황: 다른 사람 계좌로 돈을 보내야 해요. (확인 / 보낼 금액 입력 / 비밀번호 입력 / 받는 계좌 입력)",
+    "Mettez les étapes de 출금 dans l'ordre indiqué sur cette fiche : 금액 선택 / 카드 넣기 / 비밀번호 입력 / 출금 / 확인",
+    "Associez chaque situation au libellé coréen du bouton correspondant : (a) 고지서로 전기요금을 내고 싶어요. (b) 카드로 내 계좌에 현금을 넣고 싶어요. (c) 카드나 통장 없이 계좌번호로 돈을 넣고 싶어요. (d) 통장에 그동안의 거래 내역을 찍고 싶어요. (e) 현금을 뽑고 싶어요. (f) 계좌에 남은 돈을 확인하고 싶어요.",
+    "Sur quel bouton appuyez-vous ? Répondez avec le libellé coréen : (a) 거래가 끝난 후에 메뉴에서 종이 영수증을 뽑고 싶어요. (b) 화면에 '금액을 선택하세요.'가 나와서 금액을 골랐어요. 다음으로 가고 싶어요. (c) 거래를 그만하고 싶어요. (d) 첫 화면으로 돌아가고 싶어요.",
+    "Écrivez le libellé coréen correspondant à cette romanisation : eoneo seontaek"
   ],
   "answers": [
     "아니요",
     "이체(계좌이체); 비밀번호 입력 → 받는 계좌 입력 → 보낼 금액 입력 → 확인",
-    "카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인",
+    "출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인",
     "(a) 공과금 납부(지로) (b) 입금 (c) 무통장 입금 (d) 통장정리 (e) 출금(현금인출) (f) 잔액조회",
     "(a) 영수증 출력 (b) 확인 (c) 취소 (d) 처음으로(초기화면)",
     "언어 선택"
@@ -29,28 +29,28 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "12 boutons : lecture des étiquettes (romanisation) et leur fonction",
+      "heading": "12 boutons : lecture des libellés (romanisation) et leur fonction",
       "paragraphs": [
         "출금[현금인출] (chulgeum [hyeongeum inchul]) : Appuyez pour retirer de l'argent liquide.",
-        "입금 (ipgeum) : Appuyez pour mettre de l'argent sur un compte bancaire (dépôt).",
+        "입금 (ipgeum) : Appuyez pour déposer de l'argent sur un compte bancaire (dépôt).",
         "이체[계좌이체] (iche [gyejwa iche]) : Appuyez pour envoyer de l'argent vers un autre compte (virement).",
-        "잔액조회 (janaek johoe) : Appuyez pour vérifier combien d'argent il reste sur le compte (consulter le solde).",
+        "잔액조회 (janaek johoe) : Appuyez pour vérifier combien d'argent reste sur le compte (consulter le solde).",
         "통장정리 (tongjang jeongni) : Imprime l'historique des transactions dans votre livret (mise à jour du livret).",
         "무통장 입금 (mutongjang ipgeum) : Dépose de l'argent liquide sur un numéro de compte sans carte ni livret.",
         "공과금 납부[지로] (gonggwageum napbu [jiro]) : Paie des factures comme l'électricité et l'eau.",
         "영수증 출력 (yeongsujeung chullyeok) : Vous donne un reçu papier (imprimer le reçu).",
-        "언어 선택 (eoneo seontaek) : Choisit la langue, par exemple le coréen ou l'anglais.",
+        "언어 선택 (eoneo seontaek) : Choisit la langue, comme le coréen ou l'anglais.",
         "확인 (hwagin) : Termine votre saisie et continue (confirmer).",
-        "취소 (chwiso) : Annule la transaction en cours (annuler).",
-        "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]) : Retourne au premier écran (revenir à l'accueil)."
+        "취소 (chwiso) : Annule l'opération en cours (annuler).",
+        "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]) : Retourne au premier écran (revenir au début/à l'accueil)."
       ]
     },
     {
       "heading": "Suivre le déroulement de base",
       "paragraphs": [
-        "Sur certains appareils, vous choisissez d'abord le service, puis vous insérez votre carte.",
-        "출금: 카드 넣기 → 출금 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
-        "이체: 카드 넣기 → 이체 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기"
+        "Sur la plupart des appareils, on choisit d'abord le service puis on insère la carte ou le livret. Certains appareils demandent d'abord la carte.",
+        "출금: 출금 → 카드 넣기 → 비밀번호 입력 → 금액 선택 → 확인 → 영수증 선택 → 현금·카드 받기",
+        "이체: 이체 → 카드 넣기 → 비밀번호 입력 → 받는 은행 선택 → 받는 계좌 입력 → 보낼 금액 입력 → 확인 → 영수증 선택 → 카드 받기"
       ]
     },
     {
@@ -61,13 +61,13 @@
       ]
     },
     {
-      "heading": "Conseils de lecture et notes sur les termes",
+      "heading": "Conseils de lecture et notes de vocabulaire",
       "paragraphs": [
-        "Les crochets […] indiquent une autre étiquette ayant le même sens. Si vous voyez l'une ou l'autre, c'est la même fonction.",
+        "Les crochets […] indiquent un autre libellé ayant le même sens. Si vous voyez l'un ou l'autre, c'est la même fonction.",
         "확인, 취소 et 처음으로 apparaissent sur presque tous les écrans. Leur position varie selon la banque, alors lisez toujours le texte."
       ]
     }
   ],
-  "note": "Cette fiche est basée sur les étiquettes de boutons de DAB réels. La disposition de l'écran peut varier légèrement selon la banque et l'appareil.",
+  "note": "Basé sur les libellés des boutons de vrais distributeurs. L'affichage à l'écran peut varier légèrement selon la banque et l'appareil.",
   "category": "etc"
 }

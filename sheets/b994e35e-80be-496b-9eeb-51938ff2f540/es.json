@@ -1,8 +1,8 @@
 {
   "title": "집에서 쓰레기 배출·분리수거 핵심 어휘 10",
   "keyword": "vocab",
-  "summary": "Diez palabras clave en coreano para clasificar la basura doméstica y sacarla en apartamentos/casas, con oraciones de ejemplo claras y naturales, y una breve práctica.",
-  "objective": "Los estudiantes comprenderán y usarán con confianza 10 palabras clave relacionadas con la eliminación de basura doméstica y el reciclaje, y podrán formar oraciones cortas para usar en la vida real.",
+  "summary": "Diez palabras clave en coreano que debes saber para separar la basura doméstica y sacarla en apartamentos/casas, con ejemplos claros y naturales y una breve práctica.",
+  "objective": "Los estudiantes entenderán y usarán con confianza 10 palabras clave relacionadas con la eliminación de basura doméstica y el reciclaje, y podrán formar frases cortas para usar en la vida real.",
   "level": "Principiante (alto)",
   "minutes": 15,
   "tags": [
@@ -13,8 +13,8 @@
     "주거"
   ],
   "task": {
-    "title": "우리 집 쓰레기 분류해 말하기",
-    "line": "Elige 5 cosas que tiras en tu casa y di en coreano dónde va cada una, por ejemplo: '이 캔은 헹군 다음 재활용으로 버려요.' Las normas pueden variar según la zona, así que revisa el aviso de tu edificio u oficina local."
+    "title": "Clasifica tu propia basura",
+    "line": "Elige 5 cosas que tires en tu casa y di en coreano dónde va cada una, por ejemplo: '이 캔은 헹군 다음 재활용으로 버려요.' Las reglas pueden variar según la zona, así que revisa el aviso de tu edificio o de la oficina local."
   },
   "exercises": [
     "Completa los espacios en blanco: 생수를 다 마신 _____은 라벨을 떼고 찌그러뜨려 주세요. 택배 상자 안의 흰 _____은 테이프를 떼고 버리세요.",
@@ -35,7 +35,7 @@
     {
       "korean": "일반 쓰레기",
       "roman": "ilban sseuregi",
-      "meaning": "basura general; residuos no reciclables",
+      "meaning": "basura general; basura no reciclable",
       "example": "더러운 휴지는 일반 쓰레기에 버리세요.",
       "exampleMeaning": "Por favor, tira los pañuelos sucios en la basura general."
     },
@@ -56,14 +56,14 @@
     {
       "korean": "종량제 봉투",
       "roman": "jongnyangje bongtu",
-      "meaning": "bolsa de basura pagada designada (bolsa de pago por tirar)",
+      "meaning": "bolsa de basura de pago designada (bolsa de pago por tirar)",
       "example": "쓰레기는 종량제 봉투에 담아 주세요.",
-      "exampleMeaning": "Por favor, pon la basura en una bolsa pagada designada."
+      "exampleMeaning": "Por favor, pon la basura en una bolsa de pago designada."
     },
     {
       "korean": "배출",
       "roman": "baechul",
-      "meaning": "sacar (la basura) para la recolección",
+      "meaning": "sacar la basura (para la recolección)",
       "example": "쓰레기는 지정 장소에 배출하세요.",
       "exampleMeaning": "Por favor, saca la basura en el lugar designado."
     },
@@ -77,7 +77,7 @@
     {
       "korean": "분리",
       "roman": "bulli",
-      "meaning": "separación; clasificación (de artículos)",
+      "meaning": "separación; clasificación (de los materiales)",
       "example": "종이와 플라스틱을 분리하세요.",
       "exampleMeaning": "Por favor, separa el papel y el plástico."
     },
@@ -98,7 +98,7 @@
     {
       "korean": "스티로폼",
       "roman": "seutiropom",
-      "meaning": "poliestireno expandido (espuma de poliestireno)",
+      "meaning": "poliestireno expandido (telgopor/icopor)",
       "example": "스티로폼은 내용물을 비우고 배출하세요.",
       "exampleMeaning": "Vacía el contenido y saca el poliestireno para la recolección."
     }

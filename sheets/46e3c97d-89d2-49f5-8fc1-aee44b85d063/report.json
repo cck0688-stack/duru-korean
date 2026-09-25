@@ -164,5 +164,87 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T15:37:55.769Z"
+  "preparedAt": "2026-09-25T15:37:55.769Z",
+  "retranslated": {
+    "at": "2026-09-25T18:28:59.924Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 6,
+            "problem": "\"dùng sau một số\" is ambiguous. \"một số\" normally means \"some\", so the line can read as \"used after some (things)\" instead of \"used after a number\".",
+            "fix": "phần ăn cho một người, dùng sau số đếm (2인분 = phần ăn cho hai người)"
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 22,
+            "problem": "The translation adds Korean (영수증) that isn't in the English line. The English is just \"receipt\", so the Japanese shouldn't add any Hangul.",
+            "fix": "レシート"
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 6,
+            "problem": "“(为一人份的)份” is awkward, broken Chinese and doesn't clearly say that 인분 means one person's serving.",
+            "fix": "一人份的量,用在数字后面(2인분 = 两人份的食物)"
+          },
+          {
+            "line": 29,
+            "problem": "Meaning changed: “并且都想要收据” says you both want receipts. The English only says “and you want a receipt.”",
+            "fix": "从列表中选词填入两个空。你和朋友在柜台前。你们各自支付自己的餐费,并且你想要收据:저희 ___ 계산할게요。그리고 ___도 주세요。"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

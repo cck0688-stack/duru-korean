@@ -429,5 +429,82 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T14:12:47.556Z"
+  "preparedAt": "2026-09-25T14:12:47.556Z",
+  "retranslated": {
+    "at": "2026-09-25T18:35:24.184Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 2,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 15,
+            "problem": "Broken Korean: '멈추을' is not a valid form. The verb 멈추다 combines with -(으)ㄹ 때 to give '멈출 때'.",
+            "fix": "8) 취소 — 진행 중인 주문을 멈출 때 누릅니다. 예: 주문을 안 하고 싶어요. 취소를 눌러요."
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"Beginner (high)\" means the upper band of the beginner level; \"初级(高级)\" reads as \"beginner (advanced)\", which is contradictory because 高级 is itself the name of the advanced level.",
+            "fix": "初级（高）"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 2,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 22,
+            "problem": "\"stoppt die Bestellung und beendet sie\" is redundant (stop/end) and loses the meaning of \"exits\" (leaving the ordering process), which is the point of the contrast with 뒤로가기.",
+            "fix": "취소 (abbrechen) stoppt die Bestellung und verlässt den Bestellvorgang. 뒤로가기 (zurück) geht nur einen Schritt zurück (뒤로가기 gehört nicht zu den 12 Schaltflächen auf diesem Arbeitsblatt)."
+          }
+        ]
+      }
+    }
+  }
 }

@@ -254,5 +254,99 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T15:33:20.299Z"
+  "preparedAt": "2026-09-25T15:33:20.299Z",
+  "retranslated": {
+    "at": "2026-09-25T18:43:14.001Z",
+    "translations": {
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "The English says \"the two rules learners break most,\" but the Spanish says \"los dos errores más comunes de los estudiantes\" (\"the two most common errors\"). What follows the colon are correct rules (\"only -(으)니까 can...\", \"no past-tense marker...\"), not errors, so the sentence now says something different from the English.",
+            "fix": "Tanto -아서/어서 como -(으)니까 expresan una razón (\"porque, así que\"). Aprende a formar cada una, y las dos reglas que los estudiantes más incumplen: solo -(으)니까 puede ir antes de una orden o sugerencia, y no se puede poner una marca de pasado antes de -아서/어서 (no -았/었어서)."
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 35,
+            "problem": "Broken Indonesian: \"kata sifat berbatang ㅂ berubah ㅂ menjadi 우\" is ungrammatical. \"Berubah\" can't take an object, so it needs a transitive verb (\"mengubah\") or a different construction.",
+            "fix": "Sebagian besar kata sifat berbatang ㅂ mengubah ㅂ menjadi 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)"
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 35,
+            "problem": "\"Most ㅂ-stem adjectives\" became \"대부분의 ㅂ 불규칙 형용사\" (\"most ㅂ-irregular adjectives\"). Every ㅂ-irregular adjective changes ㅂ to 우, so \"most\" no longer fits. The English means adjectives whose stem ends in ㅂ, some of which are regular.",
+            "fix": "대부분의 ㅂ 받침 형용사는 ㅂ이 우로 바뀝니다. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 2,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"初级（高级）\" reads as \"Beginner (Advanced)\", which contradicts itself. The English \"high\" means the upper part of the beginner level, not the advanced level.",
+            "fix": "初级（高）"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 3,
+            "problem": "\"Grundsatz\" means \"principle\" in German, not \"reason clause\". The grammar term is mistranslated.",
+            "fix": "Wähle zwischen -아서/어서 und -(으)니까 für einen Kausalsatz, bilde die richtige Form (auch bei Nomen und ㄹ/ㅂ-unregelmäßigen Stämmen), und korrigiere Sätze, in denen -아서/어서 fälschlich vor einem Befehl/Vorschlag oder mit einer Vergangenheitsform verwendet wird."
+          },
+          {
+            "line": 11,
+            "problem": "\"zu viel Kaffee\" means \"too much coffee\". The English says \"a lot of coffee\", so the meaning has changed.",
+            "fix": "Ich habe viel Kaffee getrunken, deshalb kann ich nicht einschlafen."
+          }
+        ]
+      }
+    }
+  }
 }

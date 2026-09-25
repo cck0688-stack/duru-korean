@@ -1,7 +1,7 @@
 {
   "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
   "keyword": "키오스크 버튼",
-  "summary": "Read and understand 12 very common buttons/text on cafe and fast-food self-order kiosks. Learners match each label with its function and follow a simple order flow on their own.",
+  "summary": "Read 12 common buttons on cafe and fast-food self-order kiosks, match each one with its function, and follow a simple order flow.",
   "objective": "By the end, learners can recognize 12 frequent kiosk buttons/labels and follow a basic flow—dine in/take out → pick menu → choose options → choose payment method → get receipt/order number—without help.",
   "level": "Beginner (high)",
   "minutes": 15,
@@ -19,20 +19,13 @@
   ],
   "answers": [
     "매장–(b), 포장–(f), 단품–(e), 세트–(j), HOT/ICE–(c), 사이즈–(h), 추가–(k), 취소–(l), 결제하기–(g), 카드 결제–(i), 간편결제–(a), 영수증 출력–(d)",
-    "포장 ② 세트",
-    "L ② HOT ③ 추가",
-    "간편결제 ② 카드 결제 ③ 영수증 출력 ④ The order stops and you exit.",
+    "① 포장 ② 세트",
+    "① L ② HOT ③ 추가",
+    "① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ 주문이 취소되고 처음 화면으로 돌아가요.",
     "포장 → 세트 → L → 결제하기 → 간편결제 → 영수증 출력"
   ],
   "checkThese": [],
   "sections": [
-    {
-      "heading": "How to use this worksheet",
-      "paragraphs": [
-        "Read the buttons and short text you often see on kiosk screens, and connect each one to its meaning right away.",
-        "Learn only the words you need, and try to follow the basic order flow on your own."
-      ]
-    },
     {
       "heading": "The order flow at a glance",
       "paragraphs": [
@@ -60,12 +53,10 @@
       "heading": "Reading tips: abbreviations and English labels",
       "paragraphs": [
         "S/M/L: short for Small/Medium/Large. Many kiosks show sizes as S/M/L, but some stores use other names (e.g., 레귤러/라지).",
-        "HOT/ICE: hot drinks are marked HOT, cold drinks ICE.",
-        "단품/세트: 단품 is the item only; 세트 comes with a side and a drink.",
         "취소 (cancel) stops the order and exits. 뒤로가기 (back) goes back one step only (뒤로가기 is not in this worksheet's list of 12)."
       ]
     }
   ],
-  "note": "The examples are based on expressions and order flows commonly seen on real kiosks. This worksheet focuses on reading, and screen designs may differ from store to store.",
+  "note": "Based on labels and order flows common on real kiosks. Screen designs may differ from store to store.",
   "category": "etc"
 }
