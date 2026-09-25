@@ -1,21 +1,21 @@
 {
   "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
   "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
-  "summary": "Entraîne-toi à passer une commande courte et réaliste dans un café en Corée. Tu vas entendre et dire chaud/glacé, choisir la taille (normal/grand), et dire si c'est sur place ou à emporter avec des phrases naturelles.",
-  "objective": "Être capable de comprendre et de dire 6 à 8 questions et réponses courtes pour commander une boisson dans un café en Corée, en choisissant chaud/glacé, la taille (normal/grand), et sur place ou à emporter.",
+  "summary": "Entraîne-toi à passer une courte commande dans un café en Corée : lis et dis chaud/glacé, la taille (normal/grand), et sur place/à emporter.",
+  "objective": "Comprends et dis les courtes questions et réponses pour commander une boisson dans un café coréen : chaud/glacé, taille, et sur place/à emporter.",
   "level": "Débutant (niveau avancé)",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "카페에서 주문해 보기",
-    "line": "Commande une boisson en choisissant la température, la taille, et si c'est sur place ou à emporter — par ex. 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+    "title": "Commander dans un café",
+    "line": "Commande une boisson en choisissant la température, la taille, et sur place/à emporter — par ex. 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
   },
   "exercises": [
     "Le client veut une boisson glacée. Choisis la réponse la plus naturelle : 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
-    "Le client veut la plus grande taille. Réponds avec ~로 주세요 : 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
-    "Le client va boire sur place. Complète la réponse du client : 직원: 매장이세요, 포장이세요? 손님: ______",
-    "Remplis le blanc (chaud) : _____ 아메리카노 한 잔 주세요.",
-    "Avant que l'employé ne demande quoi que ce soit, commande un latte glacé en grand, à emporter, en une seule fois : 직원: 어서 오세요. 손님: ______"
+    "Le client veut la taille la plus grande. Réponds avec ~로 주세요 : 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
+    "Le client va le boire sur place. Complète la réponse du client : 직원: 매장이세요, 포장이세요? 손님: ______",
+    "Complète le blanc (chaud) : _____ 아메리카노 한 잔 주세요.",
+    "Avant même que l'employé ne pose de question, commande d'un coup un latte glacé, en grand, à emporter : 직원: 어서 오세요. 손님: ______"
   ],
   "answers": [
     "아이스로요.",
@@ -25,7 +25,7 @@
     "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
   ],
   "checkThese": [],
-  "setting": "서울의 프랜차이즈 카페 카운터",
+  "setting": "Au comptoir d'une chaîne de cafés à Séoul",
   "dialogue": [
     {
       "who": "직원",
@@ -86,7 +86,7 @@
     {
       "korean": "따뜻하다 / 따뜻한",
       "roman": "ttatteutada / ttatteutan",
-      "meaning": "chaud (boisson chaude)",
+      "meaning": "chaud, bien chaud (boisson chaude)",
       "example": "따뜻한 아메리카노 주세요.",
       "exampleMeaning": "Un Americano chaud, s'il vous plaît."
     },
@@ -95,14 +95,14 @@
       "roman": "saijeu",
       "meaning": "taille (taille de la boisson)",
       "example": "사이즈는 어떻게 하세요?",
-      "exampleMeaning": "Quelle taille souhaitez-vous ?"
+      "exampleMeaning": "Quelle taille voulez-vous ?"
     },
     {
       "korean": "매장",
       "roman": "maejang",
       "meaning": "sur place, en magasin",
       "example": "매장에서 먹고 갈게요.",
-      "exampleMeaning": "Je vais le boire sur place."
+      "exampleMeaning": "Je vais le prendre sur place."
     },
     {
       "korean": "레귤러",

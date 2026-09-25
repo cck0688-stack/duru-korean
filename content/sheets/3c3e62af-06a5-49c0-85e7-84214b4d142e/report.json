@@ -868,5 +868,98 @@
       "after": "Learners can find four things on a Korean medicine bag: how many times a day (1일 3회 = 하루에 세 번), when (식전, 식후 30분, 자기 전), for how many days (3일분), and what the warning means (졸음 주의, 운전 주의).",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
     }
-  ]
+  ],
+  "retranslated": {
+    "at": "2026-09-25T18:40:48.031Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 18,
+            "problem": "'Supply' is translated as 'dosis', which means one amount taken at a time. 3일분 is the whole amount of medicine for three days, so 'una dosis para tres días' gets the term wrong.",
+            "fix": "medicación para tres días (3일 = tres días, -분 = cantidad correspondiente al número anterior: 3일분 = para tres días, 2인분 = para dos personas)"
+          },
+          {
+            "line": 19,
+            "problem": "'Five-day supply' is translated as 'una dosis', which means one amount taken at a time. It should be the medicine for the whole five days.",
+            "fix": "El farmacéutico me dio medicina para cinco días."
+          }
+        ]
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "'básico' means 'basic', which is the beginner level, so the label reads like a mix of two levels. The English means the lower part of the intermediate level.",
+            "fix": "Intermediário (inferior)"
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 10,
+            "problem": "The English gloss \"an empty stomach\" is a noun phrase, but the French \"avoir l'estomac vide\" turns it into a verb phrase (\"to have an empty stomach\"), so it no longer describes the word correctly.",
+            "fix": "un estomac vide, à jeun"
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 10,
+            "problem": "Spacing error: 'empty stomach' is the single word 빈속 in standard Korean, so there should be no space.",
+            "fix": "빈속"
+          },
+          {
+            "line": 11,
+            "problem": "Spacing error: 빈속 is one word, so '빈 속에' should be '빈속에'.",
+            "fix": "빈속에 커피를 마시면 배가 아파요."
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

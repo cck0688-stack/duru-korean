@@ -1,9 +1,9 @@
 {
   "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
   "keyword": "도로명주소",
-  "summary": "Aprende a localizar y decir rápidamente el nombre de la calle que termina en ro/gil más el número del edificio, y, cuando existan, el número de edificio/unidad del apartamento (dong/ho) en direcciones coreanas escritas, ya sea en papel, mensajes de texto o apps de mapas.",
-  "objective": "Al terminar esta hoja de trabajo, el estudiante podrá 1) identificar y leer el nombre de la calle que termina en ro/gil junto con el número del edificio, y 2) encontrar y decir rápida y correctamente el dong y el ho del apartamento.",
-  "level": "Principiante (nivel alto)",
+  "summary": "Encontrar y decir rápidamente el nombre de la calle (que termina en 로/길) junto con el número del edificio, y el 동·호 de los apartamentos, en direcciones coreanas.",
+  "objective": "Los estudiantes podrán 1) encontrar y leer el nombre de la calle que termina en 로/길 junto con el número del edificio, y 2) encontrar y decir el 동 y el 호 del apartamento de forma rápida y precisa.",
+  "level": "Principiante (avanzado)",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,11 +11,11 @@
     "line": ""
   },
   "exercises": [
-    "Escribe el nombre de la calle + número del edificio y el 동/층/호 (escribe 없음 si no hay): 광주 북구 무지개로 58",
-    "Escribe el nombre de la calle + número del edificio y el 동/층/호 (escribe 없음 si no hay): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
-    "Escribe cómo se diría esta dirección desde el nombre de la calle hasta el 호, leyendo los números con numerales sino-coreanos (escríbelos en hangul). Omite la región y los paréntesis del final: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
-    "Escribe el nombre de la calle + número del edificio y el 동/층/호 (escribe 없음 si no hay): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
-    "Esta dirección está escrita en el estilo informal cotidiano. Escribe cómo se diría desde el nombre de la calle hasta el final, incluyendo el nombre del edificio antes del 호 y omitiendo la región, leyendo los números con numerales sino-coreanos (escríbelos en hangul): 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
+    "Escribe el nombre de la calle + el número del edificio y el 동/층/호 (escribe 없음 si no hay): 광주 북구 무지개로 58",
+    "Escribe el nombre de la calle + el número del edificio y el 동/층/호 (escribe 없음 si no hay): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
+    "Escribe cómo se dice desde el nombre de la calle hasta el 호, con los números sino-coreanos en hangul; omite la región y los paréntesis: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
+    "Escribe el nombre de la calle + el número del edificio y el 동/층/호 (escribe 없음 si no hay): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
+    "Estilo informal: escribe cómo se dice desde el nombre de la calle hasta el final, con el nombre del edificio antes del 호 y los números sino-coreanos en hangul; omite la región: 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
   ],
   "answers": [
     "무지개로 58; 없음",
@@ -27,9 +27,9 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Las direcciones por nombre de calle de un vistazo",
+      "heading": "Las direcciones con nombre de calle de un vistazo",
       "paragraphs": [
-        "Una dirección coreana se lee en tres partes: región (시/도, 시/군/구) + nombre de la calle y número del edificio + (en el caso de apartamentos) 동·호.",
+        "Una dirección coreana se lee en tres partes: la región (시/도, 시/군/구) + el nombre de la calle y el número del edificio + (en el caso de los apartamentos) el 동·호.",
         "Ejemplo: en '서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)', '햇살로17길 12' es el nombre de la calle y el número del edificio, y '202호' es el número de la unidad. Los paréntesis al final contienen el barrio (법정동) y el nombre del edificio."
       ]
     },
@@ -37,34 +37,32 @@
       "heading": "Cómo encontrar 로/길 (ro/gil) y el número del edificio",
       "paragraphs": [
         "Los nombres de calle suelen terminar en '…로' (ro) o '…길' (gil), incluido '…번길' (beon-gil). El número que aparece justo después del nombre de la calle es el número del edificio.",
-        "Ejemplos: '세종대로 110', '햇살로17길 12'.",
-        "Cómo leerlos: '세종대로 백십', '햇살로 십칠길 십이'. Lee los números con claridad usando las unidades numéricas sino-coreanas (천/백/십)."
+        "Ejemplos: '세종대로 110' se lee '세종대로 백십', y '햇살로17길 12' se lee '햇살로 십칠길 십이'. Lee los números usando las unidades sino-coreanas (천/백/십)."
       ]
     },
     {
       "heading": "Cómo encontrar el 동·호 (dong/ho) del apartamento",
       "paragraphs": [
-        "En apartamentos, officetels y edificios similares, la dirección detallada (동·층·호) va después de la coma. '동' es el número del edificio dentro del complejo, '층' es el piso y '호' es el número de la unidad (habitación).",
-        "Formato oficial: '…, 101동 1203호 (○○동, ○○아파트)' o '…, 1203호 (○○동, ○○오피스텔)' (a veces no hay 동). El nombre del edificio va en los paréntesis del final, junto con el barrio (법정동).",
-        "Estilo informal cotidiano: mucha gente escribe el nombre del edificio antes del 동·호, por ejemplo '…, 초록아파트 101동 1203호'. Se ve a menudo en paquetes y mensajes de texto, pero no es el formato oficial.",
-        "Cómo leerlo: '백일동 천이백삼호' (101동 1203호)."
+        "En apartamentos, officetels y edificios similares, la dirección detallada (동·층·호) va después de la coma. '동' es el número de edificio dentro del complejo, '층' es el piso, y '호' es el número de la unidad (habitación).",
+        "Patrón oficial: '…, 101동 1203호 (○○동, ○○아파트)' o '…, 1203호 (○○동, ○○오피스텔)' (a veces no hay 동). El nombre del edificio va en los paréntesis al final, junto con el barrio (법정동).",
+        "Estilo informal cotidiano: mucha gente escribe el nombre del edificio antes del 동·호, por ejemplo '…, 초록아파트 101동 1203호'. Verás esto a menudo en paquetes y mensajes de texto, pero no es el formato oficial.",
+        "Cómo se lee: '백일동 천이백삼호' (101동 1203호)."
       ]
     },
     {
       "heading": "Consejos para encontrarlos rápidamente",
       "paragraphs": [
-        "1) Primero, localiza el final del nombre de la calle, el último '로' o '길/번길'. En calles secundarias como '…로17길' o '…로45번길', el número pegado a la palabra forma parte del nombre de la calle. El número que viene después del espacio es el número del edificio.",
-        "2) Busca '동', '층' y '호' justo después de la coma (en el estilo informal, después del nombre del edificio). Las palabras entre paréntesis al final son el barrio y el nombre del edificio, no la unidad. Si no hay 동·층·호, di '없음' (ninguno).",
-        "3) Al hablar, di primero 'nombre de la calle + número del edificio' y luego el '동·호'."
+        "1) Primero, localiza el final del nombre de la calle, el último '로' o '길/번길'. En calles secundarias como '…로17길' o '…로45번길', el número pegado a la palabra forma parte del nombre de la calle. El número después del espacio es el número del edificio.",
+        "2) Busca '동', '층' y '호' justo después de la coma (en el estilo informal, después del nombre del edificio). Las palabras entre paréntesis al final son el barrio y el nombre del edificio, no la unidad. Si no hay 동·층·호, di '없음' (ninguno)."
       ]
     },
     {
       "heading": "Instrucciones de práctica",
       "paragraphs": [
-        "Formato de respuesta para localizar: 'nombre de la calle número del edificio; 동·층·호' o 'nombre de la calle número del edificio; 없음' (ninguno). Para leer: di solo el nombre de la calle + el número del edificio y luego el 동·호 (más el nombre del edificio si está escrito antes del 동·호, como en el estilo informal); omite la región y los paréntesis del final. Escribe los números en hangul, por ejemplo '세종대로 백십'."
+        "Buscar: escribe 'nombre de la calle número del edificio; 동·층·호', o 'nombre de la calle número del edificio; 없음' (ninguno). Leer: di primero el nombre de la calle + el número del edificio, luego el 동·호 (con el nombre del edificio si va antes del 동·호); omite la región y los paréntesis del final. Escribe los números en hangul, por ejemplo '세종대로 백십'."
       ]
     }
   ],
-  "note": "Las direcciones de ejemplo se crearon para practicar. Aparte de '세종대로 110', los nombres de calles, edificios y unidades son inventados y no corresponden a lugares reales.",
+  "note": "Salvo '세종대로 110', las direcciones de ejemplo son inventadas para la práctica y no corresponden a lugares reales.",
   "category": "etc"
 }

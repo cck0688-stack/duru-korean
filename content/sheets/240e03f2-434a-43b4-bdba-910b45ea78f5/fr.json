@@ -1,8 +1,8 @@
 {
   "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
   "keyword": "도로명주소",
-  "summary": "Apprendre à repérer rapidement et à dire le nom de la voie se terminant par ro/gil ainsi que le numéro du bâtiment, et, le cas échéant, le numéro du bâtiment/de l'appartement (dong/ho) dans les adresses coréennes écrites, que ce soit sur papier, dans des textos ou sur des applications de carte.",
-  "objective": "À la fin de cette fiche, les apprenants pourront 1) repérer et lire le nom de voie se terminant par ro/gil ainsi que le numéro du bâtiment, et 2) trouver et dire rapidement et avec précision le dong et le ho de l'appartement.",
+  "summary": "Trouver et dire rapidement le nom de la voie (se terminant par 로/길) avec le numéro du bâtiment, ainsi que le 동·호 d'un appartement, dans les adresses coréennes.",
+  "objective": "Les apprenants peuvent 1) trouver et lire le nom de la voie se terminant par 로/길 ainsi que le numéro du bâtiment, et 2) trouver et dire rapidement et avec précision le 동 et le 호 d'un appartement.",
   "level": "Débutant (niveau avancé)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,11 @@
     "line": ""
   },
   "exercises": [
-    "Écrivez le nom de voie + numéro de bâtiment et le 동/층/호 (écrivez 없음 s'il n'y en a pas) : 광주 북구 무지개로 58",
-    "Écrivez le nom de voie + numéro de bâtiment et le 동/층/호 (écrivez 없음 s'il n'y en a pas) : 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
-    "Écrivez comment dire cette adresse du nom de voie jusqu'au 호, en lisant les nombres avec les nombres sino-coréens (écrivez-les en hangeul). Omettez la région et les parenthèses à la fin : 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
-    "Écrivez le nom de voie + numéro de bâtiment et le 동/층/호 (écrivez 없음 s'il n'y en a pas) : 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
-    "Cette adresse est écrite dans le style informel courant. Écrivez comment la dire du nom de voie jusqu'à la fin, en incluant le nom du bâtiment avant le 호 et en omettant la région, en lisant les nombres avec les nombres sino-coréens (écrivez-les en hangeul) : 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
+    "Écrivez le nom de la voie + le numéro du bâtiment ainsi que le 동/층/호 (écrivez 없음 s'il n'y en a pas) : 광주 북구 무지개로 58",
+    "Écrivez le nom de la voie + le numéro du bâtiment ainsi que le 동/층/호 (écrivez 없음 s'il n'y en a pas) : 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
+    "Écrivez comment le dire, du nom de la voie jusqu'au 호, avec les nombres sino-coréens en hangeul ; omettez la région et les parenthèses : 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
+    "Écrivez le nom de la voie + le numéro du bâtiment ainsi que le 동/층/호 (écrivez 없음 s'il n'y en a pas) : 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
+    "Style informel : écrivez comment le dire, du nom de la voie jusqu'à la fin, avec le nom du bâtiment avant le 호 et les nombres sino-coréens en hangeul ; omettez la région : 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
   ],
   "answers": [
     "무지개로 58; 없음",
@@ -29,42 +29,40 @@
     {
       "heading": "Les adresses avec nom de voie en un coup d'œil",
       "paragraphs": [
-        "Une adresse coréenne se lit en trois parties : région (시/도, 시/군/구) + nom de voie et numéro de bâtiment + (pour les appartements) 동·호.",
-        "Exemple : dans « 서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라) », « 햇살로17길 12 » est le nom de voie et le numéro de bâtiment, et « 202호 » est le numéro d'unité. Les parenthèses à la fin contiennent le quartier légal (법정동) et le nom du bâtiment."
+        "Une adresse coréenne se lit en trois parties : la région (시/도, 시/군/구) + le nom de la voie et le numéro du bâtiment + (pour les appartements) le 동·호.",
+        "Exemple : dans « 서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라) », « 햇살로17길 12 » correspond au nom de la voie et au numéro du bâtiment, et « 202호 » est le numéro de l'unité. Les parenthèses à la fin contiennent le quartier (법정동) et le nom du bâtiment."
       ]
     },
     {
-      "heading": "Repérer 로/길 (ro/gil) et le numéro de bâtiment",
+      "heading": "Trouver 로/길 (ro/gil) et le numéro du bâtiment",
       "paragraphs": [
-        "Les noms de voies se terminent généralement par « …로 » (ro) ou « …길 » (gil), y compris « …번길 » (beon-gil). Le numéro juste après le nom de voie est le numéro du bâtiment.",
-        "Exemples : « 세종대로 110 », « 햇살로17길 12 ».",
-        "Comment les lire : « 세종대로 백십 », « 햇살로 십칠길 십이 ». Lisez les nombres clairement avec les unités sino-coréennes (천/백/십)."
+        "Les noms de voie se terminent généralement par « …로 » (ro) ou « …길 » (gil), y compris « …번길 » (beon-gil). Le nombre juste après le nom de la voie est le numéro du bâtiment.",
+        "Exemples : « 세종대로 110 » se lit « 세종대로 백십 », et « 햇살로17길 12 » se lit « 햇살로 십칠길 십이 ». Lisez les nombres avec les unités de position sino-coréennes (천/백/십)."
       ]
     },
     {
-      "heading": "Repérer le 동·호 (dong/ho) de l'appartement",
+      "heading": "Trouver le 동·호 (dong/ho) d'un appartement",
       "paragraphs": [
-        "Dans les appartements, officetels et bâtiments similaires, l'adresse détaillée (동·층·호) vient après la virgule. « 동 » est le numéro du bâtiment au sein du complexe, « 층 » est l'étage, et « 호 » est le numéro d'unité (de logement).",
-        "Format officiel : « …, 101동 1203호 (○○동, ○○아파트) » ou « …, 1203호 (○○동, ○○오피스텔) » (parfois il n'y a pas de 동). Le nom du bâtiment figure dans les parenthèses à la fin, avec le quartier (법정동).",
-        "Style informel courant : beaucoup de gens écrivent le nom du bâtiment avant le 동·호, par exemple « …, 초록아파트 101동 1203호 ». Vous le verrez souvent sur les colis et dans les textos, mais ce n'est pas le format officiel.",
+        "Dans les appartements, les officetels et les bâtiments similaires, l'adresse détaillée (동·층·호) vient après la virgule. « 동 » est le numéro du bâtiment au sein de la résidence, « 층 » est l'étage, et « 호 » est le numéro de l'unité (du logement).",
+        "Modèle officiel : « …, 101동 1203호 (○○동, ○○아파트) » ou « …, 1203호 (○○동, ○○오피스텔) » (parfois il n'y a pas de 동). Le nom du bâtiment se place dans les parenthèses à la fin, avec le quartier (법정동).",
+        "Style informel courant : beaucoup de gens écrivent le nom du bâtiment avant le 동·호, par ex. « …, 초록아파트 101동 1203호 ». On voit souvent cela sur les colis et dans les messages texte, mais ce n'est pas le format officiel.",
         "Comment le lire : « 백일동 천이백삼호 » (101동 1203호)."
       ]
     },
     {
-      "heading": "Astuces pour les repérer rapidement",
+      "heading": "Astuces pour les trouver rapidement",
       "paragraphs": [
-        "1) Trouvez d'abord la fin du nom de voie, le dernier « 로 » ou « 길/번길 ». Pour les voies secondaires comme « …로17길 » ou « …로45번길 », le nombre collé au mot fait partie du nom de voie. Le nombre après l'espace est le numéro du bâtiment.",
-        "2) Cherchez « 동 », « 층 » et « 호 » juste après la virgule (dans le style informel, après le nom du bâtiment). Les mots entre parenthèses à la fin sont le quartier et le nom du bâtiment, pas l'unité. S'il n'y a pas de 동·층·호, dites « 없음 » (aucun).",
-        "3) À l'oral, dites d'abord « nom de voie + numéro de bâtiment », puis « 동·호 »."
+        "1) D'abord, repérez la fin du nom de la voie, le dernier « 로 » ou « 길/번길 ». Pour les voies secondaires comme « …로17길 » ou « …로45번길 », le nombre collé au mot fait partie du nom de la voie. Le nombre après l'espace est le numéro du bâtiment.",
+        "2) Cherchez « 동 », « 층 » et « 호 » juste après la virgule (dans le style informel, après le nom du bâtiment). Les mots entre parenthèses à la fin désignent le quartier et le nom du bâtiment, pas l'unité. S'il n'y a pas de 동·층·호, dites « 없음 » (aucun)."
       ]
     },
     {
-      "heading": "Instructions pour l'exercice",
+      "heading": "Consignes de l'exercice",
       "paragraphs": [
-        "Format de réponse pour la recherche : « nom de voie numéro de bâtiment ; 동·층·호 » ou « nom de voie numéro de bâtiment ; 없음 » (aucun). Pour la lecture : dites seulement le nom de voie + numéro de bâtiment puis le 동·호 (plus le nom du bâtiment s'il est écrit avant le 동·호, comme dans le style informel) ; omettez la région et les parenthèses à la fin. Écrivez les nombres en hangeul, par exemple « 세종대로 백십 »."
+        "Recherche : écrivez « nom de la voie numéro du bâtiment ; 동·층·호 », ou « nom de la voie numéro du bâtiment ; 없음 » (aucun). Lecture : dites d'abord le nom de la voie + le numéro du bâtiment, puis le 동·호 (avec le nom du bâtiment s'il précède le 동·호) ; omettez la région et les parenthèses à la fin. Écrivez les nombres en hangeul, par ex. « 세종대로 백십 »."
       ]
     }
   ],
-  "note": "Les adresses d'exemple ont été créées pour l'exercice. À l'exception de « 세종대로 110 », les noms de voies, bâtiments et unités sont fictifs et ne correspondent pas à des lieux réels.",
+  "note": "À part « 세종대로 110 », les adresses données en exemple sont inventées pour l'exercice et ne correspondent à aucun lieu réel.",
   "category": "etc"
 }

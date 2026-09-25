@@ -1,9 +1,9 @@
 {
   "title": "이유 말하기: -아서/어서와 -(으)니까",
   "keyword": "-아서/어서, -(으)니까",
-  "summary": "-아서/어서 et -(으)니까 expriment tous les deux une raison (« parce que, donc »). Cette fiche montre comment former chacun avec les verbes, les adjectifs et les noms (y compris les radicaux irréguliers en ㄹ et en ㅂ). Elle couvre aussi les deux règles que les apprenants enfreignent le plus souvent : seul -(으)니까 peut précéder un ordre ou une suggestion (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), et un marqueur du passé ne se met jamais avant -아서/어서 (pas de -았/었어서).",
-  "objective": "Choisissez entre -아서/어서 et -(으)니까 pour une proposition de raison, construisez la forme correcte (y compris pour les noms et les radicaux irréguliers en ㄹ/ㅂ), et corrigez les phrases qui utilisent -아서/어서 avant un ordre/une suggestion ou avec un marqueur du passé.",
-  "level": "Débutant (niveau avancé)",
+  "summary": "-아서/어서 et -(으)니까 expriment tous les deux une raison (« parce que, donc »). Apprenez à former chacune des deux, ainsi que les deux erreurs les plus fréquentes : seule -(으)니까 peut précéder un ordre ou une suggestion, et aucune marque du passé ne peut précéder -아서/어서 (pas de -았/었어서).",
+  "objective": "Choisissez entre -아서/어서 et -(으)니까 pour exprimer une raison, formez correctement la structure (y compris avec les noms et les radicaux irréguliers en ㄹ/ㅂ), et corrigez les phrases qui utilisent -아서/어서 avant un ordre/une suggestion ou avec une marque du passé.",
+  "level": "Débutant (niveau supérieur)",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,12 +11,12 @@
     "line": ""
   },
   "exercises": [
-    "Complétez avec la forme correcte : 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
-    "Complétez avec la forme correcte : 선물을 (주다) ____ 고마워요.",
-    "Complétez avec la forme correcte : 밖이 (덥다) ____ 안에 있읍시다.",
-    "Complétez avec la forme nominale de -아서/어서 : 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
-    "Complétez avec la forme correcte : 내일은 (휴일) ____ 같이 영화 볼까요?",
-    "Trouvez l'erreur et réécrivez toute la phrase correctement : 어제 잠을 못 잤어서 오늘 너무 피곤해요."
+    "Complétez le blanc avec la forme correcte : 제가 이 근처에 (살다) ____ 우리 집에서 만날까요?",
+    "Complétez le blanc avec la forme correcte : 선물을 (주다) ____ 고마워요.",
+    "Complétez le blanc avec la forme correcte : 밖이 (덥다) ____ 안에 있읍시다.",
+    "Complétez le blanc avec la forme nominale de -아서/어서 : 다들 (휴가) ____ 사무실에 사람이 별로 없어요.",
+    "Complétez le blanc avec la forme correcte : 내일은 (휴일) ____ 같이 영화 볼까요?",
+    "Trouvez l'erreur et réécrivez la phrase entière correctement : 어제 잠을 못 잤어서 오늘 너무 피곤해요."
   ],
   "answers": [
     "사니까",
@@ -31,7 +31,7 @@
     {
       "form": "V/A + 아서 (la dernière voyelle du radical est ㅏ ou ㅗ)",
       "when": "La dernière voyelle du radical est ㅏ ou ㅗ. 가다 → 가서, 작다 → 작아서, 보다 → 봐서",
-      "means": "parce que / donc (une simple raison ou cause)",
+      "means": "parce que / donc (une raison ou une cause simple)",
       "example": "방이 작아서 좀 불편해요.",
       "exampleMeaning": "La chambre est petite, donc c'est un peu inconfortable.",
       "mark": [
@@ -53,17 +53,17 @@
       "when": "Verbes et adjectifs se terminant par 하다. 피곤하다 → 피곤해서, 공부하다 → 공부해서",
       "means": "parce que / donc",
       "example": "너무 피곤해서 일찍 잤어요.",
-      "exampleMeaning": "J'étais tellement fatigué(e) que je me suis couché(e) tôt.",
+      "exampleMeaning": "J'étais tellement fatigué que je me suis couché tôt.",
       "mark": [
         "피곤해서"
       ]
     },
     {
       "form": "N + 이라서 / 라서",
-      "when": "Noms. Après une consonne finale : 이라서 (학생이라서). Après une voyelle : 라서 (친구라서). 이어서/여서 est également utilisé.",
+      "when": "Noms. Après une consonne finale : 이라서 (학생이라서). Après une voyelle : 라서 (친구라서). 이어서/여서 est aussi utilisé.",
       "means": "parce que c'est N",
       "example": "아직 학생이라서 돈이 별로 없어요.",
-      "exampleMeaning": "Je suis encore étudiant(e), donc je n'ai pas beaucoup d'argent.",
+      "exampleMeaning": "Je suis encore étudiant, donc je n'ai pas beaucoup d'argent.",
       "mark": [
         "학생이라서"
       ]
@@ -93,7 +93,7 @@
       "when": "Noms. Après une consonne finale : 이니까 (회의 중이니까). Après une voyelle : 니까 (친구니까).",
       "means": "puisque c'est N. Peut précéder un ordre ou une suggestion.",
       "example": "지금은 회의 중이니까 나중에 전화하세요.",
-      "exampleMeaning": "Je suis en réunion en ce moment, donc appelez plus tard, s'il vous plaît.",
+      "exampleMeaning": "Je suis en réunion en ce moment, donc appelez-moi plus tard s'il vous plaît.",
       "mark": [
         "회의 중이니까"
       ]
@@ -101,11 +101,11 @@
   ],
   "watchOut": [
     "Si la deuxième proposition est un ordre ou une suggestion (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), utilisez -(으)니까, pas -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
-    "Ne mettez jamais le marqueur du passé -았/었- avant -아서/어서. La deuxième proposition indique déjà le temps. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Avec -(으)니까, le passé est possible : 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
-    "Les verbes et adjectifs à radical en ㄹ perdent le ㄹ avant 니까, et on n'ajoute pas 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Avec -아서/어서, le ㄹ reste : 멀어서, 알아서",
+    "Ne mettez jamais la marque du passé -았/었- devant -아서/어서. La deuxième proposition indique déjà le temps. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Avec -(으)니까, le passé est correct : 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
+    "Les verbes et adjectifs à radical en ㄹ perdent le ㄹ devant 니까, et on n'ajoute pas 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Avec -아서/어서, le ㄹ reste : 멀어서, 알아서",
     "La plupart des adjectifs à radical en ㅂ changent le ㅂ en 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
-    "Quand vous remerciez quelqu'un ou vous excusez, utilisez -아서/어서, pas -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
-    "Pour les noms : vérifiez s'il y a une consonne finale (받침). 학생라서 (X) → 학생이라서 (O). Après une voyelle, 라서 est la forme habituelle : 의사라서. 니까 fonctionne de la même manière : 이니까 après une consonne, 니까 après une voyelle."
+    "Quand on remercie ou qu'on s'excuse auprès de quelqu'un, on utilise -아서/어서, pas -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)",
+    "Noms : vérifiez s'il y a une consonne finale (받침). 학생라서 (X) → 학생이라서 (O). Après une voyelle, 라서 est la forme habituelle : 의사라서. 니까 fonctionne de la même façon : 이니까 après une consonne, 니까 après une voyelle."
   ],
   "watchOutMark": [
     [

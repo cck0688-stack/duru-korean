@@ -242,5 +242,98 @@
       "why": []
     }
   },
-  "preparedAt": "2026-09-25T14:57:38.052Z"
+  "preparedAt": "2026-09-25T14:57:38.052Z",
+  "retranslated": {
+    "at": "2026-09-25T18:30:53.976Z",
+    "translations": {
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 6,
+            "problem": "This Spanish is ungrammatical. \"el período fijo que aceptas mantener el plan\" is missing a preposition and relative pronoun to link \"período\" to the clause, so it doesn't mean \"the period during which you agree to stay on the plan\".",
+            "fix": "duración del contrato; el período fijo durante el cual aceptas mantener el plan"
+          }
+        ]
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"básico\" means beginner/basic level, which changes the meaning; the source says the lower part of intermediate.",
+            "fix": "Intermediário (inferior)"
+          },
+          {
+            "line": 7,
+            "problem": "\"não é fácil trocar facilmente\" repeats \"fácil\" and sounds unnatural in Brazilian Portuguese.",
+            "fix": "É um contrato de 12 meses, então não dá para trocar facilmente."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 3,
+            "problem": "'post-data policy' (policy after the data allowance is used up) is rendered as データ使用後の方針 ('after using data'), which changes the meaning and is inconsistent with line 2's データ使い切り後.",
+            "fix": "3〜5段落の携帯電話プランの案内を読んだ後、学習者は月額料金、データ容量、通話/SMSの含まれる量、契約期間(または契約なし)、データ使い切り後の方針(速度制限/追加料金)を正確に見つけることができる。"
+          },
+          {
+            "line": 14,
+            "problem": "「提供される含まれる容量」 stacks two modifying verbs in a row before the noun, which is unnatural Japanese.",
+            "fix": "プランに含まれる基本提供量"
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"(low)\" is translated as 初级, which means \"beginner level\". That makes 中级(初级) contradict itself, when the level is lower-intermediate.",
+            "fix": "中级(低)"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

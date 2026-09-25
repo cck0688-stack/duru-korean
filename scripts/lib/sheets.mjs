@@ -524,6 +524,9 @@ export async function translateSheet(translate, cfg, sheet, lang, fromName, extr
       '- Any Korean in a line stays exactly as it is, in Hangul. It is what is being taught,',
       '  not something to translate.',
       '- Keep a question a question and an instruction an instruction.',
+      '- "In English" / "Answer in English" means the reader\'s own language: write the target',
+      '  language there (for Korean, drop it). English kept as a sound example ("the k in key")',
+      '  stays English.',
       '',
       'Target language: ' + lang + '. Return one entry, with that code.',
       ...(extra ? ['', extra] : [])

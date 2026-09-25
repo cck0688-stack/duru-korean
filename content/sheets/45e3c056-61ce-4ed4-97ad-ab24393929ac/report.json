@@ -593,5 +593,82 @@
       "after": "Based on the button labels on real ATMs. Screen layouts may differ slightly by bank and machine.",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
     }
-  ]
+  ],
+  "retranslated": {
+    "at": "2026-09-25T18:29:48.946Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 11,
+            "problem": "\"vào một số tài khoản\" reads as \"into some accounts\" (một số = some), not \"to an account number\"; the meaning is changed.",
+            "fix": "무통장 입금 (mutongjang ipgeum): Nạp tiền mặt vào tài khoản bằng số tài khoản mà không cần thẻ hay sổ tiết kiệm."
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 17,
+            "problem": "\"ir para o início/início\" repeats the same word, so it no longer shows the two options in the English \"start/home\". It reads as broken Portuguese.",
+            "fix": "처음으로[초기화면] (cheoeumeuro [chogihwamyeon]): Volta para a tela inicial (voltar ao início/tela inicial)."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 7,
+            "problem": "The gloss 'deposit' is translated as 예금, which means savings (money kept in the bank), not the act of putting money into an account. This clashes with the 입금 button it describes.",
+            "fix": "입금 (ipgeum): 계좌에 돈을 넣을 때 누릅니다."
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 2,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

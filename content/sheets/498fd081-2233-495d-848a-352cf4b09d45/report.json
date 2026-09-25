@@ -347,5 +347,92 @@
       "after": "Subway service will be completely suspended because of construction.",
       "why": "follows the corrected example"
     }
-  ]
+  ],
+  "retranslated": {
+    "at": "2026-09-25T18:30:27.785Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"básico\" means beginner/basic, which is a different level; \"low\" here means the lower end of the intermediate level.",
+            "fix": "Intermediário (inferior)"
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 27,
+            "problem": "The English accepts \"101동, 102동\" as one answer naming both buildings. The Japanese splits it into two quotes, 「101동」「102동」, which suggests naming just one building is also accepted. That changes the answer key.",
+            "fix": "101동과 102동 (「101동, 102동」も可)"
+          },
+          {
+            "line": 2,
+            "problem": "\"Realistic\" means a notice that looks real. 「実際の」 means \"actual,\" which says the notice is a real one. That changes the meaning.",
+            "fix": "実際にありそうなマンションのエレベーター点検のお知らせを読んで、正確な日付、時間、使用できない区間(号機/階)を見つける質問に答えましょう。"
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "\"ascenseur d'appartement\" is unnatural and misleading: in French \"appartement\" is a single flat, which has no lift of its own. The English means the lift of an apartment building or complex.",
+            "fix": "Lisez un avis réaliste d'inspection d'ascenseur d'immeuble et répondez aux questions pour trouver la date exacte, l'heure et les sections indisponibles (quelles cabines/étages)."
+          },
+          {
+            "line": 3,
+            "problem": "Same mistranslation: \"ascenseur d'appartement\" should refer to the building's lift (the apartment building or complex).",
+            "fix": "Les apprenants liront un avis d'inspection d'ascenseur d'immeuble et identifieront avec précision la date, l'heure, les bâtiments concernés et les sections indisponibles (quel ascenseur et quels étages)."
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

@@ -1,14 +1,14 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
   "keyword": "약 봉투",
-  "summary": "María, una residente extranjera en Corea, se resfría. Compra los medicamentos recetados en la farmacia del primer piso del hospital, donde el farmacéutico le explica dos bolsas de medicina. En casa, vuelve a leer las bolsas. Los estudiantes leen la historia y averiguan con qué frecuencia, cuándo y durante cuántos días debe tomar cada medicina, y qué significa la advertencia escrita en la bolsa.",
-  "objective": "Después de leer una historia de cuatro párrafos sobre una visita a la farmacia, los estudiantes pueden identificar cuatro datos en una bolsa de medicina coreana: cuántas veces al día tomar la medicina (1일 3회 = 하루에 세 번), cuándo tomarla (식전, 식후 30분, 자기 전), para cuántos días alcanza (3일분), y qué significa la advertencia (졸음 주의, 운전 주의).",
-  "level": "Nivel intermedio (bajo)",
+  "summary": "María se resfría y recibe dos bolsas de medicina en la farmacia. Los estudiantes leen su historia y averiguan con qué frecuencia, cuándo y por cuántos días debe tomar cada medicina, y qué significa la advertencia.",
+  "objective": "Los estudiantes pueden encontrar cuatro cosas en una bolsa de medicina coreana: cuántas veces al día (1일 3회 = 하루에 세 번), cuándo (식전, 식후 30분, 자기 전), por cuántos días (3일분) y qué significa la advertencia (졸음 주의, 운전 주의).",
+  "level": "Intermedio (bajo)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "Lee las bolsas de medicina",
-    "line": "Lee las dos bolsas de medicina y escribe con qué frecuencia, cuándo y durante cuántos días se debe tomar cada una."
+    "title": "Lean las bolsas de medicina",
+    "line": "Lean las dos bolsas de medicina y escriban con qué frecuencia, cuándo y por cuántos días se debe tomar cada una."
   },
   "exercises": [
     "Responde en coreano: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
@@ -37,7 +37,7 @@
       "roman": "sikhu",
       "meaning": "después de comer",
       "example": "이 약은 꼭 식후에 드세요.",
-      "exampleMeaning": "Asegúrate de tomar esta medicina después de comer."
+      "exampleMeaning": "Asegúrese de tomar esta medicina después de comer."
     },
     {
       "korean": "식전",
@@ -56,9 +56,9 @@
     {
       "korean": "속이 쓰리다",
       "roman": "sogi sseurida",
-      "meaning": "sentir ardor o dolor en el estómago",
+      "meaning": "sentir ardor o malestar en el estómago",
       "example": "어제 술을 많이 마셔서 속이 쓰려요.",
-      "exampleMeaning": "Me duele el estómago porque bebí mucho ayer."
+      "exampleMeaning": "Tengo el estómago irritado porque bebí mucho ayer."
     },
     {
       "korean": "졸리다",
@@ -70,21 +70,21 @@
     {
       "korean": "주의",
       "roman": "juui",
-      "meaning": "precaución, advertencia (en carteles y etiquetas: 'ten cuidado con ~')",
+      "meaning": "precaución, advertencia (en carteles y etiquetas: 'tenga cuidado con ~')",
       "example": "바닥에 '미끄럼 주의'라고 쓰여 있어요.",
-      "exampleMeaning": "El cartel en el suelo dice: 'Precaución: resbaladizo'."
+      "exampleMeaning": "El cartel en el suelo dice 'Precaución: resbaladizo'."
     },
     {
       "korean": "3일분",
       "roman": "samilbun",
-      "meaning": "suministro para tres días (3일 = tres días, -분 = cantidad correspondiente al número anterior: 3일분 = para tres días, 2인분 = para dos personas)",
+      "meaning": "medicación para tres días (3일 = tres días, -분 = cantidad correspondiente al número anterior: 3일분 = para tres días, 2인분 = para dos personas)",
       "example": "약사가 5일분 약을 줬어요.",
-      "exampleMeaning": "El farmacéutico me dio un suministro de medicina para cinco días."
+      "exampleMeaning": "El farmacéutico me dio medicina para cinco días."
     },
     {
       "korean": "사흘",
       "roman": "saheul",
-      "meaning": "tres días (palabra coreana nativa)",
+      "meaning": "tres días (palabra numeral coreana nativa)",
       "example": "사흘 동안 계속 비가 왔어요.",
       "exampleMeaning": "Llovió durante tres días seguidos."
     }

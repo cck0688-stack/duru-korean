@@ -1,8 +1,8 @@
 {
   "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
   "keyword": "도로명주소",
-  "summary": "Aprenda a localizar e falar rapidamente o nome da via terminado em ro/gil junto com o número do prédio e, quando houver, o número do bloco/unidade do apartamento (dong/ho) em endereços coreanos escritos em impressos, mensagens de texto ou aplicativos de mapa.",
-  "objective": "Ao final desta atividade, o aluno será capaz de 1) identificar e ler o nome da via terminado em ro/gil junto com o número do prédio, e 2) encontrar e falar o dong e o ho do apartamento de forma rápida e precisa.",
+  "summary": "Encontrar e dizer rapidamente o nome da rua (terminado em 로/길) com o número do prédio, e o 동·호 do apartamento, em endereços coreanos.",
+  "objective": "Os alunos serão capazes de 1) encontrar e ler o nome da rua terminado em 로/길 junto com o número do prédio, e 2) encontrar e dizer o 동 e o 호 do apartamento de forma rápida e precisa.",
   "level": "Iniciante (avançado)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,11 @@
     "line": ""
   },
   "exercises": [
-    "Escreva o nome da via + número do prédio e o 동/층/호 (escreva 없음 se não houver): 광주 북구 무지개로 58",
-    "Escreva o nome da via + número do prédio e o 동/층/호 (escreva 없음 se não houver): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
-    "Escreva como se fala este endereço, do nome da via até o 호, lendo os números com numerais sino-coreanos (escreva-os em Hangul). Deixe de fora a região e os parênteses no final: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
-    "Escreva o nome da via + número do prédio e o 동/층/호 (escreva 없음 se não houver): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
-    "Este endereço está escrito no estilo informal do dia a dia. Escreva como se fala, do nome da via até o final, incluindo o nome do prédio antes de 호 e deixando de fora a região, lendo os números com numerais sino-coreanos (escreva-os em Hangul): 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
+    "Escreva o nome da rua + número do prédio e o 동/층/호 (escreva 없음 se não houver): 광주 북구 무지개로 58",
+    "Escreva o nome da rua + número do prédio e o 동/층/호 (escreva 없음 se não houver): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
+    "Escreva como se diz do nome da rua até o 호, com os números sino-coreanos em Hangul; deixe de fora a região e os parênteses: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
+    "Escreva o nome da rua + número do prédio e o 동/층/호 (escreva 없음 se não houver): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
+    "Estilo informal: escreva como se diz do nome da rua até o final, com o nome do prédio antes do 호 e os números sino-coreanos em Hangul; deixe de fora a região: 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
   ],
   "answers": [
     "무지개로 58; 없음",
@@ -27,44 +27,42 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Endereços com nome de via: visão geral",
+      "heading": "Endereços com nome de rua, em resumo",
       "paragraphs": [
-        "Um endereço coreano é lido em três partes: região (시/도, 시/군/구) + nome da via e número do prédio + (no caso de apartamentos) 동·호.",
-        "Exemplo: em '서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)', '햇살로17길 12' é o nome da via e o número do prédio, e '202호' é o número da unidade. Os parênteses no final contêm o bairro (법정동) e o nome do prédio."
+        "Um endereço coreano é lido em três partes: região (시/도, 시/군/구) + nome da rua e número do prédio + (no caso de apartamentos) 동·호.",
+        "Exemplo: em '서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)', '햇살로17길 12' é o nome da rua e o número do prédio, e '202호' é o número da unidade. Os parênteses no final contêm o bairro (법정동) e o nome do prédio."
       ]
     },
     {
-      "heading": "Como localizar 로/길 (ro/gil) e o número do prédio",
+      "heading": "Encontrando 로/길 (ro/gil) e o número do prédio",
       "paragraphs": [
-        "Os nomes de vias geralmente terminam em '…로' (ro) ou '…길' (gil), incluindo '…번길' (beon-gil). O número logo após o nome da via é o número do prédio.",
-        "Exemplos: '세종대로 110', '햇살로17길 12'.",
-        "Como ler: '세종대로 백십', '햇살로 십칠길 십이'. Leia os números claramente usando as unidades de posição sino-coreanas (천/백/십)."
+        "Os nomes de ruas geralmente terminam em '…로' (ro) ou '…길' (gil), incluindo '…번길' (beon-gil). O número logo depois do nome da rua é o número do prédio.",
+        "Exemplos: '세종대로 110' se lê '세종대로 백십', e '햇살로17길 12' se lê '햇살로 십칠길 십이'. Leia os números usando as unidades sino-coreanas (천/백/십)."
       ]
     },
     {
-      "heading": "Como localizar o 동·호 (dong/ho) do apartamento",
+      "heading": "Encontrando o 동·호 (dong/ho) do apartamento",
       "paragraphs": [
-        "Em apartamentos, officetels e prédios semelhantes, o endereço detalhado (동·층·호) vem depois da vírgula. '동' é o número do prédio dentro do condomínio, '층' é o andar, e '호' é o número da unidade (sala).",
-        "Padrão oficial: '…, 101동 1203호 (○○동, ○○아파트)' ou '…, 1203호 (○○동, ○○오피스텔)' (às vezes não há 동). O nome do prédio fica nos parênteses no final, junto com o bairro (법정동).",
-        "Estilo informal do dia a dia: muitas pessoas escrevem o nome do prédio antes de 동·호, por exemplo '…, 초록아파트 101동 1203호'. Você verá isso com frequência em encomendas e mensagens de texto, mas não é o formato oficial.",
-        "Como ler: '백일동 천이백삼호' (101동 1203호)."
+        "Em apartamentos, officetels e prédios similares, o endereço detalhado (동·층·호) vem depois da vírgula. '동' é o número do prédio dentro do condomínio, '층' é o andar, e '호' é o número da unidade (cômodo).",
+        "Padrão oficial: '…, 101동 1203호 (○○동, ○○아파트)' ou '…, 1203호 (○○동, ○○오피스텔)' (às vezes não há 동). O nome do prédio vai nos parênteses no final, junto com o bairro (법정동).",
+        "Estilo informal do dia a dia: muitas pessoas escrevem o nome do prédio antes do 동·호, por exemplo '…, 초록아파트 101동 1203호'. Você verá isso com frequência em pacotes e mensagens de texto, mas não é o formato oficial.",
+        "Como se lê: '백일동 천이백삼호' (101동 1203호)."
       ]
     },
     {
-      "heading": "Dicas para localizar rapidamente",
+      "heading": "Dicas para encontrá-los rapidamente",
       "paragraphs": [
-        "1) Primeiro, encontre o final do nome da via, o último '로' ou '길/번길'. Para vias secundárias como '…로17길' ou '…로45번길', o número colado à palavra faz parte do nome da via. O número depois do espaço é o número do prédio.",
-        "2) Procure '동', '층' e '호' logo depois da vírgula (no estilo informal, depois do nome do prédio). As palavras nos parênteses no final são o bairro e o nome do prédio, não a unidade. Se não houver 동·층·호, diga '없음' (nenhum).",
-        "3) Ao falar, diga primeiro 'nome da via + número do prédio' e depois '동·호'."
+        "1) Primeiro, encontre o final do nome da rua, o último '로' ou '길/번길'. Em ruas secundárias como '…로17길' ou '…로45번길', o número colado à palavra faz parte do nome da rua. O número depois do espaço é o número do prédio.",
+        "2) Procure por '동', '층' e '호' logo depois da vírgula (no estilo informal, depois do nome do prédio). As palavras nos parênteses no final são o bairro e o nome do prédio, não a unidade. Se não houver 동·층·호, diga '없음' (nenhum)."
       ]
     },
     {
       "heading": "Instruções de prática",
       "paragraphs": [
-        "Formato de resposta para localizar: 'nome da via número do prédio; 동·층·호' ou 'nome da via número do prédio; 없음' (nenhum). Para leitura: diga apenas o nome da via + número do prédio e depois o 동·호 (mais o nome do prédio, se estiver escrito antes de 동·호, como no estilo informal); deixe de fora a região e os parênteses no final. Escreva os números em Hangul, por exemplo '세종대로 백십'."
+        "Encontrar: escreva 'nome da rua número do prédio; 동·층·호', ou 'nome da rua número do prédio; 없음' (nenhum). Ler: diga primeiro o nome da rua + número do prédio, depois o 동·호 (com o nome do prédio se ele vier antes do 동·호); deixe de fora a região e os parênteses no final. Escreva os números em Hangul, por exemplo '세종대로 백십'."
       ]
     }
   ],
-  "note": "Os endereços de exemplo foram criados para fins de prática. Com exceção de '세종대로 110', os nomes de vias, prédios e unidades são fictícios e não se referem a lugares reais.",
+  "note": "Exceto por '세종대로 110', os endereços de exemplo são inventados para prática e não se referem a lugares reais.",
   "category": "etc"
 }

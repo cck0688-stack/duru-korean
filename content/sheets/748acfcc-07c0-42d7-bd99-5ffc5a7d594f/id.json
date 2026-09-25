@@ -1,9 +1,9 @@
 {
   "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
   "keyword": "키오스크 버튼",
-  "summary": "Membaca dan memahami 12 tombol/teks yang sangat umum di kios pemesanan mandiri (self-order) di kafe dan restoran cepat saji. Pelajar mencocokkan setiap label dengan fungsinya dan mengikuti alur pemesanan sederhana secara mandiri.",
-  "objective": "Pada akhirnya, pelajar dapat mengenali 12 tombol/label kios yang sering muncul dan mengikuti alur dasar—makan di tempat/bawa pulang → pilih menu → pilih opsi → pilih metode pembayaran → dapatkan struk/nomor pesanan—tanpa bantuan.",
-  "level": "Pemula (tinggi)",
+  "summary": "Membaca 12 tombol umum pada kios pemesanan mandiri (self-order) di kafe dan restoran cepat saji, mencocokkan setiap tombol dengan fungsinya, dan mengikuti alur pemesanan sederhana.",
+  "objective": "Pada akhirnya, pembelajar dapat mengenali 12 tombol/label kios yang sering muncul dan mengikuti alur dasar—makan di tempat/bawa pulang → pilih menu → pilih opsi → pilih metode pembayaran → ambil struk/nomor pesanan—tanpa bantuan.",
+  "level": "Pemula (tingkat tinggi)",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,61 +11,52 @@
     "line": ""
   },
   "exercises": [
-    "Cocokkan setiap tombol dengan fungsinya. Tombol: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Fungsi: (a) membayar dengan ponsel (b) makan di dalam toko (c) memilih suhu minuman (d) mencetak struk kertas (e) hanya itemnya saja, tanpa lauk pendamping atau minuman (f) membawa makanan keluar (g) menuju layar pembayaran (h) memilih S/M/L (i) membayar dengan kartu (j) item dengan lauk pendamping dan minuman (k) menambahkan sesuatu yang ekstra (l) menghentikan pesanan",
-    "Baca situasi berikut dan tuliskan tombol yang kamu pilih: ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?",
-    "Baca situasi berikut dan tuliskan opsi yang kamu pilih: ① 사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요? ② 추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요? ③ 라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?",
+    "Cocokkan setiap tombol dengan fungsinya. Tombol: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Fungsi: (a) membayar dengan ponsel (b) makan di dalam toko (c) memilih suhu minuman (d) mencetak struk kertas (e) hanya item, tanpa lauk pendamping atau minuman (f) membawa makanan keluar (g) menuju layar pembayaran (h) memilih S/M/L (i) membayar dengan kartu (j) item dengan lauk pendamping dan minuman (k) menambahkan sesuatu yang ekstra (l) menghentikan pesanan",
+    "Baca situasinya dan tulis tombol yang kamu pilih: ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?",
+    "Baca situasinya dan tulis opsi yang kamu pilih: ① 사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요? ② 추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요? ③ 라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?",
     "Baca dan jawab: ① 카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요? ② 체크카드로 계산할 거예요. 어떤 버튼이 맞아요? ③ 결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요? ④ ‘취소’ 버튼을 누르면 어떻게 돼요?",
     "Urutkan langkah-langkah pemesanan dengan benar: 결제하기 / 영수증 출력 / 포장 / L / 간편결제 / 세트"
   ],
   "answers": [
     "매장–(b), 포장–(f), 단품–(e), 세트–(j), HOT/ICE–(c), 사이즈–(h), 추가–(k), 취소–(l), 결제하기–(g), 카드 결제–(i), 간편결제–(a), 영수증 출력–(d)",
     "① 포장 ② 세트",
-    "L ② HOT ③ 추가",
+    "① L ② HOT ③ 추가",
     "① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ 주문이 취소되고 처음 화면으로 돌아가요.",
     "포장 → 세트 → L → 결제하기 → 간편결제 → 영수증 출력"
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "Cara menggunakan lembar kerja ini",
-      "paragraphs": [
-        "Bacalah tombol dan teks singkat yang sering muncul di layar kios, dan segera hubungkan masing-masing dengan artinya.",
-        "Pelajari hanya kata-kata yang kamu perlukan, dan coba ikuti alur pemesanan dasar secara mandiri."
-      ]
-    },
-    {
       "heading": "Sekilas tentang alur pemesanan",
       "paragraphs": [
-        "Pilih 매장/포장 (makan di tempat/bawa pulang) → pilih menu (단품/세트) → pilih opsi (HOT/ICE, 사이즈, 추가) → tekan 결제하기 (bayar) → pilih metode pembayaran (카드 결제/간편결제) → periksa struk/nomor pesanan (영수증/주문번호)"
+        "Pilih 매장/포장 (makan di tempat/bawa pulang) → pilih menu (단품/세트) → pilih opsi (HOT/ICE, 사이즈, 추가) → tekan 결제하기 (bayar) → pilih metode pembayaran (카드 결제/간편결제) → cek struk/nomor pesanan (영수증/주문번호)"
       ]
     },
     {
       "heading": "12 tombol umum",
       "paragraphs": [
-        "1) 매장 (makan di tempat) — Tekan ini kalau kamu makan di dalam toko. 예: 여기서 먹어요. 매장을 눌러요.",
-        "2) 포장 (bawa pulang) — Tekan ini kalau kamu membawa makanan keluar. 예: 바빠요? 그러면 포장을 고르세요.",
-        "3) 단품 (item tunggal) — Tekan ini untuk membeli itemnya saja, tanpa lauk pendamping atau minuman. 예: 버거만 먹고 싶으면 단품을 고르세요.",
-        "4) 세트 (paket set) — Lauk pendamping dan minuman disertakan bersama itemnya. 예: 배가 많이 고파요. 세트로 주문해요.",
-        "5) HOT / ICE — Tekan ini untuk memilih suhu minuman. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요.",
+        "1) 매장 (makan di tempat) — Tekan tombol ini kalau kamu makan di dalam toko. 예: 여기서 먹어요. 매장을 눌러요.",
+        "2) 포장 (bawa pulang) — Tekan tombol ini kalau kamu membawa makanan ke luar. 예: 바빠요? 그러면 포장을 고르세요.",
+        "3) 단품 (satuan) — Tekan tombol ini untuk membeli itemnya saja, tanpa lauk pendamping atau minuman. 예: 버거만 먹고 싶으면 단품을 고르세요.",
+        "4) 세트 (paket) — Lauk pendamping dan minuman sudah termasuk bersama itemnya. 예: 배가 많이 고파요. 세트로 주문해요.",
+        "5) HOT / ICE — Tekan tombol ini untuk memilih suhu minuman. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요.",
         "6) 사이즈 (ukuran) — Digunakan untuk memilih ukuran gelas atau item, biasanya S/M/L. 예: 많이 마시고 싶으면 L을 고르세요.",
-        "7) 추가 (tambah) — Tekan ini untuk menambahkan sesuatu yang ekstra. 예: 커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요.",
-        "8) 취소 (batal) — Tekan ini untuk menghentikan pesanan yang sedang berjalan. 예: 주문을 안 하고 싶어요. 취소를 눌러요.",
-        "9) 결제하기 (bayar) — Setelah selesai memilih, ini akan membawamu ke layar pembayaran. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요.",
-        "10) 카드 결제 (pembayaran kartu) — Tekan ini untuk membayar dengan kartu. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요.",
-        "11) 간편결제 (pembayaran mudah/ponsel) — Tekan ini untuk membayar dengan ponselmu. 예: 카카오페이를 써요? 간편결제로 계산하세요.",
-        "12) 영수증 출력 (cetak struk) — Mencetak struk kertas; nomor pesanan disertakan di dalamnya. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
+        "7) 추가 (tambah) — Tekan tombol ini untuk menambahkan sesuatu yang ekstra. 예: 커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요.",
+        "8) 취소 (batal) — Tekan tombol ini untuk menghentikan pesanan yang sedang berlangsung. 예: 주문을 안 하고 싶어요. 취소를 눌러요.",
+        "9) 결제하기 (bayar) — Setelah selesai memilih, tombol ini membawamu ke layar pembayaran. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요.",
+        "10) 카드 결제 (pembayaran kartu) — Tekan tombol ini untuk membayar dengan kartu. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요.",
+        "11) 간편결제 (pembayaran mudah/ponsel) — Tekan tombol ini untuk membayar dengan ponselmu. 예: 카카오페이를 써요? 간편결제로 계산하세요.",
+        "12) 영수증 출력 (cetak struk) — Mencetak struk kertas; nomor pesanan tercantum di dalamnya. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
       ]
     },
     {
       "heading": "Tips membaca: singkatan dan label bahasa Inggris",
       "paragraphs": [
-        "S/M/L: singkatan dari Small/Medium/Large. Banyak kios menampilkan ukuran sebagai S/M/L, tapi beberapa toko menggunakan nama lain (misalnya, 레귤러/라지).",
-        "HOT/ICE: minuman panas ditandai HOT, minuman dingin ditandai ICE.",
-        "단품/세트: 단품 berarti hanya itemnya saja; 세트 disertai dengan lauk pendamping dan minuman.",
-        "취소 (batal) menghentikan pesanan dan keluar. 뒤로가기 (kembali) hanya kembali satu langkah saja (뒤로가기 tidak termasuk dalam daftar 12 tombol di lembar kerja ini)."
+        "S/M/L: singkatan dari Small/Medium/Large. Banyak kios menampilkan ukuran sebagai S/M/L, tapi ada juga toko yang memakai nama lain (misalnya 레귤러/라지).",
+        "취소 (batal) menghentikan pesanan dan keluar. 뒤로가기 (kembali) hanya mundur satu langkah saja (뒤로가기 tidak termasuk dalam daftar 12 tombol di lembar kerja ini)."
       ]
     }
   ],
-  "note": "Contoh-contoh ini didasarkan pada ungkapan dan alur pemesanan yang umum terlihat di kios sungguhan. Lembar kerja ini berfokus pada membaca, dan tampilan layar bisa berbeda-beda di setiap toko.",
+  "note": "Berdasarkan label dan alur pemesanan yang umum ditemukan pada kios sungguhan. Tampilan layar bisa berbeda-beda di tiap toko.",
   "category": "etc"
 }

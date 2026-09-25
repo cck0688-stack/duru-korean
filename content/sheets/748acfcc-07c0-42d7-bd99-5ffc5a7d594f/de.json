@@ -1,9 +1,9 @@
 {
   "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
   "keyword": "키오스크 버튼",
-  "summary": "Lies und verstehe 12 sehr häufige Buttons/Texte auf Selbstbestell-Kiosken in Cafés und Fast-Food-Restaurants. Lernende ordnen jeder Bezeichnung ihre Funktion zu und durchlaufen selbstständig einen einfachen Bestellablauf.",
-  "objective": "Am Ende können Lernende 12 häufige Kiosk-Buttons/Bezeichnungen erkennen und ohne Hilfe einem grundlegenden Ablauf folgen – Essen hier/Zum Mitnehmen → Menü auswählen → Optionen wählen → Zahlungsmethode wählen → Beleg/Bestellnummer erhalten.",
-  "level": "Anfänger (fortgeschritten)",
+  "summary": "Lies 12 häufige Schaltflächen auf Selbstbedienungskiosken in Cafés und Fast-Food-Restaurants, ordne jeder ihre Funktion zu und befolge einen einfachen Bestellablauf.",
+  "objective": "Am Ende können Lernende 12 häufige Kiosk-Schaltflächen/Bezeichnungen erkennen und einem einfachen Ablauf folgen – hier essen/zum Mitnehmen → Menü auswählen → Optionen wählen → Zahlungsart wählen → Beleg/Bestellnummer erhalten – ganz ohne Hilfe.",
+  "level": "Anfänger (hoch)",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,8 +11,8 @@
     "line": ""
   },
   "exercises": [
-    "Ordne jedem Button seine Funktion zu. Buttons: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Funktionen: (a) mit dem Handy bezahlen (b) im Geschäft essen (c) die Temperatur des Getränks wählen (d) einen Papierbeleg drucken (e) nur der Artikel, ohne Beilage oder Getränk (f) das Essen mitnehmen (g) zum Zahlungsbildschirm gehen (h) S/M/L wählen (i) mit Karte bezahlen (j) Artikel mit Beilage und Getränk (k) etwas Zusätzliches hinzufügen (l) die Bestellung stoppen",
-    "Lies die Situation und schreibe den Button, den du wählst: ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?",
+    "Ordne jeder Schaltfläche ihre Funktion zu. Schaltflächen: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Funktionen: (a) mit dem Handy bezahlen (b) im Geschäft essen (c) die Getränketemperatur wählen (d) einen Papierbeleg drucken (e) nur der Artikel, ohne Beilage oder Getränk (f) das Essen mitnehmen (g) zum Zahlungsbildschirm gehen (h) S/M/L wählen (i) mit Karte bezahlen (j) Artikel mit Beilage und Getränk (k) etwas Zusätzliches hinzufügen (l) die Bestellung stoppen",
+    "Lies die Situation und schreibe die Schaltfläche, die du wählst: ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?",
     "Lies die Situation und schreibe die Option, die du wählst: ① 사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요? ② 추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요? ③ 라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?",
     "Lies und antworte: ① 카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요? ② 체크카드로 계산할 거예요. 어떤 버튼이 맞아요? ③ 결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요? ④ ‘취소’ 버튼을 누르면 어떻게 돼요?",
     "Bringe die Bestellschritte in die richtige Reihenfolge: 결제하기 / 영수증 출력 / 포장 / L / 간편결제 / 세트"
@@ -20,52 +20,43 @@
   "answers": [
     "매장–(b), 포장–(f), 단품–(e), 세트–(j), HOT/ICE–(c), 사이즈–(h), 추가–(k), 취소–(l), 결제하기–(g), 카드 결제–(i), 간편결제–(a), 영수증 출력–(d)",
     "① 포장 ② 세트",
-    "L ② HOT ③ 추가",
+    "① L ② HOT ③ 추가",
     "① 간편결제 ② 카드 결제 ③ 영수증 출력 ④ 주문이 취소되고 처음 화면으로 돌아가요.",
     "포장 → 세트 → L → 결제하기 → 간편결제 → 영수증 출력"
   ],
   "checkThese": [],
   "sections": [
     {
-      "heading": "So verwendest du dieses Arbeitsblatt",
-      "paragraphs": [
-        "Lies die Buttons und kurzen Texte, die häufig auf Kiosk-Bildschirmen zu sehen sind, und verbinde jeden sofort mit seiner Bedeutung.",
-        "Lerne nur die Wörter, die du brauchst, und versuche, den grundlegenden Bestellablauf selbstständig zu durchlaufen."
-      ]
-    },
-    {
       "heading": "Der Bestellablauf auf einen Blick",
       "paragraphs": [
-        "매장/포장 (Essen hier/Zum Mitnehmen) wählen → Menüartikel wählen (단품/세트) → Optionen wählen (HOT/ICE, 사이즈, 추가) → 결제하기 (Bezahlen) drücken → Zahlungsmethode wählen (카드 결제/간편결제) → Beleg/Bestellnummer prüfen (영수증/주문번호)"
+        "매장/포장 (hier essen/zum Mitnehmen) wählen → Menüartikel auswählen (단품/세트) → Optionen wählen (HOT/ICE, 사이즈, 추가) → 결제하기 (bezahlen) drücken → Zahlungsart wählen (카드 결제/간편결제) → Beleg/Bestellnummer prüfen (영수증/주문번호)"
       ]
     },
     {
-      "heading": "12 häufige Buttons",
+      "heading": "12 häufige Schaltflächen",
       "paragraphs": [
-        "1) 매장 (Essen hier) — Drücke ihn, wenn du im Geschäft isst. 예: 여기서 먹어요. 매장을 눌러요.",
-        "2) 포장 (Zum Mitnehmen) — Drücke ihn, wenn du das Essen mitnimmst. 예: 바빠요? 그러면 포장을 고르세요.",
-        "3) 단품 (Einzelartikel) — Drücke ihn, um nur den Artikel zu kaufen, ohne Beilage oder Getränk. 예: 버거만 먹고 싶으면 단품을 고르세요.",
-        "4) 세트 (Menü/Set) — Zum Artikel gibt es eine Beilage und ein Getränk dazu. 예: 배가 많이 고파요. 세트로 주문해요.",
-        "5) HOT / ICE — Drücke es, um die Temperatur des Getränks zu wählen. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요.",
+        "1) 매장 (hier essen) — Drücke das, wenn du im Geschäft isst. 예: 여기서 먹어요. 매장을 눌러요.",
+        "2) 포장 (zum Mitnehmen) — Drücke das, wenn du das Essen mitnimmst. 예: 바빠요? 그러면 포장을 고르세요.",
+        "3) 단품 (einzelner Artikel) — Drücke das, um nur den Artikel ohne Beilage oder Getränk zu kaufen. 예: 버거만 먹고 싶으면 단품을 고르세요.",
+        "4) 세트 (Menü/Set) — Eine Beilage und ein Getränk sind im Artikel enthalten. 예: 배가 많이 고파요. 세트로 주문해요.",
+        "5) HOT / ICE — Drücke das, um die Temperatur des Getränks zu wählen. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요.",
         "6) 사이즈 (Größe) — Wird verwendet, um die Becher- oder Artikelgröße zu wählen, oft S/M/L. 예: 많이 마시고 싶으면 L을 고르세요.",
-        "7) 추가 (Hinzufügen) — Drücke ihn, um etwas Zusätzliches hinzuzufügen. 예: 커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요.",
-        "8) 취소 (Abbrechen) — Drücke ihn, um die aktuelle Bestellung zu stoppen. 예: 주문을 안 하고 싶어요. 취소를 눌러요.",
-        "9) 결제하기 (Bezahlen) — Wenn du mit der Auswahl fertig bist, führt er dich zum Zahlungsbildschirm. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요.",
-        "10) 카드 결제 (Kartenzahlung) — Drücke ihn, um mit Karte zu bezahlen. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요.",
-        "11) 간편결제 (Mobile/Easy Pay) — Drücke ihn, um mit deinem Handy zu bezahlen. 예: 카카오페이를 써요? 간편결제로 계산하세요.",
-        "12) 영수증 출력 (Beleg drucken) — Druckt einen Papierbeleg; die Bestellnummer wird mit ausgegeben. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
+        "7) 추가 (hinzufügen) — Drücke das, um etwas Zusätzliches hinzuzufügen. 예: 커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요.",
+        "8) 취소 (abbrechen) — Drücke das, um die aktuelle Bestellung zu stoppen. 예: 주문을 안 하고 싶어요. 취소를 눌러요.",
+        "9) 결제하기 (bezahlen) — Wenn du mit der Auswahl fertig bist, bringt dich das zum Zahlungsbildschirm. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요.",
+        "10) 카드 결제 (Kartenzahlung) — Drücke das, um mit Karte zu bezahlen. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요.",
+        "11) 간편결제 (mobiles/einfaches Bezahlen) — Drücke das, um mit deinem Handy zu bezahlen. 예: 카카오페이를 써요? 간편결제로 계산하세요.",
+        "12) 영수증 출력 (Beleg drucken) — Druckt einen Papierbeleg; die Bestellnummer steht mit darauf. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
       ]
     },
     {
-      "heading": "Lesetipps: Abkürzungen und englische Bezeichnungen",
+      "heading": "Lesehinweise: Abkürzungen und englische Bezeichnungen",
       "paragraphs": [
-        "S/M/L: Kurzform für Small/Medium/Large. Viele Kioske zeigen Größen als S/M/L, manche Geschäfte verwenden aber andere Bezeichnungen (z. B. 레귤러/라지).",
-        "HOT/ICE: Heiße Getränke sind mit HOT markiert, kalte mit ICE.",
-        "단품/세트: 단품 ist nur der Artikel; 세트 kommt mit einer Beilage und einem Getränk.",
-        "취소 (Abbrechen) bricht die Bestellung ab und verlässt den Bestellvorgang. 뒤로가기 (Zurück) geht nur einen Schritt zurück (der Button 뒤로가기 gehört nicht zu den 12 Buttons dieses Arbeitsblatts)."
+        "S/M/L: Abkürzung für Small/Medium/Large. Viele Kioske zeigen die Größen als S/M/L an, aber manche Geschäfte verwenden andere Bezeichnungen (z. B. 레귤러/라지).",
+        "취소 (abbrechen) stoppt die Bestellung und verlässt den Bestellvorgang. 뒤로가기 (zurück) geht nur einen Schritt zurück (뒤로가기 gehört nicht zu den 12 Schaltflächen auf diesem Arbeitsblatt)."
       ]
     }
   ],
-  "note": "Die Beispiele beruhen auf Ausdrücken und Bestellabläufen, wie man sie häufig an echten Kiosken sieht. Dieses Arbeitsblatt konzentriert sich auf das Lesen, und das Bildschirmdesign kann sich von Geschäft zu Geschäft unterscheiden.",
+  "note": "Basierend auf Bezeichnungen und Bestellabläufen, die bei echten Kiosken üblich sind. Die Bildschirmgestaltung kann von Geschäft zu Geschäft unterschiedlich sein.",
   "category": "etc"
 }

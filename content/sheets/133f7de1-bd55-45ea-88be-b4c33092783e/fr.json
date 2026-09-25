@@ -1,8 +1,8 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
   "keyword": "",
-  "summary": "Lire deux courtes annonces d'immeuble (coupure d'eau et coupure de courant pour inspection) et s'entraîner à repérer rapidement la date/l'heure, le lieu, le motif et ce que les résidents doivent faire. Se concentrer sur huit mots/étiquettes fréquents.",
-  "objective": "Les apprenants seront capables de lire de courtes annonces d'immeuble concernant des coupures d'eau/de courant et des inspections, de trouver rapidement la date, l'heure, la zone concernée et ce que les résidents doivent faire ; et de reconnaître 8 mots/étiquettes fréquents (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "summary": "Lisez deux courts avis d'immeuble (coupure d'eau et coupure de courant) et entraînez-vous à trouver la date, l'heure, le lieu, la raison et ce que les résidents doivent faire.",
+  "objective": "Les apprenants trouveront rapidement la date, l'heure, la zone concernée et ce qu'il faut faire dans de courts avis de coupure d'eau ou de courant, et reconnaîtront 8 étiquettes fréquentes (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "level": "Débutant (niveau avancé)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,11 @@
     "line": ""
   },
   "exercises": [
-    "Répondez dans le format utilisé dans l'annonce (par ex. 08:00) : 공지 A의 단수는 몇 시에 끝납니까?",
-    "Recopiez exactement ce qui est écrit dans l'annonce : 공지 B의 사유는 무엇입니까?",
-    "Recopiez exactement ce qui est écrit dans l'annonce : 공지 A의 장소는 어디입니까?",
-    "Recopiez la phrase exactement telle qu'elle est écrite dans l'annonce : 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Écrivez le lieu de contact et le numéro de téléphone exactement comme indiqués dans les annonces : 두 공지의 문의처는 어디입니까?"
+    "Répondez dans le format utilisé dans l'avis (par ex. 08:00) : 공지 A의 단수는 몇 시에 끝납니까?",
+    "Copiez exactement comme écrit dans l'avis : 공지 B의 사유는 무엇입니까?",
+    "Copiez exactement comme écrit dans l'avis : 공지 A의 장소는 어디입니까?",
+    "Copiez la phrase exactement comme écrite dans l'avis : 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
+    "Écrivez le contact exactement comme dans les avis (lieu et numéro de téléphone) : 두 공지의 문의처는 어디입니까?"
   ],
   "answers": [
     "14:00",
@@ -27,20 +27,20 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Mots et étiquettes fréquents",
+      "heading": "Étiquettes et mots fréquents",
       "paragraphs": [
         "일시 (ilsi) : date et heure",
         "장소 (jangso) : lieu, zone concernée",
-        "사유 (sayu) : motif",
+        "사유 (sayu) : raison",
         "점검 (jeomgeom) : inspection, vérification",
         "작업 (jageop) : travaux (construction ou réparation)",
         "단수 (dansu) : coupure d'eau",
-        "단전 (danjeon) : coupure de courant (coupure planifiée)",
+        "단전 (danjeon) : coupure de courant (coupure programmée)",
         "문의 (munui) : renseignements, contact (numéro de téléphone, bureau)"
       ]
     },
     {
-      "heading": "Exemple d'annonce A — 단수 안내 (avis de coupure d'eau)",
+      "heading": "Exemple d'avis A — 단수 안내 (avis de coupure d'eau)",
       "paragraphs": [
         "[공지 A] 단수 안내",
         "일시: 2026년 10월 12일(월) 09:30~14:00",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "heading": "Exemple d'annonce B — 단전 안내 (avis de coupure de courant)",
+      "heading": "Exemple d'avis B — 단전 안내 (avis de coupure de courant)",
       "paragraphs": [
         "[공지 B] 단전 안내",
         "일시: 2026년 10월 15일(목) 13:00~16:00",
@@ -64,20 +64,13 @@
       ]
     },
     {
-      "heading": "Comment repérer rapidement l'information",
+      "heading": "Comment lire rapidement",
       "paragraphs": [
-        "Regardez d'abord les étiquettes (일시, 장소, 사유, 작업, 유의사항, 문의), puis ne lisez que les lignes dont vous avez besoin.",
-        "Habituez-vous aux chiffres et symboles comme 09:30, ~ (de–à), 층 (étage), 동 (numéro de bâtiment). Ces annonces utilisent le format 24 heures.",
-        "Pour trouver ce que les résidents doivent faire, cherchez dans la ligne 유의사항 (précautions) des terminaisons de demande comme -세요."
-      ]
-    },
-    {
-      "heading": "Guide de pratique",
-      "paragraphs": [
-        "Les annonces ici sont des exemples pédagogiques, pas de vrais horaires ni de vrais numéros de contact."
+        "Regardez d'abord les étiquettes (일시, 장소, 사유, 작업, 유의사항, 문의), puis ne lisez que les lignes dont vous avez besoin. Les avis utilisent l'heure sur 24 heures : ~ signifie « de... à... », 동 est le numéro du bâtiment, et 층 est l'étage.",
+        "Ce que les résidents doivent faire se trouve dans la ligne 유의사항 (précautions), généralement sous forme de demande se terminant par -세요."
       ]
     }
   ],
-  "note": "",
+  "note": "Les avis présentés ici sont des exemples pédagogiques, et non de vrais horaires ou numéros de contact.",
   "category": "etc"
 }

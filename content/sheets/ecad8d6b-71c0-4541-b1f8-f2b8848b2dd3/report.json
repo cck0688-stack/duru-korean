@@ -669,5 +669,88 @@
       "after": "머리가 아프고 콧물이 나요.",
       "why": "A translation ran onto a third page: summary/objective tightened and repeated lines merged so every language fits two pages without squeezing."
     }
-  ]
+  ],
+  "retranslated": {
+    "at": "2026-09-25T18:37:48.930Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 43,
+            "problem": "'In English' is carried over literally as 'Bằng tiếng Anh'. The source means 'in the learner's own language,' and the answer key (line 45) is in Vietnamese, so this asks Vietnamese learners to answer in the wrong language.",
+            "fix": "Dược sĩ nói: '하루 세 번, 식후 30분에 드세요.' Bằng tiếng Việt: bạn uống thuốc bao nhiêu lần một ngày và vào lúc nào?"
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "The word \"Korean\" was left out: \"a Korean pharmacy\" became just 薬局 (a pharmacy), so the setting is no longer stated.",
+            "fix": "韓国の薬局での短い会話:処方箋を持っていない客が風邪の症状を説明し、薬剤師の質問に答えて、薬の飲み方を教えてもらいます。"
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 21,
+            "problem": "\"warm water\" rendered as \"eau chaude\" (hot water); for taking medicine, warm water is \"eau tiède\".",
+            "fix": "Prenez-le avec de l'eau tiède."
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"高级\" normally means the \"Advanced\" level, so \"初级(高级)\" reads as \"Beginner (Advanced)\" and contradicts itself. The English means the upper part of the beginner level.",
+            "fix": "初级(高阶)"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
 }

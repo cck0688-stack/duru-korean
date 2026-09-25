@@ -1,8 +1,8 @@
 {
   "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
   "keyword": "ㄱ·ㅋ·ㄲ",
-  "summary": "Practica distinguir y pronunciar ㄱ (suave), ㅋ (aspirada) y ㄲ (tensa) al inicio de palabra. Usa referencias sonoras claras del inglés: ㄱ ≈ un sonido suave entre la g y la k del inglés, ㅋ ≈ la k de \"key\", ㄲ = una \"kk\" tensa sin equivalente exacto en inglés. Lee y elige palabras sencillas que comiencen con estas letras.",
-  "objective": "Los estudiantes principiantes escucharán y pronunciarán con precisión ㄱ (suave), ㅋ (aspirada) y ㄲ (tensa) en posición inicial de palabra, las relacionarán con referencias sonoras útiles del inglés (ㄱ ≈ entre la g y la k del inglés, con un leve soplo de aire, ㅋ ≈ la k de \"key\", ㄲ = una \"kk\" tensa, sin equivalente exacto), y leerán y elegirán correctamente palabras sencillas que contengan estas consonantes iniciales.",
+  "summary": "Practica distinguir y pronunciar ㄱ (suave), ㅋ (aspirada) y ㄲ (tensa) al inicio de palabra. Usa referencias de sonido claras en español: ㄱ ≈ un sonido suave entre g y k, ㅋ ≈ una k fuerte con soplo de aire, ㄲ = una 'kk' tensa sin equivalente exacto. Lee y elige palabras sencillas que empiecen con estas letras.",
+  "objective": "Los estudiantes principiantes escucharán y pronunciarán correctamente ㄱ (suave), ㅋ (aspirada) y ㄲ (tensa) en posición inicial de palabra, las relacionarán con referencias de sonido útiles (ㄱ ≈ entre g y k, con un leve soplo de aire, ㅋ ≈ una k fuerte con soplo de aire, ㄲ = una 'kk' tensa, sin equivalente exacto), y leerán y seleccionarán correctamente palabras sencillas que contengan estas consonantes iniciales.",
   "level": "Principiante",
   "minutes": 15,
   "tags": [],
@@ -11,35 +11,35 @@
     "line": ""
   },
   "exercises": [
-    "Elige la palabra que comienza con ㅋ (aspirada): 가게 / 코 / 꽃",
+    "Elige la palabra que empieza con ㅋ (aspirada): 가게 / 코 / 꽃",
     "Lee la romanización y elige la palabra coreana correspondiente: kkoma → 가방 / 꼬마 / 카메라",
-    "Elige la palabra que comienza con ㄱ (suave): 콩 / 껌 / 고기",
-    "Relaciona cada palabra con su consonante inicial: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
-    "Relaciona cada pista en inglés con la palabra cuyo sonido inicial corresponde: entre 'g' y 'k' (soplo leve) / la 'k' de \"key\" / 'kk' tensa → Opciones: 꽃, 가게, 카메라"
+    "Elige la palabra que empieza con ㄱ (suave): 콩 / 껌 / 고기",
+    "Empareja cada palabra con su primera consonante: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
+    "Empareja cada pista en español con la palabra cuyo sonido inicial le corresponde: entre 'g' y 'k' (soplo leve) / 'k' fuerte (con soplo) / 'kk' tensa → Opciones: 꽃, 가게, 카메라"
   ],
   "answers": [
     "코",
     "꼬마",
     "고기",
     "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
-    "between g and k→가게, key→카메라, kk→꽃"
+    "entre g y k→가게, k fuerte→카메라, kk→꽃"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "Consonante suave (relajada). La parte posterior de la lengua se cierra ligeramente contra el paladar blando y luego se libera. Al inicio de una palabra, sale un leve soplo de aire: más débil que ㅋ y más suave que ㄲ.",
-      "as": "entre la 'g' y la 'k' del inglés (soplo leve)"
+      "sound": "Consonante suave (relajada). La parte posterior de la lengua se cierra levemente contra el paladar blando y luego se libera. Al inicio de una palabra sale un leve soplo de aire: más débil que ㅋ y más suave que ㄲ.",
+      "as": "entre la 'g' y la 'k' en español (soplo leve)"
     },
     {
       "letter": "ㅋ",
-      "sound": "Consonante aspirada. Misma posición de la lengua que ㄱ, pero se libera con un soplo de aire fuerte.",
-      "as": "la 'k' de \"key\" (soplo fuerte)"
+      "sound": "Consonante aspirada. La misma posición de la lengua que ㄱ, pero se libera con un fuerte soplo de aire.",
+      "as": "como una 'k' fuerte, con soplo intenso"
     },
     {
       "letter": "ㄲ",
-      "sound": "Consonante tensa. Misma posición de la lengua que ㄱ, pero la garganta y la lengua se tensan y el sonido se libera de forma abrupta, sin soplo de aire.",
-      "as": "'kk' tensa (sin equivalente exacto en inglés)"
+      "sound": "Consonante tensa. La misma posición de la lengua que ㄱ, pero la garganta y la lengua se tensan y el sonido se libera de forma abrupta, sin soplo de aire.",
+      "as": "'kk' tensa (sin equivalente exacto)"
     }
   ],
   "words": [
@@ -76,7 +76,7 @@
       "roman": "kamera",
       "meaning": "cámara",
       "example": "카메라로 사진을 찍어요.",
-      "exampleMeaning": "Tomo fotos con una cámara."
+      "exampleMeaning": "Tomo fotos con la cámara."
     },
     {
       "korean": "콩",

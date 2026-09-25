@@ -1,21 +1,21 @@
 {
   "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
   "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
-  "summary": "Übe eine kurze, alltagsnahe Bestellung in einem koreanischen Café. Du wirst hören und sagen, ob es heiß/eisgekühlt sein soll, die Größe wählen (normal/groß) und mit natürlichen Ausdrücken sagen, ob zum Hieressen oder Mitnehmen.",
-  "objective": "Sei in der Lage, 6–8 kurze Fragen und Antworten zu verstehen und zu sagen, um in einem koreanischen Café ein Getränk zu bestellen – dabei heiß/eisgekühlt, Größe (normal/groß) und zum Hieressen/Mitnehmen wählen.",
+  "summary": "Übe eine kurze Bestellung in einem koreanischen Café: Lies und sage heiß/kalt, Größe (normal/groß) und zum Hierbleiben/Mitnehmen.",
+  "objective": "Verstehe und sage die kurzen Fragen und Antworten, um in einem koreanischen Café ein Getränk zu bestellen: heiß/kalt, Größe und zum Hierbleiben/Mitnehmen.",
   "level": "Anfänger (hoch)",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "카페에서 주문해 보기",
-    "line": "Bestelle ein Getränk und wähle dabei Temperatur, Größe und ob zum Hieressen oder Mitnehmen – z. B. 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+    "title": "Im Café bestellen",
+    "line": "Bestelle ein Getränk und wähle dabei Temperatur, Größe und ob zum Hierbleiben oder Mitnehmen – z. B. 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
   },
   "exercises": [
-    "Der Kunde möchte ein eisgekühltes Getränk. Wähle die natürlichste Antwort: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
+    "Der Kunde möchte ein kaltes Getränk. Wähle die passendste Antwort: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
     "Der Kunde möchte die größere Größe. Antworte mit ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
-    "Der Kunde wird es hier trinken. Vervollständige die Antwort des Kunden: 직원: 매장이세요, 포장이세요? 손님: ______",
+    "Der Kunde wird es im Laden trinken. Vervollständige die Antwort des Kunden: 직원: 매장이세요, 포장이세요? 손님: ______",
     "Lücke füllen (heiß): _____ 아메리카노 한 잔 주세요.",
-    "Bevor das Personal etwas fragt, bestelle alles auf einmal: einen eisgekühlten Latte in Groß, zum Mitnehmen: 직원: 어서 오세요. 손님: ______"
+    "Bevor das Personal etwas fragt, bestelle einen Eis-Latte in Größe groß, zum Mitnehmen, alles auf einmal: 직원: 어서 오세요. 손님: ______"
   ],
   "answers": [
     "아이스로요.",
@@ -25,7 +25,7 @@
     "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
   ],
   "checkThese": [],
-  "setting": "서울의 프랜차이즈 카페 카운터",
+  "setting": "An der Theke eines Kettencafés in Seoul",
   "dialogue": [
     {
       "who": "직원",
@@ -40,12 +40,12 @@
     {
       "who": "직원",
       "korean": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
-      "meaning": "Heiß oder eisgekühlt?"
+      "meaning": "Heiß oder kalt?"
     },
     {
       "who": "손님",
       "korean": "아이스로 주세요.",
-      "meaning": "Eisgekühlt, bitte."
+      "meaning": "Kalt, bitte."
     },
     {
       "who": "직원",
@@ -60,7 +60,7 @@
     {
       "who": "직원",
       "korean": "매장이세요, 포장이세요?",
-      "meaning": "Zum Hieressen oder Mitnehmen?"
+      "meaning": "Zum Hierbleiben oder zum Mitnehmen?"
     },
     {
       "who": "손님",
@@ -74,7 +74,7 @@
       "roman": "aiseu",
       "meaning": "eisgekühlt (kaltes Getränk)",
       "example": "아이스 아메리카노요.",
-      "exampleMeaning": "Einen Americano mit Eis, bitte."
+      "exampleMeaning": "Einen Eis-Americano, bitte."
     },
     {
       "korean": "핫",
@@ -100,7 +100,7 @@
     {
       "korean": "매장",
       "roman": "maejang",
-      "meaning": "zum Hieressen, im Laden",
+      "meaning": "zum Hierbleiben, im Laden",
       "example": "매장에서 먹고 갈게요.",
       "exampleMeaning": "Ich trinke es hier."
     },
@@ -128,7 +128,7 @@
     {
       "korean": "한 잔",
       "roman": "han jan",
-      "meaning": "ein Becher (ein Getränk)",
+      "meaning": "eine Tasse (ein Getränk)",
       "example": "아메리카노 한 잔 부탁드려요.",
       "exampleMeaning": "Einen Americano, bitte."
     }

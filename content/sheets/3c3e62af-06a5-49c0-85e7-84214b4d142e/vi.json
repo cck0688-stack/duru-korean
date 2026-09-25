@@ -1,14 +1,14 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
   "keyword": "약 봉투",
-  "summary": "Maria, một người nước ngoài đang sinh sống tại Hàn Quốc, bị cảm lạnh. Cô lấy thuốc theo đơn tại nhà thuốc ở tầng 1 của bệnh viện, nơi dược sĩ giải thích về hai túi thuốc. Về nhà, cô đọc lại các túi thuốc. Người học đọc câu chuyện và tìm hiểu mỗi loại thuốc uống bao nhiêu lần, khi nào, trong mấy ngày, và ý nghĩa của lời cảnh báo trên túi thuốc.",
-  "objective": "Sau khi đọc câu chuyện gồm bốn đoạn về việc đi mua thuốc ở nhà thuốc, người học có thể tìm ra bốn thông tin trên túi thuốc tiếng Hàn: uống thuốc bao nhiêu lần một ngày (1일 3회 = 하루에 세 번), uống khi nào (식전, 식후 30분, 자기 전), thuốc dùng trong bao nhiêu ngày (3일분), và ý nghĩa của lời cảnh báo (졸음 주의, 운전 주의).",
+  "summary": "Maria bị cảm và nhận được hai gói thuốc ở hiệu thuốc. Người học đọc câu chuyện của cô ấy và tìm hiểu mỗi loại thuốc cần uống bao nhiêu lần, khi nào, trong bao nhiêu ngày, và lời cảnh báo có nghĩa là gì.",
+  "objective": "Người học có thể tìm thấy bốn thông tin trên gói thuốc của Hàn Quốc: uống mấy lần một ngày (1일 3회 = 하루에 세 번), uống khi nào (식전, 식후 30분, 자기 전), uống trong bao nhiêu ngày (3일분), và lời cảnh báo có nghĩa là gì (졸음 주의, 운전 주의).",
   "level": "Trung cấp (thấp)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "Đọc các túi thuốc",
-    "line": "Đọc hai túi thuốc và viết ra mỗi loại thuốc uống bao nhiêu lần, khi nào, và trong mấy ngày."
+    "title": "Đọc các gói thuốc",
+    "line": "Đọc hai gói thuốc và viết ra mỗi loại cần uống bao nhiêu lần, khi nào, và trong bao nhiêu ngày."
   },
   "exercises": [
     "Trả lời bằng tiếng Hàn: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
@@ -49,44 +49,44 @@
     {
       "korean": "빈속",
       "roman": "binsok",
-      "meaning": "bụng đói",
+      "meaning": "lúc bụng đói",
       "example": "빈속에 커피를 마시면 배가 아파요.",
       "exampleMeaning": "Tôi bị đau bụng khi uống cà phê lúc bụng đói."
     },
     {
       "korean": "속이 쓰리다",
       "roman": "sogi sseurida",
-      "meaning": "cảm thấy nóng rát hoặc khó chịu ở dạ dày",
+      "meaning": "cảm thấy nóng rát hoặc xót ở bụng",
       "example": "어제 술을 많이 마셔서 속이 쓰려요.",
-      "exampleMeaning": "Dạ dày tôi khó chịu vì hôm qua tôi uống rượu nhiều."
+      "exampleMeaning": "Bụng tôi bị xót vì hôm qua tôi uống rượu nhiều."
     },
     {
       "korean": "졸리다",
       "roman": "jollida",
       "meaning": "cảm thấy buồn ngủ",
       "example": "점심을 먹으면 너무 졸려요.",
-      "exampleMeaning": "Tôi rất buồn ngủ sau khi ăn trưa."
+      "exampleMeaning": "Tôi cảm thấy rất buồn ngủ sau khi ăn trưa."
     },
     {
       "korean": "주의",
       "roman": "juui",
-      "meaning": "chú ý, cảnh báo (trên biển báo, nhãn: 'hãy cẩn thận với ~')",
+      "meaning": "chú ý, cảnh báo (trên biển báo, nhãn: nghĩa là 'hãy cẩn thận với ~')",
       "example": "바닥에 '미끄럼 주의'라고 쓰여 있어요.",
-      "exampleMeaning": "Biển báo trên sàn ghi 'Chú ý: trơn trượt.'"
+      "exampleMeaning": "Biển báo trên sàn ghi 'Cẩn thận: trơn trượt'."
     },
     {
       "korean": "3일분",
       "roman": "samilbun",
-      "meaning": "thuốc dùng trong ba ngày (3일 = ba ngày, -분 = phần/lượng tương ứng với số đứng trước nó: 3일분 = dùng trong ba ngày, 2인분 = phần cho hai người)",
+      "meaning": "lượng thuốc dùng cho ba ngày (3일 = ba ngày, -분 = phần/lượng dùng ứng với con số đứng trước nó: 3일분 = dùng cho ba ngày, 2인분 = phần cho hai người)",
       "example": "약사가 5일분 약을 줬어요.",
-      "exampleMeaning": "Dược sĩ đã cho tôi thuốc dùng trong năm ngày."
+      "exampleMeaning": "Dược sĩ đã đưa cho tôi lượng thuốc dùng cho năm ngày."
     },
     {
       "korean": "사흘",
       "roman": "saheul",
       "meaning": "ba ngày (từ thuần Hàn)",
       "example": "사흘 동안 계속 비가 왔어요.",
-      "exampleMeaning": "Trời đã mưa liên tục trong ba ngày."
+      "exampleMeaning": "Trời đã mưa liên tục ba ngày."
     }
   ],
   "category": "reading"

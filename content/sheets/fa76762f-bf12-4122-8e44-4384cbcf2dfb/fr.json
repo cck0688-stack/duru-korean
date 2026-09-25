@@ -1,8 +1,8 @@
 {
   "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
   "keyword": "ㄱ·ㅋ·ㄲ",
-  "summary": "S'entraîner à distinguer et à prononcer les consonnes initiales ㄱ (simple), ㅋ (aspirée) et ㄲ (tendue). Utiliser des repères sonores clairs en anglais : ㄱ ≈ un son léger entre le g et le k anglais, ㅋ ≈ le k de « key », ㄲ = un « kk » tendu sans équivalent exact en anglais. Lire et choisir des mots simples commençant par ces lettres.",
-  "objective": "Les débutants apprendront à entendre et à prononcer correctement ㄱ (simple), ㅋ (aspirée) et ㄲ (tendue) en position initiale de mot, à les relier à des repères sonores utiles en anglais (ㄱ ≈ entre le g et le k anglais, avec un léger souffle d'air, ㅋ ≈ le k de « key », ㄲ = un « kk » tendu, sans équivalent exact en anglais), et à lire et sélectionner correctement des mots simples contenant ces consonnes initiales.",
+  "summary": "Entraînez-vous à distinguer et à prononcer les consonnes initiales ㄱ (simple), ㅋ (aspirée) et ㄲ (tendue). Utilisez des repères sonores simples en français : ㄱ ≈ un son léger entre « g » et « k », ㅋ ≈ un « k » bien soufflé, ㄲ = un « k » tendu, sans équivalent exact en français. Lisez et choisissez des mots simples commençant par ces lettres.",
+  "objective": "Les débutants apprendront à bien entendre et prononcer ㄱ (simple), ㅋ (aspirée) et ㄲ (tendue) en début de mot, à les associer à des repères sonores utiles (ㄱ ≈ entre « g » et « k », avec un léger souffle d'air, ㅋ ≈ un « k » fortement soufflé, ㄲ = un « k » tendu, sans équivalent exact), puis à lire et choisir correctement des mots simples contenant ces sons initiaux.",
   "level": "Débutant",
   "minutes": 15,
   "tags": [],
@@ -15,31 +15,31 @@
     "Lisez la romanisation et choisissez le mot coréen correspondant : kkoma → 가방 / 꼬마 / 카메라",
     "Choisissez le mot qui commence par ㄱ (simple) : 콩 / 껌 / 고기",
     "Associez chaque mot à sa consonne initiale : 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
-    "Associez chaque indice en anglais au mot dont le premier son correspond : entre 'g' et 'k' (léger souffle) / 'k' de « key » / 'kk' tendu → Choix : 꽃, 가게, 카메라"
+    "Associez chaque indice sonore en français au mot dont le son initial correspond : entre « g » et « k » (léger souffle) / « k » bien soufflé / « k » tendu → Choix : 꽃, 가게, 카메라"
   ],
   "answers": [
     "코",
     "꼬마",
     "고기",
     "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
-    "between g and k→가게, key→카메라, kk→꽃"
+    "entre g et k→가게, k bien soufflé→카메라, k tendu→꽃"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "Consonne simple (relâchée). L'arrière de la langue se ferme légèrement contre le palais mou, puis se relâche. Au début d'un mot, un léger souffle d'air en sort : plus faible que ㅋ et plus doux que ㄲ.",
-      "as": "entre le 'g' et le 'k' anglais (léger souffle)"
+      "sound": "Consonne simple (relâchée). L'arrière de la langue touche légèrement le palais mou, puis se relâche. En début de mot, un léger souffle d'air sort : plus faible que ㅋ et plus doux que ㄲ.",
+      "as": "entre le « g » et le « k » du français (léger souffle)"
     },
     {
       "letter": "ㅋ",
-      "sound": "Consonne aspirée. Même position de la langue que pour ㄱ, mais relâchée avec un fort souffle d'air.",
-      "as": "le 'k' de 'key' (souffle fort)"
+      "sound": "Consonne aspirée. Même position de langue que ㄱ, mais relâchée avec un souffle d'air fort.",
+      "as": "« k » bien soufflé (souffle fort)"
     },
     {
       "letter": "ㄲ",
-      "sound": "Consonne tendue. Même position de la langue que pour ㄱ, mais la gorge et la langue sont tendues et le son est relâché de façon nette, sans souffle d'air.",
-      "as": "'kk' tendu (pas d'équivalent exact en anglais)"
+      "sound": "Consonne tendue. Même position de langue que ㄱ, mais la gorge et la langue sont tendues et le son est relâché de façon brusque, sans souffle d'air.",
+      "as": "« k » tendu (aucun équivalent exact en français)"
     }
   ],
   "words": [
@@ -69,7 +69,7 @@
       "roman": "ko",
       "meaning": "nez",
       "example": "코가 커요.",
-      "exampleMeaning": "Mon nez est gros."
+      "exampleMeaning": "Mon nez est grand."
     },
     {
       "korean": "카메라",

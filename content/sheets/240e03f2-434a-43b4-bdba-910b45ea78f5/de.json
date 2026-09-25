@@ -1,8 +1,8 @@
 {
   "title": "도로명주소 읽기: 로/길·건물번호, (아파트) 동·호 찾기",
   "keyword": "도로명주소",
-  "summary": "Lerne, in koreanischen Adressen aus gedruckten Texten, Nachrichten oder Karten-Apps schnell den Straßennamen, der auf ro/gil endet, plus die Hausnummer zu finden und auszusprechen – und, falls vorhanden, auch die Gebäude-/Wohnungsnummer (dong/ho).",
-  "objective": "Am Ende dieses Arbeitsblatts können Lernende 1) den Straßennamen, der auf ro/gil endet, samt Hausnummer erkennen und lesen und 2) dong und ho bei Wohnanlagen schnell und korrekt finden und aussprechen.",
+  "summary": "In koreanischen Adressen schnell den Straßennamen (endet auf 로/길) mit der Gebäudenummer sowie die Wohnungsangabe 동·호 finden und aussprechen.",
+  "objective": "Die Lernenden können 1) den auf 로/길 endenden Straßennamen samt Gebäudenummer finden und lesen, und 2) die Wohnungsangaben 동 und 호 schnell und korrekt finden und aussprechen.",
   "level": "Anfänger (hoch)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,11 @@
     "line": ""
   },
   "exercises": [
-    "Schreibe Straßenname + Hausnummer und 동/층/호 (schreibe 없음, falls keins vorhanden ist): 광주 북구 무지개로 58",
-    "Schreibe Straßenname + Hausnummer und 동/층/호 (schreibe 없음, falls keins vorhanden ist): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
-    "Schreibe, wie man diese Adresse vom Straßennamen bis 호 ausspricht, und lies die Zahlen mit sinokoreanischen Zahlen (schreibe sie auf Hangul). Lass die Region und die Klammern am Ende weg: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
-    "Schreibe Straßenname + Hausnummer und 동/층/호 (schreibe 없음, falls keins vorhanden ist): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
-    "Diese Adresse ist in der alltäglichen, informellen Schreibweise verfasst. Schreibe, wie man sie vom Straßennamen bis zum Ende ausspricht, einschließlich des Gebäudenamens vor 호, und lass die Region weg. Lies die Zahlen mit sinokoreanischen Zahlen (schreibe sie auf Hangul): 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
+    "Schreibe den Straßennamen + die Gebäudenummer sowie 동/층/호 (schreibe 없음, falls keins vorhanden ist): 광주 북구 무지개로 58",
+    "Schreibe den Straßennamen + die Gebäudenummer sowie 동/층/호 (schreibe 없음, falls keins vorhanden ist): 부산 해운대구 바다숲로45번길 17, 3층 (우동)",
+    "Schreibe, wie man vom Straßennamen bis 호 liest, mit sinokoreanischen Zahlen in Hangeul; lass Region und die Klammern am Ende weg: 경기 성남시 분당구 푸른숲로 146, 101동 402호 (정자동, 초록아파트)",
+    "Schreibe den Straßennamen + die Gebäudenummer sowie 동/층/호 (schreibe 없음, falls keins vorhanden ist): 대전 유성구 별빛로 29, 5동 (관평동, 새빛연구단지)",
+    "Informeller Stil: Schreibe, wie man vom Straßennamen bis zum Ende liest, mit dem Gebäudenamen vor 호 und sinokoreanischen Zahlen in Hangeul; lass die Region weg: 서울 마포구 달빛로12번길 8, 해오름빌라 203호"
   ],
   "answers": [
     "무지개로 58; 없음",
@@ -27,44 +27,42 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Adressen mit Straßennamen auf einen Blick",
+      "heading": "Straßenadressen auf einen Blick",
       "paragraphs": [
-        "Eine koreanische Adresse wird in drei Teilen gelesen: Region (시/도, 시/군/구) + Straßenname und Hausnummer + (bei Wohnanlagen) 동·호.",
-        "Beispiel: In „서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)“ sind „햇살로17길 12“ Straßenname und Hausnummer, und „202호“ ist die Wohnungsnummer. In den Klammern am Ende stehen der Stadtteil (법정동) und der Gebäudename."
+        "Eine koreanische Adresse wird in drei Teilen gelesen: Region (시/도, 시/군/구) + Straßenname und Gebäudenummer + (bei Wohnungen) 동·호.",
+        "Beispiel: In „서울 종로구 햇살로17길 12, 202호 (부암동, 한빛빌라)“ sind „햇살로17길 12“ der Straßenname mit Gebäudenummer und „202호“ die Wohnungsnummer. In den Klammern am Ende stehen das Stadtviertel (법정동) und der Gebäudename."
       ]
     },
     {
-      "heading": "로/길 (ro/gil) und die Hausnummer finden",
+      "heading": "Den Straßennamen-Teil 로/길 (ro/gil) und die Gebäudenummer finden",
       "paragraphs": [
-        "Straßennamen enden meist auf „…로“ (ro) oder „…길“ (gil), einschließlich „…번길“ (beon-gil). Die Zahl direkt nach dem Straßennamen ist die Hausnummer.",
-        "Beispiele: „세종대로 110“, „햇살로17길 12“.",
-        "So werden sie gelesen: „세종대로 백십“, „햇살로 십칠길 십이“. Lies die Zahlen deutlich mit den sinokoreanischen Stellenwerteinheiten (천/백/십)."
+        "Straßennamen enden meist auf „…로“ (ro) oder „…길“ (gil), einschließlich „…번길“ (beon-gil). Die Zahl direkt nach dem Straßennamen ist die Gebäudenummer.",
+        "Beispiele: „세종대로 110“ wird „세종대로 백십“ gelesen, und „햇살로17길 12“ wird „햇살로 십칠길 십이“ gelesen. Lies die Zahlen mit den sinokoreanischen Stellenwerten (천/백/십)."
       ]
     },
     {
-      "heading": "Wohnungs-dong/ho (동·호) finden",
+      "heading": "Die Wohnungsangaben 동·호 (dong/ho) finden",
       "paragraphs": [
-        "Bei Wohnanlagen, Officetels und ähnlichen Gebäuden folgt nach dem Komma die genaue Adresse (동·층·호). „동“ ist die Gebäudenummer innerhalb der Anlage, „층“ ist das Stockwerk und „호“ ist die Wohnungs-/Zimmernummer.",
-        "Offizielles Muster: „…, 101동 1203호 (○○동, ○○아파트)“ oder „…, 1203호 (○○동, ○○오피스텔)“ (manchmal fehlt 동). Der Gebäudename steht in den Klammern am Ende, zusammen mit dem Stadtteil (법정동).",
-        "Alltägliche, informelle Schreibweise: Viele schreiben den Gebäudenamen vor 동·호, z. B. „…, 초록아파트 101동 1203호“. Das sieht man oft auf Paketen und in Textnachrichten, aber es ist nicht das offizielle Format.",
-        "So wird es gelesen: „백일동 천이백삼호“ (101동 1203호)."
+        "Bei Wohnungen, Officetels und ähnlichen Gebäuden folgt nach dem Komma die genaue Adresse (동·층·호). „동“ ist die Gebäudenummer innerhalb der Anlage, „층“ das Stockwerk und „호“ die Wohnungs-(Zimmer-)Nummer.",
+        "Offizielles Muster: „…, 101동 1203호 (○○동, ○○아파트)“ oder „…, 1203호 (○○동, ○○오피스텔)“ (manchmal fehlt 동). Der Gebäudename steht in den Klammern am Ende, zusammen mit dem Stadtviertel (법정동).",
+        "Informeller Alltagsstil: Viele schreiben den Gebäudenamen vor 동·호, z. B. „…, 초록아파트 101동 1203호“. Das sieht man oft auf Paketen und in Textnachrichten, es ist aber nicht das offizielle Format.",
+        "So liest man es: „백일동 천이백삼호“ (101동 1203호)."
       ]
     },
     {
-      "heading": "Tipps, um sie schnell zu finden",
+      "heading": "Tipps zum schnellen Finden",
       "paragraphs": [
-        "1) Finde zuerst das Ende des Straßennamens, also das letzte „로“ oder „길/번길“. Bei Nebenstraßen wie „…로17길“ oder „…로45번길“ gehört die direkt angehängte Zahl zum Straßennamen. Die Zahl nach dem Leerzeichen ist die Hausnummer.",
-        "2) Suche nach „동“, „층“ und „호“ direkt nach dem Komma (bei der informellen Schreibweise nach dem Gebäudenamen). Die Wörter in den Klammern am Ende sind Stadtteil und Gebäudename, nicht die Wohnungseinheit. Wenn es kein 동·층·호 gibt, sag „없음“ (keine).",
-        "3) Beim Sprechen sagst du zuerst „Straßenname + Hausnummer“ und danach „동·호“."
+        "1) Suche zuerst das Ende des Straßennamens, also das letzte „로“ bzw. „길/번길“. Bei Nebenstraßen wie „…로17길“ oder „…로45번길“ gehört die direkt angehängte Zahl zum Straßennamen. Die Zahl nach dem Leerzeichen ist die Gebäudenummer.",
+        "2) Suche direkt nach dem Komma (im informellen Stil nach dem Gebäudenamen) nach „동“, „층“ und „호“. Die Wörter in den Klammern am Ende sind das Stadtviertel und der Gebäudename, nicht die Wohnungsangabe. Falls es kein 동·층·호 gibt, sage „없음“ (keins)."
       ]
     },
     {
-      "heading": "Übungsanweisungen",
+      "heading": "Übungsanleitung",
       "paragraphs": [
-        "Antwortformat zum Finden: „Straßenname Hausnummer; 동·층·호“ oder „Straßenname Hausnummer; 없음“ (keine). Zum Lesen: Sag nur Straßenname + Hausnummer und dann 동·호 (plus den Gebäudenamen, falls er vor 동·호 steht, wie in der informellen Schreibweise); lass die Region und die Klammern am Ende weg. Schreibe die Zahlen auf Hangul, z. B. „세종대로 백십“."
+        "Finden: Schreibe „Straßenname Gebäudenummer; 동·층·호“ oder „Straßenname Gebäudenummer; 없음“ (keins). Lesen: Sprich zuerst den Straßennamen + die Gebäudenummer, dann 동·호 (mit Gebäudenamen, falls dieser vor 동·호 steht); lass die Region und die Klammern am Ende weg. Schreibe die Zahlen in Hangeul, z. B. „세종대로 백십“."
       ]
     }
   ],
-  "note": "Die Beispieladressen wurden zu Übungszwecken erstellt. Abgesehen von „세종대로 110“ sind die Straßennamen, Gebäude und Einheiten frei erfunden und beziehen sich auf keine realen Orte.",
+  "note": "Außer „세종대로 110“ sind die Beispieladressen frei erfunden und beziehen sich nicht auf reale Orte.",
   "category": "etc"
 }

@@ -1,8 +1,8 @@
 {
   "title": "초성 ㄱ·ㅋ·ㄲ 소리 구별하고 읽기",
   "keyword": "ㄱ·ㅋ·ㄲ",
-  "summary": "Pratique diferenciar e pronunciar o ㄱ (simples), o ㅋ (aspirado) e o ㄲ (tenso) no início de uma palavra. Use referências sonoras claras em inglês: ㄱ ≈ um som leve entre o \"g\" e o \"k\" do inglês, ㅋ ≈ o \"k\" da palavra inglesa \"key\", ㄲ = um \"kk\" tenso, sem equivalência exata. Leia e escolha palavras simples que comecem com essas letras.",
-  "objective": "Os alunos iniciantes vão conseguir ouvir e pronunciar corretamente o ㄱ (simples), o ㅋ (aspirado) e o ㄲ (tenso) no início da palavra, relacionando-os a referências sonoras úteis em inglês (ㄱ ≈ entre o \"g\" e o \"k\" do inglês, com um leve sopro de ar; ㅋ ≈ o \"k\" de \"key\"; ㄲ = um \"kk\" tenso, sem equivalência exata), além de ler e escolher corretamente palavras simples que contenham essas consoantes iniciais.",
+  "summary": "Pratique diferenciar e pronunciar o ㄱ (simples), o ㅋ (aspirado) e o ㄲ (tenso) no início da palavra. Use referências sonoras claras em inglês: ㄱ ≈ um som leve entre o g e o k do inglês, ㅋ ≈ o k de \"key\", ㄲ = um \"kk\" tenso, sem equivalente exato em inglês. Leia e escolha palavras simples que comecem com essas letras.",
+  "objective": "Os alunos iniciantes vão ouvir e pronunciar corretamente o ㄱ (simples), o ㅋ (aspirado) e o ㄲ (tenso) no início da palavra, relacioná-los a referências sonoras úteis em inglês (ㄱ ≈ entre o g e o k do inglês, com um leve sopro de ar, ㅋ ≈ o k de \"key\", ㄲ = um \"kk\" tenso, sem equivalente exato em inglês) e ler e escolher corretamente palavras simples que contenham essas consoantes iniciais.",
   "level": "Iniciante",
   "minutes": 15,
   "tags": [],
@@ -12,34 +12,34 @@
   },
   "exercises": [
     "Escolha a palavra que começa com ㅋ (aspirado): 가게 / 코 / 꽃",
-    "Leia a romanização e escolha a palavra coreana correspondente: kkoma → 가방 / 꼬마 / 카메라",
+    "Leia a romanização e escolha a palavra em coreano correspondente: kkoma → 가방 / 꼬마 / 카메라",
     "Escolha a palavra que começa com ㄱ (simples): 콩 / 껌 / 고기",
     "Relacione cada palavra à sua consoante inicial: 꼬마, 가방, 코 → [ㄱ], [ㅋ], [ㄲ]",
-    "Relacione cada dica em inglês à palavra cujo som inicial combina com ela: entre \"g\" e \"k\" (sopro leve) / \"k\" de \"key\" / \"kk\" tenso → Opções: 꽃, 가게, 카메라"
+    "Relacione cada dica em inglês à palavra cujo som inicial corresponde: entre 'g' e 'k' (sopro leve) / 'k' de \"key\" / 'kk' tenso → Opções: 꽃, 가게, 카메라"
   ],
   "answers": [
     "코",
     "꼬마",
     "고기",
     "꼬마-ㄲ, 가방-ㄱ, 코-ㅋ",
-    "between g and k→가게, key→카메라, kk→꽃"
+    "entre g e k → 가게, key → 카메라, kk → 꽃"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㄱ",
-      "sound": "Consoante simples (branda). A parte de trás da língua se fecha levemente contra o céu da boca (palato mole) e depois é liberada. No início de uma palavra, sai um leve sopro de ar: mais fraco que o ㅋ e mais suave que o ㄲ.",
-      "as": "entre o \"g\" e o \"k\" do inglês (sopro leve)"
+      "sound": "Consoante simples (branda). A parte de trás da língua se fecha levemente contra o palato mole e depois se solta. No início da palavra, sai um leve sopro de ar: mais fraco que o ㅋ e mais suave que o ㄲ.",
+      "as": "entre o 'g' e o 'k' do inglês (sopro leve)"
     },
     {
       "letter": "ㅋ",
-      "sound": "Consoante aspirada. Mesma posição da língua do ㄱ, mas liberada com um sopro forte de ar.",
-      "as": "o \"k\" de \"key\" (sopro forte)"
+      "sound": "Consoante aspirada. Mesma posição da língua que o ㄱ, mas solta com um sopro de ar forte.",
+      "as": "'k' de 'key' (sopro forte)"
     },
     {
       "letter": "ㄲ",
-      "sound": "Consoante tensa. Mesma posição da língua do ㄱ, mas a garganta e a língua ficam tensas e o som é liberado de forma abrupta, sem sopro de ar.",
-      "as": "\"kk\" tenso (sem equivalência exata em inglês)"
+      "sound": "Consoante tensa. Mesma posição da língua que o ㄱ, mas a garganta e a língua ficam tensas e o som é solto de forma abrupta, sem sopro de ar.",
+      "as": "'kk' tenso (sem equivalente exato em inglês)"
     }
   ],
   "words": [
@@ -60,7 +60,7 @@
     {
       "korean": "가게",
       "roman": "gage",
-      "meaning": "loja, mercado",
+      "meaning": "loja",
       "example": "가게에 가요.",
       "exampleMeaning": "Eu vou à loja."
     },
@@ -76,7 +76,7 @@
       "roman": "kamera",
       "meaning": "câmera",
       "example": "카메라로 사진을 찍어요.",
-      "exampleMeaning": "Eu tiro fotos com a câmera."
+      "exampleMeaning": "Eu tiro fotos com uma câmera."
     },
     {
       "korean": "콩",

@@ -1,8 +1,8 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
   "keyword": "",
-  "summary": "Leia dois avisos curtos de condomínio (corte de água e corte de energia por causa de uma inspeção) e pratique localizar rapidamente data/horário, local, motivo e o que os moradores devem fazer. Foque em oito rótulos/palavras frequentes.",
-  "objective": "Os alunos serão capazes de ler avisos curtos de prédios sobre cortes de água/energia e inspeções, encontrando rapidamente data, horário, área afetada e o que os moradores devem fazer; além de reconhecer 8 rótulos/palavras frequentes (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "summary": "Leia dois avisos curtos de prédio (corte de água e falta de energia) e pratique encontrar a data, o horário, o local, o motivo e o que os moradores devem fazer.",
+  "objective": "Os alunos vão encontrar rapidamente a data, o horário, a área afetada e o que fazer em avisos curtos de corte de água ou de energia, e vão reconhecer 8 termos frequentes (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "level": "Iniciante (avançado)",
   "minutes": 15,
   "tags": [],
@@ -15,7 +15,7 @@
     "Copie exatamente como está escrito no aviso: 공지 B의 사유는 무엇입니까?",
     "Copie exatamente como está escrito no aviso: 공지 A의 장소는 어디입니까?",
     "Copie a frase exatamente como está escrita no aviso: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Escreva o local de contato e o número de telefone exatamente como estão escritos nos avisos: 두 공지의 문의처는 어디입니까?"
+    "Escreva o contato exatamente como nos avisos (local e número de telefone): 두 공지의 문의처는 어디입니까?"
   ],
   "answers": [
     "14:00",
@@ -27,7 +27,7 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Rótulos e palavras frequentes",
+      "heading": "Termos e palavras frequentes",
       "paragraphs": [
         "일시 (ilsi): data e horário",
         "장소 (jangso): local, área afetada",
@@ -35,12 +35,12 @@
         "점검 (jeomgeom): inspeção, verificação",
         "작업 (jageop): trabalho (obra ou reparo)",
         "단수 (dansu): corte de água",
-        "단전 (danjeon): corte de energia (corte programado)",
-        "문의 (munui): dúvidas, contato (telefone, escritório)"
+        "단전 (danjeon): falta de energia (corte programado)",
+        "문의 (munui): dúvidas, contato (número de telefone, escritório)"
       ]
     },
     {
-      "heading": "Exemplo de aviso A — 단수 안내 (aviso de corte de água)",
+      "heading": "Aviso de exemplo A — 단수 안내 (aviso de corte de água)",
       "paragraphs": [
         "[공지 A] 단수 안내",
         "일시: 2026년 10월 12일(월) 09:30~14:00",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "heading": "Exemplo de aviso B — 단전 안내 (aviso de corte de energia)",
+      "heading": "Aviso de exemplo B — 단전 안내 (aviso de falta de energia)",
       "paragraphs": [
         "[공지 B] 단전 안내",
         "일시: 2026년 10월 15일(목) 13:00~16:00",
@@ -64,20 +64,13 @@
       ]
     },
     {
-      "heading": "Como localizar informações rapidamente",
+      "heading": "Como ler rapidamente",
       "paragraphs": [
-        "Primeiro observe os rótulos (일시, 장소, 사유, 작업, 유의사항, 문의) e depois leia apenas as linhas de que você precisa.",
-        "Familiarize-se com números e símbolos como 09:30, ~ (de–até), 층 (andar), 동 (número do prédio). Esses avisos usam o formato de 24 horas.",
-        "Para descobrir o que os moradores devem fazer, procure na linha 유의사항 (observações) terminações de pedido como -세요."
-      ]
-    },
-    {
-      "heading": "Guia de prática",
-      "paragraphs": [
-        "Os avisos aqui são exemplos de estudo, não horários ou números de contato reais."
+        "Primeiro olhe os termos (일시, 장소, 사유, 작업, 유의사항, 문의) e depois leia apenas as linhas de que precisa. Os avisos usam o formato de 24 horas: ~ significa \"de–até\", 동 é o número do prédio, e 층 é o andar.",
+        "O que os moradores devem fazer está na linha de 유의사항 (precauções), geralmente com o pedido terminando em -세요."
       ]
     }
   ],
-  "note": "",
+  "note": "Os avisos aqui são exemplos didáticos, não são horários ou números de contato reais.",
   "category": "etc"
 }

@@ -1,20 +1,20 @@
 {
   "title": "약국에서 증상 말하고 약 사기",
   "keyword": "약국에서 증상 말하고 약 사기",
-  "summary": "Un dialogue court et réaliste dans une pharmacie coréenne. Un client sans ordonnance décrit un mal de tête, de la fièvre et un nez qui coule, répond aux questions du pharmacien, et reçoit des instructions pour prendre un médicament contre le rhume.",
-  "objective": "À la fin, les apprenants pourront acheter un médicament sans ordonnance dans une pharmacie coréenne : exprimer un symptôme avec '머리가 아파요 / 콧물이 나요 / 열이 나요', répondre aux questions du pharmacien (처방전 있으세요? 언제부터요? 알레르기 있으세요?), et comprendre l'instruction de posologie '하루 세 번, 식후 30분에 드세요'.",
-  "level": "Débutant (niveau supérieur)",
+  "summary": "Une courte conversation dans une pharmacie coréenne : un client sans ordonnance décrit ses symptômes de rhume, répond aux questions du pharmacien et apprend comment prendre le médicament.",
+  "objective": "Les apprenants peuvent décrire leurs symptômes (머리가 아파요 / 열이 나요 / 콧물이 나요), répondre aux questions du pharmacien (처방전 있으세요? 언제부터 아프셨어요? 알레르기 있으세요?), et comprendre '하루 세 번, 식후 30분에 드세요'.",
+  "level": "Débutant (niveau avancé)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "약국에서 약 사기",
-    "line": "Vous avez de la fièvre et le nez qui coule depuis hier. Décrivez vos symptômes au pharmacien, répondez à ses questions, et répétez comment prendre le médicament."
+    "title": "Acheter des médicaments à la pharmacie",
+    "line": "Vous avez de la fièvre et le nez qui coule depuis hier. Dites vos symptômes au pharmacien, répondez à ses questions, et répétez comment prendre le médicament."
   },
   "exercises": [
     "Le pharmacien demande : '처방전 있으세요?' Vous n'en avez pas. Répondez en coréen.",
     "Le pharmacien demande : '언제부터 아프셨어요?' Vous avez commencé à vous sentir malade ce matin (오늘 아침). Répondez en coréen.",
     "Le pharmacien demande : '알레르기 있으세요?' Vous êtes allergique à l'aspirine (아스피린). Répondez en coréen.",
-    "Le pharmacien dit : '하루 세 번, 식후 30분에 드세요.' En français, combien de fois par jour devez-vous prendre le médicament, et quand ?",
+    "Le pharmacien dit : '하루 세 번, 식후 30분에 드세요.' En français : à quelle fréquence et quand faut-il prendre ce médicament ?",
     "Le pharmacien demande : '어디가 아파서 오셨어요?' Vous avez mal à la tête et le nez qui coule. Répondez en coréen."
   ],
   "answers": [
@@ -25,7 +25,7 @@
     "머리가 아프고 콧물이 나요."
   ],
   "checkThese": [],
-  "setting": "Une petite pharmacie de quartier (동네 약국) en Corée, un soir de semaine. Le client a un rhume mais n'est pas allé chez le médecin, donc il n'a pas d'ordonnance. Il parle au pharmacien au comptoir.",
+  "setting": "",
   "dialogue": [
     {
       "who": "약사",
@@ -55,7 +55,7 @@
     {
       "who": "손님",
       "korean": "어제 저녁부터요. 콧물도 조금 나요.",
-      "meaning": "Depuis hier soir. Mon nez coule un peu aussi."
+      "meaning": "Depuis hier soir. J'ai aussi un peu le nez qui coule."
     },
     {
       "who": "약사",
@@ -71,11 +71,6 @@
       "who": "약사",
       "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
       "meaning": "Alors prenez ce médicament contre le rhume. Prenez-le trois fois par jour, 30 minutes après les repas."
-    },
-    {
-      "who": "손님",
-      "korean": "네, 알겠습니다. 감사합니다.",
-      "meaning": "D'accord, j'ai compris. Merci."
     }
   ],
   "words": [
@@ -105,7 +100,7 @@
       "roman": "cheobangjeon",
       "meaning": "ordonnance (du médecin)",
       "example": "처방전 없이 살 수 있어요?",
-      "exampleMeaning": "Est-ce que je peux acheter ça sans ordonnance ?"
+      "exampleMeaning": "Puis-je acheter ceci sans ordonnance ?"
     },
     {
       "korean": "언제부터",
@@ -122,16 +117,9 @@
       "exampleMeaning": "Je suis allergique aux cacahuètes."
     },
     {
-      "korean": "하루",
-      "roman": "haru",
-      "meaning": "par jour",
-      "example": "하루에 몇 번 먹어요?",
-      "exampleMeaning": "Combien de fois par jour dois-je le prendre ?"
-    },
-    {
       "korean": "식후",
       "roman": "sikhu",
-      "meaning": "après le repas",
+      "meaning": "après un repas",
       "example": "식후 30분에 먹으면 돼요?",
       "exampleMeaning": "Dois-je le prendre 30 minutes après avoir mangé ?"
     },

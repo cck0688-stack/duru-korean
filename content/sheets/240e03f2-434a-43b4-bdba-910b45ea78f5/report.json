@@ -558,5 +558,94 @@
       "after": "Apart from ‘세종대로 110’, the example addresses are made up for practice and do not refer to real places.",
       "why": "Three pages in es/fr/de: tightened (repeated instructions merged) so every language fits the two-page rule without squeezing."
     }
-  ]
+  ],
+  "retranslated": {
+    "at": "2026-09-25T18:41:04.418Z",
+    "translations": {
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 18,
+            "problem": "The English says to 'say' '없음' (none), but the Indonesian uses 'tulis' (write), which changes the instruction.",
+            "fix": "2) Carilah '동', '층', dan '호' tepat setelah tanda koma (pada gaya informal, setelah nama bangunan). Kata-kata dalam tanda kurung di bagian akhir adalah nama lingkungan dan nama bangunan, bukan nomor unit. Jika tidak ada 동·층·호, sebutkan '없음' (tidak ada)."
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 18,
+            "problem": "The English says to *say* ‘없음’ (none), but the Vietnamese uses 'hãy ghi' ('write'), which changes the instruction.",
+            "fix": "2) Tìm '동', '층' và '호' ngay sau dấu phẩy (trong cách viết thân mật, là sau tên tòa nhà). Các từ trong ngoặc ở cuối là tên phường và tên tòa nhà, không phải số căn. Nếu không có 동·층·호, hãy nói '없음' (không có)."
+          }
+        ]
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 18,
+            "problem": "The English says to *say* '없음' (none), but the German has „schreibe“ (write), which changes the instruction.",
+            "fix": "2) Suche direkt nach dem Komma (im informellen Stil nach dem Gebäudenamen) nach „동“, „층“ und „호“. Die Wörter in den Klammern am Ende sind das Stadtviertel und der Gebäudename, nicht die Wohnungsangabe. Falls es kein 동·층·호 gibt, sage „없음“ (keins)."
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "'高级' means 'advanced', so '初级(高级)' reads as 'Beginner (Advanced)', which contradicts itself. The English means the upper part of the beginner level.",
+            "fix": "初级(高)"
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 2,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 9,
+            "problem": "The reading of 「…번길」 (beon-gil) is wrong. It is given as ベンギル, but 번 is pronounced [pʌn], so the katakana should be ポンギル.",
+            "fix": "道路名は通常、「…로」（ロ）または「…길」（キル、「…번길」ポンギルを含む）で終わります。道路名のすぐ後ろの数字が建物番号です。"
+          }
+        ]
+      }
+    }
+  }
 }

@@ -17,13 +17,13 @@
   "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
   "level": "Intermedio (bajo)",
   "minutes": 15,
-  "objective": "Después de leer un aviso de plan móvil de 3 a 5 párrafos, los estudiantes pueden identificar con precisión la tarifa mensual, el límite de datos, la cantidad incluida de llamadas/SMS, la duración del contrato (o si no hay contrato) y la política tras agotar los datos (limitación de velocidad/cargos adicionales).",
+  "objective": "Después de leer un aviso de plan móvil de 3 a 5 párrafos, los estudiantes pueden identificar con precisión la tarifa mensual, la cantidad de datos, las llamadas/SMS incluidos, la duración del contrato (o si no hay contrato) y la política tras agotar los datos (limitación de velocidad/cargos adicionales).",
   "passage": [
     "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
     "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
     "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
   ],
-  "summary": "Leer un aviso realista de un plan de telefonía móvil coreano e identificar detalles clave como la tarifa mensual, el límite de datos, los límites de llamadas/SMS, la duración del contrato y la política después de agotar los datos.",
+  "summary": "Leer un aviso realista de un plan de telefonía móvil coreano e identificar detalles clave como la tarifa mensual, la cantidad de datos, los límites de llamadas/SMS, la duración del contrato y la política después de agotar los datos.",
   "tags": [],
   "task": {
     "title": "",
@@ -43,12 +43,12 @@
       "roman": "yakjeong",
       "meaning": "duración del contrato; el período fijo durante el cual aceptas mantener el plan",
       "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
-      "exampleMeaning": "Es un contrato de 12 meses, así que es difícil cambiarse fácilmente."
+      "exampleMeaning": "Es un contrato de 12 meses, así que no es fácil cambiarlo."
     },
     {
       "korean": "소진",
       "roman": "sojin",
-      "meaning": "quedarse sin (datos)",
+      "meaning": "agotarse (los datos)",
       "example": "데이터가 소진되어 속도가 느려졌어요.",
       "exampleMeaning": "Se me acabaron los datos, así que la velocidad se volvió lenta."
     },
@@ -57,7 +57,7 @@
       "roman": "mujehan",
       "meaning": "ilimitado (sin límite fijo de uso)",
       "example": "주말에는 무제한 이용이 가능해요.",
-      "exampleMeaning": "Los fines de semana, el uso ilimitado está disponible."
+      "exampleMeaning": "Los fines de semana está disponible el uso ilimitado."
     },
     {
       "korean": "추가 요금",
@@ -69,7 +69,7 @@
     {
       "korean": "기본 제공",
       "roman": "gibon jegong",
-      "meaning": "cantidad incluida que proporciona el plan",
+      "meaning": "cantidad incluida proporcionada por el plan",
       "example": "통화 200분이 기본 제공입니다.",
       "exampleMeaning": "Se incluyen 200 minutos de llamadas."
     }

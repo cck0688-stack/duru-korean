@@ -1,14 +1,14 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
   "keyword": "약 봉투",
-  "summary": "Maria, une résidente étrangère en Corée, attrape un rhume. Elle fait préparer son ordonnance à la pharmacie du rez-de-chaussée de l'hôpital, où le pharmacien lui explique le contenu de deux sachets de médicaments. Chez elle, elle relit les sachets. Les apprenants lisent l'histoire et cherchent combien de fois, à quel moment et pendant combien de jours prendre chaque médicament, ainsi que ce que signifie l'avertissement sur le sachet.",
-  "objective": "Après avoir lu une histoire en quatre paragraphes sur une visite à la pharmacie, les apprenants peuvent trouver quatre informations sur un sachet de médicament coréen : combien de fois par jour prendre le médicament (1일 3회 = 하루에 세 번), à quel moment le prendre (식전, 식후 30분, 자기 전), pour combien de jours est la dose fournie (3일분), et ce que signifie l'avertissement (졸음 주의, 운전 주의).",
-  "level": "Intermédiaire (bas)",
+  "summary": "Maria attrape un rhume et reçoit deux sachets de médicaments à la pharmacie. Les apprenants lisent son histoire et trouvent à quelle fréquence, quand et pendant combien de jours prendre chaque médicament, ainsi que ce que signifie l'avertissement.",
+  "objective": "Les apprenants peuvent trouver quatre informations sur un sachet de médicament coréen : combien de fois par jour (1일 3회 = 하루에 세 번), quand (식전, 식후 30분, 자기 전), pendant combien de jours (3일분), et ce que signifie l'avertissement (졸음 주의, 운전 주의).",
+  "level": "Intermédiaire (niveau bas)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "Lire les sachets de médicaments",
-    "line": "Lisez les deux sachets de médicaments et écrivez combien de fois, à quel moment et pendant combien de jours prendre chacun d'eux."
+    "title": "Lisez les sachets de médicaments",
+    "line": "Lisez les deux sachets de médicaments et notez à quelle fréquence, quand et pendant combien de jours prendre chacun d'eux."
   },
   "exercises": [
     "Répondez en coréen : 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
@@ -49,42 +49,42 @@
     {
       "korean": "빈속",
       "roman": "binsok",
-      "meaning": "l'estomac vide",
+      "meaning": "un estomac vide, à jeun",
       "example": "빈속에 커피를 마시면 배가 아파요.",
-      "exampleMeaning": "J'ai mal au ventre quand je bois du café à jeun."
+      "exampleMeaning": "J'ai mal à l'estomac quand je bois du café à jeun."
     },
     {
       "korean": "속이 쓰리다",
       "roman": "sogi sseurida",
       "meaning": "avoir une sensation de brûlure ou de douleur à l'estomac",
       "example": "어제 술을 많이 마셔서 속이 쓰려요.",
-      "exampleMeaning": "J'ai l'estomac douloureux parce que j'ai beaucoup bu hier."
+      "exampleMeaning": "J'ai mal à l'estomac parce que j'ai beaucoup bu hier."
     },
     {
       "korean": "졸리다",
       "roman": "jollida",
-      "meaning": "avoir sommeil",
+      "meaning": "avoir sommeil, se sentir somnolent",
       "example": "점심을 먹으면 너무 졸려요.",
-      "exampleMeaning": "J'ai vraiment sommeil après avoir déjeuné."
+      "exampleMeaning": "J'ai vraiment sommeil après avoir mangé le déjeuner."
     },
     {
       "korean": "주의",
       "roman": "juui",
       "meaning": "attention, avertissement (sur les panneaux et étiquettes : « attention à ~ »)",
       "example": "바닥에 '미끄럼 주의'라고 쓰여 있어요.",
-      "exampleMeaning": "Le panneau au sol indique « Attention : sol glissant »."
+      "exampleMeaning": "Le panneau au sol indique « Attention, glissant »."
     },
     {
       "korean": "3일분",
       "roman": "samilbun",
-      "meaning": "une dose pour trois jours (3일 = trois jours, -분 = quantité/portion correspondant au nombre qui précède : 3일분 = pour trois jours, 2인분 = pour deux personnes)",
+      "meaning": "une réserve pour trois jours (3일 = trois jours, -분 = quantité/portion correspondant au nombre indiqué avant : 3일분 = pour trois jours, 2인분 = pour deux personnes)",
       "example": "약사가 5일분 약을 줬어요.",
-      "exampleMeaning": "Le pharmacien m'a donné une dose de médicament pour cinq jours."
+      "exampleMeaning": "Le pharmacien m'a donné une réserve de médicaments pour cinq jours."
     },
     {
       "korean": "사흘",
       "roman": "saheul",
-      "meaning": "trois jours (mot coréen natif)",
+      "meaning": "trois jours (mot d'origine coréenne pure)",
       "example": "사흘 동안 계속 비가 왔어요.",
       "exampleMeaning": "Il a plu pendant trois jours d'affilée."
     }

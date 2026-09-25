@@ -1,8 +1,8 @@
 {
   "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
   "keyword": "ㅈㅊㅉ 소리",
-  "summary": "Lerne, wie ㅈ, ㅊ und ㅉ am Wortanfang klingen. Sie unterscheiden sich durch Atemstärke und Anspannung. Nutze sie, um in Wortgruppen wie 자다/차다/짜다 und 지다/치다/찌다 das richtige Verb auszuwählen.",
-  "objective": "Anfänger sollen das wortanfängliche ㅈ (einfach), ㅊ (behaucht) und ㅉ (angespannt) unterscheiden und aussprechen und dann in den Wortgruppen 자다/차다/짜다 und 지다/치다/찌다 das richtige Wort wählen.",
+  "summary": "Lerne, wie ㅈ, ㅊ und ㅉ am Wortanfang klingen. Sie unterscheiden sich durch Atem und Anspannung. Nutze das, um in Wortgruppen wie 자다/차다/짜다 und 지다/치다/찌다 das richtige Verb zu wählen.",
+  "objective": "Anfänger lernen, den Anlaut ㅈ (einfach), ㅊ (behaucht) und ㅉ (angespannt) zu unterscheiden und auszusprechen und dann in den Wortgruppen 자다/차다/짜다 sowie 지다/치다/찌다 das richtige Wort auszuwählen.",
   "level": "Anfänger",
   "minutes": 15,
   "tags": [],
@@ -15,8 +15,9 @@
     "Wähle das richtige Wort: 이 김치는 소금이 많아서 좀 (자요 / 차요 / 짜요).",
     "Wähle das richtige Wort: 친구와 탁구를 (져요 / 쳐요 / 쪄요).",
     "Wähle das richtige Wort: 겨울에는 많이 먹어서 살이 (져요 / 쳐요 / 쪄요).",
-    "Welches Wort bedeutet „verlieren (ein Spiel)“? (지다 / 치다 / 찌다)",
-    "Halte ein Taschentuch vor deinen Mund und sag 자, 차, 짜. Bei welchem bewegt sich das Taschentuch am meisten?"
+    "Wähle das richtige Wort: 동생이 화가 나서 문을 발로 (잤어요 / 찼어요 / 짰어요).",
+    "Wähle das richtige Wort: 어제 농구 경기에서 2점 차이로 (졌어요 / 쳤어요 / 쪘어요).",
+    "Halte ein Taschentuch vor deinen Mund und sage 자, 차, 짜. Bei welchem bewegt sich das Taschentuch am meisten?"
   ],
   "answers": [
     "자요",
@@ -24,24 +25,25 @@
     "쳐요",
     "쪄요",
     "찼어요",
-    "졌어요"
+    "졌어요",
+    "차 (ㅊ hat einen kräftigen Atemstoß)"
   ],
   "checkThese": [],
   "letters": [
     {
       "letter": "ㅈ",
-      "sound": "j (einfach): weich und entspannt, mit nur wenig Atem",
-      "as": "Ähnlich dem „j“ in „jam“, aber weicher. Am Wortanfang kann es wie ein leichtes „tsch“ mit wenig Luft klingen."
+      "sound": "j (einfach): weich und entspannt, mit nur wenig Atemluft",
+      "as": "Nahe am „j“ in „jam“, aber weicher. Am Wortanfang kann es wie ein leichtes „ch“ mit nur wenig Luft klingen."
     },
     {
       "letter": "ㅊ",
       "sound": "ch (behaucht): kommt mit einem kräftigen Atemstoß",
-      "as": "Ähnlich dem „ch“ in „Cherry“ (englisch). Stoße einen deutlichen Atemschwall aus."
+      "as": "Nahe am „ch“ in „church“. Stoße einen deutlich hörbaren Atemstoß aus."
     },
     {
       "letter": "ㅉ",
       "sound": "jj (angespannt): eng, scharf und ohne Atemstoß",
-      "as": "Keine genaue Entsprechung im Deutschen. Denk an das „tsch“ in „Kutsche“, aber spanne Kehle und Zunge an und lass keine Luft entweichen."
+      "as": "Keine exakte Entsprechung im Englischen. Denk an das „tch“ in „pitch“, aber spanne Kehle und Zunge an und lass keine Luft entweichen."
     }
   ],
   "words": [
@@ -71,7 +73,7 @@
       "roman": "jida",
       "meaning": "verlieren (ein Spiel oder einen Wettkampf)",
       "example": "우리 팀이 졌어요.",
-      "exampleMeaning": "Unser Team hat verloren."
+      "exampleMeaning": "Unsere Mannschaft hat verloren."
     },
     {
       "korean": "치다",

@@ -1,21 +1,21 @@
 {
   "title": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
   "keyword": "카페에서 음료 주문하기: 핫/아이스, 사이즈, 매장/포장",
-  "summary": "Pratique um pedido curto e real em um café na Coreia. Você vai ouvir e dizer quente/gelado, escolher o tamanho (médio/grande) e dizer se é para consumir no local ou para levar, usando frases naturais.",
-  "objective": "Seja capaz de entender e dizer de 6 a 8 perguntas e respostas curtas para pedir uma bebida em um café na Coreia, escolhendo quente/gelado, tamanho (médio/grande) e para consumir no local ou para levar.",
+  "summary": "Pratique um pedido curto de café na Coreia: leia e diga quente/gelado, tamanho (médio/grande) e se é para consumir no local ou para levar.",
+  "objective": "Entenda e diga as perguntas e respostas curtas para pedir uma bebida em um café coreano: quente/gelado, tamanho e para consumir no local ou para levar.",
   "level": "Iniciante (avançado)",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "카페에서 주문해 보기",
-    "line": "Peça uma bebida, escolhendo a temperatura, o tamanho e se é para consumir no local ou para levar — por exemplo: 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
+    "title": "Pedir em um café",
+    "line": "Peça uma bebida, escolhendo temperatura, tamanho e se é para consumir no local ou para levar — ex.: 따뜻한 라떼 라지로 한 잔 주세요. 포장이요."
   },
   "exercises": [
     "O cliente quer uma bebida gelada. Escolha a resposta mais natural: 직원: 핫으로 드릴까요, 아이스로 드릴까요? 손님: (핫으로요 / 아이스로요)",
-    "O cliente quer o tamanho maior. Responda usando ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
-    "O cliente vai tomar a bebida no local. Complete a resposta do cliente: 직원: 매장이세요, 포장이세요? 손님: ______",
+    "O cliente quer o tamanho maior. Responda com ~로 주세요: 직원: 사이즈는 레귤러로 하실까요, 라지로 하실까요? 손님: ______",
+    "O cliente vai tomar a bebida ali mesmo. Complete a resposta do cliente: 직원: 매장이세요, 포장이세요? 손님: ______",
     "Complete a lacuna (quente): _____ 아메리카노 한 잔 주세요.",
-    "Antes que o funcionário pergunte qualquer coisa, peça um latte gelado, tamanho grande, para levar, tudo de uma vez: 직원: 어서 오세요. 손님: ______"
+    "Antes que o atendente pergunte qualquer coisa, peça um latte gelado, tamanho grande, para levar, tudo de uma vez: 직원: 어서 오세요. 손님: ______"
   ],
   "answers": [
     "아이스로요.",
@@ -25,7 +25,7 @@
     "아이스 라떼 라지로 한 잔 주세요. 포장이요. / 아이스 라떼 라지로 한 잔 포장해 주세요."
   ],
   "checkThese": [],
-  "setting": "서울의 프랜차이즈 카페 카운터",
+  "setting": "No balcão de uma cafeteria de rede em Seul",
   "dialogue": [
     {
       "who": "직원",
@@ -60,7 +60,7 @@
     {
       "who": "직원",
       "korean": "매장이세요, 포장이세요?",
-      "meaning": "Para consumir aqui ou para levar?"
+      "meaning": "Para consumir no local ou para levar?"
     },
     {
       "who": "손님",
@@ -86,7 +86,7 @@
     {
       "korean": "따뜻하다 / 따뜻한",
       "roman": "ttatteutada / ttatteutan",
-      "meaning": "quente, morno (bebida quente)",
+      "meaning": "quente, quentinho (bebida quente)",
       "example": "따뜻한 아메리카노 주세요.",
       "exampleMeaning": "Um americano quente, por favor."
     },
@@ -100,7 +100,7 @@
     {
       "korean": "매장",
       "roman": "maejang",
-      "meaning": "para consumir no local",
+      "meaning": "para consumir no local, no estabelecimento",
       "example": "매장에서 먹고 갈게요.",
       "exampleMeaning": "Vou tomar aqui."
     },
@@ -121,7 +121,7 @@
     {
       "korean": "포장",
       "roman": "pojang",
-      "meaning": "para levar",
+      "meaning": "para levar, para viagem",
       "example": "포장해 주세요.",
       "exampleMeaning": "Para levar, por favor."
     },

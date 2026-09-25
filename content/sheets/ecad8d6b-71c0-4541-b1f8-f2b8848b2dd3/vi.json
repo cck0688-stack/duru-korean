@@ -1,36 +1,36 @@
 {
   "title": "약국에서 증상 말하고 약 사기",
   "keyword": "약국에서 증상 말하고 약 사기",
-  "summary": "Một đoạn hội thoại ngắn, thực tế tại một hiệu thuốc ở Hàn Quốc. Một khách hàng không có đơn thuốc mô tả triệu chứng đau đầu, sốt và sổ mũi, trả lời các câu hỏi của dược sĩ, và nhận hướng dẫn cách uống thuốc cảm.",
-  "objective": "Sau bài học, người học có thể mua thuốc không kê đơn tại hiệu thuốc ở Hàn Quốc: nói một triệu chứng bằng '머리가 아파요 / 콧물이 나요 / 열이 나요', trả lời các câu hỏi của dược sĩ (처방전 있으세요? 언제부터요? 알레르기 있으세요?), và hiểu hướng dẫn liều dùng '하루 세 번, 식후 30분에 드세요'.",
+  "summary": "Một đoạn hội thoại ngắn tại hiệu thuốc Hàn Quốc: một khách hàng không có đơn thuốc mô tả các triệu chứng cảm lạnh, trả lời câu hỏi của dược sĩ và tìm hiểu cách uống thuốc.",
+  "objective": "Người học có thể nói về triệu chứng của mình (머리가 아파요 / 열이 나요 / 콧물이 나요), trả lời các câu hỏi của dược sĩ (처방전 있으세요? 언제부터 아프셨어요? 알레르기 있으세요?), và hiểu câu '하루 세 번, 식후 30분에 드세요'.",
   "level": "Sơ cấp (cao)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "약국에서 약 사기",
-    "line": "Bạn bị sốt và sổ mũi từ hôm qua. Hãy nói với dược sĩ về triệu chứng của bạn, trả lời các câu hỏi của họ, và nhắc lại cách uống thuốc."
+    "title": "Mua thuốc tại hiệu thuốc",
+    "line": "Bạn bị sốt và sổ mũi từ hôm qua. Hãy nói triệu chứng của bạn cho dược sĩ, trả lời các câu hỏi của họ, và nhắc lại cách uống thuốc."
   },
   "exercises": [
-    "Dược sĩ hỏi: '처방전 있으세요?' Bạn không có đơn thuốc. Hãy trả lời bằng tiếng Hàn.",
+    "Dược sĩ hỏi: '처방전 있으세요?' Bạn không có. Hãy trả lời bằng tiếng Hàn.",
     "Dược sĩ hỏi: '언제부터 아프셨어요?' Bạn bắt đầu cảm thấy không khỏe từ sáng nay (오늘 아침). Hãy trả lời bằng tiếng Hàn.",
     "Dược sĩ hỏi: '알레르기 있으세요?' Bạn bị dị ứng với aspirin (아스피린). Hãy trả lời bằng tiếng Hàn.",
-    "Dược sĩ nói: '하루 세 번, 식후 30분에 드세요.' Hãy trả lời bằng tiếng Anh: bạn nên uống thuốc mấy lần một ngày, và vào lúc nào?",
+    "Dược sĩ nói: '하루 세 번, 식후 30분에 드세요.' Bằng tiếng Việt: bạn uống thuốc bao nhiêu lần một ngày và vào lúc nào?",
     "Dược sĩ hỏi: '어디가 아파서 오셨어요?' Bạn bị đau đầu và sổ mũi. Hãy trả lời bằng tiếng Hàn."
   ],
   "answers": [
     "아니요, 없어요. (없어요.)",
     "오늘 아침부터요. (오늘 아침부터 아팠어요.)",
     "네, 아스피린 알레르기가 있어요.",
-    "Ba lần một ngày, 30 phút sau mỗi bữa ăn.",
+    "Mỗi ngày ba lần, 30 phút sau mỗi bữa ăn.",
     "머리가 아프고 콧물이 나요."
   ],
   "checkThese": [],
-  "setting": "Một hiệu thuốc nhỏ trong khu phố (동네 약국) ở Hàn Quốc vào một buổi tối trong tuần. Khách hàng bị cảm nhưng không đi khám bác sĩ, nên không có đơn thuốc. Họ nói chuyện với dược sĩ tại quầy.",
+  "setting": "",
   "dialogue": [
     {
       "who": "약사",
       "korean": "어서 오세요. 어디가 아파서 오셨어요?",
-      "meaning": "Chào mừng. Bạn đến vì việc gì vậy? (Bạn đau ở đâu?)"
+      "meaning": "Chào bạn. Bạn bị làm sao vậy? (Chỗ nào đau ạ?)"
     },
     {
       "who": "손님",
@@ -70,12 +70,7 @@
     {
       "who": "약사",
       "korean": "그럼 이 감기약 드세요. 하루 세 번, 식후 30분에 드세요.",
-      "meaning": "Vậy thì hãy uống thuốc cảm này. Uống ba lần một ngày, 30 phút sau bữa ăn."
-    },
-    {
-      "who": "손님",
-      "korean": "네, 알겠습니다. 감사합니다.",
-      "meaning": "Vâng, tôi hiểu rồi. Cảm ơn."
+      "meaning": "Vậy thì hãy uống thuốc cảm này. Uống ngày ba lần, 30 phút sau bữa ăn."
     }
   ],
   "words": [
@@ -91,7 +86,7 @@
       "roman": "yeori nada",
       "meaning": "bị sốt",
       "example": "아이가 밤에 열이 났어요.",
-      "exampleMeaning": "Con tôi bị sốt vào ban đêm."
+      "exampleMeaning": "Con tôi đã bị sốt vào ban đêm."
     },
     {
       "korean": "콧물",
@@ -122,25 +117,18 @@
       "exampleMeaning": "Tôi bị dị ứng với đậu phộng."
     },
     {
-      "korean": "하루",
-      "roman": "haru",
-      "meaning": "(mỗi) ngày",
-      "example": "하루에 몇 번 먹어요?",
-      "exampleMeaning": "Tôi uống thuốc này mấy lần một ngày?"
-    },
-    {
       "korean": "식후",
       "roman": "sikhu",
       "meaning": "sau bữa ăn",
       "example": "식후 30분에 먹으면 돼요?",
-      "exampleMeaning": "Tôi có nên uống thuốc 30 phút sau khi ăn không?"
+      "exampleMeaning": "Tôi nên uống thuốc 30 phút sau khi ăn phải không?"
     },
     {
       "korean": "드세요",
       "roman": "deuseyo",
       "meaning": "xin hãy uống (thuốc), thể lịch sự",
       "example": "따뜻한 물이랑 같이 드세요.",
-      "exampleMeaning": "Uống thuốc với nước ấm."
+      "exampleMeaning": "Hãy uống với nước ấm."
     }
   ],
   "category": "reallife"

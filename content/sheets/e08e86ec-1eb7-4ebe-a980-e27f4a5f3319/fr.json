@@ -1,8 +1,8 @@
 {
   "title": "택배 받기·보내기: 기본 표현",
   "keyword": "",
-  "summary": "Expressions courtes utiles pour recevoir et envoyer des colis en Corée, au guichet ou avec un livreur. L'accent est mis sur la vérification du destinataire, la demande/confirmation du numéro de suivi, l'acceptation ou le refus d'un colis, et la demande d'expédition.",
-  "objective": "Être capable de comprendre et de dire 10 phrases courtes utilisées pour recevoir et envoyer des colis en Corée, au guichet ou avec un livreur (confirmation du destinataire, demande du numéro de suivi, acceptation/refus, demandes d'envoi).",
+  "summary": "Courtes expressions pour recevoir et envoyer des colis en Corée : vérifier le destinataire, demander le numéro de suivi, accepter ou refuser un colis, et en envoyer un.",
+  "objective": "Comprendre et dire 10 phrases courtes pour recevoir et envoyer des colis au guichet ou avec un livreur.",
   "level": "Débutant",
   "minutes": 15,
   "tags": [],
@@ -12,17 +12,17 @@
   },
   "exercises": [
     "Répondez en coréen (utilisez le nom 김민수) : 수취인 성함이 어떻게 되세요?",
-    "Dites en coréen : « Je voudrais envoyer un colis. »",
+    "Dites en coréen : « Je veux envoyer un colis. »",
     "Demandez en coréen : « Quel est le numéro de suivi ? »",
     "Le colis est endommagé. Refusez-le brièvement en coréen.",
     "Répondez en coréen que vous allez signer : 서명해 주세요."
   ],
   "answers": [
-    "예시 답안 (Sample answer): 저는 김민수입니다. / Also correct: 김민수입니다.",
-    "예시 답안 (Sample answer): 택배로 보내고 싶습니다. / Also correct: 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
-    "예시 답안 (Sample answer): 운송장 번호가 어떻게 되나요? / Also correct: 운송장 번호가 뭐예요?",
-    "예시 답안 (Sample answer): 이건 받을 수 없어요. / Also correct: 받을 수 없어요. / 파손돼서 못 받겠어요.",
-    "예시 답안 (Sample answer): 여기 서명할게요. / Also correct: 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
+    "예시 답안 (Réponse type) : 저는 김민수입니다. / Aussi correct : 김민수입니다.",
+    "예시 답안 (Réponse type) : 택배로 보내고 싶습니다. / Aussi correct : 택배로 보내고 싶어요. / 택배 보내고 싶어요. / 택배 보내려고요.",
+    "예시 답안 (Réponse type) : 운송장 번호가 어떻게 되나요? / Aussi correct : 운송장 번호가 뭐예요?",
+    "예시 답안 (Réponse type) : 이건 받을 수 없어요. / Aussi correct : 받을 수 없어요. / 파손돼서 못 받겠어요.",
+    "예시 답안 (Réponse type) : 여기 서명할게요. / Aussi correct : 서명할게요. / 네, 서명할게요. / 네, 여기 서명할게요."
   ],
   "checkThese": [],
   "sections": [
@@ -30,30 +30,30 @@
       "heading": "Expressions clés (10)",
       "paragraphs": [
         "1) 택배 받으러 왔습니다. (Je viens chercher un colis.) — Utilisé quand vous venez chercher vous-même un colis au guichet. 택배 = colis, livraison par coursier.",
-        "2) 수취인 성함이 어떻게 되세요? (Quel est le nom du destinataire ?) — Demandé par l'employé ou le livreur pour vérifier le nom du destinataire. 수취인 = destinataire ; 성함 = nom (forme polie).",
+        "2) 수취인 성함이 어떻게 되세요? (Quel est le nom du destinataire ?) — Demandé par l'employé ou le livreur pour vérifier le nom du destinataire. 수취인 = destinataire ; 성함 = nom (poli).",
         "3) 저는 [이름]입니다. (Je suis [nom].) — La réponse du destinataire, par exemple 저는 김민수입니다.",
-        "4) 운송장 번호가 어떻게 되나요? (Quel est le numéro de suivi ?) — Demande le numéro de suivi (bordereau d'expédition, 송장). 운송장 = bordereau d'expédition, le bon de livraison portant le numéro de suivi.",
-        "5) 운송장 번호 알려 주세요. (Veuillez me donner le numéro de suivi.) — Utilisé pour demander à quelqu'un le numéro de suivi.",
-        "6) 여기 서명할게요. (Je vais signer ici.) — « Je vais signer ici. » Utilisé au moment de signer. 서명 = signature.",
+        "4) 운송장 번호가 어떻게 되나요? (Quel est le numéro de suivi ?) — Demande le numéro de suivi (bordereau, 송장). 운송장 = bordereau d'expédition, le bon d'envoi avec le numéro de suivi.",
+        "5) 운송장 번호 알려 주세요. (Donnez-moi le numéro de suivi, s'il vous plaît.) — Utilisé pour demander à quelqu'un le numéro de suivi.",
+        "6) 여기 서명할게요. (Je vais signer ici.) — Utilisé au moment de signer. 서명 = signature.",
         "7) 이건 받을 수 없어요. (Je ne peux pas accepter ceci.) — Utilisé pour refuser un colis, par exemple lorsqu'il est 파손 (endommagé).",
         "8) 택배로 보내고 싶습니다. (Je voudrais envoyer un colis.) — Dit quand vous venez pour envoyer quelque chose.",
         "9) 보낼 물건은 이거예요. (Voici l'objet que je veux envoyer.) — Utilisé en montrant l'objet que vous voulez envoyer. 물건 = objet, chose.",
-        "10) 착불로 보내 주세요. (Veuillez l'envoyer en port dû.) — Demande à envoyer le colis pour que le destinataire paie les frais de port à la livraison. 착불 = frais de port payés par le destinataire (port dû)."
+        "10) 착불로 보내 주세요. (Envoyez-le en port dû, s'il vous plaît.) — Demande à envoyer le colis pour que le destinataire paie les frais de port à la réception. 착불 = frais de port payés par le destinataire (port dû)."
       ]
     },
     {
-      "heading": "Dialogues courts",
+      "heading": "Courts dialogues",
       "paragraphs": [
-        "Exemple 1 (réception) : Le livreur : « 수취인 성함이 어떻게 되세요? » (Quel est le nom du destinataire ?) / Moi : « 저는 김민수입니다. » (Je suis Kim Minsu.)",
-        "Exemple 2 (envoi) : Moi : « 택배로 보내고 싶습니다. » (Je voudrais envoyer un colis.) / L'employé : « 보내실 물건이 뭐예요? » (Qu'est-ce que vous souhaitez envoyer ?) / Moi : « 보낼 물건은 이거예요. » (Voici l'objet que je veux envoyer.)"
+        "Exemple 1 (réception) : Livreur : « 수취인 성함이 어떻게 되세요? » (Quel est le nom du destinataire ?) / Moi : « 저는 김민수입니다. » (Je suis Kim Minsu.)",
+        "Exemple 2 (envoi) : Moi : « 택배로 보내고 싶습니다. » (Je voudrais envoyer un colis.) / Employé : « 보내실 물건이 뭐예요? » (Qu'est-ce que vous voulez envoyer ?) / Moi : « 보낼 물건은 이거예요. » (Voici l'objet que je veux envoyer.)"
       ]
     },
     {
       "heading": "Astuces",
       "paragraphs": [
-        "Préparez le nom et l'adresse à l'avance (par exemple dans un mémo sur le téléphone).",
-        "Avant d'accepter un colis, vérifiez rapidement l'emballage et refusez-le tout de suite en cas de problème.",
-        "Pour parler poliment, ajoutez « 요 » après la terminaison informelle familière (-아/어, -지, etc.) : 받을 수 없어 → 받을 수 없어요. On ne peut pas ajouter « 요 » à n'importe quelle terminaison (pas 받을 수 없다요)."
+        "Ayez le nom et l'adresse prêts à l'avance (par exemple, dans un mémo sur votre téléphone).",
+        "Avant d'accepter un colis, vérifiez rapidement l'emballage, et refusez-le tout de suite s'il y a un problème.",
+        "Pour parler poliment, ajoutez '요' après la terminaison informelle familière (-아/어, -지, etc.) : 받을 수 없어 → 받을 수 없어요. Vous ne pouvez pas ajouter '요' à n'importe quelle terminaison (pas 받을 수 없다요)."
       ]
     },
     {
@@ -61,11 +61,11 @@
       "paragraphs": [
         "Vous êtes au guichet pour récupérer votre colis. Que dites-vous ? → 택배 받으러 왔습니다.",
         "Vous voulez que l'employé vous donne le numéro de suivi. → 운송장 번호 알려 주세요.",
-        "L'employé vous demande ce que vous voulez envoyer. Montrez l'objet. → 보낼 물건은 이거예요.",
+        "L'employé demande ce que vous voulez envoyer. Montrez l'objet. → 보낼 물건은 이거예요.",
         "Vous voulez que le destinataire paie les frais de port. → 착불로 보내 주세요."
       ]
     }
   ],
-  "note": "Une fiche d'une page pour débutants. Dites chaque expression à voix haute plusieurs fois.",
+  "note": "Pour les débutants : dites chaque expression à voix haute plusieurs fois.",
   "category": "etc"
 }

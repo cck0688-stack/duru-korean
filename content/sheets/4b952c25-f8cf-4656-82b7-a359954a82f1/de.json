@@ -17,13 +17,13 @@
   "keyword": "가온모바일 ‘LTE 라이트 29’ 요금제 안내",
   "level": "Mittelstufe (niedrig)",
   "minutes": 15,
-  "objective": "Nach dem Lesen einer 3–5 Absätze langen Mitteilung zu einem Mobilfunktarif können Lernende die monatliche Grundgebühr, das Datenvolumen, die enthaltenen Sprach-/SMS-Mengen, die Vertragslaufzeit (oder ob es keine Vertragsbindung gibt) und die Regelung nach Verbrauch des Datenvolumens (Drosselung/Zusatzkosten) korrekt herausfinden.",
+  "objective": "Nachdem sie eine 3–5-Absatz-Mitteilung zu einem Mobilfunktarif gelesen haben, können Lernende zuverlässig die monatliche Grundgebühr, das Datenvolumen, die enthaltenen Gesprächs-/SMS-Mengen, die Vertragslaufzeit (oder keinen Vertrag) und die Regelung nach Datenverbrauch (Drosselung/Zusatzkosten) finden.",
   "passage": [
     "가온모바일 ‘LTE 라이트 29’ 요금제 안내입니다. 월정액은 29,000원이며 약정 기간은 12개월입니다.",
     "데이터는 월 15GB를 제공합니다. 데이터를 모두 소진하면 최대 1Mbps 속도로 무제한 이용할 수 있으며, 데이터 초과에 따른 추가 요금은 없습니다.",
     "통화는 월 200분, 문자는 월 200건이 기본 제공입니다. 기본 제공량을 넘으면 통화와 문자에 별도 요금이 발생합니다."
   ],
-  "summary": "Lies eine realistische koreanische Mitteilung zu einem Mobilfunktarif und finde wichtige Details wie die monatliche Grundgebühr, das Datenvolumen, die Sprach-/SMS-Grenzen, die Vertragslaufzeit und die Regelung nach Verbrauch des Datenvolumens heraus.",
+  "summary": "Lies eine realistische koreanische Mitteilung zu einem Mobilfunktarif und identifiziere wichtige Details wie die monatliche Grundgebühr, das Datenvolumen, die enthaltenen Gespräche/SMS, die Vertragslaufzeit und die Regelung nach Verbrauch des Datenvolumens.",
   "tags": [],
   "task": {
     "title": "",
@@ -43,14 +43,14 @@
       "roman": "yakjeong",
       "meaning": "Vertragslaufzeit; der festgelegte Zeitraum, für den man sich bei einem Tarif verpflichtet",
       "example": "약정 12개월이라 쉽게 바꾸기 어려워요.",
-      "exampleMeaning": "Es ist ein Vertrag mit 12 Monaten Laufzeit, daher ist es schwierig, einfach zu wechseln."
+      "exampleMeaning": "Es ist ein 12-monatiger Vertrag, daher ist ein einfacher Wechsel schwierig."
     },
     {
       "korean": "소진",
       "roman": "sojin",
-      "meaning": "das Aufbrauchen (des Datenvolumens)",
+      "meaning": "(dein Datenvolumen) ist aufgebraucht",
       "example": "데이터가 소진되어 속도가 느려졌어요.",
-      "exampleMeaning": "Mein Datenvolumen ist aufgebraucht, deshalb wurde die Geschwindigkeit langsam."
+      "exampleMeaning": "Mein Datenvolumen war aufgebraucht, deshalb wurde die Geschwindigkeit langsam."
     },
     {
       "korean": "무제한",
@@ -62,9 +62,9 @@
     {
       "korean": "추가 요금",
       "roman": "chuga yogeum",
-      "meaning": "Zusatzgebühr über den Tarif hinaus",
+      "meaning": "Zusatzkosten über den Tarif hinaus",
       "example": "추가 요금이 없어서 안심이에요.",
-      "exampleMeaning": "Ich bin erleichtert, weil keine Zusatzgebühr anfällt."
+      "exampleMeaning": "Ich bin erleichtert, weil es keine Zusatzkosten gibt."
     },
     {
       "korean": "기본 제공",
