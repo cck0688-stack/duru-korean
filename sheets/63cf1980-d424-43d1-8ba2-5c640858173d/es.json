@@ -1,0 +1,92 @@
+{
+  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
+  "keyword": "hangul",
+  "summary": "Aprende cómo suenan ㅈ, ㅊ y ㅉ al comienzo de una palabra. Se diferencian en la cantidad de aire y la tensión. Úsalas para elegir el verbo correcto en conjuntos como 자다/차다/짜다 y 지다/치다/찌다.",
+  "objective": "Los estudiantes principiantes distinguirán y pronunciarán ㅈ (simple), ㅊ (aspirada) y ㅉ (tensa) al inicio de palabra, y luego elegirán la palabra correcta en los conjuntos 자다/차다/짜다 y 지다/치다/찌다.",
+  "level": "Beginner",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Elige la palabra correcta: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
+    "Elige la palabra correcta: 이 라면에는 소금이 많아요. 너무 (자요 / 차요 / 짜요).",
+    "Elige la palabra correcta: 동생이 화가 나서 문을 발로 (자요 / 차요 / 짜요).",
+    "Elige la palabra correcta: 제 친구는 매일 기타를 (져요 / 쳐요 / 쪄요).",
+    "Elige las palabras correctas: 어제 축구 경기에서 (졌어요 / 쳤어요 / 쪘어요). 요즘 많이 먹어서 살이 (졌어요 / 쳤어요 / 쪘어요).",
+    "Sostén un pañuelo de papel frente a tu boca y di 자, 차, 짜. ¿Cuál hace que el pañuelo se mueva más?"
+  ],
+  "answers": [
+    "자요",
+    "짜요",
+    "차요",
+    "쳐요",
+    "졌어요, 쪘어요",
+    "차 (ㅊ has a strong puff of air)"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅈ",
+      "sound": "j (simple): suave y relajada, con muy poco aire",
+      "as": "Cercana a la 'j' en inglés de 'jam', pero más suave. Al inicio de una palabra puede sonar como una 'ch' muy ligera, con casi nada de aire."
+    },
+    {
+      "letter": "ㅊ",
+      "sound": "ch (aspirada): viene con un fuerte soplo de aire",
+      "as": "Cercana a la 'ch' en 'church' en inglés. Suelta una clara ráfaga de aire."
+    },
+    {
+      "letter": "ㅉ",
+      "sound": "jj (tensa): apretada, aguda y sin soplo de aire",
+      "as": "No tiene un equivalente exacto en inglés. Piensa en el sonido 'tch' de 'pitch' en inglés, pero tensando la garganta y la lengua y sin dejar salir aire."
+    }
+  ],
+  "words": [
+    {
+      "korean": "자다",
+      "roman": "jada",
+      "meaning": "dormir",
+      "example": "아기가 자요.",
+      "exampleMeaning": "El bebé está durmiendo."
+    },
+    {
+      "korean": "차다",
+      "roman": "chada",
+      "meaning": "patear",
+      "example": "공을 차요.",
+      "exampleMeaning": "Pateo la pelota."
+    },
+    {
+      "korean": "짜다",
+      "roman": "jjada",
+      "meaning": "estar salado",
+      "example": "국이 짜요.",
+      "exampleMeaning": "La sopa está salada."
+    },
+    {
+      "korean": "지다",
+      "roman": "jida",
+      "meaning": "perder (un juego o partido)",
+      "example": "우리 팀이 졌어요.",
+      "exampleMeaning": "Nuestro equipo perdió."
+    },
+    {
+      "korean": "치다",
+      "roman": "chida",
+      "meaning": "tocar (un instrumento como el piano, la guitarra o la batería)",
+      "example": "피아노를 쳐요.",
+      "exampleMeaning": "Toco el piano."
+    },
+    {
+      "korean": "찌다",
+      "roman": "jjida",
+      "meaning": "engordar (subir de peso)",
+      "example": "살이 쪘어요.",
+      "exampleMeaning": "Engordé."
+    }
+  ],
+  "category": "hangul"
+}

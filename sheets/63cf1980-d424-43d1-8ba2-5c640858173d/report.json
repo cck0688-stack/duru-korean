@@ -1,0 +1,245 @@
+{
+  "id": "63cf1980-d424-43d1-8ba2-5c640858173d",
+  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
+  "category": "hangul",
+  "status": "published",
+  "published": true,
+  "langsBefore": [
+    "en",
+    "es",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "dropped": [],
+  "passed": true,
+  "unresolved": [],
+  "rounds": [
+    {
+      "round": 1,
+      "mechanical": [],
+      "review": [
+        "words 치다 meaning: 'to play (piano or another keyboard instrument)' is wrong. Korean also uses 치다 for instruments with no keyboard, such as 기타를 치다 and 드럼을 치다. Change it to 'to play (piano, guitar, drums, etc.)' or 'to play (the piano)'.",
+        "Exercises 2–4 reuse the word-list examples almost word for word (공을 차요 / 피아노를 쳐요 / 국이 짜요), so learners can copy the answers without telling the sounds apart. 찌다 is never tested, and 지다 only appears in question 5 as a meaning question, not as sound practice. Fix: use new contexts (e.g. '추워서 손이 (차요)', '기타를 (쳐요)') and add fill-in items for 지다 and 찌다 (e.g. '어제 축구 경기에서 (졌어요/쳤어요/쪘어요)', '많이 먹어서 살이 (졌어요/쳤어요/쪘어요)')."
+      ],
+      "audit": [
+        "words[4] (치다) meaning: to play (piano or another keyboard instrument) → to play (an instrument such as the piano, guitar, or drums)"
+      ]
+    },
+    {
+      "round": 2,
+      "mechanical": [],
+      "review": [],
+      "audit": []
+    }
+  ],
+  "fixes": [
+    {
+      "at": "answers[5]",
+      "before": "지다",
+      "after": "졌어요, 쪘어요"
+    },
+    {
+      "at": "exercises[2]",
+      "before": "Choose the right word: 국에 소금을 많이 넣었어요. 국이 너무 (자요 / 차요 / 짜요).",
+      "after": "Choose the right word: 이 라면에는 소금이 많아요. 너무 (자요 / 차요 / 짜요)."
+    },
+    {
+      "at": "exercises[3]",
+      "before": "Choose the right word: 운동장에서 공을 (자요 / 차요 / 짜요).",
+      "after": "Choose the right word: 동생이 화가 나서 문을 발로 (자요 / 차요 / 짜요)."
+    },
+    {
+      "at": "exercises[4]",
+      "before": "Choose the right word: 저는 매일 피아노를 (져요 / 쳐요 / 쪄요).",
+      "after": "Choose the right word: 제 친구는 매일 기타를 (져요 / 쳐요 / 쪄요)."
+    },
+    {
+      "at": "exercises[5]",
+      "before": "Which word means \"to lose (a game)\"? (지다 / 치다 / 찌다)",
+      "after": "Choose the right words: 어제 축구 경기에서 (졌어요 / 쳤어요 / 쪘어요). 요즘 많이 먹어서 살이 (졌어요 / 쳤어요 / 쪘어요)."
+    },
+    {
+      "at": "words[5].meaning",
+      "before": "to play (piano or another keyboard instrument)",
+      "after": "to play (an instrument such as the piano, guitar, or drums)"
+    }
+  ],
+  "translations": {
+    "es": {
+      "lang": "es",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 1,
+          "problem": "'sets' of three verbs is translated as 'pares' (pairs), which is wrong because each set has three verbs.",
+          "fix": "Aprende cómo suenan ㅈ, ㅊ y ㅉ al comienzo de una palabra. Se diferencian en la cantidad de aire y la tensión. Úsalas para elegir el verbo correcto en conjuntos como 자다/차다/짜다 y 지다/치다/찌다."
+        },
+        {
+          "line": 20,
+          "problem": "'No exact English match' was changed to 'no exact match in Spanish'. The comparison is now with a different language, and the line still relies on the English word 'pitch'.",
+          "fix": "No tiene un equivalente exacto en inglés. Piensa en el sonido 'tch' de 'pitch' en inglés, pero tensando la garganta y la lengua y sin dejar salir aire."
+        }
+      ]
+    },
+    "id": {
+      "lang": "id",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "vi": {
+      "lang": "vi",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "ko": {
+      "lang": "ko",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "zh": {
+      "lang": "zh",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 16,
+          "problem": "The English says the sound \"can sound like\" a light \"ch\" at the start of a word. The Chinese \"听起来像\" drops \"can\" and states it as always true.",
+          "fix": "接近“jam”中的“j”音,但更柔和。在词首时,它可能听起来像非常轻的“ch”音,几乎不带气流。"
+        }
+      ]
+    },
+    "pt-BR": {
+      "lang": "pt-BR",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 15,
+          "problem": "\"soft\" was translated as \"solto\" (loose), which changes the meaning. It should be \"suave\".",
+          "fix": "j (simples): suave e relaxado, com pouco ar saindo"
+        },
+        {
+          "line": 16,
+          "problem": "In Brazilian Portuguese, the \"j\" in \"jogo\" is a \"zh\" sound, not the \"j\" in English \"jam\". Also, \"ch\" in Portuguese sounds like \"sh\", so a \"light ch\" points to the wrong sound. The Brazilian \"di\" in \"dia\" and \"tch\" are the right comparisons.",
+          "fix": "Parecido com o som de \"di\" em \"dia\" (como se fala no Brasil), mas mais suave. No início da palavra, pode soar quase como um \"tch\" bem leve, quase sem ar."
+        },
+        {
+          "line": 18,
+          "problem": "The \"ch\" in \"chuva\" is a \"sh\" sound, not the \"ch\" in \"church\". This gives the wrong model for ㅊ. The right comparison is \"tch\" as in \"tchau\".",
+          "fix": "Parecido com o \"tch\" de \"tchau\". Solte uma rajada clara de ar."
+        }
+      ]
+    },
+    "ja": {
+      "lang": "ja",
+      "tries": 1,
+      "lost": [],
+      "fixes": []
+    },
+    "fr": {
+      "lang": "fr",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 20,
+          "problem": "\"No exact English match\" was rendered as \"pas d'équivalent exact en français\", which changes the meaning. The example that follows (\"pitch\") is an English word.",
+          "fix": "Il n'y a pas d'équivalent exact en anglais. Pensez au son « tch » dans « pitch », mais en resserrant la gorge et la langue, sans laisser échapper d'air."
+        },
+        {
+          "line": 1,
+          "problem": "\"paires\" (pairs) is wrong for sets of three words (자다/차다/짜다).",
+          "fix": "Apprenez comment se prononcent ㅈ, ㅊ et ㅉ au début d'un mot. Ils se distinguent par le souffle et la tension. Utilisez-les pour choisir le bon verbe dans des séries comme 자다/차다/짜다 et 지다/치다/찌다."
+        },
+        {
+          "line": 2,
+          "problem": "\"paires\" (pairs) is wrong for sets of three words.",
+          "fix": "Les débutants apprendront à distinguer et à prononcer ㅈ (simple), ㅊ (aspiré) et ㅉ (tendu) en début de mot, puis à choisir le bon mot dans les séries 자다/차다/짜다 et 지다/치다/찌다."
+        },
+        {
+          "line": 16,
+          "problem": "The English means the English \"ch\" sound. In French, \"ch\" without context is read as the French \"sh\" sound, which points to the wrong sound.",
+          "fix": "Proche du « j » de « jam », mais plus doux. En début de mot, cela peut ressembler à un « ch » anglais très léger, presque sans souffle."
+        }
+      ]
+    },
+    "de": {
+      "lang": "de",
+      "tries": 1,
+      "lost": [],
+      "fixes": [
+        {
+          "line": 2,
+          "problem": "Grammar error: the singular 'den wortanfangenden Konsonanten' is used for three consonants, and 'wortanfangend' is not natural German.",
+          "fix": "Anfänger unterscheiden die Konsonanten ㅈ (ungespannt), ㅊ (behaucht) und ㅉ (gespannt) am Wortanfang, sprechen sie aus und wählen dann das richtige Wort in den Gruppen 자다/차다/짜다 und 지다/치다/찌다."
+        },
+        {
+          "line": 19,
+          "problem": "'tight' here means tense/tightened, but 'eng' means narrow. That is the wrong word for how the sound is made.",
+          "fix": "jj (gespannt): angespannt, scharf und ohne Atemstoß"
+        }
+      ]
+    }
+  },
+  "pages": {
+    "en": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "es": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "id": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "vi": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ko": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "zh": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "pt-BR": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "ja": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "fr": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    },
+    "de": {
+      "pages": 2,
+      "ok": true,
+      "why": []
+    }
+  },
+  "preparedAt": "2026-09-25T08:40:38.796Z"
+}

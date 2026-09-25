@@ -1,0 +1,92 @@
+{
+  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
+  "keyword": "hangul",
+  "summary": "Pelajari cara pengucapan ㅈ, ㅊ, dan ㅉ di awal kata. Ketiganya berbeda dalam hembusan napas dan ketegangan. Gunakan perbedaan itu untuk memilih kata kerja yang tepat dalam pasangan seperti 자다/차다/짜다 dan 지다/치다/찌다.",
+  "objective": "Pembelajar pemula akan membedakan dan melafalkan ㅈ (biasa), ㅊ (aspirasi), dan ㅉ (tegang) di awal kata, lalu memilih kata yang tepat dalam pasangan 자다/차다/짜다 dan 지다/치다/찌다.",
+  "level": "Beginner",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Pilih kata yang tepat: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
+    "Pilih kata yang tepat: 이 라면에는 소금이 많아요. 너무 (자요 / 차요 / 짜요).",
+    "Pilih kata yang tepat: 동생이 화가 나서 문을 발로 (자요 / 차요 / 짜요).",
+    "Pilih kata yang tepat: 제 친구는 매일 기타를 (져요 / 쳐요 / 쪄요).",
+    "Pilih kata-kata yang tepat: 어제 축구 경기에서 (졌어요 / 쳤어요 / 쪘어요). 요즘 많이 먹어서 살이 (졌어요 / 쳤어요 / 쪘어요).",
+    "Pegang tisu di depan mulut Anda dan ucapkan 자, 차, 짜. Bunyi mana yang membuat tisu bergerak paling banyak?"
+  ],
+  "answers": [
+    "자요",
+    "짜요",
+    "차요",
+    "쳐요",
+    "졌어요, 쪘어요",
+    "차 (ㅊ has a strong puff of air)"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅈ",
+      "sound": "j (biasa): lembut dan santai, dengan sedikit hembusan napas",
+      "as": "Mirip dengan bunyi \"j\" pada kata \"jam\", tetapi lebih lembut. Di awal kata, bunyinya bisa terdengar seperti \"ch\" yang sangat ringan dengan hampir tanpa hembusan napas."
+    },
+    {
+      "letter": "ㅊ",
+      "sound": "ch (aspirasi): disertai hembusan napas yang kuat",
+      "as": "Mirip dengan bunyi \"ch\" pada kata \"church\". Keluarkan hembusan napas yang jelas dan kuat."
+    },
+    {
+      "letter": "ㅉ",
+      "sound": "jj (tegang): rapat, tajam, dan tanpa hembusan napas",
+      "as": "Tidak ada padanan persis dalam bahasa Inggris. Bayangkan bunyi \"tch\" pada kata \"pitch\", tetapi kencangkan tenggorokan dan lidah Anda serta jangan keluarkan hembusan napas sama sekali."
+    }
+  ],
+  "words": [
+    {
+      "korean": "자다",
+      "roman": "jada",
+      "meaning": "tidur",
+      "example": "아기가 자요.",
+      "exampleMeaning": "Bayinya sedang tidur."
+    },
+    {
+      "korean": "차다",
+      "roman": "chada",
+      "meaning": "menendang",
+      "example": "공을 차요.",
+      "exampleMeaning": "Saya menendang bola."
+    },
+    {
+      "korean": "짜다",
+      "roman": "jjada",
+      "meaning": "asin",
+      "example": "국이 짜요.",
+      "exampleMeaning": "Sup ini asin."
+    },
+    {
+      "korean": "지다",
+      "roman": "jida",
+      "meaning": "kalah (dalam pertandingan)",
+      "example": "우리 팀이 졌어요.",
+      "exampleMeaning": "Tim kami kalah."
+    },
+    {
+      "korean": "치다",
+      "roman": "chida",
+      "meaning": "memainkan (alat musik seperti piano, gitar, atau drum)",
+      "example": "피아노를 쳐요.",
+      "exampleMeaning": "Saya bermain piano."
+    },
+    {
+      "korean": "찌다",
+      "roman": "jjida",
+      "meaning": "bertambah (berat badan)",
+      "example": "살이 쪘어요.",
+      "exampleMeaning": "Berat badan saya bertambah."
+    }
+  ],
+  "category": "hangul"
+}

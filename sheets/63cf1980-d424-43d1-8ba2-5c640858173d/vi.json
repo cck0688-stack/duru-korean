@@ -1,0 +1,92 @@
+{
+  "title": "자다? 차다? 짜다? — ㅈ·ㅊ·ㅉ 소리 익히기",
+  "keyword": "hangul",
+  "summary": "Học cách phát âm ㅈ, ㅊ và ㅉ ở đầu từ. Chúng khác nhau về hơi thở và độ căng. Dùng chúng để chọn đúng động từ trong các nhóm như 자다/차다/짜다 và 지다/치다/찌다.",
+  "objective": "Người mới học sẽ phân biệt và phát âm ㅈ (âm thường), ㅊ (âm bật hơi) và ㅉ (âm căng) ở đầu từ, sau đó chọn đúng từ trong các nhóm 자다/차다/짜다 và 지다/치다/찌다.",
+  "level": "Beginner",
+  "minutes": 15,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Chọn từ đúng: 너무 피곤해요. 일찍 (자요 / 차요 / 짜요).",
+    "Chọn từ đúng: 이 라면에는 소금이 많아요. 너무 (자요 / 차요 / 짜요).",
+    "Chọn từ đúng: 동생이 화가 나서 문을 발로 (자요 / 차요 / 짜요).",
+    "Chọn từ đúng: 제 친구는 매일 기타를 (져요 / 쳐요 / 쪄요).",
+    "Chọn từ đúng: 어제 축구 경기에서 (졌어요 / 쳤어요 / 쪘어요). 요즘 많이 먹어서 살이 (졌어요 / 쳤어요 / 쪘어요).",
+    "Cầm một tờ giấy ăn trước miệng và nói 자, 차, 짜. Âm nào làm tờ giấy chuyển động nhiều nhất?"
+  ],
+  "answers": [
+    "자요",
+    "짜요",
+    "차요",
+    "쳐요",
+    "졌어요, 쪘어요",
+    "차 (ㅊ has a strong puff of air)"
+  ],
+  "checkThese": [],
+  "letters": [
+    {
+      "letter": "ㅈ",
+      "sound": "j (âm thường): nhẹ nhàng và thoải mái, chỉ có một chút hơi thở",
+      "as": "Gần giống âm \"j\" trong từ \"jam\", nhưng nhẹ hơn. Ở đầu từ, nó có thể nghe giống âm \"ch\" rất nhẹ, gần như không có hơi thở."
+    },
+    {
+      "letter": "ㅊ",
+      "sound": "ch (âm bật hơi): đi kèm với một luồng hơi mạnh",
+      "as": "Gần giống âm \"ch\" trong từ \"church\". Đẩy ra một luồng hơi rõ rệt."
+    },
+    {
+      "letter": "ㅉ",
+      "sound": "jj (âm căng): chặt, sắc và không có hơi thở",
+      "as": "Không có âm tương đương chính xác trong tiếng Anh. Hãy nghĩ đến âm \"tch\" trong từ \"pitch\", nhưng hãy làm căng cổ họng và lưỡi của bạn và không thả hơi ra."
+    }
+  ],
+  "words": [
+    {
+      "korean": "자다",
+      "roman": "jada",
+      "meaning": "ngủ",
+      "example": "아기가 자요.",
+      "exampleMeaning": "Em bé đang ngủ."
+    },
+    {
+      "korean": "차다",
+      "roman": "chada",
+      "meaning": "đá",
+      "example": "공을 차요.",
+      "exampleMeaning": "Tôi đá quả bóng."
+    },
+    {
+      "korean": "짜다",
+      "roman": "jjada",
+      "meaning": "mặn",
+      "example": "국이 짜요.",
+      "exampleMeaning": "Món canh này mặn."
+    },
+    {
+      "korean": "지다",
+      "roman": "jida",
+      "meaning": "thua (một trận đấu)",
+      "example": "우리 팀이 졌어요.",
+      "exampleMeaning": "Đội chúng tôi đã thua."
+    },
+    {
+      "korean": "치다",
+      "roman": "chida",
+      "meaning": "chơi (một nhạc cụ như piano, guitar hoặc trống)",
+      "example": "피아노를 쳐요.",
+      "exampleMeaning": "Tôi chơi piano."
+    },
+    {
+      "korean": "찌다",
+      "roman": "jjida",
+      "meaning": "tăng (cân)",
+      "example": "살이 쪘어요.",
+      "exampleMeaning": "Tôi đã tăng cân."
+    }
+  ],
+  "category": "hangul"
+}
