@@ -22,9 +22,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'prepare (check and translate, write content) or apply (put the checked content on the site)'
+        description: 'prepare (check and translate) · retranslate (only: remake translations from content/sheets English) · apply (put checked content on the site)'
         type: choice
-        options: [prepare, apply]
+        options: [prepare, retranslate, apply]
         default: prepare
       only:
         description: 'Only these downloads: ids or exact titles, separated by "|"'
@@ -77,7 +77,7 @@ jobs:
 
       # What earlier runs prepared, so they are not done twice.
       - name: Open the rework-output branch
-        if: inputs.mode == 'prepare'
+        if: inputs.mode != 'apply'
         run: |
           git config user.name "duru-korean-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -117,6 +117,8 @@ jobs:
           if [ "$MODE" = "prepare" ]; then
             args+=(--out=../rework-output/sheets)
             if [ "$REDO" = "true" ]; then args+=(--redo); fi
+          elif [ "$MODE" = "retranslate" ]; then
+            args+=(--from=content/sheets --out=../rework-output/sheets)
           else
             args+=(--from=content/sheets)
             if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
@@ -125,7 +127,7 @@ jobs:
 
       # Saved even when the run stopped part-way: what was finished is kept.
       - name: Save what was prepared
-        if: always() && inputs.mode == 'prepare'
+        if: always() && inputs.mode != 'apply'
         working-directory: ../rework-output
         run: |
           git add -A sheets

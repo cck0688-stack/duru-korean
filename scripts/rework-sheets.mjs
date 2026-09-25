@@ -187,8 +187,7 @@ export async function prepareOne(cfgs, browser, token, r, outDir, work) {
   return report;
 }
 
-async function prepare() {
-  const out = path.resolve(arg('out') || 'rework-out');
+function modelConfigs() {
   const onSub = useSubscription(process.env, 'SHEET_PROVIDER');
   const cfgs = {};
   if (onSub) {
@@ -204,6 +203,12 @@ async function prepare() {
   }
   cfgs.reader.timeoutMs = cfgs.translator.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 300000;
   cfgs.writer.timeoutMs = Number(process.env.DURU_WRITE_TIMEOUT_MS) || 480000;
+  return cfgs;
+}
+
+async function prepare() {
+  const out = path.resolve(arg('out') || 'rework-out');
+  const cfgs = modelConfigs();
   log('정밀 검수 준비 · 읽기 ' + cfgs.reader.model + ' · 검수·고침 ' + cfgs.writer.model + ' · 번역 ' + cfgs.translator.model);
   log('언어: ' + [SOURCE].concat(TARGETS).join(', '));
 
@@ -256,6 +261,39 @@ async function prepare() {
       (s.trFailed.length ? ' · 번역 실패 ' + s.trFailed.join(',') : '') +
       (s.over2.length ? ' · 2쪽 넘음 ' + s.over2.join(',') : '') + (s.bad.length ? ' · 검사 실패 ' + s.bad.join(',') : '')));
   return summary;
+}
+
+/* ================= retranslate ================= */
+
+// After a person has corrected a sheet's English by hand (content/sheets),
+// its other languages are made again from that English — no review
+// rounds, the English is what the person passed. Written to --out like
+// prepare's, for the same reading before it goes further.
+async function retranslate() {
+  const from = path.resolve(arg('from') || 'content/sheets');
+  const out = path.resolve(arg('out') || 'rework-out');
+  const ids = (ONLY || '').split('|').map((x) => x.trim()).filter(Boolean);
+  if (!ids.length) throw new Error('--only=<id>|<id> 가 필요합니다');
+  const langs = arg('langs') ? arg('langs').split(',') : TARGETS;
+  const cfgs = modelConfigs();
+  log('다시 번역: ' + ids.length + '개 · ' + langs.join(', '));
+  await pool(ids, AT_ONCE, async (id) => {
+    const en = JSON.parse(fs.readFileSync(path.join(from, id, SOURCE + '.json'), 'utf8'));
+    const dir = path.join(out, id);
+    const reportFile = path.join(dir, 'report.json');
+    const report = fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : { id };
+    const done = {};
+    await pool(langs, 3, async (lang) => {
+      const got = await translateChecked(cfgs, en, lang);
+      done[lang] = got.record;
+      if (got.edition) writeJSON(path.join(dir, lang + '.json'), got.edition);
+    });
+    writeJSON(path.join(dir, SOURCE + '.json'), en);
+    report.retranslated = { at: new Date().toISOString(), translations: done };
+    writeJSON(reportFile, report);
+    log('  ✓ ' + (en.title || id) + ' — ' + Object.entries(done).map(([l, t]) =>
+      l + (t.failed ? '!' : '') + (t.fixes && t.fixes.length ? '(' + t.fixes.length + ')' : '')).join(' '));
+  });
 }
 
 /* ================= apply ================= */
@@ -368,7 +406,7 @@ async function apply() {
 }
 
 if (import.meta.url === 'file://' + process.argv[1]) {
-  const go = MODE === 'prepare' ? prepare : MODE === 'apply' ? apply : null;
-  if (!go) { console.error('usage: rework-sheets.mjs prepare|apply …'); process.exit(2); }
+  const go = { prepare, retranslate, apply }[MODE];
+  if (!go) { console.error('usage: rework-sheets.mjs prepare|retranslate|apply …'); process.exit(2); }
   go().catch((err) => { console.error(err.message || err); process.exit(1); });
 }

@@ -71,6 +71,9 @@ export function auditPrompt(category) {
     '2. 모든 한국어: 맞춤법, 띄어쓰기, 조사, 어미, 높임, 자연스러움. 교과서에만 있는 어색한 문장도 문제입니다.',
     '3. 모든 영어 설명: 한국어에 대한 설명이 사실인가. 번역이 그 문장의 뜻인가.',
     '4. 로마자는 국어의 로마자 표기법(Revised Romanization)대로인가.',
+    '   설명과 지시문(when, means, sound, as, meaning, summary, objective, note, 문제의 지시 부분)은 학습자의 언어(영어)로',
+    '   써야 합니다. 한국어는 가르치는 것(낱말, 문형, 예문, 보기)으로만 들어갑니다. 설명이나 지시가 한국어로만 되어 있으면',
+    '   문제입니다 — 영어로 고치세요(가르치는 한국어는 그대로 두고).',
     '5. title, summary, objective 가 학습지 내용과 맞는가.',
     '',
     '이 갈래(' + category + ')에서 특히:',
@@ -147,7 +150,19 @@ export function diffSheets(a, b) {
 
 // The Korean in a line has to come through a translation untouched.
 const HANGUL_RUN = /[가-힣ㄱ-ㆎ]+(?:[\s··/~-]*[가-힣ㄱ-ㆎ]+)*/g;
+// A line that is itself Korean prose — an explanation or an instruction
+// written in Korean ("상대에게 허락을 물을 때") — is translated like any
+// other prose; only the Korean set inside a line in another language is
+// the thing being taught and must come through as it is.
+const LETTER = /[A-Za-z\u00c0-\u024f\uac00-\ud7a3]/g;
+const HANGUL = /[\uac00-\ud7a3]/g;
+export function isKoreanProse(line) {
+  const letters = (String(line || '').match(LETTER) || []).length;
+  const korean = (String(line || '').match(HANGUL) || []).length;
+  return letters > 0 && korean / letters >= 0.6;
+}
 export function koreanLost(source, translated) {
+  if (isKoreanProse(source)) return [];
   const runs = String(source || '').match(HANGUL_RUN) || [];
   return runs.filter((r) => !String(translated || '').includes(r));
 }
@@ -218,7 +233,14 @@ export async function translateChecked(cfgs, en, lang) {
   const record = { lang, tries: 0, lost: [], fixes: [] };
   for (let t = 0; t < TR_TRIES; t += 1) {
     record.tries += 1;
-    edition = await translateSheet(translate, cfgs.translator, en, lang, 'English', extra);
+    try {
+      edition = await translateSheet(translate, cfgs.translator, en, lang, 'English', extra);
+    } catch (err) {
+      // "did not line up": one line in, one line out went wrong. Asked again.
+      log('    ' + lang + ': 번역 실패 — ' + err.message + ' — 다시');
+      edition = null;
+      continue;
+    }
     const lost = lostKorean(en, edition, lang);
     if (lost.length) {
       record.lost = lost;
