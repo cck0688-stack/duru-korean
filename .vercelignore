@@ -9,3 +9,7 @@ supabase/
 PROJECT-NOTES.ko.md
 # The worksheets' content (scripts/rework-sheets.mjs), unpublished ones too.
 content/
+# Working notes for whoever edits the site.
+docs/
+CLAUDE.md
+worksheets-59/

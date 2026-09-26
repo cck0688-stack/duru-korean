@@ -197,7 +197,7 @@ function answersPage(sheet, L) {
   // line starts under its first word, not under the number (the owner,
   // 2026-09-25).
   const list = answers.map((a, i) => '<div class="a"><span class="n">' + (i + 1) + ')</span><span class="a-text">' +
-      keepEndings(esc(typeof a === 'string' ? a : a.answer)) +
+      keepEndings(esc(typeof a === 'string' ? a : a.answer)).replace(/([\u2460-\u2473]) /g, '$1\u00a0') +
       (a && a.why ? ' <span class="ex-tr">— ' + esc(a.why) + '</span>' : '') + '</span></div>').join('');
   return '<div class="answers"><h2>' + esc(L.answers) + '</h2>' +
     (L.design === 'v2' ? '<div class="answer-box">' + list + '</div>' : list) + '</div>';

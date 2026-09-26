@@ -485,9 +485,23 @@ export function explanatoryText(sheet, ref = sheet) {
     (sec.paragraphs || []).forEach((p, j) => {
       push(null, (s, v) => { s.sections[i].paragraphs[j] = v; }, p);
     });
+    // A flow of steps and numbered rows (the kiosk sheet's design): the
+    // Korean stays; what each step or button is called and what it does
+    // is prose.
+    (sec.steps || []).forEach((st, j) => {
+      push(null, (s, v) => { s.sections[i].steps[j].en = v; }, st.en);
+    });
+    (sec.items || []).forEach((it, j) => {
+      push(null, (s, v) => { s.sections[i].items[j].gloss = v; }, it.gloss);
+      push(null, (s, v) => { s.sections[i].items[j].text = v; }, it.text);
+    });
+    push(null, (s, v) => { s.sections[i].note = v; }, sec.note);
   });
   (sheet.exercises || []).forEach((q, i) => {
-    push(null, (s, v) => { s.exercises[i] = v; }, typeof q === 'string' ? q : q.ask);
+    // A question with parts keeps them (Korean situations); its
+    // instruction is prose.
+    push(null, (s, v) => { if (typeof s.exercises[i] === 'string') s.exercises[i] = v; else s.exercises[i].ask = v; },
+      typeof q === 'string' ? q : q.ask);
   });
   // An answer that is a Korean sentence is the answer, not an
   // explanation of one, so it stays as it is. Anything else is prose.

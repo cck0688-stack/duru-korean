@@ -42,11 +42,18 @@ export const SPROUT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 
 // a question that asked for more than one line is marked, so a design
 // that sets short questions on a single card can still leave room for
 // the ones that are written out.
-function question(text, i, lines = 1, design) {
+function question(text, i, lines = 1, design, items) {
   // The owner's design sets the number in a disc, where "1)" reads as a typo.
-  return '<div class="q' + (lines > 1 ? ' q-lines' : '') + '"><div class="q-ask"><span class="n">' + (i + 1) +
+  // A question with parts (① … ② …) lists each part on its own line
+  // under the instruction (the owner's kiosk sheet, 2026-09-26).
+  const parts = list(items).length
+    ? '<div class="q-parts">' + list(items).map((it, j) =>
+        '<div class="q-part"><span class="q-pn">' + String.fromCharCode(0x2460 + j) + '</span>' + esc(it) + '</div>').join('') + '</div>'
+    : '';
+  return '<div class="q' + (lines > 1 ? ' q-lines' : '') + (parts ? ' q-multi' : '') + '"><div class="q-ask"><span class="n">' + (i + 1) +
     (design === 'v2' ? '' : ')') + '</span>' +
-    esc(text) + '</div>' + '<div class="rule"></div>'.repeat(Math.max(1, lines)) + '</div>';
+    (parts ? '<div class="q-body"><div>' + esc(text) + '</div>' + parts + '</div>' : esc(text)) + '</div>' +
+    '<div class="rule"></div>'.repeat(Math.max(1, lines)) + '</div>';
 }
 
 // "j (plain): soft and relaxed" — the name of the sound in bold, when
@@ -182,10 +189,34 @@ function etc(s, L) {
       ? '<section><h2>' + esc(L.words) + '</h2>' + wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>'
       : '') +
     list(s.sections).map((sec) =>
-      '<section><h2>' + esc(sec.heading) + '</h2>' +
-      list(sec.paragraphs).map((p) => '<p>' + esc(p) + '</p>').join('') + '</section>').join('') +
+      '<section><h2>' + esc(sec.heading) + '</h2>' + flowSteps(sec.steps) + itemRows(sec.items) +
+      (sec.box && list(sec.paragraphs).length
+        ? '<div class="tip-box">' + list(sec.paragraphs).map((p) => '<p>' + prose(p) + '</p>').join('') + '</div>'
+        : list(sec.paragraphs).map((p) => '<p>' + esc(p) + '</p>').join('')) +
+      (sec.note ? '<div class="note">' + esc(sec.note) + '</div>' : '') + '</section>').join('') +
     (s.note ? '<section><div class="note">' + esc(s.note) + '</div></section>' : '') +
     practice(s, L);
+}
+
+// A process at a glance: numbered steps left to right, joined by arrows
+// (the owner's kiosk sheet). One block — never split over a page.
+function flowSteps(steps) {
+  if (!list(steps).length) return '';
+  return '<div class="flow">' + list(steps).map((st, i) =>
+    (i ? '<span class="flow-arrow">→</span>' : '') +
+    '<div class="flow-step"><span class="flow-n">' + (i + 1) + '</span><div class="flow-card"><b>' + esc(st.ko) + '</b>' +
+    (st.en ? '<span>(' + esc(st.en) + ')</span>' : '') + '</div></div>').join('') + '</div>';
+}
+
+// Numbered rows, one column: the Korean term (and what it is called in
+// the reader's language), a rule, then what it does and an example.
+function itemRows(items) {
+  if (!list(items).length) return '';
+  return '<div class="rows">' + list(items).map((it, i) =>
+    '<div class="row"><span class="row-n">' + (i + 1) + '</span>' +
+    '<div class="row-term"><b>' + esc(it.term) + '</b>' + (it.gloss ? ' <span>(' + esc(it.gloss) + ')</span>' : '') + '</div>' +
+    '<div class="row-text">' + prose(it.text) + (it.example ? ' <span class="row-ex">예: ' + esc(it.example) + '</span>' : '') + '</div>' +
+    '</div>').join('') + '</div>';
 }
 
 // The part the learner fills in. Shared, because every shelf has one —
@@ -202,7 +233,7 @@ function practice(s, L) {
     : '';
   return '<section><h2>' + esc(L.yourTurn) + '</h2>' + task +
     qs.map((q, i) => question(typeof q === 'string' ? q : q.ask, i,
-      (typeof q === 'object' && q.lines) || 1, L.design)).join('') +
+      (typeof q === 'object' && q.lines) || 1, L.design, typeof q === 'object' ? q.items : null)).join('') +
     '</section>';
 }
 
