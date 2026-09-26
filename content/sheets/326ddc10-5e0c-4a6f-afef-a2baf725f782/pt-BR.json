@@ -1,0 +1,121 @@
+{
+  "title": "동네 병원 접수대에서: 처음 왔어요",
+  "keyword": "clinic",
+  "summary": "Primeira visita a uma clínica de bairro: fazer o check-in e esperar sua vez.",
+  "objective": "Faça o check-in na clínica: diga '처음 왔어요', informe seu nome, data de nascimento e documento de identidade, diga o motivo da sua vinda com '-이/가 아파서 왔어요', e entenda '이름 부르면 들어가세요'.",
+  "level": "Iniciante (avançado)",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "setting": "A recepção (접수대) de uma pequena clínica de bairro. Maria está lá pela primeira vez com dor de garganta.",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "안녕하세요. 처음 오셨어요?",
+      "meaning": "Olá. Essa é sua primeira visita?"
+    },
+    {
+      "who": "마리아",
+      "korean": "네, 처음 왔어요.",
+      "meaning": "Sim, é minha primeira vez aqui."
+    },
+    {
+      "who": "직원",
+      "korean": "성함이 어떻게 되세요?",
+      "meaning": "Posso saber seu nome?"
+    },
+    {
+      "who": "마리아",
+      "korean": "마리아 로페스예요.",
+      "meaning": "É Maria Lopez."
+    },
+    {
+      "who": "직원",
+      "korean": "생년월일 말씀해 주세요. 신분증도 보여 주세요.",
+      "meaning": "Por favor, me diga sua data de nascimento. Mostre seu documento de identidade também, por favor."
+    },
+    {
+      "who": "마리아",
+      "korean": "1998년 3월 14일이에요. 외국인등록증 여기 있어요.",
+      "meaning": "É 14 de março de 1998. Aqui está minha carteira de residente."
+    },
+    {
+      "who": "직원",
+      "korean": "감사합니다. 어디가 불편해서 오셨어요?",
+      "meaning": "Obrigado. O que a traz aqui hoje?"
+    },
+    {
+      "who": "마리아",
+      "korean": "목이 아파서 왔어요. 열도 좀 있어요.",
+      "meaning": "Vim porque estou com dor de garganta. Também estou com um pouco de febre."
+    },
+    {
+      "who": "직원",
+      "korean": "네, 앉아서 기다리세요. 이름 부르면 들어가세요.",
+      "meaning": "Certo, sente-se e espere. Entre quando chamarmos seu nome."
+    }
+  ],
+  "words": [
+    {
+      "korean": "성함",
+      "roman": "seongham",
+      "meaning": "nome (palavra formal usada pela equipe)",
+      "example": "여기에 성함을 써 주세요.",
+      "exampleMeaning": "Por favor, escreva seu nome aqui."
+    },
+    {
+      "korean": "생년월일",
+      "roman": "saengnyeonworil",
+      "meaning": "data de nascimento",
+      "example": "여기에 생년월일을 써 주세요.",
+      "exampleMeaning": "Por favor, escreva sua data de nascimento aqui."
+    },
+    {
+      "korean": "신분증",
+      "roman": "sinbunjeung",
+      "meaning": "documento de identidade (qualquer documento oficial com foto)",
+      "example": "다음에는 신분증을 꼭 가져오세요.",
+      "exampleMeaning": "Da próxima vez, não esqueça de trazer seu documento de identidade."
+    },
+    {
+      "korean": "외국인등록증",
+      "roman": "oegugin deungnokjeung",
+      "meaning": "carteira de residente (para estrangeiros residentes)",
+      "example": "외국인등록증을 잃어버렸어요.",
+      "exampleMeaning": "Perdi minha carteira de residente."
+    },
+    {
+      "korean": "-이/가 아파서 왔어요",
+      "roman": "-i/ga apaseo wasseoyo",
+      "meaning": "Vim porque meu/minha ... está doendo (이 depois de consoante, 가 depois de vogal)",
+      "example": "허리가 아파서 왔어요.",
+      "exampleMeaning": "Vim porque minha lombar está doendo."
+    },
+    {
+      "korean": "부르다",
+      "roman": "bureuda",
+      "meaning": "chamar (o nome de alguém)",
+      "example": "간호사가 제 이름을 불렀어요.",
+      "exampleMeaning": "A enfermeira chamou meu nome."
+    }
+  ],
+  "task": {
+    "title": "Fazer o check-in na clínica",
+    "line": "Preencha a lacuna ou escolha a melhor resposta."
+  },
+  "exercises": [
+    "A recepcionista pergunta '전에 오신 적 있으세요?' (Você já esteve aqui antes?). Você nunca esteve aqui: 아니요, ____ ____.",
+    "Acrescente a parte do corpo e a partícula certa (이 ou 가). Meu pé (발) dói: ____ 아파서 왔어요. / Minha orelha (귀) dói: ____ 아파서 왔어요.",
+    "Escolha a resposta certa para a pergunta da recepcionista '성함이 어떻게 되세요?': (a) 제임스 박이에요. (b) 스물다섯 살이에요. (c) 감기에 걸렸어요.",
+    "Preencha a lacuna. A recepcionista pergunta '신분증 좀 보여 주시겠어요?' Você entrega sua carteira de residente: 네, ____ 여기 있어요.",
+    "A recepcionista diz '이름 부르면 들어가세요.' O que você deve fazer? (a) Entrar agora mesmo. (b) Esperar e entrar quando seu nome for chamado. (c) Escrever seu nome e ir para casa."
+  ],
+  "answers": [
+    "처음 왔어요",
+    "발이 / 귀가",
+    "(a) 제임스 박이에요.",
+    "외국인등록증",
+    "(b) Esperar e entrar quando seu nome for chamado."
+  ],
+  "category": "reallife"
+}

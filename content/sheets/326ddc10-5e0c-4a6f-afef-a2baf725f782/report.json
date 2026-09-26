@@ -178,5 +178,109 @@
       "all_languages": true
     }
   ],
-  "preparedAt": "2026-09-26T06:11:42.738708Z"
+  "preparedAt": "2026-09-26T06:11:42.738708Z",
+  "retranslated": {
+    "at": "2026-09-26T06:19:42.856Z",
+    "translations": {
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "The level label is left in English and was not translated into Indonesian.",
+            "fix": "Pemula (tingkat atas)"
+          },
+          {
+            "line": 11,
+            "problem": "'foto identitas resmi apa pun' means 'any official ID photo' (a picture), not 'any official photo ID' (an identity document that has a photo).",
+            "fix": "kartu identitas (tanda pengenal resmi berfoto apa pun)"
+          }
+        ]
+      },
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 32,
+            "problem": "'Thank you' was mistranslated as 'De nada', which means 'You're welcome'. This changes the meaning of the line.",
+            "fix": "Obrigado. O que a traz aqui hoje?"
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 38,
+            "problem": "'발' means foot, but 'chân' on its own can mean the whole leg (다리) or the foot. For a vocabulary item this is misleading; 'bàn chân' is the precise word.",
+            "fix": "Thêm bộ phận cơ thể và trợ từ đúng (이 hoặc 가). Bàn chân (발) tôi bị đau: ____ 아파서 왔어요. / Tai (귀) tôi bị đau: ____ 아파서 왔어요."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "'高级' means 'advanced', so '初级(高级)' reads as 'beginner (advanced)', which contradicts itself. The English means the upper part of the beginner level.",
+            "fix": "初级(高)"
+          },
+          {
+            "line": 41,
+            "problem": "The final period in the Korean quote was changed from '.' to the Chinese full stop '。'. The Korean must stay exactly as in the English line.",
+            "fix": "接待人员说'이름 부르면 들어가세요.'你应该怎么做?(a) 立刻进去。(b) 先等着,叫到名字时再进去。(c) 写下名字然后回家。"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 3,
+            "problem": "Wrong verb for the ID: you can't 'nennen' (state) an ID card. English 'give' here means hand over or show it.",
+            "fix": "In einer Klinik anmelden: sag '처음 왔어요', nenne deinen Namen und dein Geburtsdatum, zeig deinen Ausweis, sag mit '-이/가 아파서 왔어요', warum du gekommen bist, und verstehe '이름 부르면 들어가세요'."
+          },
+          {
+            "line": 38,
+            "problem": "Wrong gender for the grammar term: 'die Partikel' is feminine; 'das Partikel' is the physics word. The accusative must be 'die richtige Partikel'.",
+            "fix": "Füge den Körperteil und die richtige Partikel (이 oder 가) hinzu. Mein Fuß (발) tut weh: ____ 아파서 왔어요. / Mein Ohr (귀) tut weh: ____ 아파서 왔어요."
+          }
+        ]
+      }
+    }
+  }
 }

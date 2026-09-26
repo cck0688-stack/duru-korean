@@ -1,0 +1,121 @@
+{
+  "title": "동네 병원 접수대에서: 처음 왔어요",
+  "keyword": "clinic",
+  "summary": "Kunjungan pertama ke klinik lingkungan: check in dan tunggu giliran.",
+  "objective": "Check in di klinik: katakan '처음 왔어요', beri tahu nama, tanggal lahir dan kartu identitas Anda, sampaikan alasan kedatangan dengan '-이/가 아파서 왔어요', dan pahami '이름 부르면 들어가세요'.",
+  "level": "Pemula (tingkat atas)",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "setting": "Meja resepsionis (접수대) di sebuah klinik lingkungan kecil. Maria datang untuk pertama kalinya dengan sakit tenggorokan.",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "안녕하세요. 처음 오셨어요?",
+      "meaning": "Halo. Apakah ini kunjungan pertama Anda?"
+    },
+    {
+      "who": "마리아",
+      "korean": "네, 처음 왔어요.",
+      "meaning": "Ya, ini pertama kalinya saya di sini."
+    },
+    {
+      "who": "직원",
+      "korean": "성함이 어떻게 되세요?",
+      "meaning": "Boleh saya tahu nama Anda?"
+    },
+    {
+      "who": "마리아",
+      "korean": "마리아 로페스예요.",
+      "meaning": "Nama saya Maria Lopez."
+    },
+    {
+      "who": "직원",
+      "korean": "생년월일 말씀해 주세요. 신분증도 보여 주세요.",
+      "meaning": "Tolong beri tahu tanggal lahir Anda. Tolong tunjukkan kartu identitas Anda juga."
+    },
+    {
+      "who": "마리아",
+      "korean": "1998년 3월 14일이에요. 외국인등록증 여기 있어요.",
+      "meaning": "Tanggal 14 Maret 1998. Ini kartu izin tinggal saya."
+    },
+    {
+      "who": "직원",
+      "korean": "감사합니다. 어디가 불편해서 오셨어요?",
+      "meaning": "Terima kasih. Apa yang membawa Anda ke sini hari ini?"
+    },
+    {
+      "who": "마리아",
+      "korean": "목이 아파서 왔어요. 열도 좀 있어요.",
+      "meaning": "Saya datang karena tenggorokan saya sakit. Saya juga sedikit demam."
+    },
+    {
+      "who": "직원",
+      "korean": "네, 앉아서 기다리세요. 이름 부르면 들어가세요.",
+      "meaning": "Baik, silakan duduk dan tunggu. Masuklah saat nama Anda dipanggil."
+    }
+  ],
+  "words": [
+    {
+      "korean": "성함",
+      "roman": "seongham",
+      "meaning": "nama (kata sopan yang digunakan staf)",
+      "example": "여기에 성함을 써 주세요.",
+      "exampleMeaning": "Tolong tulis nama Anda di sini."
+    },
+    {
+      "korean": "생년월일",
+      "roman": "saengnyeonworil",
+      "meaning": "tanggal lahir",
+      "example": "여기에 생년월일을 써 주세요.",
+      "exampleMeaning": "Tolong tulis tanggal lahir Anda di sini."
+    },
+    {
+      "korean": "신분증",
+      "roman": "sinbunjeung",
+      "meaning": "kartu identitas (tanda pengenal resmi berfoto apa pun)",
+      "example": "다음에는 신분증을 꼭 가져오세요.",
+      "exampleMeaning": "Lain kali, pastikan membawa kartu identitas Anda."
+    },
+    {
+      "korean": "외국인등록증",
+      "roman": "oegugin deungnokjeung",
+      "meaning": "kartu izin tinggal (untuk warga asing)",
+      "example": "외국인등록증을 잃어버렸어요.",
+      "exampleMeaning": "Saya kehilangan kartu izin tinggal saya."
+    },
+    {
+      "korean": "-이/가 아파서 왔어요",
+      "roman": "-i/ga apaseo wasseoyo",
+      "meaning": "Saya datang karena ... saya sakit (이 setelah konsonan, 가 setelah vokal)",
+      "example": "허리가 아파서 왔어요.",
+      "exampleMeaning": "Saya datang karena punggung bawah saya sakit."
+    },
+    {
+      "korean": "부르다",
+      "roman": "bureuda",
+      "meaning": "memanggil (nama seseorang)",
+      "example": "간호사가 제 이름을 불렀어요.",
+      "exampleMeaning": "Perawat memanggil nama saya."
+    }
+  ],
+  "task": {
+    "title": "Check in di klinik",
+    "line": "Isi bagian yang kosong atau pilih jawaban yang paling tepat."
+  },
+  "exercises": [
+    "Resepsionis bertanya '전에 오신 적 있으세요?' (Apakah Anda pernah ke sini sebelumnya?). Anda belum pernah ke sini: 아니요, ____ ____.",
+    "Tambahkan bagian tubuh dan partikel yang tepat (이 atau 가). Kaki saya (발) sakit: ____ 아파서 왔어요. / Telinga saya (귀) sakit: ____ 아파서 왔어요.",
+    "Pilih jawaban yang tepat untuk pertanyaan resepsionis '성함이 어떻게 되세요?': (a) 제임스 박이에요. (b) 스물다섯 살이에요. (c) 감기에 걸렸어요.",
+    "Isi bagian yang kosong. Resepsionis bertanya '신분증 좀 보여 주시겠어요?' Anda menyerahkan kartu izin tinggal Anda: 네, ____ 여기 있어요.",
+    "Resepsionis berkata '이름 부르면 들어가세요.' Apa yang harus Anda lakukan? (a) Masuk sekarang juga. (b) Tunggu, lalu masuk saat nama Anda dipanggil. (c) Tulis nama Anda dan pulang."
+  ],
+  "answers": [
+    "처음 왔어요",
+    "발이 / 귀가",
+    "(a) 제임스 박이에요.",
+    "외국인등록증",
+    "(b) Tunggu, lalu masuk saat nama Anda dipanggil."
+  ],
+  "category": "reallife"
+}

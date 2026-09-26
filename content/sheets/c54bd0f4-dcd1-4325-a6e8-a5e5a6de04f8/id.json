@@ -1,0 +1,133 @@
+{
+  "title": "택시에서: 가 주세요, 세워 주세요",
+  "keyword": "taxi",
+  "summary": "Mengatakan tujuan, menjawab pengemudi, meminta berhenti, dan membayar.",
+  "objective": "Gunakan '○○(으)로 가 주세요' untuk mengatakan tujuan, dan '○○ 앞에서 세워 주세요' untuk meminta berhenti.",
+  "level": "Pemula (tingkat atas)",
+  "minutes": 25,
+  "tags": [],
+  "checkThese": [],
+  "setting": "Di dalam taksi di Seoul, dari naik sampai turun.",
+  "dialogue": [
+    {
+      "who": "기사",
+      "korean": "어서 오세요. 어디로 가세요?",
+      "meaning": "Halo. Anda mau ke mana?"
+    },
+    {
+      "who": "손님",
+      "korean": "시청역 3번 출구로 가 주세요.",
+      "meaning": "Tolong ke Pintu Keluar 3 Stasiun Balai Kota."
+    },
+    {
+      "who": "기사",
+      "korean": "네. 어느 쪽으로 갈까요?",
+      "meaning": "Baik. Saya harus lewat arah mana?"
+    },
+    {
+      "who": "손님",
+      "korean": "잘 모르겠어요. 빠른 길로 가 주세요.",
+      "meaning": "Saya kurang yakin. Tolong lewat jalan tercepat."
+    },
+    {
+      "who": "기사",
+      "korean": "거의 다 왔어요. 어디에서 세워 드릴까요?",
+      "meaning": "Kita hampir sampai. Di mana saya harus berhenti?"
+    },
+    {
+      "who": "손님",
+      "korean": "저기 편의점 앞에서 세워 주세요.",
+      "meaning": "Tolong berhenti di depan minimarket di sana."
+    },
+    {
+      "who": "기사",
+      "korean": "네, 여기요. 카드로 하실 거예요?",
+      "meaning": "Baik, kita sudah sampai. Anda mau bayar dengan kartu?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 카드로 할게요.",
+      "meaning": "Ya, saya akan bayar dengan kartu."
+    },
+    {
+      "who": "기사",
+      "korean": "카드를 여기에 대 주세요. 안녕히 가세요.",
+      "meaning": "Tolong tap kartu Anda di sini. Sampai jumpa."
+    },
+    {
+      "who": "손님",
+      "korean": "감사합니다. 수고하세요.",
+      "meaning": "Terima kasih. Semoga hari Anda menyenangkan."
+    }
+  ],
+  "words": [
+    {
+      "korean": "가 주세요",
+      "roman": "ga juseyo",
+      "meaning": "tolong antar saya (ke suatu tempat)",
+      "example": "공항으로 가 주세요.",
+      "exampleMeaning": "Tolong ke bandara."
+    },
+    {
+      "korean": "세워 주세요",
+      "roman": "sewo juseyo",
+      "meaning": "tolong berhentikan (mobilnya)",
+      "example": "횡단보도 지나서 세워 주세요.",
+      "exampleMeaning": "Tolong berhenti setelah zebra cross."
+    },
+    {
+      "korean": "어느 쪽",
+      "roman": "eoneu jjok",
+      "meaning": "arah mana, sisi mana",
+      "example": "호텔 입구가 어느 쪽이에요?",
+      "exampleMeaning": "Pintu masuk hotel ada di sisi mana?"
+    },
+    {
+      "korean": "빠른 길",
+      "roman": "ppareun gil",
+      "meaning": "jalan tercepat",
+      "example": "늦었어요. 빠른 길로 가 주세요.",
+      "exampleMeaning": "Saya terlambat. Tolong lewat jalan tercepat."
+    },
+    {
+      "korean": "거의 다 왔어요",
+      "roman": "geoui da wasseoyo",
+      "meaning": "kita hampir sampai",
+      "example": "조금만 기다리세요. 거의 다 왔어요.",
+      "exampleMeaning": "Sedikit lagi. Kita hampir sampai."
+    },
+    {
+      "korean": "카드로 할게요",
+      "roman": "kadeuro halgeyo",
+      "meaning": "Saya akan bayar dengan kartu",
+      "example": "현금이 없어요. 카드로 할게요.",
+      "exampleMeaning": "Saya tidak punya uang tunai. Saya akan bayar dengan kartu."
+    },
+    {
+      "korean": "대 주세요",
+      "roman": "dae juseyo",
+      "meaning": "tolong tap (kartu di mesinnya)",
+      "example": "교통카드를 여기에 대 주세요.",
+      "exampleMeaning": "Tolong tap kartu transportasi Anda di sini."
+    }
+  ],
+  "task": {
+    "title": "Berbicara dengan pengemudi taksi",
+    "line": "Gunakan kata-kata dan percakapan di atas."
+  },
+  "exercises": [
+    "Isi bagian kosong dengan 로 atau 으로 (gunakan 로 setelah vokal atau ㄹ, dan 으로 setelah konsonan akhir lainnya): 명동____ 가 주세요. / 호텔____ 가 주세요.",
+    "Anda tidak tahu jalannya. Minta rute tercepat: 기사: 어느 쪽으로 갈까요? → 손님: 잘 모르겠어요. ____________.",
+    "Minta pengemudi berhenti di depan bank (은행): 기사: 어디에서 세워 드릴까요? → 손님: ____________.",
+    "Susun kalimat berikut dengan urutan yang benar: (a) 저기 앞에서 세워 주세요. (b) 어서 오세요. 어디로 가세요? (c) 거의 다 왔어요. (d) 서울역으로 가 주세요.",
+    "Bayar dengan tunai, bukan kartu (tunai = 현금): 기사: 카드로 하실 거예요? → 손님: 아니요, ____________."
+  ],
+  "answers": [
+    "으로 (명동으로) / 로 (호텔로)",
+    "빠른 길로 가 주세요.",
+    "은행 앞에서 세워 주세요.",
+    "(b) → (d) → (c) → (a)",
+    "현금으로 할게요."
+  ],
+  "category": "reallife"
+}

@@ -1,0 +1,133 @@
+{
+  "title": "택시에서: 가 주세요, 세워 주세요",
+  "keyword": "taxi",
+  "summary": "Nói điểm đến của bạn, trả lời tài xế, yêu cầu dừng xe, và thanh toán.",
+  "objective": "Nói điểm đến của bạn bằng '○○(으)로 가 주세요' và yêu cầu dừng xe bằng '○○ 앞에서 세워 주세요'.",
+  "level": "Sơ cấp (cao)",
+  "minutes": 25,
+  "tags": [],
+  "checkThese": [],
+  "setting": "Trong taxi ở Seoul, từ lúc lên xe đến lúc xuống xe.",
+  "dialogue": [
+    {
+      "who": "기사",
+      "korean": "어서 오세요. 어디로 가세요?",
+      "meaning": "Xin chào. Anh/chị đi đâu ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "시청역 3번 출구로 가 주세요.",
+      "meaning": "Làm ơn đến Cổng 3 ga City Hall."
+    },
+    {
+      "who": "기사",
+      "korean": "네. 어느 쪽으로 갈까요?",
+      "meaning": "Vâng. Tôi nên đi đường nào ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "잘 모르겠어요. 빠른 길로 가 주세요.",
+      "meaning": "Tôi không chắc lắm. Làm ơn đi đường nhanh nhất."
+    },
+    {
+      "who": "기사",
+      "korean": "거의 다 왔어요. 어디에서 세워 드릴까요?",
+      "meaning": "Sắp đến nơi rồi. Tôi nên dừng ở đâu ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "저기 편의점 앞에서 세워 주세요.",
+      "meaning": "Làm ơn dừng trước cửa hàng tiện lợi phía trước kia."
+    },
+    {
+      "who": "기사",
+      "korean": "네, 여기요. 카드로 하실 거예요?",
+      "meaning": "Vâng, đến nơi rồi. Anh/chị sẽ trả bằng thẻ chứ ạ?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 카드로 할게요.",
+      "meaning": "Vâng, tôi sẽ trả bằng thẻ."
+    },
+    {
+      "who": "기사",
+      "korean": "카드를 여기에 대 주세요. 안녕히 가세요.",
+      "meaning": "Làm ơn quẹt thẻ ở đây. Tạm biệt."
+    },
+    {
+      "who": "손님",
+      "korean": "감사합니다. 수고하세요.",
+      "meaning": "Cảm ơn. Chúc một ngày tốt lành."
+    }
+  ],
+  "words": [
+    {
+      "korean": "가 주세요",
+      "roman": "ga juseyo",
+      "meaning": "làm ơn đưa tôi đến (một nơi nào đó)",
+      "example": "공항으로 가 주세요.",
+      "exampleMeaning": "Làm ơn đưa tôi đến sân bay."
+    },
+    {
+      "korean": "세워 주세요",
+      "roman": "sewo juseyo",
+      "meaning": "làm ơn dừng xe",
+      "example": "횡단보도 지나서 세워 주세요.",
+      "exampleMeaning": "Làm ơn dừng xe sau vạch qua đường."
+    },
+    {
+      "korean": "어느 쪽",
+      "roman": "eoneu jjok",
+      "meaning": "hướng nào, phía nào",
+      "example": "호텔 입구가 어느 쪽이에요?",
+      "exampleMeaning": "Lối vào khách sạn ở phía nào?"
+    },
+    {
+      "korean": "빠른 길",
+      "roman": "ppareun gil",
+      "meaning": "đường nhanh nhất",
+      "example": "늦었어요. 빠른 길로 가 주세요.",
+      "exampleMeaning": "Tôi bị trễ rồi. Làm ơn đi đường nhanh nhất."
+    },
+    {
+      "korean": "거의 다 왔어요",
+      "roman": "geoui da wasseoyo",
+      "meaning": "sắp đến nơi rồi",
+      "example": "조금만 기다리세요. 거의 다 왔어요.",
+      "exampleMeaning": "Chỉ một chút nữa thôi. Sắp đến nơi rồi."
+    },
+    {
+      "korean": "카드로 할게요",
+      "roman": "kadeuro halgeyo",
+      "meaning": "Tôi sẽ trả bằng thẻ",
+      "example": "현금이 없어요. 카드로 할게요.",
+      "exampleMeaning": "Tôi không có tiền mặt. Tôi sẽ trả bằng thẻ."
+    },
+    {
+      "korean": "대 주세요",
+      "roman": "dae juseyo",
+      "meaning": "làm ơn quẹt thẻ (lên máy đọc)",
+      "example": "교통카드를 여기에 대 주세요.",
+      "exampleMeaning": "Làm ơn quẹt thẻ giao thông ở đây."
+    }
+  ],
+  "task": {
+    "title": "Nói chuyện với tài xế taxi",
+    "line": "Sử dụng các từ và đoạn hội thoại ở trên."
+  },
+  "exercises": [
+    "Điền vào chỗ trống bằng 로 hoặc 으로 (dùng 로 sau nguyên âm hoặc ㄹ, và 으로 sau các phụ âm cuối khác): 명동____ 가 주세요. / 호텔____ 가 주세요.",
+    "Bạn không biết đường. Hãy yêu cầu đi đường nhanh nhất: 기사: 어느 쪽으로 갈까요? → 손님: 잘 모르겠어요. ____________.",
+    "Yêu cầu tài xế dừng trước ngân hàng (은행): 기사: 어디에서 세워 드릴까요? → 손님: ____________.",
+    "Sắp xếp các câu theo đúng thứ tự: (a) 저기 앞에서 세워 주세요. (b) 어서 오세요. 어디로 가세요? (c) 거의 다 왔어요. (d) 서울역으로 가 주세요.",
+    "Trả bằng tiền mặt, không phải bằng thẻ (tiền mặt = 현금): 기사: 카드로 하실 거예요? → 손님: 아니요, ____________."
+  ],
+  "answers": [
+    "으로 (명동으로) / 로 (호텔로)",
+    "빠른 길로 가 주세요.",
+    "은행 앞에서 세워 주세요.",
+    "(b) → (d) → (c) → (a)",
+    "현금으로 할게요."
+  ],
+  "category": "reallife"
+}

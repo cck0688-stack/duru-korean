@@ -1,0 +1,138 @@
+{
+  "title": "목적 말하기: -(으)러 가다/오다",
+  "keyword": "purpose",
+  "summary": "Ungkapkan alasan kamu pergi atau datang ke suatu tempat dengan V-(으)러 가다/오다/다니다.",
+  "objective": "Ungkapkan alasan kamu pergi atau datang ke suatu tempat dengan V-(으)러 가다/오다/다니다, buat bentuk yang tepat untuk setiap jenis batang kata kerja, dan hindari tiga kesalahan umum.",
+  "level": "Pemula",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "V + -러 (batang kata kerja berakhir dengan vokal)",
+      "when": "Batang kata kerja berakhir dengan vokal: 보다 → 보러, 쉬다 → 쉬러, 공부하다 → 공부하러",
+      "means": "pergi/datang (untuk) melakukan V",
+      "example": "주말에 영화 보러 가요.",
+      "exampleMeaning": "Aku akan pergi menonton film akhir pekan ini.",
+      "mark": [
+        "보러"
+      ]
+    },
+    {
+      "form": "V + -으러 (batang kata kerja berakhir dengan konsonan)",
+      "when": "Batang kata kerja berakhir dengan konsonan (bukan ㄹ): 먹다 → 먹으러, 읽다 → 읽으러, 찾다 → 찾으러",
+      "means": "pergi/datang (untuk) melakukan V",
+      "example": "점심 먹으러 같이 가요.",
+      "exampleMeaning": "Ayo kita pergi makan siang bersama.",
+      "mark": [
+        "먹으러"
+      ]
+    },
+    {
+      "form": "Batang kata kerja ㄹ + -러",
+      "when": "Batang kata kerja berakhir dengan ㄹ. Tambahkan hanya -러, bukan -으러: 놀다 → 놀러, 만들다 → 만들러",
+      "means": "pergi/datang (untuk) melakukan V",
+      "example": "친구가 우리 집에 놀러 왔어요.",
+      "exampleMeaning": "Temanku datang ke rumahku untuk bermain.",
+      "mark": [
+        "놀러"
+      ]
+    },
+    {
+      "form": "Tidak beraturan ㄷ: ㄷ → ㄹ + -으러",
+      "when": "Beberapa kata kerja yang berakhir dengan ㄷ (듣다, 걷다, 묻다) mengubah ㄷ menjadi ㄹ, lalu menambahkan -으러: 듣다 → 들으러",
+      "means": "pergi/datang (untuk) melakukan V",
+      "example": "음악 들으러 콘서트에 가요.",
+      "exampleMeaning": "Aku akan pergi ke konser untuk mendengarkan musik.",
+      "mark": [
+        "들으러"
+      ]
+    },
+    {
+      "form": "Tidak beraturan ㅂ: ㅂ → 우 + -러",
+      "when": "Beberapa kata kerja yang berakhir dengan ㅂ (돕다, 줍다, 굽다) mengubah ㅂ menjadi 우, lalu menambahkan -러: 돕다 → 도우러",
+      "means": "pergi/datang (untuk) melakukan V",
+      "example": "할머니를 도우러 시골에 가요.",
+      "exampleMeaning": "Aku akan pergi ke desa untuk membantu nenekku.",
+      "mark": [
+        "도우러"
+      ]
+    },
+    {
+      "form": "V-(으)러 오다",
+      "when": "Gunakan 오다 saat kamu sudah berada di tempat itu, atau saat seseorang datang ke tempat kamu berada.",
+      "means": "datang (ke sini) untuk melakukan V",
+      "example": "소포 찾으러 왔어요.",
+      "exampleMeaning": "(Di kantor pos) Aku datang untuk mengambil paket.",
+      "mark": [
+        "찾으러 왔어요"
+      ]
+    },
+    {
+      "form": "V-(으)러 다니다",
+      "when": "Gunakan 다니다 saat kamu pergi ke suatu tempat secara rutin, misalnya setiap minggu.",
+      "means": "rutin pergi (ke suatu tempat) untuk melakukan V",
+      "example": "수영 배우러 수영장에 다녀요.",
+      "exampleMeaning": "Aku pergi ke kolam renang untuk belajar berenang.",
+      "mark": [
+        "배우러",
+        "다녀요"
+      ]
+    }
+  ],
+  "watchOut": [
+    "공부하러 도서관에서 앉아요 (X) → 공부하러 도서관에 가요 (O): Setelah -(으)러, gunakan kata kerja pergerakan: 가다, 오다 atau 다니다. Gunakan partikel 에 untuk tempat yang kamu tuju.",
+    "은행에 가러 가요 (X) → 돈 찾으러 은행에 가요 (O): Jangan letakkan 가다 atau 오다 sebelum -러. Gunakan kata kerja untuk apa yang akan kamu lakukan di sana.",
+    "예쁘러 미용실에 가요 (X) → 머리 자르러 미용실에 가요 (O): -(으)러 hanya berlaku untuk kata kerja tindakan. Kamu tidak dapat menggunakannya dengan kata sifat seperti 예쁘다 atau 좋다.",
+    "놀으러 (X) → 놀러 (O): Batang kata kerja yang berakhir dengan ㄹ hanya menggunakan -러, tidak pernah -으러.",
+    "듣으러 (X) → 들으러 (O): Pada 듣다, 걷다 dan 묻다, ㄷ berubah menjadi ㄹ sebelum -으러.",
+    "돕으러 (X) → 도우러 (O): Pada 돕다, 줍다 dan 굽다, ㅂ berubah menjadi 우. Kemudian tambahkan -러."
+  ],
+  "watchOutMark": [
+    [
+      "앉아요",
+      "가요"
+    ],
+    [
+      "가러",
+      "찾으러"
+    ],
+    [
+      "예쁘러",
+      "자르러"
+    ],
+    [
+      "놀으러",
+      "놀러"
+    ],
+    [
+      "듣으러",
+      "들으러"
+    ],
+    [
+      "돕으러",
+      "도우러"
+    ]
+  ],
+  "task": {
+    "title": "Gunakan -(으)러 dengan benar",
+    "line": "Tulis bentuk -(으)러 dari kata kerja yang diberikan, atau pilih satu kalimat yang benar."
+  },
+  "exercises": [
+    "Isi bagian yang kosong dengan 사다 (membeli) + -(으)러: 마트에 과일을 ____ 가요.",
+    "Isi bagian yang kosong dengan 찍다 (mengambil foto) + -(으)러: 공원에 사진을 ____ 갔어요.",
+    "Isi bagian yang kosong dengan 팔다 (menjual) + -(으)러: 안 읽는 책을 ____ 서점에 가요.",
+    "Isi bagian yang kosong dengan 걷다 (berjalan) + -(으)러: 저녁을 먹고 공원에 ____ 가요.",
+    "Isi bagian yang kosong dengan 줍다 (memungut) + -(으)러: 주말에 바닷가에 쓰레기를 ____ 가요.",
+    "Pilih satu kalimat yang benar: (a) 운동하러 체육관에서 뛰어요. (b) 운동하러 체육관에 다녀요. (c) 체육관에 가러 가요. (d) 건강하러 체육관에 가요."
+  ],
+  "answers": [
+    "사러",
+    "찍으러",
+    "팔러",
+    "걸으러",
+    "주우러",
+    "(b) 운동하러 체육관에 다녀요."
+  ],
+  "category": "grammar"
+}
