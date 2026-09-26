@@ -46,7 +46,11 @@
     // â, ê and ô are left out: Portuguese writes them too (você, câmera).
     { code: 'vi', re: /[ăđơư]|[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i },
     { code: 'pt-BR', re: /[ãõ]|ç[aou]/i },
-    { code: 'es', re: /[ñ¿¡]/ }
+    { code: 'es', re: /[ñ¿¡]/ },
+    // German's umlauts and ß; French's œ, ë, ï, è, ù — marks Spanish
+    // and Portuguese do not write.
+    { code: 'de', re: /[ßäöü]/i },
+    { code: 'fr', re: /[œëïèùû]/i }
   ];
 
   // Words common enough to appear in almost any paragraph, and rare or
@@ -57,7 +61,9 @@
     id: ['yang', 'dan', 'saya', 'tidak', 'untuk', 'dengan', 'ini', 'itu', 'ada', 'bisa', 'juga', 'kalau', 'sudah', 'akan'],
     es: ['que', 'de', 'la', 'el', 'en', 'los', 'una', 'por', 'con', 'para', 'pero', 'como', 'muy', 'cuando'],
     'pt-BR': ['que', 'de', 'não', 'uma', 'com', 'para', 'mas', 'como', 'muito', 'quando', 'você', 'está', 'são', 'também'],
-    vi: ['và', 'là', 'của', 'có', 'không', 'được', 'trong', 'người', 'này', 'cho', 'một', 'những', 'tôi', 'rất']
+    vi: ['và', 'là', 'của', 'có', 'không', 'được', 'trong', 'người', 'này', 'cho', 'một', 'những', 'tôi', 'rất'],
+    fr: ['le', 'les', 'et', 'est', 'une', 'des', 'pas', 'pour', 'avec', 'je', 'vous', 'nous', 'dans', 'mais'],
+    de: ['und', 'ist', 'nicht', 'der', 'das', 'ich', 'sie', 'mit', 'auch', 'ein', 'eine', 'zu', 'sehr', 'aber']
   };
 
   function words(text) {

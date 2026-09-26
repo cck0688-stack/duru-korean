@@ -89,8 +89,14 @@ function headPrint(post) {
 // anyway, and a missing translation is easier to explain than a
 // mangled one.
 export async function translateDraft(cfg, post, onProgress) {
+  return translateInto(cfg, post, targetsFor(post.lang || 'ko'), onProgress);
+}
+
+// The same, into the languages named only — a language the site adds
+// later is filled in on the posts already written without translating
+// the others again.
+export async function translateInto(cfg, post, targets, onProgress) {
   const from = post.lang || 'ko';
-  const targets = targetsFor(from);
   const sentences = MT.sentences(post.body);
   if (!sentences.length || !targets.length) return {};
 

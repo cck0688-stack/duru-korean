@@ -24,15 +24,14 @@
     { code: 'pt-BR', label: 'Português (BR)', short: 'PT' },
     { code: 'ko', label: '한국어', short: 'KO' },
     { code: 'ja', label: '日本語', short: 'JA' },
-    { code: 'zh', label: '中文', short: 'ZH' }
-  ];
-  // The languages a download's files come in: the site's eight, and two
-  // the site itself does not speak yet (2026-09-25). Files only — the
-  // blog, the site picker and the title translations stay on LANGS.
-  var FILE_LANGS = LANGS.concat([
+    { code: 'zh', label: '中文', short: 'ZH' },
     { code: 'fr', label: 'Français', short: 'FR' },
     { code: 'de', label: 'Deutsch', short: 'DE' }
-  ]);
+  ];
+  // The languages a download's files come in: the same ten as the site
+  // (French and German joined both on 2026-09-26).
+  var FILE_LANGS = LANGS.slice();
+
   // The shelves, in the order they are shown. This is the one list:
   // the cards on the downloads page, the picker in the admin editor and
   // the label on a resource page all read it, so adding a shelf is

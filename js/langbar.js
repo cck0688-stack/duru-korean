@@ -50,7 +50,9 @@
     'pt-BR': { line: 'Esta página está disponível em português.', go: 'Ver em português' },
     ko: { line: '이 페이지는 한국어로도 볼 수 있습니다.', go: '한국어로 보기' },
     ja: { line: 'このサイトは日本語でご覧いただけます。', go: '日本語で見る' },
-    zh: { line: '本站有中文版。', go: '用中文浏览' }
+    zh: { line: '本站有中文版。', go: '用中文浏览' },
+    fr: { line: 'Cette page est disponible en français.', go: 'Voir en français' },
+    de: { line: 'Diese Seite gibt es auch auf Deutsch.', go: 'Auf Deutsch ansehen' }
   };
 
   // A browser says "pt-PT", "zh-Hant-TW", "en-GB". Only the part before
@@ -99,7 +101,7 @@
   function askedFor() {
     // A language in the address (/vi/…) or an older ?lang= link: the
     // visitor came for that language on purpose.
-    if (/^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/.test(window.location.pathname)) return true;
+    if (/^\/(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)(?=\/|$)/.test(window.location.pathname)) return true;
     try { return !!new URLSearchParams(window.location.search).get('lang'); } catch (e) { return false; }
   }
 

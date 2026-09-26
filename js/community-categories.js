@@ -17,7 +17,7 @@
   // The language in the address this page was opened under (/vi/…), so
   // that the addresses built here stay in it.
   function langPrefix() {
-    var m = /^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/.exec(window.location.pathname);
+    var m = /^\/(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)(?=\/|$)/.exec(window.location.pathname);
     return m ? '/' + m[1] : '';
   }
 
@@ -75,7 +75,7 @@
     route: function (pathname, search) {
       // /vi/blog/post/x is /blog/post/x in Vietnamese: the language is
       // js/i18n.js's business, the route is what follows it.
-      pathname = String(pathname || '').replace(/^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/, '') || '/';
+      pathname = String(pathname || '').replace(/^\/(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)(?=\/|$)/, '') || '/';
       var m = /^\/community\/([^/]+)\/?$/.exec(pathname || '');
       if (m) return { cat: decodeURIComponent(m[1]) };
       return { cat: new URLSearchParams(search || '').get('cat') || '' };

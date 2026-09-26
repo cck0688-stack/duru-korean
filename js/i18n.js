@@ -29,7 +29,9 @@
     { code: 'pt-BR', label: 'Português (BR)' },
     { code: 'ko', label: '한국어' },
     { code: 'ja', label: '日本語' },
-    { code: 'zh', label: '中文' }
+    { code: 'zh', label: '中文' },
+    { code: 'fr', label: 'Français' },
+    { code: 'de', label: 'Deutsch' }
   ];
   var VALID_CODES = LANGS.map(function (l) { return l.code; });
 

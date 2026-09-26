@@ -1,0 +1,68 @@
+# DURU KOREAN — French and German for the blog posts already written
+#
+# On demand (scripts/add-languages.mjs): each post's sentence-by-sentence
+# translation and its "words to know" list, filled in for the languages
+# the site added later. Publishes nothing; run again and it only does
+# what is still missing.
+
+name: Add languages to the blog
+
+on:
+  workflow_dispatch:
+    inputs:
+      langs:
+        description: 'Languages to fill in, separated by commas'
+        type: string
+        default: 'fr,de'
+      limit:
+        description: 'Only the newest N posts (empty = all)'
+        type: string
+        default: ''
+      dry_run:
+        description: 'Translate and report, save nothing'
+        type: boolean
+        default: false
+
+concurrency:
+  group: add-languages
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Translate
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          # Through the environment, never pasted into the command line.
+          LANGS: ${{ inputs.langs }}
+          LIMIT: ${{ inputs.limit }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          args=(--langs="$LANGS")
+          if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          node scripts/add-languages.mjs "${args[@]}"

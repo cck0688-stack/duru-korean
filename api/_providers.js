@@ -36,7 +36,8 @@ async function anthropicSDK() {
   return AnthropicSDK;
 }
 
-// The site's eight languages, named as a translator should name them.
+// The site's ten languages, named as a translator should name them
+// (French and German joined on 2026-09-26).
 export const LANGUAGES = {
   en: 'English',
   vi: 'Vietnamese',
@@ -45,13 +46,13 @@ export const LANGUAGES = {
   'pt-BR': 'Brazilian Portuguese',
   ko: 'Korean',
   ja: 'Japanese',
-  zh: 'Simplified Chinese'
+  zh: 'Simplified Chinese',
+  fr: 'French',
+  de: 'German'
 };
 
-// Every language something can be translated into: the site's eight,
-// plus the two the downloads are also made in (2026-09-25). LANGUAGES
-// stays the list the site accepts and serves; this one only names.
-export const LANGUAGE_NAMES = Object.assign({}, LANGUAGES, { fr: 'French', de: 'German' });
+// The same ten; the name the worksheet scripts import.
+export const LANGUAGE_NAMES = LANGUAGES;
 
 export class TranslateError extends Error {
   constructor(status, message) {

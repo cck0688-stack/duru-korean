@@ -993,7 +993,7 @@ alter table public.posts
 alter table public.posts drop constraint if exists posts_lang_check;
 alter table public.posts
   add constraint posts_lang_check
-  check (lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh'));
+  check (lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de'));
 
 create index if not exists posts_lang_idx on public.posts (lang);
 
@@ -1593,7 +1593,7 @@ alter table public.stories
 alter table public.stories drop constraint if exists stories_lang_check;
 alter table public.stories
   add constraint stories_lang_check
-  check (lang is null or lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh'));
+  check (lang is null or lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de'));
 
 alter table public.stories
   add column if not exists mt jsonb not null default '{}'::jsonb;
@@ -1664,7 +1664,7 @@ begin
     return false;
   end if;
 
-  if p_lang not in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh') then
+  if p_lang not in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de') then
     return false;
   end if;
   if p_body is null or char_length(p_body) > 20000 then
@@ -2255,3 +2255,68 @@ alter table public.resources add column if not exists keyword text;
 alter table public.resources drop constraint if exists resources_keyword_check;
 alter table public.resources
   add constraint resources_keyword_check check (keyword is null or keyword ~ '^[a-z0-9]{1,20}$');
+
+-- 42. French and German join the site (2026-09-26) -------------------
+-- The site is read in ten languages now: posts and guestbook entries
+-- may be written in French or German, and a reader's translation into
+-- either is cached like the other eight.
+alter table public.posts drop constraint if exists posts_lang_check;
+alter table public.posts
+  add constraint posts_lang_check
+  check (lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de'));
+
+alter table public.stories drop constraint if exists stories_lang_check;
+alter table public.stories
+  add constraint stories_lang_check
+  check (lang is null or lang in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de'));
+
+create or replace function public.cache_story_translation(
+  p_secret text,
+  p_id uuid,
+  p_lang text,
+  p_body text,
+  p_hash text,
+  p_engine text
+) returns boolean
+language plpgsql
+volatile
+security definer
+set search_path = public
+as $$
+declare
+  v_secret text;
+begin
+  select value into v_secret from public.app_secrets where name = 'translate_cache';
+  -- No secret configured, or the wrong one: say no and write nothing.
+  -- The answer is the same either way, so a caller cannot tell a site
+  -- that has no secret from one whose secret they guessed wrong.
+  if v_secret is null or p_secret is null or v_secret <> p_secret then
+    return false;
+  end if;
+
+  if p_lang not in ('en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de') then
+    return false;
+  end if;
+  if p_body is null or char_length(p_body) > 20000 then
+    return false;
+  end if;
+
+  update public.stories
+     set mt = coalesce(mt, '{}'::jsonb) || jsonb_build_object(
+           p_lang,
+           jsonb_build_object(
+             'body', p_body,
+             'hash', coalesce(p_hash, ''),
+             'engine', left(coalesce(p_engine, ''), 80),
+             'at', to_char(now() at time zone 'utc', 'YYYY-MM-DD"T"HH24:MI:SS"Z"')
+           )
+         )
+   where id = p_id;
+
+  return found;
+end;
+$$;
+
+revoke all on function public.cache_story_translation(text, uuid, text, text, text, text) from public;
+grant execute on function public.cache_story_translation(text, uuid, text, text, text, text)
+  to anon, authenticated;

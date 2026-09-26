@@ -28,7 +28,7 @@ const HOST = 'www.durukorean.com';
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co').replace(/\/+$/, '');
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
-const LANGS = ['en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh'];
+const LANGS = ['en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de'];
 const PAGES = ['/', '/learning-korean.html', '/book-resources.html', '/free-resources.html',
   '/blog.html', '/stories.html', '/about.html', '/faq.html'];
 

@@ -15,7 +15,7 @@
       "permanent": true
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/resource.html",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/resource.html",
       "has": [
         {
           "type": "query",
@@ -57,39 +57,39 @@
       "destination": "/api/render?kind=resource&id=:id"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)",
       "destination": "/api/render?kind=page&lang=:lang&page=index.html"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/blog",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/blog",
       "destination": "/api/render?kind=page&lang=:lang&page=blog.html"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/blog/post/:slug",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/blog/post/:slug",
       "destination": "/api/render?kind=post&lang=:lang&slug=:slug"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/blog/:cat",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/blog/:cat",
       "destination": "/api/render?kind=page&lang=:lang&page=blog.html"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/community",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/community",
       "destination": "/api/render?kind=page&lang=:lang&page=stories.html"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/community/:cat",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/community/:cat",
       "destination": "/api/render?kind=page&lang=:lang&page=stories.html"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/resource/:id",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/resource/:id",
       "destination": "/api/render?kind=resource&lang=:lang&id=:id"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/:page(about\\.html|learning-korean\\.html|book-resources\\.html|free-resources\\.html|blog\\.html|stories\\.html|faq\\.html|privacy\\.html|terms\\.html|resource\\.html|search\\.html|index\\.html)",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/:page(about\\.html|learning-korean\\.html|book-resources\\.html|free-resources\\.html|blog\\.html|stories\\.html|faq\\.html|privacy\\.html|terms\\.html|resource\\.html|search\\.html|index\\.html)",
       "destination": "/api/render?kind=page&lang=:lang&page=:page"
     },
     {
-      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh)/:path*",
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/:path*",
       "destination": "/:path*"
     }
   ],
