@@ -1,0 +1,138 @@
+{
+  "title": "목적 말하기: -(으)러 가다/오다",
+  "keyword": "purpose",
+  "summary": "Nói lý do bạn đi hoặc đến đâu đó bằng V-(으)러 가다/오다/다니다.",
+  "objective": "Nói lý do bạn đi hoặc đến đâu đó bằng V-(으)러 가다/오다/다니다, tạo đúng hình thức cho mọi loại thân động từ, và tránh ba lỗi thường gặp.",
+  "level": "Sơ cấp",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "V + -러 (thân từ kết thúc bằng nguyên âm)",
+      "when": "Thân động từ kết thúc bằng nguyên âm: 보다 → 보러, 쉬다 → 쉬러, 공부하다 → 공부하러",
+      "means": "đi/đến (để) làm V",
+      "example": "주말에 영화 보러 가요.",
+      "exampleMeaning": "Cuối tuần này tôi đi xem phim.",
+      "mark": [
+        "보러"
+      ]
+    },
+    {
+      "form": "V + -으러 (thân từ kết thúc bằng phụ âm)",
+      "when": "Thân động từ kết thúc bằng phụ âm (không phải ㄹ): 먹다 → 먹으러, 읽다 → 읽으러, 찾다 → 찾으러",
+      "means": "đi/đến (để) làm V",
+      "example": "점심 먹으러 같이 가요.",
+      "exampleMeaning": "Chúng ta cùng đi ăn trưa nhé.",
+      "mark": [
+        "먹으러"
+      ]
+    },
+    {
+      "form": "Thân từ kết thúc bằng ㄹ + -러",
+      "when": "Thân từ kết thúc bằng ㄹ. Chỉ thêm -러, không thêm -으러: 놀다 → 놀러, 만들다 → 만들러",
+      "means": "đi/đến (để) làm V",
+      "example": "친구가 우리 집에 놀러 왔어요.",
+      "exampleMeaning": "Bạn tôi đến nhà tôi chơi.",
+      "mark": [
+        "놀러"
+      ]
+    },
+    {
+      "form": "Bất quy tắc ㄷ: ㄷ → ㄹ + -으러",
+      "when": "Một số động từ kết thúc bằng ㄷ (듣다, 걷다, 묻다) đổi ㄷ thành ㄹ, rồi thêm -으러: 듣다 → 들으러",
+      "means": "đi/đến (để) làm V",
+      "example": "음악 들으러 콘서트에 가요.",
+      "exampleMeaning": "Tôi đi xem hòa nhạc để nghe nhạc.",
+      "mark": [
+        "들으러"
+      ]
+    },
+    {
+      "form": "Bất quy tắc ㅂ: ㅂ → 우 + -러",
+      "when": "Một số động từ kết thúc bằng ㅂ (돕다, 줍다, 굽다) đổi ㅂ thành 우, rồi thêm -러: 돕다 → 도우러",
+      "means": "đi/đến (để) làm V",
+      "example": "할머니를 도우러 시골에 가요.",
+      "exampleMeaning": "Tôi về quê để giúp bà.",
+      "mark": [
+        "도우러"
+      ]
+    },
+    {
+      "form": "V-(으)러 오다",
+      "when": "Dùng 오다 khi bạn đã ở tại địa điểm đó, hoặc khi ai đó đến nơi bạn đang ở.",
+      "means": "đến (đây) để làm V",
+      "example": "소포 찾으러 왔어요.",
+      "exampleMeaning": "(Tại bưu điện) Tôi đến để nhận bưu kiện.",
+      "mark": [
+        "찾으러 왔어요"
+      ]
+    },
+    {
+      "form": "V-(으)러 다니다",
+      "when": "Dùng 다니다 khi bạn thường xuyên đi đâu đó, ví dụ mỗi tuần.",
+      "means": "thường xuyên đi (đâu đó) để làm V",
+      "example": "수영 배우러 수영장에 다녀요.",
+      "exampleMeaning": "Tôi thường xuyên đến hồ bơi để học bơi.",
+      "mark": [
+        "배우러",
+        "다녀요"
+      ]
+    }
+  ],
+  "watchOut": [
+    "공부하러 도서관에서 앉아요 (Sai) → 공부하러 도서관에 가요 (Đúng): Sau -(으)러, dùng động từ chỉ sự di chuyển: 가다, 오다 hoặc 다니다. Dùng trợ từ 에 cho nơi bạn đến.",
+    "은행에 가러 가요 (Sai) → 돈 찾으러 은행에 가요 (Đúng): Đừng đặt 가다 hoặc 오다 trước -러. Hãy dùng động từ chỉ việc bạn sẽ làm ở đó.",
+    "예쁘러 미용실에 가요 (Sai) → 머리 자르러 미용실에 가요 (Đúng): -(으)러 chỉ dùng được với động từ hành động. Bạn không thể dùng nó với tính từ như 예쁘다 hay 좋다.",
+    "놀으러 (Sai) → 놀러 (Đúng): Thân từ kết thúc bằng ㄹ chỉ nhận -러, không bao giờ nhận -으러.",
+    "듣으러 (Sai) → 들으러 (Đúng): Trong 듣다, 걷다 và 묻다, ㄷ đổi thành ㄹ trước -으러.",
+    "돕으러 (Sai) → 도우러 (Đúng): Trong 돕다, 줍다 và 굽다, ㅂ đổi thành 우. Sau đó thêm -러."
+  ],
+  "watchOutMark": [
+    [
+      "앉아요",
+      "가요"
+    ],
+    [
+      "가러",
+      "찾으러"
+    ],
+    [
+      "예쁘러",
+      "자르러"
+    ],
+    [
+      "놀으러",
+      "놀러"
+    ],
+    [
+      "듣으러",
+      "들으러"
+    ],
+    [
+      "돕으러",
+      "도우러"
+    ]
+  ],
+  "task": {
+    "title": "Dùng đúng -(으)러",
+    "line": "Viết dạng -(으)러 của động từ đã cho, hoặc chọn câu đúng duy nhất."
+  },
+  "exercises": [
+    "Điền vào chỗ trống bằng 사다 (mua) + -(으)러: 마트에 과일을 ____ 가요.",
+    "Điền vào chỗ trống bằng 찍다 (chụp ảnh) + -(으)러: 공원에 사진을 ____ 갔어요.",
+    "Điền vào chỗ trống bằng 팔다 (bán) + -(으)러: 안 읽는 책을 ____ 서점에 가요.",
+    "Điền vào chỗ trống bằng 걷다 (đi bộ) + -(으)러: 저녁을 먹고 공원에 ____ 가요.",
+    "Điền vào chỗ trống bằng 줍다 (nhặt) + -(으)러: 주말에 바닷가에 쓰레기를 ____ 가요.",
+    "Chọn câu đúng duy nhất: (a) 운동하러 체육관에서 뛰어요. (b) 운동하러 체육관에 다녀요. (c) 체육관에 가러 가요. (d) 건강하러 체육관에 가요."
+  ],
+  "answers": [
+    "사러",
+    "찍으러",
+    "팔러",
+    "걸으러",
+    "주우러",
+    "(b) 운동하러 체육관에 다녀요."
+  ],
+  "category": "grammar"
+}

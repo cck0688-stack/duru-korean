@@ -1,0 +1,138 @@
+{
+  "title": "목적 말하기: -(으)러 가다/오다",
+  "keyword": "purpose",
+  "summary": "Exprimez pourquoi vous allez ou venez quelque part avec V-(으)러 가다/오다/다니다.",
+  "objective": "Exprimez pourquoi vous allez ou venez quelque part avec V-(으)러 가다/오다/다니다, formez correctement chaque type de radical verbal, et évitez trois erreurs courantes.",
+  "level": "Débutant",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "V + -러 (le radical se termine par une voyelle)",
+      "when": "Le radical du verbe se termine par une voyelle : 보다 → 보러, 쉬다 → 쉬러, 공부하다 → 공부하러",
+      "means": "aller/venir (pour) faire V",
+      "example": "주말에 영화 보러 가요.",
+      "exampleMeaning": "Je vais voir un film ce week-end.",
+      "mark": [
+        "보러"
+      ]
+    },
+    {
+      "form": "V + -으러 (le radical se termine par une consonne)",
+      "when": "Le radical du verbe se termine par une consonne (autre que ㄹ) : 먹다 → 먹으러, 읽다 → 읽으러, 찾다 → 찾으러",
+      "means": "aller/venir (pour) faire V",
+      "example": "점심 먹으러 같이 가요.",
+      "exampleMeaning": "Allons manger le déjeuner ensemble.",
+      "mark": [
+        "먹으러"
+      ]
+    },
+    {
+      "form": "Radical en ㄹ + -러",
+      "when": "Le radical se termine par ㄹ. Ajoutez seulement -러, pas -으러 : 놀다 → 놀러, 만들다 → 만들러",
+      "means": "aller/venir (pour) faire V",
+      "example": "친구가 우리 집에 놀러 왔어요.",
+      "exampleMeaning": "Mon ami est venu chez moi pour passer du temps.",
+      "mark": [
+        "놀러"
+      ]
+    },
+    {
+      "form": "Irrégulier en ㄷ : ㄷ → ㄹ + -으러",
+      "when": "Certains verbes se terminant par ㄷ (듣다, 걷다, 묻다) changent le ㄷ en ㄹ, puis ajoutent -으러 : 듣다 → 들으러",
+      "means": "aller/venir (pour) faire V",
+      "example": "음악 들으러 콘서트에 가요.",
+      "exampleMeaning": "Je vais à un concert pour écouter de la musique.",
+      "mark": [
+        "들으러"
+      ]
+    },
+    {
+      "form": "Irrégulier en ㅂ : ㅂ → 우 + -러",
+      "when": "Certains verbes se terminant par ㅂ (돕다, 줍다, 굽다) changent le ㅂ en 우, puis ajoutent -러 : 돕다 → 도우러",
+      "means": "aller/venir (pour) faire V",
+      "example": "할머니를 도우러 시골에 가요.",
+      "exampleMeaning": "Je vais à la campagne pour aider ma grand-mère.",
+      "mark": [
+        "도우러"
+      ]
+    },
+    {
+      "form": "V-(으)러 오다",
+      "when": "Utilisez 오다 quand vous êtes déjà à l'endroit, ou quand quelqu'un vient là où vous êtes.",
+      "means": "venir (ici) pour faire V",
+      "example": "소포 찾으러 왔어요.",
+      "exampleMeaning": "(Au bureau de poste) Je suis venu(e) chercher un colis.",
+      "mark": [
+        "찾으러 왔어요"
+      ]
+    },
+    {
+      "form": "V-(으)러 다니다",
+      "when": "Utilisez 다니다 quand vous allez quelque part régulièrement, par exemple chaque semaine.",
+      "means": "aller régulièrement (quelque part) pour faire V",
+      "example": "수영 배우러 수영장에 다녀요.",
+      "exampleMeaning": "Je vais à la piscine pour apprendre à nager.",
+      "mark": [
+        "배우러",
+        "다녀요"
+      ]
+    }
+  ],
+  "watchOut": [
+    "공부하러 도서관에서 앉아요 (X) → 공부하러 도서관에 가요 (O) : Après -(으)러, utilisez un verbe de mouvement : 가다, 오다 ou 다니다. Utilisez la particule 에 pour indiquer l'endroit où vous allez.",
+    "은행에 가러 가요 (X) → 돈 찾으러 은행에 가요 (O) : Ne mettez pas 가다 ou 오다 devant -러. Utilisez le verbe qui décrit ce que vous allez y faire.",
+    "예쁘러 미용실에 가요 (X) → 머리 자르러 미용실에 가요 (O) : -(으)러 fonctionne uniquement avec des verbes d'action. Vous ne pouvez pas l'utiliser avec des adjectifs comme 예쁘다 ou 좋다.",
+    "놀으러 (X) → 놀러 (O) : Les radicaux se terminant par ㄹ prennent seulement -러, jamais -으러.",
+    "듣으러 (X) → 들으러 (O) : Dans 듣다, 걷다 et 묻다, le ㄷ change en ㄹ avant -으러.",
+    "돕으러 (X) → 도우러 (O) : Dans 돕다, 줍다 et 굽다, le ㅂ change en 우. Puis on ajoute -러."
+  ],
+  "watchOutMark": [
+    [
+      "앉아요",
+      "가요"
+    ],
+    [
+      "가러",
+      "찾으러"
+    ],
+    [
+      "예쁘러",
+      "자르러"
+    ],
+    [
+      "놀으러",
+      "놀러"
+    ],
+    [
+      "듣으러",
+      "들으러"
+    ],
+    [
+      "돕으러",
+      "도우러"
+    ]
+  ],
+  "task": {
+    "title": "Utilisez correctement -(으)러",
+    "line": "Écrivez la forme en -(으)러 du verbe donné, ou choisissez la seule phrase correcte."
+  },
+  "exercises": [
+    "Complétez le blanc avec 사다 (acheter) + -(으)러 : 마트에 과일을 ____ 가요.",
+    "Complétez le blanc avec 찍다 (prendre une photo) + -(으)러 : 공원에 사진을 ____ 갔어요.",
+    "Complétez le blanc avec 팔다 (vendre) + -(으)러 : 안 읽는 책을 ____ 서점에 가요.",
+    "Complétez le blanc avec 걷다 (marcher) + -(으)러 : 저녁을 먹고 공원에 ____ 가요.",
+    "Complétez le blanc avec 줍다 (ramasser) + -(으)러 : 주말에 바닷가에 쓰레기를 ____ 가요.",
+    "Choisissez la seule phrase correcte : (a) 운동하러 체육관에서 뛰어요. (b) 운동하러 체육관에 다녀요. (c) 체육관에 가러 가요. (d) 건강하러 체육관에 가요."
+  ],
+  "answers": [
+    "사러",
+    "찍으러",
+    "팔러",
+    "걸으러",
+    "주우러",
+    "(b) 운동하러 체육관에 다녀요."
+  ],
+  "category": "grammar"
+}

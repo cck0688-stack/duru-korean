@@ -1,0 +1,121 @@
+{
+  "title": "동네 병원 접수대에서: 처음 왔어요",
+  "keyword": "clinic",
+  "summary": "Lần đầu đến khám ở phòng khám gần nhà: làm thủ tục đăng ký và chờ đến lượt.",
+  "objective": "Đăng ký tại phòng khám: nói '처음 왔어요', cho biết tên, ngày sinh và giấy tờ tùy thân, nói lý do bạn đến bằng '-이/가 아파서 왔어요', và hiểu '이름 부르면 들어가세요'.",
+  "level": "Sơ cấp (cao)",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "setting": "Quầy tiếp tân (접수대) của một phòng khám nhỏ gần nhà. Maria đến đây lần đầu vì bị đau họng.",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "안녕하세요. 처음 오셨어요?",
+      "meaning": "Xin chào. Đây là lần đầu bạn đến đây phải không?"
+    },
+    {
+      "who": "마리아",
+      "korean": "네, 처음 왔어요.",
+      "meaning": "Vâng, đây là lần đầu tôi đến đây."
+    },
+    {
+      "who": "직원",
+      "korean": "성함이 어떻게 되세요?",
+      "meaning": "Cho tôi biết tên của bạn được không?"
+    },
+    {
+      "who": "마리아",
+      "korean": "마리아 로페스예요.",
+      "meaning": "Tôi là Maria Lopez."
+    },
+    {
+      "who": "직원",
+      "korean": "생년월일 말씀해 주세요. 신분증도 보여 주세요.",
+      "meaning": "Vui lòng cho tôi biết ngày sinh của bạn. Cũng vui lòng cho tôi xem giấy tờ tùy thân của bạn."
+    },
+    {
+      "who": "마리아",
+      "korean": "1998년 3월 14일이에요. 외국인등록증 여기 있어요.",
+      "meaning": "Là ngày 14 tháng 3 năm 1998. Đây là thẻ cư trú của tôi."
+    },
+    {
+      "who": "직원",
+      "korean": "감사합니다. 어디가 불편해서 오셨어요?",
+      "meaning": "Cảm ơn bạn. Hôm nay bạn đến đây vì lý do gì?"
+    },
+    {
+      "who": "마리아",
+      "korean": "목이 아파서 왔어요. 열도 좀 있어요.",
+      "meaning": "Tôi đến vì bị đau họng. Tôi cũng bị sốt nhẹ."
+    },
+    {
+      "who": "직원",
+      "korean": "네, 앉아서 기다리세요. 이름 부르면 들어가세요.",
+      "meaning": "Được rồi, mời ngồi chờ. Khi nào gọi tên bạn thì vào."
+    }
+  ],
+  "words": [
+    {
+      "korean": "성함",
+      "roman": "seongham",
+      "meaning": "tên (từ lịch sự nhân viên dùng)",
+      "example": "여기에 성함을 써 주세요.",
+      "exampleMeaning": "Vui lòng viết tên của bạn vào đây."
+    },
+    {
+      "korean": "생년월일",
+      "roman": "saengnyeonworil",
+      "meaning": "ngày sinh",
+      "example": "여기에 생년월일을 써 주세요.",
+      "exampleMeaning": "Vui lòng viết ngày sinh của bạn vào đây."
+    },
+    {
+      "korean": "신분증",
+      "roman": "sinbunjeung",
+      "meaning": "giấy tờ tùy thân (bất kỳ giấy tờ có ảnh chính thức nào)",
+      "example": "다음에는 신분증을 꼭 가져오세요.",
+      "exampleMeaning": "Lần sau nhớ mang giấy tờ tùy thân theo."
+    },
+    {
+      "korean": "외국인등록증",
+      "roman": "oegugin deungnokjeung",
+      "meaning": "thẻ cư trú (dành cho người nước ngoài cư trú)",
+      "example": "외국인등록증을 잃어버렸어요.",
+      "exampleMeaning": "Tôi bị mất thẻ cư trú."
+    },
+    {
+      "korean": "-이/가 아파서 왔어요",
+      "roman": "-i/ga apaseo wasseoyo",
+      "meaning": "Tôi đến vì ... bị đau (이 sau phụ âm, 가 sau nguyên âm)",
+      "example": "허리가 아파서 왔어요.",
+      "exampleMeaning": "Tôi đến vì lưng dưới của tôi bị đau."
+    },
+    {
+      "korean": "부르다",
+      "roman": "bureuda",
+      "meaning": "gọi (tên ai đó)",
+      "example": "간호사가 제 이름을 불렀어요.",
+      "exampleMeaning": "Y tá đã gọi tên tôi."
+    }
+  ],
+  "task": {
+    "title": "Đăng ký tại phòng khám",
+    "line": "Điền vào chỗ trống hoặc chọn câu trả lời đúng nhất."
+  },
+  "exercises": [
+    "Nhân viên tiếp tân hỏi '전에 오신 적 있으세요?' (Trước đây bạn đã từng đến đây chưa?). Bạn chưa từng đến đây: 아니요, ____ ____.",
+    "Thêm bộ phận cơ thể và trợ từ đúng (이 hoặc 가). Bàn chân (발) tôi bị đau: ____ 아파서 왔어요. / Tai (귀) tôi bị đau: ____ 아파서 왔어요.",
+    "Chọn câu trả lời đúng cho câu hỏi của nhân viên tiếp tân '성함이 어떻게 되세요?': (a) 제임스 박이에요. (b) 스물다섯 살이에요. (c) 감기에 걸렸어요.",
+    "Điền vào chỗ trống. Nhân viên tiếp tân hỏi '신분증 좀 보여 주시겠어요?' Bạn đưa thẻ cư trú của mình ra: 네, ____ 여기 있어요.",
+    "Nhân viên tiếp tân nói '이름 부르면 들어가세요.' Bạn nên làm gì? (a) Vào ngay bây giờ. (b) Chờ, rồi vào khi tên bạn được gọi. (c) Viết tên rồi về nhà."
+  ],
+  "answers": [
+    "처음 왔어요",
+    "발이 / 귀가",
+    "(a) 제임스 박이에요.",
+    "외국인등록증",
+    "(b) Chờ, rồi vào khi tên bạn được gọi."
+  ],
+  "category": "reallife"
+}

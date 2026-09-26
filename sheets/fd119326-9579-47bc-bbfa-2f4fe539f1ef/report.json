@@ -1,0 +1,106 @@
+{
+  "id": "fd119326-9579-47bc-bbfa-2f4fe539f1ef",
+  "retranslated": {
+    "at": "2026-09-26T06:17:20.789Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 28,
+            "problem": "'cukup serius' means 'fairly/quite serious' and weakens the English 'Emily's allergy is serious', which is the reason she avoids the crackers.",
+            "fix": "Salah. Kerupuk beras tersebut tidak mengandung kacang tanah, tetapi dibuat di pabrik yang sama dengan produk kacang tanah, dan alergi Emily serius."
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 22,
+            "problem": "The instruction '(in Korean or English)' was left out, so the Korean no longer tells students which language to answer in.",
+            "fix": "쿠키를 먹을 수 있는 마지막 날을 써 보세요(한국어나 영어로): 소비기한: 2026.10.15까지"
+          },
+          {
+            "line": 23,
+            "problem": "'Explain in English' became just '설명해 보세요', which drops the requirement to explain in English.",
+            "fix": "맞아요, 틀려요? 영어로 설명해 보세요: 에밀리는 쌀과자에 땅콩이 들어 있어서 쌀과자를 사지 않았다."
+          },
+          {
+            "line": 25,
+            "problem": "'explain in English' became just '설명해 보세요', which drops the requirement to explain in English.",
+            "fix": "친구가 우유 알레르기가 있어요. 친구가 이 과자를 먹을 수 있을까요? 네 또는 아니요로 답하고 영어로 설명해 보세요: 원재료명: 밀가루, 설탕, 버터(우유), 대두유 / 밀, 우유, 대두 함유"
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 17,
+            "problem": "The translation leaves out 'dark'. '阴凉的地方' only means 'cool, shaded place', so 'a cool, dark place' is not fully translated.",
+            "fix": "土豆最好保存在阴凉避光的地方。"
+          },
+          {
+            "line": 23,
+            "problem": "The English says 'Explain in English', but the translation says '用中文解释' (explain in Chinese). This changes the task, and it doesn't match line 22, which keeps English as an answer language.",
+            "fix": "对还是错?请用英语解释:에밀리는 쌀과자에 땅콩이 들어 있어서 쌀과자를 사지 않았다."
+          },
+          {
+            "line": 25,
+            "problem": "The English says 'explain in English', but the translation says '用中文解释' (explain in Chinese), which changes the task.",
+            "fix": "你的朋友对牛奶过敏。你的朋友能吃这个零食吗?请用네或아니요回答,并用英语解释:원재료명: 밀가루, 설탕, 버터(우유), 대두유 / 밀, 우유, 대두 함유"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 2,
+            "problem": "Ungrammatical: \"Eine Schülerin/Schüler\" – the feminine article \"Eine\" cannot go with the masculine noun \"Schüler\". Each noun needs its own article.",
+            "fix": "Eine Schülerin/ein Schüler mit einer Erdnussallergie liest die Angaben auf Snack-Etiketten: das Verbrauchsdatum, Allergieinformationen und die Lagerung."
+          }
+        ]
+      }
+    }
+  }
+}

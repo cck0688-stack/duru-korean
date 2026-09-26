@@ -1,0 +1,110 @@
+{
+  "id": "c54bd0f4-dcd1-4325-a6e8-a5e5a6de04f8",
+  "retranslated": {
+    "at": "2026-09-26T06:16:27.811Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 9,
+            "problem": "\"Deténgase (el coche)\" is ungrammatical: the reflexive \"deténgase\" can't take \"el coche\" as a direct object.",
+            "fix": "detenga (el coche), por favor"
+          }
+        ]
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 40,
+            "problem": "The informal 'harimu' is too casual for a passenger speaking to a taxi driver they don't know. It also doesn't match the polite 'Anda' used in the rest of the dialogue.",
+            "fix": "Terima kasih. Semoga hari Anda menyenangkan."
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 4,
+            "problem": "\"desde entrar até sair\" is not natural Brazilian Portuguese: \"desde\" doesn't normally take a bare infinitive like this.",
+            "fix": "Num táxi em Seul, do momento em que você entra até a hora de sair."
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 42,
+            "problem": "'Ask for the fastest route' means asking the driver to take the fastest route, as in 제일 빠른 길로 가 주세요. The Japanese 「一番早い道を聞いてください」 reads as 'ask which way is fastest', so the meaning of the task has changed.",
+            "fix": "道がわかりません。一番早い道で行ってもらうよう頼んでください: 기사: 어느 쪽으로 갈까요? → 손님: 잘 모르겠어요. ____________."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 7,
+            "problem": "The gloss uses a different expression ('데려다 주세요') from the one this lesson teaches ('(으)로 가 주세요', used in lines 3, 8, 24 and 28). It also drops the 으로 form ('(장소)로'), which the worksheet teaches in line 41. This could confuse learners about the target expression.",
+            "fix": "(장소)(으)로 가 주세요"
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"Beginner (high)\" means the upper part of the beginner level. \"初级（高级）\" reads as \"beginner (advanced)\", which contradicts itself and gets the level wrong.",
+            "fix": "初级（高）"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 9,
+            "problem": "The French is broken. \"Arrêtez-vous\" is reflexive, so it can't take \"(la voiture)\" as its object. It should be the transitive \"arrêtez\" (stop the car).",
+            "fix": "arrêtez (la voiture), s'il vous plaît"
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 45,
+            "problem": "The gloss for the noun 현금 ('cash') is given as 'bar', which is only an adjective/adverb ('in bar'). The noun is 'Bargeld'.",
+            "fix": "Zahle in bar, nicht mit Karte (Bargeld = 현금): 기사: 카드로 하실 거예요? → 손님: 아니요, ____________."
+          }
+        ]
+      }
+    }
+  }
+}

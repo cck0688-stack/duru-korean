@@ -1,0 +1,294 @@
+{
+  "id": "83a41d68-b16e-4e35-86bc-b16a730b0470",
+  "retranslated": {
+    "at": "2026-09-26T06:22:51.705Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 3,
+            "problem": "\"build the right form\" is an instruction in the English, but the Indonesian \"bentuk yang tepat\" reads as a noun phrase (\"the right form\") with no verb. This breaks the list of instructions.",
+            "fix": "Ungkapkan alasan kamu pergi atau datang ke suatu tempat dengan V-(으)러 가다/오다/다니다, buat bentuk yang tepat untuk setiap jenis batang kata kerja, dan hindari tiga kesalahan umum."
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "초급"
+          },
+          {
+            "line": 2,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V-(으)러 가다/오다/다니다로 어디에 가거나 오는 이유를 말해 보세요."
+          },
+          {
+            "line": 3,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V-(으)러 가다/오다/다니다로 어디에 가거나 오는 이유를 말하고, 모든 종류의 동사 어간에 맞는 형태를 만들고, 자주 하는 실수 세 가지를 피해 보세요."
+          },
+          {
+            "line": 4,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "-(으)러를 바르게 사용하기"
+          },
+          {
+            "line": 5,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "주어진 동사의 -(으)러 형태를 쓰거나, 맞는 문장 하나를 고르세요."
+          },
+          {
+            "line": 6,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V + -러 (어간이 모음으로 끝남)"
+          },
+          {
+            "line": 7,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "동사 어간이 모음으로 끝납니다: 보다 → 보러, 쉬다 → 쉬러, 공부하다 → 공부하러"
+          },
+          {
+            "line": 8,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V하러 가다/오다 (V를 하기 위해)"
+          },
+          {
+            "line": 9,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "이번 주말에 영화를 보러 가요."
+          },
+          {
+            "line": 10,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V + -으러 (어간이 자음으로 끝남)"
+          },
+          {
+            "line": 11,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "동사 어간이 자음(ㄹ 제외)으로 끝납니다: 먹다 → 먹으러, 읽다 → 읽으러, 찾다 → 찾으러"
+          },
+          {
+            "line": 12,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V하러 가다/오다 (V를 하기 위해)"
+          },
+          {
+            "line": 13,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "같이 점심을 먹으러 가요."
+          },
+          {
+            "line": 14,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "ㄹ 어간 + -러"
+          },
+          {
+            "line": 15,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "어간이 ㄹ로 끝납니다. -으러가 아니라 -러만 붙입니다: 놀다 → 놀러, 만들다 → 만들러"
+          },
+          {
+            "line": 16,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V하러 가다/오다 (V를 하기 위해)"
+          },
+          {
+            "line": 17,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "친구가 우리 집에 놀러 왔어요."
+          },
+          {
+            "line": 18,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "ㄷ 불규칙: ㄷ → ㄹ + -으러"
+          },
+          {
+            "line": 19,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "ㄷ으로 끝나는 일부 동사(듣다, 걷다, 묻다)는 ㄷ이 ㄹ로 바뀐 다음 -으러를 붙입니다: 듣다 → 들으러"
+          },
+          {
+            "line": 20,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V하러 가다/오다 (V를 하기 위해)"
+          },
+          {
+            "line": 21,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "음악을 들으러 콘서트에 가요."
+          },
+          {
+            "line": 22,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "ㅂ 불규칙: ㅂ → 우 + -러"
+          },
+          {
+            "line": 23,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "ㅂ으로 끝나는 일부 동사(돕다, 줍다, 굽다)는 ㅂ이 우로 바뀐 다음 -러를 붙입니다: 돕다 → 도우러"
+          },
+          {
+            "line": 24,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V하러 가다/오다 (V를 하기 위해)"
+          },
+          {
+            "line": 25,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "할머니를 도우러 시골에 가요."
+          },
+          {
+            "line": 26,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V-(으)러 오다"
+          },
+          {
+            "line": 27,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "이미 그 장소에 있을 때나 누군가가 내가 있는 곳으로 올 때 오다를 씁니다."
+          },
+          {
+            "line": 28,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V하러 (여기에) 오다"
+          },
+          {
+            "line": 29,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "(우체국에서) 소포를 찾으러 왔어요."
+          },
+          {
+            "line": 30,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V-(으)러 다니다"
+          },
+          {
+            "line": 31,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "매주처럼 어떤 곳에 정기적으로 갈 때 다니다를 씁니다."
+          },
+          {
+            "line": 32,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "V하러 (어디에) 정기적으로 다니다"
+          },
+          {
+            "line": 33,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "수영을 배우러 수영장에 다녀요."
+          },
+          {
+            "line": 34,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "공부하러 도서관에서 앉아요 (X) → 공부하러 도서관에 가요 (O): -(으)러 뒤에는 가다, 오다, 다니다 같은 이동 동사를 씁니다. 가는 장소에는 조사 에를 씁니다."
+          },
+          {
+            "line": 35,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "은행에 가러 가요 (X) → 돈 찾으러 은행에 가요 (O): -러 앞에 가다나 오다를 쓰지 마세요. 그곳에서 할 일을 나타내는 동사를 쓰세요."
+          },
+          {
+            "line": 36,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "예쁘러 미용실에 가요 (X) → 머리 자르러 미용실에 가요 (O): -(으)러는 동작 동사하고만 쓸 수 있습니다. 예쁘다나 좋다 같은 형용사와는 쓸 수 없습니다."
+          },
+          {
+            "line": 37,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "놀으러 (X) → 놀러 (O): ㄹ로 끝나는 어간에는 -러만 붙이고, -으러는 절대 붙이지 않습니다."
+          },
+          {
+            "line": 38,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "듣으러 (X) → 들으러 (O): 듣다, 걷다, 묻다는 -으러 앞에서 ㄷ이 ㄹ로 바뀝니다."
+          },
+          {
+            "line": 39,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "돕으러 (X) → 도우러 (O): 돕다, 줍다, 굽다는 ㅂ이 우로 바뀝니다. 그다음에 -러를 붙입니다."
+          },
+          {
+            "line": 40,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "사다 + -(으)러로 빈칸을 채우세요: 마트에 과일을 ____ 가요."
+          },
+          {
+            "line": 41,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "찍다(사진을 찍다) + -(으)러로 빈칸을 채우세요: 공원에 사진을 ____ 갔어요."
+          },
+          {
+            "line": 42,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "팔다 + -(으)러로 빈칸을 채우세요: 안 읽는 책을 ____ 서점에 가요."
+          },
+          {
+            "line": 43,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "걷다 + -(으)러로 빈칸을 채우세요: 저녁을 먹고 공원에 ____ 가요."
+          },
+          {
+            "line": 44,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "줍다 + -(으)러로 빈칸을 채우세요: 주말에 바닷가에 쓰레기를 ____ 가요."
+          },
+          {
+            "line": 45,
+            "problem": "Not translated; the line is still in English.",
+            "fix": "맞는 문장 하나를 고르세요: (a) 운동하러 체육관에서 뛰어요. (b) 운동하러 체육관에 다녀요. (c) 체육관에 가러 가요. (d) 건강하러 체육관에 가요."
+          }
+        ]
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
+}

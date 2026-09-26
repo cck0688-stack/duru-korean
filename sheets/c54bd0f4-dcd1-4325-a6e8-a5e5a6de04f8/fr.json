@@ -1,0 +1,133 @@
+{
+  "title": "택시에서: 가 주세요, 세워 주세요",
+  "keyword": "taxi",
+  "summary": "Dites où vous allez, répondez au chauffeur, demandez à vous arrêter, et payez.",
+  "objective": "Dites votre destination avec « ○○(으)로 가 주세요 » et demandez à vous arrêter avec « ○○ 앞에서 세워 주세요 ».",
+  "level": "Débutant (niveau avancé)",
+  "minutes": 25,
+  "tags": [],
+  "checkThese": [],
+  "setting": "Dans un taxi à Séoul, de la montée à la descente.",
+  "dialogue": [
+    {
+      "who": "기사",
+      "korean": "어서 오세요. 어디로 가세요?",
+      "meaning": "Bonjour. Où allez-vous ?"
+    },
+    {
+      "who": "손님",
+      "korean": "시청역 3번 출구로 가 주세요.",
+      "meaning": "À la sortie 3 de la station de l'Hôtel de Ville, s'il vous plaît."
+    },
+    {
+      "who": "기사",
+      "korean": "네. 어느 쪽으로 갈까요?",
+      "meaning": "D'accord. Par où dois-je aller ?"
+    },
+    {
+      "who": "손님",
+      "korean": "잘 모르겠어요. 빠른 길로 가 주세요.",
+      "meaning": "Je ne sais pas trop. Prenez le chemin le plus rapide, s'il vous plaît."
+    },
+    {
+      "who": "기사",
+      "korean": "거의 다 왔어요. 어디에서 세워 드릴까요?",
+      "meaning": "On est presque arrivés. Où voulez-vous que je m'arrête ?"
+    },
+    {
+      "who": "손님",
+      "korean": "저기 편의점 앞에서 세워 주세요.",
+      "meaning": "Arrêtez-vous devant cette supérette là-bas, s'il vous plaît."
+    },
+    {
+      "who": "기사",
+      "korean": "네, 여기요. 카드로 하실 거예요?",
+      "meaning": "D'accord, nous y sommes. Vous payez par carte ?"
+    },
+    {
+      "who": "손님",
+      "korean": "네, 카드로 할게요.",
+      "meaning": "Oui, je vais payer par carte."
+    },
+    {
+      "who": "기사",
+      "korean": "카드를 여기에 대 주세요. 안녕히 가세요.",
+      "meaning": "Veuillez passer votre carte ici. Au revoir."
+    },
+    {
+      "who": "손님",
+      "korean": "감사합니다. 수고하세요.",
+      "meaning": "Merci. Bonne journée."
+    }
+  ],
+  "words": [
+    {
+      "korean": "가 주세요",
+      "roman": "ga juseyo",
+      "meaning": "emmenez-moi (à un endroit), s'il vous plaît",
+      "example": "공항으로 가 주세요.",
+      "exampleMeaning": "À l'aéroport, s'il vous plaît."
+    },
+    {
+      "korean": "세워 주세요",
+      "roman": "sewo juseyo",
+      "meaning": "arrêtez (la voiture), s'il vous plaît",
+      "example": "횡단보도 지나서 세워 주세요.",
+      "exampleMeaning": "Veuillez vous arrêter après le passage piéton."
+    },
+    {
+      "korean": "어느 쪽",
+      "roman": "eoneu jjok",
+      "meaning": "quelle direction, quel côté",
+      "example": "호텔 입구가 어느 쪽이에요?",
+      "exampleMeaning": "De quel côté se trouve l'entrée de l'hôtel ?"
+    },
+    {
+      "korean": "빠른 길",
+      "roman": "ppareun gil",
+      "meaning": "le chemin le plus rapide",
+      "example": "늦었어요. 빠른 길로 가 주세요.",
+      "exampleMeaning": "Je suis en retard. Prenez le chemin le plus rapide, s'il vous plaît."
+    },
+    {
+      "korean": "거의 다 왔어요",
+      "roman": "geoui da wasseoyo",
+      "meaning": "on est presque arrivés",
+      "example": "조금만 기다리세요. 거의 다 왔어요.",
+      "exampleMeaning": "Encore un peu. On est presque arrivés."
+    },
+    {
+      "korean": "카드로 할게요",
+      "roman": "kadeuro halgeyo",
+      "meaning": "je vais payer par carte",
+      "example": "현금이 없어요. 카드로 할게요.",
+      "exampleMeaning": "Je n'ai pas d'argent liquide. Je vais payer par carte."
+    },
+    {
+      "korean": "대 주세요",
+      "roman": "dae juseyo",
+      "meaning": "veuillez passer (votre carte sur le lecteur)",
+      "example": "교통카드를 여기에 대 주세요.",
+      "exampleMeaning": "Veuillez passer votre carte de transport ici."
+    }
+  ],
+  "task": {
+    "title": "Parlez au chauffeur de taxi",
+    "line": "Utilisez les mots et le dialogue ci-dessus."
+  },
+  "exercises": [
+    "Complétez les blancs avec 로 ou 으로 (utilisez 로 après une voyelle ou ㄹ, et 으로 après toute autre consonne finale) : 명동____ 가 주세요. / 호텔____ 가 주세요.",
+    "Vous ne connaissez pas le chemin. Demandez l'itinéraire le plus rapide : 기사: 어느 쪽으로 갈까요? → 손님: 잘 모르겠어요. ____________.",
+    "Demandez au chauffeur de s'arrêter devant la banque (은행) : 기사: 어디에서 세워 드릴까요? → 손님: ____________.",
+    "Remettez les phrases dans le bon ordre : (a) 저기 앞에서 세워 주세요. (b) 어서 오세요. 어디로 가세요? (c) 거의 다 왔어요. (d) 서울역으로 가 주세요.",
+    "Payez en liquide, pas par carte (liquide = 현금) : 기사: 카드로 하실 거예요? → 손님: 아니요, ____________."
+  ],
+  "answers": [
+    "으로 (명동으로) / 로 (호텔로)",
+    "빠른 길로 가 주세요.",
+    "은행 앞에서 세워 주세요.",
+    "(b) → (d) → (c) → (a)",
+    "현금으로 할게요."
+  ],
+  "category": "reallife"
+}

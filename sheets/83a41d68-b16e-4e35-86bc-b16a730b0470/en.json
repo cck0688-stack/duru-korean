@@ -1,0 +1,138 @@
+{
+  "title": "목적 말하기: -(으)러 가다/오다",
+  "keyword": "purpose",
+  "summary": "Say why you are going or coming somewhere with V-(으)러 가다/오다/다니다.",
+  "objective": "Say why you go or come somewhere with V-(으)러 가다/오다/다니다, build the right form for every kind of verb stem, and avoid three common mistakes.",
+  "level": "Beginner",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "V + -러 (stem ends in a vowel)",
+      "when": "The verb stem ends in a vowel: 보다 → 보러, 쉬다 → 쉬러, 공부하다 → 공부하러",
+      "means": "go/come (in order) to do V",
+      "example": "주말에 영화 보러 가요.",
+      "exampleMeaning": "I'm going to see a movie this weekend.",
+      "mark": [
+        "보러"
+      ]
+    },
+    {
+      "form": "V + -으러 (stem ends in a consonant)",
+      "when": "The verb stem ends in a consonant (not ㄹ): 먹다 → 먹으러, 읽다 → 읽으러, 찾다 → 찾으러",
+      "means": "go/come (in order) to do V",
+      "example": "점심 먹으러 같이 가요.",
+      "exampleMeaning": "Let's go and eat lunch together.",
+      "mark": [
+        "먹으러"
+      ]
+    },
+    {
+      "form": "ㄹ-stem + -러",
+      "when": "The stem ends in ㄹ. Add only -러, not -으러: 놀다 → 놀러, 만들다 → 만들러",
+      "means": "go/come (in order) to do V",
+      "example": "친구가 우리 집에 놀러 왔어요.",
+      "exampleMeaning": "My friend came over to my house to hang out.",
+      "mark": [
+        "놀러"
+      ]
+    },
+    {
+      "form": "ㄷ-irregular: ㄷ → ㄹ + -으러",
+      "when": "Some verbs ending in ㄷ (듣다, 걷다, 묻다) change ㄷ to ㄹ, then add -으러: 듣다 → 들으러",
+      "means": "go/come (in order) to do V",
+      "example": "음악 들으러 콘서트에 가요.",
+      "exampleMeaning": "I'm going to a concert to listen to music.",
+      "mark": [
+        "들으러"
+      ]
+    },
+    {
+      "form": "ㅂ-irregular: ㅂ → 우 + -러",
+      "when": "Some verbs ending in ㅂ (돕다, 줍다, 굽다) change ㅂ to 우, then add -러: 돕다 → 도우러",
+      "means": "go/come (in order) to do V",
+      "example": "할머니를 도우러 시골에 가요.",
+      "exampleMeaning": "I'm going to the countryside to help my grandmother.",
+      "mark": [
+        "도우러"
+      ]
+    },
+    {
+      "form": "V-(으)러 오다",
+      "when": "Use 오다 when you are already at the place, or when someone comes to where you are.",
+      "means": "come (here) to do V",
+      "example": "소포 찾으러 왔어요.",
+      "exampleMeaning": "(At the post office) I came to pick up a package.",
+      "mark": [
+        "찾으러 왔어요"
+      ]
+    },
+    {
+      "form": "V-(으)러 다니다",
+      "when": "Use 다니다 when you go somewhere regularly, e.g. every week.",
+      "means": "regularly go (somewhere) to do V",
+      "example": "수영 배우러 수영장에 다녀요.",
+      "exampleMeaning": "I go to the swimming pool to learn how to swim.",
+      "mark": [
+        "배우러",
+        "다녀요"
+      ]
+    }
+  ],
+  "watchOut": [
+    "공부하러 도서관에서 앉아요 (X) → 공부하러 도서관에 가요 (O): After -(으)러, use a verb of movement: 가다, 오다 or 다니다. Use the particle 에 for the place you go to.",
+    "은행에 가러 가요 (X) → 돈 찾으러 은행에 가요 (O): Don't put 가다 or 오다 in front of -러. Use the verb for what you will do there.",
+    "예쁘러 미용실에 가요 (X) → 머리 자르러 미용실에 가요 (O): -(으)러 only works with action verbs. You cannot use it with adjectives like 예쁘다 or 좋다.",
+    "놀으러 (X) → 놀러 (O): Stems ending in ㄹ take only -러, never -으러.",
+    "듣으러 (X) → 들으러 (O): In 듣다, 걷다 and 묻다, ㄷ changes to ㄹ before -으러.",
+    "돕으러 (X) → 도우러 (O): In 돕다, 줍다 and 굽다, ㅂ changes to 우. Then add -러."
+  ],
+  "watchOutMark": [
+    [
+      "앉아요",
+      "가요"
+    ],
+    [
+      "가러",
+      "찾으러"
+    ],
+    [
+      "예쁘러",
+      "자르러"
+    ],
+    [
+      "놀으러",
+      "놀러"
+    ],
+    [
+      "듣으러",
+      "들으러"
+    ],
+    [
+      "돕으러",
+      "도우러"
+    ]
+  ],
+  "task": {
+    "title": "Use -(으)러 correctly",
+    "line": "Write the -(으)러 form of the verb given, or choose the one correct sentence."
+  },
+  "exercises": [
+    "Fill in the blank with 사다 (to buy) + -(으)러: 마트에 과일을 ____ 가요.",
+    "Fill in the blank with 찍다 (to take a photo) + -(으)러: 공원에 사진을 ____ 갔어요.",
+    "Fill in the blank with 팔다 (to sell) + -(으)러: 안 읽는 책을 ____ 서점에 가요.",
+    "Fill in the blank with 걷다 (to walk) + -(으)러: 저녁을 먹고 공원에 ____ 가요.",
+    "Fill in the blank with 줍다 (to pick up) + -(으)러: 주말에 바닷가에 쓰레기를 ____ 가요.",
+    "Choose the one correct sentence: (a) 운동하러 체육관에서 뛰어요. (b) 운동하러 체육관에 다녀요. (c) 체육관에 가러 가요. (d) 건강하러 체육관에 가요."
+  ],
+  "answers": [
+    "사러",
+    "찍으러",
+    "팔러",
+    "걸으러",
+    "주우러",
+    "(b) 운동하러 체육관에 다녀요."
+  ],
+  "category": "grammar"
+}
