@@ -170,7 +170,7 @@
       code = window.DURU_I18N.lang || '';
     } else {
       try {
-        var inPath = /^\/(en|ko|vi|es|id|pt-BR|ja|zh)(?=\/|$)/.exec(location.pathname);
+        var inPath = /^\/(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)(?=\/|$)/.exec(location.pathname);
         code = (inPath && inPath[1]) || new URLSearchParams(location.search).get('lang') || '';
         if (!code) code = localStorage.getItem('duru_lang') || '';
       } catch (e) {}

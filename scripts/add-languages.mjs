@@ -19,6 +19,7 @@
 //   and the model account the daily drafts use.
 //
 //   node scripts/add-languages.mjs [--langs=fr,de] [--dry-run] [--limit=N]
+//   node scripts/add-languages.mjs --report   (which languages each post can be read in)
 
 import { resolveProvider, translate, LANGUAGES } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
@@ -30,6 +31,7 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC
 const args = process.argv.slice(2);
 const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); return h ? h.slice(n.length + 3) : null; };
 const DRY = args.includes('--dry-run');
+const REPORT = args.includes('--report');
 const LIMIT = Number(arg('limit')) || 0;
 const NEW = (arg('langs') || 'fr,de').split(',').map((x) => x.trim()).filter((c) => LANGUAGES[c]);
 const log = (...a) => console.log(...a);
@@ -96,6 +98,39 @@ async function widenStudy(cfg, post) {
   return { ...st, words };
 }
 
+// What a reader actually gets in each language, post by post, by the
+// reader's own rules (js/auto-translate.js): the post's language, a
+// human translation with a body, or a machine one that still pairs
+// sentence for sentence with the body. Changes nothing.
+function readable(post, c) {
+  if (c === (post.lang || 'en')) return 'own';
+  const human = (post.i18n || {})[c];
+  if (human && String(human.body || '').trim()) return 'human';
+  const mt = (post.mt || {})[c];
+  if (!mt || !Array.isArray(mt.sentences)) return 'none';
+  if (mt.from && mt.from !== (post.lang || 'en')) return 'wrong-source';
+  if (mt.hash !== MT.fingerprint(post.body || '')) return 'stale';
+  if (mt.sentences.length !== MT.sentences(post.body || '').length) return 'short';
+  return 'mt';
+}
+
+function report(posts) {
+  const all = Object.keys(LANGUAGES);
+  const gaps = {};
+  posts.forEach((post) => {
+    const bad = all.map((c) => [c, readable(post, c)]).filter(([, s]) => !['own', 'human', 'mt'].includes(s));
+    const st = post.study && Array.isArray(post.study.words) ? post.study : null;
+    const noWords = st ? NEW.filter((c) => c !== st.from && st.words.some((w) => !(w.by && w.by[c] && w.by[c].meaning))) : [];
+    const state = post.rejected_at ? '[거절] ' : post.published ? '' : '[초안] ';
+    log('· ' + state + post.title + ' (' + (post.lang || 'en') + ')' +
+      (bad.length ? ' — 못 읽음: ' + bad.map(([c, s]) => c + ':' + s).join(', ') : ' — 10개 언어 모두') +
+      (noWords.length ? ' · 단어 목록 없음: ' + noWords.join(',') : ''));
+    bad.forEach(([c]) => { gaps[c] = (gaps[c] || 0) + 1; });
+  });
+  log('');
+  log('언어별 못 읽는 글: ' + (Object.keys(gaps).length ? all.filter((c) => gaps[c]).map((c) => c + ' ' + gaps[c]).join(', ') : '없음'));
+}
+
 async function main() {
   const cfg = withPatience(useSubscription(process.env, 'BLOG_PROVIDER')
     ? Object.assign(subscriptionAccount(process.env.BLOG_MODEL || 'sonnet'), { timeoutMs: 300000 })
@@ -103,10 +138,11 @@ async function main() {
   log('새 언어: ' + NEW.join(', ') + ' · ' + cfg.label + ' / ' + cfg.model + (DRY ? ' · 연습 (저장하지 않음)' : ''));
 
   let token = await signIn();
-  let posts = await rest(token, 'posts?select=id,title,excerpt,tags,body,lang,i18n,mt,study,published&order=created_at.desc&limit=2000');
+  let posts = await rest(token, 'posts?select=id,title,excerpt,tags,body,lang,i18n,mt,study,published,rejected_at&order=created_at.desc&limit=2000');
   posts = posts.filter((p) => String(p.body || '').trim());
   if (LIMIT) posts = posts.slice(0, LIMIT);
   log('글 ' + posts.length + '편');
+  if (REPORT) { report(posts); return; }
 
   let done = 0, failed = 0, skipped = 0;
   for (const [i, post] of posts.entries()) {
@@ -126,7 +162,12 @@ async function main() {
       }
       const study = await widenStudy(cfg, post);
       if (study) { patch.study = study; note.push('단어 목록'); }
-      if (!Object.keys(patch).length) { skipped += 1; continue; }
+      if (!Object.keys(patch).length) {
+        // Nothing came back for a language it lacks: a failure, not
+        // "already there".
+        if (langs.length) { failed += 1; log('✗ ' + post.title + ' — ' + note.join(' · ')); continue; }
+        skipped += 1; continue;
+      }
       if (!DRY) {
         await rest(token, 'posts?id=eq.' + post.id, { method: 'PATCH', body: JSON.stringify(patch) });
       }

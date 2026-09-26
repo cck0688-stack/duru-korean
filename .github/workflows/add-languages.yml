@@ -22,6 +22,10 @@ on:
         description: 'Translate and report, save nothing'
         type: boolean
         default: false
+      report:
+        description: 'Only list which languages each post can be read in'
+        type: boolean
+        default: false
 
 concurrency:
   group: add-languages
@@ -61,8 +65,10 @@ jobs:
           LANGS: ${{ inputs.langs }}
           LIMIT: ${{ inputs.limit }}
           DRY_RUN: ${{ inputs.dry_run }}
+          REPORT: ${{ inputs.report }}
         run: |
           args=(--langs="$LANGS")
           if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ "$REPORT" = "true" ]; then args+=(--report); fi
           node scripts/add-languages.mjs "${args[@]}"
