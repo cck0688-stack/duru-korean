@@ -305,3 +305,8 @@ html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormor
 .compact .answers { margin-top: 6px; padding-top: 8px; }
 .compact .answers h2 { margin-bottom: 6px; }
 .row-term span { font-size: 10.5px; }
+/* In a Korean, Japanese or Chinese section title a number sits with the
+   Hangul/Kanji at full height ("버튼 12개"), not as a small old-style figure. */
+html[lang="ko"] section > h2, html[lang="ja"] section > h2, html[lang="zh"] section > h2 {
+  font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1;
+}
