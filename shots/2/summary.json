@@ -1,0 +1,350 @@
+[
+  {
+    "name": "01-desk",
+    "requested": "https://www.durukorean.com/fr/blog",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/fr/blog",
+    "htmlLang": "fr",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "fr",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Parcourir par thème",
+      "L’essentiel pour voyager en Corée",
+      "Guide K-Food et restaurants",
+      "K-Style et beauté",
+      "Découverte et K-culture",
+      "Campus et vie pratique",
+      "Travail et carrière",
+      "Conseils de langue coréenne",
+      "Divers",
+      "Derniers articles",
+      "Pourquoi les supérettes coréennes sont-elles aménagées comme de petits restaurants ?",
+      "Pourquoi il faut aussi badger sa carte en descendant du métro",
+      "Pourquoi les grossistes de Dongdaemun laissent-ils la lumière allumée jusqu'à l'aube ?",
+      "Pourquoi Séoul se vide-t-elle et pourquoi seules les autoroutes sont-elles embouteillées pendant Chuseok ?",
+      "Pourquoi signer le contrat ne suffit pas à protéger votre caution",
+      "Pourquoi le recrutement dans les grandes entreprises coréennes se concentre-t-il en septembre — le système du « gongchae",
+      "La vraie raison pour laquelle Google Maps ne fonctionne pas pour les itinéraires en Corée",
+      "Pourquoi le personnel des restaurants de viande coréens coupe votre viande sans même demander",
+      "Pourquoi les consultations en chirurgie esthétique sont-elles toujours gratuites ?"
+    ],
+    "text": "Visites 1,624\nAujourd’hui 328\nApprendre le coréen\nRessources du livre\nTéléchargements gratuits\nBlog\nCommunauté\nFrançais\nConnexion\n글\nBlog\n\nVotre guide de la langue, de la culture et de la vie quotidienne coréennes.\n\nTous les articles\nChoisir une langue\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nPARCOURIR PAR THÈME\nL’essentiel pour voyager en Corée\n\nArriver, se déplacer et payer — votre première semaine réglée.\n\nGuide K-Food et restaurants\n\nComment commander, quoi manger et ce qui se passe à une table coréenne.\n\nK-Style et beauté\n\nSoins de la peau, cliniques, marques et bonnes adresses pour ne pas payer trop cher.\n\nDécouverte et K-culture\n\nQuartiers, lieux de tournage de dramas, excursions et vie quotidienne en Corée.\n\nCampus et vie pratique\n\nVisas, logement, hôpitaux et démarches administratives du quotidien.\n\nTravail et carrière\n\nPermis de travail à temps partiel, recherche d’emploi, CV et stages en Corée.\n\nConseils de langue coréenne\n\nExpressions utiles, erreurs fréquentes et coréen du quotidien expliqué simplement.\n\nDivers\n\nNuances culturelles, actualités qui concernent les étrangers et tout ce qui compte d’autre.\n\nDerniers articles\n\n25 articles\n\nPour les voyageurs\nPour les étudiants\nPour les expatriés\nPourquoi les supérettes coréennes sont-elles aménagées comme de petits restaurants ?\n\nLes supérettes coréennes disposent d'une fontaine à eau chaude, d'un four à micro-ondes et de places assises, ce qui permet de manger un pot de no"
+  },
+  {
+    "name": "01-phone",
+    "requested": "https://www.durukorean.com/fr/blog",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/fr/blog",
+    "htmlLang": "fr",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "fr",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Parcourir par thème",
+      "L’essentiel pour voyager en Corée",
+      "Guide K-Food et restaurants",
+      "K-Style et beauté",
+      "Découverte et K-culture",
+      "Campus et vie pratique",
+      "Travail et carrière",
+      "Conseils de langue coréenne",
+      "Divers",
+      "Derniers articles",
+      "Pourquoi les supérettes coréennes sont-elles aménagées comme de petits restaurants ?",
+      "Pourquoi il faut aussi badger sa carte en descendant du métro",
+      "Pourquoi les grossistes de Dongdaemun laissent-ils la lumière allumée jusqu'à l'aube ?",
+      "Pourquoi Séoul se vide-t-elle et pourquoi seules les autoroutes sont-elles embouteillées pendant Chuseok ?",
+      "Pourquoi signer le contrat ne suffit pas à protéger votre caution",
+      "Pourquoi le recrutement dans les grandes entreprises coréennes se concentre-t-il en septembre — le système du « gongchae",
+      "La vraie raison pour laquelle Google Maps ne fonctionne pas pour les itinéraires en Corée",
+      "Pourquoi le personnel des restaurants de viande coréens coupe votre viande sans même demander",
+      "Pourquoi les consultations en chirurgie esthétique sont-elles toujours gratuites ?"
+    ],
+    "text": "Connexion\nBlog\n\nVotre guide de la langue, de la culture et de la vie quotidienne coréennes.\n\nTous les articles\nChoisir une langue\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nPARCOURIR PAR THÈME\nL’essentiel pour voyager en Corée\n\nArriver, se déplacer et payer — votre première semaine réglée.\n\nGuide K-Food et restaurants\n\nComment commander, quoi manger et ce qui se passe à une table coréenne.\n\nK-Style et beauté\n\nSoins de la peau, cliniques, marques et bonnes adresses pour ne pas payer trop cher.\n\nDécouverte et K-culture\n\nQuartiers, lieux de tournage de dramas, excursions et vie quotidienne en Corée.\n\nCampus et vie pratique\n\nVisas, logement, hôpitaux et démarches administratives du quotidien.\n\nTravail et carrière\n\nPermis de travail à temps partiel, recherche d’emploi, CV et stages en Corée.\n\nConseils de langue coréenne\n\nExpressions utiles, erreurs fréquentes et coréen du quotidien expliqué simplement.\n\nDivers\n\nNuances culturelles, actualités qui concernent les étrangers et tout ce qui compte d’autre.\n\nDerniers articles\n\n25 articles\n\nPour les voyageurs\nPour les étudiants\nPour les expatriés\nPourquoi les supérettes coréennes sont-elles aménagées comme de petits restaurants ?\n\nLes supérettes coréennes disposent d'une fontaine à eau chaude, d'un four à micro-ondes et de places assises, ce qui permet de manger un pot de nouilles instantanées ou un bento sur place, même tard le soir. On y explique pourquoi les supérettes ouvertes 24h/24, dans "
+  },
+  {
+    "name": "02-desk",
+    "requested": "https://www.durukorean.com/de/blog",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/de/blog",
+    "htmlLang": "de",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "de",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Nach Thema stöbern",
+      "Korea-Reise: das Wichtigste",
+      "K-Food & Restaurant-Guide",
+      "K-Style & Beauty",
+      "Entdecken & K-Kultur",
+      "Campus & Alltagshilfe",
+      "Arbeit & Karriere",
+      "Tipps zur koreanischen Sprache",
+      "Sonstiges",
+      "Neueste Beiträge",
+      "Warum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?",
+      "Warum man auch beim Aussteigen aus der U-Bahn die Karte scannen muss",
+      "Warum lassen die Großhandelsmärkte von Dongdaemun bis zum Morgengrauen das Licht brennen?",
+      "Warum ist Seoul an Chuseok wie leergefegt, während nur die Autobahnen verstopft sind?",
+      "Warum die Unterschrift auf dem Vertrag allein die Kaution nicht schützt",
+      "Warum konzentriert sich die Einstellung bei koreanischen Großunternehmen auf September — das System namens „Gongchae“",
+      "Der wahre Grund, warum Google Maps in Korea keine Routen anzeigt",
+      "Warum das Personal in koreanischen Grillrestaurants dein Fleisch schneidet, ohne zu fragen",
+      "Warum sind Beratungsgespräche in der Schönheitschirurgie immer kostenlos?"
+    ],
+    "text": "Besuche 1,626\nHeute 330\nKoreanisch lernen\nBuchmaterialien\nKostenlose Downloads\nBlog\nCommunity\nDeutsch\nAnmelden\n글\nBlog\n\nIhr Wegweiser zu koreanischer Sprache, Kultur und Alltag.\n\nAlle Beiträge\nSprache wählen\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nNACH THEMA STÖBERN\nKorea-Reise: das Wichtigste\n\nAnkommen, unterwegs sein und bezahlen – die erste Woche geregelt.\n\nK-Food & Restaurant-Guide\n\nWie man bestellt, was man isst und was an einem koreanischen Tisch passiert.\n\nK-Style & Beauty\n\nHautpflege, Kliniken, Marken und wo man einkauft, ohne zu viel zu zahlen.\n\nEntdecken & K-Kultur\n\nStadtviertel, Drehorte von Dramen, Tagesausflüge und koreanischer Alltag.\n\nCampus & Alltagshilfe\n\nVisa, Wohnen, Krankenhäuser und der Papierkram des Lebens hier.\n\nArbeit & Karriere\n\nNebenjob-Erlaubnis, Jobsuche, Lebenslauf und Praktika in Korea.\n\nTipps zur koreanischen Sprache\n\nNützliche Ausdrücke, häufige Fehler und Alltagskoreanisch – einfach erklärt.\n\nSonstiges\n\nKulturelle Feinheiten, Nachrichten, die Ausländer betreffen, und alles andere, was zählt.\n\nNeueste Beiträge\n\n25 Beiträge\n\nFür Reisende\nFür Studierende\nFür Expats\nWarum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?\n\nIn koreanischen Convenience-Stores gibt es heißes Wasser aus einem Wasserspender, eine Mikrowelle und Sitzplätze, sodass man selbst spät in der Nacht sofort vor Ort Instantnudeln oder eine Lunchbox essen kann. Hier wird erklärt, warum 24-Stunden-Convenience-Sto"
+  },
+  {
+    "name": "02-phone",
+    "requested": "https://www.durukorean.com/de/blog",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/de/blog",
+    "htmlLang": "de",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "de",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Nach Thema stöbern",
+      "Korea-Reise: das Wichtigste",
+      "K-Food & Restaurant-Guide",
+      "K-Style & Beauty",
+      "Entdecken & K-Kultur",
+      "Campus & Alltagshilfe",
+      "Arbeit & Karriere",
+      "Tipps zur koreanischen Sprache",
+      "Sonstiges",
+      "Neueste Beiträge",
+      "Warum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?",
+      "Warum man auch beim Aussteigen aus der U-Bahn die Karte scannen muss",
+      "Warum lassen die Großhandelsmärkte von Dongdaemun bis zum Morgengrauen das Licht brennen?",
+      "Warum ist Seoul an Chuseok wie leergefegt, während nur die Autobahnen verstopft sind?",
+      "Warum die Unterschrift auf dem Vertrag allein die Kaution nicht schützt",
+      "Warum konzentriert sich die Einstellung bei koreanischen Großunternehmen auf September — das System namens „Gongchae“",
+      "Der wahre Grund, warum Google Maps in Korea keine Routen anzeigt",
+      "Warum das Personal in koreanischen Grillrestaurants dein Fleisch schneidet, ohne zu fragen",
+      "Warum sind Beratungsgespräche in der Schönheitschirurgie immer kostenlos?"
+    ],
+    "text": "Anmelden\nBlog\n\nIhr Wegweiser zu koreanischer Sprache, Kultur und Alltag.\n\nAlle Beiträge\nSprache wählen\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nNACH THEMA STÖBERN\nKorea-Reise: das Wichtigste\n\nAnkommen, unterwegs sein und bezahlen – die erste Woche geregelt.\n\nK-Food & Restaurant-Guide\n\nWie man bestellt, was man isst und was an einem koreanischen Tisch passiert.\n\nK-Style & Beauty\n\nHautpflege, Kliniken, Marken und wo man einkauft, ohne zu viel zu zahlen.\n\nEntdecken & K-Kultur\n\nStadtviertel, Drehorte von Dramen, Tagesausflüge und koreanischer Alltag.\n\nCampus & Alltagshilfe\n\nVisa, Wohnen, Krankenhäuser und der Papierkram des Lebens hier.\n\nArbeit & Karriere\n\nNebenjob-Erlaubnis, Jobsuche, Lebenslauf und Praktika in Korea.\n\nTipps zur koreanischen Sprache\n\nNützliche Ausdrücke, häufige Fehler und Alltagskoreanisch – einfach erklärt.\n\nSonstiges\n\nKulturelle Feinheiten, Nachrichten, die Ausländer betreffen, und alles andere, was zählt.\n\nNeueste Beiträge\n\n25 Beiträge\n\nFür Reisende\nFür Studierende\nFür Expats\nWarum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?\n\nIn koreanischen Convenience-Stores gibt es heißes Wasser aus einem Wasserspender, eine Mikrowelle und Sitzplätze, sodass man selbst spät in der Nacht sofort vor Ort Instantnudeln oder eine Lunchbox essen kann. Hier wird erklärt, warum 24-Stunden-Convenience-Stores in Korea, wo viele Menschen allein leben und nachts unterwegs sind, zu kleinen Restaurants geworden "
+  },
+  {
+    "name": "03-desk",
+    "requested": "https://www.durukorean.com/de/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/de/blog/post/convenience-store-hot-water-microwave-seating?pl=de",
+    "htmlLang": "de",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "de",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "de",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Nach Thema stöbern",
+      "Korea-Reise: das Wichtigste",
+      "K-Food & Restaurant-Guide",
+      "K-Style & Beauty",
+      "Entdecken & K-Kultur",
+      "Campus & Alltagshilfe",
+      "Arbeit & Karriere",
+      "Tipps zur koreanischen Sprache",
+      "Sonstiges",
+      "Warum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?",
+      "Wichtige Wörter",
+      "Kommentare",
+      "Neueste Beiträge",
+      "Keinen Beitrag verpassen",
+      "Willkommen zurück",
+      "Konto erstellen",
+      "Passwort zurücksetzen"
+    ],
+    "text": "Besuche 1,628\nHeute 332\nKoreanisch lernen\nBuchmaterialien\nKostenlose Downloads\nBlog\nCommunity\nDeutsch\nAnmelden\n글\nBlog\n\nIhr Wegweiser zu koreanischer Sprache, Kultur und Alltag.\n\nAlle Beiträge\nSprache wählen\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nNACH THEMA STÖBERN\nKorea-Reise: das Wichtigste\n\nAnkommen, unterwegs sein und bezahlen – die erste Woche geregelt.\n\nK-Food & Restaurant-Guide\n\nWie man bestellt, was man isst und was an einem koreanischen Tisch passiert.\n\nK-Style & Beauty\n\nHautpflege, Kliniken, Marken und wo man einkauft, ohne zu viel zu zahlen.\n\nEntdecken & K-Kultur\n\nStadtviertel, Drehorte von Dramen, Tagesausflüge und koreanischer Alltag.\n\nCampus & Alltagshilfe\n\nVisa, Wohnen, Krankenhäuser und der Papierkram des Lebens hier.\n\nArbeit & Karriere\n\nNebenjob-Erlaubnis, Jobsuche, Lebenslauf und Praktika in Korea.\n\nTipps zur koreanischen Sprache\n\nNützliche Ausdrücke, häufige Fehler und Alltagskoreanisch – einfach erklärt.\n\nSonstiges\n\nKulturelle Feinheiten, Nachrichten, die Ausländer betreffen, und alles andere, was zählt.\n\n← Alle Beiträge\nK-FOOD & RESTAURANT-GUIDE\nFür Reisende\nFür Studierende\nFür Expats\nWarum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?\n\n한국 편의점은 왜 작은 식당처럼 되어 있을까\n\n26. September 2026\n\nFoto: Jakub Kapusnak · Unsplash\n\nLesen auf\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n♡\n0\n\n밤 열한 시, 배는 고픈데 문 연 식당이 없어요.\nEs ist elf Uhr abends, man hat Hunger, ab"
+  },
+  {
+    "name": "03-phone",
+    "requested": "https://www.durukorean.com/de/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/de/blog/post/convenience-store-hot-water-microwave-seating?pl=de",
+    "htmlLang": "de",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "de",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "de",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Nach Thema stöbern",
+      "Korea-Reise: das Wichtigste",
+      "K-Food & Restaurant-Guide",
+      "K-Style & Beauty",
+      "Entdecken & K-Kultur",
+      "Campus & Alltagshilfe",
+      "Arbeit & Karriere",
+      "Tipps zur koreanischen Sprache",
+      "Sonstiges",
+      "Warum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?",
+      "Wichtige Wörter",
+      "Kommentare",
+      "Neueste Beiträge",
+      "Keinen Beitrag verpassen",
+      "Willkommen zurück",
+      "Konto erstellen",
+      "Passwort zurücksetzen"
+    ],
+    "text": "Anmelden\nBlog\n\nIhr Wegweiser zu koreanischer Sprache, Kultur und Alltag.\n\nAlle Beiträge\nSprache wählen\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nNACH THEMA STÖBERN\nKorea-Reise: das Wichtigste\n\nAnkommen, unterwegs sein und bezahlen – die erste Woche geregelt.\n\nK-Food & Restaurant-Guide\n\nWie man bestellt, was man isst und was an einem koreanischen Tisch passiert.\n\nK-Style & Beauty\n\nHautpflege, Kliniken, Marken und wo man einkauft, ohne zu viel zu zahlen.\n\nEntdecken & K-Kultur\n\nStadtviertel, Drehorte von Dramen, Tagesausflüge und koreanischer Alltag.\n\nCampus & Alltagshilfe\n\nVisa, Wohnen, Krankenhäuser und der Papierkram des Lebens hier.\n\nArbeit & Karriere\n\nNebenjob-Erlaubnis, Jobsuche, Lebenslauf und Praktika in Korea.\n\nTipps zur koreanischen Sprache\n\nNützliche Ausdrücke, häufige Fehler und Alltagskoreanisch – einfach erklärt.\n\nSonstiges\n\nKulturelle Feinheiten, Nachrichten, die Ausländer betreffen, und alles andere, was zählt.\n\n← Alle Beiträge\nK-FOOD & RESTAURANT-GUIDE\nFür Reisende\nFür Studierende\nFür Expats\nWarum sind koreanische Convenience-Stores wie kleine Restaurants eingerichtet?\n\n한국 편의점은 왜 작은 식당처럼 되어 있을까\n\n26. September 2026\n\nFoto: Jakub Kapusnak · Unsplash\n\nLesen auf\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n♡\n0\n\n밤 열한 시, 배는 고픈데 문 연 식당이 없어요.\nEs ist elf Uhr abends, man hat Hunger, aber kein Restaurant hat geöffnet.\n그때 편의점 유리문을 밀고 들어가면 많은 사람이 창가 테이블에 앉아 컵라면을 먹고 있는 걸 보게 돼요.\nGenau dann öf"
+  }
+]
