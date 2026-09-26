@@ -1,6 +1,6 @@
 {
   "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
-  "keyword": "영업시간",
+  "keyword": "openhours",
   "summary": "Learn 8 labels on Korean shop-hours signs, then use two sample signs to decide if you can visit or order at a given time.",
   "objective": "Learners will read a shop-hours sign and say whether the shop is open, or still taking orders, at a given day and time.",
   "level": "Intermediate (low)",
@@ -28,46 +28,122 @@
   "sections": [
     {
       "heading": "8 labels you often see on shop signs",
-      "paragraphs": [
-        "영업시간 (yeongeop sigan): the hours the shop is open for business.",
-        "정기휴무 (jeonggi hyumu): the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday).",
-        "브레이크 타임 (beureikeu taim): a break in the middle of the day, usually between lunch and dinner. The door is closed and you can't come in.",
-        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): the last time you can order. The shop is still open, but it won't take new orders.",
-        "연중무휴 (yeonjung muhyu): open every day of the year, with no regular day off.",
-        "24시간 영업 (isipsa sigan yeongeop): open all day and all night.",
-        "공휴일 휴무 (gonghyuil hyumu): closed on public holidays.",
-        "평일 (pyeongil) / 주말 (jumal): weekdays (Monday–Friday) and the weekend (Saturday–Sunday). Many shops have different hours for each."
-      ]
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "영업시간",
+          "roman": "yeongeop sigan",
+          "text": "the hours the shop is open for business."
+        },
+        {
+          "term": "정기휴무",
+          "roman": "jeonggi hyumu",
+          "text": "the shop's regular day off. On signs it usually looks like 매주 월요일 휴무 (closed every Monday)."
+        },
+        {
+          "term": "브레이크 타임",
+          "roman": "beureikeu taim",
+          "text": "a break in the middle of the day, usually between lunch and dinner. The door is closed and you can't come in."
+        },
+        {
+          "term": "라스트 오더 = 주문 마감",
+          "roman": "raseuteu odeo = jumun magam",
+          "text": "the last time you can order. The shop is still open, but it won't take new orders."
+        },
+        {
+          "term": "연중무휴",
+          "roman": "yeonjung muhyu",
+          "text": "open every day of the year, with no regular day off."
+        },
+        {
+          "term": "24시간 영업",
+          "roman": "isipsa sigan yeongeop",
+          "text": "open all day and all night."
+        },
+        {
+          "term": "공휴일 휴무",
+          "roman": "gonghyuil hyumu",
+          "text": "closed on public holidays."
+        },
+        {
+          "term": "평일 / 주말",
+          "roman": "pyeongil / jumal",
+          "text": "weekdays (Monday–Friday) and the weekend (Saturday–Sunday). Many shops have different hours for each."
+        }
+      ],
+      "romanBelow": true
     },
     {
       "heading": "How to check a sign: 4 steps",
-      "paragraphs": [
-        "① 요일 확인: Is that day a 휴무 (day off)? Check 정기휴무 and 공휴일 휴무.",
-        "② 평일/주말 확인: Which hours apply, the weekday hours or the weekend hours?",
-        "③ 시간 확인: Most signs use the 24-hour clock (15:00 = 오후 3시). Is your time within the opening hours, and not in the 브레이크 타임?",
-        "④ 주문 확인: To eat or order, also check the 라스트 오더 (주문 마감) time. 마감 30분 전 = 30 minutes before closing."
+      "paragraphs": [],
+      "points": [
+        {
+          "lead": "요일 확인:",
+          "text": "Is that day a 휴무 (day off)? Check 정기휴무 and 공휴일 휴무."
+        },
+        {
+          "lead": "평일/주말 확인:",
+          "text": "Which hours apply, the weekday hours or the weekend hours?"
+        },
+        {
+          "lead": "시간 확인:",
+          "text": "Most signs use the 24-hour clock (15:00 = 오후 3시). Is your time within the opening hours, and not in the 브레이크 타임?"
+        },
+        {
+          "lead": "주문 확인:",
+          "text": "To eat or order, also check the 라스트 오더 (주문 마감) time. 마감 30분 전 = 30 minutes before closing."
+        }
       ]
     },
     {
       "heading": "안내판 1: 카페 하루",
-      "paragraphs": [
-        "영업시간",
-        "평일 10:00 ~ 21:00",
-        "주말 11:00 ~ 22:00",
-        "라스트 오더: 마감 30분 전",
-        "정기휴무: 매주 월요일 휴무"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "카페 하루",
+        "tone": "brick",
+        "rows": [
+          {
+            "label": "영업시간",
+            "value": "평일 10:00 ~ 21:00\n주말 11:00 ~ 22:00"
+          },
+          {
+            "label": "라스트 오더",
+            "value": "마감 30분 전"
+          },
+          {
+            "label": "정기휴무",
+            "value": "매주 월요일 휴무"
+          }
+        ]
+      }
     },
     {
       "heading": "안내판 2: 엄마손 칼국수",
-      "paragraphs": [
-        "영업시간 11:00 ~ 20:00",
-        "브레이크 타임 15:00 ~ 16:30",
-        "주문 마감 19:30",
-        "매주 일요일 휴무 · 공휴일 휴무"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "엄마손 칼국수",
+        "tone": "dark",
+        "rows": [
+          {
+            "label": "영업시간",
+            "value": "11:00 ~ 20:00"
+          },
+          {
+            "label": "브레이크 타임",
+            "value": "15:00 ~ 16:30"
+          },
+          {
+            "label": "주문 마감",
+            "value": "19:30"
+          },
+          {
+            "label": "휴무일",
+            "value": "매주 일요일 휴무 · 공휴일 휴무"
+          }
+        ]
+      },
+      "note": "The two signs are made up for practice; they are not real shops or hours. The key point: 'the shop is open' is not the same as 'you can still order' (exercises 3 and 4)."
     }
   ],
-  "note": "The two signs are made up for practice; they are not real shops or hours. The key point: 'the shop is open' is not the same as 'you can still order' (exercises 3 and 4).",
   "category": "etc"
 }

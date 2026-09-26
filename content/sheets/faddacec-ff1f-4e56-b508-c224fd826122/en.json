@@ -1,0 +1,174 @@
+{
+  "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
+  "keyword": "signs",
+  "summary": "Ten short signs you see on doors and inside Korean buildings: push, pull, entrance, exit, emergency exit, restroom, in use, out of order, no entry and no smoking. For each one, you learn what it means and what to do.",
+  "objective": "Read 10 common door and building signs (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) and choose or say the right action for each one.",
+  "level": "Beginner",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "On the door: push or pull?",
+      "paragraphs": [
+        "Both signs are polite requests to you, the person at the door. To say what you do, use 밀어요 (I push) and 당겨요 (I pull)."
+      ],
+      "box": true,
+      "items": [
+        {
+          "term": "미세요",
+          "roman": "miseyo",
+          "text": "Push. It comes from 밀다 (to push). The ㄹ drops before -세요, so you see 미세요, not 밀세요."
+        },
+        {
+          "term": "당기세요",
+          "roman": "danggiseyo",
+          "text": "Pull. It comes from 당기다 (to pull)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "romanBelow": true,
+      "example": {
+        "ko": "이 문은 무거워요. 세게 밀어요.",
+        "en": "This door is heavy. I push it hard."
+      },
+      "card": true
+    },
+    {
+      "heading": "Going in and out",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "입구",
+          "roman": "ipgu, said [입꾸]",
+          "text": "entrance, the way in. 입 means 'enter'."
+        },
+        {
+          "term": "출구",
+          "roman": "chulgu",
+          "text": "exit, the way out. 출 means 'go out'."
+        },
+        {
+          "term": "비상구",
+          "roman": "bisanggu",
+          "text": "emergency exit. Use it in a fire or another emergency."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "지하철 출구가 어디예요?",
+        "en": "Where is the subway exit?"
+      },
+      "card": true
+    },
+    {
+      "heading": "Rooms and machines",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "화장실",
+          "roman": "hwajangsil",
+          "text": "restroom. This sign only tells you where the restroom is."
+        },
+        {
+          "term": "사용 중",
+          "roman": "sayong jung",
+          "text": "in use or occupied. Someone is using it now, so wait."
+        },
+        {
+          "term": "고장",
+          "roman": "gojang",
+          "text": "out of order or broken. Do not use it. People also say 고장 났어요 (It broke down)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "엘리베이터가 고장이에요. 계단으로 가요.",
+        "en": "The elevator is out of order. Let's take the stairs."
+      },
+      "card": true
+    },
+    {
+      "heading": "Signs that say 'don't'",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "출입 금지",
+          "roman": "churip geumji, said [추립 금지]",
+          "text": "no entry. 출입 means 'going in and out', and 금지 means 'forbidden'. Do not go through this door."
+        },
+        {
+          "term": "금연",
+          "roman": "geumyeon, said [그면]",
+          "text": "no smoking. 금 means 'forbid', and 연 means 'smoke'."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "여기는 금연이에요. 밖에서 피우세요.",
+        "en": "This is a no-smoking area. Please smoke outside."
+      },
+      "note": "Tip: 입구, 출구 and 출입 all use 입 (in) and 출 (out). If you learn these two parts, you can often guess new signs.",
+      "card": true
+    }
+  ],
+  "task": {
+    "title": "Read the signs and act",
+    "line": "Use the sign meanings in this worksheet to match, choose or fill in the right answer for each item."
+  },
+  "exercises": [
+    {
+      "ask": "Write the sign from the box that matches each meaning (미세요, 당기세요, 입구, 출구, 비상구):",
+      "items": [
+        "way in / pull / emergency exit / push / way out"
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Write the sign from the box that matches each meaning (화장실, 사용 중, 고장, 출입 금지, 금연):",
+      "items": [
+        "no smoking / out of order / restroom / no entry / in use"
+      ],
+      "plain": true
+    },
+    "Does the sign say something is broken or in use? Write Broken, In use or Neither for each sign: 고장 / 사용 중 / 화장실 / 비상구",
+    {
+      "ask": "Is it OK to do this? Write Yes or No:",
+      "items": [
+        "You smoke under a 금연 sign. / You walk through a door marked 출입 금지. / You leave the building through the door marked 출구. / During a fire, you run to the door marked 비상구."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Fill in the blank with 밀어요 or 당겨요:",
+      "items": [
+        "카페 문에 '당기세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Fill in the blank with 밀어요 or 당겨요:",
+      "items": [
+        "약국 문에 '미세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    }
+  ],
+  "answers": [
+    "입구 / 당기세요 / 비상구 / 미세요 / 출구",
+    "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
+    "Broken / In use / Neither / Neither",
+    "No / No / Yes / Yes",
+    "당겨요",
+    "밀어요"
+  ],
+  "category": "etc"
+}

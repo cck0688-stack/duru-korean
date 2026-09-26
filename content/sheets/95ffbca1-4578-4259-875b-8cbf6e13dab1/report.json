@@ -1,0 +1,15 @@
+{
+  "id": "95ffbca1-4578-4259-875b-8cbf6e13dab1",
+  "title": "날씨 앱 읽기: 우산이 필요해요? 마스크가 필요해요?",
+  "category": "etc",
+  "status": "review",
+  "published": false,
+  "manual": [
+    {
+      "op": "redesign",
+      "why": "Redesigned to the owner's finished drawing (2026-09-26); proofread wording kept. Content read back from the current PDF.",
+      "at": "2026-09-26T08:22:02.000186Z",
+      "all_languages": true
+    }
+  ]
+}

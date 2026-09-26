@@ -1,6 +1,6 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
-  "keyword": "약 봉투",
+  "keyword": "medenvelope",
   "summary": "Maria catches a cold and gets two medicine bags at the pharmacy. Learners read her story and find how often, when, and for how many days to take each medicine, and what the warning means.",
   "objective": "Learners can find four things on a Korean medicine bag: how many times a day (1일 3회 = 하루에 세 번), when (식전, 식후 30분, 자기 전), for how many days (3일분), and what the warning means (졸음 주의, 운전 주의).",
   "level": "Intermediate (low)",
@@ -29,7 +29,8 @@
     "마리아 씨는 한국에 온 지 6개월 됐어요. 어제부터 목이 아프고 콧물이 나서 오늘 아침에 집 근처 병원에 갔어요. 의사 선생님은 감기라고 하면서 처방전을 주셨어요. 마리아 씨는 처방전을 가지고 병원 1층에 있는 약국에 갔어요.",
     "약사가 약 봉투 두 개를 보여 주면서 설명했어요. \"이 하얀 봉투는 감기약이에요. 하루에 세 번, 아침, 점심, 저녁 식사 후 30분에 드세요. 3일분이에요.\" 마리아 씨가 물었어요. \"저는 바빠서 아침을 못 먹을 때가 많아요. 식전에 먹어도 돼요?\" 약사가 대답했어요. \"아니요, 빈속에 드시면 속이 쓰릴 수 있어요. 빵이나 우유를 조금이라도 드신 후에 약을 드세요.\"",
     "\"그리고 이 파란 봉투는 기침약이에요. 이건 하루에 한 번, 자기 전에만 드세요. 그리고 감기약을 드시면 졸릴 수 있어요. 그러니까 약을 드신 후에는 운전하지 마세요.\"",
-    "집에 와서 마리아 씨는 봉투를 다시 읽었어요. 하얀 봉투에는 \"1일 3회, 식후 30분, 3일분\"이라고 쓰여 있었어요. 그 아래에는 빨간 글씨로 \"졸음 주의, 운전 주의\"라고 쓰여 있었어요. 파란 봉투에는 \"1일 1회, 자기 전, 3일분\"이라고 쓰여 있었어요. 마리아 씨는 보통 차를 운전해서 회사에 가요. 그래서 내일부터 사흘 동안은 버스를 타기로 했어요."
+    "집에 와서 마리아 씨는 봉투를 다시 읽었어요. 하얀 봉투에는 \"1일 3회, 식후 30분, 3일분\"이라고 쓰여 있었어요. 그 아래에는 빨간 글씨로 \"졸음 주의, 운전 주의\"라고 쓰여 있었어요. 파란 봉투에는 \"1일 1회, 자기 전, 3일분\"이라고 쓰여 있었어요.",
+    "마리아 씨는 보통 차를 운전해서 회사에 가요. 그래서 내일부터 사흘 동안은 버스를 타기로 했어요."
   ],
   "words": [
     {
@@ -82,5 +83,7 @@
       "exampleMeaning": "It rained for three days straight."
     }
   ],
-  "category": "reading"
+  "category": "reading",
+  "passageBox": true,
+  "wordsBreak": 4
 }

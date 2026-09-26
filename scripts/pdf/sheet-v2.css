@@ -310,3 +310,149 @@ html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormor
 html[lang="ko"] section > h2, html[lang="ja"] section > h2, html[lang="zh"] section > h2 {
   font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1;
 }
+
+/* ---- The owner's five finished sheets (2026-09-26) -----------------
+   Rows of labels, real-life documents, an example bar, a phone screen,
+   rule cards and panels. Each is drawn only when the content has it. */
+
+/* Rows without numbers: the term on a tinted label, what it is beside. */
+.rows-plain { padding: 5px 8px; }
+.rows-plain .row { gap: 10px; padding: 3px 0; border-top: 0; }
+.rows-plain .row + .row { border-top: 1px solid #f0f2ee; }
+.rows-plain .row-term { flex: 0 0 27%; padding: 4px 10px; border-radius: 6px; font-size: 11px; }
+.rows-plain .row-term b { font-size: 12.5px; }
+.rows-plain .row-text { border-left: 0; padding-left: 4px; font-size: 11.5px; }
+.pill-sage .row-term { background: var(--sage); }
+.pill-pink .row-term { background: var(--pink); }
+.rows-rb .row-term { display: flex; flex-direction: column; justify-content: center; }
+.rows-rb .row-rom { font-size: 9.5px; color: var(--soft); font-weight: 400; }
+.rows-plain.rows-rb .row-term { text-align: center; }
+.row-rom { color: var(--grey); font-weight: 400; }
+.rows-def .row-text { color: var(--ink); }
+.row-exl { display: block; color: var(--ink); }
+.rows-n .row-term .row-rom { display: block; font-size: 9.5px; }
+.rows-points .row-text { font-size: 11.5px; }
+.rows-points .row-text b { color: var(--ink); }
+
+/* The example bar under a group of words: "예: …" on pink. */
+.ex-bar { background: var(--pink); border-radius: 6px; padding: 5px 12px; margin-top: 6px; font-size: 12px; break-inside: avoid; }
+.ex-bar b { color: var(--red); margin-right: 4px; }
+.ex-bar-tr { color: var(--grey); }
+section .note { margin-top: 6px; }
+
+/* A real-life document: title bar, label pills, values. */
+.doc { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--card); break-inside: avoid; page-break-inside: avoid; }
+.doc-title { font-size: 15px; font-weight: 700; padding: 6px 16px; }
+.doc-green .doc-title { background: var(--sage); color: var(--ink); }
+.doc-red .doc-title { background: var(--pink); color: var(--ink); }
+.doc-dark .doc-title { background: #2f5249; color: #fff; text-align: center; font-size: 18px; padding: 9px 16px; }
+.doc-brick .doc-title { background: #a4492f; color: #fff; text-align: center; font-size: 14px; padding: 5px 16px; }
+.doc-rows { padding: 6px 14px 8px; }
+.doc-row { display: flex; align-items: center; gap: 16px; padding: 2.5px 0; border-bottom: 1px dotted #e3e6e0; font-size: 13px; }
+.doc-row:last-child { border-bottom: 0; }
+.doc-label { flex: 0 0 22%; font-weight: 700; padding: 2px 10px; border-radius: 5px; font-size: 12px; }
+.doc-green .doc-label { background: var(--sage); }
+.doc-red .doc-label, .doc-dark .doc-label, .doc-brick .doc-label { background: var(--pink); }
+.doc-red .doc-label { color: var(--red); }
+.doc-dark .doc-label, .doc-brick .doc-label { text-align: center; }
+.doc-dark .doc-row { font-size: 14px; padding: 5px 0; }
+
+/* A phone screen: a row per day, each value under its label. */
+.screen { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 6px 10px; break-inside: avoid; page-break-inside: avoid; }
+.scr-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+.scr-row + .scr-row { border-top: 1px solid #ebeee9; }
+.scr-day { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+.scr-pink { background: var(--pink); }
+.scr-sage { background: var(--sage); }
+.scr-sky { flex: 0 0 13%; display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.scr-cell { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; gap: 3px; border-left: 1px solid #ebeee9; }
+.scr-cell small { font-size: 10px; color: var(--grey); }
+.scr-cell b { font-size: 17px; }
+.badge { font-size: 11px; font-weight: 700; padding: 2px 12px; border-radius: 5px; }
+.badge-good { background: #dcefd9; color: #2f6b3a; }
+.badge-normal { background: #fbeccb; color: #8a5a12; }
+.badge-bad { background: #f7d5cf; color: var(--red); }
+.ic { width: 24px; height: 24px; flex: none; }
+.ic-sun { fill: #f2b531; stroke: #f2b531; }
+.ic-rain { fill: #b9cde6; stroke: #5b86c4; }
+.ic-umbrella { fill: var(--red); stroke: var(--red); }
+.ic-mask { fill: none; stroke: var(--green); stroke-width: 1.6; }
+
+/* Rule cards side by side, then panels. */
+.cards { display: flex; gap: 10px; break-inside: avoid; }
+.card { flex: 1 1 0; border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 9px 12px; }
+.card-top { display: flex; gap: 10px; align-items: flex-start; font-size: 11.5px; }
+.card-top b { display: block; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 2px; }
+.card-ic { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--pink); display: flex; align-items: center; justify-content: center; }
+.card-ic .ic { width: 22px; height: 22px; }
+.card:nth-child(2) .card-ic { background: var(--sage); }
+.card-ex { background: #f6f7f4; border-radius: 6px; padding: 6px 10px; margin-top: 7px; font-size: 12px; line-height: 1.55; }
+.panel { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 7px 14px; margin-top: 8px; break-inside: avoid; }
+.panel-title { display: block; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 3px; }
+.panel-bullets .panel-line { font-size: 12px; padding-left: 18px; position: relative; line-height: 1.6; }
+.panel-bullets .panel-line::before { content: ''; position: absolute; left: 3px; top: .55em; width: 7px; height: 7px; border-radius: 50%; background: #6fa36a; }
+.panel-quote .panel-line { background: var(--pink); border-left: 3px solid var(--red); padding: 4px 12px; font-size: 12.5px; color: var(--red); }
+
+/* A tip with a side note. */
+.duo { display: flex; gap: 10px; break-inside: avoid; }
+.duo .tip-box { flex: 1.6 1 0; margin-bottom: 0; }
+.aside { flex: 1 1 0; border: 1px solid var(--line); border-radius: 10px; background: var(--sage); padding: 8px 12px; }
+.aside b { display: block; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 3px; }
+.aside p { margin: 0 0 2px; font-size: 10.5px; line-height: 1.5; }
+
+/* A passage in a box, justified (the owner's instruction, §12). */
+.passage-box { border: 1px solid var(--line); border-radius: 10px; padding: 10px 16px; background: var(--card); }
+.passage-box p { text-align: justify; word-break: keep-all; font-size: 12.5px; line-height: 1.75; margin: 0 0 6px; }
+.passage-box p:last-child { margin-bottom: 0; }
+/* A glossary that continues on the next page keeps its section number. */
+section.continued > h2::before { counter-increment: none; }
+section > h2 small { font-size: .78em; letter-spacing: .06em; }
+
+/* Your turn: a line of instruction with no title; a line to answer on. */
+.task.task-line { display: block; padding: 7px 18px; font-size: 12px; }
+.q.q-lines .rule { margin-left: 40px; height: 16px; }
+section > h2.long { font-size: 16px; letter-spacing: .06em; }
+/* A section drawn as one card: heading, rows, tip and example inside a
+   single outline; the rows inside lose their own box. */
+.sec-card { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px 8px; background: var(--card); break-inside: avoid; }
+.sec-card > h2 { margin-bottom: 6px; }
+.sec-card .rows { border: 0; padding: 0; }
+.sec-card .tip-box { border: 0; background: #f6f7f4; margin: 6px 0 0; padding: 7px 12px; }
+.sec-card .tip-box p { font-size: 11.5px; }
+.passage-box p { font-size: 13px; }
+/* Tighter, for the dense sheets (render.mjs tries compact before giving up). */
+.compact .rows-plain .row { padding: 1.5px 0; }
+.compact .rows-plain .row-term { padding: 2px 10px; }
+.compact .row-text { line-height: 1.4; }
+.compact .doc-row { padding: 1.5px 0; }
+.compact .doc-rows { padding: 4px 14px 6px; }
+.compact .doc-title { padding: 4px 16px; }
+.compact .doc-dark .doc-title { padding: 6px 16px; }
+.compact .doc-dark .doc-row { padding: 3px 0; }
+.compact .scr-row { padding: 4px 0; }
+.compact .card { padding: 7px 12px; }
+.compact .panel { padding: 5px 14px; margin-top: 6px; }
+.compact .ex-bar { padding: 4px 12px; margin-top: 4px; }
+.compact .sec-card { padding: 6px 10px; }
+.compact section > h2.long { font-size: 15px; }
+.compact .q.q-lines .rule { height: 12px; }
+.compact .intro, .compact section > p { margin: 0 0 5px; }
+.compact .rows-plain { padding: 3px 8px; }
+.compact .rows-plain .row { padding: 1px 0; }
+.compact .rows-n .row { padding: 2.5px 0; }
+.compact .row-text { line-height: 1.36; }
+.compact .scr-day { width: 38px; height: 38px; }
+.compact .scr-row { padding: 3px 0; }
+.compact .duo .tip-box { flex: 2.2 1 0; }
+.compact .doc-brick .doc-title { padding: 3px 16px; }
+.compact .doc-label { font-size: 11px; padding: 1px 10px; }
+.compact .doc-row { font-size: 12px; }
+.compact .doc-dark .doc-row { font-size: 13px; padding: 2px 0; }
+.compact section > p { font-size: 11.5px; }
+.rows-plain .row-term { flex-basis: 24%; }
+.compact .screen { padding: 3px 10px; }
+.compact .scr-day { width: 34px; height: 34px; }
+.compact .scr-cell b { font-size: 15px; }
+.compact .rows-plain .row-term { padding: 1px 8px; }
+.compact .aside p { line-height: 1.4; }
+.compact .tip-box p { line-height: 1.5; }

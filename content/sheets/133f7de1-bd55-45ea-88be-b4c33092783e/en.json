@@ -1,6 +1,6 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
-  "keyword": "",
+  "keyword": "utilnotice",
   "summary": "Read two short apartment notices (water shut-off and power outage) and practice finding the date, time, place, reason, and what residents should do.",
   "objective": "Learners will quickly find the date, time, affected area, and what to do in short water or power outage notices, and recognize 8 frequent labels (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "level": "Beginner (high)",
@@ -11,11 +11,46 @@
     "line": ""
   },
   "exercises": [
-    "Answer in the format used in the notice (e.g., 08:00): 공지 A의 단수는 몇 시에 끝납니까?",
-    "Copy exactly as written in the notice: 공지 B의 사유는 무엇입니까?",
-    "Copy exactly as written in the notice: 공지 A의 장소는 어디입니까?",
-    "Copy the sentence exactly as written in the notice: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Write the contact exactly as in the notices (place and phone number): 두 공지의 문의처는 어디입니까?"
+    {
+      "ask": "Answer in the format used in the notice (e.g., 08:00):",
+      "items": [
+        "공지 A의 단수는 몇 시에 끝납니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Copy exactly as written in the notice:",
+      "items": [
+        "공지 B의 사유는 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Copy exactly as written in the notice:",
+      "items": [
+        "공지 A의 장소는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Copy the sentence exactly as written in the notice:",
+      "items": [
+        "공지 B에서 주민이 해야 하는 일은 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Write the contact exactly as in the notices (place and phone number):",
+      "items": [
+        "두 공지의 문의처는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    }
   ],
   "answers": [
     "14:00",
@@ -28,48 +63,128 @@
   "sections": [
     {
       "heading": "Frequent labels and words",
-      "paragraphs": [
-        "일시 (ilsi): date and time",
-        "장소 (jangso): place, affected area",
-        "사유 (sayu): reason",
-        "점검 (jeomgeom): inspection, check",
-        "작업 (jageop): work (construction or repair)",
-        "단수 (dansu): water shut-off",
-        "단전 (danjeon): power outage (planned cut)",
-        "문의 (munui): inquiries, contact (phone number, office)"
-      ]
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "일시",
+          "roman": "ilsi",
+          "text": "date and time"
+        },
+        {
+          "term": "장소",
+          "roman": "jangso",
+          "text": "place, affected area"
+        },
+        {
+          "term": "사유",
+          "roman": "sayu",
+          "text": "reason"
+        },
+        {
+          "term": "점검",
+          "roman": "jeomgeom",
+          "text": "inspection, check"
+        },
+        {
+          "term": "작업",
+          "roman": "jageop",
+          "text": "work (construction or repair)"
+        },
+        {
+          "term": "단수",
+          "roman": "dansu",
+          "text": "water shut-off"
+        },
+        {
+          "term": "단전",
+          "roman": "danjeon",
+          "text": "power outage (planned cut)"
+        },
+        {
+          "term": "문의",
+          "roman": "munui",
+          "text": "inquiries, contact (phone number, office)"
+        }
+      ],
+      "numbered": false,
+      "pill": "sage"
     },
     {
       "heading": "Sample notice A — 단수 안내 (water shut-off notice)",
-      "paragraphs": [
-        "[공지 A] 단수 안내",
-        "일시: 2026년 10월 12일(월) 09:30~14:00",
-        "장소: 101동 전체",
-        "사유: 건물 내부 배관 교체 작업",
-        "작업: 물 공급 중단 및 배관 교체",
-        "유의사항: 단수 전에 물을 미리 받아 두세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 A] 단수 안내",
+        "tone": "green",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 12일(월) 09:30~14:00"
+          },
+          {
+            "label": "장소:",
+            "value": "101동 전체"
+          },
+          {
+            "label": "사유:",
+            "value": "건물 내부 배관 교체 작업"
+          },
+          {
+            "label": "작업:",
+            "value": "물 공급 중단 및 배관 교체"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단수 전에 물을 미리 받아 두세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
       "heading": "Sample notice B — 단전 안내 (power outage notice)",
-      "paragraphs": [
-        "[공지 B] 단전 안내",
-        "일시: 2026년 10월 15일(목) 13:00~16:00",
-        "장소: 102동 1층~10층 전체 세대",
-        "사유: 전기설비 정기 점검",
-        "작업: 변전실 점검 및 전력 차단",
-        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 B] 단전 안내",
+        "tone": "red",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 15일(목) 13:00~16:00"
+          },
+          {
+            "label": "장소:",
+            "value": "102동 1층~10층 전체 세대"
+          },
+          {
+            "label": "사유:",
+            "value": "전기설비 정기 점검"
+          },
+          {
+            "label": "작업:",
+            "value": "변전실 점검 및 전력 차단"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단전 전에 가전제품 플러그를 뽑아 주세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
       "heading": "How to scan quickly",
       "paragraphs": [
         "First look at the labels (일시, 장소, 사유, 작업, 유의사항, 문의), then read only the lines you need. The notices use 24-hour time: ~ means from–to, 동 is the building number, and 층 is the floor."
-      ]
+      ],
+      "box": true,
+      "note": "The notices here are learning examples, not real schedules or contact numbers."
     }
   ],
-  "note": "The notices here are learning examples, not real schedules or contact numbers.",
   "category": "etc"
 }
