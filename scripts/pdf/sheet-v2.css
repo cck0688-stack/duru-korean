@@ -226,6 +226,12 @@ html[lang="zh"] section > h2, html[lang="zh"] .answers h2 { font-family: 'Cormor
 .compact table.forms td:nth-child(1) { width: 50%; }
 .compact table.forms td:nth-child(2) { width: 18%; }
 .compact table.forms td:nth-child(3) { width: 32%; }
+/* When a translation's meanings are long (German, Indonesian), that 18%
+   column turns into a tall ribbon of two-word lines. The renderer tries
+   this wider one only when the sheet will not fit two pages otherwise. */
+.compact.forms-wide table.forms td:nth-child(1) { width: 42%; }
+.compact.forms-wide table.forms td:nth-child(2) { width: 26%; }
+.compact.forms-wide table.forms td:nth-child(3) { width: 32%; }
 .compact table.forms td { padding-top: 4px; padding-bottom: 4px; }
 .compact .note { padding: 6px 11px; font-size: 10.5px; line-height: 1.5; margin-bottom: 5px !important; }
 .compact .letters tbody td { padding: 9px 12px; }

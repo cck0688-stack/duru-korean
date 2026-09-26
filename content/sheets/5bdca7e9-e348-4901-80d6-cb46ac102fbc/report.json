@@ -285,6 +285,13 @@
       "before": "Most ㅂ-stem adjectives change ㅂ to 우. 어렵으니까 (X) → 어려우니까 (O), 춥어서 (X) → 추워서 (O)",
       "why": "A translation still ran onto a third page: trimmed in every language (no retranslation needed). The ㅂ change is already stated in the 으니까 row (어렵다 → 어려우니까).",
       "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "watchOut[2]",
+      "before": "ㄹ-stem verbs and adjectives drop the ㄹ before 니까, and you do not add 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). With -아서/어서 the ㄹ stays: 멀어서, 알아서",
+      "why": "CI (the renderer that makes the files) ran this onto a third page; trimmed in every language at once. The ㄹ-stem rule is in the 니까 row (멀다 → 머니까) and practised in exercise 1.",
+      "all_languages": true
     }
   ],
   "retranslated": {

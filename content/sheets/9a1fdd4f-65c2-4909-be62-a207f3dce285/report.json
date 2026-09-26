@@ -437,6 +437,35 @@
       "after": "Verb + … / Adjective + … (each language's own word; ko keeps 동사/형용사)",
       "why": "The English sheet labelled patterns with Korean grammar words; learners read these in their language (and the Japanese translation failed on them). Japanese brought up to date by hand (ㄹ-adjective line, answer 6).",
       "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "forms[0].when",
+      "before": "The action is happening now or happens regularly. Add -는 to the verb stem, whether it ends in a vowel or a consonant: 먹다 → 먹는, 마시다 → 마시는. (Stems ending in ㄹ drop the ㄹ: 살다 → 사는. See the ㄹ-stem row below.)",
+      "after": "The action is happening now or happens regularly. Add -는 to the verb stem, whether it ends in a vowel or a consonant: 먹다 → 먹는, 마시다 → 마시는.",
+      "why": "CI (the renderer that makes the files) ran this onto a third page; trimmed in every language at once. The ㄹ note repeats the ㄹ-stem row.",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "exercises[2] + answers[2]",
+      "before": "Change the verb in brackets to fit the sentence: 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요. → 노는",
+      "why": "CI (the renderer that makes the files) ran this onto a third page; trimmed in every language at once. ㄹ-stems are still practised in exercise 5 (길은 → 긴).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "watchOut[1]",
+      "before": "예쁘는 가방 (X) → 예쁜 가방 (O): Adjectives do not take -는 (except words ending in 있다/없다). They take -(으)ㄴ.",
+      "why": "CI ran the Indonesian edition onto a third page. The rule is stated in the adjective row (Adjective + -(으)ㄴ, “any adjective describing a noun”).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "id.summary",
+      "before": "Kata yang menjelaskan diletakkan sebelum kata benda dalam bahasa Korea: kata kerja menggunakan -는 (sekarang), -(으)ㄴ (lampau), atau -(으)ㄹ (akan datang), dan kata sifat menggunakan -(으)ㄴ. Kata 있다/없다 menggunakan -는, batang kata yang berakhiran ㄹ menghilangkan ㄹ-nya, dan sebagian besar kata sifat yang berakhiran ㅂ mengubah ㅂ menjadi 우.",
+      "after": "Dalam bahasa Korea, kata penjelas diletakkan sebelum kata benda: kata kerja + -는 (sekarang), -(으)ㄴ (lampau), -(으)ㄹ (akan datang); kata sifat + -(으)ㄴ. Kata 있다/없다 + -는, batang ㄹ kehilangan ㄹ, dan ㅂ pada kebanyakan kata sifat menjadi 우.",
+      "why": "Indonesian only: same content, a line shorter (the Indonesian edition was the tightest)."
     }
   ]
 }

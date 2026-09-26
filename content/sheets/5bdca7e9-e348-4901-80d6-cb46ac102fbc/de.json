@@ -102,7 +102,6 @@
   "watchOut": [
     "Wenn der zweite Satzteil ein Befehl oder Vorschlag ist (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), verwende -(으)니까, nicht -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
     "Setze niemals die Vergangenheitsform -았/었- vor -아서/어서. Der zweite Satzteil zeigt die Zeit bereits an. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Bei -(으)니까 ist die Vergangenheitsform in Ordnung: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
-    "Bei ㄹ-Stamm-Verben und -Adjektiven fällt das ㄹ vor 니까 weg, und man fügt kein 으 hinzu. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Bei -아서/어서 bleibt das ㄹ erhalten: 멀어서, 알아서",
     "Wenn du dich bei jemandem bedankst oder entschuldigst, verwende -아서/어서, nicht -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)"
   ],
   "watchOutMark": [
@@ -113,12 +112,6 @@
     [
       "먹었어서",
       "먹어서"
-    ],
-    [
-      "멀으니까",
-      "머니까",
-      "알으니까",
-      "아니까"
     ],
     [
       "기다리게 하니까",

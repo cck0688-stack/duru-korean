@@ -2,7 +2,6 @@
   "answers": [
     "읽은",
     "입을",
-    "노는",
     "가까운",
     "멋있는",
     "덥은 → 더운, 길은 → 긴"
@@ -11,7 +10,6 @@
   "exercises": [
     "Cambia el verbo entre paréntesis para que encaje en la oración: 어제 도서관에서 (읽다 → ____) 책은 정말 재미있었어요.",
     "Cambia el verbo entre paréntesis para que encaje en la oración: 내일 면접 때 (입다 → ____) 옷을 미리 골라 놨어요.",
-    "Cambia el verbo entre paréntesis para que encaje en la oración: 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요.",
     "Cambia el adjetivo entre paréntesis para que encaje en la oración: 집에서 (가깝다 → ____) 병원이 어디예요?",
     "Cambia la palabra entre paréntesis para que encaje en la oración: 저기 (멋있다 → ____) 모자를 쓴 사람이 우리 선생님이에요.",
     "Hay dos errores en estas oraciones. Encuéntralos y corrígelos: 오늘은 정말 덥은 날이에요. 그래서 머리가 길은 사람들은 머리를 묶었어요."
@@ -19,7 +17,7 @@
   "forms": [
     {
       "form": "Verbo + -는 (presente)",
-      "when": "La acción está ocurriendo ahora o sucede habitualmente. Añade -는 a la raíz del verbo, ya sea que termine en vocal o en consonante: 먹다 → 먹는, 마시다 → 마시는. (Las raíces que terminan en ㄹ pierden la ㄹ: 살다 → 사는. Ver la fila de raíces en ㄹ más abajo.)",
+      "when": "La acción está ocurriendo ahora o sucede habitualmente. Añade -는 a la raíz del verbo, ya sea que termine en vocal o en consonante: 먹다 → 먹는, 마시다 → 마시는.",
       "means": "el/la (sustantivo) que alguien hace / está haciendo",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
       "exampleMeaning": "La persona que está tomando café ahora mismo es mi amigo/a.",
@@ -102,7 +100,6 @@
   "title": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
   "watchOut": [
     "맛있은 음식 (X) → 맛있는 음식 (O): Las palabras que terminan en 있다/없다 llevan -는 (no -은), incluso cuando describes una cualidad.",
-    "예쁘는 가방 (X) → 예쁜 가방 (O): Los adjetivos no llevan -는 (excepto las palabras que terminan en 있다/없다). Llevan -(으)ㄴ.",
     "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): Con las raíces en ㄹ, elimina la ㄹ y añade -ㄴ. No añadas 은. Lo mismo ocurre con 만들은 (X) → 만든 (O).",
     "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Para un hábito que ocurre en el presente, usa -는. -(으)ㄴ en un verbo significa que la acción ya terminó y está en el pasado."
   ],
@@ -110,10 +107,6 @@
     [
       "맛있은",
       "맛있는"
-    ],
-    [
-      "예쁘는",
-      "예쁜"
     ],
     [
       "살은",

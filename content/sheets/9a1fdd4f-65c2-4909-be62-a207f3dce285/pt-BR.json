@@ -2,7 +2,6 @@
   "answers": [
     "읽은",
     "입을",
-    "노는",
     "가까운",
     "멋있는",
     "덥은 → 더운, 길은 → 긴"
@@ -11,7 +10,6 @@
   "exercises": [
     "Mude o verbo entre colchetes para se adequar à frase: 어제 도서관에서 (읽다 → ____) 책은 정말 재미있었어요.",
     "Mude o verbo entre colchetes para se adequar à frase: 내일 면접 때 (입다 → ____) 옷을 미리 골라 놨어요.",
-    "Mude o verbo entre colchetes para se adequar à frase: 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요.",
     "Mude o adjetivo entre colchetes para se adequar à frase: 집에서 (가깝다 → ____) 병원이 어디예요?",
     "Mude a palavra entre colchetes para se adequar à frase: 저기 (멋있다 → ____) 모자를 쓴 사람이 우리 선생님이에요.",
     "Há dois erros nestas frases. Encontre-os e corrija-os: 오늘은 정말 덥은 날이에요. 그래서 머리가 길은 사람들은 머리를 묶었어요."
@@ -19,7 +17,7 @@
   "forms": [
     {
       "form": "Verbo + -는 (presente)",
-      "when": "A ação está acontecendo agora ou acontece regularmente. Adicione -는 ao radical do verbo, seja ele terminado em vogal ou consoante: 먹다 → 먹는, 마시다 → 마시는. (Radicais terminados em ㄹ perdem o ㄹ: 살다 → 사는. Veja a linha sobre radicais em ㄹ mais abaixo.)",
+      "when": "A ação está acontecendo agora ou acontece regularmente. Adicione -는 ao radical do verbo, seja ele terminado em vogal ou consoante: 먹다 → 먹는, 마시다 → 마시는.",
       "means": "o (substantivo) que alguém faz / está fazendo",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
       "exampleMeaning": "A pessoa que está tomando café agora é minha amiga.",
@@ -102,7 +100,6 @@
   "title": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
   "watchOut": [
     "맛있은 음식 (X) → 맛있는 음식 (O): Palavras terminadas em 있다/없다 recebem -는 (não -은), mesmo quando você está descrevendo uma qualidade.",
-    "예쁘는 가방 (X) → 예쁜 가방 (O): Adjetivos não recebem -는 (exceto palavras terminadas em 있다/없다). Eles recebem -(으)ㄴ.",
     "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): Com radicais em ㄹ, remova o ㄹ e adicione -ㄴ. Não adicione 은. O mesmo vale para 만들은 (X) → 만든 (O).",
     "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Para um hábito que está acontecendo agora, use -는. -(으)ㄴ em um verbo significa que a ação já terminou e está no passado."
   ],
@@ -110,10 +107,6 @@
     [
       "맛있은",
       "맛있는"
-    ],
-    [
-      "예쁘는",
-      "예쁜"
     ],
     [
       "살은",

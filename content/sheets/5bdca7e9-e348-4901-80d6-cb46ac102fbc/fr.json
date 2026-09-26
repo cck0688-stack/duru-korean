@@ -102,7 +102,6 @@
   "watchOut": [
     "Si la deuxième proposition est un ordre ou une suggestion (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), utilisez -(으)니까, pas -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
     "Ne mettez jamais la marque du passé -았/었- devant -아서/어서. La deuxième proposition indique déjà le temps. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). Avec -(으)니까, le passé est correct : 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
-    "Les verbes et adjectifs à radical en ㄹ perdent le ㄹ devant 니까, et on n'ajoute pas 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). Avec -아서/어서, le ㄹ reste : 멀어서, 알아서",
     "Quand on remercie ou qu'on s'excuse auprès de quelqu'un, on utilise -아서/어서, pas -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)"
   ],
   "watchOutMark": [
@@ -113,12 +112,6 @@
     [
       "먹었어서",
       "먹어서"
-    ],
-    [
-      "멀으니까",
-      "머니까",
-      "알으니까",
-      "아니까"
     ],
     [
       "기다리게 하니까",

@@ -915,6 +915,13 @@
       "after": "3일 동안 먹을 약이라는 뜻이에요. 모두 아홉 번 먹어요.",
       "why": "Answer box one line shorter so fr/de fit two pages.",
       "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "words[4]",
+      "before": "졸리다 — to feel sleepy",
+      "why": "CI (the renderer that makes the files) ran this onto a third page; trimmed in every language at once. The warning 졸음 주의 is taught under 주의.",
+      "all_languages": true
     }
   ],
   "retranslated": {

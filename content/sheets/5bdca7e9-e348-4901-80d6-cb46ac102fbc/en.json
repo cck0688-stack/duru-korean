@@ -102,7 +102,6 @@
   "watchOut": [
     "If the second clause is a command or suggestion (-(으)세요, -(으)ㅂ시다, -(으)ㄹ까요?), use -(으)니까, not -아서/어서. 배가 고파서 밥 먹으러 갑시다 (X) → 배가 고프니까 밥 먹으러 갑시다 (O)",
     "Never put the past marker -았/었- before -아서/어서. The second clause already shows the time. 어제 많이 먹었어서 배가 아파요 (X) → 어제 많이 먹어서 배가 아파요 (O). With -(으)니까, the past is fine: 영화가 벌써 시작했으니까 빨리 들어갑시다 (O)",
-    "ㄹ-stem verbs and adjectives drop the ㄹ before 니까, and you do not add 으. 멀으니까 (X) → 머니까 (O), 알으니까 (X) → 아니까 (O). With -아서/어서 the ㄹ stays: 멀어서, 알아서",
     "When you thank someone or apologize, use -아서/어서, not -(으)니까. 기다리게 하니까 미안해요 (X) → 기다리게 해서 미안해요 (O)"
   ],
   "watchOutMark": [
@@ -113,12 +112,6 @@
     [
       "먹었어서",
       "먹어서"
-    ],
-    [
-      "멀으니까",
-      "머니까",
-      "알으니까",
-      "아니까"
     ],
     [
       "기다리게 하니까",

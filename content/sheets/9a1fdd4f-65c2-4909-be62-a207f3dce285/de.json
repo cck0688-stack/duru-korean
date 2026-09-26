@@ -2,7 +2,6 @@
   "answers": [
     "읽은",
     "입을",
-    "노는",
     "가까운",
     "멋있는",
     "덥은 → 더운, 길은 → 긴"
@@ -11,7 +10,6 @@
   "exercises": [
     "Ändere das Verb in Klammern so, dass es zum Satz passt: 어제 도서관에서 (읽다 → ____) 책은 정말 재미있었어요.",
     "Ändere das Verb in Klammern so, dass es zum Satz passt: 내일 면접 때 (입다 → ____) 옷을 미리 골라 놨어요.",
-    "Ändere das Verb in Klammern so, dass es zum Satz passt: 공원에서 지금 (놀다 → ____) 아이들이 제 조카들이에요.",
     "Ändere das Adjektiv in Klammern so, dass es zum Satz passt: 집에서 (가깝다 → ____) 병원이 어디예요?",
     "Ändere das Wort in Klammern so, dass es zum Satz passt: 저기 (멋있다 → ____) 모자를 쓴 사람이 우리 선생님이에요.",
     "In diesen Sätzen gibt es zwei Fehler. Finde sie und korrigiere sie: 오늘은 정말 덥은 날이에요. 그래서 머리가 길은 사람들은 머리를 묶었어요."
@@ -19,7 +17,7 @@
   "forms": [
     {
       "form": "Verb + -는 (Gegenwart)",
-      "when": "Die Handlung geschieht gerade jetzt oder regelmäßig. Füge -는 an den Verbstamm an, egal ob er auf einen Vokal oder einen Konsonanten endet: 먹다 → 먹는, 마시다 → 마시는. (Bei Stämmen, die auf ㄹ enden, fällt das ㄹ weg: 살다 → 사는. Siehe die ㄹ-Stamm-Zeile unten.)",
+      "when": "Die Handlung geschieht gerade jetzt oder regelmäßig. Füge -는 an den Verbstamm an, egal ob er auf einen Vokal oder einen Konsonanten endet: 먹다 → 먹는, 마시다 → 마시는.",
       "means": "das (Nomen), das jemand tut / gerade tut",
       "example": "지금 커피를 마시는 사람이 제 친구예요.",
       "exampleMeaning": "Die Person, die gerade Kaffee trinkt, ist meine Freundin/mein Freund.",
@@ -102,7 +100,6 @@
   "title": "명사 꾸미기: -는 / -(으)ㄴ / -(으)ㄹ",
   "watchOut": [
     "맛있은 음식 (X) → 맛있는 음식 (O): Wörter, die auf 있다/없다 enden, erhalten -는 (nicht -은), auch wenn du eine Eigenschaft beschreibst.",
-    "예쁘는 가방 (X) → 예쁜 가방 (O): Adjektive erhalten kein -는 (außer Wörtern, die auf 있다/없다 enden). Sie erhalten -(으)ㄴ.",
     "서울에 오래 살은 사람 / 사은 사람 (X) → 서울에 오래 산 사람 (O): Bei ㄹ-Stämmen lässt du das ㄹ weg und fügst -ㄴ hinzu. Füge kein 은 hinzu. Das Gleiche gilt für 만들은 (X) → 만든 (O).",
     "요즘 매일 먹은 빵 (X) → 요즘 매일 먹는 빵 (O): Für eine Gewohnheit, die gerade jetzt stattfindet, verwendest du -는. -(으)ㄴ bei einem Verb bedeutet, dass die Handlung abgeschlossen und in der Vergangenheit ist."
   ],
@@ -110,10 +107,6 @@
     [
       "맛있은",
       "맛있는"
-    ],
-    [
-      "예쁘는",
-      "예쁜"
     ],
     [
       "살은",

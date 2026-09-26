@@ -410,6 +410,7 @@ export async function renderSheet(sheet, opts = {}) {
     };
 
     if (opts.compact === true) await cls('compact', true);
+    if (opts.formsWide) await cls('forms-wide', true);
     let pdf = await settle();
     // And (the owner, 2026-09-25): a sheet is two pages. One that runs
     // past two is set compact (sheet-v2.css: the same design, closer),
@@ -420,8 +421,16 @@ export async function renderSheet(sheet, opts = {}) {
     // break a page later (CI, 2026-09-26: 3 pages where a fresh compact
     // render gave 2 with room to spare).
     if (opts.compact === undefined && design === 'v2' && pages(pdf) > 2) {
+      const count = (r) => (r.check ? r.check.pages : pages(r.pdf));
+      let best = { pages: pages(pdf), out: null };
       const closer = await renderSheet(sheet, { ...opts, compact: true, browser });
-      if (closer.check ? closer.check.pages < pages(pdf) : pages(closer.pdf) < pages(pdf)) return closer;
+      if (count(closer) < best.pages) best = { pages: count(closer), out: closer };
+      // Still over two with a grammar table: its meanings column wider.
+      if (best.pages > 2 && await page.$('table.forms')) {
+        const wide = await renderSheet(sheet, { ...opts, compact: true, formsWide: true, browser });
+        if (count(wide) < best.pages) best = { pages: count(wide), out: wide };
+      }
+      if (best.out) return best.out;
     }
     const bodyClass = await page.evaluate(() => document.body.className);
     let used = html.replace(/<body(?: class="[^"]*")?>/, bodyClass ? '<body class="' + bodyClass + '">' : '<body>');
