@@ -121,7 +121,7 @@ function report(posts) {
     const bad = all.map((c) => [c, readable(post, c)]).filter(([, s]) => !['own', 'human', 'mt'].includes(s));
     const st = post.study && Array.isArray(post.study.words) ? post.study : null;
     const noWords = st ? NEW.filter((c) => c !== st.from && st.words.some((w) => !(w.by && w.by[c] && w.by[c].meaning))) : [];
-    const state = post.rejected_at ? '[거절] ' : post.published ? '' : '[초안] ';
+    const state = post.published ? '' : '[초안] ';
     log('· ' + state + post.title + ' (' + (post.lang || 'en') + ')' +
       (bad.length ? ' — 못 읽음: ' + bad.map(([c, s]) => c + ':' + s).join(', ') : ' — 10개 언어 모두') +
       (noWords.length ? ' · 단어 목록 없음: ' + noWords.join(',') : ''));
@@ -138,7 +138,7 @@ async function main() {
   log('새 언어: ' + NEW.join(', ') + ' · ' + cfg.label + ' / ' + cfg.model + (DRY ? ' · 연습 (저장하지 않음)' : ''));
 
   let token = await signIn();
-  let posts = await rest(token, 'posts?select=id,title,excerpt,tags,body,lang,i18n,mt,study,published,rejected_at&order=created_at.desc&limit=2000');
+  let posts = await rest(token, 'posts?select=id,title,excerpt,tags,body,lang,i18n,mt,study,published&order=created_at.desc&limit=2000');
   posts = posts.filter((p) => String(p.body || '').trim());
   if (LIMIT) posts = posts.slice(0, LIMIT);
   log('글 ' + posts.length + '편');
