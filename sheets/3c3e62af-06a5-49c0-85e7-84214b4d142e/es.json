@@ -1,14 +1,14 @@
 {
   "title": "약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?",
-  "keyword": "약 봉투",
-  "summary": "María se resfría y recibe dos bolsas de medicina en la farmacia. Los estudiantes leen su historia y averiguan con qué frecuencia, cuándo y por cuántos días debe tomar cada medicina, y qué significa la advertencia.",
-  "objective": "Los estudiantes pueden encontrar cuatro cosas en una bolsa de medicina coreana: cuántas veces al día (1일 3회 = 하루에 세 번), cuándo (식전, 식후 30분, 자기 전), por cuántos días (3일분) y qué significa la advertencia (졸음 주의, 운전 주의).",
-  "level": "Intermedio (bajo)",
+  "keyword": "medenvelope",
+  "summary": "Maria se resfría y recibe dos bolsas de medicina en la farmacia. Los estudiantes leen su historia y averiguan con qué frecuencia, cuándo y durante cuántos días tomar cada medicina, y qué significa la advertencia.",
+  "objective": "Los estudiantes pueden encontrar cuatro cosas en una bolsa de medicina coreana: cuántas veces al día (1일 3회 = 하루에 세 번), cuándo (식전, 식후 30분, 자기 전), durante cuántos días (3일분), y qué significa la advertencia (졸음 주의, 운전 주의).",
+  "level": "Nivel intermedio (bajo)",
   "minutes": 20,
   "tags": [],
   "task": {
-    "title": "Lean las bolsas de medicina",
-    "line": "Lean las dos bolsas de medicina y escriban con qué frecuencia, cuándo y por cuántos días se debe tomar cada una."
+    "title": "Lee las bolsas de medicina",
+    "line": "Lee las dos bolsas de medicina y escribe con qué frecuencia, cuándo y durante cuántos días se debe tomar cada una."
   },
   "exercises": [
     "Responde en coreano: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?",
@@ -19,17 +19,18 @@
   ],
   "answers": [
     "하루에 세 번, (아침, 점심, 저녁) 식후 30분에 먹어요.",
-    "자기 전에만 먹어야 해요. 그러니까 점심 먹고 나서 먹으면 안 돼요.",
-    "3일 동안 먹을 약이라는 뜻이에요. 하루에 세 번씩 3일 동안 먹으니까 모두 아홉 번(9번) 먹어요.",
-    "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 마리아 씨는 사흘 동안 운전하지 않고 버스를 타기로 했어요.",
-    "아침 7시 30분에 먹어요. (밥 먹기 30분 전에 먹어야 해요.)"
+    "자기 전에만 먹어요. 점심 먹고 나서 먹으면 안 돼요.",
+    "3일 동안 먹을 약이라는 뜻이에요. 모두 아홉 번 먹어요.",
+    "'졸음 주의, 운전 주의'라고 쓰여 있었어요. 그래서 사흘 동안 버스를 타기로 했어요.",
+    "아침 7시 30분에 먹어요."
   ],
   "checkThese": [],
   "passage": [
     "마리아 씨는 한국에 온 지 6개월 됐어요. 어제부터 목이 아프고 콧물이 나서 오늘 아침에 집 근처 병원에 갔어요. 의사 선생님은 감기라고 하면서 처방전을 주셨어요. 마리아 씨는 처방전을 가지고 병원 1층에 있는 약국에 갔어요.",
     "약사가 약 봉투 두 개를 보여 주면서 설명했어요. \"이 하얀 봉투는 감기약이에요. 하루에 세 번, 아침, 점심, 저녁 식사 후 30분에 드세요. 3일분이에요.\" 마리아 씨가 물었어요. \"저는 바빠서 아침을 못 먹을 때가 많아요. 식전에 먹어도 돼요?\" 약사가 대답했어요. \"아니요, 빈속에 드시면 속이 쓰릴 수 있어요. 빵이나 우유를 조금이라도 드신 후에 약을 드세요.\"",
     "\"그리고 이 파란 봉투는 기침약이에요. 이건 하루에 한 번, 자기 전에만 드세요. 그리고 감기약을 드시면 졸릴 수 있어요. 그러니까 약을 드신 후에는 운전하지 마세요.\"",
-    "집에 와서 마리아 씨는 봉투를 다시 읽었어요. 하얀 봉투에는 \"1일 3회, 식후 30분, 3일분\"이라고 쓰여 있었어요. 그 아래에는 빨간 글씨로 \"졸음 주의, 운전 주의\"라고 쓰여 있었어요. 파란 봉투에는 \"1일 1회, 자기 전, 3일분\"이라고 쓰여 있었어요. 마리아 씨는 보통 차를 운전해서 회사에 가요. 그래서 내일부터 사흘 동안은 버스를 타기로 했어요."
+    "집에 와서 마리아 씨는 봉투를 다시 읽었어요. 하얀 봉투에는 \"1일 3회, 식후 30분, 3일분\"이라고 쓰여 있었어요. 그 아래에는 빨간 글씨로 \"졸음 주의, 운전 주의\"라고 쓰여 있었어요. 파란 봉투에는 \"1일 1회, 자기 전, 3일분\"이라고 쓰여 있었어요.",
+    "마리아 씨는 보통 차를 운전해서 회사에 가요. 그래서 내일부터 사흘 동안은 버스를 타기로 했어요."
   ],
   "words": [
     {
@@ -37,14 +38,14 @@
       "roman": "sikhu",
       "meaning": "después de comer",
       "example": "이 약은 꼭 식후에 드세요.",
-      "exampleMeaning": "Asegúrese de tomar esta medicina después de comer."
+      "exampleMeaning": "Asegúrate de tomar esta medicina después de comer."
     },
     {
       "korean": "식전",
       "roman": "sikjeon",
       "meaning": "antes de comer",
       "example": "저는 식전에 물을 한 잔 마셔요.",
-      "exampleMeaning": "Bebo un vaso de agua antes de las comidas."
+      "exampleMeaning": "Tomo un vaso de agua antes de las comidas."
     },
     {
       "korean": "빈속",
@@ -56,38 +57,33 @@
     {
       "korean": "속이 쓰리다",
       "roman": "sogi sseurida",
-      "meaning": "sentir ardor o malestar en el estómago",
+      "meaning": "tener una sensación de ardor o dolor en el estómago",
       "example": "어제 술을 많이 마셔서 속이 쓰려요.",
-      "exampleMeaning": "Tengo el estómago irritado porque bebí mucho ayer."
-    },
-    {
-      "korean": "졸리다",
-      "roman": "jollida",
-      "meaning": "sentir sueño",
-      "example": "점심을 먹으면 너무 졸려요.",
-      "exampleMeaning": "Me da mucho sueño después de almorzar."
+      "exampleMeaning": "Me duele el estómago porque bebí mucho ayer."
     },
     {
       "korean": "주의",
       "roman": "juui",
-      "meaning": "precaución, advertencia (en carteles y etiquetas: 'tenga cuidado con ~')",
+      "meaning": "precaución, advertencia (en letreros y etiquetas: 'ten cuidado con ~')",
       "example": "바닥에 '미끄럼 주의'라고 쓰여 있어요.",
-      "exampleMeaning": "El cartel en el suelo dice 'Precaución: resbaladizo'."
+      "exampleMeaning": "El letrero en el suelo dice 'Precaución: resbaladizo'."
     },
     {
       "korean": "3일분",
       "roman": "samilbun",
-      "meaning": "medicación para tres días (3일 = tres días, -분 = cantidad correspondiente al número anterior: 3일분 = para tres días, 2인분 = para dos personas)",
+      "meaning": "suministro para tres días (-분 = la cantidad correspondiente al número anterior; 2인분 = para dos personas)",
       "example": "약사가 5일분 약을 줬어요.",
-      "exampleMeaning": "El farmacéutico me dio medicina para cinco días."
+      "exampleMeaning": "El farmacéutico me dio un suministro de medicina para cinco días."
     },
     {
       "korean": "사흘",
       "roman": "saheul",
-      "meaning": "tres días (palabra numeral coreana nativa)",
+      "meaning": "tres días (palabra nativa coreana)",
       "example": "사흘 동안 계속 비가 왔어요.",
       "exampleMeaning": "Llovió durante tres días seguidos."
     }
   ],
-  "category": "reading"
+  "category": "reading",
+  "passageBox": true,
+  "wordsBreak": 4
 }

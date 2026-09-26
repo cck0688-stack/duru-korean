@@ -1,0 +1,218 @@
+{
+  "title": "날씨 앱 읽기: 우산이 필요해요? 마스크가 필요해요?",
+  "keyword": "weather",
+  "summary": "Lies die Vorhersage einer koreanischen Wetter-App und sag mit Begründung, ob man einen Regenschirm oder eine Maske braucht.",
+  "objective": "Lernende können auf einer koreanischen Wetter-App die Temperatur, die Regenwahrscheinlichkeit und die Feinstaubwerte finden. Sie können '우산이 필요해요?' oder '마스크를 써야 해요?' mit Ja oder Nein und einem Satz als Begründung beantworten.",
+  "level": "Anfänger",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Der App-Bildschirm",
+      "paragraphs": [
+        "Sieh dir diesen Wetter-App-Bildschirm an. Alle Fragen beziehen sich darauf."
+      ],
+      "screen": {
+        "rows": [
+          {
+            "head": "오늘",
+            "tone": "pink",
+            "icon": "sun",
+            "sky": "맑음",
+            "cells": [
+              {
+                "label": "최저",
+                "value": "12°"
+              },
+              {
+                "label": "최고",
+                "value": "23°"
+              },
+              {
+                "label": "강수확률",
+                "value": "10%"
+              },
+              {
+                "label": "미세먼지",
+                "value": "나쁨",
+                "level": "bad"
+              },
+              {
+                "label": "초미세먼지",
+                "value": "보통",
+                "level": "normal"
+              }
+            ]
+          },
+          {
+            "head": "내일",
+            "tone": "sage",
+            "icon": "rain",
+            "sky": "비",
+            "cells": [
+              {
+                "label": "최저",
+                "value": "14°"
+              },
+              {
+                "label": "최고",
+                "value": "19°"
+              },
+              {
+                "label": "강수확률",
+                "value": "80%"
+              },
+              {
+                "label": "미세먼지",
+                "value": "좋음",
+                "level": "good"
+              },
+              {
+                "label": "초미세먼지",
+                "value": "좋음",
+                "level": "good"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "heading": "Wörter auf dem Bildschirm",
+      "paragraphs": [
+        "Lerne die Wörter, die auf dem Wetter-App-Bildschirm erscheinen."
+      ],
+      "items": [
+        {
+          "term": "최저",
+          "roman": "choejeo",
+          "text": "das Minimum, also die niedrigste Temperatur des Tages.",
+          "example": "아침에는 최저 12도예요.",
+          "exampleMeaning": "Am Morgen sind es 12 Grad, die Tiefsttemperatur des Tages."
+        },
+        {
+          "term": "최고",
+          "roman": "choego",
+          "text": "das Maximum, also die höchste Temperatur des Tages.",
+          "example": "오후에는 최고 23도예요.",
+          "exampleMeaning": "Am Nachmittag steigt die Temperatur auf 23 Grad."
+        },
+        {
+          "term": "강수확률",
+          "roman": "gangsuhwangnyul",
+          "text": "die Regen- oder Schneewahrscheinlichkeit. Es wird [강수황뉼] ausgesprochen.",
+          "example": "강수확률이 10%예요.",
+          "exampleMeaning": "Die Regenwahrscheinlichkeit liegt bei 10 %."
+        },
+        {
+          "term": "미세먼지",
+          "roman": "misemeonji",
+          "text": "Feinstaub in der Luft (PM10).",
+          "example": "오늘은 미세먼지가 많아요.",
+          "exampleMeaning": "Heute gibt es viel Feinstaub."
+        },
+        {
+          "term": "초미세먼지",
+          "roman": "chomisemeonji",
+          "text": "Ultrafeinstaub, also noch kleinere Partikel (PM2.5). Die App zeigt dies als eigene Zeile an.",
+          "example": "초미세먼지도 확인하세요.",
+          "exampleMeaning": "Sieh dir auch den Ultrafeinstaub an."
+        },
+        {
+          "term": "좋음 / 보통 / 나쁨 / 매우 나쁨",
+          "roman": "",
+          "text": "(joeum / botong / nappeum / maeu nappeum) gut / mittel / schlecht / sehr schlecht. Das sind die Feinstaubstufen, von der besten bis zur schlechtesten."
+        },
+        {
+          "term": "우산",
+          "roman": "usan",
+          "text": "Regenschirm.",
+          "example": "우산이 필요해요.",
+          "exampleMeaning": "Ich brauche einen Regenschirm."
+        },
+        {
+          "term": "마스크",
+          "roman": "maseukeu",
+          "text": "Maske. Man sagt 마스크를 써요 (eine Maske tragen).",
+          "example": "밖에서 마스크를 써요.",
+          "exampleMeaning": "Ich trage draußen eine Maske."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink"
+    },
+    {
+      "heading": "Vom Bildschirm zum gesprochenen Satz",
+      "box": true,
+      "paragraphs": [
+        "Die App verwendet kurze Begriffe. Wenn du sprichst, wandle sie in Sätze um: 좋음 → 좋아요, 보통 → 보통이에요, 나쁨 → 나빠요, 매우 나쁨 → 매우 나빠요.",
+        "Beispiel: Auf dem Bildschirm steht 미세먼지 나쁨, also sagst du 미세먼지가 나빠요."
+      ],
+      "aside": {
+        "title": "Hinweise zur Aussprache",
+        "lines": [
+          "Lies Temperaturen mit sinokoreanischen Zahlen + 도: 12° = 십이 도, 23° = 이십삼 도.",
+          "Lies % als 퍼센트: 80 % = 팔십 퍼센트."
+        ]
+      }
+    },
+    {
+      "heading": "Antworten: Ja oder Nein + eine Begründung",
+      "paragraphs": [
+        "Benutze diese Regeln, um die Fragen auf diesem Arbeitsblatt zu beantworten."
+      ],
+      "cards": [
+        {
+          "icon": "umbrella",
+          "title": "Regenschirm-Regel",
+          "text": "Sag Ja, wenn die Regenwahrscheinlichkeit 60 % oder mehr beträgt.",
+          "example": "우산이 필요해요?\n→ 네, 필요해요. / 아니요, 필요 없어요."
+        },
+        {
+          "icon": "mask",
+          "title": "Masken-Regel",
+          "text": "Sag Ja, wenn entweder 미세먼지 oder 초미세먼지 나쁨 oder 매우 나쁨 ist.",
+          "example": "마스크를 써야 해요?\n→ 네, 써야 해요. / 아니요, 안 써도 돼요."
+        }
+      ],
+      "panels": [
+        {
+          "title": "Musterantworten",
+          "style": "bullets",
+          "lines": [
+            "우산이 필요해요? → 네, 필요해요. 강수확률이 80%예요.",
+            "마스크를 써야 해요? → 아니요, 안 써도 돼요. 초미세먼지가 좋아요."
+          ]
+        },
+        {
+          "title": "Vollständiges Beispiel",
+          "style": "quote",
+          "lines": [
+            "오늘 우산이 필요해요? → 아니요, 필요 없어요. 강수확률이 10%예요."
+          ]
+        }
+      ],
+      "note": "Prüfe beide Feinstaub-Zeilen, nicht nur eine. An manchen Tagen ist 미세먼지 보통, aber 초미세먼지 ist 나쁨."
+    }
+  ],
+  "task": {
+    "title": "",
+    "line": "Sieh dir den App-Bildschirm auf Seite 1 an, finde die Information und antworte auf Koreanisch."
+  },
+  "exercises": [
+    "Sieh dir den App-Bildschirm an und beantworte: 오늘 최저 기온하고 최고 기온은 몇 도예요?",
+    "Sieh dir den App-Bildschirm an und beantworte: 내일 강수확률은 몇 퍼센트예요?",
+    "Antworte mit Ja oder Nein und gib eine Begründung: 내일 우산이 필요해요?",
+    "Antworte mit Ja oder Nein und gib eine Begründung: 오늘 마스크를 써야 해요?",
+    "Antworte mit Ja oder Nein und gib eine Begründung: 내일 마스크를 써야 해요?"
+  ],
+  "answers": [
+    "최저 12도, 최고 23도예요. (십이 도, 이십삼 도)",
+    "80%예요. (팔십 퍼센트예요)",
+    "네, 필요해요. 강수확률이 80%예요.",
+    "네, 써야 해요. 미세먼지가 나빠요.",
+    "아니요, 안 써도 돼요. 미세먼지하고 초미세먼지가 좋아요."
+  ],
+  "category": "etc"
+}

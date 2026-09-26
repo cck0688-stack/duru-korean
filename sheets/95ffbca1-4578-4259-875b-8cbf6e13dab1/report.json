@@ -1,0 +1,97 @@
+{
+  "id": "95ffbca1-4578-4259-875b-8cbf6e13dab1",
+  "retranslated": {
+    "at": "2026-09-26T08:34:38.180Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 19,
+            "problem": "The English line gives the romanization (joeum / botong / nappeum / maeu nappeum). The translation replaces it with Hangul (좋음 / 보통 / 나쁨 / 매우 나쁨) that isn't in the English line, so the Korean doesn't match the English.",
+            "fix": "(joeum / botong / nappeum / maeu nappeum) tốt / bình thường / xấu / rất xấu. Đây là các mức độ bụi, từ tốt nhất đến xấu nhất."
+          }
+        ]
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 19,
+            "problem": "The English gives the romanization (joeum / botong / nappeum / maeu nappeum), but the translation replaced it with Hangul, which the English line does not have. The Hangul is also misspelled: 조음 instead of 좋음.",
+            "fix": "（joeum／botong／nappeum／maeu nappeum）好／一般／差／非常差。这些是粉尘等级，从最好到最差排列。"
+          },
+          {
+            "line": 3,
+            "problem": "In the English, 'one-sentence' applies only to the reason: answer yes or no, then give a one-sentence reason. The translation says to answer the whole question in one sentence.",
+            "fix": "学习者可以在韩语天气应用上找到气温、降雨概率和粉尘等级。他们可以用是或否回答'우산이 필요해요?'（需要带伞吗？）或'마스크를 써야 해요?'（需要戴口罩吗？），并用一句话说明理由。"
+          }
+        ]
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 35,
+            "problem": "The Japanese particle が was replaced by the Korean particle 가 (\"초미세먼지가나쁨\"). This adds Hangul that is not in the English line and breaks the Japanese sentence.",
+            "fix": "미세먼지または초미세먼지が나쁨か매우 나쁨のときは「はい」と答えます。"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 12,
+            "problem": "The pronoun 'elle' doesn't refer to anything in this sentence, which reads as unnatural French. The English 'it' means the temperature, so the French should say so.",
+            "fix": "L'après-midi, la température atteint 23 degrés."
+          }
+        ]
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 12,
+            "problem": "Unnatural German: 'erreicht es 23 Grad' copies English 'it reaches', but German doesn't use an impersonal 'es erreicht' for the weather; the verb needs a real subject such as 'die Temperatur'.",
+            "fix": "Am Nachmittag steigt die Temperatur auf 23 Grad."
+          }
+        ]
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
+}

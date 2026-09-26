@@ -1,0 +1,218 @@
+{
+  "title": "날씨 앱 읽기: 우산이 필요해요? 마스크가 필요해요?",
+  "keyword": "weather",
+  "summary": "Đọc dự báo thời tiết trên ứng dụng thời tiết Hàn Quốc và nói xem bạn có cần ô (dù) hay khẩu trang không, kèm lý do.",
+  "objective": "Người học có thể tìm nhiệt độ, khả năng mưa, và mức độ bụi mịn trên ứng dụng thời tiết Hàn Quốc. Họ có thể trả lời câu hỏi '우산이 필요해요?' hoặc '마스크를 써야 해요?' bằng có hoặc không kèm theo một câu lý do.",
+  "level": "Sơ cấp",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Màn hình ứng dụng",
+      "paragraphs": [
+        "Đọc màn hình ứng dụng thời tiết này. Tất cả các câu hỏi đều dùng nó."
+      ],
+      "screen": {
+        "rows": [
+          {
+            "head": "오늘",
+            "tone": "pink",
+            "icon": "sun",
+            "sky": "맑음",
+            "cells": [
+              {
+                "label": "최저",
+                "value": "12°"
+              },
+              {
+                "label": "최고",
+                "value": "23°"
+              },
+              {
+                "label": "강수확률",
+                "value": "10%"
+              },
+              {
+                "label": "미세먼지",
+                "value": "나쁨",
+                "level": "bad"
+              },
+              {
+                "label": "초미세먼지",
+                "value": "보통",
+                "level": "normal"
+              }
+            ]
+          },
+          {
+            "head": "내일",
+            "tone": "sage",
+            "icon": "rain",
+            "sky": "비",
+            "cells": [
+              {
+                "label": "최저",
+                "value": "14°"
+              },
+              {
+                "label": "최고",
+                "value": "19°"
+              },
+              {
+                "label": "강수확률",
+                "value": "80%"
+              },
+              {
+                "label": "미세먼지",
+                "value": "좋음",
+                "level": "good"
+              },
+              {
+                "label": "초미세먼지",
+                "value": "좋음",
+                "level": "good"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "heading": "Các từ trên màn hình",
+      "paragraphs": [
+        "Học các từ xuất hiện trên màn hình ứng dụng thời tiết."
+      ],
+      "items": [
+        {
+          "term": "최저",
+          "roman": "choejeo",
+          "text": "thấp nhất, tức là nhiệt độ thấp nhất trong ngày.",
+          "example": "아침에는 최저 12도예요.",
+          "exampleMeaning": "Buổi sáng là 12 độ, mức thấp nhất trong ngày."
+        },
+        {
+          "term": "최고",
+          "roman": "choego",
+          "text": "cao nhất, tức là nhiệt độ cao nhất trong ngày.",
+          "example": "오후에는 최고 23도예요.",
+          "exampleMeaning": "Buổi chiều lên đến 23 độ."
+        },
+        {
+          "term": "강수확률",
+          "roman": "gangsuhwangnyul",
+          "text": "khả năng có mưa hoặc tuyết. Từ này được phát âm là [강수황뉼].",
+          "example": "강수확률이 10%예요.",
+          "exampleMeaning": "Khả năng mưa là 10%."
+        },
+        {
+          "term": "미세먼지",
+          "roman": "misemeonji",
+          "text": "bụi mịn trong không khí (PM10).",
+          "example": "오늘은 미세먼지가 많아요.",
+          "exampleMeaning": "Hôm nay có nhiều bụi mịn."
+        },
+        {
+          "term": "초미세먼지",
+          "roman": "chomisemeonji",
+          "text": "bụi siêu mịn, tức là các hạt còn nhỏ hơn nữa (PM2.5). Ứng dụng hiển thị mục này riêng.",
+          "example": "초미세먼지도 확인하세요.",
+          "exampleMeaning": "Kiểm tra cả bụi siêu mịn nữa."
+        },
+        {
+          "term": "좋음 / 보통 / 나쁨 / 매우 나쁨",
+          "roman": "",
+          "text": "(joeum / botong / nappeum / maeu nappeum) tốt / bình thường / xấu / rất xấu. Đây là các mức độ bụi, từ tốt nhất đến xấu nhất."
+        },
+        {
+          "term": "우산",
+          "roman": "usan",
+          "text": "ô (dù).",
+          "example": "우산이 필요해요.",
+          "exampleMeaning": "Tôi cần ô (dù)."
+        },
+        {
+          "term": "마스크",
+          "roman": "maseukeu",
+          "text": "khẩu trang. Chúng ta nói 마스크를 써요 (đeo khẩu trang).",
+          "example": "밖에서 마스크를 써요.",
+          "exampleMeaning": "Tôi đeo khẩu trang khi ra ngoài."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink"
+    },
+    {
+      "heading": "Từ màn hình đến lời nói",
+      "box": true,
+      "paragraphs": [
+        "Ứng dụng dùng các nhãn ngắn gọn. Khi nói, hãy chuyển chúng thành câu: 좋음 → 좋아요, 보통 → 보통이에요, 나쁨 → 나빠요, 매우 나쁨 → 매우 나빠요.",
+        "Ví dụ: màn hình ghi 미세먼지 나쁨, thì bạn nói 미세먼지가 나빠요."
+      ],
+      "aside": {
+        "title": "Ghi chú phát âm",
+        "lines": [
+          "Đọc nhiệt độ bằng số Hán-Hàn + 도: 12° = 십이 도, 23° = 이십삼 도.",
+          "Đọc % là 퍼센트: 80% = 팔십 퍼센트."
+        ]
+      }
+    },
+    {
+      "heading": "Trả lời: có hoặc không + lý do",
+      "paragraphs": [
+        "Dùng các quy tắc này để trả lời các câu hỏi trong bài tập này."
+      ],
+      "cards": [
+        {
+          "icon": "umbrella",
+          "title": "Quy tắc về ô (dù)",
+          "text": "Trả lời có khi khả năng mưa từ 60% trở lên.",
+          "example": "우산이 필요해요?\n→ 네, 필요해요. / 아니요, 필요 없어요."
+        },
+        {
+          "icon": "mask",
+          "title": "Quy tắc về khẩu trang",
+          "text": "Trả lời có khi 미세먼지 hoặc 초미세먼지 ở mức 나쁨 hoặc 매우 나쁨.",
+          "example": "마스크를 써야 해요?\n→ 네, 써야 해요. / 아니요, 안 써도 돼요."
+        }
+      ],
+      "panels": [
+        {
+          "title": "Câu trả lời mẫu",
+          "style": "bullets",
+          "lines": [
+            "우산이 필요해요? → 네, 필요해요. 강수확률이 80%예요.",
+            "마스크를 써야 해요? → 아니요, 안 써도 돼요. 초미세먼지가 좋아요."
+          ]
+        },
+        {
+          "title": "Ví dụ đầy đủ",
+          "style": "quote",
+          "lines": [
+            "오늘 우산이 필요해요? → 아니요, 필요 없어요. 강수확률이 10%예요."
+          ]
+        }
+      ],
+      "note": "Kiểm tra cả hai chỉ số bụi, đừng chỉ xem một. Có những ngày 미세먼지 ở mức 보통 nhưng 초미세먼지 lại ở mức 나쁨."
+    }
+  ],
+  "task": {
+    "title": "",
+    "line": "Nhìn vào màn hình ứng dụng ở trang 1, tìm thông tin, và trả lời bằng tiếng Hàn."
+  },
+  "exercises": [
+    "Nhìn vào màn hình ứng dụng và trả lời: 오늘 최저 기온하고 최고 기온은 몇 도예요?",
+    "Nhìn vào màn hình ứng dụng và trả lời: 내일 강수확률은 몇 퍼센트예요?",
+    "Trả lời có hoặc không và nêu lý do: 내일 우산이 필요해요?",
+    "Trả lời có hoặc không và nêu lý do: 오늘 마스크를 써야 해요?",
+    "Trả lời có hoặc không và nêu lý do: 내일 마스크를 써야 해요?"
+  ],
+  "answers": [
+    "최저 12도, 최고 23도예요. (십이 도, 이십삼 도)",
+    "80%예요. (팔십 퍼센트예요)",
+    "네, 필요해요. 강수확률이 80%예요.",
+    "네, 써야 해요. 미세먼지가 나빠요.",
+    "아니요, 안 써도 돼요. 미세먼지하고 초미세먼지가 좋아요."
+  ],
+  "category": "etc"
+}

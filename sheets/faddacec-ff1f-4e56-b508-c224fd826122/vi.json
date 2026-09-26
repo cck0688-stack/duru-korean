@@ -1,0 +1,174 @@
+{
+  "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
+  "keyword": "signs",
+  "summary": "Mười biển báo ngắn bạn thường thấy trên cửa và trong các tòa nhà ở Hàn Quốc: đẩy, kéo, lối vào, lối ra, cửa thoát hiểm, nhà vệ sinh, đang sử dụng, hỏng, cấm ra vào và cấm hút thuốc. Với mỗi biển báo, bạn học nghĩa của nó và việc cần làm.",
+  "objective": "Đọc 10 biển báo thông dụng trên cửa và trong tòa nhà (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) và chọn hoặc nói ra hành động đúng cho mỗi biển báo.",
+  "level": "Trình độ cơ bản",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Trên cửa: đẩy hay kéo?",
+      "paragraphs": [
+        "Cả hai biển báo đều là lời yêu cầu lịch sự dành cho bạn, người đang ở trước cửa. Để nói về hành động của mình, dùng 밀어요 (tôi đẩy) và 당겨요 (tôi kéo)."
+      ],
+      "box": true,
+      "items": [
+        {
+          "term": "미세요",
+          "roman": "miseyo",
+          "text": "Đẩy. Từ này xuất phát từ 밀다 (đẩy). ㄹ bị rụng trước -세요, nên ta thấy 미세요, không phải 밀세요."
+        },
+        {
+          "term": "당기세요",
+          "roman": "danggiseyo",
+          "text": "Kéo. Từ này xuất phát từ 당기다 (kéo)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "romanBelow": true,
+      "example": {
+        "ko": "이 문은 무거워요. 세게 밀어요.",
+        "en": "Cửa này nặng. Tôi đẩy mạnh."
+      },
+      "card": true
+    },
+    {
+      "heading": "Vào và ra",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "입구",
+          "roman": "ipgu, said [입꾸]",
+          "text": "lối vào, đường đi vào. 입 có nghĩa là 'vào'."
+        },
+        {
+          "term": "출구",
+          "roman": "chulgu",
+          "text": "lối ra, đường đi ra. 출 có nghĩa là 'ra'."
+        },
+        {
+          "term": "비상구",
+          "roman": "bisanggu",
+          "text": "cửa thoát hiểm. Dùng cửa này khi có hỏa hoạn hoặc trường hợp khẩn cấp khác."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "지하철 출구가 어디예요?",
+        "en": "Lối ra ga tàu điện ngầm ở đâu?"
+      },
+      "card": true
+    },
+    {
+      "heading": "Phòng và máy móc",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "화장실",
+          "roman": "hwajangsil",
+          "text": "nhà vệ sinh. Biển này chỉ cho biết nhà vệ sinh ở đâu."
+        },
+        {
+          "term": "사용 중",
+          "roman": "sayong jung",
+          "text": "đang sử dụng hoặc đang có người. Có người đang dùng, nên hãy chờ."
+        },
+        {
+          "term": "고장",
+          "roman": "gojang",
+          "text": "hỏng hoặc không hoạt động. Đừng sử dụng. Người ta cũng nói 고장 났어요 (Nó bị hỏng rồi)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "엘리베이터가 고장이에요. 계단으로 가요.",
+        "en": "Thang máy bị hỏng. Chúng ta đi thang bộ nhé."
+      },
+      "card": true
+    },
+    {
+      "heading": "Những biển báo nói 'không được'",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "출입 금지",
+          "roman": "churip geumji, said [추립 금지]",
+          "text": "cấm ra vào. 출입 có nghĩa là 'đi ra đi vào', và 금지 có nghĩa là 'bị cấm'. Không được đi qua cửa này."
+        },
+        {
+          "term": "금연",
+          "roman": "geumyeon, said [그면]",
+          "text": "cấm hút thuốc. 금 có nghĩa là 'cấm', và 연 có nghĩa là 'khói/thuốc'."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "여기는 금연이에요. 밖에서 피우세요.",
+        "en": "Đây là khu vực cấm hút thuốc. Vui lòng hút thuốc bên ngoài."
+      },
+      "note": "Mẹo: 입구, 출구 và 출입 đều dùng 입 (vào) và 출 (ra). Nếu học hai phần này, bạn thường có thể đoán được các biển báo mới.",
+      "card": true
+    }
+  ],
+  "task": {
+    "title": "Đọc biển báo và hành động",
+    "line": "Dùng nghĩa của các biển báo trong phiếu bài tập này để nối, chọn hoặc điền câu trả lời đúng cho mỗi câu."
+  },
+  "exercises": [
+    {
+      "ask": "Viết biển báo trong khung phù hợp với mỗi nghĩa (미세요, 당기세요, 입구, 출구, 비상구):",
+      "items": [
+        "đường vào / kéo / cửa thoát hiểm / đẩy / đường ra"
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Viết biển báo trong khung phù hợp với mỗi nghĩa (화장실, 사용 중, 고장, 출입 금지, 금연):",
+      "items": [
+        "cấm hút thuốc / hỏng / nhà vệ sinh / cấm ra vào / đang sử dụng"
+      ],
+      "plain": true
+    },
+    "Biển báo này nói về việc gì đó bị hỏng hay đang được sử dụng? Viết Hỏng, Đang sử dụng hoặc Không phải cho mỗi biển báo: 고장 / 사용 중 / 화장실 / 비상구",
+    {
+      "ask": "Làm việc này có được không? Viết Có hoặc Không:",
+      "items": [
+        "Bạn hút thuốc dưới biển 금연. / Bạn đi qua cửa có ghi 출입 금지. / Bạn ra khỏi tòa nhà qua cửa có ghi 출구. / Khi có hỏa hoạn, bạn chạy đến cửa có ghi 비상구."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Điền vào chỗ trống bằng 밀어요 hoặc 당겨요:",
+      "items": [
+        "카페 문에 '당기세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Điền vào chỗ trống bằng 밀어요 hoặc 당겨요:",
+      "items": [
+        "약국 문에 '미세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    }
+  ],
+  "answers": [
+    "입구 / 당기세요 / 비상구 / 미세요 / 출구",
+    "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
+    "Hỏng / Đang sử dụng / Không phải / Không phải",
+    "Không / Không / Có / Có",
+    "당겨요",
+    "밀어요"
+  ],
+  "category": "etc"
+}

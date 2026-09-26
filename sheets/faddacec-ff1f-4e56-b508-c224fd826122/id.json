@@ -1,0 +1,174 @@
+{
+  "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
+  "keyword": "signs",
+  "summary": "Sepuluh tanda singkat yang kamu lihat di pintu dan di dalam gedung-gedung Korea: dorong, tarik, pintu masuk, pintu keluar, pintu darurat, toilet, sedang digunakan, rusak, dilarang masuk, dan dilarang merokok. Untuk setiap tanda, kamu akan belajar artinya dan apa yang harus dilakukan.",
+  "objective": "Baca 10 tanda umum pada pintu dan gedung (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연), lalu pilih atau ucapkan tindakan yang tepat untuk masing-masing.",
+  "level": "Pemula",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Di pintu: dorong atau tarik?",
+      "paragraphs": [
+        "Kedua tanda ini adalah permintaan sopan kepadamu, orang yang berada di depan pintu. Untuk mengatakan apa yang kamu lakukan, gunakan 밀어요 (saya mendorong) dan 당겨요 (saya menarik)."
+      ],
+      "box": true,
+      "items": [
+        {
+          "term": "미세요",
+          "roman": "miseyo",
+          "text": "Dorong. Berasal dari 밀다 (mendorong). Huruf ㄹ hilang sebelum -세요, jadi yang muncul adalah 미세요, bukan 밀세요."
+        },
+        {
+          "term": "당기세요",
+          "roman": "danggiseyo",
+          "text": "Tarik. Berasal dari 당기다 (menarik)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "romanBelow": true,
+      "example": {
+        "ko": "이 문은 무거워요. 세게 밀어요.",
+        "en": "Pintu ini berat. Saya mendorongnya dengan kuat."
+      },
+      "card": true
+    },
+    {
+      "heading": "Masuk dan keluar",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "입구",
+          "roman": "ipgu, said [입꾸]",
+          "text": "pintu masuk, jalan untuk masuk. 입 berarti 'masuk'."
+        },
+        {
+          "term": "출구",
+          "roman": "chulgu",
+          "text": "pintu keluar, jalan untuk keluar. 출 berarti 'keluar'."
+        },
+        {
+          "term": "비상구",
+          "roman": "bisanggu",
+          "text": "pintu darurat. Gunakan saat kebakaran atau keadaan darurat lainnya."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "지하철 출구가 어디예요?",
+        "en": "Di mana pintu keluar stasiun kereta bawah tanah?"
+      },
+      "card": true
+    },
+    {
+      "heading": "Ruangan dan mesin",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "화장실",
+          "roman": "hwajangsil",
+          "text": "toilet. Tanda ini hanya memberi tahu di mana letak toiletnya."
+        },
+        {
+          "term": "사용 중",
+          "roman": "sayong jung",
+          "text": "sedang digunakan atau terisi. Seseorang sedang memakainya sekarang, jadi tunggulah."
+        },
+        {
+          "term": "고장",
+          "roman": "gojang",
+          "text": "rusak atau tidak berfungsi. Jangan gunakan. Orang juga mengatakan 고장 났어요 (Ini rusak)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "엘리베이터가 고장이에요. 계단으로 가요.",
+        "en": "Liftnya rusak. Ayo naik tangga saja."
+      },
+      "card": true
+    },
+    {
+      "heading": "Tanda-tanda yang berarti 'jangan'",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "출입 금지",
+          "roman": "churip geumji, said [추립 금지]",
+          "text": "dilarang masuk. 출입 berarti 'keluar masuk', dan 금지 berarti 'dilarang'. Jangan melewati pintu ini."
+        },
+        {
+          "term": "금연",
+          "roman": "geumyeon, said [그면]",
+          "text": "dilarang merokok. 금 berarti 'melarang', dan 연 berarti 'asap/rokok'."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "여기는 금연이에요. 밖에서 피우세요.",
+        "en": "Ini adalah area bebas rokok. Silakan merokok di luar."
+      },
+      "note": "Tip: 입구, 출구, dan 출입 semuanya menggunakan 입 (masuk) dan 출 (keluar). Jika kamu mempelajari kedua bagian ini, kamu sering bisa menebak arti tanda-tanda baru.",
+      "card": true
+    }
+  ],
+  "task": {
+    "title": "Baca tandanya dan bertindaklah",
+    "line": "Gunakan arti tanda-tanda di lembar kerja ini untuk mencocokkan, memilih, atau mengisi jawaban yang tepat untuk setiap soal."
+  },
+  "exercises": [
+    {
+      "ask": "Tulis tanda dari kotak yang sesuai dengan setiap arti (미세요, 당기세요, 입구, 출구, 비상구):",
+      "items": [
+        "jalan masuk / tarik / pintu darurat / dorong / jalan keluar"
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Tulis tanda dari kotak yang sesuai dengan setiap arti (화장실, 사용 중, 고장, 출입 금지, 금연):",
+      "items": [
+        "dilarang merokok / rusak / toilet / dilarang masuk / sedang digunakan"
+      ],
+      "plain": true
+    },
+    "Apakah tanda ini menyatakan sesuatu rusak atau sedang digunakan? Tulis Rusak, Sedang digunakan, atau Tidak keduanya untuk setiap tanda: 고장 / 사용 중 / 화장실 / 비상구",
+    {
+      "ask": "Bolehkah melakukan ini? Tulis Ya atau Tidak:",
+      "items": [
+        "Kamu merokok di bawah tanda 금연. / Kamu berjalan melewati pintu bertanda 출입 금지. / Kamu keluar gedung melalui pintu bertanda 출구. / Saat terjadi kebakaran, kamu berlari ke pintu bertanda 비상구."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Isi bagian kosong dengan 밀어요 atau 당겨요:",
+      "items": [
+        "카페 문에 '당기세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Isi bagian kosong dengan 밀어요 atau 당겨요:",
+      "items": [
+        "약국 문에 '미세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    }
+  ],
+  "answers": [
+    "입구 / 당기세요 / 비상구 / 미세요 / 출구",
+    "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
+    "Rusak / Sedang digunakan / Tidak keduanya / Tidak keduanya",
+    "Tidak / Tidak / Ya / Ya",
+    "당겨요",
+    "밀어요"
+  ],
+  "category": "etc"
+}

@@ -1,0 +1,73 @@
+{
+  "id": "faddacec-ff1f-4e56-b508-c224fd826122",
+  "retranslated": {
+    "at": "2026-09-26T08:33:09.607Z",
+    "translations": {
+      "es": {
+        "lang": "es",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "id": {
+        "lang": "id",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "vi": {
+        "lang": "vi",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 3,
+            "problem": "'门牌' means a house-number plate, not a sign on a door; this changes the meaning of 'door and building signs'.",
+            "fix": "阅读10个常见的门上和建筑物内的标识(미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연),并为每一个选择或说出正确的应对方式。"
+          },
+          {
+            "line": 18,
+            "problem": "'in use or occupied' is rendered as a separate clause '有人正在使用', and '有人在用' then repeats in the next sentence. This is redundant and unnatural.",
+            "fix": "使用中或有人占用。现在有人在用,请等候。"
+          }
+        ]
+      },
+      "fr": {
+        "lang": "fr",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "de": {
+        "lang": "de",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      }
+    }
+  }
+}

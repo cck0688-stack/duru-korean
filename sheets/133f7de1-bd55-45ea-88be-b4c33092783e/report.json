@@ -638,26 +638,8 @@
   },
   "preparedAt": "2026-09-25T14:32:07.673Z",
   "retranslated": {
-    "at": "2026-09-25T18:25:27.663Z",
+    "at": "2026-09-26T08:31:34.456Z",
     "translations": {
-      "es": {
-        "lang": "es",
-        "tries": 1,
-        "lost": [],
-        "fixes": [
-          {
-            "line": 2,
-            "problem": "\"practica encontrando\" copies the English \"practice finding\" word for word and sounds unnatural in Spanish. Spanish doesn't put a gerund after \"practicar\" to mean practising a skill.",
-            "fix": "Lee dos avisos cortos de un edificio de apartamentos (corte de agua y corte de electricidad) y practica cómo encontrar la fecha, la hora, el lugar, el motivo y lo que deben hacer los residentes."
-          }
-        ]
-      },
-      "pt-BR": {
-        "lang": "pt-BR",
-        "tries": 1,
-        "lost": [],
-        "fixes": []
-      },
       "id": {
         "lang": "id",
         "tries": 1,
@@ -670,20 +652,26 @@
         "lost": [],
         "fixes": []
       },
-      "zh": {
-        "lang": "zh",
+      "es": {
+        "lang": "es",
         "tries": 1,
         "lost": [],
-        "fixes": [
-          {
-            "line": 1,
-            "problem": "\"高级\" usually means \"advanced level\", so \"初级(高级)\" reads as \"Beginner (advanced)\" and contradicts itself. The English means the upper part of the beginner level.",
-            "fix": "初级(高阶)"
-          }
-        ]
+        "fixes": []
       },
       "ko": {
         "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "pt-BR": {
+        "lang": "pt-BR",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
+      "ja": {
+        "lang": "ja",
         "tries": 1,
         "lost": [],
         "fixes": []
@@ -694,23 +682,23 @@
         "lost": [],
         "fixes": []
       },
+      "zh": {
+        "lang": "zh",
+        "tries": 1,
+        "lost": [],
+        "fixes": [
+          {
+            "line": 1,
+            "problem": "\"高级\" is a level name meaning \"advanced\", so \"初级(高级)\" reads as \"Beginner (Advanced)\", which contradicts itself. The English means the upper part of the beginner level.",
+            "fix": "初级(高阶)"
+          }
+        ]
+      },
       "de": {
         "lang": "de",
         "tries": 1,
         "lost": [],
         "fixes": []
-      },
-      "ja": {
-        "lang": "ja",
-        "tries": 1,
-        "lost": [],
-        "fixes": [
-          {
-            "line": 13,
-            "problem": "The English gloss has two meanings, \"inquiries, contact\", but the Japanese omits \"contact\" (連絡先).",
-            "fix": "문의(ムニ):問い合わせ、連絡先(電話番号、事務所)"
-          }
-        ]
       }
     }
   }

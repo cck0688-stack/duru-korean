@@ -1,0 +1,174 @@
+{
+  "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
+  "keyword": "signs",
+  "summary": "Dez placas curtas que você vê em portas e dentro de prédios coreanos: empurrar, puxar, entrada, saída, saída de emergência, banheiro, em uso, com defeito, entrada proibida e proibido fumar. Para cada uma, você aprende o que significa e o que fazer.",
+  "objective": "Leia 10 placas comuns de portas e prédios (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) e escolha ou diga a ação correta para cada uma.",
+  "level": "Iniciante",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Na porta: empurrar ou puxar?",
+      "paragraphs": [
+        "As duas placas são pedidos educados para você, a pessoa na porta. Para dizer o que você faz, use 밀어요 (eu empurro) e 당겨요 (eu puxo)."
+      ],
+      "box": true,
+      "items": [
+        {
+          "term": "미세요",
+          "roman": "miseyo",
+          "text": "Empurrar. Vem de 밀다 (empurrar). O ㄹ desaparece antes de -세요, por isso você vê 미세요, e não 밀세요."
+        },
+        {
+          "term": "당기세요",
+          "roman": "danggiseyo",
+          "text": "Puxar. Vem de 당기다 (puxar)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "romanBelow": true,
+      "example": {
+        "ko": "이 문은 무거워요. 세게 밀어요.",
+        "en": "Essa porta é pesada. Eu a empurro com força."
+      },
+      "card": true
+    },
+    {
+      "heading": "Entrando e saindo",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "입구",
+          "roman": "ipgu, said [입꾸]",
+          "text": "entrada, o caminho para dentro. 입 significa 'entrar'."
+        },
+        {
+          "term": "출구",
+          "roman": "chulgu",
+          "text": "saída, o caminho para fora. 출 significa 'sair'."
+        },
+        {
+          "term": "비상구",
+          "roman": "bisanggu",
+          "text": "saída de emergência. Use-a em caso de incêndio ou outra emergência."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "지하철 출구가 어디예요?",
+        "en": "Onde fica a saída do metrô?"
+      },
+      "card": true
+    },
+    {
+      "heading": "Salas e máquinas",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "화장실",
+          "roman": "hwajangsil",
+          "text": "banheiro. Essa placa só indica onde fica o banheiro."
+        },
+        {
+          "term": "사용 중",
+          "roman": "sayong jung",
+          "text": "em uso ou ocupado. Alguém está usando agora, então espere."
+        },
+        {
+          "term": "고장",
+          "roman": "gojang",
+          "text": "com defeito ou quebrado. Não use. As pessoas também dizem 고장 났어요 (quebrou)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "엘리베이터가 고장이에요. 계단으로 가요.",
+        "en": "O elevador está com defeito. Vamos usar a escada."
+      },
+      "card": true
+    },
+    {
+      "heading": "Placas que dizem 'não'",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "출입 금지",
+          "roman": "churip geumji, said [추립 금지]",
+          "text": "entrada proibida. 출입 significa 'entrar e sair', e 금지 significa 'proibido'. Não passe por essa porta."
+        },
+        {
+          "term": "금연",
+          "roman": "geumyeon, said [그면]",
+          "text": "proibido fumar. 금 significa 'proibir', e 연 significa 'fumaça'."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "여기는 금연이에요. 밖에서 피우세요.",
+        "en": "Esta é uma área para não fumantes. Por favor, fume lá fora."
+      },
+      "note": "Dica: 입구, 출구 e 출입 usam 입 (entrar) e 출 (sair). Se você aprender essas duas partes, muitas vezes consegue adivinhar novas placas.",
+      "card": true
+    }
+  ],
+  "task": {
+    "title": "Leia as placas e aja",
+    "line": "Use os significados das placas nesta atividade para relacionar, escolher ou preencher a resposta certa em cada item."
+  },
+  "exercises": [
+    {
+      "ask": "Escreva a placa do quadro que corresponde a cada significado (미세요, 당기세요, 입구, 출구, 비상구):",
+      "items": [
+        "caminho de entrada / puxar / saída de emergência / empurrar / caminho de saída"
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Escreva a placa do quadro que corresponde a cada significado (화장실, 사용 중, 고장, 출입 금지, 금연):",
+      "items": [
+        "proibido fumar / com defeito / banheiro / entrada proibida / em uso"
+      ],
+      "plain": true
+    },
+    "A placa diz que algo está quebrado ou em uso? Escreva Quebrado, Em uso ou Nenhum dos dois para cada placa: 고장 / 사용 중 / 화장실 / 비상구",
+    {
+      "ask": "Pode fazer isso? Escreva Sim ou Não:",
+      "items": [
+        "Você fuma embaixo de uma placa de 금연. / Você passa por uma porta marcada com 출입 금지. / Você sai do prédio pela porta marcada com 출구. / Durante um incêndio, você corre para a porta marcada com 비상구."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Complete a lacuna com 밀어요 ou 당겨요:",
+      "items": [
+        "카페 문에 '당기세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Complete a lacuna com 밀어요 ou 당겨요:",
+      "items": [
+        "약국 문에 '미세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    }
+  ],
+  "answers": [
+    "입구 / 당기세요 / 비상구 / 미세요 / 출구",
+    "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
+    "Quebrado / Em uso / Nenhum dos dois / Nenhum dos dois",
+    "Não / Não / Sim / Sim",
+    "당겨요",
+    "밀어요"
+  ],
+  "category": "etc"
+}

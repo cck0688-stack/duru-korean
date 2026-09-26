@@ -1,0 +1,174 @@
+{
+  "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
+  "keyword": "signs",
+  "summary": "Diez letreros cortos que ves en puertas y dentro de edificios coreanos: empujar, tirar, entrada, salida, salida de emergencia, baño, en uso, fuera de servicio, prohibido el paso y prohibido fumar. Para cada uno, aprendes qué significa y qué hacer.",
+  "objective": "Lee 10 letreros comunes de puertas y edificios (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) y elige o di la acción correcta para cada uno.",
+  "level": "Principiante",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "En la puerta: ¿empujar o tirar?",
+      "paragraphs": [
+        "Ambos letreros son peticiones corteses dirigidas a ti, la persona que está en la puerta. Para decir lo que tú haces, usa 밀어요 (yo empujo) y 당겨요 (yo tiro)."
+      ],
+      "box": true,
+      "items": [
+        {
+          "term": "미세요",
+          "roman": "miseyo",
+          "text": "Empujar. Viene de 밀다 (empujar). La ㄹ se elimina antes de -세요, así que se escribe 미세요, no 밀세요."
+        },
+        {
+          "term": "당기세요",
+          "roman": "danggiseyo",
+          "text": "Tirar. Viene de 당기다 (tirar)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "romanBelow": true,
+      "example": {
+        "ko": "이 문은 무거워요. 세게 밀어요.",
+        "en": "Esta puerta es pesada. La empujo con fuerza."
+      },
+      "card": true
+    },
+    {
+      "heading": "Entrando y saliendo",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "입구",
+          "roman": "ipgu, said [입꾸]",
+          "text": "entrada, el camino de entrada. 입 significa 'entrar'."
+        },
+        {
+          "term": "출구",
+          "roman": "chulgu",
+          "text": "salida, el camino de salida. 출 significa 'salir'."
+        },
+        {
+          "term": "비상구",
+          "roman": "bisanggu",
+          "text": "salida de emergencia. Úsala en caso de incendio u otra emergencia."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "지하철 출구가 어디예요?",
+        "en": "¿Dónde está la salida del metro?"
+      },
+      "card": true
+    },
+    {
+      "heading": "Cuartos y máquinas",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "화장실",
+          "roman": "hwajangsil",
+          "text": "baño. Este letrero solo te indica dónde está el baño."
+        },
+        {
+          "term": "사용 중",
+          "roman": "sayong jung",
+          "text": "en uso u ocupado. Alguien lo está usando ahora, así que espera."
+        },
+        {
+          "term": "고장",
+          "roman": "gojang",
+          "text": "fuera de servicio o averiado. No lo uses. La gente también dice 고장 났어요 (se descompuso)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "엘리베이터가 고장이에요. 계단으로 가요.",
+        "en": "El ascensor está fuera de servicio. Tomemos las escaleras."
+      },
+      "card": true
+    },
+    {
+      "heading": "Letreros que dicen 'no'",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "출입 금지",
+          "roman": "churip geumji, said [추립 금지]",
+          "text": "prohibido el paso. 출입 significa 'entrar y salir', y 금지 significa 'prohibido'. No pases por esta puerta."
+        },
+        {
+          "term": "금연",
+          "roman": "geumyeon, said [그면]",
+          "text": "prohibido fumar. 금 significa 'prohibir', y 연 significa 'humo'."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "여기는 금연이에요. 밖에서 피우세요.",
+        "en": "Esta es una zona donde no se permite fumar. Por favor, fuma afuera."
+      },
+      "note": "Consejo: 입구, 출구 y 출입 usan todos 입 (entrar) y 출 (salir). Si aprendes estas dos partes, a menudo podrás adivinar letreros nuevos.",
+      "card": true
+    }
+  ],
+  "task": {
+    "title": "Lee los letreros y actúa",
+    "line": "Usa los significados de los letreros de esta hoja de trabajo para relacionar, elegir o completar la respuesta correcta en cada ítem."
+  },
+  "exercises": [
+    {
+      "ask": "Escribe el letrero del recuadro que corresponde a cada significado (미세요, 당기세요, 입구, 출구, 비상구):",
+      "items": [
+        "camino de entrada / tirar / salida de emergencia / empujar / camino de salida"
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Escribe el letrero del recuadro que corresponde a cada significado (화장실, 사용 중, 고장, 출입 금지, 금연):",
+      "items": [
+        "prohibido fumar / fuera de servicio / baño / prohibido el paso / en uso"
+      ],
+      "plain": true
+    },
+    "¿El letrero dice que algo está averiado o en uso? Escribe Averiado, En uso o Ninguno para cada letrero: 고장 / 사용 중 / 화장실 / 비상구",
+    {
+      "ask": "¿Está bien hacer esto? Escribe Sí o No:",
+      "items": [
+        "Fumas debajo de un letrero de 금연. / Pasas por una puerta marcada 출입 금지. / Sales del edificio por la puerta marcada 출구. / Durante un incendio, corres hacia la puerta marcada 비상구."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Completa el espacio en blanco con 밀어요 o 당겨요:",
+      "items": [
+        "카페 문에 '당기세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Completa el espacio en blanco con 밀어요 o 당겨요:",
+      "items": [
+        "약국 문에 '미세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    }
+  ],
+  "answers": [
+    "입구 / 당기세요 / 비상구 / 미세요 / 출구",
+    "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
+    "Averiado / En uso / Ninguno / Ninguno",
+    "No / No / Sí / Sí",
+    "당겨요",
+    "밀어요"
+  ],
+  "category": "etc"
+}

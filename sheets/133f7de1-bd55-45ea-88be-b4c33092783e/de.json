@@ -1,9 +1,9 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
-  "keyword": "",
-  "summary": "Lies zwei kurze Aushänge einer Wohnanlage (Wasserabsperrung und Stromausfall) und übe, Datum, Uhrzeit, Ort, Grund und was die Bewohner tun sollen, zu finden.",
-  "objective": "Lernende finden schnell Datum, Uhrzeit, betroffenen Bereich und was zu tun ist in kurzen Ankündigungen zu Wasserabsperrung oder Stromausfall und erkennen 8 häufige Begriffe (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
-  "level": "Anfänger (hoch)",
+  "keyword": "utilnotice",
+  "summary": "Lies zwei kurze Aushänge in einem Wohnhaus (Wasserabstellung und Stromausfall) und übe, Datum, Uhrzeit, Ort, Grund und die Anweisungen für die Bewohner herauszufinden.",
+  "objective": "Lernende finden in kurzen Aushängen zu Wasser- oder Stromausfällen schnell Datum, Uhrzeit, betroffenen Bereich und was zu tun ist, und erkennen 8 häufige Begriffe (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "level": "Anfänger (fortgeschritten)",
   "minutes": 15,
   "tags": [],
   "task": {
@@ -11,11 +11,46 @@
     "line": ""
   },
   "exercises": [
-    "Antworte in dem im Aushang verwendeten Format (z. B. 08:00): 공지 A의 단수는 몇 시에 끝납니까?",
-    "Schreibe es genau so ab, wie es im Aushang steht: 공지 B의 사유는 무엇입니까?",
-    "Schreibe es genau so ab, wie es im Aushang steht: 공지 A의 장소는 어디입니까?",
-    "Schreibe den Satz genau so ab, wie er im Aushang steht: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Schreibe den Kontakt genau so, wie er in den Aushängen steht (Ort und Telefonnummer): 두 공지의 문의처는 어디입니까?"
+    {
+      "ask": "Antworte im Format des Aushangs (z. B. 08:00):",
+      "items": [
+        "공지 A의 단수는 몇 시에 끝납니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Schreibe es genau so ab, wie es im Aushang steht:",
+      "items": [
+        "공지 B의 사유는 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Schreibe es genau so ab, wie es im Aushang steht:",
+      "items": [
+        "공지 A의 장소는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Schreibe den Satz genau so ab, wie er im Aushang steht:",
+      "items": [
+        "공지 B에서 주민이 해야 하는 일은 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Schreibe den Kontakt genau so, wie er in den Aushängen steht (Ort und Telefonnummer):",
+      "items": [
+        "두 공지의 문의처는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    }
   ],
   "answers": [
     "14:00",
@@ -28,49 +63,128 @@
   "sections": [
     {
       "heading": "Häufige Begriffe und Wörter",
-      "paragraphs": [
-        "일시 (ilsi): Datum und Uhrzeit",
-        "장소 (jangso): Ort, betroffener Bereich",
-        "사유 (sayu): Grund",
-        "점검 (jeomgeom): Inspektion, Überprüfung",
-        "작업 (jageop): Arbeiten (Bau- oder Reparaturarbeiten)",
-        "단수 (dansu): Wasserabsperrung",
-        "단전 (danjeon): Stromausfall (geplante Abschaltung)",
-        "문의 (munui): Anfragen, Kontakt (Telefonnummer, Büro)"
-      ]
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "일시",
+          "roman": "ilsi",
+          "text": "Datum und Uhrzeit"
+        },
+        {
+          "term": "장소",
+          "roman": "jangso",
+          "text": "Ort, betroffener Bereich"
+        },
+        {
+          "term": "사유",
+          "roman": "sayu",
+          "text": "Grund"
+        },
+        {
+          "term": "점검",
+          "roman": "jeomgeom",
+          "text": "Inspektion, Kontrolle"
+        },
+        {
+          "term": "작업",
+          "roman": "jageop",
+          "text": "Arbeiten (Bau oder Reparatur)"
+        },
+        {
+          "term": "단수",
+          "roman": "dansu",
+          "text": "Wasserabstellung"
+        },
+        {
+          "term": "단전",
+          "roman": "danjeon",
+          "text": "Stromausfall (geplante Abschaltung)"
+        },
+        {
+          "term": "문의",
+          "roman": "munui",
+          "text": "Anfragen, Kontakt (Telefonnummer, Büro)"
+        }
+      ],
+      "numbered": false,
+      "pill": "sage"
     },
     {
-      "heading": "Beispielaushang A — 단수 안내 (Ankündigung zur Wasserabsperrung)",
-      "paragraphs": [
-        "[공지 A] 단수 안내",
-        "일시: 2026년 10월 12일(월) 09:30~14:00",
-        "장소: 101동 전체",
-        "사유: 건물 내부 배관 교체 작업",
-        "작업: 물 공급 중단 및 배관 교체",
-        "유의사항: 단수 전에 물을 미리 받아 두세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "heading": "Beispielaushang A — 단수 안내 (Hinweis zur Wasserabstellung)",
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 A] 단수 안내",
+        "tone": "green",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 12일(월) 09:30~14:00"
+          },
+          {
+            "label": "장소:",
+            "value": "101동 전체"
+          },
+          {
+            "label": "사유:",
+            "value": "건물 내부 배관 교체 작업"
+          },
+          {
+            "label": "작업:",
+            "value": "물 공급 중단 및 배관 교체"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단수 전에 물을 미리 받아 두세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
-      "heading": "Beispielaushang B — 단전 안내 (Ankündigung zum Stromausfall)",
-      "paragraphs": [
-        "[공지 B] 단전 안내",
-        "일시: 2026년 10월 15일(목) 13:00~16:00",
-        "장소: 102동 1층~10층 전체 세대",
-        "사유: 전기설비 정기 점검",
-        "작업: 변전실 점검 및 전력 차단",
-        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "heading": "Beispielaushang B — 단전 안내 (Hinweis zum Stromausfall)",
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 B] 단전 안내",
+        "tone": "red",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 15일(목) 13:00~16:00"
+          },
+          {
+            "label": "장소:",
+            "value": "102동 1층~10층 전체 세대"
+          },
+          {
+            "label": "사유:",
+            "value": "전기설비 정기 점검"
+          },
+          {
+            "label": "작업:",
+            "value": "변전실 점검 및 전력 차단"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단전 전에 가전제품 플러그를 뽑아 주세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
       "heading": "Wie man schnell überfliegt",
       "paragraphs": [
-        "Schau zuerst auf die Begriffe (일시, 장소, 사유, 작업, 유의사항, 문의), und lies dann nur die Zeilen, die du brauchst. Die Aushänge verwenden die 24-Stunden-Zeitangabe: ~ bedeutet von–bis, 동 ist die Gebäudenummer und 층 ist das Stockwerk.",
-        "Was die Bewohner tun sollen, steht in der Zeile 유의사항 (Hinweise), meist als Aufforderung, die mit -세요 endet."
-      ]
+        "Schau dir zuerst die Begriffe an (일시, 장소, 사유, 작업, 유의사항, 문의) und lies dann nur die Zeilen, die du brauchst. In den Aushängen wird die 24-Stunden-Zeitangabe verwendet, ~ bedeutet von–bis, 동 ist die Gebäudenummer und 층 ist das Stockwerk."
+      ],
+      "box": true,
+      "note": "Die Aushänge hier sind Lernbeispiele, keine echten Zeitpläne oder Kontaktnummern."
     }
   ],
-  "note": "Die Aushänge hier sind Lernbeispiele, keine echten Termine oder Kontaktnummern.",
   "category": "etc"
 }

@@ -854,22 +854,17 @@
   },
   "preparedAt": "2026-09-25T15:24:46.613Z",
   "retranslated": {
-    "at": "2026-09-25T18:40:48.031Z",
+    "at": "2026-09-26T08:35:40.360Z",
     "translations": {
-      "es": {
-        "lang": "es",
+      "vi": {
+        "lang": "vi",
         "tries": 1,
         "lost": [],
         "fixes": [
           {
-            "line": 18,
-            "problem": "'Supply' is translated as 'dosis', which means one amount taken at a time. 3일분 is the whole amount of medicine for three days, so 'una dosis para tres días' gets the term wrong.",
-            "fix": "medicación para tres días (3일 = tres días, -분 = cantidad correspondiente al número anterior: 3일분 = para tres días, 2인분 = para dos personas)"
-          },
-          {
-            "line": 19,
-            "problem": "'Five-day supply' is translated as 'una dosis', which means one amount taken at a time. It should be the medicine for the whole five days.",
-            "fix": "El farmacéutico me dio medicina para cinco días."
+            "line": 3,
+            "problem": "The Vietnamese leaves out 'Korean' ('on a Korean medicine bag'); it says only 'trên túi thuốc'.",
+            "fix": "Người học có thể tìm thấy bốn thông tin trên túi thuốc của Hàn Quốc: uống mấy lần một ngày (1일 3회 = 하루에 세 번), khi nào uống (식전, 식후 30분, 자기 전), uống trong bao nhiêu ngày (3일분), và lời cảnh báo có nghĩa là gì (졸음 주의, 운전 주의)."
           }
         ]
       },
@@ -879,11 +874,37 @@
         "lost": [],
         "fixes": []
       },
-      "vi": {
-        "lang": "vi",
+      "es": {
+        "lang": "es",
         "tries": 1,
         "lost": [],
-        "fixes": []
+        "fixes": [
+          {
+            "line": 20,
+            "problem": "\"Answer in Korean\" is translated as just \"Responde\", so the instruction to answer in Korean is lost.",
+            "fix": "Responde en coreano: 하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?"
+          },
+          {
+            "line": 21,
+            "problem": "\"Answer in Korean\" is translated as just \"Responde\", so the instruction to answer in Korean is lost.",
+            "fix": "Responde en coreano: 파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요?"
+          },
+          {
+            "line": 22,
+            "problem": "\"Answer in Korean\" is translated as just \"Responde\", so the instruction to answer in Korean is lost.",
+            "fix": "Responde en coreano: '3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?"
+          },
+          {
+            "line": 23,
+            "problem": "\"Answer in Korean\" is translated as just \"Responde\", so the instruction to answer in Korean is lost.",
+            "fix": "Responde en coreano: 하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?"
+          },
+          {
+            "line": 24,
+            "problem": "\"Answer in Korean\" is translated as just \"Responde\", so the instruction to answer in Korean is lost.",
+            "fix": "Responde en coreano: 다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?"
+          }
+        ]
       },
       "pt-BR": {
         "lang": "pt-BR",
@@ -892,7 +913,7 @@
         "fixes": [
           {
             "line": 1,
-            "problem": "'básico' means 'basic', which is the beginner level, so the label reads like a mix of two levels. The English means the lower part of the intermediate level.",
+            "problem": "\"(low)\" means the lower part of the intermediate level. \"Básico\" means \"basic\", which suggests a beginner level, so the level no longer matches.",
             "fix": "Intermediário (inferior)"
           }
         ]
@@ -903,44 +924,53 @@
         "lost": [],
         "fixes": []
       },
+      "ko": {
+        "lang": "ko",
+        "tries": 1,
+        "lost": [],
+        "fixes": []
+      },
       "zh": {
         "lang": "zh",
         "tries": 1,
         "lost": [],
-        "fixes": []
+        "fixes": [
+          {
+            "line": 20,
+            "problem": "'Answer in Korean' is mistranslated as '用中文回答' ('answer in Chinese').",
+            "fix": "用韩语回答：하얀 봉투의 감기약은 하루에 몇 번, 언제 먹어요?"
+          },
+          {
+            "line": 21,
+            "problem": "'Answer in Korean' is mistranslated as '用中文回答' ('answer in Chinese').",
+            "fix": "用韩语回答：파란 봉투의 기침약은 언제 먹어야 해요? 점심 먹고 나서 먹어도 돼요?"
+          },
+          {
+            "line": 22,
+            "problem": "'Answer in Korean' is mistranslated as '用中文回答' ('answer in Chinese').",
+            "fix": "用韩语回答：'3일분'은 무슨 뜻이에요? 마리아 씨는 감기약을 모두 몇 번 먹어요?"
+          },
+          {
+            "line": 23,
+            "problem": "'Answer in Korean' is mistranslated as '用中文回答' ('answer in Chinese').",
+            "fix": "用韩语回答：하얀 봉투에 빨간 글씨로 뭐라고 쓰여 있었어요? 그래서 마리아 씨는 무엇을 하기로 했어요?"
+          },
+          {
+            "line": 24,
+            "problem": "'Answer in Korean' is mistranslated as '用中文回答' ('answer in Chinese').",
+            "fix": "用韩语回答：다른 약 봉투에 '1일 2회, 식전 30분'이라고 쓰여 있어요. 아침 8시에 밥을 먹으면 이 약은 몇 시에 먹어야 해요?"
+          }
+        ]
       },
       "fr": {
         "lang": "fr",
         "tries": 1,
         "lost": [],
-        "fixes": [
-          {
-            "line": 10,
-            "problem": "The English gloss \"an empty stomach\" is a noun phrase, but the French \"avoir l'estomac vide\" turns it into a verb phrase (\"to have an empty stomach\"), so it no longer describes the word correctly.",
-            "fix": "un estomac vide, à jeun"
-          }
-        ]
-      },
-      "ko": {
-        "lang": "ko",
-        "tries": 1,
-        "lost": [],
-        "fixes": [
-          {
-            "line": 10,
-            "problem": "Spacing error: 'empty stomach' is the single word 빈속 in standard Korean, so there should be no space.",
-            "fix": "빈속"
-          },
-          {
-            "line": 11,
-            "problem": "Spacing error: 빈속 is one word, so '빈 속에' should be '빈속에'.",
-            "fix": "빈속에 커피를 마시면 배가 아파요."
-          }
-        ]
+        "fixes": []
       },
       "de": {
         "lang": "de",
-        "tries": 1,
+        "tries": 2,
         "lost": [],
         "fixes": []
       }
