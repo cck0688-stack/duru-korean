@@ -1,0 +1,59 @@
+# DURU KOREAN — every worksheet PDF, one folder per language
+#
+# On demand (scripts/bundle-sheets.mjs): the newest PDF of every auto
+# worksheet, held drafts included, saved as <lang>/(<lang>)<keyword>.pdf
+# under bundles/ on the `rework-output` branch. Only reads the site.
+
+name: Bundle worksheets
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bundle-sheets
+  cancel-in-progress: false
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Open the rework-output branch
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+
+      - name: Collect the PDFs
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/bundle-sheets.mjs --out=../rework-output/bundles
+
+      - name: Save
+        working-directory: ../rework-output
+        run: |
+          git add -A bundles
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Worksheet bundle ($(ls bundles/en | wc -l) sheets)"
+          for i in 1 2 3 4; do
+            git push -q origin rework-output && exit 0
+            git pull -q --rebase origin rework-output || true
+            sleep $((i * 5))
+          done
+          exit 1
