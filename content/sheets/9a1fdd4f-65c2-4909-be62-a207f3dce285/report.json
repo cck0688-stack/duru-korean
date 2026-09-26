@@ -466,6 +466,41 @@
       "before": "Kata yang menjelaskan diletakkan sebelum kata benda dalam bahasa Korea: kata kerja menggunakan -는 (sekarang), -(으)ㄴ (lampau), atau -(으)ㄹ (akan datang), dan kata sifat menggunakan -(으)ㄴ. Kata 있다/없다 menggunakan -는, batang kata yang berakhiran ㄹ menghilangkan ㄹ-nya, dan sebagian besar kata sifat yang berakhiran ㅂ mengubah ㅂ menjadi 우.",
       "after": "Dalam bahasa Korea, kata penjelas diletakkan sebelum kata benda: kata kerja + -는 (sekarang), -(으)ㄴ (lampau), -(으)ㄹ (akan datang); kata sifat + -(으)ㄴ. Kata 있다/없다 + -는, batang ㄹ kehilangan ㄹ, dan ㅂ pada kebanyakan kata sifat menjadi 우.",
       "why": "Indonesian only: same content, a line shorter (the Indonesian edition was the tightest)."
+    },
+    {
+      "op": "replace",
+      "path": "id.forms[2].when",
+      "before": "Tindakan belum terjadi, atau merupakan sesuatu yang Anda rencanakan atau perlu lakukan. Jika batang kata berakhiran konsonan, tambahkan -을 (먹다 → 먹을). Jika berakhiran vokal, tambahkan -ㄹ (보다 → 볼).",
+      "after": "Tindakan belum terjadi atau direncanakan. Batang berakhiran konsonan + -을 (먹다 → 먹을), berakhiran vokal + -ㄹ (보다 → 볼).",
+      "why": "Indonesian only: same content, shorter — CI had the Indonesian edition 1mm over two pages."
+    },
+    {
+      "op": "replace",
+      "path": "id.forms[3].when",
+      "before": "Gunakan ini untuk kata sifat apa pun yang menjelaskan kata benda. Jika batang kata berakhiran konsonan, tambahkan -은 (작다 → 작은). Jika berakhiran vokal, tambahkan -ㄴ (크다 → 큰).",
+      "after": "Untuk kata sifat yang menjelaskan kata benda. Batang berakhiran konsonan + -은 (작다 → 작은), berakhiran vokal + -ㄴ (크다 → 큰).",
+      "why": "Indonesian only: same content, shorter — CI had the Indonesian edition 1mm over two pages."
+    },
+    {
+      "op": "replace",
+      "path": "id.forms[4].when",
+      "before": "Kata yang berakhiran 있다 atau 없다 (맛있다, 재미없다, 있다, 없다) menggunakan -는 (bukan -은) untuk menjelaskan kata benda dalam bentuk sekarang, meskipun fungsinya seperti kata sifat dalam bahasa Inggris.",
+      "after": "Kata berakhiran 있다/없다 (맛있다, 재미없다, 있다, 없다) memakai -는 (bukan -은) untuk menjelaskan kata benda dalam bentuk sekarang.",
+      "why": "Indonesian only: same content, shorter — CI had the Indonesian edition 1mm over two pages."
+    },
+    {
+      "op": "replace",
+      "path": "id.forms[6].when",
+      "before": "Sebagian besar kata sifat yang berakhiran ㅂ mengubah ㅂ menjadi 우 lalu menambahkan -ㄴ: 춥다 → 추운, 어렵다 → 어려운. Beberapa kata bersifat beraturan dan tetap mempertahankan ㅂ, misalnya 좁다 → 좁은.",
+      "after": "Kebanyakan kata sifat berakhiran ㅂ mengubah ㅂ menjadi 우 lalu + -ㄴ: 춥다 → 추운, 어렵다 → 어려운. Beberapa tetap beraturan, misalnya 좁다 → 좁은.",
+      "why": "Indonesian only: same content, shorter — CI had the Indonesian edition 1mm over two pages."
+    },
+    {
+      "op": "replace",
+      "path": "id.forms[5].means",
+      "before": "makna yang sama seperti di atas (sekarang / lampau / akan datang, atau keadaan kata sifat)",
+      "after": "makna sama seperti di atas (sekarang / lampau / akan datang, atau sifat)",
+      "why": "Indonesian only: same content, shorter — CI had the Indonesian edition 1mm over two pages."
     }
   ]
 }
