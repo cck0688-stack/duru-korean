@@ -1,8 +1,8 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
-  "keyword": "",
-  "summary": "Leia dois avisos curtos de prédio (corte de água e falta de energia) e pratique encontrar a data, o horário, o local, o motivo e o que os moradores devem fazer.",
-  "objective": "Os alunos vão encontrar rapidamente a data, o horário, a área afetada e o que fazer em avisos curtos de corte de água ou de energia, e vão reconhecer 8 termos frequentes (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "keyword": "utilnotice",
+  "summary": "Leia dois avisos curtos de condomínio (corte de água e falta de energia) e pratique encontrar a data, o horário, o local, o motivo e o que os moradores devem fazer.",
+  "objective": "Você vai aprender a encontrar rapidamente a data, o horário, a área afetada e o que fazer em avisos curtos de corte de água ou energia, além de reconhecer 8 termos frequentes (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "level": "Iniciante (avançado)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,46 @@
     "line": ""
   },
   "exercises": [
-    "Responda no formato usado no aviso (por exemplo, 08:00): 공지 A의 단수는 몇 시에 끝납니까?",
-    "Copie exatamente como está escrito no aviso: 공지 B의 사유는 무엇입니까?",
-    "Copie exatamente como está escrito no aviso: 공지 A의 장소는 어디입니까?",
-    "Copie a frase exatamente como está escrita no aviso: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Escreva o contato exatamente como nos avisos (local e número de telefone): 두 공지의 문의처는 어디입니까?"
+    {
+      "ask": "Responda no formato usado no aviso (por exemplo, 08:00):",
+      "items": [
+        "공지 A의 단수는 몇 시에 끝납니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Copie exatamente como está escrito no aviso:",
+      "items": [
+        "공지 B의 사유는 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Copie exatamente como está escrito no aviso:",
+      "items": [
+        "공지 A의 장소는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Copie a frase exatamente como está escrita no aviso:",
+      "items": [
+        "공지 B에서 주민이 해야 하는 일은 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Escreva o contato exatamente como aparece nos avisos (local e número de telefone):",
+      "items": [
+        "두 공지의 문의처는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    }
   ],
   "answers": [
     "14:00",
@@ -28,48 +63,128 @@
   "sections": [
     {
       "heading": "Termos e palavras frequentes",
-      "paragraphs": [
-        "일시 (ilsi): data e horário",
-        "장소 (jangso): local, área afetada",
-        "사유 (sayu): motivo",
-        "점검 (jeomgeom): inspeção, verificação",
-        "작업 (jageop): trabalho (obra ou reparo)",
-        "단수 (dansu): corte de água",
-        "단전 (danjeon): falta de energia (corte programado)",
-        "문의 (munui): dúvidas, contato (número de telefone, escritório)"
-      ]
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "일시",
+          "roman": "ilsi",
+          "text": "data e horário"
+        },
+        {
+          "term": "장소",
+          "roman": "jangso",
+          "text": "local, área afetada"
+        },
+        {
+          "term": "사유",
+          "roman": "sayu",
+          "text": "motivo"
+        },
+        {
+          "term": "점검",
+          "roman": "jeomgeom",
+          "text": "inspeção, verificação"
+        },
+        {
+          "term": "작업",
+          "roman": "jageop",
+          "text": "obra (construção ou reparo)"
+        },
+        {
+          "term": "단수",
+          "roman": "dansu",
+          "text": "corte de água"
+        },
+        {
+          "term": "단전",
+          "roman": "danjeon",
+          "text": "falta de energia (corte programado)"
+        },
+        {
+          "term": "문의",
+          "roman": "munui",
+          "text": "informações, contato (telefone, escritório)"
+        }
+      ],
+      "numbered": false,
+      "pill": "sage"
     },
     {
       "heading": "Aviso de exemplo A — 단수 안내 (aviso de corte de água)",
-      "paragraphs": [
-        "[공지 A] 단수 안내",
-        "일시: 2026년 10월 12일(월) 09:30~14:00",
-        "장소: 101동 전체",
-        "사유: 건물 내부 배관 교체 작업",
-        "작업: 물 공급 중단 및 배관 교체",
-        "유의사항: 단수 전에 물을 미리 받아 두세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 A] 단수 안내",
+        "tone": "green",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 12일(월) 09:30~14:00"
+          },
+          {
+            "label": "장소:",
+            "value": "101동 전체"
+          },
+          {
+            "label": "사유:",
+            "value": "건물 내부 배관 교체 작업"
+          },
+          {
+            "label": "작업:",
+            "value": "물 공급 중단 및 배관 교체"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단수 전에 물을 미리 받아 두세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
       "heading": "Aviso de exemplo B — 단전 안내 (aviso de falta de energia)",
-      "paragraphs": [
-        "[공지 B] 단전 안내",
-        "일시: 2026년 10월 15일(목) 13:00~16:00",
-        "장소: 102동 1층~10층 전체 세대",
-        "사유: 전기설비 정기 점검",
-        "작업: 변전실 점검 및 전력 차단",
-        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 B] 단전 안내",
+        "tone": "red",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 15일(목) 13:00~16:00"
+          },
+          {
+            "label": "장소:",
+            "value": "102동 1층~10층 전체 세대"
+          },
+          {
+            "label": "사유:",
+            "value": "전기설비 정기 점검"
+          },
+          {
+            "label": "작업:",
+            "value": "변전실 점검 및 전력 차단"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단전 전에 가전제품 플러그를 뽑아 주세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
       "heading": "Como ler rapidamente",
       "paragraphs": [
-        "Primeiro olhe os termos (일시, 장소, 사유, 작업, 유의사항, 문의) e depois leia apenas as linhas de que precisa. Os avisos usam o formato de 24 horas: ~ significa \"de–até\", 동 é o número do prédio, e 층 é o andar."
-      ]
+        "Primeiro observe os termos (일시, 장소, 사유, 작업, 유의사항, 문의) e depois leia só as linhas que você precisar. Os avisos usam o formato de 24 horas: ~ significa \"de–até\", 동 é o número do prédio e 층 é o andar."
+      ],
+      "box": true,
+      "note": "Os avisos aqui são exemplos de estudo, não horários ou contatos reais."
     }
   ],
-  "note": "Os avisos aqui são exemplos didáticos, não são horários ou números de contato reais.",
   "category": "etc"
 }

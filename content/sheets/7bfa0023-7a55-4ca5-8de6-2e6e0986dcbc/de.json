@@ -1,8 +1,8 @@
 {
   "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
-  "keyword": "영업시간",
-  "summary": "Lerne 8 Begriffe, die auf koreanischen Öffnungszeiten-Schildern stehen, und entscheide dann anhand von zwei Beispielschildern, ob man zu einer bestimmten Zeit hingehen oder bestellen kann.",
-  "objective": "Die Lernenden lesen ein Öffnungszeiten-Schild und sagen, ob der Laden an einem bestimmten Tag zu einer bestimmten Uhrzeit geöffnet ist oder noch Bestellungen annimmt.",
+  "keyword": "openhours",
+  "summary": "Lerne 8 Beschriftungen auf koreanischen Schildern mit Öffnungszeiten und entscheide dann anhand von zwei Beispielschildern, ob du zu einer bestimmten Zeit vorbeikommen oder bestellen kannst.",
+  "objective": "Die Lernenden lesen ein Schild mit Öffnungszeiten und sagen, ob der Laden an einem bestimmten Tag zu einer bestimmten Uhrzeit geöffnet ist oder noch Bestellungen entgegennimmt.",
   "level": "Mittelstufe (unteres Niveau)",
   "minutes": 20,
   "tags": [],
@@ -27,47 +27,123 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "8 Begriffe, die man oft auf Ladenschildern sieht",
-      "paragraphs": [
-        "영업시간 (yeongeop sigan): die Stunden, in denen der Laden geöffnet ist.",
-        "정기휴무 (jeonggi hyumu): der feste Ruhetag des Ladens. Auf Schildern steht meist etwas wie 매주 월요일 휴무 (jeden Montag geschlossen).",
-        "브레이크 타임 (beureikeu taim): eine Pause mitten am Tag, meist zwischen Mittag- und Abendessen. Die Tür ist geschlossen und man kann nicht hinein.",
-        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): der späteste Zeitpunkt, zu dem man noch bestellen kann. Der Laden ist noch geöffnet, nimmt aber keine neuen Bestellungen mehr an.",
-        "연중무휴 (yeonjung muhyu): das ganze Jahr über jeden Tag geöffnet, ohne festen Ruhetag.",
-        "24시간 영업 (isipsa sigan yeongeop): rund um die Uhr geöffnet, Tag und Nacht.",
-        "공휴일 휴무 (gonghyuil hyumu): an gesetzlichen Feiertagen geschlossen.",
-        "평일 (pyeongil) / 주말 (jumal): Wochentage (Montag–Freitag) und Wochenende (Samstag–Sonntag). Viele Läden haben für beide unterschiedliche Öffnungszeiten."
-      ]
+      "heading": "8 Beschriftungen, die man oft auf Ladenschildern sieht",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "영업시간",
+          "roman": "yeongeop sigan",
+          "text": "die Stunden, in denen der Laden geöffnet ist."
+        },
+        {
+          "term": "정기휴무",
+          "roman": "jeonggi hyumu",
+          "text": "der reguläre Ruhetag des Ladens. Auf Schildern sieht das meist so aus: 매주 월요일 휴무 (jeden Montag geschlossen)."
+        },
+        {
+          "term": "브레이크 타임",
+          "roman": "beureikeu taim",
+          "text": "eine Pause mitten am Tag, meist zwischen Mittag- und Abendessen. Die Tür ist geschlossen und man kann nicht hinein."
+        },
+        {
+          "term": "라스트 오더 = 주문 마감",
+          "roman": "raseuteu odeo = jumun magam",
+          "text": "die letzte Zeit, zu der man bestellen kann. Der Laden ist noch geöffnet, nimmt aber keine neuen Bestellungen mehr an."
+        },
+        {
+          "term": "연중무휴",
+          "roman": "yeonjung muhyu",
+          "text": "das ganze Jahr über jeden Tag geöffnet, ohne regulären Ruhetag."
+        },
+        {
+          "term": "24시간 영업",
+          "roman": "isipsa sigan yeongeop",
+          "text": "rund um die Uhr geöffnet, Tag und Nacht."
+        },
+        {
+          "term": "공휴일 휴무",
+          "roman": "gonghyuil hyumu",
+          "text": "an gesetzlichen Feiertagen geschlossen."
+        },
+        {
+          "term": "평일 / 주말",
+          "roman": "pyeongil / jumal",
+          "text": "Wochentage (Montag–Freitag) und Wochenende (Samstag–Sonntag). Viele Läden haben dafür unterschiedliche Öffnungszeiten."
+        }
+      ],
+      "romanBelow": true
     },
     {
       "heading": "Wie man ein Schild liest: 4 Schritte",
-      "paragraphs": [
-        "① 요일 확인: Ist dieser Tag ein 휴무 (Ruhetag)? Prüfe 정기휴무 und 공휴일 휴무.",
-        "② 평일/주말 확인: Welche Öffnungszeiten gelten – die für Wochentage oder die fürs Wochenende?",
-        "③ 시간 확인: Die meisten Schilder verwenden die 24-Stunden-Angabe (15:00 = 오후 3시). Liegt deine Uhrzeit innerhalb der Öffnungszeiten und nicht in der 브레이크 타임?",
-        "④ 주문 확인: Um zu essen oder zu bestellen, prüfe auch die Uhrzeit für 라스트 오더 (주문 마감). 마감 30분 전 = 30 Minuten vor Ladenschluss."
+      "paragraphs": [],
+      "points": [
+        {
+          "lead": "요일 확인:",
+          "text": "Ist dieser Tag ein 휴무 (Ruhetag)? Prüfe 정기휴무 und 공휴일 휴무."
+        },
+        {
+          "lead": "평일/주말 확인:",
+          "text": "Welche Öffnungszeiten gelten, die für Wochentage oder die fürs Wochenende?"
+        },
+        {
+          "lead": "시간 확인:",
+          "text": "Die meisten Schilder verwenden das 24-Stunden-Format (15:00 = 오후 3시). Liegt deine Uhrzeit innerhalb der Öffnungszeiten und nicht in der 브레이크 타임?"
+        },
+        {
+          "lead": "주문 확인:",
+          "text": "Um zu essen oder zu bestellen, prüfe außerdem die Zeit für 라스트 오더 (주문 마감). 마감 30분 전 = 30 Minuten vor Ladenschluss."
+        }
       ]
     },
     {
       "heading": "안내판 1: 카페 하루",
-      "paragraphs": [
-        "영업시간",
-        "평일 10:00 ~ 21:00",
-        "주말 11:00 ~ 22:00",
-        "라스트 오더: 마감 30분 전",
-        "정기휴무: 매주 월요일 휴무"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "카페 하루",
+        "tone": "brick",
+        "rows": [
+          {
+            "label": "영업시간",
+            "value": "평일 10:00 ~ 21:00\n주말 11:00 ~ 22:00"
+          },
+          {
+            "label": "라스트 오더",
+            "value": "마감 30분 전"
+          },
+          {
+            "label": "정기휴무",
+            "value": "매주 월요일 휴무"
+          }
+        ]
+      }
     },
     {
       "heading": "안내판 2: 엄마손 칼국수",
-      "paragraphs": [
-        "영업시간 11:00 ~ 20:00",
-        "브레이크 타임 15:00 ~ 16:30",
-        "주문 마감 19:30",
-        "매주 일요일 휴무 · 공휴일 휴무"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "엄마손 칼국수",
+        "tone": "dark",
+        "rows": [
+          {
+            "label": "영업시간",
+            "value": "11:00 ~ 20:00"
+          },
+          {
+            "label": "브레이크 타임",
+            "value": "15:00 ~ 16:30"
+          },
+          {
+            "label": "주문 마감",
+            "value": "19:30"
+          },
+          {
+            "label": "휴무일",
+            "value": "매주 일요일 휴무 · 공휴일 휴무"
+          }
+        ]
+      },
+      "note": "Die beiden Schilder sind zu Übungszwecken erfunden; es handelt sich nicht um echte Läden oder echte Öffnungszeiten. Der wichtige Punkt: 'der Laden ist geöffnet' ist nicht dasselbe wie 'man kann noch bestellen' (Aufgaben 3 und 4)."
     }
   ],
-  "note": "Die beiden Schilder sind zu Übungszwecken erfunden; es handelt sich nicht um echte Läden oder echte Öffnungszeiten. Der wichtige Punkt: „Der Laden ist geöffnet“ ist nicht dasselbe wie „man kann noch bestellen“ (Übungen 3 und 4).",
   "category": "etc"
 }

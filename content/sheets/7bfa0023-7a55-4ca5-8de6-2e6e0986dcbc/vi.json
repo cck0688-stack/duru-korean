@@ -1,8 +1,8 @@
 {
   "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
-  "keyword": "영업시간",
-  "summary": "Học 8 nhãn thường gặp trên biển giờ hoạt động của cửa hàng Hàn Quốc, sau đó dùng hai biển mẫu để xác định xem bạn có thể ghé qua hoặc đặt món vào một thời điểm cho trước hay không.",
-  "objective": "Người học sẽ đọc biển giờ hoạt động của cửa hàng và cho biết cửa hàng có đang mở cửa, hoặc có còn nhận đặt món hay không, vào một ngày và giờ cho trước.",
+  "keyword": "openhours",
+  "summary": "Học 8 nhãn thường thấy trên biển giờ mở cửa của cửa hàng Hàn Quốc, sau đó dùng hai biển mẫu để xác định xem bạn có thể ghé qua hoặc đặt món vào một thời điểm cho trước hay không.",
+  "objective": "Người học sẽ đọc một biển giờ mở cửa và nói xem cửa hàng có đang mở cửa, hoặc có còn nhận đặt món hay không, vào một ngày và giờ cho trước.",
   "level": "Trung cấp (thấp)",
   "minutes": 20,
   "tags": [],
@@ -27,47 +27,123 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "8 nhãn bạn thường thấy trên biển hiệu cửa hàng",
-      "paragraphs": [
-        "영업시간 (yeongeop sigan): khung giờ cửa hàng mở cửa kinh doanh.",
-        "정기휴무 (jeonggi hyumu): ngày nghỉ cố định của cửa hàng. Trên biển hiệu thường được viết như 매주 월요일 휴무 (nghỉ vào thứ Hai hàng tuần).",
-        "브레이크 타임 (beureikeu taim): khoảng nghỉ giữa ngày, thường là giữa bữa trưa và bữa tối. Cửa đóng và bạn không thể vào.",
-        "라스트 오더 (raseuteu odeo) = 주문 마감 (jumun magam): thời điểm cuối cùng bạn có thể đặt món. Cửa hàng vẫn mở cửa, nhưng sẽ không nhận đơn đặt món mới nữa.",
-        "연중무휴 (yeonjung muhyu): mở cửa mọi ngày trong năm, không có ngày nghỉ cố định.",
-        "24시간 영업 (isipsa sigan yeongeop): mở cửa suốt ngày đêm.",
-        "공휴일 휴무 (gonghyuil hyumu): nghỉ vào các ngày lễ.",
-        "평일 (pyeongil) / 주말 (jumal): ngày thường (thứ Hai–thứ Sáu) và cuối tuần (thứ Bảy–Chủ Nhật). Nhiều cửa hàng có giờ hoạt động khác nhau cho mỗi loại."
-      ]
+      "heading": "8 nhãn bạn thường thấy trên biển cửa hàng",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "영업시간",
+          "roman": "yeongeop sigan",
+          "text": "khoảng thời gian cửa hàng mở cửa để kinh doanh."
+        },
+        {
+          "term": "정기휴무",
+          "roman": "jeonggi hyumu",
+          "text": "ngày nghỉ cố định của cửa hàng. Trên biển thường ghi dạng 매주 월요일 휴무 (nghỉ vào thứ Hai hằng tuần)."
+        },
+        {
+          "term": "브레이크 타임",
+          "roman": "beureikeu taim",
+          "text": "khoảng nghỉ giữa ngày, thường là giữa bữa trưa và bữa tối. Cửa đóng và bạn không thể vào."
+        },
+        {
+          "term": "라스트 오더 = 주문 마감",
+          "roman": "raseuteu odeo = jumun magam",
+          "text": "thời điểm cuối cùng bạn có thể đặt món. Cửa hàng vẫn đang mở, nhưng sẽ không nhận đặt món mới nữa."
+        },
+        {
+          "term": "연중무휴",
+          "roman": "yeonjung muhyu",
+          "text": "mở cửa tất cả các ngày trong năm, không có ngày nghỉ cố định."
+        },
+        {
+          "term": "24시간 영업",
+          "roman": "isipsa sigan yeongeop",
+          "text": "mở cửa suốt cả ngày lẫn đêm."
+        },
+        {
+          "term": "공휴일 휴무",
+          "roman": "gonghyuil hyumu",
+          "text": "đóng cửa vào các ngày lễ."
+        },
+        {
+          "term": "평일 / 주말",
+          "roman": "pyeongil / jumal",
+          "text": "ngày thường (thứ Hai–thứ Sáu) và cuối tuần (thứ Bảy–Chủ nhật). Nhiều cửa hàng có giờ mở cửa khác nhau cho từng loại ngày."
+        }
+      ],
+      "romanBelow": true
     },
     {
-      "heading": "Cách xem biển hiệu: 4 bước",
-      "paragraphs": [
-        "① 요일 확인: Ngày đó có phải là 휴무 (ngày nghỉ) không? Kiểm tra 정기휴무 và 공휴일 휴무.",
-        "② 평일/주말 확인: Áp dụng giờ nào, giờ ngày thường hay giờ cuối tuần?",
-        "③ 시간 확인: Hầu hết các biển hiệu dùng đồng hồ 24 giờ (15:00 = 오후 3시). Giờ của bạn có nằm trong khung giờ mở cửa, và không rơi vào 브레이크 타임 không?",
-        "④ 주문 확인: Để ăn hoặc đặt món, hãy kiểm tra thêm thời gian 라스트 오더 (주문 마감). 마감 30분 전 = 30 phút trước giờ đóng cửa."
+      "heading": "Cách kiểm tra một biển hiệu: 4 bước",
+      "paragraphs": [],
+      "points": [
+        {
+          "lead": "요일 확인:",
+          "text": "Ngày đó có phải là 휴무 (ngày nghỉ) không? Kiểm tra 정기휴무 và 공휴일 휴무."
+        },
+        {
+          "lead": "평일/주말 확인:",
+          "text": "Áp dụng giờ nào, giờ ngày thường hay giờ cuối tuần?"
+        },
+        {
+          "lead": "시간 확인:",
+          "text": "Hầu hết các biển hiệu dùng đồng hồ 24 giờ (15:00 = 오후 3시). Thời điểm của bạn có nằm trong giờ mở cửa không, và có rơi vào 브레이크 타임 hay không?"
+        },
+        {
+          "lead": "주문 확인:",
+          "text": "Để ăn hoặc đặt món, hãy kiểm tra thêm giờ 라스트 오더 (주문 마감). 마감 30분 전 = 30 phút trước giờ đóng cửa."
+        }
       ]
     },
     {
       "heading": "안내판 1: 카페 하루",
-      "paragraphs": [
-        "영업시간",
-        "평일 10:00 ~ 21:00",
-        "주말 11:00 ~ 22:00",
-        "라스트 오더: 마감 30분 전",
-        "정기휴무: 매주 월요일 휴무"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "카페 하루",
+        "tone": "brick",
+        "rows": [
+          {
+            "label": "영업시간",
+            "value": "평일 10:00 ~ 21:00\n주말 11:00 ~ 22:00"
+          },
+          {
+            "label": "라스트 오더",
+            "value": "마감 30분 전"
+          },
+          {
+            "label": "정기휴무",
+            "value": "매주 월요일 휴무"
+          }
+        ]
+      }
     },
     {
       "heading": "안내판 2: 엄마손 칼국수",
-      "paragraphs": [
-        "영업시간 11:00 ~ 20:00",
-        "브레이크 타임 15:00 ~ 16:30",
-        "주문 마감 19:30",
-        "매주 일요일 휴무 · 공휴일 휴무"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "엄마손 칼국수",
+        "tone": "dark",
+        "rows": [
+          {
+            "label": "영업시간",
+            "value": "11:00 ~ 20:00"
+          },
+          {
+            "label": "브레이크 타임",
+            "value": "15:00 ~ 16:30"
+          },
+          {
+            "label": "주문 마감",
+            "value": "19:30"
+          },
+          {
+            "label": "휴무일",
+            "value": "매주 일요일 휴무 · 공휴일 휴무"
+          }
+        ]
+      },
+      "note": "Hai biển hiệu này được đặt ra để luyện tập; đây không phải cửa hàng hay giờ giấc có thật. Điểm mấu chốt: 'cửa hàng đang mở cửa' không giống với 'bạn vẫn có thể đặt món' (bài tập 3 và 4)."
     }
   ],
-  "note": "Hai biển hiệu này được tạo ra để luyện tập; chúng không phải là cửa hàng hay giờ giấc thật. Điểm mấu chốt: 'cửa hàng đang mở cửa' không giống với 'bạn vẫn có thể đặt món' (bài tập 3 và 4).",
   "category": "etc"
 }

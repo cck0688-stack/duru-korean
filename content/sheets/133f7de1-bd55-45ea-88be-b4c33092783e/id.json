@@ -1,8 +1,8 @@
 {
   "title": "아파트 공지문 읽기: 단수·단전·점검 안내",
-  "keyword": "",
-  "summary": "Baca dua pengumuman apartemen singkat (penghentian air dan pemadaman listrik) dan berlatih menemukan tanggal, waktu, tempat, alasan, dan apa yang harus dilakukan penghuni.",
-  "objective": "Pembelajar akan dengan cepat menemukan tanggal, waktu, area yang terdampak, dan apa yang harus dilakukan dalam pengumuman singkat tentang penghentian air atau pemadaman listrik, serta mengenali 8 label yang sering muncul (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
+  "keyword": "utilnotice",
+  "summary": "Baca dua pengumuman singkat apartemen (pemutusan air dan pemadaman listrik) dan berlatih menemukan tanggal, waktu, tempat, alasan, dan apa yang harus dilakukan penghuni.",
+  "objective": "Pembelajar akan dengan cepat menemukan tanggal, waktu, area yang terkena dampak, dan apa yang harus dilakukan dalam pengumuman singkat pemutusan air atau pemadaman listrik, serta mengenali 8 label yang sering muncul (일시, 장소, 사유, 점검, 작업, 단수, 단전, 문의).",
   "level": "Pemula (tinggi)",
   "minutes": 15,
   "tags": [],
@@ -11,11 +11,46 @@
     "line": ""
   },
   "exercises": [
-    "Jawab sesuai format yang digunakan dalam pengumuman (misalnya, 08:00): 공지 A의 단수는 몇 시에 끝납니까?",
-    "Salin persis seperti yang tertulis dalam pengumuman: 공지 B의 사유는 무엇입니까?",
-    "Salin persis seperti yang tertulis dalam pengumuman: 공지 A의 장소는 어디입니까?",
-    "Salin kalimat persis seperti yang tertulis dalam pengumuman: 공지 B에서 주민이 해야 하는 일은 무엇입니까?",
-    "Tulis kontak persis seperti dalam pengumuman (tempat dan nomor telepon): 두 공지의 문의처는 어디입니까?"
+    {
+      "ask": "Jawab dengan format yang digunakan dalam pengumuman (contoh: 08:00):",
+      "items": [
+        "공지 A의 단수는 몇 시에 끝납니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Salin persis seperti yang tertulis dalam pengumuman:",
+      "items": [
+        "공지 B의 사유는 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Salin persis seperti yang tertulis dalam pengumuman:",
+      "items": [
+        "공지 A의 장소는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Salin kalimat persis seperti yang tertulis dalam pengumuman:",
+      "items": [
+        "공지 B에서 주민이 해야 하는 일은 무엇입니까?"
+      ],
+      "plain": true,
+      "write": true
+    },
+    {
+      "ask": "Tulis kontak persis seperti dalam pengumuman (tempat dan nomor telepon):",
+      "items": [
+        "두 공지의 문의처는 어디입니까?"
+      ],
+      "plain": true,
+      "write": true
+    }
   ],
   "answers": [
     "14:00",
@@ -28,48 +63,128 @@
   "sections": [
     {
       "heading": "Label dan kata yang sering muncul",
-      "paragraphs": [
-        "일시 (ilsi): tanggal dan waktu",
-        "장소 (jangso): tempat, area yang terdampak",
-        "사유 (sayu): alasan",
-        "점검 (jeomgeom): pemeriksaan, inspeksi",
-        "작업 (jageop): pekerjaan (konstruksi atau perbaikan)",
-        "단수 (dansu): penghentian air",
-        "단전 (danjeon): pemadaman listrik (pemutusan terjadwal)",
-        "문의 (munui): pertanyaan, kontak (nomor telepon, kantor)"
-      ]
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "일시",
+          "roman": "ilsi",
+          "text": "tanggal dan waktu"
+        },
+        {
+          "term": "장소",
+          "roman": "jangso",
+          "text": "tempat, area yang terkena dampak"
+        },
+        {
+          "term": "사유",
+          "roman": "sayu",
+          "text": "alasan"
+        },
+        {
+          "term": "점검",
+          "roman": "jeomgeom",
+          "text": "pemeriksaan, pengecekan"
+        },
+        {
+          "term": "작업",
+          "roman": "jageop",
+          "text": "pekerjaan (konstruksi atau perbaikan)"
+        },
+        {
+          "term": "단수",
+          "roman": "dansu",
+          "text": "pemutusan air"
+        },
+        {
+          "term": "단전",
+          "roman": "danjeon",
+          "text": "pemadaman listrik (pemutusan terjadwal)"
+        },
+        {
+          "term": "문의",
+          "roman": "munui",
+          "text": "pertanyaan, kontak (nomor telepon, kantor)"
+        }
+      ],
+      "numbered": false,
+      "pill": "sage"
     },
     {
-      "heading": "Contoh pengumuman A — 단수 안내 (pengumuman penghentian air)",
-      "paragraphs": [
-        "[공지 A] 단수 안내",
-        "일시: 2026년 10월 12일(월) 09:30~14:00",
-        "장소: 101동 전체",
-        "사유: 건물 내부 배관 교체 작업",
-        "작업: 물 공급 중단 및 배관 교체",
-        "유의사항: 단수 전에 물을 미리 받아 두세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "heading": "Contoh pengumuman A — 단수 안내 (pengumuman pemutusan air)",
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 A] 단수 안내",
+        "tone": "green",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 12일(월) 09:30~14:00"
+          },
+          {
+            "label": "장소:",
+            "value": "101동 전체"
+          },
+          {
+            "label": "사유:",
+            "value": "건물 내부 배관 교체 작업"
+          },
+          {
+            "label": "작업:",
+            "value": "물 공급 중단 및 배관 교체"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단수 전에 물을 미리 받아 두세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
       "heading": "Contoh pengumuman B — 단전 안내 (pengumuman pemadaman listrik)",
-      "paragraphs": [
-        "[공지 B] 단전 안내",
-        "일시: 2026년 10월 15일(목) 13:00~16:00",
-        "장소: 102동 1층~10층 전체 세대",
-        "사유: 전기설비 정기 점검",
-        "작업: 변전실 점검 및 전력 차단",
-        "유의사항: 단전 전에 가전제품 플러그를 뽑아 주세요.",
-        "문의: 관리사무소 02-000-0000"
-      ]
+      "paragraphs": [],
+      "doc": {
+        "title": "[공지 B] 단전 안내",
+        "tone": "red",
+        "rows": [
+          {
+            "label": "일시:",
+            "value": "2026년 10월 15일(목) 13:00~16:00"
+          },
+          {
+            "label": "장소:",
+            "value": "102동 1층~10층 전체 세대"
+          },
+          {
+            "label": "사유:",
+            "value": "전기설비 정기 점검"
+          },
+          {
+            "label": "작업:",
+            "value": "변전실 점검 및 전력 차단"
+          },
+          {
+            "label": "유의사항:",
+            "value": "단전 전에 가전제품 플러그를 뽑아 주세요."
+          },
+          {
+            "label": "문의:",
+            "value": "관리사무소 02-000-0000"
+          }
+        ]
+      }
     },
     {
       "heading": "Cara memindai dengan cepat",
       "paragraphs": [
-        "Pertama, lihat label-labelnya (일시, 장소, 사유, 작업, 유의사항, 문의), lalu baca hanya baris yang diperlukan. Pengumuman menggunakan format waktu 24 jam: ~ berarti dari–sampai, 동 adalah nomor gedung, dan 층 adalah lantai."
-      ]
+        "Pertama, lihat labelnya (일시, 장소, 사유, 작업, 유의사항, 문의), lalu baca hanya baris yang kamu perlukan. Pengumuman ini menggunakan format waktu 24 jam: ~ berarti dari–sampai, 동 adalah nomor gedung, dan 층 adalah lantai."
+      ],
+      "box": true,
+      "note": "Pengumuman di sini adalah contoh pembelajaran, bukan jadwal atau nomor kontak yang sebenarnya."
     }
   ],
-  "note": "Pengumuman di sini adalah contoh pembelajaran, bukan jadwal atau nomor kontak yang sebenarnya.",
   "category": "etc"
 }

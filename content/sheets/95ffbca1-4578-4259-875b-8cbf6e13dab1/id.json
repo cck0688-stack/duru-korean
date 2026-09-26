@@ -1,0 +1,218 @@
+{
+  "title": "날씨 앱 읽기: 우산이 필요해요? 마스크가 필요해요?",
+  "keyword": "weather",
+  "summary": "Baca perkiraan cuaca di aplikasi cuaca Korea dan katakan apakah kamu perlu payung atau masker, beserta alasannya.",
+  "objective": "Pembelajar dapat menemukan suhu, kemungkinan hujan, dan tingkat debu di aplikasi cuaca Korea. Mereka dapat menjawab '우산이 필요해요?' atau '마스크를 써야 해요?' dengan ya atau tidak beserta satu kalimat alasan.",
+  "level": "Pemula",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Tampilan aplikasi",
+      "paragraphs": [
+        "Baca tampilan aplikasi cuaca ini. Semua pertanyaan menggunakan ini."
+      ],
+      "screen": {
+        "rows": [
+          {
+            "head": "오늘",
+            "tone": "pink",
+            "icon": "sun",
+            "sky": "맑음",
+            "cells": [
+              {
+                "label": "최저",
+                "value": "12°"
+              },
+              {
+                "label": "최고",
+                "value": "23°"
+              },
+              {
+                "label": "강수확률",
+                "value": "10%"
+              },
+              {
+                "label": "미세먼지",
+                "value": "나쁨",
+                "level": "bad"
+              },
+              {
+                "label": "초미세먼지",
+                "value": "보통",
+                "level": "normal"
+              }
+            ]
+          },
+          {
+            "head": "내일",
+            "tone": "sage",
+            "icon": "rain",
+            "sky": "비",
+            "cells": [
+              {
+                "label": "최저",
+                "value": "14°"
+              },
+              {
+                "label": "최고",
+                "value": "19°"
+              },
+              {
+                "label": "강수확률",
+                "value": "80%"
+              },
+              {
+                "label": "미세먼지",
+                "value": "좋음",
+                "level": "good"
+              },
+              {
+                "label": "초미세먼지",
+                "value": "좋음",
+                "level": "good"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "heading": "Kata-kata di layar",
+      "paragraphs": [
+        "Pelajari kata-kata yang muncul di tampilan aplikasi cuaca."
+      ],
+      "items": [
+        {
+          "term": "최저",
+          "roman": "choejeo",
+          "text": "yang terendah, yaitu suhu terendah hari itu.",
+          "example": "아침에는 최저 12도예요.",
+          "exampleMeaning": "Pada pagi hari suhunya 12 derajat, terendah hari itu."
+        },
+        {
+          "term": "최고",
+          "roman": "choego",
+          "text": "yang tertinggi, yaitu suhu tertinggi hari itu.",
+          "example": "오후에는 최고 23도예요.",
+          "exampleMeaning": "Pada siang hari suhunya mencapai 23 derajat."
+        },
+        {
+          "term": "강수확률",
+          "roman": "gangsuhwangnyul",
+          "text": "kemungkinan hujan atau salju. Dilafalkan [강수황뉼].",
+          "example": "강수확률이 10%예요.",
+          "exampleMeaning": "Kemungkinan hujan adalah 10%."
+        },
+        {
+          "term": "미세먼지",
+          "roman": "misemeonji",
+          "text": "debu halus di udara (PM10).",
+          "example": "오늘은 미세먼지가 많아요.",
+          "exampleMeaning": "Hari ini banyak debu halus."
+        },
+        {
+          "term": "초미세먼지",
+          "roman": "chomisemeonji",
+          "text": "debu ultra-halus, yaitu partikel yang lebih kecil lagi (PM2.5). Aplikasi menampilkannya sebagai baris terpisah.",
+          "example": "초미세먼지도 확인하세요.",
+          "exampleMeaning": "Periksa juga debu ultra-halus."
+        },
+        {
+          "term": "좋음 / 보통 / 나쁨 / 매우 나쁨",
+          "roman": "",
+          "text": "(joeum / botong / nappeum / maeu nappeum) baik / sedang / buruk / sangat buruk. Ini adalah tingkat debu, dari yang terbaik ke terburuk."
+        },
+        {
+          "term": "우산",
+          "roman": "usan",
+          "text": "payung.",
+          "example": "우산이 필요해요.",
+          "exampleMeaning": "Aku perlu payung."
+        },
+        {
+          "term": "마스크",
+          "roman": "maseukeu",
+          "text": "masker wajah. Kita bilang 마스크를 써요 (memakai masker).",
+          "example": "밖에서 마스크를 써요.",
+          "exampleMeaning": "Aku memakai masker di luar."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink"
+    },
+    {
+      "heading": "Dari tampilan layar ke ucapan",
+      "box": true,
+      "paragraphs": [
+        "Aplikasi menggunakan label singkat. Saat berbicara, ubah menjadi kalimat: 좋음 → 좋아요, 보통 → 보통이에요, 나쁨 → 나빠요, 매우 나쁨 → 매우 나빠요.",
+        "Contoh: layar menampilkan 미세먼지 나쁨, jadi kamu katakan 미세먼지가 나빠요."
+      ],
+      "aside": {
+        "title": "Catatan pengucapan",
+        "lines": [
+          "Baca suhu dengan angka Sino-Korea + 도: 12° = 십이 도, 23° = 이십삼 도.",
+          "Baca % sebagai 퍼센트: 80% = 팔십 퍼센트."
+        ]
+      }
+    },
+    {
+      "heading": "Menjawab: ya atau tidak + alasan",
+      "paragraphs": [
+        "Gunakan aturan ini untuk menjawab pertanyaan di lembar kerja ini."
+      ],
+      "cards": [
+        {
+          "icon": "umbrella",
+          "title": "Aturan payung",
+          "text": "Katakan ya jika kemungkinan hujan 60% atau lebih.",
+          "example": "우산이 필요해요?\n→ 네, 필요해요. / 아니요, 필요 없어요."
+        },
+        {
+          "icon": "mask",
+          "title": "Aturan masker",
+          "text": "Katakan ya jika 미세먼지 atau 초미세먼지 berstatus 나쁨 atau 매우 나쁨.",
+          "example": "마스크를 써야 해요?\n→ 네, 써야 해요. / 아니요, 안 써도 돼요."
+        }
+      ],
+      "panels": [
+        {
+          "title": "Contoh jawaban",
+          "style": "bullets",
+          "lines": [
+            "우산이 필요해요? → 네, 필요해요. 강수확률이 80%예요.",
+            "마스크를 써야 해요? → 아니요, 안 써도 돼요. 초미세먼지가 좋아요."
+          ]
+        },
+        {
+          "title": "Contoh lengkap",
+          "style": "quote",
+          "lines": [
+            "오늘 우산이 필요해요? → 아니요, 필요 없어요. 강수확률이 10%예요."
+          ]
+        }
+      ],
+      "note": "Periksa kedua baris debu, bukan hanya satu. Ada hari di mana 미세먼지 nya 보통 tapi 초미세먼지 nya 나쁨."
+    }
+  ],
+  "task": {
+    "title": "",
+    "line": "Lihat tampilan aplikasi di halaman 1, temukan informasinya, lalu jawab dalam bahasa Korea."
+  },
+  "exercises": [
+    "Lihat tampilan aplikasi dan jawab: 오늘 최저 기온하고 최고 기온은 몇 도예요?",
+    "Lihat tampilan aplikasi dan jawab: 내일 강수확률은 몇 퍼센트예요?",
+    "Jawab dengan ya atau tidak dan berikan alasan: 내일 우산이 필요해요?",
+    "Jawab dengan ya atau tidak dan berikan alasan: 오늘 마스크를 써야 해요?",
+    "Jawab dengan ya atau tidak dan berikan alasan: 내일 마스크를 써야 해요?"
+  ],
+  "answers": [
+    "최저 12도, 최고 23도예요. (십이 도, 이십삼 도)",
+    "80%예요. (팔십 퍼센트예요)",
+    "네, 필요해요. 강수확률이 80%예요.",
+    "네, 써야 해요. 미세먼지가 나빠요.",
+    "아니요, 안 써도 돼요. 미세먼지하고 초미세먼지가 좋아요."
+  ],
+  "category": "etc"
+}

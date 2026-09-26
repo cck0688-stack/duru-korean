@@ -1,0 +1,174 @@
+{
+  "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
+  "keyword": "signs",
+  "summary": "Dix petits panneaux que tu vois sur les portes et à l'intérieur des bâtiments coréens : pousser, tirer, entrée, sortie, sortie de secours, toilettes, en cours d'utilisation, hors service, entrée interdite et interdiction de fumer. Pour chacun, tu apprends ce qu'il signifie et ce qu'il faut faire.",
+  "objective": "Lis 10 panneaux courants de portes et de bâtiments (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) et choisis ou dis l'action appropriée pour chacun.",
+  "level": "Débutant",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "Sur la porte : pousser ou tirer ?",
+      "paragraphs": [
+        "Les deux panneaux sont des demandes polies qui s'adressent à toi, la personne à la porte. Pour dire ce que tu fais, utilise 밀어요 (je pousse) et 당겨요 (je tire)."
+      ],
+      "box": true,
+      "items": [
+        {
+          "term": "미세요",
+          "roman": "miseyo",
+          "text": "Pousser. Ça vient de 밀다 (pousser). Le ㄹ disparaît devant -세요, donc on écrit 미세요, pas 밀세요."
+        },
+        {
+          "term": "당기세요",
+          "roman": "danggiseyo",
+          "text": "Tirer. Ça vient de 당기다 (tirer)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "romanBelow": true,
+      "example": {
+        "ko": "이 문은 무거워요. 세게 밀어요.",
+        "en": "Cette porte est lourde. Je la pousse fort."
+      },
+      "card": true
+    },
+    {
+      "heading": "Entrer et sortir",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "입구",
+          "roman": "ipgu, said [입꾸]",
+          "text": "entrée, le chemin pour entrer. 입 signifie « entrer »."
+        },
+        {
+          "term": "출구",
+          "roman": "chulgu",
+          "text": "sortie, le chemin pour sortir. 출 signifie « sortir »."
+        },
+        {
+          "term": "비상구",
+          "roman": "bisanggu",
+          "text": "sortie de secours. Utilise-la en cas d'incendie ou d'une autre urgence."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "지하철 출구가 어디예요?",
+        "en": "Où est la sortie du métro ?"
+      },
+      "card": true
+    },
+    {
+      "heading": "Pièces et appareils",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "화장실",
+          "roman": "hwajangsil",
+          "text": "toilettes. Ce panneau indique seulement où se trouvent les toilettes."
+        },
+        {
+          "term": "사용 중",
+          "roman": "sayong jung",
+          "text": "en cours d'utilisation / occupé. Quelqu'un l'utilise en ce moment, donc attends."
+        },
+        {
+          "term": "고장",
+          "roman": "gojang",
+          "text": "hors service / en panne. Ne l'utilise pas. On dit aussi 고장 났어요 (C'est tombé en panne)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "엘리베이터가 고장이에요. 계단으로 가요.",
+        "en": "L'ascenseur est en panne. Prenons les escaliers."
+      },
+      "card": true
+    },
+    {
+      "heading": "Panneaux qui disent « ne fais pas »",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "출입 금지",
+          "roman": "churip geumji, said [추립 금지]",
+          "text": "entrée interdite. 출입 signifie « entrer et sortir », et 금지 signifie « interdit ». Ne passe pas par cette porte."
+        },
+        {
+          "term": "금연",
+          "roman": "geumyeon, said [그면]",
+          "text": "interdiction de fumer. 금 signifie « interdire », et 연 signifie « fumée »."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "여기는 금연이에요. 밖에서 피우세요.",
+        "en": "Ceci est une zone non-fumeur. Merci de fumer dehors."
+      },
+      "note": "Astuce : 입구, 출구 et 출입 utilisent tous 입 (entrer) et 출 (sortir). Si tu apprends ces deux éléments, tu peux souvent deviner de nouveaux panneaux.",
+      "card": true
+    }
+  ],
+  "task": {
+    "title": "Lis les panneaux et agis",
+    "line": "Utilise les significations des panneaux de cette fiche pour associer, choisir ou compléter la bonne réponse pour chaque élément."
+  },
+  "exercises": [
+    {
+      "ask": "Écris le panneau de l'encadré qui correspond à chaque signification (미세요, 당기세요, 입구, 출구, 비상구) :",
+      "items": [
+        "chemin pour entrer / tirer / sortie de secours / pousser / chemin pour sortir"
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Écris le panneau de l'encadré qui correspond à chaque signification (화장실, 사용 중, 고장, 출입 금지, 금연) :",
+      "items": [
+        "interdiction de fumer / hors service / toilettes / entrée interdite / en cours d'utilisation"
+      ],
+      "plain": true
+    },
+    "Est-ce que le panneau indique que quelque chose est en panne ou en cours d'utilisation ? Écris En panne, En cours d'utilisation ou Ni l'un ni l'autre pour chaque panneau : 고장 / 사용 중 / 화장실 / 비상구",
+    {
+      "ask": "Est-ce que c'est permis ? Écris Oui ou Non :",
+      "items": [
+        "Tu fumes sous un panneau 금연. / Tu passes par une porte marquée 출입 금지. / Tu sors du bâtiment par la porte marquée 출구. / Pendant un incendie, tu cours vers la porte marquée 비상구."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Complète avec 밀어요 ou 당겨요 :",
+      "items": [
+        "카페 문에 '당기세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Complète avec 밀어요 ou 당겨요 :",
+      "items": [
+        "약국 문에 '미세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    }
+  ],
+  "answers": [
+    "입구 / 당기세요 / 비상구 / 미세요 / 출구",
+    "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
+    "En panne / En cours d'utilisation / Ni l'un ni l'autre / Ni l'un ni l'autre",
+    "Non / Non / Oui / Oui",
+    "당겨요",
+    "밀어요"
+  ],
+  "category": "etc"
+}

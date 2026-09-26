@@ -1,0 +1,174 @@
+{
+  "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
+  "keyword": "signs",
+  "summary": "Zehn kurze Schilder, die man an Türen und in koreanischen Gebäuden sieht: drücken, ziehen, Eingang, Ausgang, Notausgang, Toilette, besetzt, außer Betrieb, kein Zutritt und Rauchen verboten. Zu jedem lernst du, was es bedeutet und was du tun sollst.",
+  "objective": "Lies 10 gängige Tür- und Gebäudeschilder (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) und wähle oder sag die richtige Handlung für jedes.",
+  "level": "Anfänger",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "sections": [
+    {
+      "heading": "An der Tür: drücken oder ziehen?",
+      "paragraphs": [
+        "Beide Schilder sind höfliche Aufforderungen an dich, die Person an der Tür. Um zu sagen, was du tust, verwende 밀어요 (ich drücke) und 당겨요 (ich ziehe)."
+      ],
+      "box": true,
+      "items": [
+        {
+          "term": "미세요",
+          "roman": "miseyo",
+          "text": "Drücken. Es kommt von 밀다 (drücken). Das ㄹ fällt vor -세요 weg, deshalb steht dort 미세요 und nicht 밀세요."
+        },
+        {
+          "term": "당기세요",
+          "roman": "danggiseyo",
+          "text": "Ziehen. Es kommt von 당기다 (ziehen)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "romanBelow": true,
+      "example": {
+        "ko": "이 문은 무거워요. 세게 밀어요.",
+        "en": "Diese Tür ist schwer. Ich drücke sie kräftig."
+      },
+      "card": true
+    },
+    {
+      "heading": "Hinein und hinaus",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "입구",
+          "roman": "ipgu, said [입꾸]",
+          "text": "Eingang, der Weg hinein. 입 bedeutet 'hineingehen'."
+        },
+        {
+          "term": "출구",
+          "roman": "chulgu",
+          "text": "Ausgang, der Weg hinaus. 출 bedeutet 'hinausgehen'."
+        },
+        {
+          "term": "비상구",
+          "roman": "bisanggu",
+          "text": "Notausgang. Benutze ihn bei einem Feuer oder einem anderen Notfall."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "지하철 출구가 어디예요?",
+        "en": "Wo ist der U-Bahn-Ausgang?"
+      },
+      "card": true
+    },
+    {
+      "heading": "Räume und Geräte",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "화장실",
+          "roman": "hwajangsil",
+          "text": "Toilette. Dieses Schild zeigt nur, wo sich die Toilette befindet."
+        },
+        {
+          "term": "사용 중",
+          "roman": "sayong jung",
+          "text": "besetzt. Jemand benutzt es gerade, also warte."
+        },
+        {
+          "term": "고장",
+          "roman": "gojang",
+          "text": "außer Betrieb oder kaputt. Nicht benutzen. Man sagt auch 고장 났어요 (Es ist kaputtgegangen)."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "엘리베이터가 고장이에요. 계단으로 가요.",
+        "en": "Der Aufzug ist außer Betrieb. Lass uns die Treppe nehmen."
+      },
+      "card": true
+    },
+    {
+      "heading": "Schilder, die \"nicht\" sagen",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "출입 금지",
+          "roman": "churip geumji, said [추립 금지]",
+          "text": "kein Zutritt. 출입 bedeutet 'hinein- und hinausgehen', und 금지 bedeutet 'verboten'. Geh nicht durch diese Tür."
+        },
+        {
+          "term": "금연",
+          "roman": "geumyeon, said [그면]",
+          "text": "Rauchen verboten. 금 bedeutet 'verbieten', und 연 bedeutet 'Rauch'."
+        }
+      ],
+      "numbered": false,
+      "pill": "pink",
+      "define": true,
+      "example": {
+        "ko": "여기는 금연이에요. 밖에서 피우세요.",
+        "en": "Dies ist ein Nichtraucherbereich. Bitte rauche draußen."
+      },
+      "note": "Tipp: 입구, 출구 und 출입 verwenden alle 입 (hinein) und 출 (hinaus). Wenn du diese beiden Bestandteile lernst, kannst du oft neue Schilder erraten.",
+      "card": true
+    }
+  ],
+  "task": {
+    "title": "Lies die Schilder und handle entsprechend",
+    "line": "Nutze die Bedeutungen der Schilder auf diesem Arbeitsblatt, um für jede Aufgabe die richtige Antwort zuzuordnen, auszuwählen oder einzutragen."
+  },
+  "exercises": [
+    {
+      "ask": "Schreibe das passende Schild aus dem Kasten zu jeder Bedeutung (미세요, 당기세요, 입구, 출구, 비상구):",
+      "items": [
+        "Weg hinein / ziehen / Notausgang / drücken / Weg hinaus"
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Schreibe das passende Schild aus dem Kasten zu jeder Bedeutung (화장실, 사용 중, 고장, 출입 금지, 금연):",
+      "items": [
+        "Rauchen verboten / außer Betrieb / Toilette / kein Zutritt / besetzt"
+      ],
+      "plain": true
+    },
+    "Sagt das Schild, dass etwas kaputt ist oder besetzt ist? Schreibe für jedes Schild Kaputt, Besetzt oder Keins von beidem: 고장 / 사용 중 / 화장실 / 비상구",
+    {
+      "ask": "Ist das in Ordnung? Schreibe Ja oder Nein:",
+      "items": [
+        "Du rauchst unter einem 금연-Schild. / Du gehst durch eine Tür mit der Aufschrift 출입 금지. / Du verlässt das Gebäude durch die Tür mit der Aufschrift 출구. / Bei einem Feuer rennst du zur Tür mit der Aufschrift 비상구."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Fülle die Lücke mit 밀어요 oder 당겨요:",
+      "items": [
+        "카페 문에 '당기세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    },
+    {
+      "ask": "Fülle die Lücke mit 밀어요 oder 당겨요:",
+      "items": [
+        "약국 문에 '미세요'가 있어요. 그래서 문을 ____."
+      ],
+      "plain": true
+    }
+  ],
+  "answers": [
+    "입구 / 당기세요 / 비상구 / 미세요 / 출구",
+    "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
+    "Kaputt / Besetzt / Keins von beidem / Keins von beidem",
+    "Nein / Nein / Ja / Ja",
+    "당겨요",
+    "밀어요"
+  ],
+  "category": "etc"
+}
