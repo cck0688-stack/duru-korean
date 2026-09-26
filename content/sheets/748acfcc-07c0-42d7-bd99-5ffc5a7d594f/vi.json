@@ -1,21 +1,42 @@
 {
   "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
-  "keyword": "키오스크 버튼",
-  "summary": "Đọc 12 nút bấm thường gặp trên màn hình tự đặt món (kiosk) ở quán cà phê và cửa hàng đồ ăn nhanh, nối mỗi nút với chức năng của nó, và làm theo một quy trình đặt món đơn giản.",
-  "objective": "Sau khi học xong, người học có thể nhận biết 12 nút/nhãn thường gặp trên kiosk và tự làm theo quy trình cơ bản—dùng tại chỗ/mang về → chọn món → chọn tùy chọn → chọn phương thức thanh toán → nhận hóa đơn/số thứ tự—mà không cần trợ giúp.",
+  "keyword": "kiosk",
+  "summary": "Đọc 12 nút bấm thường gặp trên kiosk tự đặt món ở quán cà phê và cửa hàng đồ ăn nhanh, ghép mỗi nút với chức năng của nó, và thực hiện theo quy trình đặt hàng đơn giản.",
+  "objective": "Sau bài học, người học có thể nhận biết 12 nút/nhãn kiosk thường gặp và tự thực hiện quy trình cơ bản—ăn tại chỗ/mang đi → chọn món → chọn tùy chọn → chọn phương thức thanh toán → nhận hóa đơn/số thứ tự—mà không cần trợ giúp.",
   "level": "Sơ cấp (cao)",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "Đọc và kiểm tra các nút kiosk",
+    "line": "Sử dụng các nhãn nút ở trên để ghép nghĩa, chọn nút, và sắp xếp các bước tự đặt món theo đúng thứ tự."
   },
   "exercises": [
-    "Nối mỗi nút với chức năng của nó. Các nút: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Chức năng: (a) thanh toán bằng điện thoại (b) ăn tại cửa hàng (c) chọn nhiệt độ đồ uống (d) in hóa đơn giấy (e) chỉ món đó, không kèm món phụ hay đồ uống (f) mang đồ ăn ra ngoài (g) đến màn hình thanh toán (h) chọn S/M/L (i) thanh toán bằng thẻ (j) món kèm món phụ và đồ uống (k) thêm một thứ gì đó (l) dừng đơn hàng",
-    "Đọc tình huống và viết ra nút bạn sẽ chọn: ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?",
-    "Đọc tình huống và viết ra tùy chọn bạn sẽ chọn: ① 사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요? ② 추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요? ③ 라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?",
-    "Đọc và trả lời: ① 카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요? ② 체크카드로 계산할 거예요. 어떤 버튼이 맞아요? ③ 결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요? ④ '취소' 버튼을 누르면 어떻게 돼요?",
-    "Sắp xếp các bước đặt món theo đúng thứ tự: 결제하기 / 영수증 출력 / 포장 / L / 간편결제 / 세트"
+    "Ghép mỗi nút với chức năng của nó. Các nút: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Chức năng: (a) thanh toán bằng điện thoại (b) ăn tại cửa hàng (c) chọn nhiệt độ đồ uống (d) in hóa đơn giấy (e) chỉ mua món, không kèm món phụ hay đồ uống (f) mang đồ ăn đi (g) chuyển đến màn hình thanh toán (h) chọn S/M/L (i) thanh toán bằng thẻ (j) món kèm món phụ và đồ uống (k) thêm một thứ gì đó (l) dừng đơn hàng",
+    {
+      "ask": "Đọc tình huống và viết nút mà bạn chọn:",
+      "items": [
+        "음식을 집에 가져가서 먹을 거예요. 무엇을 골라요?",
+        "버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?"
+      ]
+    },
+    {
+      "ask": "Đọc tình huống và viết tùy chọn mà bạn chọn:",
+      "items": [
+        "사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요?",
+        "추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요?",
+        "라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?"
+      ]
+    },
+    {
+      "ask": "Đọc và trả lời:",
+      "items": [
+        "카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요?",
+        "체크카드로 계산할 거예요. 어떤 버튼이 맞아요?",
+        "결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요?",
+        "‘취소’ 버튼을 누르면 어떻게 돼요?"
+      ]
+    },
+    "Sắp xếp các bước đặt hàng theo đúng thứ tự: 결제하기 / 영수증 출력 / 포장 / L / 간편결제 / 세트"
   ],
   "answers": [
     "매장–(b), 포장–(f), 단품–(e), 세트–(j), HOT/ICE–(c), 사이즈–(h), 추가–(k), 취소–(l), 결제하기–(g), 카드 결제–(i), 간편결제–(a), 영수증 출력–(d)",
@@ -27,35 +48,121 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Quy trình đặt món nhìn tổng quan",
-      "paragraphs": [
-        "Chọn 매장/포장 (dùng tại chỗ/mang về) → chọn món (단품/세트) → chọn tùy chọn (HOT/ICE, 사이즈, 추가) → nhấn 결제하기 (thanh toán) → chọn phương thức thanh toán (카드 결제/간편결제) → kiểm tra hóa đơn/số thứ tự (영수증/주문번호)"
+      "heading": "Quy trình đặt hàng tổng quan",
+      "paragraphs": [],
+      "steps": [
+        {
+          "ko": "매장/포장",
+          "en": "ăn tại chỗ/mang đi"
+        },
+        {
+          "ko": "메뉴 선택",
+          "en": "단품/세트"
+        },
+        {
+          "ko": "옵션 선택",
+          "en": "HOT/ICE, 사이즈, 추가"
+        },
+        {
+          "ko": "결제하기",
+          "en": "thanh toán"
+        },
+        {
+          "ko": "결제 방법 선택",
+          "en": "카드 결제/간편결제"
+        },
+        {
+          "ko": "영수증/주문번호",
+          "en": "hóa đơn/số thứ tự"
+        }
       ]
     },
     {
-      "heading": "12 nút bấm thường gặp",
-      "paragraphs": [
-        "1) 매장 (dùng tại chỗ) — Nhấn nút này khi bạn ăn ngay tại cửa hàng. 예: 여기서 먹어요. 매장을 눌러요.",
-        "2) 포장 (mang về) — Nhấn nút này khi bạn mang đồ ăn ra ngoài. 예: 바빠요? 그러면 포장을 고르세요.",
-        "3) 단품 (món lẻ) — Nhấn nút này để chỉ mua món đó, không kèm món phụ hay đồ uống. 예: 버거만 먹고 싶으면 단품을 고르세요.",
-        "4) 세트 (set/combo) — Món này sẽ có kèm một món phụ và một đồ uống. 예: 배가 많이 고파요. 세트로 주문해요.",
-        "5) HOT / ICE — Nhấn để chọn nhiệt độ của đồ uống. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요.",
-        "6) 사이즈 (kích cỡ) — Dùng để chọn kích cỡ ly hoặc món ăn, thường là S/M/L. 예: 많이 마시고 싶으면 L을 고르세요.",
-        "7) 추가 (thêm) — Nhấn để thêm một thứ gì đó. 예: 커피를 더 진하게 마시고 싶어요. '샷 추가'를 눌러요.",
-        "8) 취소 (hủy) — Nhấn để dừng đơn hàng đang đặt. 예: 주문을 안 하고 싶어요. 취소를 눌러요.",
-        "9) 결제하기 (thanh toán) — Khi bạn đã chọn xong, nút này sẽ đưa bạn đến màn hình thanh toán. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요.",
-        "10) 카드 결제 (thanh toán bằng thẻ) — Nhấn để thanh toán bằng thẻ. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요.",
-        "11) 간편결제 (thanh toán nhanh qua điện thoại) — Nhấn để thanh toán bằng điện thoại. 예: 카카오페이를 써요? 간편결제로 계산하세요.",
-        "12) 영수증 출력 (in hóa đơn) — In ra hóa đơn giấy, kèm theo số thứ tự đơn hàng. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
+      "heading": "12 nút thường gặp",
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "매장",
+          "gloss": "ăn tại chỗ",
+          "text": "Nhấn nút này khi bạn ăn tại cửa hàng.",
+          "example": "여기서 먹어요. 매장을 눌러요."
+        },
+        {
+          "term": "포장",
+          "gloss": "mang đi",
+          "text": "Nhấn nút này khi bạn mang đồ ăn đi.",
+          "example": "바빠요? 그러면 포장을 고르세요."
+        },
+        {
+          "term": "단품",
+          "gloss": "món đơn lẻ",
+          "text": "Nhấn nút này để chỉ mua món đó, không kèm món phụ hay đồ uống.",
+          "example": "버거만 먹고 싶으면 단품을 고르세요."
+        },
+        {
+          "term": "세트",
+          "gloss": "phần/combo",
+          "text": "Món này đi kèm với một món phụ và một đồ uống.",
+          "example": "배가 많이 고파요. 세트로 주문해요."
+        },
+        {
+          "term": "HOT / ICE",
+          "gloss": "",
+          "text": "Nhấn nút này để chọn nhiệt độ đồ uống.",
+          "example": "더운 날에는 ICE, 추운 날에는 HOT이 좋아요."
+        },
+        {
+          "term": "사이즈",
+          "gloss": "kích cỡ",
+          "text": "Dùng để chọn kích cỡ ly hoặc món, thường là S/M/L.",
+          "example": "많이 마시고 싶으면 L을 고르세요."
+        },
+        {
+          "term": "추가",
+          "gloss": "thêm",
+          "text": "Nhấn nút này để thêm một thứ gì đó.",
+          "example": "커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요."
+        },
+        {
+          "term": "취소",
+          "gloss": "hủy",
+          "text": "Nhấn nút này để dừng đơn hàng hiện tại.",
+          "example": "주문을 안 하고 싶어요. 취소를 눌러요."
+        },
+        {
+          "term": "결제하기",
+          "gloss": "thanh toán",
+          "text": "Khi bạn chọn xong, nút này sẽ đưa bạn đến màn hình thanh toán.",
+          "example": "다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요."
+        },
+        {
+          "term": "카드 결제",
+          "gloss": "thanh toán bằng thẻ",
+          "text": "Nhấn nút này để thanh toán bằng thẻ.",
+          "example": "신용카드로 계산할 거예요. 카드 결제를 선택하세요."
+        },
+        {
+          "term": "간편결제",
+          "gloss": "thanh toán di động/thanh toán nhanh",
+          "text": "Nhấn nút này để thanh toán bằng điện thoại.",
+          "example": "카카오페이를 써요? 간편결제로 계산하세요."
+        },
+        {
+          "term": "영수증 출력",
+          "gloss": "in hóa đơn",
+          "text": "In ra hóa đơn giấy; số thứ tự đơn hàng sẽ đi kèm.",
+          "example": "주문번호를 확인하려고 영수증 출력을 눌러요."
+        }
       ]
     },
     {
-      "heading": "Mẹo đọc hiểu: từ viết tắt và nhãn tiếng Anh",
+      "heading": "Mẹo đọc: chữ viết tắt và nhãn tiếng Anh",
       "paragraphs": [
-        "S/M/L: viết tắt của Small/Medium/Large. Nhiều kiosk hiển thị kích cỡ theo dạng S/M/L, nhưng một số cửa hàng dùng tên gọi khác (ví dụ: 레귤러/라지)."
-      ]
+        "S/M/L: viết tắt của Small/Medium/Large (Nhỏ/Vừa/Lớn). Nhiều kiosk hiển thị kích cỡ theo S/M/L, nhưng một số cửa hàng dùng tên khác (ví dụ: 레귤러/라지)."
+      ],
+      "box": true,
+      "note": "Dựa trên các nhãn và quy trình đặt hàng thường gặp trên các kiosk thực tế. Thiết kế màn hình có thể khác nhau tùy theo cửa hàng."
     }
   ],
-  "note": "Dựa trên các nhãn và quy trình đặt món thường thấy trên kiosk thực tế. Thiết kế màn hình có thể khác nhau tùy theo từng cửa hàng.",
   "category": "etc"
 }

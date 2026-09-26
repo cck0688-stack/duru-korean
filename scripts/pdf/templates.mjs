@@ -205,7 +205,7 @@ function flowSteps(steps) {
   return '<div class="flow">' + list(steps).map((st, i) =>
     (i ? '<span class="flow-arrow">→</span>' : '') +
     '<div class="flow-step"><span class="flow-n">' + (i + 1) + '</span><div class="flow-card"><b>' + esc(st.ko) + '</b>' +
-    (st.en ? '<span>(' + esc(st.en) + ')</span>' : '') + '</div></div>').join('') + '</div>';
+    (st.en && st.en !== st.ko ? '<span>(' + esc(st.en) + ')</span>' : '') + '</div></div>').join('') + '</div>';
 }
 
 // Numbered rows, one column: the Korean term (and what it is called in
@@ -214,7 +214,7 @@ function itemRows(items) {
   if (!list(items).length) return '';
   return '<div class="rows">' + list(items).map((it, i) =>
     '<div class="row"><span class="row-n">' + (i + 1) + '</span>' +
-    '<div class="row-term"><b>' + esc(it.term) + '</b>' + (it.gloss ? ' <span>(' + esc(it.gloss) + ')</span>' : '') + '</div>' +
+    '<div class="row-term"><b>' + esc(it.term) + '</b>' + (it.gloss && it.gloss !== it.term ? ' <span>(' + esc(it.gloss) + ')</span>' : '') + '</div>' +
     '<div class="row-text">' + prose(it.text) + (it.example ? ' <span class="row-ex">예: ' + esc(it.example) + '</span>' : '') + '</div>' +
     '</div>').join('') + '</div>';
 }

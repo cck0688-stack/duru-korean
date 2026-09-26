@@ -1,20 +1,41 @@
 {
   "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
-  "keyword": "키오스크 버튼",
-  "summary": "Lire 12 boutons courants sur les bornes de commande automatique des cafés et fast-foods, associer chacun à sa fonction, et suivre un déroulement de commande simple.",
-  "objective": "À la fin, l'apprenant peut reconnaître 12 boutons/étiquettes fréquents sur les bornes et suivre un déroulement de base — sur place/à emporter → choisir le menu → choisir les options → choisir le mode de paiement → obtenir le reçu/numéro de commande — sans aide.",
-  "level": "Débutant (niveau avancé)",
+  "keyword": "kiosk",
+  "summary": "Lisez 12 boutons courants des bornes de commande des cafés et fast-foods, associez chacun à sa fonction, et suivez un parcours de commande simple.",
+  "objective": "À la fin, l'apprenant peut reconnaître 12 boutons/étiquettes fréquents des bornes et suivre un parcours de base — sur place/à emporter → choisir le menu → choisir les options → choisir le mode de paiement → obtenir le reçu/numéro de commande — sans aide.",
+  "level": "Débutant (avancé)",
   "minutes": 15,
   "tags": [],
   "task": {
-    "title": "",
-    "line": ""
+    "title": "Lire et vérifier les boutons de la borne",
+    "line": "Utilisez les étiquettes de boutons ci-dessus pour associer les sens, choisir les boutons, et remettre les étapes de commande dans le bon ordre."
   },
   "exercises": [
-    "Associez chaque bouton à sa fonction. Boutons : 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Fonctions : (a) payer avec votre téléphone (b) manger dans le magasin (c) choisir la température de la boisson (d) imprimer un reçu papier (e) article seul, sans accompagnement ni boisson (f) emporter la nourriture (g) aller à l'écran de paiement (h) choisir S/M/L (i) payer par carte (j) article avec accompagnement et boisson (k) ajouter quelque chose en plus (l) arrêter la commande",
-    "Lisez la situation et écrivez le bouton que vous choisissez : ① 음식을 집에 가져가서 먹을 거예요. 무엇을 골라요? ② 버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?",
-    "Lisez la situation et écrivez l'option que vous choisissez : ① 사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요? ② 추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요? ③ 라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?",
-    "Lisez et répondez : ① 카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요? ② 체크카드로 계산할 거예요. 어떤 버튼이 맞아요? ③ 결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요? ④ '취소' 버튼을 누르면 어떻게 돼요?",
+    "Associez chaque bouton à sa fonction. Boutons : 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Fonctions : (a) payer avec votre téléphone (b) manger sur place (c) choisir la température de la boisson (d) imprimer un reçu papier (e) l'article seul, sans accompagnement ni boisson (f) emporter la nourriture (g) aller à l'écran de paiement (h) choisir S/M/L (i) payer par carte (j) l'article avec un accompagnement et une boisson (k) ajouter quelque chose en plus (l) arrêter la commande",
+    {
+      "ask": "Lisez la situation et écrivez le bouton que vous choisissez :",
+      "items": [
+        "음식을 집에 가져가서 먹을 거예요. 무엇을 골라요?",
+        "버거, 감자튀김, 콜라를 한 번에 사고 싶어요. 어떤 메뉴를 고르세요?"
+      ]
+    },
+    {
+      "ask": "Lisez la situation et écrivez l'option que vous choisissez :",
+      "items": [
+        "사이다를 큰 컵으로 마시고 싶어요. 사이즈에서 무엇을 골라요?",
+        "추운 날이에요. 따뜻한 라테가 좋아요. HOT과 ICE 중에서 뭘 고를까요?",
+        "라테에 시럽을 더 넣고 싶어요. 어떤 버튼이 필요해요?"
+      ]
+    },
+    {
+      "ask": "Lisez et répondez :",
+      "items": [
+        "카드가 없어요. 휴대전화로 계산하고 싶어요. 무엇을 골라요?",
+        "체크카드로 계산할 거예요. 어떤 버튼이 맞아요?",
+        "결제가 끝났어요. 주문번호를 종이로 받고 싶어요. 무엇을 눌러요?",
+        "‘취소’ 버튼을 누르면 어떻게 돼요?"
+      ]
+    },
     "Remettez les étapes de commande dans le bon ordre : 결제하기 / 영수증 출력 / 포장 / L / 간편결제 / 세트"
   ],
   "answers": [
@@ -27,35 +48,121 @@
   "checkThese": [],
   "sections": [
     {
-      "heading": "Le déroulement de commande en un coup d'œil",
-      "paragraphs": [
-        "Choisir 매장/포장 (sur place/à emporter) → choisir l'article du menu (단품/세트) → choisir les options (HOT/ICE, 사이즈, 추가) → appuyer sur 결제하기 (payer) → choisir le mode de paiement (카드 결제/간편결제) → vérifier le reçu/numéro de commande (영수증/주문번호)"
+      "heading": "Le parcours de commande en un coup d'œil",
+      "paragraphs": [],
+      "steps": [
+        {
+          "ko": "매장/포장",
+          "en": "sur place/à emporter"
+        },
+        {
+          "ko": "메뉴 선택",
+          "en": "단품/세트"
+        },
+        {
+          "ko": "옵션 선택",
+          "en": "HOT/ICE, 사이즈, 추가"
+        },
+        {
+          "ko": "결제하기",
+          "en": "payer"
+        },
+        {
+          "ko": "결제 방법 선택",
+          "en": "카드 결제/간편결제"
+        },
+        {
+          "ko": "영수증/주문번호",
+          "en": "reçu/n° de commande"
+        }
       ]
     },
     {
       "heading": "12 boutons courants",
-      "paragraphs": [
-        "1) 매장 (sur place) — Appuyez dessus quand vous mangez dans le magasin. 예: 여기서 먹어요. 매장을 눌러요.",
-        "2) 포장 (à emporter) — Appuyez dessus quand vous emportez la nourriture. 예: 바빠요? 그러면 포장을 고르세요.",
-        "3) 단품 (article seul) — Appuyez dessus pour acheter seulement l'article, sans accompagnement ni boisson. 예: 버거만 먹고 싶으면 단품을 고르세요.",
-        "4) 세트 (menu/formule) — Un accompagnement et une boisson viennent avec l'article. 예: 배가 많이 고파요. 세트로 주문해요.",
-        "5) HOT / ICE — Appuyez dessus pour choisir la température de la boisson. 예: 더운 날에는 ICE, 추운 날에는 HOT이 좋아요.",
-        "6) 사이즈 (taille) — Utilisé pour choisir la taille du gobelet ou de l'article, souvent S/M/L. 예: 많이 마시고 싶으면 L을 고르세요.",
-        "7) 추가 (ajouter) — Appuyez dessus pour ajouter quelque chose en plus. 예: 커피를 더 진하게 마시고 싶어요. '샷 추가'를 눌러요.",
-        "8) 취소 (annuler) — Appuyez dessus pour arrêter la commande en cours. 예: 주문을 안 하고 싶어요. 취소를 눌러요.",
-        "9) 결제하기 (payer) — Une fois vos choix terminés, cela vous amène à l'écran de paiement. 예: 다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요.",
-        "10) 카드 결제 (paiement par carte) — Appuyez dessus pour payer par carte. 예: 신용카드로 계산할 거예요. 카드 결제를 선택하세요.",
-        "11) 간편결제 (paiement mobile/simplifié) — Appuyez dessus pour payer avec votre téléphone. 예: 카카오페이를 써요? 간편결제로 계산하세요.",
-        "12) 영수증 출력 (imprimer le reçu) — Imprime un reçu papier ; le numéro de commande est inclus. 예: 주문번호를 확인하려고 영수증 출력을 눌러요."
+      "paragraphs": [],
+      "items": [
+        {
+          "term": "매장",
+          "gloss": "sur place",
+          "text": "Appuyez dessus quand vous mangez sur place.",
+          "example": "여기서 먹어요. 매장을 눌러요."
+        },
+        {
+          "term": "포장",
+          "gloss": "à emporter",
+          "text": "Appuyez dessus quand vous emportez la nourriture.",
+          "example": "바빠요? 그러면 포장을 고르세요."
+        },
+        {
+          "term": "단품",
+          "gloss": "à l'unité",
+          "text": "Appuyez dessus pour acheter seulement l'article, sans accompagnement ni boisson.",
+          "example": "버거만 먹고 싶으면 단품을 고르세요."
+        },
+        {
+          "term": "세트",
+          "gloss": "menu/formule",
+          "text": "Un accompagnement et une boisson sont inclus avec l'article.",
+          "example": "배가 많이 고파요. 세트로 주문해요."
+        },
+        {
+          "term": "HOT / ICE",
+          "gloss": "",
+          "text": "Appuyez dessus pour choisir la température de la boisson.",
+          "example": "더운 날에는 ICE, 추운 날에는 HOT이 좋아요."
+        },
+        {
+          "term": "사이즈",
+          "gloss": "taille",
+          "text": "Sert à choisir la taille du gobelet ou de l'article, souvent S/M/L.",
+          "example": "많이 마시고 싶으면 L을 고르세요."
+        },
+        {
+          "term": "추가",
+          "gloss": "ajouter",
+          "text": "Appuyez dessus pour ajouter quelque chose en plus.",
+          "example": "커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요."
+        },
+        {
+          "term": "취소",
+          "gloss": "annuler",
+          "text": "Appuyez dessus pour arrêter la commande en cours.",
+          "example": "주문을 안 하고 싶어요. 취소를 눌러요."
+        },
+        {
+          "term": "결제하기",
+          "gloss": "payer",
+          "text": "Quand vous avez fini de choisir, cela vous amène à l'écran de paiement.",
+          "example": "다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요."
+        },
+        {
+          "term": "카드 결제",
+          "gloss": "paiement par carte",
+          "text": "Appuyez dessus pour payer par carte.",
+          "example": "신용카드로 계산할 거예요. 카드 결제를 선택하세요."
+        },
+        {
+          "term": "간편결제",
+          "gloss": "paiement mobile/simplifié",
+          "text": "Appuyez dessus pour payer avec votre téléphone.",
+          "example": "카카오페이를 써요? 간편결제로 계산하세요."
+        },
+        {
+          "term": "영수증 출력",
+          "gloss": "imprimer le reçu",
+          "text": "Imprime un reçu papier ; le numéro de commande y figure.",
+          "example": "주문번호를 확인하려고 영수증 출력을 눌러요."
+        }
       ]
     },
     {
       "heading": "Astuces de lecture : abréviations et étiquettes en anglais",
       "paragraphs": [
         "S/M/L : abréviation de Small/Medium/Large. Beaucoup de bornes affichent les tailles en S/M/L, mais certains magasins utilisent d'autres noms (par ex. 레귤러/라지)."
-      ]
+      ],
+      "box": true,
+      "note": "Basé sur les étiquettes et les parcours de commande courants sur les vraies bornes. La conception des écrans peut différer d'un magasin à l'autre."
     }
   ],
-  "note": "Basé sur les étiquettes et déroulements de commande courants sur les vraies bornes. La conception de l'écran peut varier d'un magasin à l'autre.",
   "category": "etc"
 }
