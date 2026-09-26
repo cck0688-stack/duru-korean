@@ -73,9 +73,21 @@
         <span class="rd-eyebrow" data-i18n="resource.aboutEyebrow">About this resource</span>
         <h2 class="rd-about-title" id="resAboutTitle"></h2>
         <div id="resBody" class="rd-about-text"></div>
+        <div class="rd-lang-field rd-available">
+          <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+          <span class="rd-lang-body">
+            <span class="rd-lang-label" data-i18n="resource.availableIn">Available in</span>
+            <span class="rd-lang-list" id="resFactLangs"></span>
+          </span>
+        </div>
       </div>
 
       <div class="rd-get" id="resPanel">
+        <label class="rd-lang-field rd-file-lang" for="resPdfLang">
+          <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+          <span class="rd-lang-label" data-i18n="resource.pdfLanguage">File language</span>
+          <select id="resPdfLang"></select>
+        </label>
         <button type="button" class="rd-download" id="resDownloadBtn">
           <svg class="rd-download-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
           <span id="resDownloadLabel">Download</span>
@@ -87,23 +99,6 @@
           <button type="button" class="btn btn-primary res-publish-btn" id="resApproveBtn" hidden data-i18n="admin.publish">Publish</button>
         </div>
         <p class="res-notice" id="resLangNotice" hidden></p>
-
-        <div class="rd-langs">
-          <label class="rd-lang-field" for="resPdfLang">
-            <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
-            <span class="rd-lang-body">
-              <span class="rd-lang-label" data-i18n="resource.pdfLanguage">File language</span>
-              <select id="resPdfLang"></select>
-            </span>
-          </label>
-          <div class="rd-lang-field">
-            <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
-            <span class="rd-lang-body">
-              <span class="rd-lang-label" data-i18n="resource.availableIn">Available in</span>
-              <span class="rd-lang-list" id="resFactLangs"></span>
-            </span>
-          </div>
-        </div>
       </div>
     </div>
 

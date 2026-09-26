@@ -4484,12 +4484,13 @@ section { position: relative; }
 .rd-secondary:empty { display: none; }
 .rd-linkbtn { background: none; border: 0; padding: 4px 6px; font: inherit; font-size: 14px; color: #1f6e46; text-decoration: underline; cursor: pointer; }
 .rd-linkbtn[hidden] { display: none; }
-.rd-langs {
-  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0; margin-top: 22px;
-  padding-top: 18px; border-top: 1px solid #e6ebe8;
-}
 .rd-lang-field { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
-.rd-lang-field:first-child { padding-right: 24px; margin-right: 24px; border-right: 1px solid #e6ebe8; }
+/* File language sits right above the download button, on one line. */
+.rd-file-lang { align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+.rd-file-lang .rd-globe { margin-top: 0; }
+.rd-file-lang select { flex: 1 1 140px; max-width: 240px; }
+/* Available in closes the "About this resource" column. */
+.rd-available { margin-top: 20px; padding-top: 18px; border-top: 1px solid #e6ebe8; }
 .rd-globe { width: 24px; height: 24px; fill: none; stroke: #16302b; stroke-width: 1.6; flex: none; margin-top: 1px; }
 .rd-lang-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .rd-lang-label { font-weight: 700; color: #16302b; font-size: 14px; }
@@ -4511,8 +4512,4 @@ section { position: relative; }
   .rd-get { padding-left: 0; order: 1; padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid #e6ebe8; }
   .rd-card .rd-about-title { font-size: 23px; }
   .rd-download { font-size: 19px; min-height: 62px; }
-}
-@media (max-width: 520px) {
-  .rd-langs { grid-template-columns: 1fr; gap: 16px; }
-  .rd-lang-field:first-child { padding-right: 0; margin-right: 0; border-right: 0; }
 }
