@@ -1,0 +1,216 @@
+{
+  "id": "fd119326-9579-47bc-bbfa-2f4fe539f1ef",
+  "title": "과자 봉지 뒷면 읽기: 소비기한, 알레르기, 보관 방법",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "note": "Made by the daily run on 2026-09-26 at three pages; read back by hand (checked identical to the English PDF) and shortened by hand.",
+  "passed": true,
+  "unresolved": [],
+  "manual": [
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "An exchange student with a peanut allergy reads snack labels at a convenience store, learning the use-by date, allergy information and storage instructions.",
+      "after": "A student with a peanut allergy reads snack labels: the use-by date, allergy information and storage.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "Read the use-by date, allergy information and storage instructions on a Korean snack label, telling '땅콩 함유' apart from '같은 제조 시설에서 제조', to decide what is safe to buy and how to store it.",
+      "after": "Read the use-by date, allergy information and storage instructions on a snack label, and tell '땅콩 함유' apart from '같은 제조 시설에서 제조'.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "passage[0]",
+      "before": "에밀리는 한국에 온 지 석 달 된 교환학생이다. 에밀리는 땅콩 알레르기가 있어서 한국 과자를 살 때마다 조금 긴장이 된다. 어느 날 저녁, 에밀리는 도서관에서 공부하다가 배가 고파서 친구 지훈과 학교 앞 편의점에 갔다.",
+      "after": "에밀리는 한국에 온 지 석 달 된 교환학생이다. 에밀리는 땅콩 알레르기가 있어서 한국 과자를 살 때마다 조금 긴장이 된다. 어느 날 저녁, 에밀리는 친구 지훈과 학교 앞 편의점에 갔다.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "passage[1]",
+      "before": "에밀리는 먼저 초콜릿 쿠키 한 봉지를 집어서 뒷면을 보았다. 지훈은 날짜부터 찾아보라고 했다. 봉지 아래쪽에 \"소비기한: 2026.10.15까지\"라고 쓰여 있었다. 지훈은 \"소비기한은 보관 방법을 잘 지키면 이 날짜까지 먹어도 괜찮다는 뜻이야.\"라고 설명해 주었다.",
+      "after": "에밀리는 먼저 초콜릿 쿠키 한 봉지를 집어서 뒷면을 보았다. 봉지 아래쪽에 \"소비기한: 2026.10.15까지\"라고 쓰여 있었다. 지훈은 \"소비기한은 보관 방법을 잘 지키면 이 날짜까지 먹어도 괜찮다는 뜻이야.\"라고 설명해 주었다.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[0].meaning",
+      "before": "use-by date (the last day the food is safe to eat if stored as directed)",
+      "after": "use-by date (safe to eat until then if stored as directed)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[1].meaning",
+      "before": "ingredients (the ingredient list on a label)",
+      "after": "ingredient list (on a label)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[1].example",
+      "before": "원재료명을 보면 무엇으로 만들었는지 알 수 있어요.",
+      "after": "원재료명에 우유가 있어요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[1].exampleMeaning",
+      "before": "The ingredient list tells you what it is made from.",
+      "after": "Milk is in the ingredient list.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[2].meaning",
+      "before": "contains (on a label: the item is in the product)",
+      "after": "contains (on a label)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[3].meaning",
+      "before": "factory; the place where a product is made",
+      "after": "production facility, factory",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[3].example",
+      "before": "이 과자는 새우를 쓰는 제조 시설에서 만들었대요.",
+      "after": "같은 제조 시설에서 만들어요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[3].exampleMeaning",
+      "before": "I heard this snack was made in a factory that uses shrimp.",
+      "after": "It is made in the same factory.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[4].example",
+      "before": "화장품은 직사광선이 닿지 않는 곳에 두세요.",
+      "after": "직사광선을 피해서 두세요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[4].exampleMeaning",
+      "before": "Keep cosmetics out of direct sunlight.",
+      "after": "Keep it out of direct sunlight.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[5].meaning",
+      "before": "to be cool (a place that is a little cold but not freezing)",
+      "after": "to be cool (not warm, not freezing)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "words[6]",
+      "before": "보관하다",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[7].meaning",
+      "before": "opening (a package, bottle, etc.)",
+      "after": "opening (a package)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[8].meaning",
+      "before": "refrigeration; keeping in the fridge",
+      "after": "keeping in the fridge",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "task.line",
+      "before": "Use the story and the label phrases to answer each question.",
+      "after": "Use the story and the label phrases.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "exercises[0]",
+      "before": "Read the label and write the last day you can eat the cookies (in Korean or in English): 소비기한: 2026.10.15까지",
+      "after": "Write the last day you can eat the cookies (in Korean or English): 소비기한: 2026.10.15까지",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "exercises[3]",
+      "before": "Your friend has a milk allergy. Can she eat this snack? Answer 예 or 아니요 and explain in English: 원재료명: 밀가루, 설탕, 버터(우유), 대두유 / 밀, 우유, 대두 함유",
+      "after": "Your friend has a milk allergy. Can your friend eat this snack? Answer 네 or 아니요 and explain in English: 원재료명: 밀가루, 설탕, 버터(우유), 대두유 / 밀, 우유, 대두 함유",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers[1]",
+      "before": "False. The rice crackers had no peanuts as an ingredient. They were made in the same factory as peanut products, so a tiny amount of peanut could get in, and Emily's allergy is serious.",
+      "after": "False. The rice crackers had no peanuts in them, but they were made in the same factory as peanut products, and Emily's allergy is serious.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers[3]",
+      "before": "아니요. The label says 우유 함유, so the snack contains milk (the butter is made from milk).",
+      "after": "아니요. The label says 우유 함유: it contains milk.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers[4]",
+      "before": "냉장고에 넣었어요. 봉지에 개봉 후에는 냉장 보관하라고 쓰여 있었기 때문이에요. (냉장고)",
+      "after": "냉장고에 넣었어요. 개봉 후에는 냉장 보관하라고 쓰여 있었기 때문이에요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    }
+  ],
+  "preparedAt": "2026-09-26T06:11:42.736086Z"
+}

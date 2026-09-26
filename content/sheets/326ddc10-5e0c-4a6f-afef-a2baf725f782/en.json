@@ -1,0 +1,121 @@
+{
+  "title": "동네 병원 접수대에서: 처음 왔어요",
+  "keyword": "clinic",
+  "summary": "A first visit to a neighborhood clinic: check in and wait for your turn.",
+  "objective": "Check in at a clinic: say '처음 왔어요', give your name, birth date and ID, say why you came with '-이/가 아파서 왔어요', and understand '이름 부르면 들어가세요'.",
+  "level": "Beginner (high)",
+  "minutes": 20,
+  "tags": [],
+  "checkThese": [],
+  "setting": "The reception desk (접수대) of a small neighborhood clinic. Maria is here for the first time with a sore throat.",
+  "dialogue": [
+    {
+      "who": "직원",
+      "korean": "안녕하세요. 처음 오셨어요?",
+      "meaning": "Hello. Is this your first visit?"
+    },
+    {
+      "who": "마리아",
+      "korean": "네, 처음 왔어요.",
+      "meaning": "Yes, it's my first time here."
+    },
+    {
+      "who": "직원",
+      "korean": "성함이 어떻게 되세요?",
+      "meaning": "May I have your name?"
+    },
+    {
+      "who": "마리아",
+      "korean": "마리아 로페스예요.",
+      "meaning": "It's Maria Lopez."
+    },
+    {
+      "who": "직원",
+      "korean": "생년월일 말씀해 주세요. 신분증도 보여 주세요.",
+      "meaning": "Please tell me your date of birth. Please show me your ID, too."
+    },
+    {
+      "who": "마리아",
+      "korean": "1998년 3월 14일이에요. 외국인등록증 여기 있어요.",
+      "meaning": "It's March 14, 1998. Here's my residence card."
+    },
+    {
+      "who": "직원",
+      "korean": "감사합니다. 어디가 불편해서 오셨어요?",
+      "meaning": "Thank you. What brings you in today?"
+    },
+    {
+      "who": "마리아",
+      "korean": "목이 아파서 왔어요. 열도 좀 있어요.",
+      "meaning": "I came because I have a sore throat. I have a bit of a fever, too."
+    },
+    {
+      "who": "직원",
+      "korean": "네, 앉아서 기다리세요. 이름 부르면 들어가세요.",
+      "meaning": "Okay, have a seat and wait. Go in when we call your name."
+    }
+  ],
+  "words": [
+    {
+      "korean": "성함",
+      "roman": "seongham",
+      "meaning": "name (polite word staff use)",
+      "example": "여기에 성함을 써 주세요.",
+      "exampleMeaning": "Please write your name here."
+    },
+    {
+      "korean": "생년월일",
+      "roman": "saengnyeonworil",
+      "meaning": "date of birth",
+      "example": "여기에 생년월일을 써 주세요.",
+      "exampleMeaning": "Please write your date of birth here."
+    },
+    {
+      "korean": "신분증",
+      "roman": "sinbunjeung",
+      "meaning": "ID card (any official photo ID)",
+      "example": "다음에는 신분증을 꼭 가져오세요.",
+      "exampleMeaning": "Next time, be sure to bring your ID."
+    },
+    {
+      "korean": "외국인등록증",
+      "roman": "oegugin deungnokjeung",
+      "meaning": "residence card (for foreign residents)",
+      "example": "외국인등록증을 잃어버렸어요.",
+      "exampleMeaning": "I lost my residence card."
+    },
+    {
+      "korean": "-이/가 아파서 왔어요",
+      "roman": "-i/ga apaseo wasseoyo",
+      "meaning": "I came because my ... hurts (이 after a consonant, 가 after a vowel)",
+      "example": "허리가 아파서 왔어요.",
+      "exampleMeaning": "I came because my lower back hurts."
+    },
+    {
+      "korean": "부르다",
+      "roman": "bureuda",
+      "meaning": "to call (someone's name)",
+      "example": "간호사가 제 이름을 불렀어요.",
+      "exampleMeaning": "The nurse called my name."
+    }
+  ],
+  "task": {
+    "title": "Check in at the clinic",
+    "line": "Fill in the blank or choose the best answer."
+  },
+  "exercises": [
+    "The receptionist asks '전에 오신 적 있으세요?' (Have you been here before?). You have never been here: 아니요, ____ ____.",
+    "Add the body part and the right particle (이 or 가). My foot (발) hurts: ____ 아파서 왔어요. / My ear (귀) hurts: ____ 아파서 왔어요.",
+    "Choose the right reply to the receptionist's question '성함이 어떻게 되세요?': (a) 제임스 박이에요. (b) 스물다섯 살이에요. (c) 감기에 걸렸어요.",
+    "Fill in the blank. The receptionist asks '신분증 좀 보여 주시겠어요?' You hand over your residence card: 네, ____ 여기 있어요.",
+    "The receptionist says '이름 부르면 들어가세요.' What should you do? (a) Go in right now. (b) Wait, then go in when your name is called. (c) Write your name and go home."
+  ],
+  "answers": [
+    "처음 왔어요",
+    "발이 / 귀가",
+    "(a) 제임스 박이에요.",
+    "외국인등록증",
+    "(b) Wait, then go in when your name is called."
+  ],
+  "category": "reallife"
+}

@@ -1,0 +1,195 @@
+{
+  "id": "04389847-de63-4306-a3ce-942ad67270d2",
+  "title": "모바일 청첩장 읽기: 언제, 어디로 가요?",
+  "category": "reading",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "note": "Made by the daily run on 2026-09-26 at three pages; read back by hand (checked identical to the English PDF) and shortened by hand.",
+  "passed": true,
+  "unresolved": [],
+  "manual": [
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "A short story about a friend's mobile wedding invitation. Learners find the time, place, transport, meal, and gift-account ('마음 전하실 곳') details.",
+      "after": "A friend's mobile wedding invitation: find the time, place, transport, meal and gift-account details.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "Find the time, venue, transport, meal, and gift-account details in a Korean mobile wedding invitation and use them to answer a friend's questions.",
+      "after": "Find the time, venue, transport, meal and gift-account details in a mobile wedding invitation, and use them to answer a friend's questions.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[0].meaning",
+      "before": "wedding invitation (a card or, more and more often, a link sent by phone)",
+      "after": "wedding invitation (a card, or often a link sent by phone)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[1].meaning",
+      "before": "the wedding ceremony itself (not the meal afterwards)",
+      "after": "the wedding ceremony (not the meal after)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[2].meaning",
+      "before": "directions (a polite heading, literally 'the way you come')",
+      "after": "directions (polite heading, lit. 'the way you come')",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[2].example",
+      "before": "홈페이지에서 '오시는 길'을 누르면 지도가 나와요.",
+      "after": "'오시는 길'을 누르면 지도가 나와요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[2].exampleMeaning",
+      "before": "If you tap 'Directions' on the website, a map comes up.",
+      "after": "Tap 'Directions' and a map comes up.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "words[3]",
+      "before": "셔틀버스",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "words[4]",
+      "before": "무료",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[5].meaning",
+      "before": "banquet hall where guests eat after the wedding",
+      "after": "banquet hall (where guests eat)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[5].example",
+      "before": "사진을 찍고 나서 다 같이 연회장으로 내려갔어요.",
+      "after": "다 같이 연회장으로 내려갔어요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[5].exampleMeaning",
+      "before": "After the photos, we all went down to the banquet hall.",
+      "after": "We all went down to the banquet hall.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[6].meaning",
+      "before": "the section with bank account numbers for sending a gift (literally 'where to send your heart')",
+      "after": "where to send a gift: the bank accounts (lit. 'where to send your heart')",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[6].example",
+      "before": "못 가는 사람은 '마음 전하실 곳'에서 계좌번호를 확인해요.",
+      "after": "'마음 전하실 곳'에서 계좌번호를 확인해요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[6].exampleMeaning",
+      "before": "People who can't go check the account number under the gift section.",
+      "after": "Check the account numbers in the gift section.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[7].meaning",
+      "before": "cash gift given for a wedding",
+      "after": "cash wedding gift",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "words[7].exampleMeaning",
+      "before": "I couldn't go to the wedding, so I just sent a cash gift.",
+      "after": "I couldn't go, so I just sent a cash gift.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "task.line",
+      "before": "Look back at the invitation and the story, then answer each question in Korean or choose the right option.",
+      "after": "Answer in Korean or choose the right option.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "exercises[1]",
+      "before": "Fill in the blanks: 결혼식은 하늘웨딩홀 ____층 ____홀에서 해요.",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "answers[1]",
+      "before": "3, 그랜드",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "drop",
+      "path": "answers[5]",
+      "before": "네, 가져가도 돼요. 건물 지하 주차장이 2시간 무료예요. (Also accept a reply that adds that the subway may be better because traffic can be bad on Saturday.)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "answers",
+      "after": "네, 가져가도 돼요. 건물 지하 주차장이 2시간 무료예요. (A reply that adds that the subway may be better on a busy Saturday is also correct.)",
+      "why": "The sheet ran to three pages; shortened by hand to fit two in every language (same learning goal).",
+      "all_languages": true
+    }
+  ],
+  "preparedAt": "2026-09-26T06:11:42.737344Z"
+}

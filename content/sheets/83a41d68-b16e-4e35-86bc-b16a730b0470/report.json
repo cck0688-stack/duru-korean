@@ -1,0 +1,41 @@
+{
+  "id": "83a41d68-b16e-4e35-86bc-b16a730b0470",
+  "title": "목적 말하기: -(으)러 가다/오다",
+  "category": "grammar",
+  "status": "review",
+  "published": false,
+  "langsBefore": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "id",
+    "ja",
+    "ko",
+    "pt-BR",
+    "vi",
+    "zh"
+  ],
+  "note": "Made by the daily run on 2026-09-26 at three pages; read back by hand (checked identical to the English PDF) and shortened by hand.",
+  "passed": true,
+  "unresolved": [],
+  "manual": [
+    {
+      "op": "replace",
+      "path": "summary",
+      "before": "Use V-(으)러 with 가다, 오다 or 다니다 to say why you are going or coming somewhere. Learn how the form changes for different verb stems and how to avoid three common mistakes.",
+      "after": "Say why you are going or coming somewhere with V-(으)러 가다/오다/다니다.",
+      "why": "Fixed spacing (찾으러 왔어요) and a shorter summary/objective — the Indonesian edition ran to three pages.",
+      "all_languages": true
+    },
+    {
+      "op": "replace",
+      "path": "objective",
+      "before": "Learners can say why they are going or coming somewhere with V-(으)러 가다/오다/다니다. They can build the right form for vowel stems (보러), consonant stems (먹으러), ㄹ-stems (만들러, 놀러), ㄷ-irregular stems (들으러) and ㅂ-irregular stems (도우러). They can also fix three common errors: using it before a verb that is not 가다/오다/다니다 (*공부하러 도서관에서 앉아요), putting 가다/오다 in front of -러 (*가러 가요), and using it with adjectives (*예쁘러 가요).",
+      "after": "Say why you go or come somewhere with V-(으)러 가다/오다/다니다, build the right form for every kind of verb stem, and avoid three common mistakes.",
+      "why": "Fixed spacing (찾으러 왔어요) and a shorter summary/objective — the Indonesian edition ran to three pages.",
+      "all_languages": true
+    }
+  ],
+  "preparedAt": "2026-09-26T06:11:42.740075Z"
+}

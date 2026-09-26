@@ -1,0 +1,95 @@
+{
+  "title": "모바일 청첩장 읽기: 언제, 어디로 가요?",
+  "keyword": "wedding",
+  "summary": "A short story about a friend's mobile wedding invitation. Learners find the time, place, transport, meal, and gift-account ('마음 전하실 곳') details.",
+  "objective": "Find the time, venue, transport, meal, and gift-account details in a Korean mobile wedding invitation and use them to answer a friend's questions.",
+  "level": "Intermediate",
+  "minutes": 25,
+  "tags": [],
+  "checkThese": [],
+  "passage": [
+    "지난 금요일 저녁, 대학 동기 민지에게서 카카오톡 메시지가 왔다. \"나 드디어 결혼해! 바쁘겠지만 꼭 와 줬으면 좋겠어.\" 메시지 아래에 있는 링크를 누르자 민지와 신랑의 사진이 있는 모바일 청첩장이 열렸다.",
+    "[모바일 청첩장] 저희 두 사람이 새로운 시작을 합니다. 오셔서 축복해 주세요. / 신랑 김준호 · 신부 이민지 / 일시: 2026년 11월 14일 토요일 오후 2시 / 장소: 하늘웨딩홀 3층 그랜드홀 / 오시는 길: 지하철 2호선 한빛역 4번 출구에서 도보 5분 · 한빛역 1번 출구 앞에서 셔틀버스 수시 운행 · 건물 지하 주차장 2시간 무료 / 식사: 지하 1층 연회장 / 마음 전하실 곳: [신랑 측 계좌번호 보기] [신부 측 계좌번호 보기]",
+    "잠시 후 같은 동기인 수진이에게서 전화가 왔다. \"청첩장 봤어? 몇 시까지 가면 돼?\" \"2시에 시작하니까 1시 반까지 가면 될 것 같아.\" \"차 가져가도 돼?\" \"응, 건물 지하에 주차장이 있는데 2시간 무료래. 그런데 토요일 오후라 길이 막힐 수도 있으니까 지하철이 나을 거야. 한빛역 1번 출구 앞에서 셔틀버스도 탈 수 있어.\" \"밥은 어디서 먹어?\" \"지하 1층 연회장에서 먹는대.\"",
+    "수진이는 조금 아쉬운 목소리로 말했다. \"사실 나는 그날 부산에 가야 해서 못 갈 것 같아. 축의금은 어떻게 보내지?\" \"청첩장 맨 아래에 '마음 전하실 곳'이 있어. 거기를 누르면 신랑, 신부 계좌번호가 나와.\" 전화를 끊고 나는 민지에게 답장을 보냈다. \"축하해! 그날 꼭 갈게.\""
+  ],
+  "words": [
+    {
+      "korean": "청첩장",
+      "roman": "cheongcheopjang",
+      "meaning": "wedding invitation (a card or, more and more often, a link sent by phone)",
+      "example": "친구에게 모바일 청첩장을 받았어요.",
+      "exampleMeaning": "I got a mobile wedding invitation from a friend."
+    },
+    {
+      "korean": "예식",
+      "roman": "yesik",
+      "meaning": "the wedding ceremony itself (not the meal afterwards)",
+      "example": "예식이 끝나면 가족 사진을 찍어요.",
+      "exampleMeaning": "When the ceremony is over, they take family photos."
+    },
+    {
+      "korean": "오시는 길",
+      "roman": "osineun gil",
+      "meaning": "directions (a polite heading, literally 'the way you come')",
+      "example": "홈페이지에서 '오시는 길'을 누르면 지도가 나와요.",
+      "exampleMeaning": "If you tap 'Directions' on the website, a map comes up."
+    },
+    {
+      "korean": "셔틀버스",
+      "roman": "syeoteulbeoseu",
+      "meaning": "shuttle bus (a free bus between a station and the venue)",
+      "example": "비가 와서 셔틀버스를 타고 갔어요.",
+      "exampleMeaning": "It was raining, so I took the shuttle bus."
+    },
+    {
+      "korean": "무료",
+      "roman": "muryo",
+      "meaning": "free of charge",
+      "example": "이 건물은 주차가 1시간 무료예요.",
+      "exampleMeaning": "Parking in this building is free for one hour."
+    },
+    {
+      "korean": "연회장",
+      "roman": "yeonhoejang",
+      "meaning": "banquet hall where guests eat after the wedding",
+      "example": "사진을 찍고 나서 다 같이 연회장으로 내려갔어요.",
+      "exampleMeaning": "After the photos, we all went down to the banquet hall."
+    },
+    {
+      "korean": "마음 전하실 곳",
+      "roman": "maeum jeonhasil got",
+      "meaning": "the section with bank account numbers for sending a gift (literally 'where to send your heart')",
+      "example": "못 가는 사람은 '마음 전하실 곳'에서 계좌번호를 확인해요.",
+      "exampleMeaning": "People who can't go check the account number under the gift section."
+    },
+    {
+      "korean": "축의금",
+      "roman": "chuguigeum",
+      "meaning": "cash gift given for a wedding",
+      "example": "결혼식에 못 가서 축의금만 보냈어요.",
+      "exampleMeaning": "I couldn't go to the wedding, so I just sent a cash gift."
+    }
+  ],
+  "task": {
+    "title": "Find the wedding details",
+    "line": "Look back at the invitation and the story, then answer each question in Korean or choose the right option."
+  },
+  "exercises": [
+    "Answer in Korean: 결혼식은 몇 월 며칠, 몇 시에 시작해요?",
+    "Fill in the blanks: 결혼식은 하늘웨딩홀 ____층 ____홀에서 해요.",
+    "Choose the one the invitation does NOT mention: (a) 한빛역 4번 출구에서 걸어가기 (b) 한빛역 1번 출구 앞에서 셔틀버스 타기 (c) 웨딩홀 앞에서 무료 택시 타기 (d) 건물 지하 주차장에 차 세우기",
+    "Fill in the blank: 예식이 끝나고 밥을 먹으려면 ____에 있는 연회장으로 가야 해요.",
+    "Answer in Korean: 수진이는 결혼식에 못 가요. 청첩장의 어느 부분을 누르면 돼요? 거기에 뭐가 나와요?",
+    "A friend asks you this. Write a reply in Korean using the invitation: 차 가져가도 돼요?"
+  ],
+  "answers": [
+    "11월 14일 (토요일) 오후 2시에 시작해요.",
+    "3, 그랜드",
+    "(c)",
+    "지하 1층",
+    "'마음 전하실 곳'을 누르면 돼요. 신랑, 신부의 계좌번호가 나와요.",
+    "네, 가져가도 돼요. 건물 지하 주차장이 2시간 무료예요. (Also accept a reply that adds that the subway may be better because traffic can be bad on Saturday.)"
+  ],
+  "category": "reading"
+}
