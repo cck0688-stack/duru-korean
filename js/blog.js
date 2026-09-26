@@ -747,9 +747,15 @@
     // post with one tab stop.
     function cardHTML(p) {
       var href = B.postHref(p.slug, listLang);
+      // The language being browsed leads, so a reader in French sees FR
+      // on every card rather than EN VI ES and a count.
       var codes = readableLangs(p);
+      if (codes.indexOf(listLang) > 0) {
+        codes = [listLang].concat(codes.filter(function (c) { return c !== listLang; }));
+      }
       var shown = codes.slice(0, 3);
       var more = codes.length - shown.length;
+      var hidden = codes.slice(3).map(function (c) { return R.langShort(c); }).join(' ');
       var excerpt = readField(p, 'excerpt', listLang);
       // No glyph square: a Hangul character on the corner of an English
       // post means nothing to the person reading it. The downloads keep
@@ -767,7 +773,7 @@
           '<div class="res-card-foot">' +
             '<span class="res-langs" aria-label="' + escapeHTML(t('blog.writtenIn', 'Written in')) + '">' +
               shown.map(function (c) { return '<span class="res-chip">' + escapeHTML(R.langShort(c)) + '</span>'; }).join('') +
-              (more > 0 ? '<span class="res-chip res-chip--more">+' + more + '</span>' : '') +
+              (more > 0 ? '<span class="res-chip res-chip--more" title="' + escapeHTML(hidden) + '">+' + more + '</span>' : '') +
             '</span>' +
             '<span class="res-view">' + escapeHTML(t('blog.readMore', 'Read more')) + ' →</span>' +
           '</div>' +
