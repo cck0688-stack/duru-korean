@@ -1,8 +1,8 @@
 {
   "title": "날씨 앱 읽기: 우산이 필요해요? 마스크가 필요해요?",
   "keyword": "weather",
-  "summary": "Leia a previsão do tempo de um aplicativo coreano e diga se você precisa de guarda-chuva ou máscara, com um motivo.",
-  "objective": "Os alunos conseguem encontrar a temperatura, a probabilidade de chuva e o nível de poeira em um aplicativo de previsão do tempo coreano. Eles podem responder '우산이 필요해요?' ou '마스크를 써야 해요?' com sim ou não e um motivo em uma frase.",
+  "summary": "Leia um aplicativo de clima coreano e diga, com um motivo, se precisa de guarda-chuva ou máscara.",
+  "objective": "Os alunos encontram a temperatura, a chance de chuva e a poeira em um aplicativo de clima coreano. Eles respondem '우산이 필요해요?' ou '마스크를 써야 해요?' com sim ou não e um motivo.",
   "level": "Iniciante",
   "minutes": 20,
   "tags": [],
@@ -87,14 +87,14 @@
         {
           "term": "최저",
           "roman": "choejeo",
-          "text": "o mais baixo, ou seja, a temperatura mínima do dia.",
+          "text": "a temperatura mínima do dia.",
           "example": "아침에는 최저 12도예요.",
-          "exampleMeaning": "De manhã está 12 graus, a mínima do dia."
+          "exampleMeaning": "De manhã está 12 graus."
         },
         {
           "term": "최고",
           "roman": "choego",
-          "text": "o mais alto, ou seja, a temperatura máxima do dia.",
+          "text": "a temperatura máxima do dia.",
           "example": "오후에는 최고 23도예요.",
           "exampleMeaning": "De tarde chega a 23 graus."
         },
@@ -115,14 +115,14 @@
         {
           "term": "초미세먼지",
           "roman": "chomisemeonji",
-          "text": "poeira ultrafina, ou seja, partículas ainda menores (PM2.5). O aplicativo mostra isso em uma linha separada.",
+          "text": "poeira ultrafina, partículas ainda menores (PM2.5).",
           "example": "초미세먼지도 확인하세요.",
           "exampleMeaning": "Verifique também a poeira ultrafina."
         },
         {
           "term": "좋음 / 보통 / 나쁨 / 매우 나쁨",
           "roman": "",
-          "text": "(joeum / botong / nappeum / maeu nappeum) bom / moderado / ruim / muito ruim. Esses são os níveis de poeira, do melhor ao pior."
+          "text": "(joeum / botong / nappeum / maeu nappeum) bom / moderado / ruim / muito ruim: os níveis de poeira."
         },
         {
           "term": "우산",
@@ -134,7 +134,7 @@
         {
           "term": "마스크",
           "roman": "maseukeu",
-          "text": "máscara facial. Dizemos 마스크를 써요 (usar máscara).",
+          "text": "máscara. 마스크를 써요 = usar máscara.",
           "example": "밖에서 마스크를 써요.",
           "exampleMeaning": "Eu uso máscara quando saio."
         }

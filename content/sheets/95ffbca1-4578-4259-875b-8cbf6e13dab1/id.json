@@ -1,8 +1,8 @@
 {
   "title": "날씨 앱 읽기: 우산이 필요해요? 마스크가 필요해요?",
   "keyword": "weather",
-  "summary": "Baca perkiraan cuaca di aplikasi cuaca Korea dan katakan apakah kamu perlu payung atau masker, beserta alasannya.",
-  "objective": "Pembelajar dapat menemukan suhu, kemungkinan hujan, dan tingkat debu di aplikasi cuaca Korea. Mereka dapat menjawab '우산이 필요해요?' atau '마스크를 써야 해요?' dengan ya atau tidak beserta satu kalimat alasan.",
+  "summary": "Baca aplikasi cuaca Korea dan katakan, dengan alasan, apakah kamu perlu payung atau masker.",
+  "objective": "Pembelajar menemukan suhu, kemungkinan hujan, dan tingkat debu di aplikasi cuaca Korea. Mereka menjawab '우산이 필요해요?' atau '마스크를 써야 해요?' dengan ya atau tidak dan satu alasan.",
   "level": "Pemula",
   "minutes": 20,
   "tags": [],
@@ -87,14 +87,14 @@
         {
           "term": "최저",
           "roman": "choejeo",
-          "text": "yang terendah, yaitu suhu terendah hari itu.",
+          "text": "suhu terendah hari itu.",
           "example": "아침에는 최저 12도예요.",
-          "exampleMeaning": "Pada pagi hari suhunya 12 derajat, terendah hari itu."
+          "exampleMeaning": "Pagi hari suhunya 12 derajat."
         },
         {
           "term": "최고",
           "roman": "choego",
-          "text": "yang tertinggi, yaitu suhu tertinggi hari itu.",
+          "text": "suhu tertinggi hari itu.",
           "example": "오후에는 최고 23도예요.",
           "exampleMeaning": "Pada siang hari suhunya mencapai 23 derajat."
         },
@@ -115,14 +115,14 @@
         {
           "term": "초미세먼지",
           "roman": "chomisemeonji",
-          "text": "debu ultra-halus, yaitu partikel yang lebih kecil lagi (PM2.5). Aplikasi menampilkannya sebagai baris terpisah.",
+          "text": "debu ultra-halus, partikel yang lebih kecil lagi (PM2.5).",
           "example": "초미세먼지도 확인하세요.",
           "exampleMeaning": "Periksa juga debu ultra-halus."
         },
         {
           "term": "좋음 / 보통 / 나쁨 / 매우 나쁨",
           "roman": "",
-          "text": "(joeum / botong / nappeum / maeu nappeum) baik / sedang / buruk / sangat buruk. Ini adalah tingkat debu, dari yang terbaik ke terburuk."
+          "text": "(joeum / botong / nappeum / maeu nappeum) baik / sedang / buruk / sangat buruk: tingkat debu."
         },
         {
           "term": "우산",
@@ -134,7 +134,7 @@
         {
           "term": "마스크",
           "roman": "maseukeu",
-          "text": "masker wajah. Kita bilang 마스크를 써요 (memakai masker).",
+          "text": "masker. 마스크를 써요 = memakai masker.",
           "example": "밖에서 마스크를 써요.",
           "exampleMeaning": "Aku memakai masker di luar."
         }

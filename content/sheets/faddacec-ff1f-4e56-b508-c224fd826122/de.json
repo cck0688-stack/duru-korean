@@ -1,7 +1,7 @@
 {
   "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
   "keyword": "signs",
-  "summary": "Zehn kurze Schilder, die man an Türen und in koreanischen Gebäuden sieht: drücken, ziehen, Eingang, Ausgang, Notausgang, Toilette, besetzt, außer Betrieb, kein Zutritt und Rauchen verboten. Zu jedem lernst du, was es bedeutet und was du tun sollst.",
+  "summary": "Zehn kurze Schilder an Türen und in koreanischen Gebäuden, von „drücken“ bis „Rauchen verboten“. Zu jedem lernst du, was es bedeutet und was du tun sollst.",
   "objective": "Lies 10 gängige Tür- und Gebäudeschilder (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) und wähle oder sag die richtige Handlung für jedes.",
   "level": "Anfänger",
   "minutes": 20,
@@ -18,7 +18,7 @@
         {
           "term": "미세요",
           "roman": "miseyo",
-          "text": "Drücken. Es kommt von 밀다 (drücken). Das ㄹ fällt vor -세요 weg, deshalb steht dort 미세요 und nicht 밀세요."
+          "text": "Drücken. Von 밀다 (drücken). Das ㄹ fällt vor -세요 weg: 미세요, nicht 밀세요."
         },
         {
           "term": "당기세요",
@@ -82,7 +82,7 @@
         {
           "term": "고장",
           "roman": "gojang",
-          "text": "außer Betrieb oder kaputt. Nicht benutzen. Man sagt auch 고장 났어요 (Es ist kaputtgegangen)."
+          "text": "außer Betrieb, kaputt. Nicht benutzen. Man sagt auch 고장 났어요 (kaputt)."
         }
       ],
       "numbered": false,
@@ -139,11 +139,11 @@
       ],
       "plain": true
     },
-    "Sagt das Schild, dass etwas kaputt ist oder besetzt ist? Schreibe für jedes Schild Kaputt, Besetzt oder Keins von beidem: 고장 / 사용 중 / 화장실 / 비상구",
+    "Kaputt oder besetzt? Schreibe für jedes Schild Kaputt, Besetzt oder Keins: 고장 / 사용 중 / 화장실 / 비상구",
     {
       "ask": "Ist das in Ordnung? Schreibe Ja oder Nein:",
       "items": [
-        "Du rauchst unter einem 금연-Schild. / Du gehst durch eine Tür mit der Aufschrift 출입 금지. / Du verlässt das Gebäude durch die Tür mit der Aufschrift 출구. / Bei einem Feuer rennst du zur Tür mit der Aufschrift 비상구."
+        "Du rauchst unter einem 금연-Schild. / Du gehst durch eine Tür mit 출입 금지. / Du verlässt das Gebäude durch die Tür mit 출구. / Bei einem Feuer rennst du zur Tür mit 비상구."
       ],
       "plain": true
     },
@@ -165,7 +165,7 @@
   "answers": [
     "입구 / 당기세요 / 비상구 / 미세요 / 출구",
     "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
-    "Kaputt / Besetzt / Keins von beidem / Keins von beidem",
+    "Kaputt / Besetzt / Keins / Keins",
     "Nein / Nein / Ja / Ja",
     "당겨요",
     "밀어요"

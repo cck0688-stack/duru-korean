@@ -1,8 +1,8 @@
 {
   "title": "날씨 앱 읽기: 우산이 필요해요? 마스크가 필요해요?",
   "keyword": "weather",
-  "summary": "Lies die Vorhersage einer koreanischen Wetter-App und sag mit Begründung, ob man einen Regenschirm oder eine Maske braucht.",
-  "objective": "Lernende können auf einer koreanischen Wetter-App die Temperatur, die Regenwahrscheinlichkeit und die Feinstaubwerte finden. Sie können '우산이 필요해요?' oder '마스크를 써야 해요?' mit Ja oder Nein und einem Satz als Begründung beantworten.",
+  "summary": "Lies eine koreanische Wetter-App und sag mit Begründung, ob du Schirm oder Maske brauchst.",
+  "objective": "Lernende finden Temperatur, Regenwahrscheinlichkeit und Feinstaub in einer koreanischen Wetter-App. Sie beantworten '우산이 필요해요?' oder '마스크를 써야 해요?' mit Ja/Nein und einer Begründung.",
   "level": "Anfänger",
   "minutes": 20,
   "tags": [],
@@ -87,21 +87,21 @@
         {
           "term": "최저",
           "roman": "choejeo",
-          "text": "das Minimum, also die niedrigste Temperatur des Tages.",
+          "text": "die niedrigste Temperatur des Tages.",
           "example": "아침에는 최저 12도예요.",
-          "exampleMeaning": "Am Morgen sind es 12 Grad, die Tiefsttemperatur des Tages."
+          "exampleMeaning": "Am Morgen sind es 12 Grad."
         },
         {
           "term": "최고",
           "roman": "choego",
-          "text": "das Maximum, also die höchste Temperatur des Tages.",
+          "text": "die höchste Temperatur des Tages.",
           "example": "오후에는 최고 23도예요.",
-          "exampleMeaning": "Am Nachmittag steigt die Temperatur auf 23 Grad."
+          "exampleMeaning": "Am Nachmittag sind es 23 Grad."
         },
         {
           "term": "강수확률",
           "roman": "gangsuhwangnyul",
-          "text": "die Regen- oder Schneewahrscheinlichkeit. Es wird [강수황뉼] ausgesprochen.",
+          "text": "Regen- oder Schneewahrscheinlichkeit. Aussprache: [강수황뉼].",
           "example": "강수확률이 10%예요.",
           "exampleMeaning": "Die Regenwahrscheinlichkeit liegt bei 10 %."
         },
@@ -115,14 +115,14 @@
         {
           "term": "초미세먼지",
           "roman": "chomisemeonji",
-          "text": "Ultrafeinstaub, also noch kleinere Partikel (PM2.5). Die App zeigt dies als eigene Zeile an.",
+          "text": "Ultrafeinstaub, noch kleinere Partikel (PM2.5).",
           "example": "초미세먼지도 확인하세요.",
           "exampleMeaning": "Sieh dir auch den Ultrafeinstaub an."
         },
         {
           "term": "좋음 / 보통 / 나쁨 / 매우 나쁨",
           "roman": "",
-          "text": "(joeum / botong / nappeum / maeu nappeum) gut / mittel / schlecht / sehr schlecht. Das sind die Feinstaubstufen, von der besten bis zur schlechtesten."
+          "text": "(joeum / botong / nappeum / maeu nappeum) gut / mittel / schlecht / sehr schlecht: die Staubstufen."
         },
         {
           "term": "우산",
@@ -134,7 +134,7 @@
         {
           "term": "마스크",
           "roman": "maseukeu",
-          "text": "Maske. Man sagt 마스크를 써요 (eine Maske tragen).",
+          "text": "Maske. 마스크를 써요 = eine Maske tragen.",
           "example": "밖에서 마스크를 써요.",
           "exampleMeaning": "Ich trage draußen eine Maske."
         }

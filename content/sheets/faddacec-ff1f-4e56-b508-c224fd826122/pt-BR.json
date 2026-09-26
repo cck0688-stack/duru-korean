@@ -1,7 +1,7 @@
 {
   "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
   "keyword": "signs",
-  "summary": "Dez placas curtas que você vê em portas e dentro de prédios coreanos: empurrar, puxar, entrada, saída, saída de emergência, banheiro, em uso, com defeito, entrada proibida e proibido fumar. Para cada uma, você aprende o que significa e o que fazer.",
+  "summary": "Dez placas curtas de portas e prédios coreanos, de \"empurrar\" a \"proibido fumar\". Para cada uma, você aprende o que significa e o que fazer.",
   "objective": "Leia 10 placas comuns de portas e prédios (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) e escolha ou diga a ação correta para cada uma.",
   "level": "Iniciante",
   "minutes": 20,
@@ -18,7 +18,7 @@
         {
           "term": "미세요",
           "roman": "miseyo",
-          "text": "Empurrar. Vem de 밀다 (empurrar). O ㄹ desaparece antes de -세요, por isso você vê 미세요, e não 밀세요."
+          "text": "Empurrar. Vem de 밀다. O ㄹ cai antes de -세요: 미세요, e não 밀세요."
         },
         {
           "term": "당기세요",
@@ -82,7 +82,7 @@
         {
           "term": "고장",
           "roman": "gojang",
-          "text": "com defeito ou quebrado. Não use. As pessoas também dizem 고장 났어요 (quebrou)."
+          "text": "com defeito, quebrado. Não use. Também se diz 고장 났어요 (quebrou)."
         }
       ],
       "numbered": false,
@@ -139,11 +139,11 @@
       ],
       "plain": true
     },
-    "A placa diz que algo está quebrado ou em uso? Escreva Quebrado, Em uso ou Nenhum dos dois para cada placa: 고장 / 사용 중 / 화장실 / 비상구",
+    "Quebrado ou em uso? Escreva Quebrado, Em uso ou Nenhum para cada placa: 고장 / 사용 중 / 화장실 / 비상구",
     {
       "ask": "Pode fazer isso? Escreva Sim ou Não:",
       "items": [
-        "Você fuma embaixo de uma placa de 금연. / Você passa por uma porta marcada com 출입 금지. / Você sai do prédio pela porta marcada com 출구. / Durante um incêndio, você corre para a porta marcada com 비상구."
+        "Você fuma sob uma placa de 금연. / Você passa por uma porta com 출입 금지. / Você sai do prédio pela porta com 출구. / Num incêndio, você corre para a porta com 비상구."
       ],
       "plain": true
     },
@@ -165,7 +165,7 @@
   "answers": [
     "입구 / 당기세요 / 비상구 / 미세요 / 출구",
     "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
-    "Quebrado / Em uso / Nenhum dos dois / Nenhum dos dois",
+    "Quebrado / Em uso / Nenhum / Nenhum",
     "Não / Não / Sim / Sim",
     "당겨요",
     "밀어요"

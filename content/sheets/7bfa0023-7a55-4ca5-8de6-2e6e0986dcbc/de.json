@@ -1,8 +1,8 @@
 {
   "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
   "keyword": "openhours",
-  "summary": "Lerne 8 Beschriftungen auf koreanischen Schildern mit Öffnungszeiten und entscheide dann anhand von zwei Beispielschildern, ob du zu einer bestimmten Zeit vorbeikommen oder bestellen kannst.",
-  "objective": "Die Lernenden lesen ein Schild mit Öffnungszeiten und sagen, ob der Laden an einem bestimmten Tag zu einer bestimmten Uhrzeit geöffnet ist oder noch Bestellungen entgegennimmt.",
+  "summary": "Lerne 8 Begriffe auf koreanischen Schildern mit Öffnungszeiten und entscheide anhand von zwei Schildern, ob du kommen oder bestellen kannst.",
+  "objective": "Die Lernenden lesen ein Schild mit Öffnungszeiten und sagen, ob der Laden zu einer bestimmten Zeit geöffnet ist oder noch Bestellungen annimmt.",
   "level": "Mittelstufe (unteres Niveau)",
   "minutes": 20,
   "tags": [],
@@ -38,17 +38,17 @@
         {
           "term": "정기휴무",
           "roman": "jeonggi hyumu",
-          "text": "der reguläre Ruhetag des Ladens. Auf Schildern sieht das meist so aus: 매주 월요일 휴무 (jeden Montag geschlossen)."
+          "text": "der feste Ruhetag. Auf Schildern meist so: 매주 월요일 휴무 (jeden Montag geschlossen)."
         },
         {
           "term": "브레이크 타임",
           "roman": "beureikeu taim",
-          "text": "eine Pause mitten am Tag, meist zwischen Mittag- und Abendessen. Die Tür ist geschlossen und man kann nicht hinein."
+          "text": "eine Pause am Tag, meist zwischen Mittag- und Abendessen. Die Tür ist dann zu."
         },
         {
           "term": "라스트 오더 = 주문 마감",
           "roman": "raseuteu odeo = jumun magam",
-          "text": "die letzte Zeit, zu der man bestellen kann. Der Laden ist noch geöffnet, nimmt aber keine neuen Bestellungen mehr an."
+          "text": "die letzte Bestellzeit. Der Laden ist noch offen, nimmt aber keine Bestellungen mehr an."
         },
         {
           "term": "연중무휴",
@@ -68,7 +68,7 @@
         {
           "term": "평일 / 주말",
           "roman": "pyeongil / jumal",
-          "text": "Wochentage (Montag–Freitag) und Wochenende (Samstag–Sonntag). Viele Läden haben dafür unterschiedliche Öffnungszeiten."
+          "text": "Wochentage (Mo–Fr) und Wochenende (Sa–So). Oft mit unterschiedlichen Zeiten."
         }
       ],
       "romanBelow": true
@@ -142,7 +142,7 @@
           }
         ]
       },
-      "note": "Die beiden Schilder sind zu Übungszwecken erfunden; es handelt sich nicht um echte Läden oder echte Öffnungszeiten. Der wichtige Punkt: 'der Laden ist geöffnet' ist nicht dasselbe wie 'man kann noch bestellen' (Aufgaben 3 und 4)."
+      "note": "Beide Schilder sind für die Übung erfunden, keine echten Läden. Wichtig: 'der Laden ist geöffnet' ist nicht dasselbe wie 'man kann noch bestellen' (Aufgaben 3 und 4)."
     }
   ],
   "category": "etc"
