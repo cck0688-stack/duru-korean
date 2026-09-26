@@ -529,7 +529,27 @@ export function explanatoryText(sheet, ref = sheet) {
     (sec.items || []).forEach((it, j) => {
       push(null, (s, v) => { s.sections[i].items[j].gloss = v; }, it.gloss);
       push(null, (s, v) => { s.sections[i].items[j].text = v; }, it.text);
+      push(null, (s, v) => { s.sections[i].items[j].exampleMeaning = v; }, it.exampleMeaning);
     });
+    // The owner's finished designs (2026-09-26): what is explained is
+    // prose; the Korean documents, screens and model answers stay.
+    (sec.points || []).forEach((pt, j) => {
+      push(null, (s, v) => { s.sections[i].points[j].text = v; }, pt.text);
+    });
+    (sec.cards || []).forEach((c, j) => {
+      push(null, (s, v) => { s.sections[i].cards[j].title = v; }, c.title);
+      push(null, (s, v) => { s.sections[i].cards[j].text = v; }, c.text);
+    });
+    (sec.panels || []).forEach((pn, j) => {
+      push(null, (s, v) => { s.sections[i].panels[j].title = v; }, pn.title);
+    });
+    if (sec.aside) {
+      push(null, (s, v) => { s.sections[i].aside.title = v; }, sec.aside.title);
+      (sec.aside.lines || []).forEach((l, j) => {
+        push(null, (s, v) => { s.sections[i].aside.lines[j] = v; }, l);
+      });
+    }
+    if (sec.example) push(null, (s, v) => { s.sections[i].example.en = v; }, sec.example.en);
     push(null, (s, v) => { s.sections[i].note = v; }, sec.note);
   });
   (sheet.exercises || []).forEach((q, i) => {
@@ -537,7 +557,18 @@ export function explanatoryText(sheet, ref = sheet) {
     // instruction is prose.
     push(null, (s, v) => { if (typeof s.exercises[i] === 'string') s.exercises[i] = v; else s.exercises[i].ask = v; },
       typeof q === 'string' ? q : q.ask);
+    // A part with English in it ("way in / pull / …") is prose too; a
+    // Korean situation stays. Decided on the English sheet, so every
+    // edition has the same slots.
+    const refQ = (ref.exercises || [])[i];
+    if (q && typeof q === 'object') {
+      (q.items || []).forEach((it, j) => {
+        const decide = String(((refQ && refQ.items) || [])[j] == null ? it : refQ.items[j]);
+        if (/[A-Za-z]{3,}/.test(decide)) push(null, (s, v) => { s.exercises[i].items[j] = v; }, it);
+      });
+    }
   });
+  push(null, (s, v) => { s.continuedLabel = v; }, sheet.continuedLabel);
   // An answer that is a Korean sentence is the answer, not an
   // explanation of one, so it stays as it is. Anything else is prose.
   // An answer that is only Korean is the answer, not an explanation of
