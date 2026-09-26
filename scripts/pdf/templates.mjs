@@ -232,9 +232,22 @@ function practice(s, L) {
       (s.task.line ? '<span>' + esc(s.task.line) + '</span>' : '') + '</div></div>'
     : '';
   return '<section><h2>' + esc(L.yourTurn) + '</h2>' + task +
-    qs.map((q, i) => question(typeof q === 'string' ? q : q.ask, i,
-      (typeof q === 'object' && q.lines) || 1, L.design, typeof q === 'object' ? q.items : null)).join('') +
+    qs.map((q, i) => {
+      const own = typeof q === 'object' ? q : withParts(q);
+      return question(own.ask, i, own.lines || 1, L.design, own.items);
+    }).join('') +
     '</section>';
+}
+
+// "Read and answer: ① 카드가 없어요. … ② 체크카드로 …" — the instruction,
+// then each part on its own line (the owner's kiosk design). Only a
+// question with at least ① and ② is split; anything else stays whole.
+function withParts(text) {
+  const t = String(text == null ? '' : text);
+  const at = t.search(/\s①\s?/);
+  if (at < 0 || !/②/.test(t.slice(at))) return { ask: t };
+  const parts = t.slice(at).split(/\s*[①-⑳]\s*/).map((x) => x.trim()).filter(Boolean);
+  return parts.length > 1 ? { ask: t.slice(0, at).trim(), items: parts } : { ask: t };
 }
 
 export const TEMPLATES = { vocab, reading, grammar, reallife, hangul, etc };

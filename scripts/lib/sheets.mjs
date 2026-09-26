@@ -134,10 +134,16 @@ export function sheetSchema(category, isStrict) {
       }, ['letter', 'sound', 'as'], isStrict) },
       words: { type: 'array', items: word }
     },
+    // The owner's kiosk design (2026-09-26): a section may be a flow of
+    // steps, a list of numbered rows, or a tip set in a box. Unused
+    // parts are empty.
     sections: {
       sections: { type: 'array', items: strict({
-        heading: str, paragraphs: strs
-      }, ['heading', 'paragraphs'], isStrict) },
+        heading: str, paragraphs: strs, box: { type: 'boolean' },
+        steps: { type: 'array', items: strict({ ko: str, en: str }, ['ko', 'en'], isStrict) },
+        items: { type: 'array', items: strict({ term: str, gloss: str, text: str, example: str },
+          ['term', 'gloss', 'text', 'example'], isStrict) }
+      }, ['heading', 'paragraphs', 'box', 'steps', 'items'], isStrict) },
       note: str
     }
   };
@@ -224,7 +230,21 @@ export async function writeSheet(cfg, opts) {
     '정답에는 빈칸에 똑같이 맞는 다른 올바른 답(어순, 조사 이/은, 두고/놓고 등)도 함께 적거나, 답이 하나만 되도록',
     '  지시문을 좁히세요. 가르치지 않은 형태를 정답으로 받지는 마세요.',
     'task 는 문제 위 안내 상자입니다(영어). title 은 문제들이 시키는 일을 3~5 낱말로 (예: Choose the right word,',
-    '  Fill in the blanks), line 은 어떻게 풀지 한 문장. 문제마다 하는 일이 다르면 모두를 아우르는 말로.',
+    '  Fill in the blanks), line 은 어떻게 풀지 한 문장. 문제마다 하는 일이 다르면 모두를 아우르는 말로. 반드시 채우세요.',
+    '',
+    '[운영자 지침 — docs/WORKSHEET-MASTER-INSTRUCTION.md 의 요점]',
+    '- 반드시 A4 2쪽. 2쪽에 넣으려고 글씨를 줄이지 않습니다. 내용을 페이지에 맞추세요: 중복 설명, 예문 수, 덜 중요한',
+    '  정보, 긴 영어 설명, 문제 수 순으로 줄입니다. 빽빽하게 채우지 마세요.',
+    '- title 은 짧고(한국어 30자 안팎) 실생활 상황이 드러나게. 문법 이름보다 상황 중심.',
+    '  예: 카드 영수증 읽기: 얼마를, 어떻게 냈어요? / 약 봉투 읽기: 언제, 몇 번, 며칠 먹어요?',
+    '- summary 는 영어 한 문장. objective 는 학습자가 이 학습지를 마친 뒤 할 수 있는 것을 1~2문장으로 (By the end, …).',
+    '- 흐름: 배우기 → 이해 → 적용 → 문제 → 정답 확인. 1쪽은 배우는 내용, 2쪽은 연습(YOUR TURN)과 정답.',
+    '- 한 개념에 핵심 설명 하나 + 실제 예문 하나면 충분합니다. 예문은 한국 생활에서 실제로 쓰는 문장.',
+    '- 영어 설명은 짧고 쉬운 낱말로, 한국어보다 길어지지 않게. 학술적인 긴 문법 설명은 쓰지 마세요.',
+    '- 문제는 보통 5개(4~6개). 정보 찾기, 상황 판단, 빈칸, 고르기, 순서 배열, 한국어로 답하기를 섞으세요.',
+    '  문제 하나가 여러 상황을 묻는다면 "영어 지시문: ① 한국어 상황 ② 한국어 상황"처럼 ①②③으로 나눠 쓰세요',
+    '  (학습지가 한 줄에 하나씩 보여 줍니다). 문제 문장은 너무 길지 않게.',
+    '- 이모티콘, 장식용 그림 설명은 넣지 마세요. 성인 학습자용 전문 교재입니다.',
     '',
     '이 갈래에서 추가로 채울 것: ' + shelf.shape,
     ...(shelf.shape === 'forms'
@@ -233,6 +253,16 @@ export async function writeSheet(cfg, opts) {
          '  학습지에서 굵은 글씨와 밑줄로 표시됩니다.',
          'watchOutMark 는 watchOut 과 같은 순서, 같은 개수. 각 항목에서 틀린 말(X)과 맞는 말(O)의 핵심 어절을',
          '  그 항목에 적힌 그대로 (예: "맛있은 음식 (X) → 맛있는 음식 (O): …" → ["맛있은", "맛있는"]).']
+      : []),
+    ...(shelf.shape === 'sections'
+      ? ['sections 는 1단 구성입니다. 각 section 에서 알맞은 하나를 쓰고 나머지는 비워 두세요:',
+         '  - 순서가 있는 절차(주문, 접수, 신청 순서)는 steps: 4~6단계, ko 에 한국어 단계 이름, en 에 짧은 영어 뜻',
+         '    (예: {"ko": "매장/포장", "en": "dine in/take out"}). paragraphs 와 items 는 비움.',
+         '  - 버튼·표지·항목 목록은 items: 8~12개, term 에 한국어, gloss 에 짧은 영어 이름, text 에 하는 일을 영어 한 문장,',
+         '    example 에 짧은 한국어 예문 (예: {"term": "포장", "gloss": "take out", "text": "Press it when you take the',
+         '    food out.", "example": "바빠요? 그러면 포장을 고르세요."}).',
+         '  - 읽는 팁이나 주의할 점은 paragraphs 1~2개에 box: true.',
+         '  section 은 3개 안팎. note 에는 자료에 대한 짧은 안내 한 문장(없으면 빈 문자열).']
       : []),
     '',
     'checkThese 에는 게시 전에 사람이 확인해야 할 것을 적으세요.'
@@ -348,6 +378,11 @@ export function problemsWith(sheet, opts = {}) {
     bad.push('문제 ' + n(sheet.exercises) + '개에 정답 ' + n(sheet.answers) + '개입니다.');
   }
   if (!(sheet.minutes > 0 && sheet.minutes <= 90)) bad.push('학습 시간이 이상합니다.');
+  // The owner's design: every YOUR TURN opens with its instruction box.
+  if (!(sheet.task && String(sheet.task.title || '').trim() && String(sheet.task.line || '').trim())) {
+    bad.push('task (YOUR TURN 안내 상자)의 title 과 line 을 채우세요.');
+  }
+  if (n(sheet.exercises) > 6) bad.push('문제가 ' + n(sheet.exercises) + '개입니다. 4~6개로 줄이세요.');
 
   const shape = (SHELVES[sheet.category] || SHELVES.etc).shape;
   const least = { words: 6, passage: 3, forms: 1, dialogue: 4, letters: 2, sections: 1 }[shape];
