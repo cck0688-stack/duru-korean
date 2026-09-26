@@ -1,7 +1,7 @@
 {
   "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
   "keyword": "signs",
-  "summary": "Diez letreros cortos que ves en puertas y dentro de edificios coreanos: empujar, tirar, entrada, salida, salida de emergencia, baño, en uso, fuera de servicio, prohibido el paso y prohibido fumar. Para cada uno, aprendes qué significa y qué hacer.",
+  "summary": "Diez letreros cortos de puertas y edificios coreanos, de \"empujar\" a \"prohibido fumar\". Para cada uno, aprendes qué significa y qué hacer.",
   "objective": "Lee 10 letreros comunes de puertas y edificios (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) y elige o di la acción correcta para cada uno.",
   "level": "Principiante",
   "minutes": 20,
@@ -116,13 +116,13 @@
         "ko": "여기는 금연이에요. 밖에서 피우세요.",
         "en": "Esta es una zona donde no se permite fumar. Por favor, fuma afuera."
       },
-      "note": "Consejo: 입구, 출구 y 출입 usan todos 입 (entrar) y 출 (salir). Si aprendes estas dos partes, a menudo podrás adivinar letreros nuevos.",
+      "note": "Consejo: 입구, 출구 y 출입 usan 입 (entrar) y 출 (salir). Con estas dos partes puedes adivinar letreros nuevos.",
       "card": true
     }
   ],
   "task": {
     "title": "Lee los letreros y actúa",
-    "line": "Usa los significados de los letreros de esta hoja de trabajo para relacionar, elegir o completar la respuesta correcta en cada ítem."
+    "line": "Usa los significados de los letreros para relacionar, elegir o completar cada ítem."
   },
   "exercises": [
     {
@@ -139,11 +139,11 @@
       ],
       "plain": true
     },
-    "¿El letrero dice que algo está averiado o en uso? Escribe Averiado, En uso o Ninguno para cada letrero: 고장 / 사용 중 / 화장실 / 비상구",
+    "¿Averiado o en uso? Escribe Averiado, En uso o Ninguno para cada letrero: 고장 / 사용 중 / 화장실 / 비상구",
     {
       "ask": "¿Está bien hacer esto? Escribe Sí o No:",
       "items": [
-        "Fumas debajo de un letrero de 금연. / Pasas por una puerta marcada 출입 금지. / Sales del edificio por la puerta marcada 출구. / Durante un incendio, corres hacia la puerta marcada 비상구."
+        "Fumas bajo un letrero de 금연. / Pasas por una puerta con 출입 금지. / Sales del edificio por la puerta con 출구. / En un incendio, corres a la puerta con 비상구."
       ],
       "plain": true
     },

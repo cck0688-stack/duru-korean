@@ -1,8 +1,8 @@
 {
   "title": "가게 영업시간 안내판 읽기: 지금 문 열었어요?",
   "keyword": "openhours",
-  "summary": "Aprenda 8 termos usados em placas de horário de funcionamento de lojas coreanas e depois use duas placas de exemplo para decidir se dá para visitar ou fazer pedido em determinado horário.",
-  "objective": "Os alunos vão ler uma placa de horário de funcionamento e dizer se a loja está aberta, ou ainda aceitando pedidos, em determinado dia e horário.",
+  "summary": "Aprenda 8 termos de horário de lojas coreanas e decida se dá para ir ou pedir.",
+  "objective": "Os alunos dizem se uma loja está aberta, ou ainda aceita pedidos, em certo horário.",
   "level": "Intermediário (básico)",
   "minutes": 20,
   "tags": [],
@@ -38,17 +38,17 @@
         {
           "term": "정기휴무",
           "roman": "jeonggi hyumu",
-          "text": "o dia de folga fixo da loja. Nas placas, geralmente aparece como 매주 월요일 휴무 (fechado toda segunda-feira)."
+          "text": "o dia de folga fixo. Nas placas: 매주 월요일 휴무 (fechado toda segunda-feira)."
         },
         {
           "term": "브레이크 타임",
           "roman": "beureikeu taim",
-          "text": "uma pausa no meio do dia, geralmente entre o almoço e o jantar. A porta fica fechada e você não pode entrar."
+          "text": "uma pausa no meio do dia, entre o almoço e o jantar. A porta fica fechada."
         },
         {
           "term": "라스트 오더 = 주문 마감",
           "roman": "raseuteu odeo = jumun magam",
-          "text": "o último horário em que dá para fazer pedido. A loja ainda está aberta, mas não aceita mais pedidos novos."
+          "text": "o último horário para pedir. A loja ainda está aberta, mas não aceita novos pedidos."
         },
         {
           "term": "연중무휴",
@@ -68,7 +68,7 @@
         {
           "term": "평일 / 주말",
           "roman": "pyeongil / jumal",
-          "text": "dias de semana (segunda a sexta) e fim de semana (sábado e domingo). Muitas lojas têm horários diferentes para cada um."
+          "text": "dias de semana (segunda a sexta) e fim de semana (sábado e domingo). Muitas vezes com horários diferentes."
         }
       ],
       "romanBelow": true
@@ -87,11 +87,11 @@
         },
         {
           "lead": "시간 확인:",
-          "text": "A maioria das placas usa o relógio de 24 horas (15:00 = 오후 3시). Seu horário está dentro do horário de funcionamento, e não é durante o 브레이크 타임?"
+          "text": "Quase todas usam o relógio de 24 horas (15:00 = 오후 3시). Está aberto e não é 브레이크 타임?"
         },
         {
           "lead": "주문 확인:",
-          "text": "Para comer ou fazer pedido, confira também o horário do 라스트 오더 (주문 마감). 마감 30분 전 = 30 minutos antes do fechamento."
+          "text": "Para pedir, confira também o 라스트 오더 (주문 마감). 마감 30분 전 = 30 min antes de fechar."
         }
       ]
     },

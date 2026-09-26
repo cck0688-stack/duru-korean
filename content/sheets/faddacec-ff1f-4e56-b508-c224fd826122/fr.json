@@ -1,7 +1,7 @@
 {
   "title": "문과 건물 안 표지판 읽기: 미세요? 당기세요?",
   "keyword": "signs",
-  "summary": "Dix petits panneaux que tu vois sur les portes et à l'intérieur des bâtiments coréens : pousser, tirer, entrée, sortie, sortie de secours, toilettes, en cours d'utilisation, hors service, entrée interdite et interdiction de fumer. Pour chacun, tu apprends ce qu'il signifie et ce qu'il faut faire.",
+  "summary": "Dix petits panneaux de portes et de bâtiments coréens, de « pousser » à « interdiction de fumer ». Pour chacun, tu apprends ce qu'il signifie et ce qu'il faut faire.",
   "objective": "Lis 10 panneaux courants de portes et de bâtiments (미세요, 당기세요, 입구, 출구, 비상구, 화장실, 사용 중, 고장, 출입 금지, 금연) et choisis ou dis l'action appropriée pour chacun.",
   "level": "Débutant",
   "minutes": 20,
@@ -116,13 +116,13 @@
         "ko": "여기는 금연이에요. 밖에서 피우세요.",
         "en": "Ceci est une zone non-fumeur. Merci de fumer dehors."
       },
-      "note": "Astuce : 입구, 출구 et 출입 utilisent tous 입 (entrer) et 출 (sortir). Si tu apprends ces deux éléments, tu peux souvent deviner de nouveaux panneaux.",
+      "note": "Astuce : 입구, 출구 et 출입 utilisent 입 (entrer) et 출 (sortir). Avec ces deux éléments, tu devines souvent de nouveaux panneaux.",
       "card": true
     }
   ],
   "task": {
     "title": "Lis les panneaux et agis",
-    "line": "Utilise les significations des panneaux de cette fiche pour associer, choisir ou compléter la bonne réponse pour chaque élément."
+    "line": "Utilise le sens des panneaux pour associer, choisir ou compléter chaque élément."
   },
   "exercises": [
     {
@@ -139,11 +139,11 @@
       ],
       "plain": true
     },
-    "Est-ce que le panneau indique que quelque chose est en panne ou en cours d'utilisation ? Écris En panne, En cours d'utilisation ou Ni l'un ni l'autre pour chaque panneau : 고장 / 사용 중 / 화장실 / 비상구",
+    "En panne ou occupé ? Écris En panne, Occupé ou Aucun pour chaque panneau : 고장 / 사용 중 / 화장실 / 비상구",
     {
       "ask": "Est-ce que c'est permis ? Écris Oui ou Non :",
       "items": [
-        "Tu fumes sous un panneau 금연. / Tu passes par une porte marquée 출입 금지. / Tu sors du bâtiment par la porte marquée 출구. / Pendant un incendie, tu cours vers la porte marquée 비상구."
+        "Tu fumes sous un panneau 금연. / Tu passes une porte avec 출입 금지. / Tu sors du bâtiment par la porte 출구. / Pendant un incendie, tu cours vers la porte 비상구."
       ],
       "plain": true
     },
@@ -165,7 +165,7 @@
   "answers": [
     "입구 / 당기세요 / 비상구 / 미세요 / 출구",
     "금연 / 고장 / 화장실 / 출입 금지 / 사용 중",
-    "En panne / En cours d'utilisation / Ni l'un ni l'autre / Ni l'un ni l'autre",
+    "En panne / Occupé / Aucun / Aucun",
     "Non / Non / Oui / Oui",
     "당겨요",
     "밀어요"
