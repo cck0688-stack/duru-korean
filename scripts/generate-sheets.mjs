@@ -446,7 +446,10 @@ export async function run() {
             const bad = Object.entries(out.rendered).filter(([, r]) => !r.check.ok);
             log('    (연습) ' + out.sheet.title + ' — ' +
                 Object.keys(out.rendered).length + '개 언어' +
-                (bad.length ? ', 검사 실패 ' + bad.map(([l]) => l).join(',') : ', 검사 전부 통과'));
+                (bad.length ? ', 검사 실패 ' + bad.map(([l]) => l).join(',') : ', 검사 전부 통과') +
+                ' · ' + Object.entries(out.rendered).map(([l, r]) => l + ' ' + r.check.pages + '쪽').join(', '));
+            // The English sheet, so a practice run can be looked at.
+            log('    SHEET ' + JSON.stringify(out.sheet));
           } else {
             const saved = await save(call, session.token, session.userId, category, { ...out, hasKeyword });
             log('    저장됨: ' + saved.title);
