@@ -62,6 +62,7 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
 
 const SHELF_ORDER = ['vocab', 'reading', 'grammar', 'reallife', 'hangul', 'etc'];
 const PER_SHELF = 3;                // every shelf, every day, until told to stop
+const SHORTEN = 2;                  // tries at fitting a long sheet on two pages
 const REWRITES = 2;                 // a sheet sent back this many times is not saved
 
 // The model that writes and reviews. The smaller one translates well
@@ -184,12 +185,19 @@ async function makeOne(cfg, category, context, browser) {
   sheet.level = normalizeLevel(sheet.level);
 
   // Two pages (the owner's rule, 2026-09-25): a sheet longer than that
-  // even set compact is shortened, and the shorter one read again by
-  // both reviewers; one that still has problems is not saved.
-  const enPages = pageBreakdown((await renderSheet(sheet, { category, lang: SOURCE_LANG, browser, check: false })).pdf).pages;
-  if (enPages > 2) {
-    log('    영어판 ' + enPages + '쪽 — 2쪽으로 줄입니다');
-    sheet = await shortenSheet(writer, sheet, enPages);
+  // even set compact is shortened, measured again, and the shorter one
+  // read again by both reviewers; one that still has problems, or is
+  // still longer than two pages, is not saved.
+  const pagesOf = async (s) => pageBreakdown((await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false })).pdf).pages;
+  for (let t = 0, n = await pagesOf(sheet); n > 2; t += 1, n = await pagesOf(sheet)) {
+    if (t >= SHORTEN) {
+      const err = new Error('두 번 줄여도 영어판이 ' + n + '쪽이라 저장하지 않습니다');
+      err.subject = subject.subject;
+      throw err;
+    }
+    log('    영어판 ' + n + '쪽 — 2쪽으로 줄입니다');
+    sheet = await shortenSheet(writer, sheet, n);
+    sheet.level = normalizeLevel(sheet.level);
     const again = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet));
     const [first, second] = again.length ? [{ problems: [] }, { problems: [] }]
       : await Promise.all([reviewSheet(writer, sheet), auditSheet(writer, sheet)]);
@@ -236,8 +244,15 @@ async function makeOne(cfg, category, context, browser) {
       sheet = short;
       ({ editions, rendered } = await makeAll(sheet));
     } else {
-      log('    줄인 판이 검수를 통과하지 못해 줄이기 전 판을 둡니다');
+      log('    줄인 판이 검수를 통과하지 못했습니다');
     }
+  }
+  // Nothing longer than two pages is saved, in any language.
+  const still = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang + ' ' + out.check.pages + '쪽');
+  if (still.length) {
+    const err = new Error('2쪽을 넘어 저장하지 않습니다: ' + still.join(', '));
+    err.subject = subject.subject;
+    throw err;
   }
   for (const [lang, out] of Object.entries(rendered)) {
     if (!out.check.ok) log('    ! ' + lang + ': ' + out.check.why.join('; '));
