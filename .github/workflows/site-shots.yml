@@ -1,0 +1,70 @@
+# DURU KOREAN — screenshots of the live site
+#
+# On demand (scripts/site-shots.mjs): opens the given addresses as a
+# visitor would and saves full-page screenshots and a text summary to
+# the rework-output branch, under shots/<run number>/. Changes nothing
+# on the site.
+
+name: Site screenshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Addresses, separated by spaces ("#first-post" at the end also opens the first post)'
+        type: string
+        default: 'https://www.durukorean.com/fr/blog https://www.durukorean.com/fr/blog#first-post'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-shots
+  cancel-in-progress: false
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - name: Open the rework-output branch
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+
+      - name: Screenshots
+        env:
+          # Through the environment, never pasted into the command line.
+          URLS: ${{ inputs.urls }}
+          RUN: ${{ github.run_number }}
+        run: |
+          read -r -a list <<< "$URLS"
+          node scripts/site-shots.mjs --out="../rework-output/shots/$RUN" "${list[@]}"
+
+      - name: Save
+        if: always()
+        working-directory: ../rework-output
+        run: |
+          git add -A shots
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Site screenshots (run $RUN)"
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1
+        env:
+          RUN: ${{ github.run_number }}
