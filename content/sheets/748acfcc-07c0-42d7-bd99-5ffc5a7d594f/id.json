@@ -2,13 +2,13 @@
   "title": "카페·패스트푸드 키오스크: 자주 보이는 버튼 12개 읽기",
   "keyword": "kiosk",
   "summary": "Baca 12 tombol umum pada kios pesan mandiri di kafe dan restoran cepat saji, cocokkan masing-masing dengan fungsinya, dan ikuti alur pemesanan sederhana.",
-  "objective": "Setelah selesai, pembelajar dapat mengenali 12 tombol/label kios yang sering muncul dan mengikuti alur dasar—makan di tempat/bawa pulang → pilih menu → pilih opsi → pilih metode pembayaran → dapatkan struk/nomor pesanan—tanpa bantuan.",
+  "objective": "Setelah selesai, pembelajar mengenali 12 tombol kios yang umum dan bisa memesan sendiri: makan di tempat/bawa pulang → menu → opsi → cara bayar → struk/nomor pesanan.",
   "level": "Pemula (tinggi)",
   "minutes": 15,
   "tags": [],
   "task": {
     "title": "Baca dan periksa tombol-tombol kios",
-    "line": "Gunakan label tombol di atas untuk mencocokkan arti, memilih tombol, dan menyusun langkah-langkah pemesanan mandiri dalam urutan yang benar."
+    "line": "Gunakan tombol di atas: cocokkan arti, pilih tombol, dan urutkan langkahnya."
   },
   "exercises": [
     "Cocokkan setiap tombol dengan fungsinya. Tombol: 매장, 포장, 단품, 세트, HOT/ICE, 사이즈, 추가, 취소, 결제하기, 카드 결제, 간편결제, 영수증 출력. Fungsi: (a) bayar dengan ponsel (b) makan di tempat (c) pilih suhu minuman (d) cetak struk kertas (e) hanya item, tanpa menu pendamping atau minuman (f) bawa makanan pulang (g) menuju layar pembayaran (h) pilih S/M/L (i) bayar dengan kartu (j) item dengan menu pendamping dan minuman (k) tambahkan sesuatu yang ekstra (l) batalkan pesanan",
@@ -84,73 +84,73 @@
         {
           "term": "매장",
           "gloss": "makan di tempat",
-          "text": "Tekan ini jika kamu makan di tempat.",
+          "text": "Tekan jika makan di tempat.",
           "example": "여기서 먹어요. 매장을 눌러요."
         },
         {
           "term": "포장",
           "gloss": "bawa pulang",
-          "text": "Tekan ini jika kamu membawa makanan pulang.",
+          "text": "Tekan jika makanan dibawa pulang.",
           "example": "바빠요? 그러면 포장을 고르세요."
         },
         {
           "term": "단품",
           "gloss": "item tunggal",
-          "text": "Tekan ini untuk membeli hanya item tersebut, tanpa menu pendamping atau minuman.",
+          "text": "Hanya item, tanpa pendamping atau minuman.",
           "example": "버거만 먹고 싶으면 단품을 고르세요."
         },
         {
           "term": "세트",
           "gloss": "paket/set",
-          "text": "Item ini disertai dengan menu pendamping dan minuman.",
+          "text": "Termasuk menu pendamping dan minuman.",
           "example": "배가 많이 고파요. 세트로 주문해요."
         },
         {
           "term": "HOT / ICE",
           "gloss": "",
-          "text": "Tekan ini untuk memilih suhu minuman.",
+          "text": "Untuk memilih suhu minuman.",
           "example": "더운 날에는 ICE, 추운 날에는 HOT이 좋아요."
         },
         {
           "term": "사이즈",
           "gloss": "ukuran",
-          "text": "Digunakan untuk memilih ukuran gelas atau item, biasanya S/M/L.",
+          "text": "Untuk memilih ukuran, biasanya S/M/L.",
           "example": "많이 마시고 싶으면 L을 고르세요."
         },
         {
           "term": "추가",
           "gloss": "tambah",
-          "text": "Tekan ini untuk menambahkan sesuatu yang ekstra.",
+          "text": "Untuk menambah sesuatu.",
           "example": "커피를 더 진하게 마시고 싶어요. ‘샷 추가’를 눌러요."
         },
         {
           "term": "취소",
           "gloss": "batal",
-          "text": "Tekan ini untuk menghentikan pesanan yang sedang berlangsung.",
+          "text": "Untuk membatalkan pesanan.",
           "example": "주문을 안 하고 싶어요. 취소를 눌러요."
         },
         {
           "term": "결제하기",
           "gloss": "bayar",
-          "text": "Setelah selesai memilih, ini akan membawamu ke layar pembayaran.",
+          "text": "Setelah memilih, menuju layar pembayaran.",
           "example": "다 골랐어요. 다음에 무엇을 해요? 결제하기를 눌러요."
         },
         {
           "term": "카드 결제",
           "gloss": "pembayaran kartu",
-          "text": "Tekan ini untuk membayar dengan kartu.",
+          "text": "Untuk membayar dengan kartu.",
           "example": "신용카드로 계산할 거예요. 카드 결제를 선택하세요."
         },
         {
           "term": "간편결제",
           "gloss": "pembayaran seluler/mudah",
-          "text": "Tekan ini untuk membayar dengan ponselmu.",
+          "text": "Untuk membayar dengan ponsel.",
           "example": "카카오페이를 써요? 간편결제로 계산하세요."
         },
         {
           "term": "영수증 출력",
           "gloss": "cetak struk",
-          "text": "Mencetak struk kertas; nomor pesanan tercantum di dalamnya.",
+          "text": "Mencetak struk berisi nomor pesanan.",
           "example": "주문번호를 확인하려고 영수증 출력을 눌러요."
         }
       ]
@@ -161,7 +161,7 @@
         "S/M/L: singkatan dari Small/Medium/Large. Banyak kios menampilkan ukuran sebagai S/M/L, tetapi beberapa toko menggunakan nama lain (misalnya, 레귤러/라지)."
       ],
       "box": true,
-      "note": "Berdasarkan label dan alur pemesanan yang umum ditemukan pada kios sungguhan. Desain tampilan bisa berbeda di setiap toko."
+      "note": "Berdasarkan tombol dan alur umum di kios sungguhan. Tampilan layar bisa berbeda di tiap toko."
     }
   ],
   "category": "etc"
