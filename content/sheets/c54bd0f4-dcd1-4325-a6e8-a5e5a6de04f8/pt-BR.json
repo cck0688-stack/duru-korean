@@ -27,7 +27,7 @@
     {
       "who": "손님",
       "korean": "잘 모르겠어요. 빠른 길로 가 주세요.",
-      "meaning": "Não tenho certeza. Por favor, vá pelo caminho mais rápido."
+      "meaning": "Não tenho certeza. Vá pelo caminho mais rápido, por favor."
     },
     {
       "who": "기사",
@@ -87,7 +87,7 @@
       "roman": "ppareun gil",
       "meaning": "o caminho mais rápido",
       "example": "늦었어요. 빠른 길로 가 주세요.",
-      "exampleMeaning": "Estou atrasado(a). Por favor, vá pelo caminho mais rápido."
+      "exampleMeaning": "Estou atrasado(a). Vá pelo caminho mais rápido."
     },
     {
       "korean": "거의 다 왔어요",
@@ -101,14 +101,14 @@
       "roman": "kadeuro halgeyo",
       "meaning": "vou pagar com cartão",
       "example": "현금이 없어요. 카드로 할게요.",
-      "exampleMeaning": "Não tenho dinheiro em espécie. Vou pagar com cartão."
+      "exampleMeaning": "Não tenho dinheiro. Vou pagar com cartão."
     },
     {
       "korean": "대 주세요",
       "roman": "dae juseyo",
       "meaning": "por favor, aproxime (o cartão do leitor)",
       "example": "교통카드를 여기에 대 주세요.",
-      "exampleMeaning": "Por favor, aproxime seu cartão de transporte aqui."
+      "exampleMeaning": "Aproxime seu cartão de transporte aqui."
     }
   ],
   "task": {
