@@ -20,11 +20,12 @@
 //
 //   node scripts/add-languages.mjs [--langs=fr,de] [--dry-run] [--limit=N]
 //   node scripts/add-languages.mjs --report   (which languages each post can be read in)
+//   node scripts/add-languages.mjs --restudy  (also rebuild a word list made from an older body)
 
 import { resolveProvider, translate, LANGUAGES } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
 import { useSubscription, subscriptionAccount } from './lib/claude-code.mjs';
-import { MT, translateInto } from './lib/mt.mjs';
+import { MT, translateInto, studyDraft } from './lib/mt.mjs';
 
 const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co').replace(/\/+$/, '');
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
@@ -32,6 +33,7 @@ const args = process.argv.slice(2);
 const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); return h ? h.slice(n.length + 3) : null; };
 const DRY = args.includes('--dry-run');
 const REPORT = args.includes('--report');
+const RESTUDY = args.includes('--restudy');
 const LIMIT = Number(arg('limit')) || 0;
 const NEW = (arg('langs') || 'fr,de').split(',').map((x) => x.trim()).filter((c) => LANGUAGES[c]);
 const log = (...a) => console.log(...a);
@@ -124,7 +126,8 @@ function report(posts) {
     const state = post.published ? '' : '[초안] ';
     log('· ' + state + post.title + ' (' + (post.lang || 'en') + ')' +
       (bad.length ? ' — 못 읽음: ' + bad.map(([c, s]) => c + ':' + s).join(', ') : ' — 10개 언어 모두') +
-      (noWords.length ? ' · 단어 목록 없음: ' + noWords.join(',') : ''));
+      (noWords.length ? ' · 단어 목록 없음: ' + noWords.join(',') : '') +
+      (st && st.hash !== MT.fingerprint(post.body || '') ? ' · 단어 목록이 옛 본문 기준' : ''));
     bad.forEach(([c]) => { gaps[c] = (gaps[c] || 0) + 1; });
   });
   log('');
@@ -160,8 +163,14 @@ async function main() {
         }
         if (got.length < langs.length) note.push('빠짐 ' + langs.filter((c) => !got.includes(c)).join(','));
       }
-      const study = await widenStudy(cfg, post);
-      if (study) { patch.study = study; note.push('단어 목록'); }
+      // A word list built from an earlier version of the body is not
+      // shown anywhere; with --restudy it is built again from what the
+      // post says now, in every language.
+      const st = post.study;
+      const staleStudy = st && Array.isArray(st.words) && st.words.length &&
+        st.hash !== MT.fingerprint(post.body || '');
+      const study = RESTUDY && staleStudy ? await studyDraft(cfg, post) : await widenStudy(cfg, post);
+      if (study) { patch.study = study; note.push(staleStudy ? '단어 목록 새로' : '단어 목록'); }
       if (!Object.keys(patch).length) {
         // Nothing came back for a language it lacks: a failure, not
         // "already there".
