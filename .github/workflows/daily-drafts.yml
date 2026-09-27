@@ -3,7 +3,7 @@
 # Runs here rather than on Vercel because writing seven articles takes
 # minutes and a Vercel Hobby function is cut off at sixty seconds.
 # Nothing this job does is public: it signs in as an ordinary admin
-# account and leaves seven unpublished drafts for a person to read.
+# account and leaves six unpublished drafts for a person to read.
 # Each is translated into the other seven languages before it is
 # saved, so approving one is a click rather than an afternoon.
 #
@@ -38,6 +38,10 @@ on:
         description: 'Only these categories, comma separated (e.g. travel,dining)'
         type: string
         default: ''
+      count:
+        description: 'Posts today (default 6)'
+        type: string
+        default: ''
 
 concurrency:
   group: daily-blog-drafts
@@ -46,10 +50,11 @@ concurrency:
 jobs:
   drafts:
     runs-on: ubuntu-latest
-    # Seven posts, each written, checked, illustrated and then
-    # translated into seven languages. Comfortably under an hour;
-    # the limit is here so a hung provider call cannot run all day.
-    timeout-minutes: 150
+    # Six posts (six of the eight shelves, a different six each day),
+    # each written, checked, illustrated and translated into nine
+    # languages: under an hour. The limit leaves room for a wait on the
+    # subscription's session limit before it.
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
 
@@ -73,6 +78,8 @@ jobs:
           # The owner's Claude subscription, when set: the text is written there
           # instead of on the API key (scripts/lib/claude-code.mjs).
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # A session limit is waited out, up to five hours (lib/claude-code.mjs).
+          CLAUDE_LIMIT_WAIT_MIN: '300'
           AI_PROVIDER: ${{ vars.AI_PROVIDER }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
@@ -91,8 +98,10 @@ jobs:
           # but that is not a reason to hand them a shell.
           DRY_RUN: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
+          COUNT: ${{ inputs.count }}
         run: |
           args=()
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ -n "$COUNT" ]; then args+=(--count="$COUNT"); fi
           node scripts/generate-drafts.mjs "${args[@]}"

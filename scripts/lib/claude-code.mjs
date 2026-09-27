@@ -55,7 +55,10 @@ function run(args, input, ms) {
 // 7:20pm (UTC)"): the 04:00 blog run met one at 04:03 on 2026-09-27,
 // when the worksheet run starting the same minute had used it up, and
 // lost all eight posts over a seventeen-minute wait.
-const LIMIT_WAIT_MAX = 75 * 60 * 1000;
+// The two dawn runs are given longer (CLAUDE_LIMIT_WAIT_MIN=300): a
+// limit met at 04:05 can name a reset hours away, and nobody is awake
+// to start them again.
+const LIMIT_WAIT_MAX = (Number(process.env.CLAUDE_LIMIT_WAIT_MIN) || 75) * 60 * 1000;
 
 // Milliseconds until the time a limit message names, or null.
 export function untilReset(said, now = new Date()) {

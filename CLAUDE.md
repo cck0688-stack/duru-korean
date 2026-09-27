@@ -11,3 +11,6 @@
   owner approves it on review.html. Never publish without the owner.
 - Work only on branch `claude/duru-korean-homepage-raysf6` (it deploys);
   workflows write to `rework-output`.
+- Daily output (owner, 2026-09-27): 6 blog posts and 6 worksheets every
+  day at 04:00 KST — blog: 6 of the 8 shelves, rotating; worksheets: one
+  per shelf. Keep this unless the owner changes it.

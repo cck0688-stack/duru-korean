@@ -56,6 +56,18 @@ const argv = process.argv.slice(2);
 const DRY = argv.includes('--dry-run');
 const ONLY = (argv.find((a) => a.startsWith('--only=')) || '').slice(7)
   .split(',').map((s) => s.trim()).filter(Boolean);
+// Posts a day. Six since 2026-09-27 (the owner's number): six of the
+// eight shelves, a different six each day — the start moves on by six,
+// so every shelf gets its turn and none is skipped two days running.
+// --count= or DAILY_POSTS changes it; --only= writes exactly those.
+const COUNT = Math.max(1, Math.min(CATEGORIES.length,
+  Number((argv.find((a) => a.startsWith('--count=')) || '').slice(8)) ||
+  Number(process.env.DAILY_POSTS) || 6));
+
+function todaysShelves(today) {
+  const start = (dayNumber(today) * COUNT) % CATEGORIES.length;
+  return CATEGORIES.slice(start).concat(CATEGORIES.slice(0, start));
+}
 
 const log = (...parts) => console.log(...parts);
 
@@ -157,9 +169,12 @@ async function main() {
   log(`사진: ${photoCfg ? photoCfg.label : '없음 (키가 설정되지 않았습니다)'}`);
   if (DRY) log('※ --dry-run: 아무것도 저장하지 않습니다\n');
 
+  // In today's order; only the first COUNT are written (below, once it
+  // is known how many are already on the shelf).
   let wanted = ONLY.length
     ? CATEGORIES.filter((c) => ONLY.includes(c.id))
-    : CATEGORIES;
+    : todaysShelves(today);
+  const cap = ONLY.length ? wanted.length : COUNT;
   if (!wanted.length) {
     log(`--only 에 적은 카테고리가 없습니다: ${ONLY.join(', ')}`);
     process.exit(1);
@@ -181,7 +196,7 @@ async function main() {
       await call('blog_batches', {
         method: 'POST',
         headers: { Prefer: 'return=minimal' },
-        body: JSON.stringify({ batch_date: today, total: wanted.length, status: 'RUNNING' })
+        body: JSON.stringify({ batch_date: today, total: cap, status: 'RUNNING' })
       });
     } catch (err) {
       if (err.code !== '23505') throw err;
@@ -200,7 +215,8 @@ async function main() {
       const done = await withRetry('오늘 저장된 글 확인',
         () => call(`posts?select=category&batch_date=eq.${today}`));
       const have = new Set((done || []).map((r) => r.category));
-      const missing = wanted.filter((c) => !have.has(c.id));
+      const missing = wanted.filter((c) => !have.has(c.id))
+        .slice(0, ONLY.length ? undefined : Math.max(0, cap - have.size));
       if (!missing.length) {
         log(`${today} 는 이미 다 돌았습니다 (${have.size}편). 아무것도 하지 않고 끝냅니다.`);
         return;
@@ -215,9 +231,13 @@ async function main() {
       });
     }
 
+    if (claimed) wanted = wanted.slice(0, cap);
     existing = await readExisting(call);
     log(`기존 글 ${existing.titles.length}편을 읽었습니다 (중복 방지용)\n`);
   }
+
+  if (DRY) wanted = wanted.slice(0, cap);
+  log(`오늘 쓸 글 ${wanted.length}편: ${wanted.map((c) => c.id).join(', ')}\n`);
 
   const results = [];
   for (const category of wanted) {

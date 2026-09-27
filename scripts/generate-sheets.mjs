@@ -7,10 +7,10 @@
 //
 // ── How much it makes ──────────────────────────────────────────────
 //
-// Three sheets on each of the six shelves, every morning, eighteen a
-// day, until the owner says stop. --count changes the three; --only
-// picks the shelves. The workflow runs one shelf per job so that six
-// jobs of three take the time of three sheets, not eighteen.
+// One sheet on each of the six shelves, every morning: six a day (the
+// owner, 2026-09-27; it was three a shelf, eighteen a day, until then).
+// --count changes the one; --only picks the shelves. The workflow runs
+// one shelf per job.
 //
 // ── What "good" means here ─────────────────────────────────────────
 //
@@ -61,7 +61,7 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
   'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 
 const SHELF_ORDER = ['vocab', 'reading', 'grammar', 'reallife', 'hangul', 'etc'];
-const PER_SHELF = 3;                // every shelf, every day, until told to stop
+const PER_SHELF = 1;                // every shelf, every day: six a day
 const SHORTEN = 2;                  // tries at fitting a long sheet on two pages
 const REWRITES = 2;                 // a sheet sent back this many times is not saved
 
@@ -411,7 +411,7 @@ export async function run() {
     ? arg('only').split(',').map((s) => s.trim()).filter((s) => SHELVES[s])
     : SHELF_ORDER.slice();
   const want = Number(arg('count')) || PER_SHELF;
-  // A shelf gets its three once a day, by the Seoul date: a run started
+  // A shelf gets its sheet once a day, by the Seoul date: a run started
   // by hand (the owner, 2026-09-26: "right after the rework") and the
   // 04:00 run on the same day do not make six. --force makes them anyway.
   const since = new Date(Date.parse(today + 'T00:00:00+09:00')).toISOString();
