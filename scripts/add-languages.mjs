@@ -169,7 +169,14 @@ async function main() {
       const st = post.study;
       const staleStudy = st && Array.isArray(st.words) && st.words.length &&
         st.hash !== MT.fingerprint(post.body || '');
-      const study = RESTUDY && staleStudy ? await studyDraft(cfg, post) : await widenStudy(cfg, post);
+      // A word list that fails is reported, but never costs the
+      // translation above (2026-09-27: it did, for an edited post).
+      let study = null;
+      try {
+        study = RESTUDY && staleStudy ? await studyDraft(cfg, post) : await widenStudy(cfg, post);
+      } catch (err) {
+        note.push('단어 목록 실패: ' + err.message);
+      }
       if (study) { patch.study = study; note.push(staleStudy ? '단어 목록 새로' : '단어 목록'); }
       if (!Object.keys(patch).length) {
         // Nothing came back for a language it lacks: a failure, not

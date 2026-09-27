@@ -259,38 +259,59 @@
   }
 
   // The five words a learner would stumble on, explained in every
-  // language the post is offered in. One call, because the list has to
-  // be the same five words whatever language a reader switches to.
+  // language the post is offered in. The words are picked, and
+  // explained, in one language first (English); those explanations are
+  // then translated like any other sentences. One list either way — the
+  // same five words whatever language a reader switches to — but nine
+  // explanations in one answer ran past the function's time limit once
+  // the site reached ten languages (2026-09-27).
   function study(client, opts, onProgress) {
     var sentences = flatten(splitBody(opts.body)).slice(0, STUDY_MAX);
     var targets = opts.to.filter(function (c) { return c !== opts.from; });
     if (!sentences.length || !targets.length) return Promise.resolve(null);
+    var pivot = targets.indexOf('en') !== -1 ? 'en' : targets[0];
+    var rest = targets.filter(function (c) { return c !== pivot; });
 
     return client.auth.getSession().then(function (res) {
       var token = res && res.data && res.data.session && res.data.session.access_token;
       if (!token) return Promise.reject(new Error('Sign in again to build the word list.'));
       if (onProgress) onProgress();
-      return fetch('/api/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
-        body: JSON.stringify({
-          mode: 'vocab', from: opts.from, to: targets,
-          sentences: sentences, count: STUDY_WORDS
-        })
-      }).then(function (r) {
-        return r.json().catch(function () { return {}; }).then(function (data) {
-          if (!r.ok) throw new Error(data.error || ('The word list failed (' + r.status + ')'));
-          return data;
-        });
+      return postBatch(token, {
+        mode: 'vocab', from: opts.from, to: [pivot],
+        sentences: sentences, count: STUDY_WORDS
       }).then(function (data) {
-        if (!data.words || !data.words.length) return null;
-        return {
-          hash: fingerprint(opts.body),
-          from: opts.from,
-          at: new Date().toISOString(),
-          model: data.model || '',
-          words: data.words
+        var words = data.words || [];
+        if (!words.length) return null;
+        var done = function (list) {
+          return {
+            hash: fingerprint(opts.body),
+            from: opts.from,
+            at: new Date().toISOString(),
+            model: data.model || '',
+            words: list
+          };
         };
+        if (!rest.length) return done(words);
+        var lines = [];
+        words.forEach(function (w) {
+          var own = (w.by && w.by[pivot]) || {};
+          lines.push(own.meaning || ' ', own.explanation || ' ');
+        });
+        return postBatch(token, { from: pivot, to: rest, sentences: lines }).then(function (tr) {
+          return done(words.map(function (w, i) {
+            var by = {};
+            Object.keys(w.by || {}).forEach(function (c) { by[c] = w.by[c]; });
+            rest.forEach(function (c) {
+              var got = (tr.translations && tr.translations[c]) || [];
+              if (got.length !== lines.length) return;
+              by[c] = { meaning: String(got[i * 2] || '').trim(), explanation: String(got[i * 2 + 1] || '').trim() };
+            });
+            var copy = {};
+            Object.keys(w).forEach(function (k) { copy[k] = w[k]; });
+            copy.by = by;
+            return copy;
+          }));
+        });
       });
     });
   }

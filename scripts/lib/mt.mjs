@@ -165,14 +165,41 @@ export async function studyDraft(cfg, post) {
   const sentences = MT.sentences(post.body).slice(0, STUDY_MAX);
   if (!sentences.length || !targets.length) return null;
 
+  // Two steps, since the site went to ten languages: the five words are
+  // picked and explained in one language first, and those explanations
+  // are then translated like any other sentences. Asking for all nine
+  // explanations in one answer ran past five minutes (2026-09-27).
+  const pivot = targets.includes('en') ? 'en' : targets[0];
+  const rest = targets.filter((c) => c !== pivot);
   const list = await vocab(
-    { from, fromName: LANGUAGES[from], targets, sentences, count: STUDY_WORDS }, cfg);
+    { from, fromName: LANGUAGES[from], targets: [pivot], sentences, count: STUDY_WORDS }, cfg);
   if (!list || !list.words || !list.words.length) return null;
+  const words = await widenWords(cfg, list.words, pivot, rest);
   return {
     hash: MT.fingerprint(post.body),
     from,
     at: new Date().toISOString(),
     model: list.model || cfg.model || '',
-    words: list.words
+    words
   };
+}
+
+// Each word's meaning and explanation in `src`, translated into `into`.
+// A language that does not come back line for line is left out rather
+// than stored mismatched.
+export async function widenWords(cfg, words, src, into) {
+  if (!into.length) return words;
+  const lines = [];
+  words.forEach((w) => { lines.push(w.by[src].meaning, w.by[src].explanation || ' '); });
+  const { translations } = await batchWithRetry(
+    { from: src, fromName: LANGUAGES[src], targets: into, sentences: lines }, cfg);
+  return words.map((w, i) => {
+    const by = { ...(w.by || {}) };
+    into.forEach((c) => {
+      const got = translations[c] || [];
+      if (got.length !== lines.length) return;
+      by[c] = { meaning: String(got[i * 2] || '').trim(), explanation: String(got[i * 2 + 1] || '').trim() };
+    });
+    return { ...w, by };
+  });
 }
