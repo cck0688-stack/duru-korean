@@ -132,7 +132,16 @@ jobs:
           COUNT: ${{ inputs.count }}
           FORCE: ${{ inputs.force }}
           SHELF: ${{ matrix.shelf }}
+          # Seoul dates the 04:00 run makes nothing (the owner's call).
+          # 2026-09-28: no allowance that morning; one sheet was made
+          # the evening before instead.
+          SKIP_DATES: '2026-09-28'
         run: |
+          today=$(TZ=Asia/Seoul date +%F)
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ] && echo " $SKIP_DATES " | grep -q " $today "; then
+            echo "$today is a day off for the worksheets; nothing to do."
+            exit 0
+          fi
           # A dispatch that names shelves runs only those: a job whose
           # shelf is not named does nothing and says so.
           if [ -n "$ONLY" ] && ! echo ",$ONLY," | tr -d ' ' | grep -q ",$SHELF,"; then
