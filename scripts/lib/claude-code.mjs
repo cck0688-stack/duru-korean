@@ -49,10 +49,44 @@ function run(args, input, ms) {
   });
 }
 
+// How long a limit that says when it resets is waited out, rather than
+// the run giving up. The subscription's session limit comes back within
+// the hour more often than not ("You've hit your session limit · resets
+// 7:20pm (UTC)"): the 04:00 blog run met one at 04:03 on 2026-09-27,
+// when the worksheet run starting the same minute had used it up, and
+// lost all eight posts over a seventeen-minute wait.
+const LIMIT_WAIT_MAX = 75 * 60 * 1000;
+
+// Milliseconds until the time a limit message names, or null.
+export function untilReset(said, now = new Date()) {
+  const m = /resets\s+(?:at\s+)?(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*\(?UTC\)?/i.exec(String(said || ''));
+  if (!m) return null;
+  let h = Number(m[1]) % 12;
+  if (!m[3]) h = Number(m[1]);
+  else if (/pm/i.test(m[3])) h += 12;
+  const at = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), h, Number(m[2] || 0)));
+  if (at <= now) at.setUTCDate(at.getUTCDate() + 1);
+  return at - now;
+}
+
+const LIMIT = /usage limit|session limit|limit reached|hit your limit|rate limit|out of (extra )?usage/i;
+
 export const claudeCode = {
   label: 'Claude (구독)',
   strictSchema: true,
   async chat(cfg, system, user, jsonSchema) {
+    try {
+      return await claudeCode.once(cfg, system, user, jsonSchema);
+    } catch (err) {
+      const wait = err && err.status === 429 ? untilReset(err.said) : null;
+      if (wait == null || wait > LIMIT_WAIT_MAX) throw err;
+      // One more try just after the reset (plus a minute's margin).
+      console.log('    Claude 구독 한도 — ' + Math.ceil(wait / 60000) + '분 뒤 초기화, 기다렸다가 다시 합니다.');
+      await new Promise((r) => setTimeout(r, wait + 60000));
+      return claudeCode.once(cfg, system, user, jsonSchema);
+    }
+  },
+  async once(cfg, system, user, jsonSchema) {
     const ms = Number(cfg.timeoutMs) || 280000;
     const args = [
       '-p', '--output-format', 'json',
@@ -81,8 +115,10 @@ export const claudeCode = {
     try { data = JSON.parse(res.out); } catch (e) { /* reported below */ }
     const said = String((data && (data.result || data.error)) || res.err || res.out || '').slice(0, 300);
     if (!data || data.is_error || res.code !== 0) {
-      if (/usage limit|limit reached|rate limit|out of (extra )?usage/i.test(said)) {
-        throw new TranslateError(429, 'Claude 구독 사용량 한도에 닿았습니다. 오늘은 여기까지 — 다음 실행에서 이어집니다. (' + said + ')');
+      if (LIMIT.test(said)) {
+        const e = new TranslateError(429, 'Claude 구독 사용량 한도에 닿았습니다. (' + said + ')');
+        e.said = said;
+        throw e;
       }
       if (/login|auth|token|credential|401|403/i.test(said)) {
         throw new TranslateError(503, 'Claude 구독 인증이 안 됩니다. CLAUDE_CODE_OAUTH_TOKEN 을 확인하세요. (' + said + ')');

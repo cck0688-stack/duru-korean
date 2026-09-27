@@ -49,7 +49,7 @@ jobs:
     # Seven posts, each written, checked, illustrated and then
     # translated into seven languages. Comfortably under an hour;
     # the limit is here so a hung provider call cannot run all day.
-    timeout-minutes: 60
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
 
