@@ -101,7 +101,10 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC
 // inside the function's time limit, and these are the backstop: a bug
 // in the page cannot turn one save into an unbounded bill.
 const MAX_SENTENCES = 25;
-const MAX_TARGETS = 8;
+// Every language the site speaks but the one written in (nine since
+// French and German joined on 2026-09-26; this said eight until then,
+// and every translation of a Korean post was refused).
+const MAX_TARGETS = Object.keys(LANGUAGES).length - 1;
 const MAX_CHARS = 8000;
 // Picking the hardest words needs the whole post, not a batch of it, so
 // the study list gets its own, larger ceiling — still bounded.
@@ -168,7 +171,7 @@ export default async function handler(req, res) {
     return bad(res, 400, 'mode must be "sentences", "vocab" or "outline".');
   }
   if (!LANGUAGES[from]) return bad(res, 400, 'Unknown source language.');
-  if (!targets.length || targets.length > MAX_TARGETS) return bad(res, 400, 'Pick 1–8 target languages.');
+  if (!targets.length || targets.length > MAX_TARGETS) return bad(res, 400, 'Pick 1–' + MAX_TARGETS + ' target languages.');
   if (targets.some(function (c) { return !LANGUAGES[c]; })) return bad(res, 400, 'Unknown target language.');
   if (targets.indexOf(from) !== -1) return bad(res, 400, 'The source language cannot also be a target.');
   if (sentences.some(function (s) { return typeof s !== 'string'; })) return bad(res, 400, 'Sentences must be text.');
