@@ -50,7 +50,7 @@
 
 import { resolveProvider, LANGUAGE_NAMES, TranslateError } from '../api/_providers.js';
 import { pickSubject, writeSheet, reviewSheet, problemsWith, slugify, cleanKeyword, SHELVES } from './lib/sheets.mjs';
-import { auditSheet, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
+import { auditSheet, fixSheet, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
 import { pageBreakdown } from './pdf/check.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
@@ -186,8 +186,15 @@ async function makeOne(cfg, category, context, browser) {
 
   // Two pages (the owner's rule, 2026-09-25): a sheet longer than that
   // even set compact is shortened, measured again, and the shorter one
-  // read again by both reviewers; one that still has problems, or is
-  // still longer than two pages, is not saved.
+  // read again by both reviewers, what they find fixed once; one that
+  // still has problems, or is still longer than two pages, is not saved.
+  // (recheck: both readers again, after the mechanical checks.)
+  const recheck = async (s) => {
+    const again = problemsWith(s, { existing: context.existing }).concat(markProblems(s));
+    if (again.length) return again;
+    const [first, second] = await Promise.all([reviewSheet(writer, s), auditSheet(writer, s)]);
+    return first.problems.concat(second.problems);
+  };
   const pagesOf = async (s) => pageBreakdown((await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false })).pdf).pages;
   for (let t = 0, n = await pagesOf(sheet); n > 2; t += 1, n = await pagesOf(sheet)) {
     if (t >= SHORTEN) {
@@ -198,14 +205,22 @@ async function makeOne(cfg, category, context, browser) {
     log('    영어판 ' + n + '쪽 — 2쪽으로 줄입니다');
     sheet = await shortenSheet(writer, sheet, n);
     sheet.level = normalizeLevel(sheet.level);
-    const again = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet));
-    const [first, second] = again.length ? [{ problems: [] }, { problems: [] }]
-      : await Promise.all([reviewSheet(writer, sheet), auditSheet(writer, sheet)]);
-    const left = again.concat(first.problems, second.problems);
+    const left = await recheck(sheet);
     if (left.length) {
-      const err = new Error('줄인 뒤 검수를 통과하지 못했습니다: ' + left.join(' '));
-      err.subject = subject.subject;
-      throw err;
+      // Cutting sometimes leaves a seam — a summary that no longer quite
+      // matches, a sentence that read fine beside the one taken out. The
+      // reviewers say exactly what; those are fixed, and only those, and
+      // the sheet read again. (Until 2026-09-27 the sheet was dropped
+      // here: two reading sheets in a row lost over one word each.)
+      log('    줄인 뒤 검수에서 ' + left.length + '가지 걸림 — 그 부분만 고칩니다: ' + left.join(' ').slice(0, 200));
+      sheet = await fixSheet(writer, sheet, left);
+      sheet.level = normalizeLevel(sheet.level);
+      const still = await recheck(sheet);
+      if (still.length) {
+        const err = new Error('줄인 뒤 검수를 통과하지 못했습니다: ' + still.join(' '));
+        err.subject = subject.subject;
+        throw err;
+      }
     }
   }
 
@@ -235,12 +250,15 @@ async function makeOne(cfg, category, context, browser) {
   const longer = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang);
   if (longer.length && !longer.includes(SOURCE_LANG)) {
     log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다');
-    const short = await shortenSheet(writer, sheet, 2, longer);
+    let short = await shortenSheet(writer, sheet, 2, longer);
     short.level = normalizeLevel(short.level);
-    const again = problemsWith(short, { existing: context.existing }).concat(markProblems(short));
-    const [first, second] = again.length ? [{ problems: [] }, { problems: [] }]
-      : await Promise.all([reviewSheet(writer, short), auditSheet(writer, short)]);
-    if (!again.concat(first.problems, second.problems).length) {
+    let left = await recheck(short);
+    if (left.length) {
+      short = await fixSheet(writer, short, left);
+      short.level = normalizeLevel(short.level);
+      left = await recheck(short);
+    }
+    if (!left.length) {
       sheet = short;
       ({ editions, rendered } = await makeAll(sheet));
     } else {
