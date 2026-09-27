@@ -1104,15 +1104,15 @@ section { position: relative; }
   .account-trigger .email { max-width: 60px; }
 }
 
-/* Vietnamese, Spanish, Indonesian and Brazilian Portuguese menu labels
-   run 30–150px longer than English, so those four hand over to two rows
-   earlier. The selector's specificity keeps them above the 1200px rules
+/* Vietnamese, Spanish, Indonesian, Brazilian Portuguese, French and
+   German menu labels run 30–150px longer than English, so those six hand
+   over to two rows earlier. The selector's specificity keeps them above the 1200px rules
    regardless of source order. */
 @media (max-width: 1480px) {
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; }
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .header-brand { order: 1; }
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .header-actions { order: 2; }
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .nav-main {
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .header-brand { order: 1; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .header-actions { order: 2; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .nav-main {
     order: 3;
     flex: 1 1 100%;
     flex-wrap: wrap;
@@ -1122,20 +1122,30 @@ section { position: relative; }
     padding: 8px 0 10px;
     border-top: 1px solid var(--header-border);
   }
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .account-trigger .email { max-width: 60px; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .account-trigger .email { max-width: 60px; }
+}
+
+/* French is the longest menu of all: even on the widest screens it
+   keeps the tighter spacing the other languages switch to below 1600px,
+   or the visit counts run into "Apprendre le coréen". */
+@media (min-width: 1601px) {
+  html[lang="fr"] .logo-img { height: 40px; }
+  html[lang="fr"] .nav-main { gap: 2px; }
+  html[lang="fr"] .nav-main a { padding: 10px 12px; }
+  html[lang="fr"] .site-header .wrap { gap: 16px; }
 }
 
 /* Phones: one row again, the menu behind the hamburger. Written for the
    long-label selector too, so it outranks those languages' two-row rules. */
 @media (max-width: 600px) {
   .site-header .wrap,
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .site-header .wrap { flex-wrap: nowrap; height: var(--header-h); padding-top: 0; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .site-header .wrap { flex-wrap: nowrap; height: var(--header-h); padding-top: 0; }
   .nav-main,
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .nav-main { display: none; }
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .nav-main { display: none; }
   .nav-toggle { display: block; }
   .site-visits { display: none; }
   .site-header.menu-open .nav-main,
-  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"]) .site-header.menu-open .nav-main {
+  html:is([lang="vi"], [lang="es"], [lang="id"], [lang="pt-BR"], [lang="fr"], [lang="de"]) .site-header.menu-open .nav-main {
     display: flex;
     flex-direction: column;
     position: absolute;
