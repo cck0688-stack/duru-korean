@@ -62,7 +62,7 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
 
 const SHELF_ORDER = ['vocab', 'reading', 'grammar', 'reallife', 'hangul', 'etc'];
 const PER_SHELF = 1;                // every shelf, every day: six a day
-const SHORTEN = 2;                  // tries at fitting a long sheet on two pages
+const SHORTEN = 3;                  // tries at fitting a long sheet on two pages
 const REWRITES = 2;                 // a sheet sent back this many times is not saved
 
 // The model that writes and reviews. The smaller one translates well
@@ -198,7 +198,7 @@ async function makeOne(cfg, category, context, browser) {
   const pagesOf = async (s) => pageBreakdown((await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false })).pdf).pages;
   for (let t = 0, n = await pagesOf(sheet); n > 2; t += 1, n = await pagesOf(sheet)) {
     if (t >= SHORTEN) {
-      const err = new Error('두 번 줄여도 영어판이 ' + n + '쪽이라 저장하지 않습니다');
+      const err = new Error(SHORTEN + '번 줄여도 영어판이 ' + n + '쪽이라 저장하지 않습니다');
       err.subject = subject.subject;
       throw err;
     }
@@ -247,9 +247,11 @@ async function makeOne(cfg, category, context, browser) {
   // Two pages in every language: a longer translation that runs onto a
   // third page gets the English cut a little, read again by both
   // reviewers, and everything translated again.
-  const longer = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang);
-  if (longer.length && !longer.includes(SOURCE_LANG)) {
-    log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다');
+  // Up to twice: the second cut is made against what is still long.
+  for (let t = 0; t < 2; t += 1) {
+    const longer = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang);
+    if (!longer.length || longer.includes(SOURCE_LANG)) break;
+    log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다' + (t ? ' (두 번째)' : ''));
     let short = await shortenSheet(writer, sheet, 2, longer);
     short.level = normalizeLevel(short.level);
     let left = await recheck(short);
@@ -258,15 +260,12 @@ async function makeOne(cfg, category, context, browser) {
       short.level = normalizeLevel(short.level);
       left = await recheck(short);
     }
-    if (!left.length) {
-      sheet = short;
-      ({ editions, rendered } = await makeAll(sheet));
-    } else {
-      log('    줄인 판이 검수를 통과하지 못했습니다');
-    }
+    if (left.length) { log('    줄인 판이 검수를 통과하지 못했습니다'); break; }
+    sheet = short;
+    ({ editions, rendered } = await makeAll(sheet));
   }
   // Nothing longer than two pages is saved, in any language.
-  const still = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang + ' ' + out.check.pages + '쪽');
+  const still = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang, out]) => lang + ' ' + out.check.pages + '쪽');
   if (still.length) {
     const err = new Error('2쪽을 넘어 저장하지 않습니다: ' + still.join(', '));
     err.subject = subject.subject;
