@@ -169,7 +169,8 @@ h1 { font-size: 20pt; line-height: 1.22; margin: 0; }
 .pair { break-inside: avoid; border-left: 2px solid #e1d8c8; padding: 1.2mm 0 1.2mm 3.5mm; margin: 0 0 1.6mm; }
 .pair .src { margin: 0; font-size: 11pt; line-height: 1.6; }
 .pair .out { margin: .6mm 0 0; font-size: 9.8pt; line-height: 1.55; color: #4c635c; }
-.pair--head { border-left: 0; padding-left: 0; margin-top: 3mm; }
+.pair--head { border-left: 0; padding-left: 0; margin-top: 3mm; break-after: avoid; }
+h3.head { break-after: avoid; }
 .pair--head .src, .pair--head .out { font-weight: 700; display: table; background: #fbe3a6; padding: .4mm 2mm; border-radius: 1mm; }
 .pair--head .out { margin-top: 1mm; font-size: 10pt; color: #16302b; }
 .plain { font-size: 11pt; line-height: 1.75; margin: 0 0 3mm; }
@@ -205,9 +206,14 @@ h3.head { font-size: 12pt; margin: 4mm 0 2mm; display: inline-block; background:
 .fit2 .w-term { font-size: 11pt; } .fit2 .w-mean { font-size: 9.6pt; } .fit2 .w-note { font-size: 8.8pt; } .fit2 .w-src { font-size: 8.6pt; }
 .fit3 .study > .study-list, .fit3 .study-start + .study-list { column-count: 2; column-gap: 7mm; }
 .fit3 .study-list li { break-inside: avoid; }
+.fit4 .pair .src, .fit4 .plain { font-size: 9.6pt; line-height: 1.38; } .fit4 .pair .out { font-size: 8.6pt; line-height: 1.35; }
+.fit4 .pair { margin-bottom: .6mm; padding: .4mm 0 .4mm 2.6mm; } .fit4 .para { margin-bottom: 1mm; }
+.fit4 .w-note { font-size: 8.4pt; } .fit4 .study-list li { margin-bottom: 1.4mm; }
 `;
 // How tight each step is: 0 is the download edition's spacing.
-const FIT = ['', 'fit1', 'fit1 fit2', 'fit1 fit2 fit3'];
+// The last step also shortens the logo row at the top of each page.
+const FIT = ['', 'fit1', 'fit1 fit2', 'fit1 fit2 fit3', 'fit1 fit2 fit3 fit4'];
+const COMPACT_FRAME = FIT.length - 1;
 
 function pageHTML(post, lang, fonts, withUrl = true, edition = { photo: true, fit: 0 }) {
   const src = post.lang || 'ko';
@@ -271,12 +277,13 @@ async function makePost(browser, fonts, token, post) {
   for (const lang of LANGS) {
     if (!pageHTML(post, lang, fonts)) continue;
     const frame = await frameV2({ title: titleIn(post, lang) }, labelsFor(lang), fonts);
+    const tight = await frameV2({ title: titleIn(post, lang) }, labelsFor(lang), fonts, true);
     const render = async (withUrl, edition) => {
       const page = await browser.newPage();
       try {
         await page.setContent(pageHTML(post, lang, fonts, withUrl, edition), { waitUntil: 'networkidle', timeout: 60000 });
         await page.evaluate(() => document.fonts.ready);
-        const bytes = await page.pdf({ format: 'A4', printBackground: true, displayHeaderFooter: true, ...frame });
+        const bytes = await page.pdf({ format: 'A4', printBackground: true, displayHeaderFooter: true, ...(edition.fit === COMPACT_FRAME ? tight : frame) });
         return [bytes, (bytes.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length];
       } finally {
         await page.close();
@@ -299,7 +306,9 @@ async function makePost(browser, fonts, token, post) {
     // type, then the word list goes into two columns, and it stops at
     // the first step that fits.
     let printed = null;
-    for (let fit = 0; fit < FIT.length; fit += 1) {
+    // --print-fit=N: one step only, to look at it.
+    const only = arg('print-fit') !== null ? Number(arg('print-fit')) : null;
+    for (let fit = only !== null ? only : 0; fit < (only !== null ? only + 1 : FIT.length); fit += 1) {
       const [bytes, n] = await best({ photo: false, fit });
       if (!printed || n < printed[1]) printed = [bytes, n, fit];
       if (n <= 2) break;

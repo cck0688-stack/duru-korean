@@ -318,8 +318,12 @@ export function frameText(sheet, lang) {
   return out;
 }
 
-export async function frameV2(sheet, L, fonts) {
-  const k = { top: '44mm', bottom: '27mm', row: '18mm', logo: '15.5mm', gap: '2.2mm', pad: '2.2mm 0' };
+// `compact`: a shorter logo row for a blog post's print edition when it
+// needs the room to fit on two pages; the worksheets never ask for it.
+export async function frameV2(sheet, L, fonts, compact = false) {
+  const k = compact
+    ? { top: '33mm', bottom: '24mm', row: '12mm', logo: '10.5mm', gap: '1.6mm', pad: '1.4mm 0' }
+    : { top: '44mm', bottom: '27mm', row: '18mm', logo: '15.5mm', gap: '2.2mm', pad: '2.2mm 0' };
   if (!logo) logo = 'data:image/jpeg;base64,' + (await fs.readFile(path.join(HERE, 'assets', 'sheet-logo.jpg'))).toString('base64');
   const pills = [];
   if (sheet.level) pills.push([esc(L.level) + ' · ' + esc(sheet.level), '#eef1ea', '#b9c6bd']);
@@ -337,7 +341,7 @@ export async function frameV2(sheet, L, fonts) {
       '<div style="' + box + 'color:#16302b;">' +
       '<div style="position:relative;height:' + k.row + ';display:flex;align-items:flex-end;">' +
       '<img src="' + logo + '" style="height:' + k.logo + ';display:block;position:relative;z-index:1" alt="DURU KOREAN">' +
-      LANDSCAPE + '</div>' +
+      (compact ? LANDSCAPE.replace('top:-4mm;width:92mm;height:26mm', 'top:-3mm;width:64mm;height:18mm') : LANDSCAPE) + '</div>' +
       '<div style="border-top:0.8px solid #dba79c;margin-top:' + k.gap + ';"></div>' +
       '<div style="display:flex;align-items:center;justify-content:space-between;padding:' + k.pad + ';">' +
       '<span style="color:#b83a2a;font-size:12px;font-weight:700;letter-spacing:.13em;">www.durukorean.com</span>' +
