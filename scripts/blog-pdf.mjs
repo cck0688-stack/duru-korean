@@ -73,6 +73,16 @@ async function rest(token, p, init = {}) {
 }
 
 async function upload(token, key, bytes) {
+  for (let tries = 1; ; tries += 1) {
+    try { return await uploadOnce(token, key, bytes); }
+    catch (err) {
+      if (tries >= 3) throw err;
+      await new Promise((r) => setTimeout(r, 3000 * tries));
+    }
+  }
+}
+
+async function uploadOnce(token, key, bytes) {
   const url = SUPABASE_URL + '/storage/v1/object/' + BUCKET + '/' + key;
   const headers = { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token };
   // The bucket lets an admin add and remove files, not overwrite them:
@@ -349,7 +359,17 @@ async function main() {
   log('글 ' + posts.length + '편 중 만들 것 ' + todo.length + '편' + (shard ? ' (몫 ' + shard[1] + '/' + shard[2] + ')' : '') + (DRY ? ' · 연습' : ''));
   if (!todo.length) return;
 
-  const fonts = await embeddedFonts(FONT_CSS_V2);
+  // The font files come from Google over the network; a passing
+  // "fetch failed" is tried again rather than ending the run.
+  let fonts = null;
+  for (let tries = 1; !fonts; tries += 1) {
+    try { fonts = await embeddedFonts(FONT_CSS_V2); }
+    catch (err) {
+      if (tries >= 4) throw err;
+      log('글꼴 받기 실패, 다시 시도 (' + tries + '): ' + err.message);
+      await new Promise((r) => setTimeout(r, 5000 * tries));
+    }
+  }
   const { chromium } = await import('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
   let done = 0, failed = 0;
