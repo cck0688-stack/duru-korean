@@ -164,7 +164,7 @@ h1 { font-size: 20pt; line-height: 1.22; margin: 0; }
 .pair .src { margin: 0; font-size: 11pt; line-height: 1.6; }
 .pair .out { margin: .6mm 0 0; font-size: 9.8pt; line-height: 1.55; color: #4c635c; }
 .pair--head { border-left: 0; padding-left: 0; margin-top: 3mm; }
-.pair--head .src, .pair--head .out { font-weight: 700; display: inline-block; background: #fbe3a6; padding: .4mm 2mm; border-radius: 1mm; }
+.pair--head .src, .pair--head .out { font-weight: 700; display: table; background: #fbe3a6; padding: .4mm 2mm; border-radius: 1mm; }
 .pair--head .out { margin-top: 1mm; font-size: 10pt; color: #16302b; }
 .plain { font-size: 11pt; line-height: 1.75; margin: 0 0 3mm; }
 h3.head { font-size: 12pt; margin: 4mm 0 2mm; display: inline-block; background: #fbe3a6; padding: .4mm 2mm; border-radius: 1mm; }
@@ -183,7 +183,7 @@ h3.head { font-size: 12pt; margin: 4mm 0 2mm; display: inline-block; background:
 .online { margin-top: 6mm; text-align: center; font-size: 8.5pt; color: #6b7a75; }
 `;
 
-function pageHTML(post, lang, fonts) {
+function pageHTML(post, lang, fonts, withUrl = true) {
   const src = post.lang || 'ko';
   const body = bodyHTML(post, lang);
   if (!body) return null;
@@ -203,7 +203,7 @@ function pageHTML(post, lang, fonts) {
         (auds.length ? '<span class="dia"></span>' : '') + '<span>' + esc(formatDate(post.post_date || post.created_at, lang)) + '</span></div>' +
     '</div>' + photo +
     '<div class="body">' + body + '</div>' + studyHTML(post, lang) +
-    '<p class="online">' + esc(url) + '</p>' +
+    (withUrl ? '<p class="online">' + esc(url) + '</p>' : '') +
     '</body></html>';
 }
 
@@ -233,15 +233,24 @@ async function main() {
   const files = {};
   try {
     for (const lang of LANGS) {
-      const html = pageHTML(post, lang, fonts);
-      if (!html) { log('  ' + lang + ': 이 언어로 읽을 수 없어 건너뜁니다'); continue; }
-      const page = await browser.newPage();
-      await page.setContent(html, { waitUntil: 'networkidle' });
-      await page.evaluate(() => document.fonts.ready);
+      if (!pageHTML(post, lang, fonts)) { log('  ' + lang + ': 이 언어로 읽을 수 없어 건너뜁니다'); continue; }
       const frame = await frameV2({ title: titleIn(post, lang) }, labelsFor(lang), fonts);
-      const pdf = await page.pdf({ format: 'A4', printBackground: true, displayHeaderFooter: true, ...frame });
-      await page.close();
-      const pages = (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
+      const render = async (withUrl) => {
+        const page = await browser.newPage();
+        await page.setContent(pageHTML(post, lang, fonts, withUrl), { waitUntil: 'networkidle' });
+        await page.evaluate(() => document.fonts.ready);
+        const bytes = await page.pdf({ format: 'A4', printBackground: true, displayHeaderFooter: true, ...frame });
+        await page.close();
+        return [bytes, (bytes.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length];
+      };
+      let [pdf, pages] = await render(true);
+      // The address line at the end never gets a page to itself: a page
+      // with nothing else on it is left off (the footer says where it
+      // came from anyway).
+      if (pages > 1) {
+        const [short, fewer] = await render(false);
+        if (fewer < pages) [pdf, pages] = [short, fewer];
+      }
       const name = post.slug + '(' + lang + ').pdf';
       if (OUT) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, name), pdf); }
       const key = 'blog/' + post.id + '/' + lang + '.pdf';
