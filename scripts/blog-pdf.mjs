@@ -125,9 +125,7 @@ function studyHTML(post, lang) {
   if ((post.lang || 'ko') !== 'ko' || lang === 'ko') return '';
   const words = MT.studyFor(post, lang);
   if (!words) return '';
-  return '<section class="study"><h2 class="study-title"><span class="dia"></span><span class="study-label">' +
-    esc(t(lang, 'study.heading', 'Words & Phrases')) + '</span><span class="dia"></span></h2>' +
-    '<ol class="study-list">' + words.map((w) => {
+  const item = (w) => {
       const e = w.by[lang];
       return '<li><div class="w-head"><span class="w-term" lang="ko">' + esc(w.word) + '</span>' +
         (w.romanization ? '<span class="w-rom">' + esc(w.romanization) + '</span>' : '') +
@@ -135,7 +133,13 @@ function studyHTML(post, lang) {
         '<p class="w-mean">' + esc(e.meaning) + '</p>' +
         (e.explanation ? '<p class="w-note">' + esc(e.explanation) + '</p>' : '') +
         (w.sentence ? '<p class="w-src" lang="ko">' + esc(w.sentence) + '</p>' : '') + '</li>';
-    }).join('') + '</ol></section>';
+  };
+  // The heading never ends a page on its own: it and the first word
+  // share one unbreakable block.
+  return '<section class="study"><div class="study-start"><h2 class="study-title"><span class="dia"></span><span class="study-ring"><span class="study-label">' +
+    esc(t(lang, 'study.heading', 'Words & Phrases')) + '</span></span><span class="dia"></span></h2>' +
+    '<ol class="study-list">' + item(words[0]) + '</ol></div>' +
+    (words.length > 1 ? '<ol class="study-list">' + words.slice(1).map(item).join('') + '</ol>' : '') + '</section>';
 }
 
 const CSS = `
@@ -168,11 +172,14 @@ h1 { font-size: 20pt; line-height: 1.22; margin: 0; }
 .pair--head .out { margin-top: 1mm; font-size: 10pt; color: #16302b; }
 .plain { font-size: 11pt; line-height: 1.75; margin: 0 0 3mm; }
 h3.head { font-size: 12pt; margin: 4mm 0 2mm; display: inline-block; background: #fbe3a6; padding: .4mm 2mm; border-radius: 1mm; }
-.study { margin-top: 7mm; break-inside: auto; }
+.study { margin-top: 7mm; break-inside: auto; counter-reset: w; }
+.study-start { break-inside: avoid; }
 .study-title { display: flex; align-items: center; gap: 8px; margin: 0 0 4mm; }
 .study-title::before, .study-title::after { content: ""; flex: 1; height: 1px; background: #cf8a52; }
-.study-label { padding: 1.6mm 6mm; border-radius: 999px; border: 1.6px solid #103f35; outline: 1.2px solid #103f35; outline-offset: 2.4px; color: #103f35; font-size: 11.5pt; font-weight: 800; letter-spacing: .04em; }
-.study-list { list-style: none; counter-reset: w; margin: 0; padding: 0; }
+/* Two rings, drawn as borders: an outline is left behind on the page before when the block moves on. */
+.study-ring { display: inline-block; padding: 2.4px; border-radius: 999px; border: 1.2px solid #103f35; }
+.study-label { display: inline-block; padding: 1.6mm 6mm; border-radius: 999px; border: 1.6px solid #103f35; color: #103f35; font-size: 11.5pt; font-weight: 800; letter-spacing: .04em; }
+.study-list { list-style: none; margin: 0; padding: 0; }
 .study-list li { counter-increment: w; position: relative; padding-left: 8mm; margin: 0 0 3.2mm; break-inside: avoid; }
 .study-list li::before { content: counter(w); position: absolute; left: 0; top: .6mm; width: 5mm; height: 5mm; border-radius: 50%; background: #16302b; color: #fff; font-size: 7.5pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .w-head { display: flex; align-items: baseline; gap: 2.2mm; flex-wrap: wrap; }
