@@ -14,3 +14,7 @@
 - Daily output (owner, 2026-09-27): 6 blog posts and 6 worksheets every
   day at 04:00 KST — blog: 6 of the 8 shelves, rotating; worksheets: one
   per shelf. Keep this unless the owner changes it.
+- Blog PDFs (owner, 2026-09-28): every blog post gets, per language, a
+  download PDF (with the photo) and a print PDF (no photo, two pages
+  where it fits; Print prints that one). scripts/blog-pdf.mjs, workflow
+  blog-pdf.yml every 4 hours makes only what is missing or out of date.
