@@ -4539,3 +4539,49 @@ section { position: relative; }
 .admin-sources-about { display: block; color: #3d4b47; }
 .admin-sources-url { display: block; color: #6b7a75; font-size: 12px; word-break: break-all; }
 .admin-sources-note { margin: 8px 0 0; color: #6b7a75; font-size: 12.5px; }
+
+/* A post's heading, centred (the owner's design, 2026-09-28): the shelf
+   between two diamonds, the title between double rules, then who it is
+   for and the day. The diamond is shared with the word list below. */
+.dia {
+  display: inline-block; flex: none; width: 7px; height: 7px; border-radius: 1.5px;
+  background: var(--accent); transform: rotate(45deg);
+}
+.post-head { text-align: center; margin: 4px 0 22px; }
+.post-head-cat {
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 0 0 12px;
+}
+.post-head-cat .blog-meta { letter-spacing: 0.12em; }
+.post-head-box {
+  border-top: 3px double #103f35; border-bottom: 3px double #103f35;
+  padding: 20px 6px 18px; margin: 0 0 14px;
+}
+.blog-single .post-head h1 { margin: 0; line-height: 1.22; }
+.post-head .mt-title-src { margin: 10px 0 0; font-size: 15.5px; }
+.post-head .mt-title-src::before { content: "\300C\00A0"; color: var(--accent); }
+.post-head .mt-title-src::after { content: "\00A0\300D"; color: var(--accent); }
+.post-head-meta {
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+}
+.post-head-meta .aud-badges { margin: 0; justify-content: center; }
+.post-head-meta .blog-date { margin: 0; }
+
+/* The word list's heading: the label in a double outline, lines and
+   diamonds either side, centred; no fill, bold. */
+.study-title {
+  display: flex; align-items: center; gap: 12px; margin: 0 0 12px; text-align: center;
+}
+.study-title::before, .study-title::after {
+  content: ""; flex: 1; height: 1px; background: var(--accent);
+}
+.study-title .study-label {
+  display: inline-block; padding: 8px 26px; border-radius: 999px;
+  border: 2px solid #103f35; outline: 1.5px solid #103f35; outline-offset: 3px;
+  color: #103f35; font-size: 17px; font-weight: 800; letter-spacing: 0.04em;
+}
+.study-lead { text-align: center; }
+@media (max-width: 480px) {
+  .study-title { gap: 8px; }
+  .study-title .study-label { padding: 7px 18px; font-size: 16px; }
+  .post-head-box { padding: 16px 2px 14px; }
+}

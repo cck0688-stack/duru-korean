@@ -97,7 +97,9 @@
     var words = MT.studyFor(post, lang);
     if (!words) return '';
     return '<section class="study">' +
-      '<h2 class="study-title">' + escapeHTML(t('study.heading', 'Words & Phrases to know')) + '</h2>' +
+      '<h2 class="study-title"><span class="dia" aria-hidden="true"></span>' +
+        '<span class="study-label">' + escapeHTML(t('study.heading', 'Words & Phrases')) + '</span>' +
+        '<span class="dia" aria-hidden="true"></span></h2>' +
       '<p class="study-lead">' + escapeHTML(t('study.lead',
         'Five words from this post, in the sense it uses them.')) + '</p>' +
       '<ol class="study-list">' + words.map(function (w) {
@@ -887,16 +889,27 @@
 
       singleEl.innerHTML =
         '<a class="blog-back" href="/blog">' + escapeHTML(t('blog.backToAll', '← All posts')) + '</a>' +
-        '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) +
-          (post.published ? '' : ' · <span class="blog-draft-tag">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
-        '</span>' +
-        audienceBadges(post) +
-        '<h1>' + escapeHTML(readField(post, 'title', readLang)) + '</h1>' +
-        (pairs && field(post, 'title', post.lang || 'en') !== readField(post, 'title', readLang)
-          ? '<p class="mt-title-src" lang="' + escapeHTML(post.lang || 'en') + '">' +
-            escapeHTML(field(post, 'title', post.lang || 'en')) + '</p>'
-          : '') +
-        '<p class="blog-date">' + escapeHTML(formatDate(postDay(post))) + '</p>' +
+        // Centred: the shelf on top, the title (and the Korean it was
+        // written in) between two double rules, then who it is for and
+        // the day (the owner's design, 2026-09-28).
+        '<header class="post-head">' +
+          '<p class="post-head-cat"><span class="dia" aria-hidden="true"></span>' +
+            '<span class="blog-meta">' + escapeHTML(categoryLabel(post.category)) + '</span>' +
+            '<span class="dia" aria-hidden="true"></span>' +
+            (post.published ? '' : '<span class="blog-draft-tag">' + escapeHTML(t('blog.draft', 'Draft')) + '</span>') +
+          '</p>' +
+          '<div class="post-head-box">' +
+            '<h1>' + escapeHTML(readField(post, 'title', readLang)) + '</h1>' +
+            (pairs && field(post, 'title', post.lang || 'en') !== readField(post, 'title', readLang)
+              ? '<p class="mt-title-src" lang="' + escapeHTML(post.lang || 'en') + '">' +
+                escapeHTML(field(post, 'title', post.lang || 'en')) + '</p>'
+              : '') +
+          '</div>' +
+          '<div class="post-head-meta">' + audienceBadges(post) +
+            ((post.audiences || []).length ? '<span class="dia" aria-hidden="true"></span>' : '') +
+            '<span class="blog-date">' + escapeHTML(formatDate(postDay(post))) + '</span>' +
+          '</div>' +
+        '</header>' +
         photoHTML(post, true) +
         langHTML +
         adminHTML +
