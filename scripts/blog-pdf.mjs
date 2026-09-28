@@ -257,7 +257,7 @@ function pick(posts) {
 // Everything a file shows, fingerprinted: the body and title in every
 // language, the word list, the photo, the shelf, the day — and this
 // script's own version, so a change of design makes every file again.
-const DESIGN = 'blog-pdf/1';
+const DESIGN = 'blog-pdf/2'; // 2: the print edition (no photo, two pages)
 function sourceHash(post) {
   const mt = {};
   Object.keys(post.mt || {}).sort().forEach((c) => { mt[c] = [post.mt[c].hash, post.mt[c].title, (post.mt[c].sentences || []).length]; });
