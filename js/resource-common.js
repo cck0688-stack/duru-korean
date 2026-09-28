@@ -422,6 +422,38 @@
       .catch(function () { return false; });
   }
 
+  // What a draft's facts rest on — the sites the writer named, and what
+  // to check on each (schema §43, table content_sources). For the admin
+  // only: the table answers nobody else, and this is only ever called
+  // from a page that has already found the viewer is an admin.
+  // `column` is 'post_id' or 'resource_id'.
+  function fillAdminSources(client, column, id, el) {
+    if (!el || !client || !id) return;
+    el.innerHTML = '';
+    client.from('content_sources').select('domain,url,about,created_at')
+      .eq(column, id).order('created_at', { ascending: true })
+      .then(function (res) {
+        var head = '<h3 class="admin-sources-title">' + escapeHTML(t('admin.sources.heading', 'Sources')) +
+          ' <span class="admin-sources-only">' + escapeHTML(t('admin.sources.only', 'Only admins can see this')) + '</span></h3>';
+        if (res.error) {
+          el.innerHTML = head + '<p class="admin-sources-note">' +
+            escapeHTML(t('admin.sources.missing', 'The sources table is not set up yet (supabase/schema.sql §43).')) + '</p>';
+          return;
+        }
+        var rows = res.data || [];
+        el.innerHTML = head + (rows.length
+          ? '<ul class="admin-sources-list">' + rows.map(function (r) {
+              var link = /^https?:\/\//.test(r.url || '') ? r.url : 'https://' + r.domain;
+              return '<li><a href="' + escapeHTML(link) + '" target="_blank" rel="noopener noreferrer">' +
+                escapeHTML(r.domain) + '</a><span class="admin-sources-about">' + escapeHTML(r.about) + '</span>' +
+                (r.url ? '<span class="admin-sources-url">' + escapeHTML(r.url) + '</span>' : '') + '</li>';
+            }).join('') + '</ul>' +
+            '<p class="admin-sources-note">' + escapeHTML(t('admin.sources.note',
+              'Named by the writer from what it knows. Nobody has opened these pages — check them before publishing.')) + '</p>'
+          : '<p class="admin-sources-note">' + escapeHTML(t('admin.sources.none', 'No sources were recorded for this one.')) + '</p>');
+      });
+  }
+
   function openLogin() {
     var trigger = document.getElementById('authTrigger');
     if (trigger) trigger.click();
@@ -439,6 +471,7 @@
     localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
     cleanKeyword: cleanKeyword, keywordFor: keywordFor, downloadName: downloadName,
-    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin
+    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin,
+    fillAdminSources: fillAdminSources
   };
 })();

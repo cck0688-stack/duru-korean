@@ -260,6 +260,9 @@
           '<p class="review-none">' + esc(t('review.loadingPdf', 'Loading the PDF…')) + '</p>' +
         '</div>' +
 
+        // What the sheet's facts rest on, from the admin-only table.
+        '<section class="admin-sources" data-sources-for="' + esc(row.id) + '"></section>' +
+
         '<h4 class="review-sub">' + esc(t('review.sourcesHead', 'Sources and rights')) + '</h4>' +
         sourcesHTML(row) +
 
@@ -290,6 +293,10 @@
       drafts.forEach(function (row) {
         showPdf(row);
         paintSays(row.id);
+        if (window.DURU_RES && window.DURU_RES.fillAdminSources) {
+          window.DURU_RES.fillAdminSources(client, 'resource_id', row.id,
+            listEl.querySelector('[data-sources-for="' + row.id + '"]'));
+        }
       });
       wire();
     }

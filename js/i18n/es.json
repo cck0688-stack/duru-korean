@@ -753,7 +753,7 @@
   "storiesPage.title": "Comunidad — Duru Korean",
   "story.recommendations": "Entradas populares",
   "study.building": "Eligiendo las palabras…",
-  "study.heading": "Palabras que conviene saber",
+  "study.heading": "Palabras y expresiones que conviene saber",
   "study.lead": "Cinco palabras de esta entrada, en el sentido que les da.",
   "study.statusMissing": "Todavía no hay lista de palabras.",
   "study.statusReady": "La lista de palabras está lista.",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "Recurso del libro",
   "resource.aboutEyebrow": "Sobre este recurso",
   "resource.availableIn": "Disponible en",
-  "resource.fieldKeyword": "Palabra clave del archivo (inglés, corta — se guarda como keyword(en).pdf)"
+  "resource.fieldKeyword": "Palabra clave del archivo (inglés, corta — se guarda como keyword(en).pdf)",
+  "admin.sources.heading": "Fuentes",
+  "admin.sources.only": "Solo los administradores pueden verlo",
+  "admin.sources.note": "Indicadas por el redactor a partir de lo que sabe. Nadie ha abierto estas páginas: compruébalas antes de publicar.",
+  "admin.sources.none": "No se registraron fuentes para este contenido.",
+  "admin.sources.missing": "La tabla de fuentes aún no está creada (supabase/schema.sql §43)."
 }

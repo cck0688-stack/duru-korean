@@ -339,11 +339,12 @@ async function main() {
       }
 
       try {
-        await withRetry('저장', () => call('posts', {
+        const saved = await withRetry('저장', () => call('posts?select=id', {
           method: 'POST',
-          headers: { Prefer: 'return=minimal' },
+          headers: { Prefer: 'return=representation' },
           body: JSON.stringify(rowFor(draft, category.id, today, userId))
         }));
+        await saveReferences(call, saved && saved[0] && saved[0].id, draft.references);
       } catch (err) {
         // The unique index on (batch_date, category) answering means
         // the row is already there — a reply that went missing on its
@@ -408,6 +409,24 @@ async function readExisting(call) {
     slugs: (rows || []).map((r) => r.slug),
     byCategory: byCategory
   };
+}
+
+// The sites the post's facts rest on, into the admin-only table
+// (schema §43). Never into posts: a published post's columns are
+// readable by everyone. A database without §43 yet keeps the post and
+// says so.
+async function saveReferences(call, postId, refs) {
+  if (!postId || !refs || !refs.length) return;
+  try {
+    await call('content_sources', {
+      method: 'POST',
+      headers: { Prefer: 'return=minimal' },
+      body: JSON.stringify(refs.map((r) => ({ post_id: postId, domain: r.domain, url: r.url || null, about: r.about })))
+    });
+    log(`  참고 자료 ${refs.length}개 (관리자만 봄): ${refs.map((r) => r.domain).join(', ')}`);
+  } catch (err) {
+    log(`  참고 자료를 저장하지 못했습니다 (schema.sql §43 이 필요합니다): ${err.message}`);
+  }
 }
 
 function rowFor(draft, category, today, userId) {

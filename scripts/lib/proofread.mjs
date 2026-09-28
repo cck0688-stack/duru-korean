@@ -337,3 +337,31 @@ export async function shortenSheet(cfg, sheet, pages, longer = []) {
   short.checkThese = [];
   return short;
 }
+
+// For the admin only, never printed on the sheet: which sites the
+// sheet's facts rest on (fees, rules, how a notice or a menu is laid
+// out), so the owner can check them before publishing. Named by the
+// model from what it knows — a list to check, not checked facts.
+export async function sheetReferences(cfg, sheet) {
+  const isStrict = cfg.provider.strictSchema !== false;
+  const item = strictObj({ domain: { type: 'string' }, url: { type: 'string' }, about: { type: 'string' } }, isStrict);
+  const schema = strictObj({ references: { type: 'array', items: item } }, isStrict);
+  const system = [
+    '당신은 한국어 교재 편집자입니다. 아래 학습지의 사실(제도, 요금, 규칙, 절차, 실제 안내문·메뉴·표지판의 모습)을',
+    '확인할 수 있는 출처를 0~5개 적으세요. 관리자가 게시 전에 확인하는 용도이고, 학습지에는 나오지 않습니다.',
+    '- domain: 실제로 있는 공신력 있는 사이트의 도메인만 (예: gov.kr, hikorea.go.kr, korean.go.kr, visitkorea.or.kr).',
+    '- url: 그 내용이 있는 페이지 주소를 정확히 알 때만. 모르면 빈 문자열. 지어내지 마세요.',
+    '- about: 그 출처에서 무엇을 확인하면 되는지, 한국어 한두 문장.',
+    '어휘·문법만 다루고 확인할 사실이 없으면, 표준국어대사전(stdict.korean.go.kr)처럼 뜻과 용법을 확인할 곳만 적거나 빈 배열로 두세요.',
+    '확실하지 않은 도메인은 적지 마세요.'
+  ].join('\n');
+  const body = JSON.stringify({ title: sheet.title, objective: sheet.objective, sections: sheet.sections,
+    exercises: sheet.exercises, answers: sheet.answers }, null, 1);
+  const out = json(await cfg.provider.chat(cfg, system, body, schema), '참고 자료');
+  return (Array.isArray(out.references) ? out.references : []).map((r) => ({
+    domain: String((r && r.domain) || '').trim().toLowerCase()
+      .replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/.*$/, ''),
+    url: /^https?:\/\/\S+$/.test(String((r && r.url) || '').trim()) ? String(r.url).trim() : '',
+    about: String((r && r.about) || '').trim()
+  })).filter((r) => /^[a-z0-9.-]+\.[a-z]{2,}$/.test(r.domain) && r.about).slice(0, 8);
+}

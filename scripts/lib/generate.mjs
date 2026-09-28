@@ -262,9 +262,20 @@ const WRAP_RULES = [
   '글자, 로고, 워터마크가 나오지 않게 씁니다.'
 ].join('\n');
 
+// For the admin only, never printed on the post: which sites the facts
+// in it rest on, so the owner can check them before publishing.
+const REF_RULES = [
+  '[참고 자료 — 관리자 확인용, 글에는 나오지 않음]',
+  '본문의 사실(제도, 요금, 규칙, 절차, 숫자, 장소 정보)을 확인할 수 있는 출처를 2~5개 적으세요.',
+  '- domain: 실제로 있는 공신력 있는 사이트의 도메인만 (예: hikorea.go.kr, visitkorea.or.kr, gov.kr, 해당 기업의 공식 사이트).',
+  '- url: 그 내용이 있는 페이지 주소를 정확히 알 때만. 모르면 빈 문자열. 지어내지 마세요.',
+  '- about: 그 출처에서 무엇을 확인하면 되는지, 한국어 한두 문장.',
+  '확실하지 않은 도메인은 적지 마세요. 사실이 아니라 경험·관찰로만 쓴 글이면 빈 배열로 두세요.'
+].join('\n');
+
 export async function wrapUp(cfg, opts) {
   const system = [READER, '', '본문은 이미 다 썼습니다. 이제 그 글에 붙일 것들을 만듭니다.',
-                  '', WRAP_RULES].join('\n');
+                  '', WRAP_RULES, '', REF_RULES].join('\n');
   const user = [
     `카테고리: ${opts.category}`,
     `주제: ${opts.topic}`,
@@ -280,8 +291,11 @@ export async function wrapUp(cfg, opts) {
       summary: { type: 'string' },
       tags: { type: 'array', items: { type: 'string' } },
       slug: { type: 'string' },
-      imagePrompt: { type: 'string' }
-    }, ['titleCandidates', 'title', 'summary', 'tags', 'slug', 'imagePrompt']));
+      imagePrompt: { type: 'string' },
+      references: { type: 'array', items: schema(cfg.provider.strictSchema !== false, {
+        domain: { type: 'string' }, url: { type: 'string' }, about: { type: 'string' }
+      }, ['domain', 'url', 'about']) }
+    }, ['titleCandidates', 'title', 'summary', 'tags', 'slug', 'imagePrompt', 'references']));
 
   const out = parse(text, '제목·요약·태그');
   return {
@@ -290,8 +304,19 @@ export async function wrapUp(cfg, opts) {
     summary: String(out.summary || '').trim(),
     tags: (out.tags || []).map((x) => String(x || '').trim().replace(/^#+/, '')).filter(Boolean),
     slug: slugify(out.slug),
-    imagePrompt: String(out.imagePrompt || '').trim()
+    imagePrompt: String(out.imagePrompt || '').trim(),
+    references: cleanReferences(out.references)
   };
+}
+
+// Domains only as domains; at most eight; nothing empty.
+export function cleanReferences(list) {
+  return (Array.isArray(list) ? list : []).map((r) => ({
+    domain: String((r && r.domain) || '').trim().toLowerCase()
+      .replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/.*$/, ''),
+    url: /^https?:\/\/\S+$/.test(String((r && r.url) || '').trim()) ? String(r.url).trim() : '',
+    about: String((r && r.about) || '').trim()
+  })).filter((r) => /^[a-z0-9.-]+\.[a-z]{2,}$/.test(r.domain) && r.about).slice(0, 8);
 }
 
 export function slugify(raw) {

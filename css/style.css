@@ -4523,3 +4523,19 @@ section { position: relative; }
   .rd-card .rd-about-title { font-size: 23px; }
   .rd-download { font-size: 19px; min-height: 62px; }
 }
+
+/* Admin only: the sites a draft's facts rest on (schema §43). */
+.admin-sources:empty { display: none; }
+.admin-sources {
+  margin: 18px 0; padding: 14px 18px; border: 1px dashed #b8492f; border-radius: 12px;
+  background: #fff8f4; font-size: 14px;
+}
+.admin-sources[hidden] { display: none; }
+.admin-sources-title { margin: 0 0 8px; font-size: 15px; color: #16302b; }
+.admin-sources-only { font-size: 11.5px; font-weight: 600; color: #b8492f; margin-left: 6px; }
+.admin-sources-list { margin: 0; padding-left: 18px; }
+.admin-sources-list li { margin: 6px 0; line-height: 1.5; }
+.admin-sources-list a { font-weight: 700; color: #1f6e46; }
+.admin-sources-about { display: block; color: #3d4b47; }
+.admin-sources-url { display: block; color: #6b7a75; font-size: 12px; word-break: break-all; }
+.admin-sources-note { margin: 8px 0 0; color: #6b7a75; font-size: 12.5px; }

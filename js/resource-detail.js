@@ -141,6 +141,8 @@
 
       renderLanguagePicker(files);
       $('resAdmin').hidden = !isAdmin;
+      $('resAdminSources').hidden = !isAdmin;
+      if (isAdmin) R.fillAdminSources(client, 'resource_id', resource.id, $('resAdminSources'));
       if (isAdmin) renderStatus();
     }
 

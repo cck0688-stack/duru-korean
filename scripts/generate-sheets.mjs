@@ -50,7 +50,7 @@
 
 import { resolveProvider, LANGUAGE_NAMES, TranslateError } from '../api/_providers.js';
 import { pickSubject, writeSheet, reviewSheet, problemsWith, slugify, cleanKeyword, SHELVES } from './lib/sheets.mjs';
-import { auditSheet, fixSheet, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
+import { auditSheet, fixSheet, sheetReferences, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
 import { pageBreakdown } from './pdf/check.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
@@ -275,7 +275,16 @@ async function makeOne(cfg, category, context, browser) {
     if (!out.check.ok) log('    ! ' + lang + ': ' + out.check.why.join('; '));
   }
 
-  return { subject, sheet, editions, rendered };
+  // Where the facts in it come from, for the admin's eyes only (saved to
+  // the admin-only table; see save()). On the faster model: it is a list.
+  let references = [];
+  try {
+    references = await sheetReferences(cfg, sheet);
+  } catch (err) {
+    log('    참고 자료 목록 실패 (학습지는 그대로): ' + err.message);
+  }
+
+  return { subject, sheet, editions, rendered, references };
 }
 
 /* ---------------- saving it as a draft ---------------- */
@@ -363,6 +372,23 @@ async function save(call, token, userId, category, made) {
                  '게시 전에 사람이 내용과 사실을 확인해야 합니다.'
   }));
   await call('resource_sources', { method: 'POST', body: JSON.stringify(rows) });
+
+  // The sites the sheet's facts rest on, into the admin-only table
+  // (schema §43), never anywhere a visitor can read. A database without
+  // §43 yet keeps the sheet and says so.
+  const refs = made.references || [];
+  if (refs.length) {
+    try {
+      await call('content_sources', {
+        method: 'POST',
+        headers: { Prefer: 'return=minimal' },
+        body: JSON.stringify(refs.map((r) => ({ resource_id: resource.id, domain: r.domain, url: r.url || null, about: r.about })))
+      });
+      log('    참고 자료 ' + refs.length + '개 (관리자만 봄): ' + refs.map((r) => r.domain).join(', '));
+    } catch (err) {
+      log('    참고 자료를 저장하지 못했습니다 (schema.sql §43 이 필요합니다): ' + err.message);
+    }
+  }
 
   await call('resource_reviews', {
     method: 'POST',

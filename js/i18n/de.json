@@ -753,7 +753,7 @@
   "storiesPage.title": "Community – Duru Korean",
   "story.recommendations": "Beliebte Einträge",
   "study.building": "Wörter werden ausgewählt …",
-  "study.heading": "Wichtige Wörter",
+  "study.heading": "Wichtige Wörter und Wendungen",
   "study.lead": "Fünf Wörter aus diesem Beitrag, in der Bedeutung, in der er sie verwendet.",
   "study.statusMissing": "Noch keine Wortliste.",
   "study.statusReady": "Die Wortliste ist fertig.",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "Buchmaterial",
   "resource.aboutEyebrow": "Über dieses Material",
   "resource.availableIn": "Verfügbar auf",
-  "resource.fieldKeyword": "Stichwort für den Dateinamen (Englisch, kurz – gespeichert als stichwort(en).pdf)"
+  "resource.fieldKeyword": "Stichwort für den Dateinamen (Englisch, kurz – gespeichert als stichwort(en).pdf)",
+  "admin.sources.heading": "Quellen",
+  "admin.sources.only": "Nur für Admins sichtbar",
+  "admin.sources.note": "Vom Verfasser aus seinem Wissen genannt. Niemand hat diese Seiten geöffnet – prüfen Sie sie vor der Veröffentlichung.",
+  "admin.sources.none": "Für diesen Inhalt wurden keine Quellen erfasst.",
+  "admin.sources.missing": "Die Quellentabelle ist noch nicht angelegt (supabase/schema.sql §43)."
 }

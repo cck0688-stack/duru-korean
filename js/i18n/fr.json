@@ -753,7 +753,7 @@
   "storiesPage.title": "Communauté — Duru Korean",
   "story.recommendations": "Messages populaires",
   "study.building": "Choix des mots…",
-  "study.heading": "Mots à connaître",
+  "study.heading": "Mots et expressions à connaître",
   "study.lead": "Cinq mots de cet article, dans le sens où il les emploie.",
   "study.statusMissing": "Pas encore de liste de mots.",
   "study.statusReady": "La liste de mots est prête.",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "Ressource du livre",
   "resource.aboutEyebrow": "À propos de cette ressource",
   "resource.availableIn": "Disponible en",
-  "resource.fieldKeyword": "Mot-clé du nom de fichier (en anglais, court — enregistré sous mot-clé(en).pdf)"
+  "resource.fieldKeyword": "Mot-clé du nom de fichier (en anglais, court — enregistré sous mot-clé(en).pdf)",
+  "admin.sources.heading": "Sources",
+  "admin.sources.only": "Visible uniquement par les administrateurs",
+  "admin.sources.note": "Indiquées par le rédacteur d’après ce qu’il sait. Personne n’a ouvert ces pages : vérifiez-les avant de publier.",
+  "admin.sources.none": "Aucune source n’a été enregistrée pour ce contenu.",
+  "admin.sources.missing": "La table des sources n’est pas encore créée (supabase/schema.sql §43)."
 }

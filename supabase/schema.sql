@@ -2320,3 +2320,47 @@ $$;
 revoke all on function public.cache_story_translation(text, uuid, text, text, text, text) from public;
 grant execute on function public.cache_story_translation(text, uuid, text, text, text, text)
   to anon, authenticated;
+
+-- 43. where a draft's facts come from — for the admin only (2026-09-28)
+--
+-- The owner reads, before publishing, which sites a blog post or a
+-- worksheet leans on: the domain, and what on it the draft relies on.
+-- The writer names them; nobody has opened them, so they are a list to
+-- check, not a list of checked facts. They must never be shown to
+-- anyone else, so every policy here asks for an admin and nothing else,
+-- and the table is not granted to anon at all.
+
+create table if not exists public.content_sources (
+  id uuid primary key default gen_random_uuid(),
+  post_id uuid references public.posts (id) on delete cascade,
+  resource_id uuid references public.resources (id) on delete cascade,
+  domain text not null,
+  url text,
+  about text not null,
+  created_at timestamptz not null default now(),
+  constraint content_sources_one_owner check ((post_id is null) <> (resource_id is null))
+);
+
+create index if not exists content_sources_post_idx on public.content_sources (post_id);
+create index if not exists content_sources_resource_idx on public.content_sources (resource_id);
+
+alter table public.content_sources enable row level security;
+
+drop policy if exists "content_sources: admin only" on public.content_sources;
+create policy "content_sources: admin only"
+  on public.content_sources for all
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()))
+  with check (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+
+revoke all on public.content_sources from anon;
+revoke all on public.content_sources from public;
+grant select, insert, update, delete on public.content_sources to authenticated;
+
+-- And the rights record on downloads, which §36 left readable by
+-- anyone ("shown on the public detail page" — it never was): admins only.
+drop policy if exists "resource_sources: public read" on public.resource_sources;
+drop policy if exists "resource_sources: admin read" on public.resource_sources;
+create policy "resource_sources: admin read"
+  on public.resource_sources for select
+  using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
+revoke all on public.resource_sources from anon;

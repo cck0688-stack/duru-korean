@@ -753,7 +753,7 @@
   "storiesPage.title": "Cộng đồng — Duru Korean",
   "story.recommendations": "Bài được yêu thích",
   "study.building": "Đang chọn từ…",
-  "study.heading": "Từ nên biết",
+  "study.heading": "Từ và cụm từ nên biết",
   "study.lead": "Năm từ trong bài, theo đúng nghĩa bài dùng.",
   "study.statusMissing": "Chưa có danh sách từ.",
   "study.statusReady": "Danh sách từ đã sẵn sàng.",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "Tài liệu sách",
   "resource.aboutEyebrow": "Về tài liệu này",
   "resource.availableIn": "Có sẵn bằng",
-  "resource.fieldKeyword": "Từ khóa tên tệp (tiếng Anh, ngắn — lưu thành keyword(en).pdf)"
+  "resource.fieldKeyword": "Từ khóa tên tệp (tiếng Anh, ngắn — lưu thành keyword(en).pdf)",
+  "admin.sources.heading": "Nguồn tham khảo",
+  "admin.sources.only": "Chỉ quản trị viên xem được",
+  "admin.sources.note": "Do người viết nêu ra dựa trên hiểu biết của mình. Chưa ai mở các trang này — hãy kiểm tra trước khi đăng.",
+  "admin.sources.none": "Chưa có nguồn nào được ghi lại cho mục này.",
+  "admin.sources.missing": "Bảng nguồn tham khảo chưa được thiết lập (supabase/schema.sql §43)."
 }

@@ -753,7 +753,7 @@
   "storiesPage.title": "Komunitas — Duru Korean",
   "story.recommendations": "Catatan Populer",
   "study.building": "Memilih kata…",
-  "study.heading": "Kata yang perlu diketahui",
+  "study.heading": "Kata dan ungkapan yang perlu diketahui",
   "study.lead": "Lima kata dari tulisan ini, dalam arti yang dipakai di sini.",
   "study.statusMissing": "Belum ada daftar kata.",
   "study.statusReady": "Daftar kata sudah siap.",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "Materi buku",
   "resource.aboutEyebrow": "Tentang materi ini",
   "resource.availableIn": "Tersedia dalam",
-  "resource.fieldKeyword": "Kata kunci nama berkas (bahasa Inggris, pendek — disimpan sebagai keyword(en).pdf)"
+  "resource.fieldKeyword": "Kata kunci nama berkas (bahasa Inggris, pendek — disimpan sebagai keyword(en).pdf)",
+  "admin.sources.heading": "Sumber",
+  "admin.sources.only": "Hanya admin yang dapat melihat ini",
+  "admin.sources.note": "Disebutkan oleh penulis berdasarkan pengetahuannya. Belum ada yang membuka halaman ini — periksa sebelum menerbitkan.",
+  "admin.sources.none": "Tidak ada sumber yang dicatat untuk konten ini.",
+  "admin.sources.missing": "Tabel sumber belum disiapkan (supabase/schema.sql §43)."
 }

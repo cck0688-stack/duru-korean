@@ -753,7 +753,7 @@
   "storiesPage.title": "커뮤니티 — 두루 한국어",
   "story.recommendations": "인기 글",
   "study.building": "낱말을 고르는 중…",
-  "study.heading": "알아 둘 낱말",
+  "study.heading": "알아 둘 낱말과 표현",
   "study.lead": "이 글에 나온 다섯 낱말을, 이 글에서 쓰인 뜻으로.",
   "study.statusMissing": "낱말 목록은 아직 없습니다.",
   "study.statusReady": "낱말 목록도 준비됐습니다.",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "교재 자료",
   "resource.aboutEyebrow": "자료 소개",
   "resource.availableIn": "제공 언어",
-  "resource.fieldKeyword": "파일 이름 키워드 (짧은 영어 — keyword(en).pdf 로 저장)"
+  "resource.fieldKeyword": "파일 이름 키워드 (짧은 영어 — keyword(en).pdf 로 저장)",
+  "admin.sources.heading": "참고 자료",
+  "admin.sources.only": "관리자만 볼 수 있음",
+  "admin.sources.note": "작성 모델이 아는 것을 바탕으로 적은 출처입니다. 아무도 이 페이지를 열어 보지 않았으니, 게시 전에 직접 확인하세요.",
+  "admin.sources.none": "이 자료에는 기록된 참고 자료가 없습니다.",
+  "admin.sources.missing": "참고 자료 표가 아직 없습니다 (supabase/schema.sql §43)."
 }

@@ -753,7 +753,7 @@
   "storiesPage.title": "コミュニティ — 두루 한국어",
   "story.recommendations": "人気の投稿",
   "study.building": "語を選んでいます…",
-  "study.heading": "覚えておきたい語",
+  "study.heading": "覚えておきたい語句・表現",
   "study.lead": "この記事に出てきた五つの語を、この記事での意味で。",
   "study.statusMissing": "語のリストはまだありません。",
   "study.statusReady": "語のリストも用意できています。",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "教材の資料",
   "resource.aboutEyebrow": "この教材について",
   "resource.availableIn": "対応言語",
-  "resource.fieldKeyword": "ファイル名キーワード（短い英語 — keyword(en).pdf で保存）"
+  "resource.fieldKeyword": "ファイル名キーワード（短い英語 — keyword(en).pdf で保存）",
+  "admin.sources.heading": "参考資料",
+  "admin.sources.only": "管理者だけに表示されます",
+  "admin.sources.note": "作成モデルが知識をもとに挙げた出典です。誰もこれらのページを開いていないので、公開前に確認してください。",
+  "admin.sources.none": "この項目には参考資料が記録されていません。",
+  "admin.sources.missing": "参考資料の表がまだ作成されていません（supabase/schema.sql §43）。"
 }

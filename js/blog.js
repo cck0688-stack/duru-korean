@@ -97,7 +97,7 @@
     var words = MT.studyFor(post, lang);
     if (!words) return '';
     return '<section class="study">' +
-      '<h2 class="study-title">' + escapeHTML(t('study.heading', 'Words to know')) + '</h2>' +
+      '<h2 class="study-title">' + escapeHTML(t('study.heading', 'Words & Phrases to know')) + '</h2>' +
       '<p class="study-lead">' + escapeHTML(t('study.lead',
         'Five words from this post, in the sense it uses them.')) + '</p>' +
       '<ol class="study-list">' + words.map(function (w) {
@@ -878,7 +878,9 @@
             }).join('') + '</select>' +
             '<button type="button" class="btn btn-ghost" id="blogMoveBtn">' + escapeHTML(t('admin.move', 'Move')) + '</button>' +
           '</span>' +
-        '</div>' + translationStatusHTML(post);
+        '</div>' + translationStatusHTML(post) +
+        // Admins only: filled from the admin-only table once on the page.
+        '<section class="admin-sources" id="blogAdminSources"></section>';
       }
 
       var navHTML = '<div class="blog-nav-slot">' + navHTMLFor(post, readLang) + '</div>';
@@ -960,6 +962,7 @@
           });
         });
       }
+      if (isAdmin) R.fillAdminSources(client, 'post_id', post.id, singleEl.querySelector('#blogAdminSources'));
       var trBtn = singleEl.querySelector('#blogTranslateBtn');
       if (trBtn) {
         trBtn.addEventListener('click', function () {

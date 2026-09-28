@@ -753,7 +753,7 @@
   "storiesPage.title": "Community — Duru Korean",
   "story.recommendations": "Popular Entries",
   "study.building": "Picking the words…",
-  "study.heading": "Words to know",
+  "study.heading": "Words & Phrases to know",
   "study.lead": "Five words from this post, in the sense it uses them.",
   "study.statusMissing": "No word list yet.",
   "study.statusReady": "The word list is ready.",
@@ -796,5 +796,10 @@
   "resource.eyebrowBook": "Book resource",
   "resource.aboutEyebrow": "About this resource",
   "resource.availableIn": "Available in",
-  "resource.fieldKeyword": "File name keyword (English, short — saved as keyword(en).pdf)"
+  "resource.fieldKeyword": "File name keyword (English, short — saved as keyword(en).pdf)",
+  "admin.sources.heading": "Sources",
+  "admin.sources.only": "Only admins can see this",
+  "admin.sources.note": "Named by the writer from what it knows. Nobody has opened these pages — check them before publishing.",
+  "admin.sources.none": "No sources were recorded for this one.",
+  "admin.sources.missing": "The sources table is not set up yet (supabase/schema.sql §43)."
 }
