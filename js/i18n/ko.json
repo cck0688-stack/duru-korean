@@ -801,5 +801,6 @@
   "admin.sources.only": "관리자만 볼 수 있음",
   "admin.sources.note": "작성 모델이 아는 것을 바탕으로 적은 출처입니다. 아무도 이 페이지를 열어 보지 않았으니, 게시 전에 직접 확인하세요.",
   "admin.sources.none": "이 자료에는 기록된 참고 자료가 없습니다.",
-  "admin.sources.missing": "참고 자료 표가 아직 없습니다 (supabase/schema.sql §43)."
+  "admin.sources.missing": "참고 자료 표가 아직 없습니다 (supabase/schema.sql §43).",
+  "blog.print": "인쇄"
 }

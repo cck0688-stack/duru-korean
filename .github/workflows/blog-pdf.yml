@@ -1,25 +1,33 @@
-# DURU KOREAN — a blog post as a PDF
+# DURU KOREAN — blog posts as PDFs
 #
-# On demand (scripts/blog-pdf.mjs): one A4 PDF per language the post can
-# be read in, uploaded to the private `resources` bucket and recorded in
-# posts.pdf, so the post's page offers "Download PDF" to signed-in
-# readers. A copy of every file goes to the rework-output branch under
-# blog-pdf/<run number>/ for checking. Publishes nothing: a draft stays
-# a draft.
+# scripts/blog-pdf.mjs: one A4 PDF per language a post can be read in,
+# uploaded to the private `resources` bucket and recorded in posts.pdf,
+# so the post's page offers "Download PDF" and "Print" to signed-in
+# readers. Eight machines share the posts. Only what is missing or out
+# of date is made (a post edited since, a new translation, a new draft),
+# so the scheduled runs are quick when nothing changed. Publishes
+# nothing: a draft stays a draft.
+#
+# With `find`, one post only; its files are also copied to the
+# rework-output branch under blog-pdf/<run number>/ for checking.
 
 name: Blog post PDF
 
 on:
+  schedule:
+    # Every four hours: new drafts from the 04:00 run, and posts the
+    # owner edited or translated since.
+    - cron: '23 */4 * * *'
   workflow_dispatch:
     inputs:
       find:
-        description: 'Part of the post title or slug (Korean or English)'
-        type: string
-        default: 'lump sum'
-      langs:
-        description: 'Languages (empty = all ten)'
+        description: 'One post: part of its title or slug (empty = every post that needs it)'
         type: string
         default: ''
+      force:
+        description: 'Make every file again, even those up to date'
+        type: boolean
+        default: false
       dry_run:
         description: 'Make the files only; upload nothing'
         type: boolean
@@ -35,7 +43,22 @@ concurrency:
 jobs:
   pdf:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      # Through the environment, never pasted into the command line.
+      FIND: ${{ inputs.find }}
+      FORCE: ${{ inputs.force }}
+      DRY: ${{ inputs.dry_run }}
+      SHARD: ${{ matrix.shard }}
+      RUN: ${{ github.run_number }}
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -46,38 +69,46 @@ jobs:
 
       - run: npm ci
 
-      - run: npx playwright install --with-deps chromium
-
-      - name: Open the rework-output branch
+      - name: What is waiting
+        id: plan
         run: |
+          if [ -n "$FIND" ]; then
+            # One post: the first machine does it, the others rest.
+            if [ "$SHARD" = "0" ]; then echo "todo=1" >> "$GITHUB_OUTPUT"; else echo "todo=0" >> "$GITHUB_OUTPUT"; fi
+            exit 0
+          fi
+          set -- --shard="$SHARD/8" --count
+          if [ "$FORCE" = "true" ]; then set -- "$@" --force; fi
+          n=$(node scripts/blog-pdf.mjs "$@" | tail -n 1)
+          echo "waiting: $n"
+          echo "todo=$n" >> "$GITHUB_OUTPUT"
+
+      - if: steps.plan.outputs.todo != '0'
+        run: npx playwright install --with-deps chromium
+
+      - name: Make the PDFs
+        if: steps.plan.outputs.todo != '0'
+        run: |
+          if [ -n "$FIND" ]; then
+            set -- --find="$FIND" --out="$RUNNER_TEMP/blog-pdf/$RUN"
+          else
+            set -- --shard="$SHARD/8"
+            if [ "$FORCE" = "true" ]; then set -- "$@" --force; fi
+          fi
+          if [ "$DRY" = "true" ]; then set -- "$@" --dry-run; fi
+          node scripts/blog-pdf.mjs "$@"
+
+      - name: Save a copy for checking
+        if: always() && env.FIND != '' && matrix.shard == 0
+        run: |
+          [ -d "$RUNNER_TEMP/blog-pdf" ] || exit 0
           git config user.name "duru-korean-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin rework-output
           git worktree add ../rework-output origin/rework-output -B rework-output
-
-      - name: Make the PDFs
-        env:
-          # Through the environment, never pasted into the command line.
-          FIND: ${{ inputs.find }}
-          LANGS: ${{ inputs.langs }}
-          DRY: ${{ inputs.dry_run }}
-          RUN: ${{ github.run_number }}
-          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
-          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-        run: |
-          set -- --find="$FIND" --out="../rework-output/blog-pdf/$RUN"
-          if [ -n "$LANGS" ]; then set -- "$@" --langs="$LANGS"; fi
-          if [ "$DRY" = "true" ]; then set -- "$@" --dry-run; fi
-          node scripts/blog-pdf.mjs "$@"
-
-      - name: Save
-        if: always()
-        working-directory: ../rework-output
-        env:
-          RUN: ${{ github.run_number }}
-        run: |
+          mkdir -p ../rework-output/blog-pdf
+          cp -r "$RUNNER_TEMP/blog-pdf/$RUN" ../rework-output/blog-pdf/
+          cd ../rework-output
           git add -A blog-pdf
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -q -m "Blog post PDFs (run $RUN)"

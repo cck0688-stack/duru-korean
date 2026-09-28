@@ -801,5 +801,6 @@
   "admin.sources.only": "Nur für Admins sichtbar",
   "admin.sources.note": "Vom Verfasser aus seinem Wissen genannt. Niemand hat diese Seiten geöffnet – prüfen Sie sie vor der Veröffentlichung.",
   "admin.sources.none": "Für diesen Inhalt wurden keine Quellen erfasst.",
-  "admin.sources.missing": "Die Quellentabelle ist noch nicht angelegt (supabase/schema.sql §43)."
+  "admin.sources.missing": "Die Quellentabelle ist noch nicht angelegt (supabase/schema.sql §43).",
+  "blog.print": "Drucken"
 }

@@ -848,13 +848,21 @@
       // The post as a PDF in the language being read (scripts/blog-pdf.mjs),
       // offered only while the body is still the one the file was made from.
       var pdfFile = pdfFor(post, readLang);
+      // Printing prints that same file, so the paper looks like the PDF.
       var pdfHTML = pdfFile
-        ? '<button type="button" class="btn btn-outline-dark blog-pdf-btn" id="blogPdfBtn">' +
-            '<span aria-hidden="true">⤓</span> ' +
-            escapeHTML(signedIn
-              ? t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', 'PDF')
-              : t('resources.loginToDownload', 'Log in to download')) +
-          '</button>'
+        ? '<span class="blog-pdf-actions">' +
+            '<button type="button" class="btn btn-outline-dark blog-pdf-btn" id="blogPdfBtn">' +
+              '<span aria-hidden="true">⤓</span> ' +
+              escapeHTML(signedIn
+                ? t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', 'PDF')
+                : t('resources.loginToDownload', 'Log in to download')) +
+            '</button>' +
+            (signedIn
+              ? '<button type="button" class="btn btn-outline-dark blog-pdf-btn" id="blogPrintBtn">' +
+                  '<span aria-hidden="true">⎙</span> ' + escapeHTML(t('blog.print', 'Print')) +
+                '</button>'
+              : '') +
+          '</span>'
         : '';
 
       var langHTML = '';
@@ -983,6 +991,13 @@
           });
         });
       }
+      var printBtn = singleEl.querySelector('#blogPrintBtn');
+      if (printBtn) {
+        printBtn.addEventListener('click', function () {
+          if (!signedIn) { R.openLogin(); return; }
+          printPdf(pdfFile, printBtn);
+        });
+      }
       var pubBtn = singleEl.querySelector('#blogPublishBtn');
       if (pubBtn) pubBtn.addEventListener('click', function () { togglePublished(post); });
       var editBtn = singleEl.querySelector('#blogEditBtn');
@@ -1021,6 +1036,44 @@
             });
         });
       }
+    }
+
+    // The file is fetched and handed to the browser's own PDF viewer in a
+    // hidden frame, which prints it. Phones and tablets cannot print from
+    // a hidden frame, so there the file opens in a new tab to print from.
+    function printPdf(file, btn) {
+      var touch = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var tab = touch ? window.open('', '_blank') : null;
+      btn.disabled = true;
+      R.signedUrl(client, file.key, false, R.BUCKET).then(function (url) {
+        return fetch(url).then(function (res) {
+          if (!res.ok) throw new Error('PDF ' + res.status);
+          return res.blob();
+        });
+      }).then(function (blob) {
+        btn.disabled = false;
+        var local = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
+        if (tab) { tab.location.href = local; return; }
+        var old = document.getElementById('blogPrintFrame');
+        if (old) old.remove();
+        var frame = document.createElement('iframe');
+        frame.id = 'blogPrintFrame';
+        frame.setAttribute('aria-hidden', 'true');
+        frame.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;';
+        frame.onload = function () {
+          setTimeout(function () {
+            try { frame.contentWindow.focus(); frame.contentWindow.print(); }
+            catch (e) { window.open(local, '_blank'); }
+          }, 300);
+        };
+        frame.src = local;
+        document.body.appendChild(frame);
+      }).catch(function (err) {
+        btn.disabled = false;
+        if (tab) tab.close();
+        window.alert(err.message);
+      });
     }
 
     function pdfFor(post, lang) {

@@ -4587,5 +4587,6 @@ section { position: relative; }
 }
 
 /* A post as a PDF, beside "Read in" (scripts/blog-pdf.mjs). */
-.blog-pdf-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; padding: 8px 18px; }
-@media (max-width: 600px) { .blog-pdf-btn { margin-left: 0; } }
+.blog-pdf-actions { margin-left: auto; display: inline-flex; gap: 8px; flex-wrap: wrap; }
+.blog-pdf-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; padding: 8px 18px; }
+@media (max-width: 600px) { .blog-pdf-actions { margin-left: 0; } }

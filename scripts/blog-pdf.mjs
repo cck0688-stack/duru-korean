@@ -14,6 +14,8 @@
 // post records which languages exist in posts.pdf (schema §44), with a
 // fingerprint of the body so an edited post does not offer a stale file.
 //
+//   node scripts/blog-pdf.mjs                     (every post whose files are missing or out of date)
+//   node scripts/blog-pdf.mjs --shard=0/8 [--force] (one eighth of them; --force makes all again)
 //   node scripts/blog-pdf.mjs --find="목돈" [--langs=en,ko] [--dry-run] [--out=DIR]
 //   node scripts/blog-pdf.mjs --slug=some-post-slug
 //   node scripts/blog-pdf.mjs --post-json=post.json --out=DIR   (a preview: no sign-in, nothing uploaded)
@@ -214,70 +216,124 @@ function pageHTML(post, lang, fonts, withUrl = true) {
     '</body></html>';
 }
 
-async function findPost(token) {
-  const slug = arg('slug');
-  const find = arg('find');
-  if (!slug && !find) throw new Error('--slug= 또는 --find= 가 필요합니다.');
-  const cols = 'id,slug,title,excerpt,tags,body,lang,i18n,mt,study,category,audiences,post_date,created_at,image_url,image_credit,image_source';
-  let posts = await rest(token, 'posts?select=' + cols + (slug ? '&slug=eq.' + encodeURIComponent(slug) : '&order=created_at.desc&limit=500'));
-  if (find) {
-    const f = find.toLowerCase();
-    posts = posts.filter((p) => (p.title || '').toLowerCase().includes(f) || (p.slug || '').includes(f) ||
-      Object.values(p.mt || {}).some((m) => String((m && m.title) || '').toLowerCase().includes(f)));
+const COLS = 'id,slug,title,excerpt,tags,body,lang,i18n,mt,study,category,audiences,post_date,created_at,image_url,image_credit,image_source,published,pdf';
+
+async function allPosts(token) {
+  try {
+    return await rest(token, 'posts?select=' + COLS + '&order=created_at.desc&limit=2000');
+  } catch (err) {
+    if (/pdf/.test(err.message)) throw new Error('posts.pdf 칸이 없습니다 — schema.sql §44 를 먼저 실행해 주세요. (' + err.message + ')');
+    throw err;
   }
-  if (posts.length !== 1) throw new Error('글을 하나로 찾지 못했습니다 (' + posts.length + '편): ' + posts.map((p) => p.title).join(' / '));
-  return posts[0];
 }
 
+function pick(posts) {
+  const slug = arg('slug');
+  const find = arg('find');
+  if (slug) return posts.filter((p) => p.slug === slug);
+  if (!find) return posts;
+  const f = find.toLowerCase();
+  return posts.filter((p) => (p.title || '').toLowerCase().includes(f) || (p.slug || '').includes(f) ||
+    Object.values(p.mt || {}).some((m) => String((m && m.title) || '').toLowerCase().includes(f)));
+}
+
+// Everything a file shows, fingerprinted: the body and title in every
+// language, the word list, the photo, the shelf, the day — and this
+// script's own version, so a change of design makes every file again.
+const DESIGN = 'blog-pdf/1';
+function sourceHash(post) {
+  const mt = {};
+  Object.keys(post.mt || {}).sort().forEach((c) => { mt[c] = [post.mt[c].hash, post.mt[c].title, (post.mt[c].sentences || []).length]; });
+  return MT.fingerprint(JSON.stringify([DESIGN, post.body, post.title, post.lang, post.i18n || {}, mt,
+    post.study || null, post.category, post.audiences || [], post.post_date || post.created_at,
+    post.image_url || '', post.image_credit || '', post.slug]));
+}
+
+async function makePost(browser, fonts, token, post) {
+  const files = {};
+  for (const lang of LANGS) {
+    if (!pageHTML(post, lang, fonts)) continue;
+    const frame = await frameV2({ title: titleIn(post, lang) }, labelsFor(lang), fonts);
+    const render = async (withUrl) => {
+      const page = await browser.newPage();
+      try {
+        await page.setContent(pageHTML(post, lang, fonts, withUrl), { waitUntil: 'networkidle', timeout: 60000 });
+        await page.evaluate(() => document.fonts.ready);
+        const bytes = await page.pdf({ format: 'A4', printBackground: true, displayHeaderFooter: true, ...frame });
+        return [bytes, (bytes.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length];
+      } finally {
+        await page.close();
+      }
+    };
+    let [pdf, pages] = await render(true);
+    // The address line at the end never gets a page to itself: a page
+    // with nothing else on it is left off (the footer says where it
+    // came from anyway).
+    if (pages > 1) {
+      const [short, fewer] = await render(false);
+      if (fewer < pages) [pdf, pages] = [short, fewer];
+    }
+    const name = post.slug + '(' + lang + ').pdf';
+    if (OUT) {
+      const dir = ONE ? OUT : path.join(OUT, post.slug);
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, name), pdf);
+    }
+    const key = 'blog/' + post.id + '/' + lang + '.pdf';
+    if (!DRY) await upload(token, key, pdf);
+    files[lang] = { key, name, size: pdf.length, pages };
+  }
+  return files;
+}
+
+let ONE = false;
+
 async function main() {
-  const token = POST_JSON ? null : await signIn();
-  const post = POST_JSON ? JSON.parse(fs.readFileSync(POST_JSON, 'utf8')) : await findPost(token);
-  log('글: ' + post.title + ' (' + post.slug + ')');
+  let token = POST_JSON ? null : await signIn();
+  let posts = POST_JSON ? [JSON.parse(fs.readFileSync(POST_JSON, 'utf8'))] : pick(await allPosts(token));
+  posts = posts.filter((p) => String(p.body || '').trim());
+  ONE = !!(arg('slug') || arg('find') || POST_JSON);
+  if (ONE && posts.length !== 1) throw new Error('글을 하나로 찾지 못했습니다 (' + posts.length + '편): ' + posts.map((p) => p.title).join(' / '));
+  // Several machines at once: --shard=2/8 takes every eighth post.
+  const shard = /^(\d+)\/(\d+)$/.exec(arg('shard') || '');
+  if (shard) posts = posts.filter((p, i) => i % Number(shard[2]) === Number(shard[1]));
+  // Only what is missing or out of date, unless told to make them all.
+  const force = args.includes('--force') || ONE;
+  const todo = force ? posts : posts.filter((p) => !(p.pdf && p.pdf.src === sourceHash(p)));
+  // --count: how many are waiting, and nothing else (the workflow asks
+  // first, and skips installing a browser when the answer is none).
+  if (args.includes('--count')) { console.log(String(todo.length)); return; }
+  log('글 ' + posts.length + '편 중 만들 것 ' + todo.length + '편' + (shard ? ' (몫 ' + shard[1] + '/' + shard[2] + ')' : '') + (DRY ? ' · 연습' : ''));
+  if (!todo.length) return;
 
   const fonts = await embeddedFonts(FONT_CSS_V2);
   const { chromium } = await import('playwright');
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
-  const files = {};
+  let done = 0, failed = 0;
   try {
-    for (const lang of LANGS) {
-      if (!pageHTML(post, lang, fonts)) { log('  ' + lang + ': 이 언어로 읽을 수 없어 건너뜁니다'); continue; }
-      const frame = await frameV2({ title: titleIn(post, lang) }, labelsFor(lang), fonts);
-      const render = async (withUrl) => {
-        const page = await browser.newPage();
-        await page.setContent(pageHTML(post, lang, fonts, withUrl), { waitUntil: 'networkidle' });
-        await page.evaluate(() => document.fonts.ready);
-        const bytes = await page.pdf({ format: 'A4', printBackground: true, displayHeaderFooter: true, ...frame });
-        await page.close();
-        return [bytes, (bytes.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length];
-      };
-      let [pdf, pages] = await render(true);
-      // The address line at the end never gets a page to itself: a page
-      // with nothing else on it is left off (the footer says where it
-      // came from anyway).
-      if (pages > 1) {
-        const [short, fewer] = await render(false);
-        if (fewer < pages) [pdf, pages] = [short, fewer];
+    for (const [i, post] of todo.entries()) {
+      if (token && i && i % 8 === 0) token = await signIn();
+      try {
+        const files = await makePost(browser, fonts, token, post);
+        const langs = Object.keys(files);
+        if (!DRY) {
+          const record = { hash: MT.fingerprint(post.body || ''), src: sourceHash(post), at: new Date().toISOString(), files };
+          await rest(token, 'posts?id=eq.' + post.id, { method: 'PATCH', headers: { Prefer: 'return=minimal' }, body: JSON.stringify({ pdf: record }) });
+        }
+        done += 1;
+        log('· ' + (post.published ? '' : '[초안] ') + post.title + ' — ' + langs.length + '개 언어 (' +
+          langs.map((c) => c + ' ' + files[c].pages + '쪽').join(', ') + ')');
+      } catch (err) {
+        failed += 1;
+        log('✗ ' + post.title + ' — ' + err.message);
       }
-      const name = post.slug + '(' + lang + ').pdf';
-      if (OUT) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, name), pdf); }
-      const key = 'blog/' + post.id + '/' + lang + '.pdf';
-      if (!DRY) await upload(token, key, pdf);
-      files[lang] = { key, name, size: pdf.length, pages };
-      log('  ' + lang + ': ' + pages + '쪽, ' + Math.round(pdf.length / 1024) + 'kB' + (DRY ? '' : ' — 올림'));
     }
   } finally {
     await browser.close();
   }
-
-  if (DRY) { log('(연습 — 올리지 않았습니다)'); return; }
-  const record = { hash: MT.fingerprint(post.body || ''), at: new Date().toISOString(), files };
-  try {
-    await rest(token, 'posts?id=eq.' + post.id, { method: 'PATCH', headers: { Prefer: 'return=minimal' }, body: JSON.stringify({ pdf: record }) });
-    log('posts.pdf 에 기록했습니다: ' + Object.keys(files).join(', '));
-  } catch (err) {
-    log('파일은 올렸지만 posts.pdf 에 기록하지 못했습니다 (schema.sql §44 가 필요합니다): ' + err.message);
-    process.exitCode = 1;
-  }
+  log('');
+  log('만듦 ' + done + '편 · 실패 ' + failed + '편' + (DRY ? ' (연습 — 올리지 않았습니다)' : ''));
+  if (failed) process.exitCode = 1;
 }
 
 main().catch((err) => { console.error(err.message || err); process.exit(1); });

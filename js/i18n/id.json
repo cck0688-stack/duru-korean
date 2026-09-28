@@ -801,5 +801,6 @@
   "admin.sources.only": "Hanya admin yang dapat melihat ini",
   "admin.sources.note": "Disebutkan oleh penulis berdasarkan pengetahuannya. Belum ada yang membuka halaman ini — periksa sebelum menerbitkan.",
   "admin.sources.none": "Tidak ada sumber yang dicatat untuk konten ini.",
-  "admin.sources.missing": "Tabel sumber belum disiapkan (supabase/schema.sql §43)."
+  "admin.sources.missing": "Tabel sumber belum disiapkan (supabase/schema.sql §43).",
+  "blog.print": "Cetak"
 }
