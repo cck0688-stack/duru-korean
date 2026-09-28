@@ -1,0 +1,284 @@
+[
+  {
+    "name": "01-desk",
+    "requested": "https://www.durukorean.com/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/blog/post/jeonse-lump-sum-deposit-explained?pl=en",
+    "htmlLang": "en",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Browse by topic",
+      "Korea Travel Essentials",
+      "K-Food & Dining Guide",
+      "K-Style & Beauty",
+      "Explore & K-Culture",
+      "Campus & Living Support",
+      "Work & Career",
+      "Korean Language Tips",
+      "ETC",
+      "Why do landlords want a lump sum instead of monthly rent?",
+      "Words & Phrases",
+      "Comments",
+      "Latest posts",
+      "Never miss a post",
+      "Welcome back",
+      "Create your account",
+      "Reset your password"
+    ],
+    "text": "Visits 2,406\nToday 350\nLearn Korean\nBook Resources\nFree Downloads\nBlog\nCommunity\nEnglish\nLog in\n글\nBlog\n\nYour guide to Korean language, culture, and everyday life.\n\nAll posts\nPick a language\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nBROWSE BY TOPIC\nKorea Travel Essentials\n\nLanding, getting around and paying for things — the first week sorted.\n\nK-Food & Dining Guide\n\nHow to order, what to eat, and what happens at a Korean table.\n\nK-Style & Beauty\n\nSkincare, clinics, brands, and where to shop without overpaying.\n\nExplore & K-Culture\n\nNeighborhoods, drama locations, day trips and everyday Korean life.\n\nCampus & Living Support\n\nVisas, housing, hospitals and the paperwork of living here.\n\nWork & Career\n\nPart-time permits, job hunting, resumes and internships in Korea.\n\nKorean Language Tips\n\nUseful expressions, common mistakes, and everyday Korean made simple.\n\nETC\n\nCultural nuance, news that affects foreigners, and everything else that matters.\n\n← All posts\n\nCAMPUS & LIVING SUPPORT\n\nWhy do landlords want a lump sum instead of monthly rent?\n\n집주인은 왜 월세 대신 목돈을 원할까\n\nSeptember 28, 2026\n\nPhoto by Ricardo Gomez Angel · Unsplash\n\nRead in\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n⤓\nLog in to download\n♡\n0\n\n친구가 \"전세로 구해봐\"라고 했는데, 집주인이 월세 없이 1억 원을 통째로 맡기라고 하면 당황스러워요.\nMy friend told me to \"look for a jeonse place,\" but it's confusing when the landlord asks you to hand over the full 100 million won with no mo"
+  },
+  {
+    "name": "01-phone",
+    "requested": "https://www.durukorean.com/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/blog/post/jeonse-lump-sum-deposit-explained?pl=en",
+    "htmlLang": "en",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Browse by topic",
+      "Korea Travel Essentials",
+      "K-Food & Dining Guide",
+      "K-Style & Beauty",
+      "Explore & K-Culture",
+      "Campus & Living Support",
+      "Work & Career",
+      "Korean Language Tips",
+      "ETC",
+      "Why do landlords want a lump sum instead of monthly rent?",
+      "Words & Phrases",
+      "Comments",
+      "Latest posts",
+      "Never miss a post",
+      "Welcome back",
+      "Create your account",
+      "Reset your password"
+    ],
+    "text": "Log in\nBlog\n\nYour guide to Korean language, culture, and everyday life.\n\nAll posts\nPick a language\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nBROWSE BY TOPIC\nKorea Travel Essentials\n\nLanding, getting around and paying for things — the first week sorted.\n\nK-Food & Dining Guide\n\nHow to order, what to eat, and what happens at a Korean table.\n\nK-Style & Beauty\n\nSkincare, clinics, brands, and where to shop without overpaying.\n\nExplore & K-Culture\n\nNeighborhoods, drama locations, day trips and everyday Korean life.\n\nCampus & Living Support\n\nVisas, housing, hospitals and the paperwork of living here.\n\nWork & Career\n\nPart-time permits, job hunting, resumes and internships in Korea.\n\nKorean Language Tips\n\nUseful expressions, common mistakes, and everyday Korean made simple.\n\nETC\n\nCultural nuance, news that affects foreigners, and everything else that matters.\n\n← All posts\n\nCAMPUS & LIVING SUPPORT\n\nWhy do landlords want a lump sum instead of monthly rent?\n\n집주인은 왜 월세 대신 목돈을 원할까\n\nSeptember 28, 2026\n\nPhoto by Ricardo Gomez Angel · Unsplash\n\nRead in\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n⤓\nLog in to download\n♡\n0\n\n친구가 \"전세로 구해봐\"라고 했는데, 집주인이 월세 없이 1억 원을 통째로 맡기라고 하면 당황스러워요.\nMy friend told me to \"look for a jeonse place,\" but it's confusing when the landlord asks you to hand over the full 100 million won with no monthly rent at all.\n월세도 안 받는데 집주인은 대체 뭘로 돈을 버는 걸까요?\nIf they're not even collecting monthly r"
+  },
+  {
+    "name": "02-desk",
+    "requested": "https://www.durukorean.com/ko/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/ko/blog/post/jeonse-lump-sum-deposit-explained?pl=ko",
+    "htmlLang": "ko",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "ko",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "ko",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "블로그",
+      "주제별로 보기",
+      "한국 여행 준비",
+      "한식과 식사 안내",
+      "뷰티와 스타일",
+      "동네와 한국 문화",
+      "유학과 생활 지원",
+      "일과 커리어",
+      "한국어 공부 팁",
+      "기타",
+      "집주인은 왜 월세 대신 목돈을 원할까",
+      "집주인은 이 돈으로 뭘 할까",
+      "나가기 전에 확인할 것",
+      "댓글",
+      "최신 글",
+      "새 글을 놓치지 마세요",
+      "다시 오신 것을 환영합니다",
+      "계정 만들기",
+      "비밀번호 재설정"
+    ],
+    "text": "방문 2,408\n오늘 352\n한국어 배우기\n교재 자료\n무료 다운로드\n블로그\n커뮤니티\n한국어\n로그인\n글\n블로그\n\n한국어와 한국 문화, 그리고 한국에서의 하루하루를 위한 안내.\n\n전체 글\n언어 선택\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n주제별로 보기\n한국 여행 준비\n\n도착해서 이동하고 결제하기까지, 첫 주에 필요한 것들.\n\n한식과 식사 안내\n\n무엇을 어떻게 주문하고, 한국 식탁에서는 어떻게 하는지.\n\n뷰티와 스타일\n\n스킨케어와 병원, 브랜드, 그리고 비싸게 사지 않는 법.\n\n동네와 한국 문화\n\n동네와 드라마 촬영지, 당일치기, 그리고 한국의 평범한 하루.\n\n유학과 생활 지원\n\n비자와 집, 병원, 그리고 한국에서 사는 데 필요한 서류.\n\n일과 커리어\n\n아르바이트 허가와 구직, 이력서, 인턴십.\n\n한국어 공부 팁\n\n바로 쓰는 표현, 자주 하는 실수, 그리고 쉽게 풀어 쓴 생활 한국어.\n\n기타\n\n문화적 뉘앙스와 외국인에게 영향을 주는 소식, 그 밖의 이야기들.\n\n← 전체 글\n\n유학과 생활 지원\n\n집주인은 왜 월세 대신 목돈을 원할까\n2026년 9월 28일\n\n사진 Ricardo Gomez Angel · Unsplash\n\n읽을 언어\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n⤓\n다운로드하려면 로그인\n♡\n0\n\n친구가 \"전세로 구해봐\"라고 했는데, 집주인이 월세 없이 1억 원을 통째로 맡기라고 하면 당황스러워요. 월세도 안 받는데 집주인은 대체 뭘로 돈을 버는 걸까요? 이 궁금증에는 진짜 경제학이 숨어 있어요.\n\n집주인은 이 돈으로 뭘 할까\n\n전세는 집주인이 세입자 돈을 몇 년간 빌려 쓰는 거예요. 예전엔 은행 이자가 높아서, 집주인이 그 목돈을 은행에만 넣어둬도 월세보다 많이 벌었어요. 지금은 이자가 낮아졌지만, 대신 집주인들은 그 돈으로 집 살 때 빌린 대출을 갚아요. 대출 이자를 줄이는 게 곧 돈을 버는 셈이라, 세입자에게 매달 월세를 받을 필요가 없어진 거예요.\n\n나가기 전에 확인할 것\n전세인지 반전세인지 먼저 물어보기: 반전세는 목돈에 월세를 조금 더 내는 방식이라 계산이 달라져요.\n집이 대출을 얼마나 안고 있는지 등기부등본으로 보기: 대출이 너무 많으면 집주인이 돈을 못 돌려줄 위험이 커요.\n전세보증보험 가입 가능 여부 확인하기: HUG(주택도시보증공사) 홈페이지에서 이 집이 보험 대상인지 미리 확인할 수 있어요.\n\n목돈이 크게 느껴져도, 집주인이 그 돈으로 뭘 하는지 알면 전세가 왜 이렇게 굴러가는지 이해가 될 거예요.\n\n#전세\n#반전세\n#전세보증보험\n#등기부등본\n#HUG\n#주택도시보증공사\n#임대차계약\n이 포스트 공유하기\n𝕏\nf\nN\n🔗\n댓글\n\n댓글을 남기려면 로그인하세요.\n로그인\n\n아직 댓글이 없습니다 — 첫 댓글을 남겨보세요.\n\n새 글을 놓치지 마세요\n\n한국어와 문화에 관한 새 글을 이메일로 바로 받아보세요."
+  },
+  {
+    "name": "02-phone",
+    "requested": "https://www.durukorean.com/ko/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/ko/blog/post/jeonse-lump-sum-deposit-explained?pl=ko",
+    "htmlLang": "ko",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "ko",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "ko",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "블로그",
+      "주제별로 보기",
+      "한국 여행 준비",
+      "한식과 식사 안내",
+      "뷰티와 스타일",
+      "동네와 한국 문화",
+      "유학과 생활 지원",
+      "일과 커리어",
+      "한국어 공부 팁",
+      "기타",
+      "집주인은 왜 월세 대신 목돈을 원할까",
+      "집주인은 이 돈으로 뭘 할까",
+      "나가기 전에 확인할 것",
+      "댓글",
+      "최신 글",
+      "새 글을 놓치지 마세요",
+      "다시 오신 것을 환영합니다",
+      "계정 만들기",
+      "비밀번호 재설정"
+    ],
+    "text": "로그인\n블로그\n\n한국어와 한국 문화, 그리고 한국에서의 하루하루를 위한 안내.\n\n전체 글\n언어 선택\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n주제별로 보기\n한국 여행 준비\n\n도착해서 이동하고 결제하기까지, 첫 주에 필요한 것들.\n\n한식과 식사 안내\n\n무엇을 어떻게 주문하고, 한국 식탁에서는 어떻게 하는지.\n\n뷰티와 스타일\n\n스킨케어와 병원, 브랜드, 그리고 비싸게 사지 않는 법.\n\n동네와 한국 문화\n\n동네와 드라마 촬영지, 당일치기, 그리고 한국의 평범한 하루.\n\n유학과 생활 지원\n\n비자와 집, 병원, 그리고 한국에서 사는 데 필요한 서류.\n\n일과 커리어\n\n아르바이트 허가와 구직, 이력서, 인턴십.\n\n한국어 공부 팁\n\n바로 쓰는 표현, 자주 하는 실수, 그리고 쉽게 풀어 쓴 생활 한국어.\n\n기타\n\n문화적 뉘앙스와 외국인에게 영향을 주는 소식, 그 밖의 이야기들.\n\n← 전체 글\n\n유학과 생활 지원\n\n집주인은 왜 월세 대신 목돈을 원할까\n2026년 9월 28일\n\n사진 Ricardo Gomez Angel · Unsplash\n\n읽을 언어\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\n⤓\n다운로드하려면 로그인\n♡\n0\n\n친구가 \"전세로 구해봐\"라고 했는데, 집주인이 월세 없이 1억 원을 통째로 맡기라고 하면 당황스러워요. 월세도 안 받는데 집주인은 대체 뭘로 돈을 버는 걸까요? 이 궁금증에는 진짜 경제학이 숨어 있어요.\n\n집주인은 이 돈으로 뭘 할까\n\n전세는 집주인이 세입자 돈을 몇 년간 빌려 쓰는 거예요. 예전엔 은행 이자가 높아서, 집주인이 그 목돈을 은행에만 넣어둬도 월세보다 많이 벌었어요. 지금은 이자가 낮아졌지만, 대신 집주인들은 그 돈으로 집 살 때 빌린 대출을 갚아요. 대출 이자를 줄이는 게 곧 돈을 버는 셈이라, 세입자에게 매달 월세를 받을 필요가 없어진 거예요.\n\n나가기 전에 확인할 것\n전세인지 반전세인지 먼저 물어보기: 반전세는 목돈에 월세를 조금 더 내는 방식이라 계산이 달라져요.\n집이 대출을 얼마나 안고 있는지 등기부등본으로 보기: 대출이 너무 많으면 집주인이 돈을 못 돌려줄 위험이 커요.\n전세보증보험 가입 가능 여부 확인하기: HUG(주택도시보증공사) 홈페이지에서 이 집이 보험 대상인지 미리 확인할 수 있어요.\n\n목돈이 크게 느껴져도, 집주인이 그 돈으로 뭘 하는지 알면 전세가 왜 이렇게 굴러가는지 이해가 될 거예요.\n\n#전세\n#반전세\n#전세보증보험\n#등기부등본\n#HUG\n#주택도시보증공사\n#임대차계약\n이 포스트 공유하기\n𝕏\nf\nN\n🔗\n댓글\n\n댓글을 남기려면 로그인하세요.\n로그인\n\n아직 댓글이 없습니다 — 첫 댓글을 남겨보세요.\n\n새 글을 놓치지 마세요\n\n한국어와 문화에 관한 새 글을 이메일로 바로 받아보세요.\n\n구독하기\n\n두루 코리언 — 전 세계 어디서든 배우는 실용적인 음원 중심 한국어 강의.\n\n학습"
+  }
+]
