@@ -2364,3 +2364,14 @@ create policy "resource_sources: admin read"
   on public.resource_sources for select
   using (exists (select 1 from public.admin_users a where a.user_id = auth.uid()));
 revoke all on public.resource_sources from anon;
+
+-- 44. a blog post as a PDF (2026-09-28)
+--
+-- scripts/blog-pdf.mjs puts one A4 file per language in the private
+-- `resources` bucket under blog/<post id>/ and records them here:
+-- { hash, at, files: { <lang>: { key, name, size, pages } } }. The hash
+-- is the body's fingerprint; the page offers the file only while the
+-- post still says what the file says. The file itself needs a sign-in,
+-- like any download.
+
+alter table public.posts add column if not exists pdf jsonb;

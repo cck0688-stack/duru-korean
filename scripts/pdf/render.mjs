@@ -47,7 +47,7 @@ const FONT_CSS =
   '&display=swap';
 // The owner's design (v2) adds an italic for the notes under a letter
 // and a serif for the section titles.
-const FONT_CSS_V2 = FONT_CSS
+export const FONT_CSS_V2 = FONT_CSS
   .replace('Inter:wght@400;600;700', 'Inter:ital,wght@0,400;0,600;0,700;1,400')
   .replace('&display=swap', '&family=Cormorant+Garamond:wght@600;700&display=swap');
 
@@ -134,7 +134,7 @@ const cachedFonts = new Map();
 // The stylesheet Google Fonts serves, with every font file it points at
 // pulled in and inlined. Done once per process; a run that makes fifty
 // sheets fetches nothing after the first.
-async function embeddedFonts(url = FONT_CSS) {
+export async function embeddedFonts(url = FONT_CSS) {
   if (cachedFonts.has(url)) return cachedFonts.get(url);
   const res = await fetch(url, {
     headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36' }
@@ -318,7 +318,7 @@ export function frameText(sheet, lang) {
   return out;
 }
 
-async function frameV2(sheet, L, fonts) {
+export async function frameV2(sheet, L, fonts) {
   const k = { top: '44mm', bottom: '27mm', row: '18mm', logo: '15.5mm', gap: '2.2mm', pad: '2.2mm 0' };
   if (!logo) logo = 'data:image/jpeg;base64,' + (await fs.readFile(path.join(HERE, 'assets', 'sheet-logo.jpg'))).toString('base64');
   const pills = [];

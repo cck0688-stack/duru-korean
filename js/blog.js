@@ -331,6 +331,8 @@
     if (!client) return;
 
     var isAdmin = false;
+    // Signed in at all: a post's PDF, like any download, needs it.
+    var signedIn = false;
     // The address bar is the truth for where in the blog a reader is:
     // ?cat= a shelf, ?sub= one of its sub-topics, ?aud= who they are.
     // That makes every view a link someone can send, and a back button
@@ -843,19 +845,34 @@
       // a line of small print between the reader and the first sentence
       // was in the way.
 
+      // The post as a PDF in the language being read (scripts/blog-pdf.mjs),
+      // offered only while the body is still the one the file was made from.
+      var pdfFile = pdfFor(post, readLang);
+      var pdfHTML = pdfFile
+        ? '<button type="button" class="btn btn-outline-dark blog-pdf-btn" id="blogPdfBtn">' +
+            '<span aria-hidden="true">⤓</span> ' +
+            escapeHTML(signedIn
+              ? t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', 'PDF')
+              : t('resources.loginToDownload', 'Log in to download')) +
+          '</button>'
+        : '';
+
       var langHTML = '';
-      if (codes.length > 1 || missing) {
+      if (codes.length > 1 || missing || pdfFile) {
         langHTML = '<div class="blog-lang-row">' +
-          '<label class="dl-lang" for="blogReadLang"><span>' +
-            escapeHTML(t('blog.readIn', 'Read in')) + '</span>' +
-            '<select id="blogReadLang">' + codes.map(function (c) {
-              return '<option value="' + escapeHTML(c) + '"' + (c === readLang ? ' selected' : '') + '>' +
-                escapeHTML(R.langLabel(c)) + '</option>';
-            }).join('') + '</select></label>' +
+          (codes.length > 1 || missing
+            ? '<label class="dl-lang" for="blogReadLang"><span>' +
+              escapeHTML(t('blog.readIn', 'Read in')) + '</span>' +
+              '<select id="blogReadLang">' + codes.map(function (c) {
+                return '<option value="' + escapeHTML(c) + '"' + (c === readLang ? ' selected' : '') + '>' +
+                  escapeHTML(R.langLabel(c)) + '</option>';
+              }).join('') + '</select></label>'
+            : '') +
           (missing ? '<p class="blog-lang-note">' +
             escapeHTML(t('blog.langMissing', 'Not written in {lang} yet — showing {shown}.')
               .replace('{lang}', R.langLabel(wanted)).replace('{shown}', R.langLabel(readLang))) +
             '</p>' : '') +
+          pdfHTML +
           '</div>';
       }
 
@@ -952,6 +969,20 @@
           renderSingle(post);
         });
       }
+      var pdfBtn = singleEl.querySelector('#blogPdfBtn');
+      if (pdfBtn) {
+        pdfBtn.addEventListener('click', function () {
+          if (!signedIn) { R.openLogin(); return; }
+          pdfBtn.disabled = true;
+          R.signedUrl(client, pdfFile.key, pdfFile.name, R.BUCKET).then(function (url) {
+            pdfBtn.disabled = false;
+            window.location.href = url;
+          }).catch(function (err) {
+            pdfBtn.disabled = false;
+            window.alert(err.message);
+          });
+        });
+      }
       var pubBtn = singleEl.querySelector('#blogPublishBtn');
       if (pubBtn) pubBtn.addEventListener('click', function () { togglePublished(post); });
       var editBtn = singleEl.querySelector('#blogEditBtn');
@@ -990,6 +1021,13 @@
             });
         });
       }
+    }
+
+    function pdfFor(post, lang) {
+      var pdf = post.pdf;
+      if (!pdf || !pdf.files || !pdf.files[lang] || !MT) return null;
+      if (pdf.hash !== MT.fingerprint(post.body || '')) return null;
+      return pdf.files[lang];
     }
 
     // KakaoTalk sharing needs a per-site JavaScript key from the Kakao
@@ -2241,6 +2279,7 @@
     });
 
     function applyAdmin(user) {
+      signedIn = !!user;
       if (!user) {
         isAdmin = false;
         pendingOnly = false;
