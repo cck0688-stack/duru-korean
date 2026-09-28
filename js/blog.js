@@ -995,7 +995,8 @@
       if (printBtn) {
         printBtn.addEventListener('click', function () {
           if (!signedIn) { R.openLogin(); return; }
-          printPdf(pdfFile, printBtn);
+          // The print edition: no photo, two pages where it fits.
+          printPdf(pdfFile.print && pdfFile.print.key ? pdfFile.print : pdfFile, printBtn);
         });
       }
       var pubBtn = singleEl.querySelector('#blogPublishBtn');

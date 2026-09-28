@@ -190,20 +190,37 @@ h3.head { font-size: 12pt; margin: 4mm 0 2mm; display: inline-block; background:
 .w-mean { margin: .8mm 0 0; font-weight: 600; font-size: 10.5pt; } .w-note { margin: .6mm 0 0; font-size: 9.5pt; line-height: 1.5; color: #4c635c; }
 .w-src { margin: 1mm 0 0; padding-left: 2.6mm; border-left: 2px solid #e1d8c8; font-size: 9.2pt; color: #4c635c; }
 .online { margin-top: 6mm; text-align: center; font-size: 8.5pt; color: #6b7a75; }
-`;
 
-function pageHTML(post, lang, fonts, withUrl = true) {
+/* The print edition (no photo) tightens step by step until it fits on
+   two pages: first the spacing, then the type a little, then the word
+   list in two columns. */
+.fit1 .cat { margin-bottom: 5px; } .fit1 .box { padding: 8px 6px 7px; margin-bottom: 6px; } .fit1 h1 { font-size: 17pt; }
+.fit1 .ko-title { margin-top: 4px; font-size: 10pt; }
+.fit1 .body { margin-top: 8px; } .fit1 .para { margin-bottom: 1.6mm; }
+.fit1 .pair { padding: .6mm 0 .6mm 3mm; margin-bottom: 1mm; } .fit1 .pair .src { line-height: 1.45; } .fit1 .pair .out { line-height: 1.4; margin-top: .3mm; }
+.fit1 .pair--head { margin-top: 2mm; } .fit1 .plain { line-height: 1.6; margin-bottom: 2mm; } .fit1 h3.head { margin: 3mm 0 1.5mm; }
+.fit1 .study { margin-top: 4mm; } .fit1 .study-title { margin-bottom: 2.6mm; } .fit1 .study-list li { margin-bottom: 2mm; }
+.fit1 .w-note { line-height: 1.4; } .fit1 .online { margin-top: 3mm; }
+.fit2 .pair .src, .fit2 .plain { font-size: 10pt; } .fit2 .pair .out { font-size: 9pt; }
+.fit2 .w-term { font-size: 11pt; } .fit2 .w-mean { font-size: 9.6pt; } .fit2 .w-note { font-size: 8.8pt; } .fit2 .w-src { font-size: 8.6pt; }
+.fit3 .study > .study-list, .fit3 .study-start + .study-list { column-count: 2; column-gap: 7mm; }
+.fit3 .study-list li { break-inside: avoid; }
+`;
+// How tight each step is: 0 is the download edition's spacing.
+const FIT = ['', 'fit1', 'fit1 fit2', 'fit1 fit2 fit3'];
+
+function pageHTML(post, lang, fonts, withUrl = true, edition = { photo: true, fit: 0 }) {
   const src = post.lang || 'ko';
   const body = bodyHTML(post, lang);
   if (!body) return null;
   const title = titleIn(post, lang);
   const auds = (post.audiences || []).filter((a) => ['tourists', 'students', 'expats'].includes(a));
-  const photo = post.image_url
+  const photo = edition.photo && post.image_url
     ? '<div class="photo"><img src="' + esc(post.image_url) + '" alt=""></div>' +
       (post.image_credit ? '<p class="credit">Photo: ' + esc(post.image_credit) + (post.image_source ? ' · ' + esc(post.image_source === 'unsplash' ? 'Unsplash' : post.image_source === 'pexels' ? 'Pexels' : post.image_source) : '') + '</p>' : '')
     : '';
   const url = 'www.durukorean.com' + (lang === 'en' ? '' : '/' + lang) + '/blog/post/' + post.slug;
-  return '<!doctype html><html lang="' + esc(lang) + '"><head><meta charset="utf-8"><style>' + fonts + '</style><style>' + CSS + '</style></head><body>' +
+  return '<!doctype html><html lang="' + esc(lang) + '"><head><meta charset="utf-8"><style>' + fonts + '</style><style>' + CSS + '</style></head><body class="' + FIT[edition.fit || 0] + '">' +
     '<div class="head-block">' +
       '<p class="cat"><span class="dia"></span><span>' + esc(t(lang, 'blog.cat.' + post.category, post.category)) + '</span><span class="dia"></span></p>' +
       '<div class="box"><h1>' + esc(title) + '</h1>' +
@@ -254,10 +271,10 @@ async function makePost(browser, fonts, token, post) {
   for (const lang of LANGS) {
     if (!pageHTML(post, lang, fonts)) continue;
     const frame = await frameV2({ title: titleIn(post, lang) }, labelsFor(lang), fonts);
-    const render = async (withUrl) => {
+    const render = async (withUrl, edition) => {
       const page = await browser.newPage();
       try {
-        await page.setContent(pageHTML(post, lang, fonts, withUrl), { waitUntil: 'networkidle', timeout: 60000 });
+        await page.setContent(pageHTML(post, lang, fonts, withUrl, edition), { waitUntil: 'networkidle', timeout: 60000 });
         await page.evaluate(() => document.fonts.ready);
         const bytes = await page.pdf({ format: 'A4', printBackground: true, displayHeaderFooter: true, ...frame });
         return [bytes, (bytes.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length];
@@ -265,23 +282,40 @@ async function makePost(browser, fonts, token, post) {
         await page.close();
       }
     };
-    let [pdf, pages] = await render(true);
     // The address line at the end never gets a page to itself: a page
     // with nothing else on it is left off (the footer says where it
     // came from anyway).
-    if (pages > 1) {
-      const [short, fewer] = await render(false);
-      if (fewer < pages) [pdf, pages] = [short, fewer];
+    const best = async (edition) => {
+      let [bytes, n] = await render(true, edition);
+      if (n > 1) {
+        const [short, fewer] = await render(false, edition);
+        if (fewer < n) [bytes, n] = [short, fewer];
+      }
+      return [bytes, n];
+    };
+    const [pdf, pages] = await best({ photo: true, fit: 0 });
+    // The print edition (the owner's call, 2026-09-28): no photo, and
+    // two pages where the post allows — the spacing tightens, then the
+    // type, then the word list goes into two columns, and it stops at
+    // the first step that fits.
+    let printed = null;
+    for (let fit = 0; fit < FIT.length; fit += 1) {
+      const [bytes, n] = await best({ photo: false, fit });
+      if (!printed || n < printed[1]) printed = [bytes, n, fit];
+      if (n <= 2) break;
     }
     const name = post.slug + '(' + lang + ').pdf';
+    const printName = post.slug + '(' + lang + ')-print.pdf';
     if (OUT) {
       const dir = ONE ? OUT : path.join(OUT, post.slug);
       fs.mkdirSync(dir, { recursive: true });
       fs.writeFileSync(path.join(dir, name), pdf);
+      fs.writeFileSync(path.join(dir, printName), printed[0]);
     }
     const key = 'blog/' + post.id + '/' + lang + '.pdf';
-    if (!DRY) await upload(token, key, pdf);
-    files[lang] = { key, name, size: pdf.length, pages };
+    const printKey = 'blog/' + post.id + '/' + lang + '-print.pdf';
+    if (!DRY) { await upload(token, key, pdf); await upload(token, printKey, printed[0]); }
+    files[lang] = { key, name, size: pdf.length, pages, print: { key: printKey, pages: printed[1], fit: printed[2] } };
   }
   return files;
 }
@@ -322,7 +356,7 @@ async function main() {
         }
         done += 1;
         log('· ' + (post.published ? '' : '[초안] ') + post.title + ' — ' + langs.length + '개 언어 (' +
-          langs.map((c) => c + ' ' + files[c].pages + '쪽').join(', ') + ')');
+          langs.map((c) => c + ' ' + files[c].pages + '쪽/인쇄 ' + files[c].print.pages + '쪽').join(', ') + ')');
       } catch (err) {
         failed += 1;
         log('✗ ' + post.title + ' — ' + err.message);
