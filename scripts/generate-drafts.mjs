@@ -423,7 +423,8 @@ async function saveReferences(call, postId, refs) {
       headers: { Prefer: 'return=minimal' },
       body: JSON.stringify(refs.map((r) => ({ post_id: postId, domain: r.domain, url: r.url || null, about: r.about })))
     });
-    log(`  참고 자료 ${refs.length}개 (관리자만 봄): ${refs.map((r) => r.domain).join(', ')}`);
+    // The count only: the run's log is public, the sources are not.
+    log(`  참고 자료 ${refs.length}개 저장 (관리자만 봄)`);
   } catch (err) {
     log(`  참고 자료를 저장하지 못했습니다 (schema.sql §43 이 필요합니다): ${err.message}`);
   }

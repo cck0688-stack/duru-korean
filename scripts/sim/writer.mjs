@@ -92,6 +92,40 @@ export function human(lang) {
 }
 
 
+// Not every member writes a careful, cheerful post (the owner, 2026-09-29):
+// a real board has one-liners, half-hearted posts, grumbling, and posts
+// that say nothing much at all. Each post and reply draws how much effort
+// it gets and what mood its writer is in, so the board is a mix.
+const POST_EFFORT = [
+  { w: 22, min: 4, max: 60, say: 'Very low effort: one short line, like someone typing in a hurry — half a thought, no greeting, no ending, maybe no punctuation.' },
+  { w: 20, min: 20, max: 120, say: 'Short: two or three quick sentences, not much detail.' },
+  { w: 38, min: 50, max: 300, say: 'Normal length: say what you want to say with one or two specifics.' },
+  { w: 10, min: 180, max: 400, say: 'A bit long and rambling: wander a little, change the subject once, still casual.' },
+  { w: 10, min: 10, max: 150, say: 'Barely on topic: something small and not very meaningful — what you ate, the weather, being sleepy, a random Korean word you saw — the kind of post people make when they are bored.' }
+];
+const REPLY_EFFORT = [
+  { w: 30, min: 1, max: 25, say: 'Tiny reply: a word or two, a laugh, an emoji, "same", "thx", "true" — how people react without really answering.' },
+  { w: 30, min: 10, max: 90, say: 'Short reply: one sentence.' },
+  { w: 30, min: 20, max: 300, say: 'A normal reply with something of your own in it.' },
+  { w: 10, min: 5, max: 120, say: 'A reply that does not really help: off on a tangent, only half-read the post, or answers a different question.' }
+];
+const MOODS = [
+  { w: 30, say: 'Your mood: fine, ordinary, not especially excited.' },
+  { w: 18, say: 'Your mood: upbeat and friendly.' },
+  { w: 14, say: 'Your mood: tired, a bit fed up with studying today.' },
+  { w: 12, say: 'Your mood: mildly complaining — Korean is hard, an app or textbook was not great, you gave up for a week. Grumble about things, never about people or groups.' },
+  { w: 12, say: 'Your mood: confused and not sure what you are even asking.' },
+  { w: 8, say: 'Your mood: bored, just killing time.' },
+  { w: 6, say: 'Your mood: a little sceptical — you doubt a tip or disagree politely with something.' }
+];
+function weighted(list) {
+  let r = Math.random() * list.reduce((n, x) => n + x.w, 0);
+  for (const x of list) { r -= x.w; if (r < 0) return x; }
+  return list[list.length - 1];
+}
+export function postManner() { return { effort: weighted(POST_EFFORT), mood: weighted(MOODS) }; }
+export function replyManner() { return { effort: weighted(REPLY_EFFORT), mood: weighted(MOODS) }; }
+
 function strict(properties) {
   return { type: 'object', properties, required: Object.keys(properties), additionalProperties: false };
 }
@@ -197,7 +231,9 @@ async function screened(cfg, make, min, max, what, lang) {
       why = 'The last one sounded written, not typed: no em dashes, no semicolons, no stock phrases.';
       continue;
     }
-    const other = lang && wrongLanguage(body, lang);
+    // A word or two ("lol", "same") is not enough for the detector to
+    // tell languages apart; only longer text is checked.
+    const other = lang && chars(body) >= 12 && wrongLanguage(body, lang);
     if (other && process.env.SIM_DEBUG) console.log('  (다른 언어로 판정: ' + other + ') ' + body);
     if (other) {
       why = 'The last one was written in ' + (LANG_NAMES[other] || other) + '. Write every sentence in ' +
@@ -247,14 +283,18 @@ export async function inventPeople(cfg, langs) {
 /* ---------------- posts ---------------- */
 
 export async function writePost(cfg, persona, recent) {
-  const target = pick([60, 90, 120, 160, 200, 250, 300, 360, 390]);
+  const manner = postManner();
+  const { min, max } = manner.effort;
   const system = [
     'You are ' + persona.nickname + ', a member of an online community of Korean learners.',
     'You write only in ' + LANG_NAMES[persona.lang] + '. About you (for your eyes only): ' + persona.voice,
     '',
     'Write your first post, in this section: ' + TOPIC_BRIEF[persona.topic],
-    persona.topic === 'ask' ? 'Ask one clear question that other learners could actually answer.' : '',
-    'Length: about ' + target + ' characters, and never under 50 or over 400.',
+    persona.topic === 'ask' ? 'Ask a question — it does not have to be a well-put one.' : '',
+    manner.effort.say,
+    manner.mood.say,
+    'Length: between ' + min + ' and ' + max + ' characters.',
+    'Not every post has to be positive, useful or well written. Real boards are uneven.',
     '',
     human(persona.lang), '', SAFETY,
     '',
@@ -263,7 +303,7 @@ export async function writePost(cfg, persona, recent) {
   ].join('\n');
   const schema = strict({ body: { type: 'string' } });
   return screened(cfg, async (why) => parse(await cfg.provider.chat(cfg, system + (why ? '\n\n' + why : ''),
-    'Write the post.', schema), '글').body, 50, 400, '글', persona.lang);
+    'Write the post.', schema), '글').body, min, max, '글', persona.lang);
 }
 
 /* ---------------- replies ---------------- */
@@ -275,8 +315,10 @@ export async function writeReply(cfg, persona, thread, target, category) {
   const role = category === 'ask'
     ? (isAuthor
       ? 'You asked the question. Reply to the message marked >>> — thank them, say whether it helped, or ask a short follow-up.'
-      : 'Answer the question, or add to the answer marked >>>, from your own experience. Be concretely helpful.')
+      : 'Answer the question, or add to the answer marked >>>, from your own experience, as well or as vaguely as you would.')
     : 'Reply to the message marked >>> so the conversation carries on naturally — react, share your own experience, ask something back.';
+  const manner = replyManner();
+  const { min, max } = manner.effort;
   const system = [
     'You are ' + persona.nickname + ', a member of an online community of Korean learners.',
     'You write only in ' + LANG_NAMES[persona.lang] + ', even though others write in their own languages —',
@@ -284,11 +326,13 @@ export async function writeReply(cfg, persona, thread, target, category) {
     '',
     'The section: ' + TOPIC_BRIEF[category],
     role,
-    'Length: 20 to 300 characters. Short replies are fine.',
+    manner.effort.say,
+    manner.mood.say,
+    'Length: between ' + min + ' and ' + max + ' characters. It does not have to be helpful or polished.',
     '',
     human(persona.lang), '', SAFETY
   ].join('\n');
   const schema = strict({ body: { type: 'string' } });
   return screened(cfg, async (why) => parse(await cfg.provider.chat(cfg, system + (why ? '\n\n' + why : ''),
-    'The thread so far:\n\n' + shown + '\n\nWrite your reply.', schema), '답글').body, 20, 300, '답글', persona.lang);
+    'The thread so far:\n\n' + shown + '\n\nWrite your reply.', schema), '답글').body, min, max, '답글', persona.lang);
 }
