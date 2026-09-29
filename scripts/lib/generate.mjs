@@ -323,6 +323,28 @@ export async function wrapUp(cfg, opts) {
 }
 
 // Domains only as domains; at most eight; nothing empty.
+// The sources for a post already written — for posts from before the
+// admin-only sources table (schema §43) existed, or whose sources were
+// lost because it did not. The same rules as when a draft is written.
+export async function postReferences(cfg, post) {
+  const system = [READER, '', '이 글은 이미 다 썼습니다. 글이 기대고 있는 사실의 출처만 정리합니다.',
+                  '', REF_RULES].join('\n');
+  const user = ['제목: ' + (post.title || ''), '', '본문:', post.body || ''].join('\n');
+  const text = await cfg.provider.chat(cfg, system, user,
+    schema(cfg.provider.strictSchema !== false, {
+      references: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: { domain: { type: 'string' }, url: { type: 'string' }, about: { type: 'string' } },
+          required: ['domain', 'url', 'about'],
+          additionalProperties: false
+        }
+      }
+    }, ['references']));
+  return cleanReferences(parse(text, '참고 자료').references);
+}
+
 export function cleanReferences(list) {
   return (Array.isArray(list) ? list : []).map((r) => ({
     domain: String((r && r.domain) || '').trim().toLowerCase()

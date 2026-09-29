@@ -1,0 +1,62 @@
+# DURU KOREAN — sources for blog posts that have none
+#
+# On demand (scripts/post-sources.mjs): for posts written before the
+# admin-only sources table (schema §43) existed, names the sites each
+# post's facts rest on and saves them where only an admin can read
+# them. The log shows counts only — this repository is public.
+
+name: Blog post sources
+
+on:
+  workflow_dispatch:
+    inputs:
+      find:
+        description: 'One post: part of its title (empty = every post without sources)'
+        type: string
+        default: ''
+      dry_run:
+        description: 'Name them, save nothing'
+        type: boolean
+        default: false
+
+concurrency:
+  group: post-sources
+  cancel-in-progress: false
+
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Sources
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          BLOG_PROVIDER: ${{ vars.BLOG_PROVIDER }}
+          BLOG_MODEL: ${{ vars.BLOG_MODEL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          # Through the environment, never pasted into the command line.
+          FIND: ${{ inputs.find }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          args=()
+          if [ -n "$FIND" ]; then args+=(--find="$FIND"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          node scripts/post-sources.mjs "${args[@]}"
