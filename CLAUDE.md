@@ -4,7 +4,9 @@
   docs/WORKSHEET-MASTER-INSTRUCTION.md — the owner's master instruction
   (2026-09-26). The kiosk sheet (content/sheets/748acfcc-…) is the reference
   design. Always exactly two A4 pages; cut content, never shrink type; render
-  the PDF to images and check every page before delivering.
+  the PDF to images and check every page before delivering. A numbered
+  section stays on one page (owner, 2026-09-29): pulled back by setting
+  the sheet closer, else moved whole to the next page (render.mjs).
 - Change only what the owner asked for. Do not rework other sheets or pages
   on your own initiative.
 - A replaced or new download is held (unpublished, status review) until the

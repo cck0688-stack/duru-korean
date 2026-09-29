@@ -29,6 +29,9 @@ on:
         type: string
         default: ''
 
+permissions:
+  contents: write
+
 concurrency:
   group: relayout-sheets
   cancel-in-progress: false
@@ -74,9 +77,33 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run }}
           LIMIT: ${{ inputs.limit }}
           ONLY: ${{ inputs.only }}
+          RUN: ${{ github.run_number }}
         run: |
-          args=()
+          args=(--out="$RUNNER_TEMP/relayout/$RUN")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
           if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
           node scripts/relayout-sheets.mjs "${args[@]}"
+
+      # A copy of the new PDFs on the rework-output branch, to look at.
+      - name: Save a copy for checking
+        if: always()
+        env:
+          RUN: ${{ github.run_number }}
+        run: |
+          [ -d "$RUNNER_TEMP/relayout/$RUN" ] || exit 0
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/relayout
+          cp -r "$RUNNER_TEMP/relayout/$RUN" ../rework-output/relayout/
+          cd ../rework-output
+          git add -A relayout
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Relayout PDFs (run $RUN)"
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1

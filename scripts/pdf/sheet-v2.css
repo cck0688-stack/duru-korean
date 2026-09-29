@@ -456,3 +456,8 @@ section > h2.long { font-size: 16px; letter-spacing: .06em; }
 .compact .rows-plain .row-term { padding: 1px 8px; }
 .compact .aside p { line-height: 1.4; }
 .compact .tip-box p { line-height: 1.5; }
+
+/* A numbered section that would start on one page and end on the next
+   starts on the next instead (render.mjs decides; the owner's rule,
+   2026-09-29). */
+section.k-next { break-before: page; page-break-before: always; }

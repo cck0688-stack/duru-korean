@@ -379,6 +379,7 @@ export async function renderSheet(sheet, opts = {}) {
     { executablePath: process.env.CHROMIUM_PATH || undefined });
   const context = await browser.newContext();
   const page = await context.newPage();
+  let splitLeft = false;
   try {
     await page.setContent(html, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
@@ -436,8 +437,46 @@ export async function renderSheet(sheet, opts = {}) {
       }
       if (best.out) return best.out;
     }
+
+    // The owner's rule (2026-09-29): a numbered section stays on one
+    // page. One that starts on a page and ends on the next is first
+    // pulled back by setting the sheet a little closer (a fresh compact
+    // render, as above) — kept when that section then fits where it
+    // started and the sheet is no longer. Failing that the whole
+    // section moves to the next page, when it fits there and the sheet
+    // stays as long as it was. A section taller than a page is left.
+    let moved = 0;
+    if (design === 'v2' && opts.keep !== false) {
+      let seen = await sectionPages(page, print);
+      let split = seen.spans.find((x) => x.a !== x.b);
+      if (split && opts.compact === undefined) {
+        const closer = await renderSheet(sheet, { ...opts, compact: true, keep: 'report', browser });
+        if (!closer.split && (closer.check ? closer.check.pages : pages(closer.pdf)) <= Math.max(2, seen.pages)) return closer;
+      }
+      if (opts.keep === 'report') {
+        splitLeft = !!split;
+      } else {
+        for (let round = 0; split && round < 4; round += 1) {
+          await page.evaluate((i) => { document.querySelector('section[data-k="' + i + '"]').classList.add('k-next'); }, split.i);
+          const after = await sectionPages(page, print);
+          const same = after.spans.find((x) => x.i === split.i);
+          if (after.pages > Math.max(2, seen.pages) || !same || same.a !== same.b) {
+            await page.evaluate((i) => { document.querySelector('section[data-k="' + i + '"]').classList.remove('k-next'); }, split.i);
+            break;
+          }
+          moved += 1;
+          seen = after;
+          split = seen.spans.find((x) => x.a !== x.b && x.i > split.i);
+        }
+        splitLeft = !!seen.spans.find((x) => x.a !== x.b);
+        if (moved) pdf = await print();
+      }
+      await page.evaluate(() => document.querySelectorAll('section[data-k]').forEach((el) => el.removeAttribute('data-k')));
+    }
     const bodyClass = await page.evaluate(() => document.body.className);
-    let used = html.replace(/<body(?: class="[^"]*")?>/, bodyClass ? '<body class="' + bodyClass + '">' : '<body>');
+    let used = moved
+      ? '<!doctype html>' + await page.content()
+      : html.replace(/<body(?: class="[^"]*")?>/, bodyClass ? '<body class="' + bodyClass + '">' : '<body>');
     // The owner's rule (2026-09-25): the answers sit at the very foot of
     // the last page, however much room that leaves above them, so a
     // learner working down the page does not see them first. A gap goes
@@ -475,6 +514,8 @@ export async function renderSheet(sheet, opts = {}) {
     const checks = opts.check === false ? null : await (await inspector())(page, pdf, sheet);
     return {
       pdf,
+      split: splitLeft,
+      moved,
       html: used,
       bytes: pdf.length,
       hash: crypto.createHash('sha256').update(pdf).digest('hex'),
@@ -484,6 +525,50 @@ export async function renderSheet(sheet, opts = {}) {
     await context.close();
     if (!opts.browser) await browser.close();
   }
+}
+
+// Where each numbered section starts and ends, read from a print of the
+// page itself — only Chromium knows where it breaks the pages. Each
+// section gets two invisible one-pixel links, at its top and at its
+// foot; the PDF lists every page's links, so the page each one landed
+// on is the page that part of the section is on. The links are taken
+// out again before anything is kept.
+async function sectionPages(page, print) {
+  await page.evaluate(() => {
+    const secs = [...document.querySelectorAll('section')]
+      .filter((el) => el.querySelector(':scope > h2') && !el.classList.contains('continued') && !el.closest('.answers'));
+    secs.forEach((el, i) => {
+      el.dataset.k = String(i);
+      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+      ['a', 'b'].forEach((end) => {
+        const a = document.createElement('a');
+        a.className = 'k-probe';
+        a.href = 'https://probe.invalid/' + i + end;
+        a.style.cssText = 'position:absolute;left:0;' + (end === 'a' ? 'top:0' : 'bottom:0') + ';width:1px;height:1px;display:block';
+        el.appendChild(a);
+      });
+    });
+  });
+  const pdf = await print();
+  await page.evaluate(() => document.querySelectorAll('a.k-probe').forEach((a) => a.remove()));
+  const raw = pdf.toString('latin1');
+  const uri = {};
+  for (const m of raw.matchAll(/(\d+) 0 obj\s*<<\/Type \/Annot[\s\S]*?\/URI \(https:\/\/probe\.invalid\/(\d+)([ab])\)/g)) uri[m[1]] = [Number(m[2]), m[3]];
+  const at = {};
+  let n = 0;
+  for (const m of raw.matchAll(/\d+ 0 obj\s*<<\/Type \/Page\b([\s\S]*?)endobj/g)) {
+    n += 1;
+    const refs = /\/Annots \[([^\]]*)\]/.exec(m[1]);
+    if (!refs) continue;
+    for (const r of refs[1].matchAll(/(\d+) 0 R/g)) {
+      const hit = uri[r[1]];
+      if (hit) (at[hit[0]] = at[hit[0]] || {})[hit[1]] = n;
+    }
+  }
+  const spans = Object.keys(at).map((i) => ({ i: Number(i), a: at[i].a, b: at[i].b }))
+    .filter((x) => x.a && x.b).sort((x, y) => x.i - y.i);
+  const { pageBreakdown } = await import('./check.mjs');
+  return { pages: pageBreakdown(pdf).pages, spans };
 }
 
 // The rules live in check.mjs; this file's job is to make the file.

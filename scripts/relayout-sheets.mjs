@@ -53,6 +53,8 @@ const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); r
 const DRY = args.includes('--dry-run');
 const LIMIT = Number(arg('limit')) || 0;
 const ONLY = arg('only');
+// --out=DIR: a copy of every new PDF, to look at.
+const OUT = arg('out');
 
 const log = (...a) => console.log(...a);
 const WORK = fs.mkdtempSync(path.join(os.tmpdir(), 'relayout-'));
@@ -222,6 +224,10 @@ export async function relayout(token, cfg, browser, r) {
       const out = await renderSheet(edition, { category: r.category, lang, browser });
       const fresh = path.join(WORK, r.id + '-' + lang + '-new.pdf');
       fs.writeFileSync(fresh, out.pdf);
+      if (OUT) {
+        fs.mkdirSync(path.join(OUT, r.id), { recursive: true });
+        fs.writeFileSync(path.join(OUT, r.id, lang + '.pdf'), out.pdf);
+      }
       const L = labelsFor(lang);
       const cmp = py({ op: 'compare', old: it.old, new: fresh, title: sheet.title || r.title, drop,
         labels: Object.values(L).filter((x) => typeof x === 'string'), frame: frameText(sheet, lang) });
@@ -307,7 +313,10 @@ export async function run() {
   // One download by its id, or several by id or exact title, separated by "|".
   if (ONLY) {
     const want = ONLY.split('|').map((x) => x.trim()).filter(Boolean);
-    rows = rows.filter((r) => want.includes(r.id) || want.includes(r.title));
+    // An exact id or title, or failing that, part of a title.
+    const norm = (x) => String(x || '').replace(/\s+/g, '');
+    rows = rows.filter((r) => want.includes(r.id) || want.includes(r.title) ||
+      want.some((w) => norm(w).length >= 6 && norm(r.title).includes(norm(w))));
   }
   if (LIMIT) rows = rows.slice(0, LIMIT);
   log('대상: ' + rows.length + '개');
