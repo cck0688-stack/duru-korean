@@ -1,0 +1,102 @@
+{
+  "title": "주말에 뭐 했어요? 지난 일 말하기",
+  "keyword": "",
+  "summary": "Pelajari cara membicarakan masa lampau dengan sopan menggunakan -았어요, -었어요, 했어요, dan -(이)었어요.",
+  "objective": "Di akhir pelajaran, kamu bisa mengubah kata kerja, kata sifat, dan kata benda ke bentuk lampau sopan dengan memilih -았어요, -었어요, 했어요, -이었어요, atau -였어요. Kamu juga bisa menyingkat batang kata berakhiran vokal (가다 → 갔어요, 되다 → 됐어요) dan memperbaiki tiga kesalahan ejaan yang umum.",
+  "level": "Pemula",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "MEMBENTUK KALIMAT LAMPAU",
+    "line": "Pilih, tulis, atau perbaiki bentuk lampau pada setiap soal dengan memakai aturan di halaman 1."
+  },
+  "exercises": [
+    "Pilih bentuk lampau yang benar:\n①아침에 창문을 (닫았어요 / 닫었어요).\n②지난달에 한국어 책을 (읽았어요 / 읽었어요).\n③어제는 날씨가 (좋았어요 / 좋었어요).",
+    "Jawablah dalam bahasa Korea. Gunakan bentuk lampau dari kata yang diberikan:\n①A: 어제 뭐 했어요? B: (공원에서 운동하다) ____\n②A: 도서관은 어땠어요? B: (아주 조용하다) ____",
+    "Tulislah bentuk lampau singkat (satu suku kata):\n①나오다: 지하철역에서 3번 출구로 ____.\n②배우다: 작년에 태권도를 ____.\n③끓이다: 동생이 라면을 ____.",
+    "Isi bagian yang kosong dengan 이었어요 atau 였어요:\n①어제는 일요일____.\n②그 사람은 제 고등학교 친구____.",
+    "Setiap kalimat memiliki satu kata yang salah. Tulislah kata yang benar:\n①동생이 올해 대학생이 됬어요.\n②어제는 피곤해서 일찍 자았어요.\n③저는 작년까지 회사원였어요."
+  ],
+  "answers": [
+    "① 닫았어요 ② 읽었어요 ③ 좋았어요",
+    "① 공원에서 운동했어요. ② 아주 조용했어요.",
+    "① 나왔어요 ② 배웠어요 ③ 끓였어요",
+    "① 이었어요 (일요일이었어요) ② 였어요 (친구였어요)",
+    "① 됐어요 (되었어요) ② 잤어요 ③ 회사원이었어요"
+  ],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "batang kata + 았어요",
+      "when": "Vokal terakhir pada batang kata adalah ㅏ atau ㅗ.",
+      "means": "Melakukan / adalah (lampau sopan)",
+      "example": "어제 친구한테 꽃을 받았어요.",
+      "exampleMeaning": "Kemarin saya menerima bunga dari teman.",
+      "mark": [
+        "받았어요"
+      ]
+    },
+    {
+      "form": "batang kata + 었어요",
+      "when": "Vokal terakhir pada batang kata adalah vokal lainnya (ㅓ, ㅜ, ㅡ, ㅣ, dll.).",
+      "means": "Melakukan / adalah (lampau sopan)",
+      "example": "그 영화는 정말 재미있었어요.",
+      "exampleMeaning": "Film itu benar-benar seru.",
+      "mark": [
+        "재미있었어요."
+      ]
+    },
+    {
+      "form": "kata benda/kata + 했어요 (하다 → 했어요)",
+      "when": "Kata kerja atau kata sifat berakhiran 하다.",
+      "means": "Melakukan / adalah (lampau sopan)",
+      "example": "주말에 방을 청소했어요.",
+      "exampleMeaning": "Saya membersihkan kamar saya pada akhir pekan.",
+      "mark": [
+        "청소했어요."
+      ]
+    },
+    {
+      "form": "bentuk singkat: 가 → 갔, 오 → 왔, 주 → 줬, 마시 → 마셨, 되 → 됐",
+      "when": "Batang kata berakhir dengan vokal tanpa konsonan akhir. Batang kata dan akhiran bergabung menjadi satu suku kata.",
+      "means": "Melakukan / adalah (lampau sopan)",
+      "example": "어제 친구가 집에 왔어요. 같이 영화를 봤어요.",
+      "exampleMeaning": "Kemarin teman datang ke rumah saya. Kami menonton film bersama.",
+      "mark": [
+        "왔어요.",
+        "봤어요."
+      ]
+    },
+    {
+      "form": "kata benda + 이었어요 / 였어요",
+      "when": "Pakai 이었어요 setelah konsonan akhir (학생이었어요). Pakai 였어요 setelah vokal (의사였어요).",
+      "means": "Adalah (kata benda) di masa lampau",
+      "example": "어제는 친구 생일이었어요. 파티 장소는 카페였어요.",
+      "exampleMeaning": "Kemarin adalah hari ulang tahun teman saya. Pestanya di sebuah kafe.",
+      "mark": [
+        "생일이었어요.",
+        "카페였어요."
+      ]
+    }
+  ],
+  "watchOut": [
+    "가았어요 (X) → 갔어요 (O): Jika batang kata berakhir dengan ㅏ, jangan menambahkan 아 lagi. Cukup tambahkan ㅆ어요.",
+    "학생였어요 (X) → 학생이었어요 (O): 였어요 hanya untuk kata benda yang berakhir dengan vokal. Setelah konsonan akhir, pakai 이었어요.",
+    "됬어요 (X) → 됐어요 (O): 되 + 었 menjadi 됐, bukan 됬. Bunyinya sama, tetapi 됬 selalu merupakan kesalahan ejaan."
+  ],
+  "watchOutMark": [
+    [
+      "가았어요",
+      "갔어요"
+    ],
+    [
+      "학생였어요",
+      "학생이었어요"
+    ],
+    [
+      "됬어요",
+      "됐어요"
+    ]
+  ],
+  "category": "grammar"
+}
