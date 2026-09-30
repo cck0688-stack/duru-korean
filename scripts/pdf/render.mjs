@@ -449,8 +449,11 @@ export async function renderSheet(sheet, opts = {}) {
     if (design === 'v2' && opts.keep !== false) {
       let seen = await sectionPages(page, print);
       let split = seen.spans.find((x) => x.a !== x.b);
+      if (process.env.KEEP_DEBUG) console.log('keep:', opts.compact ? 'compact' : 'loose', seen.pages, JSON.stringify(seen.spans));
       if (split && opts.compact === undefined) {
-        const closer = await renderSheet(sheet, { ...opts, compact: true, keep: 'report', browser });
+        // Set closer, a later section may split in turn; the closer
+        // render moves that one on by the same rule before it is judged.
+        const closer = await renderSheet(sheet, { ...opts, compact: true, browser });
         if (!closer.split && (closer.check ? closer.check.pages : pages(closer.pdf)) <= Math.max(2, seen.pages)) return closer;
       }
       if (opts.keep === 'report') {
@@ -460,6 +463,7 @@ export async function renderSheet(sheet, opts = {}) {
           await page.evaluate((i) => { document.querySelector('section[data-k="' + i + '"]').classList.add('k-next'); }, split.i);
           const after = await sectionPages(page, print);
           const same = after.spans.find((x) => x.i === split.i);
+          if (process.env.KEEP_DEBUG) console.log('keep: moved', split.i, after.pages, JSON.stringify(after.spans));
           if (after.pages > Math.max(2, seen.pages) || !same || same.a !== same.b) {
             await page.evaluate((i) => { document.querySelector('section[data-k="' + i + '"]').classList.remove('k-next'); }, split.i);
             break;
@@ -539,7 +543,9 @@ async function sectionPages(page, print) {
       .filter((el) => el.querySelector(':scope > h2') && !el.classList.contains('continued') && !el.closest('.answers'));
     secs.forEach((el, i) => {
       el.dataset.k = String(i);
-      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+      // Only for the probe: a positioned section is painted after the
+      // rest, which changes the order of the text in the PDF.
+      if (getComputedStyle(el).position === 'static') { el.style.position = 'relative'; el.dataset.kPos = '1'; }
       ['a', 'b'].forEach((end) => {
         const a = document.createElement('a');
         a.className = 'k-probe';
@@ -550,7 +556,14 @@ async function sectionPages(page, print) {
     });
   });
   const pdf = await print();
-  await page.evaluate(() => document.querySelectorAll('a.k-probe').forEach((a) => a.remove()));
+  await page.evaluate(() => {
+    document.querySelectorAll('a.k-probe').forEach((a) => a.remove());
+    document.querySelectorAll('section[data-k-pos]').forEach((el) => {
+      el.style.position = '';
+      if (!el.getAttribute('style')) el.removeAttribute('style');
+      el.removeAttribute('data-k-pos');
+    });
+  });
   const raw = pdf.toString('latin1');
   const uri = {};
   for (const m of raw.matchAll(/(\d+) 0 obj\s*<<\/Type \/Annot[\s\S]*?\/URI \(https:\/\/probe\.invalid\/(\d+)([ab])\)/g)) uri[m[1]] = [Number(m[2]), m[3]];
