@@ -55,6 +55,9 @@ const LIMIT = Number(arg('limit')) || 0;
 const ONLY = arg('only');
 // --out=DIR: a copy of every new PDF, to look at.
 const OUT = arg('out');
+// --reuse=DIR: a read-back saved by an earlier run (<id>/<lang>.json)
+// is used instead of asking the model again.
+const REUSE = arg('reuse');
 
 const log = (...a) => console.log(...a);
 const WORK = fs.mkdtempSync(path.join(os.tmpdir(), 'relayout-'));
@@ -191,6 +194,10 @@ export async function relayout(token, cfg, browser, r) {
     fs.writeFileSync(old, await download(token, loc));
     const text = py({ op: 'text', path: old }).pages.join('\n');
     read[f.lang] = { f, loc, old, text };
+    if (OUT) {
+      fs.mkdirSync(path.join(OUT, r.id), { recursive: true });
+      fs.copyFileSync(old, path.join(OUT, r.id, f.lang + '.old.pdf'));
+    }
   });
 
   const en = read.en || read[files[0].lang];
@@ -206,8 +213,15 @@ export async function relayout(token, cfg, browser, r) {
     let result = null;
     for (let t = 0; t < TRIES && !result; t += 1) {
       let sheet;
+      const saved = REUSE && t === 0 && path.join(REUSE, r.id, lang + '.json');
       try {
-        sheet = await readBack(cfg, r.category, lang, it.text, hint);
+        sheet = saved && fs.existsSync(saved)
+          ? JSON.parse(fs.readFileSync(saved, 'utf8'))
+          : await readBack(cfg, r.category, lang, it.text, hint);
+        if (OUT) {
+          fs.mkdirSync(path.join(OUT, r.id), { recursive: true });
+          fs.writeFileSync(path.join(OUT, r.id, lang + '.json'), JSON.stringify(sheet, null, 2));
+        }
       } catch (err) {
         hint = ''; log('    ' + lang + ': 읽기 실패 — ' + err.message);
         continue;
@@ -219,7 +233,7 @@ export async function relayout(token, cfg, browser, r) {
       if (dropNote && edition.note) { drop.push(edition.note); edition.note = ''; }
       // The line above the questions is only kept if the old sheet had
       // one: a read-back that writes one has added to the sheet.
-      const had = (x) => x && it.text.toLowerCase().includes(String(x).toLowerCase());
+      const had = (x) => x && seenIn(it.text, x);
       if (!(edition.task && had(edition.task.title))) edition.task = null;
       const out = await renderSheet(edition, { category: r.category, lang, browser });
       const fresh = path.join(WORK, r.id + '-' + lang + '-new.pdf');
@@ -295,6 +309,22 @@ async function hold(token, r) {
     body: JSON.stringify([{ resource_id: r.id, action: 'unpublished',
       note: '새 편집으로 다시 찍었습니다. 확인 후 게시해 주세요. (Set again in the new layout — check, then publish.)' }])
   });
+}
+
+// Whether a line the read-back gives (the task box's title) was on the
+// old page. Letter-spaced capitals come out of a PDF with spaces between
+// the letters, and a read-back may mend a word the old page had lost, so
+// spaces are ignored and most of the line is enough: three in four of
+// its pairs of letters (2026-09-30: every task box was dropped, and so
+// no file matched, for want of this).
+export function seenIn(text, line) {
+  const norm = (x) => String(x || '').toLowerCase().replace(/\s+/g, '');
+  const t = norm(text), l = norm(line);
+  if (!l) return false;
+  if (t.includes(l)) return true;
+  const pairs = [];
+  for (let i = 0; i + 1 < [...l].length; i += 1) pairs.push([...l].slice(i, i + 2).join(''));
+  return pairs.length >= 3 && pairs.filter((p) => t.includes(p)).length / pairs.length >= 0.75;
 }
 
 /* ---------------- the run ---------------- */

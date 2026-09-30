@@ -28,6 +28,10 @@ on:
         description: 'Only these downloads: ids or exact titles, separated by "|"'
         type: string
         default: ''
+      reuse:
+        description: 'Reuse the read-back saved by this earlier run number (saves model calls)'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -78,8 +82,16 @@ jobs:
           LIMIT: ${{ inputs.limit }}
           ONLY: ${{ inputs.only }}
           RUN: ${{ github.run_number }}
+          REUSE: ${{ inputs.reuse }}
         run: |
           args=(--out="$RUNNER_TEMP/relayout/$RUN")
+          if [ -n "$REUSE" ]; then
+            case "$REUSE" in *[!0-9]*) echo "reuse must be a run number"; exit 1;; esac
+            git fetch -q origin rework-output
+            mkdir -p "$RUNNER_TEMP/reuse"
+            git archive origin/rework-output "relayout/$REUSE" | tar -x -C "$RUNNER_TEMP/reuse" || true
+            args+=(--reuse="$RUNNER_TEMP/reuse/relayout/$REUSE")
+          fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
           if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi

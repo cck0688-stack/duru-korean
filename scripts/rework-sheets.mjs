@@ -43,7 +43,7 @@ const pageCount = (pdf) => pageBreakdown(pdf).pages;
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionAccount, subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
 import { renderSheet, labelsFor, frameText } from './pdf/render.mjs';
-import { rest, where, download, replace, py, readBack, pool, SAME } from './relayout-sheets.mjs';
+import { rest, where, download, replace, py, readBack, pool, SAME, seenIn } from './relayout-sheets.mjs';
 
 const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co').replace(/\/+$/, '');
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
@@ -109,7 +109,7 @@ async function readFaithfully(cfgs, browser, r, pdfPath, work) {
     }
     const drop = [];
     if (sheet.note && MAKING_OF.test(sheet.note)) { drop.push(sheet.note); sheet.note = ''; }
-    const had = (x) => x && text.toLowerCase().includes(String(x).toLowerCase());
+    const had = (x) => x && seenIn(text, x);
     if (!(sheet.task && had(sheet.task.title))) sheet.task = null;
     const out = await renderSheet(sheet, { category: r.category, lang: SOURCE, browser, check: false });
     const fresh = path.join(work, r.id + '-read.pdf');
