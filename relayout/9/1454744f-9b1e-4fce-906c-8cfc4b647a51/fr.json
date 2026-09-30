@@ -1,0 +1,102 @@
+{
+  "title": "주말에 뭐 했어요? 지난 일 말하기",
+  "keyword": "",
+  "summary": "Apprenez à parler du passé de façon polie avec -았어요, -었어요, 했어요 et -(이)었어요.",
+  "objective": "À la fin, vous saurez mettre des verbes, des adjectifs et des noms au passé poli en choisissant -았어요, -었어요, 했어요, -이었어요 ou -였어요. Vous saurez aussi contracter les radicaux terminés par une voyelle (가다 → 갔어요, 되다 → 됐어요) et corriger trois fautes d'orthographe courantes.",
+  "level": "Débutant",
+  "minutes": 20,
+  "tags": [],
+  "task": {
+    "title": "",
+    "line": ""
+  },
+  "exercises": [
+    "Choisissez la bonne forme du passé : ①아침에 창문을 (닫았어요 / 닫었어요). ②지난달에 한국어 책을 (읽았어요 / 읽었어요). ③어제는 날씨가 (좋았어요 / 좋었어요).",
+    "Répondez en coréen. Utilisez le passé des mots donnés : ①A: 어제 뭐 했어요? B: (공원에서 운동하다) ____ ②A: 도서관은 어땠어요? B: (아주 조용하다) ____",
+    "Écrivez la forme courte du passé (une syllabe) : ①나오다: 지하철역에서 3번 출구로 ____. ②배우다: 작년에 태권도를 ____. ③끓이다: 동생이 라면을 ____.",
+    "Complétez avec 이었어요 ou 였어요 : ①어제는 일요일____. ②그 사람은 제 고등학교 친구____.",
+    "Chaque phrase contient un mot incorrect. Écrivez le mot correct : ①동생이 올해 대학생이 됬어요. ②어제는 피곤해서 일찍 자았어요. ③저는 작년까지 회사원였어요."
+  ],
+  "answers": [
+    "① 닫았어요 ② 읽었어요 ③ 좋았어요",
+    "① 공원에서 운동했어요. ② 아주 조용했어요.",
+    "① 나왔어요 ② 배웠어요 ③ 끓였어요",
+    "① 이었어요 (일요일이었어요) ② 였어요 (친구였어요)",
+    "① 됐어요 (되었어요) ② 잤어요 ③ 회사원이었어요"
+  ],
+  "checkThese": [],
+  "forms": [
+    {
+      "form": "radical + 았어요",
+      "when": "La dernière voyelle du radical est ㅏ ou ㅗ.",
+      "means": "A fait / était (passé poli)",
+      "example": "어제 친구한테 꽃을 받았어요.",
+      "exampleMeaning": "Hier, j'ai reçu des fleurs d'un ami.",
+      "mark": [
+        "받았어요"
+      ]
+    },
+    {
+      "form": "radical + 었어요",
+      "when": "La dernière voyelle du radical est une autre voyelle (ㅓ, ㅜ, ㅡ, ㅣ, etc.).",
+      "means": "A fait / était (passé poli)",
+      "example": "그 영화는 정말 재미있었어요.",
+      "exampleMeaning": "Ce film était vraiment amusant.",
+      "mark": [
+        "재미있었어요"
+      ]
+    },
+    {
+      "form": "nom/mot + 했어요 (하다 → 했어요)",
+      "when": "Le verbe ou l'adjectif se termine par 하다.",
+      "means": "A fait / était (passé poli)",
+      "example": "주말에 방을 청소했어요.",
+      "exampleMeaning": "J'ai fait le ménage dans ma chambre pendant le week-end.",
+      "mark": [
+        "청소했어요"
+      ]
+    },
+    {
+      "form": "forme contractée : 가 → 갔, 오 → 왔, 주 → 줬, 마시 → 마셨, 되 → 됐",
+      "when": "Le radical se termine par une voyelle, sans consonne finale. Le radical et la terminaison se fondent en une seule syllabe.",
+      "means": "A fait / était (passé poli)",
+      "example": "어제 친구가 집에 왔어요. 같이 영화를 봤어요.",
+      "exampleMeaning": "Un ami est venu chez moi hier. Nous avons regardé un film ensemble.",
+      "mark": [
+        "왔어요",
+        "봤어요"
+      ]
+    },
+    {
+      "form": "nom + 이었어요 / 였어요",
+      "when": "Utilisez 이었어요 après une consonne finale (학생이었어요). Utilisez 였어요 après une voyelle (의사였어요).",
+      "means": "Était (un nom) au passé",
+      "example": "어제는 친구 생일이었어요. 파티 장소는 카페였어요.",
+      "exampleMeaning": "Hier, c'était l'anniversaire de mon ami. La fête avait lieu dans un café.",
+      "mark": [
+        "생일이었어요",
+        "카페였어요"
+      ]
+    }
+  ],
+  "watchOut": [
+    "가았어요 (X) → 갔어요 (O) : si le radical se termine par ㅏ, n'ajoutez pas un autre 아. Ajoutez simplement ㅆ어요.",
+    "학생였어요 (X) → 학생이었어요 (O) : 였어요 s'emploie uniquement avec les noms qui se terminent par une voyelle. Après une consonne finale, utilisez 이었어요.",
+    "됬어요 (X) → 됐어요 (O) : 되 + 었 devient 됐, et non 됬. Les deux se prononcent pareil, mais 됬 est toujours une faute d'orthographe."
+  ],
+  "watchOutMark": [
+    [
+      "가았어요",
+      "갔어요"
+    ],
+    [
+      "학생였어요",
+      "학생이었어요"
+    ],
+    [
+      "됬어요",
+      "됐어요"
+    ]
+  ],
+  "category": "grammar"
+}
