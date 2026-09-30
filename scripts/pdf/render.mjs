@@ -415,6 +415,7 @@ export async function renderSheet(sheet, opts = {}) {
     };
 
     if (opts.compact === true) await cls('compact', true);
+    if (opts.snug === true) await cls('snug', true);
     if (opts.formsWide) await cls('forms-wide', true);
     let pdf = await settle();
     // And (the owner, 2026-09-25): a sheet is two pages. One that runs
@@ -450,11 +451,19 @@ export async function renderSheet(sheet, opts = {}) {
       let seen = await sectionPages(page, print);
       let split = seen.spans.find((x) => x.a !== x.b);
       if (process.env.KEEP_DEBUG) console.log('keep:', opts.compact ? 'compact' : 'loose', seen.pages, JSON.stringify(seen.spans));
+      const fits = (r) => !r.split && (r.check ? r.check.pages : pages(r.pdf)) <= Math.max(2, seen.pages);
       if (split && opts.compact === undefined) {
         // Set closer, a later section may split in turn; the closer
         // render moves that one on by the same rule before it is judged.
         const closer = await renderSheet(sheet, { ...opts, compact: true, browser });
-        if (!closer.split && (closer.check ? closer.check.pages : pages(closer.pdf)) <= Math.max(2, seen.pages)) return closer;
+        if (fits(closer)) return closer;
+      }
+      if (split && opts.keep !== 'report' && !opts.snug) {
+        // Closer still: the rows' spacing taken in once more (sheet-v2.css
+        // .snug), the type as it is. Also for a sheet that was set
+        // compact to fit on two pages in the first place.
+        const snug = await renderSheet(sheet, { ...opts, compact: true, snug: true, browser });
+        if (fits(snug)) return snug;
       }
       if (opts.keep === 'report') {
         splitLeft = !!split;
