@@ -134,25 +134,15 @@ jobs:
           SHELF: ${{ matrix.shelf }}
           # Seoul dates the 04:00 run makes nothing (the owner's call).
           # 2026-09-28: no allowance that morning; one sheet was made
-          # the evening before instead.
-          SKIP_DATES: '2026-09-28'
-          # Until this Seoul date the 04:00 run makes one sheet a day, not
-          # six (the owner's call, 2026-09-29: little allowance left). The
-          # shelf turns with the date, so the days cover different shelves.
-          ONE_A_DAY_UNTIL: '2026-10-04'
+          # the evening before instead. 2026-10-01 to 10-04: a week off
+          # to save the allowance (owner, 2026-09-30); six a day again
+          # from 10-05.
+          SKIP_DATES: '2026-09-28 2026-10-01 2026-10-02 2026-10-03 2026-10-04'
         run: |
           today=$(TZ=Asia/Seoul date +%F)
           if [ "$GITHUB_EVENT_NAME" = "schedule" ] && echo " $SKIP_DATES " | grep -q " $today "; then
             echo "$today is a day off for the worksheets; nothing to do."
             exit 0
-          fi
-          if [ "$GITHUB_EVENT_NAME" = "schedule" ] && [[ ! "$today" > "$ONE_A_DAY_UNTIL" ]]; then
-            shelves=(vocab reading grammar reallife hangul etc)
-            pick=${shelves[$(( $(date -u -d "$today" +%s) / 86400 % 6 ))]}
-            if [ "$SHELF" != "$pick" ]; then
-              echo "One sheet a day until $ONE_A_DAY_UNTIL: today's is $pick, not $SHELF."
-              exit 0
-            fi
           fi
           # A dispatch that names shelves runs only those: a job whose
           # shelf is not named does nothing and says so.

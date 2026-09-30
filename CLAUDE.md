@@ -16,8 +16,8 @@
 - Daily output (owner, 2026-09-27): 6 blog posts and 6 worksheets every
   day at 04:00 KST — blog: 6 of the 8 shelves, rotating; worksheets: one
   per shelf. Keep this unless the owner changes it. Exception (owner,
-  2026-09-29): through 2026-10-04 only one worksheet a day (shelf turns
-  by date; ONE_A_DAY_UNTIL in daily-sheets.yml); blog stays at 6.
+  2026-09-30): no worksheets 2026-10-01 to 10-04 (SKIP_DATES in
+  daily-sheets.yml); six a day again from 10-05; blog stays at 6.
 - Blog PDFs (owner, 2026-09-28): every blog post gets, per language, a
   download PDF (with the photo) and a print PDF (no photo, two pages
   where it fits; Print prints that one). scripts/blog-pdf.mjs, workflow
