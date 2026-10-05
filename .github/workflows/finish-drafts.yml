@@ -1,0 +1,80 @@
+# DURU KOREAN — finish worksheet drafts whose saving stopped halfway
+#
+# scripts/finish-drafts.mjs: adds the rights record and the "generated"
+# entry to auto-made sheets that have their PDFs but not those, and
+# copies every such day's PDFs to rework-output under
+# finish-drafts/<run number>/ for checking. No model is called and
+# nothing is published.
+
+name: Finish worksheet drafts
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'Seoul date the sheets were made from (YYYY-MM-DD)'
+        type: string
+        required: true
+      mark:
+        description: 'Syllabus items to record as done, e.g. grammar=OK-002,OK-003;reallife=S1:자기소개'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rework-sheets
+  cancel-in-progress: false
+
+jobs:
+  finish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # Through the environment, never pasted into the command line.
+      SINCE: ${{ inputs.since }}
+      MARK: ${{ inputs.mark }}
+      RUN: ${{ github.run_number }}
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Finish the drafts
+        run: |
+          set -- --since="$SINCE" --out="$RUNNER_TEMP/finish-drafts/$RUN"
+          if [ -n "$MARK" ]; then
+            IFS=';' read -ra parts <<< "$MARK"
+            for p in "${parts[@]}"; do set -- "$@" --mark="$p"; done
+          fi
+          node scripts/finish-drafts.mjs "$@"
+
+      - name: Save a copy for checking
+        if: always()
+        run: |
+          [ -d "$RUNNER_TEMP/finish-drafts" ] || exit 0
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/finish-drafts
+          cp -r "$RUNNER_TEMP/finish-drafts/$RUN" ../rework-output/finish-drafts/
+          cd ../rework-output
+          git add -A finish-drafts
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Finished drafts (run $RUN)"
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1

@@ -93,7 +93,7 @@ function log(...parts) { console.log(...parts); }
 
 /* ---------------- talking to Supabase ---------------- */
 
-async function signIn() {
+export async function signIn() {
   const email = process.env.DURU_BOT_EMAIL;
   const password = process.env.DURU_BOT_PASSWORD;
   if (!email || !password) {
@@ -112,7 +112,7 @@ async function signIn() {
   return { token: body.access_token, userId: body.user && body.user.id };
 }
 
-function api(token) {
+export function api(token) {
   const headers = {
     apikey: SUPABASE_ANON_KEY,
     Authorization: 'Bearer ' + token,
@@ -158,7 +158,7 @@ async function putDraft(token, path, bytes) {
 // so two runs never write the same file.
 const planUrl = (category) => SUPABASE_URL + '/storage/v1/object/resource-drafts/plans/' + category + '.json';
 
-async function loadPlan(token, category) {
+export async function loadPlan(token, category) {
   const res = await fetch(SUPABASE_URL + '/storage/v1/object/authenticated/resource-drafts/plans/' + category + '.json', {
     headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token }
   });
@@ -167,7 +167,7 @@ async function loadPlan(token, category) {
   return body && typeof body === 'object' ? body : {};
 }
 
-async function savePlan(token, category, plan) {
+export async function savePlan(token, category, plan) {
   const headers = { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token };
   // The bucket lets an admin add and remove, not change: removed, then
   // written again.
@@ -228,7 +228,7 @@ async function nextSubject(writer, token, category, { today, existing, ownShelf,
   return next;
 }
 
-async function markDone(token, category, id) {
+export async function markDone(token, category, id) {
   const plan = await loadPlan(token, category);
   plan.done = [...new Set([...(plan.done || []), id])];
   await savePlan(token, category, plan);
@@ -390,6 +390,44 @@ async function makeOne(cfg, category, context, browser) {
 
 /* ---------------- saving it as a draft ---------------- */
 
+// The curriculum lists a sheet's subject came from (공공누리 제1유형:
+// credit the source, in its own words).
+export function creditRows(resourceId, credits) {
+  return (credits || []).map((credit) => ({
+    resource_id: resourceId,
+    source_url: 'about:curriculum',
+    source_title: String(credit).slice(0, 200),
+    creator: '국립국어원',
+    asset_type: 'curriculum',
+    intended_use: 'level-reference',
+    license_name: '공공누리 제1유형',
+    commercial_allowed: 'yes',
+    adaptation_allowed: 'yes',
+    redistribution_allowed: 'yes',
+    credit_text: String(credit),
+    rights_status: 'needs-human',
+    review_note: '주제와 등급을 이 교육과정 목록에서 정했습니다. 문장은 가져오지 않았습니다.'
+  }));
+}
+
+// The self-authored row every generated sheet gets (§5.3).
+export function selfRows(resourceId, toCheck) {
+  return (toCheck.length ? toCheck : ['이 학습지의 한국어 표현과 사실 관계']).map((what) => ({
+    resource_id: resourceId,
+    source_url: 'about:self-authored',
+    source_title: String(what).slice(0, 200),
+    creator: 'DURU KOREAN',
+    asset_type: 'fact',
+    intended_use: 'fact-check',
+    commercial_allowed: 'unclear',
+    adaptation_allowed: 'unclear',
+    redistribution_allowed: 'unclear',
+    rights_status: 'needs-human',
+    review_note: '자동 생성된 학습지입니다. 외부 문장·문항·그림을 가져오지 않았습니다. ' +
+                 '게시 전에 사람이 내용과 사실을 확인해야 합니다.'
+  }));
+}
+
 async function save(call, token, userId, category, made) {
   const { subject, sheet, rendered } = made;
   const slug = slugify(sheet.title) + '-' + Date.now().toString(36);
@@ -458,40 +496,13 @@ async function save(call, token, userId, category, made) {
   const toCheck = Array.isArray(sheet.checkThese) && sheet.checkThese.length
     ? sheet.checkThese
     : (subject.checkThese || []);
-  const rows = (toCheck.length ? toCheck : ['이 학습지의 한국어 표현과 사실 관계']).map((what) => ({
-    resource_id: resource.id,
-    source_url: 'about:self-authored',
-    source_title: String(what).slice(0, 200),
-    creator: 'DURU KOREAN',
-    asset_type: 'fact',
-    intended_use: 'fact-check',
-    commercial_allowed: 'unclear',
-    adaptation_allowed: 'unclear',
-    redistribution_allowed: 'unclear',
-    rights_status: 'needs-human',
-    review_note: '자동 생성된 학습지입니다. 외부 문장·문항·그림을 가져오지 않았습니다. ' +
-                 '게시 전에 사람이 내용과 사실을 확인해야 합니다.'
-  }));
-  // The curriculum list the subject came from (공공누리 제1유형: credit
-  // the source, in its own words).
-  for (const credit of subject.credit || []) {
-    rows.push({
-      resource_id: resource.id,
-      source_url: 'about:curriculum',
-      source_title: String(credit).slice(0, 200),
-      creator: '국립국어원',
-      asset_type: 'curriculum',
-      intended_use: 'level-reference',
-      license_name: '공공누리 제1유형',
-      commercial_allowed: 'yes',
-      adaptation_allowed: 'yes',
-      redistribution_allowed: 'yes',
-      credit_text: String(credit),
-      rights_status: 'needs-human',
-      review_note: '주제와 등급을 이 교육과정 목록에서 정했습니다. 문장은 가져오지 않았습니다.'
-    });
-  }
+  const rows = selfRows(resource.id, toCheck);
   await call('resource_sources', { method: 'POST', body: JSON.stringify(rows) });
+  // The curriculum list the subject came from, in a request of its own:
+  // one insert must give every row the same columns ("400 All object
+  // keys must match" lost four finished sheets, 2026-10-05).
+  const credits = creditRows(resource.id, subject.credit);
+  if (credits.length) await call('resource_sources', { method: 'POST', body: JSON.stringify(credits) });
 
   // The sites the sheet's facts rest on, into the admin-only table
   // (schema §43), never anywhere a visitor can read. A database without

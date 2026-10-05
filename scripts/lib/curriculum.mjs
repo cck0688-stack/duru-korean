@@ -148,6 +148,13 @@ export function nextFromSyllabus(shelf, plan, skip = new Set()) {
   return topicSubject(shelf, t, inLevel);
 }
 
+// The lists a shelf's subjects come from, as credits.
+export function shelfCredits(shelf) {
+  const official = GRAMMAR[0].source;
+  if (shelf === 'grammar') return [official];
+  return CURRICULUM_SHELVES.includes(shelf) ? [SEJONG_SOURCE, official] : [];
+}
+
 // How far a shelf has got, for the log.
 export function progress(shelf, plan) {
   const done = new Set([...(ALREADY[shelf] || []), ...((plan && plan.done) || [])]);
