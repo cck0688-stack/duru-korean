@@ -68,6 +68,7 @@ const PER_SHELF = 1;                // one a shelf; the workflow picks the shelv
 const SHORTEN = 3;                  // tries at fitting a long sheet on two pages
 const REWRITES = 2;                 // a sheet sent back this many times is not saved
 const PLAN_SIZE = 10;               // subjects asked for at once: a week, and spares
+const THIN = { page1: 0.25, last: 0.30 };   // most a page may stand empty (see thinNotes)
 
 // The model that writes and reviews. The smaller one translates well
 // enough and is what the site uses everywhere else; a worksheet that a
@@ -234,6 +235,25 @@ export async function markDone(token, category, id) {
   await savePlan(token, category, plan);
 }
 
+// How empty a page may be, as a share of its printable height, before
+// the sheet is sent back to be filled out (measured by render.mjs; the
+// limits from the 48 sheets on file, 2026-10-05 — see THIN below).
+function thinNotes(space, sheet) {
+  if (!space) return [];
+  const out = [];
+  if (space.page1 != null && space.page1 > THIN.page1) {
+    out.push('1쪽 아래가 약 ' + Math.round(space.page1 * 100) + '% 비어 있습니다. 1쪽에 있는 부분(예문, 주의할 점, 표의 줄)을 ' +
+             '조금 보태서 채우세요. 2쪽 부분은 늘리지 마세요.');
+  }
+  if (space.last > THIN.last) {
+    const n = Array.isArray(sheet.exercises) ? sheet.exercises.length : 0;
+    out.push('마지막 쪽의 문제와 정답 사이가 약 ' + Math.round(space.last * 100) + '% 비어 있습니다. ' +
+             (n < 6 ? '문제를 ' + Math.min(2, 6 - n) + '개 보태거나(모두 6개까지) 문제마다 소문항(①②)을 더하세요.'
+                    : '문제마다 소문항(①②)을 하나씩 더하세요.') + ' 정답도 함께 맞추세요.');
+  }
+  return out;
+}
+
 /* ---------------- one sheet, start to finish ---------------- */
 
 async function makeOne(cfg, category, context, browser) {
@@ -279,10 +299,12 @@ async function makeOne(cfg, category, context, browser) {
   // read again (2026-10-05: three cuts, each read twice, 36 calls, and
   // still three pages). The editor is told how much ran over, from the
   // text on the pages past the second.
+  let space = null;
   const fit = async (s) => {
     for (let t = 0; ; t += 1) {
-      const m = pageBreakdown((await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false })).pdf);
-      if (m.pages <= 2) return s;
+      const r = await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false });
+      const m = pageBreakdown(r.pdf);
+      if (m.pages <= 2) { space = r.space; return s; }
       if (t >= SHORTEN) throw fail(SHORTEN + '번 줄여도 영어판이 ' + m.pages + '쪽이라 저장하지 않습니다');
       const ops = m.textOps || [];
       const total = ops.reduce((a, b) => a + b, 0);
@@ -304,11 +326,20 @@ async function makeOne(cfg, category, context, browser) {
   // start: a fresh draft brought new mistakes each round (2026-10-05,
   // 과/와: five, then one, then a different one). Twice; a sheet still
   // wrong after that is not saved.
+  // A sheet too thin for its two pages (the owner, 2026-10-05: saving
+  // tokens must not make a sheet thin or oddly set) goes back with the
+  // readers' notes, in the same round, to be filled out where it is
+  // empty. Thinness alone does not throw a finished sheet away on the
+  // last round: it is logged, and the owner sees it on review.
   for (let round = 0; ; round += 1) {
     sheet = await fit(sheet);
-    const notes = await recheck(sheet);
+    const thin = thinNotes(space, sheet);
+    const notes = thin.concat(await recheck(sheet));
     if (!notes.length) break;
-    if (round >= REWRITES) throw fail('검수를 통과하지 못했습니다: ' + notes.join(' '));
+    if (round >= REWRITES) {
+      if (notes.length === thin.length) { log('    ! 빈 곳이 남았습니다 (검토 때 확인): ' + thin.join(' ')); break; }
+      throw fail('검수를 통과하지 못했습니다: ' + notes.join(' '));
+    }
     log('    검수에서 ' + notes.length + '가지 걸림 — 그 부분만 고칩니다 (' + (round + 1) + '/' + REWRITES + '): ' +
         notes.join(' ').slice(0, 300));
     stage('고치기');

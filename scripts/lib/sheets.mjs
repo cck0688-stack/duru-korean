@@ -416,7 +416,9 @@ export function problemsWith(sheet, opts = {}) {
 
   if (!sheet.title || sheet.title.length < 2) bad.push('제목이 없습니다.');
   if (!sheet.objective || sheet.objective.length < 15) bad.push('학습 목표가 너무 짧습니다.');
-  if (n(sheet.exercises) < 3) bad.push('문제가 세 개보다 적습니다.');
+  // The master instruction §18: four to six, usually five. Three got
+  // through on 2026-10-05 (a dialogue sheet cut too far).
+  if (n(sheet.exercises) < 4) bad.push('문제가 ' + n(sheet.exercises) + '개뿐입니다. 4~6개(보통 5개)가 되게 보태세요.');
   if (n(sheet.exercises) !== n(sheet.answers)) {
     bad.push('문제 ' + n(sheet.exercises) + '개에 정답 ' + n(sheet.answers) + '개입니다.');
   }

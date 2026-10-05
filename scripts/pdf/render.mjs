@@ -447,6 +447,8 @@ export async function renderSheet(sheet, opts = {}) {
     // section moves to the next page, when it fits there and the sheet
     // stays as long as it was. A section taller than a page is left.
     let moved = 0;
+    let seenLast = null;
+    let answersGap = 0;
     if (design === 'v2' && opts.keep !== false) {
       let seen = await sectionPages(page, print);
       let split = seen.spans.find((x) => x.a !== x.b);
@@ -484,6 +486,7 @@ export async function renderSheet(sheet, opts = {}) {
         splitLeft = !!seen.spans.find((x) => x.a !== x.b);
         if (moved) pdf = await print();
       }
+      seenLast = seen;
       await page.evaluate(() => document.querySelectorAll('section[data-k]').forEach((el) => el.removeAttribute('data-k')));
     }
     const bodyClass = await page.evaluate(() => document.body.className);
@@ -517,6 +520,7 @@ export async function renderSheet(sheet, opts = {}) {
       }
       // A few pixels short of the bottom, not one over it.
       best = Math.max(0, best - 2);
+      answersGap = best;
       await gap(best);
       if (best > 0) {
         pdf = await print();
@@ -524,11 +528,29 @@ export async function renderSheet(sheet, opts = {}) {
         used = used.replace('<div class="answers">', div + '<div class="answers">');
       }
     }
+    // How much of each page is left empty, as a share of the page's
+    // printable height (the owner, 2026-10-05: saving tokens must not
+    // leave a sheet thin). Page one: below its last section. The last
+    // page: the gap above the answers, pinned to its foot.
+    let space = null;
+    if (design === 'v2' && seenLast && seenLast.spans.length) {
+      const mm = (v) => parseFloat(v) * 72 / 25.4;
+      const top = mm(frame.margin.top), bottom = mm(frame.margin.bottom);
+      const usable = 842 - top - bottom;
+      const onFirst = seenLast.spans.filter((x) => x.b === 1 && typeof x.footY === 'number');
+      const page1 = onFirst.length ? Math.max(0, Math.min(...onFirst.map((x) => x.footY)) - bottom) / usable : null;
+      const lastGap = answersGap * 0.75 / usable;      // CSS px → pt
+      space = {
+        page1: page1 == null ? null : Math.round(page1 * 100) / 100,
+        last: Math.round(lastGap * 100) / 100
+      };
+    }
     const checks = opts.check === false ? null : await (await inspector())(page, pdf, sheet);
     return {
       pdf,
       split: splitLeft,
       moved,
+      space,
       html: used,
       bytes: pdf.length,
       hash: crypto.createHash('sha256').update(pdf).digest('hex'),
@@ -575,7 +597,12 @@ async function sectionPages(page, print) {
   });
   const raw = pdf.toString('latin1');
   const uri = {};
-  for (const m of raw.matchAll(/(\d+) 0 obj\s*<<\/Type \/Annot[\s\S]*?\/URI \(https:\/\/probe\.invalid\/(\d+)([ab])\)/g)) uri[m[1]] = [Number(m[2]), m[3]];
+  const low = {};     // the probe's height on its page, in points from the foot
+  for (const m of raw.matchAll(/(\d+) 0 obj\s*<<\/Type \/Annot[\s\S]*?\/URI \(https:\/\/probe\.invalid\/(\d+)([ab])\)/g)) {
+    uri[m[1]] = [Number(m[2]), m[3]];
+    const rect = /\/Rect \[\s*[-\d.]+\s+([-\d.]+)/.exec(m[0]);
+    if (rect) low[m[2] + m[3]] = Number(rect[1]);
+  }
   const at = {};
   let n = 0;
   for (const m of raw.matchAll(/\d+ 0 obj\s*<<\/Type \/Page\b([\s\S]*?)endobj/g)) {
@@ -587,7 +614,7 @@ async function sectionPages(page, print) {
       if (hit) (at[hit[0]] = at[hit[0]] || {})[hit[1]] = n;
     }
   }
-  const spans = Object.keys(at).map((i) => ({ i: Number(i), a: at[i].a, b: at[i].b }))
+  const spans = Object.keys(at).map((i) => ({ i: Number(i), a: at[i].a, b: at[i].b, footY: low[i + 'b'] }))
     .filter((x) => x.a && x.b).sort((x, y) => x.i - y.i);
   const { pageBreakdown } = await import('./check.mjs');
   return { pages: pageBreakdown(pdf).pages, spans };
