@@ -1,0 +1,148 @@
+/* DURU KOREAN — the home page's look on every other page (owner, 2026-10-05)
+ *
+ * Blush and plum in place of the deep green, white header and footer, the
+ * five pastel colours of the home page's cards. The site's colours come
+ * from the variables in style.css, so most of the change is the
+ * variables; a few dark boxes are set light by hand. Scoped to
+ * body.theme-v2; the home page has its own sheet (home-v2.css). */
+body.theme-v2 {
+  --bg-deep: #221c26;
+  --bg: #2b2430;
+  --bg-soft: #3a3040;
+  --accent: #e07a93;
+  --accent-red: #7a4e66;
+  --accent-red-soft: rgba(122, 78, 102, .12);
+  --paper: #fbf8f6;
+  --paper-alt: #f6ece9;
+  --ink: #2b2430;
+  --ink-dim: #5d5260;
+  --radius: 20px;
+  --shadow: 0 22px 46px -30px rgba(95, 58, 79, .45);
+
+  --header-bg: rgba(255, 255, 255, .9);
+  --header-border: #ece2e2;
+  --nav-text: #2b2430;
+  --nav-hover-bg: #f6eef0;
+  --nav-active-bg: #f4dfe2;
+  --nav-active-text: #7a4e66;
+  --login-text: #fff;
+  --banner-bg: #f6ece9;
+  --banner-title: #2b2430;
+  --banner-desc: #5d5260;
+
+  background: #fbf8f6;
+  color: #2b2430;
+  font-family: 'Pretendard', 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+}
+
+/* header */
+.theme-v2 .site-header { backdrop-filter: blur(10px); }
+.theme-v2 .btn-login { background: #7a4e66; border-color: #7a4e66; color: #fff; box-shadow: 0 8px 18px -10px rgba(122, 78, 102, .8); }
+.theme-v2 .lang-trigger { background: #fff; }
+.theme-v2 .account-trigger { background: #f4dfe2; border-color: transparent; color: #5f3a4f; font-weight: 700; }
+.theme-v2 .account-trigger .avatar { background: #7a4e66; color: #fff; }
+.theme-v2 .nav-main a.active { border-radius: 999px; }
+
+/* page banner: blush, the big letter in rose */
+.theme-v2 .page-hero {
+  background:
+    radial-gradient(800px 360px at 100% 0, #f1dde5 0, transparent 60%),
+    radial-gradient(600px 300px at 0 100%, #f7ede4 0, transparent 60%),
+    #f6ece9;
+  border-bottom: 1px solid #ece2e2;
+}
+.theme-v2 .page-hero h1 { font-weight: 800; letter-spacing: -.03em; color: #2b2430; }
+.theme-v2 .page-hero .eyebrow { color: #e07a93; }
+.theme-v2 .page-hero-rule { background: #e07a93; }
+.theme-v2 .page-hero-mark { color: rgba(224, 122, 147, .22); }
+
+/* buttons, pills, links */
+.theme-v2 .btn-primary { background: #7a4e66; border-color: #7a4e66; color: #fff; box-shadow: 0 10px 22px -12px rgba(122, 78, 102, .8); }
+.theme-v2 .btn-primary:hover { background: #5f3a4f; }
+.theme-v2 .btn-outline { border-color: #d9c9cf; color: #7a4e66; }
+.theme-v2 .eyebrow { color: #e07a93; }
+
+/* cards */
+.theme-v2 .card,
+.theme-v2 .lesson-card,
+.theme-v2 .resource-card,
+.theme-v2 .post-card,
+.theme-v2 .blog-card {
+  border-radius: 22px;
+  border-color: #ece2e2;
+}
+
+/* newsletter box: white, not dark */
+.theme-v2 .newsletter {
+  background: #fff;
+  color: #2b2430;
+  border: 1px solid #ece2e2;
+  border-radius: 28px;
+}
+.theme-v2 .newsletter h3 { color: #2b2430; }
+.theme-v2 .newsletter p { color: #5d5260; }
+.theme-v2 .newsletter-form input { background: #fbf8f6; border: 1px solid #ece2e2; color: #2b2430; }
+.theme-v2 .newsletter-form input::placeholder { color: #a698a6; }
+
+/* footer: white */
+.theme-v2 .site-footer { background: #fff; color: #5d5260; border-top: 1px solid #ece2e2; }
+.theme-v2 .footer-top p { color: #5d5260; }
+.theme-v2 .footer-col h5 { color: #7a4e66; }
+.theme-v2 .footer-col a { color: #5d5260; }
+.theme-v2 .footer-col a:hover { color: #7a4e66; }
+.theme-v2 .footer-bottom { color: #8c8090; border-top-color: #ece2e2; }
+
+/* the big "All posts" switch: plum, softer */
+.theme-v2 .all-posts { background: #7a4e66; border-color: #7a4e66; color: #fff; border-radius: 999px; min-height: 64px; font-size: 26px; }
+.theme-v2 .all-posts[aria-pressed="false"] { background: #fff; color: #7a4e66; }
+.theme-v2 .all-posts:hover { box-shadow: 0 18px 34px -22px rgba(122, 78, 102, .6); }
+
+/* download cards: the dark letter squares in the home page's five colours */
+.theme-v2 .res-card { border-radius: 22px; border-color: #efe3e5; }
+.theme-v2 .res-thumb { border-radius: 18px; background: #f4b6c2; }
+.theme-v2 .res-card:nth-child(5n+2) .res-thumb { background: #d8c8f0; }
+.theme-v2 .res-card:nth-child(5n+3) .res-thumb { background: #fce3a6; }
+.theme-v2 .res-card:nth-child(5n+4) .res-thumb { background: #a2d0b8; }
+.theme-v2 .res-card:nth-child(5n+5) .res-thumb { background: #f9d7c8; }
+.theme-v2 .res-cover-glyph { color: #2b2430; }
+
+/* about page: the contact box as on the home page — light, not dark */
+.theme-v2 #contact.section-dark { background: transparent; color: #2b2430; padding: 40px 0 0; }
+.theme-v2 #contact.section-dark .wrap {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #f3e2e8 0%, #ece6f4 55%, #e7ede3 100%);
+  border-radius: 32px;
+  padding: 56px 60px;
+}
+.theme-v2 #contact.section-dark .section-head { text-align: left; max-width: 620px; margin-bottom: 26px; }
+.theme-v2 #contact.section-dark .section-head h2 { color: #2b2430; font-family: 'Cormorant Garamond', 'Gowun Batang', Georgia, serif; font-weight: 600; }
+.theme-v2 #contact.section-dark .section-head p { color: #5d5260; }
+.theme-v2 #contact.section-dark .eyebrow { color: #7a4e66; }
+@media (max-width: 640px) {
+  .theme-v2 #contact.section-dark .wrap { padding: 36px 26px; border-radius: 26px; margin: 0 16px; width: auto; }
+}
+
+/* search page: its banner had its own beige */
+.theme-v2 .page-hero[style] { background: radial-gradient(800px 360px at 100% 0, #f1dde5 0, transparent 60%), #f6ece9 !important; }
+
+/* a download's own page: the greens and the red-orange button */
+.theme-v2 .rd-hero { background: linear-gradient(180deg, #f6ece9 0%, #fbf8f6 100%); }
+.theme-v2 .rd-eyebrow { color: #e07a93; }
+.theme-v2 .rd-back { color: #5d5260; }
+.theme-v2 .rd-back:hover { color: #2b2430; }
+.theme-v2 .rd-hero h1, .theme-v2 .rd-card .rd-about-title, .theme-v2 .rd-lang-label, .theme-v2 .admin-sources-title { color: #2b2430; }
+.theme-v2 .rd-subtitle, .theme-v2 .rd-about-text p, .theme-v2 .rd-lang-list { color: #5d5260; }
+.theme-v2 .rd-chip { color: #5f3a4f; box-shadow: 0 1px 0 rgba(95, 58, 79, .08); }
+.theme-v2 .rd-chip-icon { stroke: #7a4e66; }
+.theme-v2 .rd-art-blob { fill: #f4dfe2; }
+.theme-v2 .rd-art-blob2 { fill: #ece6f4; }
+.theme-v2 .rd-art-book path, .theme-v2 .rd-art-bulb path { fill: #fffafb; stroke: #d9a5ae; }
+.theme-v2 .rd-art .rd-art-line { stroke: #d9a5ae; }
+.theme-v2 .rd-art .rd-art-rays { stroke: #e7bcc4; }
+.theme-v2 .rd-card { border-radius: 26px; box-shadow: 0 16px 40px -18px rgba(95, 58, 79, .25); }
+.theme-v2 .rd-about, .theme-v2 .rd-available { border-color: #f0e6e8; }
+.theme-v2 .rd-download { background: linear-gradient(180deg, #8a5a74 0%, #7a4e66 100%); box-shadow: 0 8px 20px rgba(122, 78, 102, .3); border-radius: 999px; }
+.theme-v2 .rd-download:hover { box-shadow: 0 10px 24px rgba(122, 78, 102, .38); }
+.theme-v2 .rd-linkbtn, .theme-v2 .admin-sources-list a { color: #7a4e66; }
+.theme-v2 .rd-globe { stroke: #2b2430; }

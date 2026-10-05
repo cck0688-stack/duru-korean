@@ -28,3 +28,7 @@
   download PDF (with the photo) and a print PDF (no photo, two pages
   where it fits; Print prints that one). scripts/blog-pdf.mjs, workflow
   blog-pdf.yml every 4 hours makes only what is missing or out of date.
+- Site design (owner, 2026-10-05): blush and plum, white header and
+  footer, the home page's five pastel card colours. css/theme-v2.css on
+  every page (body.theme-v2), css/home-v2.css on the home page; new pages
+  and new UI follow them, not the old deep green.
