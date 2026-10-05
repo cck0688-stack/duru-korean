@@ -109,7 +109,7 @@ function topicSubject(shelf, t, index) {
     g = five[0];
     lines.push('- ' + (shelf === 'reading' ? '지문' : '대화') + '에서 연습할 문법 하나를 아래에서 고르세요 — 이 주제에 가장 자연스럽게 맞는 것:',
                five.map((x) => '    ' + describe(x)).join('\n'),
-               '  고른 문법을 ' + (shelf === 'reading' ? '지문' : '대화') + '에 자연스럽게 2~3번 쓰고, 학습자가 그 문법을 찾아보게 하세요.',
+               '  고른 문법을 ' + (shelf === 'reading' ? '지문' : '대화') + '에 자연스럽게 2~3번 쓰세요. 학습지 전체는 A4 2쪽입니다.',
                '- 나머지 문법과 낱말은 표준 ' + std + '급 이하로 씁니다. 장면에 꼭 필요할 때만 ' + (std + 1) + '급까지.');
     credit.push(g.source + ' — ' + std + '급 문법');
   }
@@ -128,12 +128,15 @@ function topicSubject(shelf, t, index) {
 
 // The next subject for a shelf, or null when the shelf is not on the
 // syllabus or has finished levels 1–4. `plan`: { done: [ids], tried: {id: n} }.
-// An item tried twice without a sheet being saved is passed over.
-export function nextFromSyllabus(shelf, plan) {
+// An item tried three times (at most once a run) without a sheet being
+// saved is passed over.
+// `skip`: items that failed earlier in this run — the next try takes the
+// next item rather than the same one again (2026-10-05: 과/와 twice).
+export function nextFromSyllabus(shelf, plan, skip = new Set()) {
   if (!CURRICULUM_SHELVES.includes(shelf)) return null;
   const done = new Set([...(ALREADY[shelf] || []), ...((plan && plan.done) || [])]);
   const tried = (plan && plan.tried) || {};
-  const open = (id) => !done.has(id) && (tried[id] || 0) < 2;
+  const open = (id) => !done.has(id) && !skip.has(id) && (tried[id] || 0) < 3;
   if (shelf === 'grammar') {
     const g = grammarOrder.find((x) => open(x.id));
     return g ? grammarSubject(g) : null;

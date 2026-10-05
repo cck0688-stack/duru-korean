@@ -313,13 +313,17 @@ export function normalizeLevel(raw) {
 // rule, 2026-09-25): made shorter by the editor, keeping what it teaches.
 // `longer`: the translations that ran onto a third page while the
 // English itself fits — then only a little is cut, so they fit too.
-export async function shortenSheet(cfg, sheet, pages, longer = []) {
+// `cut`: how much to take out, in per cent, measured from what ran past
+// the second page (generate-sheets.mjs) — "make it fit" alone was cut
+// three times on 2026-10-05 and still ran onto a third page.
+export async function shortenSheet(cfg, sheet, pages, longer = [], cut = 0) {
   const category = sheet.category || 'etc';
   const system = [
     longer.length
       ? '당신은 한국어 교재 편집자입니다. 이 학습지의 영어판은 A4 2쪽이지만, 글이 더 긴 번역판(' + longer.join(', ') +
         ')은 3쪽이 됩니다. 번역판도 2쪽에 들어가도록 영어판을 조금(전체의 10~15% 정도) 줄이세요.'
-      : '당신은 한국어 교재 편집자입니다. 이 학습지는 인쇄하면 A4 ' + pages + '쪽입니다. A4 2쪽 안에 들어가도록 줄이세요.',
+      : '당신은 한국어 교재 편집자입니다. 이 학습지는 인쇄하면 A4 ' + pages + '쪽입니다. A4 2쪽 안에 들어가도록 줄이세요.' +
+        (cut ? ' 재어 보니 전체 글의 ' + cut + '% 정도를 줄여야 합니다. 그보다 덜 줄이면 여전히 넘칩니다.' : ''),
     '',
     '- summary 와 objective 가 길면 먼저 한두 문장으로 짧게 고쳐 쓰세요(뜻은 그대로).',
     '- 학습 목표와 그것을 연습하는 핵심은 남기세요.',

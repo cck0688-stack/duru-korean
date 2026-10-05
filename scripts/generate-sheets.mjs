@@ -183,12 +183,12 @@ async function savePlan(token, category, plan) {
 // The next subject for the shelf: from its list, dropping any the shelf
 // has got since; a new list when it has run out. Taken off the list
 // before it is written, so a subject that fails is not tried again.
-async function nextSubject(writer, token, category, { today, existing, ownShelf }) {
+async function nextSubject(writer, token, category, { today, existing, ownShelf, skip }) {
   const plan = await loadPlan(token, category);
 
   // The syllabus: counted as tried before it is written, done once saved
   // (markDone), so an item that fails twice is passed over.
-  const planned = nextFromSyllabus(category, plan);
+  const planned = nextFromSyllabus(category, plan, skip);
   if (planned) {
     plan.tried = { ...(plan.tried || {}), [planned.id]: ((plan.tried || {})[planned.id] || 0) + 1 };
     if (!DRY) await savePlan(token, category, plan).catch((err) => log('    ' + err.message));
@@ -240,22 +240,18 @@ async function makeOne(cfg, category, context, browser) {
   const writer = context.writer || cfg;
 
   const subject = await context.nextSubject(category);
-  log('  · ' + category + ' — ' + subject.subject);
+  log('  · ' + category + ' — ' + (subject.label || subject.subject));
 
   stage('쓰기');
   let sheet = await writeSheet(writer, {
     category, subject: subject.subject,
     objective: subject.objective, level: subject.level
   });
+  sheet.level = normalizeLevel(sheet.level);
 
-  // What the checks find — the mechanical ones here, the two readers'
-  // (reviewSheet, then the stricter auditSheet: the owner's rule that
-  // every sheet is checked twice) — goes back to the writer as a list.
-  // Twice; a sheet that is still wrong after that is not saved, and the
-  // shelf gets a different subject tomorrow.
-  // Both readers at once; how many each found is logged, to tell later
-  // whether reading them one after the other would save a call or cost
-  // a rewrite.
+  // The two readers (reviewSheet, then the stricter auditSheet: the
+  // owner's rule that every sheet is checked twice), at once; how many
+  // each found is logged.
   const readTwice = async (s) => {
     const was = stage('검수');
     const [first, second] = await Promise.all([reviewSheet(writer, s), auditSheet(writer, s)]);
@@ -265,71 +261,57 @@ async function makeOne(cfg, category, context, browser) {
     }
     return first.problems.concat(second.problems);
   };
-  let notes = [];
   // A vocabulary sheet on the syllabus: no word above its level + 1.
   const levelCheck = (s) => (category === 'vocab' ? levelProblems(s, subject) : []);
-  for (let round = 0; ; round += 1) {
-    const problems = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet), levelCheck(sheet));
-    let found = [];
-    if (!problems.length) found = await readTwice(sheet);
-    notes = problems.concat(found);
-    if (!notes.length) break;
-    if (round >= REWRITES) {
-      const err = new Error('검수를 통과하지 못했습니다: ' + notes.join(' '));
-      err.subject = subject.subject;     // so the next try picks something else
-      throw err;
-    }
-    log('    검수에서 ' + notes.length + '가지 걸림 — 다시 씁니다 (' + (round + 1) + '/' + REWRITES + '): ' +
-        notes.join(' ').slice(0, 300));
-    stage('다시 쓰기');
-    sheet = await writeSheet(writer, {
-      category,
-      subject: subject.subject + '\n\n[지난번 검수에서 걸린 것 — 전부 고치세요]\n- ' + notes.join('\n- '),
-      objective: subject.objective, level: subject.level
-    });
-  }
-
-  sheet.level = normalizeLevel(sheet.level);
-
-  // Two pages (the owner's rule, 2026-09-25): a sheet longer than that
-  // even set compact is shortened, measured again, and the shorter one
-  // read again by both reviewers, what they find fixed once; one that
-  // still has problems, or is still longer than two pages, is not saved.
-  // (recheck: both readers again, after the mechanical checks.)
+  const mechanical = (s) => problemsWith(s, { existing: context.existing }).concat(markProblems(s), levelCheck(s));
   const recheck = async (s) => {
-    const again = problemsWith(s, { existing: context.existing }).concat(markProblems(s), levelCheck(s));
-    if (again.length) return again;
-    return readTwice(s);
+    const again = mechanical(s);
+    return again.length ? again : readTwice(s);
   };
-  const pagesOf = async (s) => pageBreakdown((await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false })).pdf).pages;
-  for (let t = 0, n = await pagesOf(sheet); n > 2; t += 1, n = await pagesOf(sheet)) {
-    if (t >= SHORTEN) {
-      const err = new Error(SHORTEN + '번 줄여도 영어판이 ' + n + '쪽이라 저장하지 않습니다');
-      err.subject = subject.subject;
-      throw err;
+  const fail = (message) => {
+    const err = new Error(message);
+    err.subject = subject.subject;     // so the next try picks something else
+    return err;
+  };
+
+  // Two pages (the owner's rule, 2026-09-25), before anyone reads it:
+  // measuring costs nothing, and a sheet read and then cut had to be
+  // read again (2026-10-05: three cuts, each read twice, 36 calls, and
+  // still three pages). The editor is told how much ran over, from the
+  // text on the pages past the second.
+  const fit = async (s) => {
+    for (let t = 0; ; t += 1) {
+      const m = pageBreakdown((await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false })).pdf);
+      if (m.pages <= 2) return s;
+      if (t >= SHORTEN) throw fail(SHORTEN + '번 줄여도 영어판이 ' + m.pages + '쪽이라 저장하지 않습니다');
+      const ops = m.textOps || [];
+      const total = ops.reduce((a, b) => a + b, 0);
+      const over = ops.slice(2).reduce((a, b) => a + b, 0);
+      const cut = total ? Math.min(45, Math.ceil((over / total * 100 + 8) / 5) * 5) : 0;
+      log('    영어판 ' + m.pages + '쪽 (넘친 분량 약 ' + (total ? Math.round(over / total * 100) : '?') + '%) — ' +
+          (cut ? cut + '% 줄입니다' : '2쪽으로 줄입니다'));
+      const was = stage('줄이기');
+      s = await shortenSheet(writer, s, m.pages, [], cut);
+      stage(was);
+      s.level = normalizeLevel(s.level);
     }
-    log('    영어판 ' + n + '쪽 — 2쪽으로 줄입니다');
-    stage('줄이기');
-    sheet = await shortenSheet(writer, sheet, n);
+  };
+
+  // What the checks find — the mechanical ones, then the two readers —
+  // is fixed where it was found (fixSheet), not written again from the
+  // start: a fresh draft brought new mistakes each round (2026-10-05,
+  // 과/와: five, then one, then a different one). Twice; a sheet still
+  // wrong after that is not saved.
+  for (let round = 0; ; round += 1) {
+    sheet = await fit(sheet);
+    const notes = await recheck(sheet);
+    if (!notes.length) break;
+    if (round >= REWRITES) throw fail('검수를 통과하지 못했습니다: ' + notes.join(' '));
+    log('    검수에서 ' + notes.length + '가지 걸림 — 그 부분만 고칩니다 (' + (round + 1) + '/' + REWRITES + '): ' +
+        notes.join(' ').slice(0, 300));
+    stage('고치기');
+    sheet = await fixSheet(writer, sheet, notes);
     sheet.level = normalizeLevel(sheet.level);
-    const left = await recheck(sheet);
-    if (left.length) {
-      // Cutting sometimes leaves a seam — a summary that no longer quite
-      // matches, a sentence that read fine beside the one taken out. The
-      // reviewers say exactly what; those are fixed, and only those, and
-      // the sheet read again. (Until 2026-09-27 the sheet was dropped
-      // here: two reading sheets in a row lost over one word each.)
-      log('    줄인 뒤 검수에서 ' + left.length + '가지 걸림 — 그 부분만 고칩니다: ' + left.join(' ').slice(0, 200));
-      stage('고치기');
-      sheet = await fixSheet(writer, sheet, left);
-      sheet.level = normalizeLevel(sheet.level);
-      const still = await recheck(sheet);
-      if (still.length) {
-        const err = new Error('줄인 뒤 검수를 통과하지 못했습니다: ' + still.join(' '));
-        err.subject = subject.subject;
-        throw err;
-      }
-    }
   }
 
   // English first: it is the language the sheet was written in, so it
@@ -611,6 +593,8 @@ export async function run() {
 
   const done = [];
   const failed = [];
+  const failedItems = new Set();      // syllabus items that failed in this run
+  let current = null;
   try {
     for (const category of shelves) {
       // Three saved, not three tried. The reviewer turns down about
@@ -622,11 +606,15 @@ export async function run() {
       if (already >= want) { log('  · ' + category + ' — 오늘(' + today + ') 이미 ' + already + '편 만들었습니다. 건너뜁니다.'); continue; }
       let savedHere = already;
       for (let i = 0; savedHere < want && i < want * 2; i += 1) {
+        current = null;
         try {
-          const nextSubjectHere = (cat) => nextSubject(writer, session.token, cat, {
-            today, existing,
-            ownShelf: made.filter((r) => r.category === cat).map((r) => r.title + (r.objective ? ' — ' + r.objective : ''))
-          });
+          const nextSubjectHere = async (cat) => {
+            current = await nextSubject(writer, session.token, cat, {
+              today, existing, skip: failedItems,
+              ownShelf: made.filter((r) => r.category === cat).map((r) => r.title + (r.objective ? ' — ' + r.objective : ''))
+            });
+            return current;
+          };
           const out = await makeOne(cfg, category, { today, existing, writer, nextSubject: nextSubjectHere }, browser);
           if (DRY) {
             const bad = Object.entries(out.rendered).filter(([, r]) => !r.check.ok);
@@ -650,6 +638,7 @@ export async function run() {
         } catch (err) {
           // One shelf failing must not take the others down with it.
           failed.push(category + ': ' + err.message);
+          if (current && current.id) failedItems.add(current.id);
           if (err.subject) existing.push(err.subject);
           log('    실패 — ' + err.message);
         }

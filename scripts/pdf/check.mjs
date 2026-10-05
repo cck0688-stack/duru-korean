@@ -120,6 +120,9 @@ export function pageBreakdown(pdf) {
   // Chromium writes one content stream per page, so a page that draws
   // no text at all shows up as a stream with no text operator in it.
   let drawing = 0;
+  // Text-showing operators per page, in page order: how much of the
+  // sheet a last page holds, for the editor told to shorten it.
+  const textOps = [];
   const marker = /stream\r?\n/g;
   let m;
   while ((m = marker.exec(raw))) {
@@ -130,9 +133,10 @@ export function pageBreakdown(pdf) {
     try {
       body = zlib.inflateSync(Buffer.from(raw.slice(start, end), 'latin1')).toString('latin1');
     } catch (e) { continue; }
-    if (/\bTJ\b|\bTj\b/.test(body)) drawing += 1;
+    const ops = (body.match(/\bTJ\b|\bTj\b/g) || []).length;
+    if (ops) { drawing += 1; textOps.push(ops); }
   }
-  return { pages, pagesDrawingText: drawing };
+  return { pages, pagesDrawingText: drawing, textOps };
 }
 
 // The whole verdict for one rendered sheet.
