@@ -22,12 +22,13 @@ name: Daily blog drafts
 
 on:
   schedule:
-    # 19:00 UTC is 04:00 the next morning in Seoul (the owner's choice),
+    # 16:00 UTC is 01:00 the next morning in Seoul (the owner, 2026-10-06:
+    # it was 04:00, and GitHub ran it three to four hours late),
     # the same hour as the worksheets. GitHub's scheduler can run late
     # when it is busy; the job claims the day by its Seoul date, so a
     # late start still files under the right day and a double start
     # writes nothing twice.
-    - cron: '0 19 * * *'
+    - cron: '0 16 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

@@ -14,7 +14,8 @@
 - Work only on branch `claude/duru-korean-homepage-raysf6` (it deploys);
   workflows write to `rework-output`.
 - Daily output (owner, 2026-10-05): 6 blog posts and 3 worksheets every
-  day at 04:00 KST — blog: 6 of the 8 shelves, rotating; worksheets:
+  day at 01:00 KST (owner, 2026-10-06; was 04:00) — blog: 6 of the 8
+  shelves, rotating; worksheets:
   grammar and vocab every day, reading / reallife on alternate days.
   Keep this unless the owner changes it.
 - Worksheet subjects come from the syllabus in content/curriculum (the

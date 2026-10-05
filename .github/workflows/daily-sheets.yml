@@ -37,12 +37,13 @@ name: Daily worksheets
 
 on:
   schedule:
-    # 19:00 UTC is 04:00 the next morning in Seoul. GitHub's scheduler
+    # 16:00 UTC is 01:00 the next morning in Seoul (the owner, 2026-10-06:
+    # it was 04:00, and ran three to four hours late). GitHub's scheduler
     # runs late when it is busy, which is harmless here: the run reads
     # what is already on the shelf rather than the date, so a late
     # start, a missed day or a half-finished run leaves no hole that
     # the next one does not fill.
-    - cron: '0 19 * * *'
+    - cron: '0 16 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -96,7 +97,7 @@ jobs:
         env:
           ONLY: ${{ inputs.only }}
           SHELF: ${{ matrix.shelf }}
-          # Seoul dates the 04:00 run makes nothing (the owner's call).
+          # Seoul dates the daily run makes nothing (the owner's call).
           # 2026-09-28: no allowance that morning; one sheet was made
           # the evening before instead. 2026-10-01 to 10-04: a week off
           # to save the allowance (owner, 2026-09-30).

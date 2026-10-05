@@ -15,7 +15,7 @@ name: Blog post PDF
 
 on:
   schedule:
-    # Every four hours: new drafts from the 04:00 run, and posts the
+    # Every four hours: new drafts from the 01:00 run, and posts the
     # owner edited or translated since.
     - cron: '23 */4 * * *'
   workflow_dispatch:
