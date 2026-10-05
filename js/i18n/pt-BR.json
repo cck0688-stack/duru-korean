@@ -802,5 +802,8 @@
   "admin.sources.note": "Indicadas pelo redator com base no que sabe. Ninguém abriu estas páginas — confira antes de publicar.",
   "admin.sources.none": "Nenhuma fonte foi registrada para este conteúdo.",
   "admin.sources.missing": "A tabela de fontes ainda não foi criada (supabase/schema.sql §43).",
-  "blog.print": "Imprimir"
+  "blog.print": "Imprimir",
+  "hero.path.h2html": "Cinco portas de entrada, <em>uma só</em> direção.",
+  "hero.path.popular": "Mais popular",
+  "hero.path.free": "Grátis"
 }

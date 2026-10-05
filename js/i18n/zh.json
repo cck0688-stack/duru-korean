@@ -802,5 +802,8 @@
   "admin.sources.note": "由写作模型根据已有知识列出。还没有人打开过这些网页——发布前请自行核实。",
   "admin.sources.none": "此内容没有记录参考资料。",
   "admin.sources.missing": "参考资料表尚未建立（supabase/schema.sql §43）。",
-  "blog.print": "打印"
+  "blog.print": "打印",
+  "hero.path.h2html": "五个入口，<em>一个</em>方向。",
+  "hero.path.popular": "最受欢迎",
+  "hero.path.free": "免费"
 }

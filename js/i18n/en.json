@@ -802,5 +802,8 @@
   "admin.sources.note": "Named by the writer from what it knows. Nobody has opened these pages — check them before publishing.",
   "admin.sources.none": "No sources were recorded for this one.",
   "admin.sources.missing": "The sources table is not set up yet (supabase/schema.sql §43).",
-  "blog.print": "Print"
+  "blog.print": "Print",
+  "hero.path.h2html": "Five ways in, <em>one</em> direction.",
+  "hero.path.popular": "Most popular",
+  "hero.path.free": "Free"
 }

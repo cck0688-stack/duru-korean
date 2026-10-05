@@ -802,5 +802,8 @@
   "admin.sources.note": "Vom Verfasser aus seinem Wissen genannt. Niemand hat diese Seiten geöffnet – prüfen Sie sie vor der Veröffentlichung.",
   "admin.sources.none": "Für diesen Inhalt wurden keine Quellen erfasst.",
   "admin.sources.missing": "Die Quellentabelle ist noch nicht angelegt (supabase/schema.sql §43).",
-  "blog.print": "Drucken"
+  "blog.print": "Drucken",
+  "hero.path.h2html": "Fünf Wege hinein, <em>eine</em> Richtung.",
+  "hero.path.popular": "Am beliebtesten",
+  "hero.path.free": "Kostenlos"
 }

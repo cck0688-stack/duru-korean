@@ -802,5 +802,8 @@
   "admin.sources.note": "Indiquées par le rédacteur d’après ce qu’il sait. Personne n’a ouvert ces pages : vérifiez-les avant de publier.",
   "admin.sources.none": "Aucune source n’a été enregistrée pour ce contenu.",
   "admin.sources.missing": "La table des sources n’est pas encore créée (supabase/schema.sql §43).",
-  "blog.print": "Imprimer"
+  "blog.print": "Imprimer",
+  "hero.path.h2html": "Cinq entrées, <em>une seule</em> direction.",
+  "hero.path.popular": "Le plus populaire",
+  "hero.path.free": "Gratuit"
 }

@@ -802,5 +802,8 @@
   "admin.sources.note": "Disebutkan oleh penulis berdasarkan pengetahuannya. Belum ada yang membuka halaman ini — periksa sebelum menerbitkan.",
   "admin.sources.none": "Tidak ada sumber yang dicatat untuk konten ini.",
   "admin.sources.missing": "Tabel sumber belum disiapkan (supabase/schema.sql §43).",
-  "blog.print": "Cetak"
+  "blog.print": "Cetak",
+  "hero.path.h2html": "Lima pintu masuk, <em>satu</em> arah.",
+  "hero.path.popular": "Paling populer",
+  "hero.path.free": "Gratis"
 }

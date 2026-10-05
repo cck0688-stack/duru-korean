@@ -802,5 +802,8 @@
   "admin.sources.note": "作成モデルが知識をもとに挙げた出典です。誰もこれらのページを開いていないので、公開前に確認してください。",
   "admin.sources.none": "この項目には参考資料が記録されていません。",
   "admin.sources.missing": "参考資料の表がまだ作成されていません（supabase/schema.sql §43）。",
-  "blog.print": "印刷"
+  "blog.print": "印刷",
+  "hero.path.h2html": "5つの入口、<em>ひとつ</em>の方向。",
+  "hero.path.popular": "いちばん人気",
+  "hero.path.free": "無料"
 }

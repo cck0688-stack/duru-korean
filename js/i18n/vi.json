@@ -802,5 +802,8 @@
   "admin.sources.note": "Do người viết nêu ra dựa trên hiểu biết của mình. Chưa ai mở các trang này — hãy kiểm tra trước khi đăng.",
   "admin.sources.none": "Chưa có nguồn nào được ghi lại cho mục này.",
   "admin.sources.missing": "Bảng nguồn tham khảo chưa được thiết lập (supabase/schema.sql §43).",
-  "blog.print": "In"
+  "blog.print": "In",
+  "hero.path.h2html": "Năm lối vào, <em>một</em> hướng đi.",
+  "hero.path.popular": "Phổ biến nhất",
+  "hero.path.free": "Miễn phí"
 }
