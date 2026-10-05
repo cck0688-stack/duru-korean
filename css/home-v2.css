@@ -50,10 +50,7 @@ body.home-v2 {
 
 /* ---------- hero: the picture, framed, beside the five ways in ---------- */
 .home-v2 .hero {
-  background:
-    radial-gradient(900px 480px at 100% 0, #f1dde5 0, transparent 60%),
-    radial-gradient(700px 420px at 0 100%, #f7ede4 0, transparent 60%),
-    var(--hv-blush);
+  background: #F3ECDF;   /* hanji (owner, 2026-10-05) */
   padding: 56px 0 64px;
 }
 .home-v2 .hero-grid {
@@ -78,160 +75,168 @@ body.home-v2 {
 }
 .home-v2 .hero-text { padding: 0; }
 
-/* The five ways in, dressed to sit beside the folding screens (the owner,
-   2026-10-05: "the picture is Korean, the cards too Western"). Colours
-   taken from the picture and the old palette of Korea — hanji, celadon,
-   plum blossom, indigo, ink — each card mounted like a painting (a fine
-   inner frame), a faint ink-wash mountain at its foot, its syllable of
-   두루한국어 in brush, its number in a red seal like the screens' own. */
-.home-v2 .path-head .eyebrow {
+/* ---------- "Your Learning Path": the five ways in ----------
+   The owner's own design (2026-10-05), to sit beside the folding screens:
+   the old colours of Korea (obangsaek), each card mounted like a painting
+   (an inner frame), its syllable of 두루한국어 in brush behind it, its
+   number in a red seal. Classes are this section's own (lp-…). */
+.home-v2 .lp-head { margin-bottom: 18px; }
+.home-v2 .lp-eyebrow {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 12.5px;
+  gap: 12px;
+  font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: .2em;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  color: #a5463a;
-  margin-bottom: 8px;
+  color: #A8392B;
+  margin-bottom: 10px;
 }
-.home-v2 .path-head .eyebrow::before { content: ''; width: 26px; height: 1px; background: #a5463a; }
-.home-v2 .path-head h2 {
-  font-family: 'Cormorant Garamond', 'Nanum Myeongjo', 'Gowun Batang', Georgia, serif;
-  font-weight: 700;
-  font-size: clamp(32px, 3.1vw, 44px);
-  line-height: 1.08;
+.home-v2 .lp-eyebrow::before { content: ''; flex: none; width: 28px; height: 2px; background: #A8392B; }
+.home-v2 .lp-title {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 1.12;
   letter-spacing: -.01em;
-  color: #2a2522;
-  margin: 0 0 16px;
+  color: #22180F;
+  margin: 0;
 }
-.home-v2 .path-head h2 em {
+.home-v2 .lp-title em {
+  font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
   font-style: italic;
-  font-weight: 600;
-  color: #a5463a;
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 1;
+  color: #A8392B;
 }
 
-.home-v2 .path-grid {
+.home-v2 .lp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 14px;
 }
-.home-v2 .path-card {
-  --ink: #2a2522;
-  --sub: rgba(42, 37, 34, .72);
-  --frame: rgba(42, 37, 34, .2);
-  --hill: rgba(42, 37, 34, .07);
+.home-v2 .lp-card {
+  --lp-ink: #2A1E14;
+  --lp-sub: #4A3A2A;
+  --lp-frame: rgba(42, 30, 20, .22);
+  --lp-glyph: rgba(42, 30, 20, .08);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 126px;
-  padding: 16px 22px 14px;
-  border-radius: 10px;
-  color: var(--ink);
-  border: 1px solid var(--frame);
-  box-shadow: 0 14px 28px -24px rgba(42, 37, 34, .6);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-/* the mount: a fine second frame just inside the edge */
-.home-v2 .path-card::before {
-  content: '';
-  position: absolute;
-  inset: 5px;
-  border: 1px solid var(--frame);
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 22px 24px;
   border-radius: 6px;
-  pointer-events: none;
+  color: var(--lp-ink);
+  outline: 1px solid var(--lp-frame);
+  outline-offset: -9px;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-/* ink-wash hills along the foot of every card */
-.home-v2 .path-card::after {
+.home-v2 .lp-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(42, 30, 20, .16); }
+.home-v2 .lp-card:focus-visible { outline: 2px solid #A8392B; outline-offset: 3px; }
+
+.home-v2 .lp-learn {
+  grid-column: 1 / -1;
+  padding: 26px 30px;
+  background: #2B3D66;
+  --lp-ink: #F3EAD7;
+  --lp-sub: rgba(243, 234, 215, .88);
+  --lp-frame: rgba(243, 234, 215, .25);
+  --lp-glyph: rgba(243, 234, 215, .10);
+}
+.home-v2 .lp-book { background: #E7D5A2; }
+.home-v2 .lp-free { background: #EBCDBF; --lp-glyph: rgba(140, 40, 28, .10); }
+.home-v2 .lp-blog { background: #D2E2D5; }
+.home-v2 .lp-community {
+  background: #6E2F3C;
+  --lp-ink: #F3EAD7;
+  --lp-sub: rgba(243, 234, 215, .86);
+  --lp-frame: rgba(243, 234, 215, .25);
+  --lp-glyph: rgba(243, 234, 215, .10);
+}
+
+/* 01: two soft ridges along the foot, right side */
+.home-v2 .lp-learn::after {
   content: '';
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 44%;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120' preserveAspectRatio='none'%3E%3Cpath d='M0 120V86c22-10 40-30 64-26 20 3 30-22 52-24 24-2 30 26 52 24 18-2 26-14 44-12 22 3 30 24 52 22V120Z' fill='%23000' fill-opacity='.045'/%3E%3Cpath d='M150 120V96c26-18 46-50 76-46 26 4 38 34 62 30 22-4 32-30 56-28 22 2 34 20 56 22V120Z' fill='%23000' fill-opacity='.065'/%3E%3C/svg%3E");
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  height: 70px;
+  opacity: .16;
+  background: no-repeat right bottom / 100% 100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70V52C40 40 70 26 110 34S180 56 220 44 290 18 330 24 380 40 400 42V70Z' fill='%23F3EAD7' fill-opacity='.6'/%3E%3Cpath d='M60 70V60C110 48 150 40 200 48S280 64 330 52 380 40 400 44V70Z' fill='%23F3EAD7'/%3E%3C/svg%3E");
   pointer-events: none;
 }
-.home-v2 .path-card:hover { transform: translateY(-3px); box-shadow: 0 20px 34px -22px rgba(42, 37, 34, .55); }
-.home-v2 .path-card:focus-visible { outline: 3px solid #a5463a; outline-offset: 3px; }
 
-.home-v2 .path-learn { grid-column: 1 / -1; min-height: 140px; background: linear-gradient(135deg, #f1d8d6 0%, #ecd2cf 100%); }   /* plum blossom */
-.home-v2 .path-book  { background: #efe6d3; }   /* hanji */
-.home-v2 .path-free  { background: #d3e0d2; }   /* celadon */
-.home-v2 .path-blog  { background: #d9dfe8; }   /* pale indigo */
-.home-v2 .path-community {                       /* ink, like the centre screen */
-  background: linear-gradient(160deg, #23352f 0%, #1b2925 100%);
-  --ink: #f3ead8;
-  --sub: rgba(243, 234, 216, .78);
-  --frame: rgba(243, 234, 216, .28);
+/* the syllable behind each card, in brush */
+.home-v2 .lp-glyph {
+  position: absolute;
+  top: -4px;
+  right: 10px;
+  font-family: 'East Sea Dokdo', cursive;
+  font-size: 140px;
+  line-height: 1;
+  color: var(--lp-glyph);
+  pointer-events: none;
 }
-.home-v2 .path-community::after { filter: invert(1); opacity: .6; }
+.home-v2 .lp-learn .lp-glyph { font-size: 190px; top: -6px; right: 18px; }
 
-.home-v2 .path-badge {
+/* the number as a red seal */
+.home-v2 .lp-badge {
   position: relative;
-  z-index: 1;
-  align-self: flex-start;
-  margin-bottom: auto;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'Gowun Batang', 'Nanum Myeongjo', serif;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #a5463a;
+  gap: 12px;
 }
-/* the number as a red seal, as on the screens */
-.home-v2 .path-seal {
+.home-v2 .lp-seal {
   display: inline-grid;
   place-items: center;
-  min-width: 30px;
+  width: 30px;
   height: 30px;
-  padding: 0 4px;
-  border-radius: 4px;
-  background: #b5402f;
-  color: #fbeee4;
-  font-family: 'Song Myung', 'Gowun Batang', serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: .02em;
-  box-shadow: inset 0 0 0 2px rgba(251, 238, 228, .55);
-  transform: rotate(-3deg);
-}
-.home-v2 .path-community .path-badge { color: #e7b9a6; }
-
-/* the syllable, in brush, like ink on paper */
-.home-v2 .path-glyph {
-  position: absolute;
-  top: -10px;
-  right: 14px;
-  font-family: 'Nanum Brush Script', 'Song Myung', serif;
-  font-weight: 400;
-  font-size: 120px;
-  line-height: 1;
-  color: rgba(42, 37, 34, .14);
-  pointer-events: none;
-}
-.home-v2 .path-learn .path-glyph { font-size: 136px; color: rgba(165, 70, 58, .18); }
-.home-v2 .path-community .path-glyph { color: rgba(243, 234, 216, .16); }
-
-.home-v2 .path-card strong {
-  position: relative;
-  margin-top: 8px;
-  font-family: 'Cormorant Garamond', 'Nanum Myeongjo', 'Gowun Batang', Georgia, serif;
-  font-size: 22px;
+  border-radius: 3px;
+  background: #A8392B;
+  color: #FBF1E2;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: -.005em;
-  margin-bottom: 3px;
-  color: var(--ink);
 }
-.home-v2 .path-learn strong { font-size: 26px; }
-.home-v2 .path-desc {
+.home-v2 .lp-learn .lp-seal { width: 32px; height: 32px; }
+.home-v2 .lp-tag {
+  font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.home-v2 .lp-learn .lp-tag { color: #E9D9A8; }
+.home-v2 .lp-free .lp-tag { color: #8A2E22; }
+
+.home-v2 .lp-name {
   position: relative;
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--sub);
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.25;
+  color: var(--lp-ink);
+}
+.home-v2 .lp-learn .lp-name { font-size: 26px; }
+.home-v2 .lp-desc {
+  position: relative;
+  font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--lp-sub);
+}
+.home-v2 .lp-learn .lp-desc { font-size: 15px; }
+
+/* phones and narrow windows: one card to a row */
+@media (max-width: 900px) {
+  .home-v2 .lp-grid { grid-template-columns: 1fr; }
+  .home-v2 .lp-title { font-size: 36px; }
+  .home-v2 .lp-title em { font-size: 42px; }
 }
 
 /* ---------- authors ---------- */
@@ -341,9 +346,5 @@ body.home-v2 {
 }
 @media (max-width: 640px) {
   .home-v2 .hero-grid { padding: 0 18px; }
-  .home-v2 .path-grid { grid-template-columns: 1fr; gap: 12px; }
-  .home-v2 .path-card { min-height: 156px; }
-  .home-v2 .path-glyph { font-size: 120px; }
-  .home-v2 .path-learn .path-glyph { font-size: 130px; }
   .home-v2 #contact .wrap { padding: 36px 26px; border-radius: 26px; margin: 0 16px; width: auto; }
 }
