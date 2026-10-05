@@ -68,7 +68,11 @@ const PER_SHELF = 1;                // one a shelf; the workflow picks the shelv
 const SHORTEN = 3;                  // tries at fitting a long sheet on two pages
 const REWRITES = 2;                 // a sheet sent back this many times is not saved
 const PLAN_SIZE = 10;               // subjects asked for at once: a week, and spares
-const THIN = { page1: 0.25, last: 0.30 };   // most a page may stand empty (see thinNotes)
+// Most a page may stand empty (see thinNotes): just past the emptiest of
+// the 48 sheets on file, 2026-10-05 (page one up to 44% — the hangul
+// sheets, by design; the last page up to 59% above the pinned answers —
+// reading sheets). A new sheet is not to be thinner than those.
+const THIN = { page1: 0.45, last: 0.60 };
 
 // The model that writes and reviews. The smaller one translates well
 // enough and is what the site uses everywhere else; a worksheet that a
@@ -237,7 +241,7 @@ export async function markDone(token, category, id) {
 
 // How empty a page may be, as a share of its printable height, before
 // the sheet is sent back to be filled out (measured by render.mjs; the
-// limits from the 48 sheets on file, 2026-10-05 — see THIN below).
+// limits from the 48 sheets on file, 2026-10-05 — see THIN above).
 function thinNotes(space, sheet) {
   if (!space) return [];
   const out = [];
