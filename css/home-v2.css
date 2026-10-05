@@ -78,105 +78,161 @@ body.home-v2 {
 }
 .home-v2 .hero-text { padding: 0; }
 
+/* The five ways in, dressed to sit beside the folding screens (the owner,
+   2026-10-05: "the picture is Korean, the cards too Western"). Colours
+   taken from the picture and the old palette of Korea — hanji, celadon,
+   plum blossom, indigo, ink — each card mounted like a painting (a fine
+   inner frame), a faint ink-wash mountain at its foot, its syllable of
+   두루한국어 in brush, its number in a red seal like the screens' own. */
 .home-v2 .path-head .eyebrow {
-  display: block;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: .16em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--hv-rose);
-  margin-bottom: 6px;
+  color: #a5463a;
+  margin-bottom: 8px;
 }
+.home-v2 .path-head .eyebrow::before { content: ''; width: 26px; height: 1px; background: #a5463a; }
 .home-v2 .path-head h2 {
-  font-family: 'Pretendard', 'Inter', 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  font-size: clamp(32px, 3vw, 40px);
+  font-family: 'Cormorant Garamond', 'Nanum Myeongjo', 'Gowun Batang', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(32px, 3.1vw, 44px);
   line-height: 1.08;
-  letter-spacing: -.035em;
-  color: var(--hv-ink);
+  letter-spacing: -.01em;
+  color: #2a2522;
   margin: 0 0 16px;
 }
 .home-v2 .path-head h2 em {
-  font-family: 'Cormorant Garamond', 'Gowun Batang', Georgia, serif;
   font-style: italic;
-  font-weight: 500;
-  color: var(--hv-rose);
-  letter-spacing: 0;
+  font-weight: 600;
+  color: #a5463a;
 }
 
 .home-v2 .path-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
 }
 .home-v2 .path-card {
+  --ink: #2a2522;
+  --sub: rgba(42, 37, 34, .72);
+  --frame: rgba(42, 37, 34, .2);
+  --hill: rgba(42, 37, 34, .07);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 132px;
-  padding: 16px 20px 16px;
-  border-radius: 26px;
-  color: var(--hv-ink);
+  min-height: 126px;
+  padding: 16px 22px 14px;
+  border-radius: 10px;
+  color: var(--ink);
+  border: 1px solid var(--frame);
+  box-shadow: 0 14px 28px -24px rgba(42, 37, 34, .6);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.home-v2 .path-card:hover { transform: translateY(-3px); box-shadow: 0 20px 36px -24px rgba(43, 36, 48, .55); }
-.home-v2 .path-card:focus-visible { outline: 3px solid var(--hv-plum); outline-offset: 3px; }
-.home-v2 .path-learn { grid-column: 1 / -1; min-height: 140px; background: #f4b6c2; }
-.home-v2 .path-book { background: #d8c8f0; }
-.home-v2 .path-free { background: #fce3a6; }
-.home-v2 .path-blog { background: #a2d0b8; }
-.home-v2 .path-community { background: #2b2430; color: #fff; }
+/* the mount: a fine second frame just inside the edge */
+.home-v2 .path-card::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid var(--frame);
+  border-radius: 6px;
+  pointer-events: none;
+}
+/* ink-wash hills along the foot of every card */
+.home-v2 .path-card::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 44%;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120' preserveAspectRatio='none'%3E%3Cpath d='M0 120V86c22-10 40-30 64-26 20 3 30-22 52-24 24-2 30 26 52 24 18-2 26-14 44-12 22 3 30 24 52 22V120Z' fill='%23000' fill-opacity='.045'/%3E%3Cpath d='M150 120V96c26-18 46-50 76-46 26 4 38 34 62 30 22-4 32-30 56-28 22 2 34 20 56 22V120Z' fill='%23000' fill-opacity='.065'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.home-v2 .path-card:hover { transform: translateY(-3px); box-shadow: 0 20px 34px -22px rgba(42, 37, 34, .55); }
+.home-v2 .path-card:focus-visible { outline: 3px solid #a5463a; outline-offset: 3px; }
+
+.home-v2 .path-learn { grid-column: 1 / -1; min-height: 140px; background: linear-gradient(135deg, #f1d8d6 0%, #ecd2cf 100%); }   /* plum blossom */
+.home-v2 .path-book  { background: #efe6d3; }   /* hanji */
+.home-v2 .path-free  { background: #d3e0d2; }   /* celadon */
+.home-v2 .path-blog  { background: #d9dfe8; }   /* pale indigo */
+.home-v2 .path-community {                       /* ink, like the centre screen */
+  background: linear-gradient(160deg, #23352f 0%, #1b2925 100%);
+  --ink: #f3ead8;
+  --sub: rgba(243, 234, 216, .78);
+  --frame: rgba(243, 234, 216, .28);
+}
+.home-v2 .path-community::after { filter: invert(1); opacity: .6; }
 
 .home-v2 .path-badge {
-  /* In the flow, pushing the title down to the foot of the card: a long
-     description then makes the card taller instead of running under it. */
   position: relative;
   z-index: 1;
   align-self: flex-start;
   margin-bottom: auto;
-  background: #fff;
-  color: var(--hv-ink);
-  border-radius: 999px;
-  padding: 4px 11px;
-  font-size: 11.5px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Gowun Batang', 'Nanum Myeongjo', serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #a5463a;
 }
-.home-v2 .path-community .path-badge { background: #f4b6c2; }
+/* the number as a red seal, as on the screens */
+.home-v2 .path-seal {
+  display: inline-grid;
+  place-items: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 4px;
+  border-radius: 4px;
+  background: #b5402f;
+  color: #fbeee4;
+  font-family: 'Song Myung', 'Gowun Batang', serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .02em;
+  box-shadow: inset 0 0 0 2px rgba(251, 238, 228, .55);
+  transform: rotate(-3deg);
+}
+.home-v2 .path-community .path-badge { color: #e7b9a6; }
 
-/* The big letter in the corner: one syllable of 두루한국어 per card. */
+/* the syllable, in brush, like ink on paper */
 .home-v2 .path-glyph {
   position: absolute;
-  top: -24px;
-  right: -10px;
-  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  font-size: 150px;
+  top: -10px;
+  right: 14px;
+  font-family: 'Nanum Brush Script', 'Song Myung', serif;
+  font-weight: 400;
+  font-size: 120px;
   line-height: 1;
-  color: rgba(255, 255, 255, .5);
+  color: rgba(42, 37, 34, .14);
   pointer-events: none;
 }
-.home-v2 .path-learn .path-glyph { font-size: 170px; }
-.home-v2 .path-community .path-glyph { color: rgba(255, 255, 255, .12); }
+.home-v2 .path-learn .path-glyph { font-size: 136px; color: rgba(165, 70, 58, .18); }
+.home-v2 .path-community .path-glyph { color: rgba(243, 234, 216, .16); }
 
 .home-v2 .path-card strong {
   position: relative;
-  margin-top: 12px;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -.02em;
-  margin-bottom: 4px;
+  margin-top: 8px;
+  font-family: 'Cormorant Garamond', 'Nanum Myeongjo', 'Gowun Batang', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.005em;
+  margin-bottom: 3px;
+  color: var(--ink);
 }
-.home-v2 .path-learn strong { font-size: 25px; }
+.home-v2 .path-learn strong { font-size: 26px; }
 .home-v2 .path-desc {
   position: relative;
   font-size: 13.5px;
   line-height: 1.5;
-  color: rgba(43, 36, 48, .78);
+  color: var(--sub);
 }
-.home-v2 .path-community .path-desc { color: rgba(255, 255, 255, .78); }
 
 /* ---------- authors ---------- */
 .home-v2 .authors {
