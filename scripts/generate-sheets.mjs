@@ -287,7 +287,9 @@ async function makeOne(cfg, category, context, browser) {
       const ops = m.textOps || [];
       const total = ops.reduce((a, b) => a + b, 0);
       const over = ops.slice(2).reduce((a, b) => a + b, 0);
-      const cut = total ? Math.min(45, Math.ceil((over / total * 100 + 8) / 5) * 5) : 0;
+      // A little over what ran past page two: +8 took 35% for 27% and left
+      // a dialogue sheet with three exercises and half a page empty.
+      const cut = total ? Math.min(40, Math.ceil(over / total * 100 + 4)) : 0;
       log('    영어판 ' + m.pages + '쪽 (넘친 분량 약 ' + (total ? Math.round(over / total * 100) : '?') + '%) — ' +
           (cut ? cut + '% 줄입니다' : '2쪽으로 줄입니다'));
       const was = stage('줄이기');
