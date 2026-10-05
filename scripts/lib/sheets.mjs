@@ -205,6 +205,49 @@ export async function pickSubject(cfg, opts) {
   return picked;
 }
 
+// A week of subjects for one shelf in one call (the owner, 2026-10-05:
+// not a call to the writing model every morning just to choose). Asked
+// for a few more than needed; the run drops by code any that repeat the
+// shelf or each other (same()), and keeps the rest in order.
+export async function planSubjects(cfg, opts) {
+  const shelf = SHELVES[opts.category] || SHELVES.etc;
+  const taken = (opts.existing || []).slice(0, 160);
+  const count = opts.count || 10;
+
+  const system = [
+    COMMON, '',
+    '[이번 일]',
+    '"' + opts.category + '" 갈래에 앞으로 하루에 하나씩 올릴 학습지 주제 ' + count + '개를 고르세요.',
+    '이 갈래에 들어가는 것: ' + shelf.what,
+    '',
+    '이미 자료실에 있는 것들입니다. 이것들과 겹치는 주제는 고르지 마세요 —',
+    '제목만 다르고 배우는 내용이 같으면 겹치는 것입니다:',
+    taken.length ? taken.map((t, i) => (i + 1) + '. ' + t).join('\n') : '(아직 없습니다)',
+    '',
+    '고른 ' + count + '개끼리도 서로 겹치면 안 됩니다. 상황·문법·낱말이 서로 다르게,',
+    '수준(level)도 한쪽으로 몰리지 않게 고르세요.',
+    '검색 순위가 아니라 학습에 실제로 쓸모 있는 것을 고르세요.',
+    'checkThese 에는 사람이 게시 전에 사실 확인을 해야 할 항목을 적으세요.',
+    '확인할 것이 없으면 빈 배열로 두세요.'
+  ].join('\n');
+
+  const strictOn = cfg.provider.strictSchema !== false;
+  const one = strict({
+    subject: { type: 'string' },
+    objective: { type: 'string' },
+    level: { type: 'string' },
+    why: { type: 'string' },
+    checkThese: { type: 'array', items: { type: 'string' } }
+  }, ['subject', 'objective', 'level', 'why', 'checkThese'], strictOn);
+  const schema = strict({ subjects: { type: 'array', items: one } }, ['subjects'], strictOn);
+
+  const out = await cfg.provider.chat(cfg, system,
+    '갈래: ' + opts.category + '\n오늘 날짜: ' + (opts.today || '') + '\n개수: ' + count,
+    schema);
+  const got = parse(out, '주제 모아 고르기');
+  return (Array.isArray(got.subjects) ? got.subjects : []).filter((s) => s && String(s.subject || '').trim());
+}
+
 // Writes the sheet itself.
 export async function writeSheet(cfg, opts) {
   const shelf = SHELVES[opts.category] || SHELVES.etc;

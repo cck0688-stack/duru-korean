@@ -24,8 +24,9 @@
 //
 // ── What it costs ──────────────────────────────────────────────────
 //
-// One sheet is four calls to the writing model (pick a subject, write
-// it, two readers — more if they send it back), nine translations on
+// One sheet is three calls to the writing model (write it, two readers
+// — more if they send it back; the subject comes from the shelf's list,
+// made ten at a time by one call — see nextSubject), nine translations on
 // the smaller model each checked by the writing model, and ten PDF
 // renders which cost nothing but time. The end of the log says what the
 // run spent, step by step (usageReport, on the subscription).
@@ -50,7 +51,7 @@
 //   node scripts/generate-sheets.mjs [--only=vocab,reading] [--count=3] [--dry-run]
 
 import { resolveProvider, LANGUAGE_NAMES, TranslateError } from '../api/_providers.js';
-import { pickSubject, writeSheet, reviewSheet, problemsWith, slugify, cleanKeyword, SHELVES } from './lib/sheets.mjs';
+import { planSubjects, writeSheet, reviewSheet, problemsWith, slugify, cleanKeyword, same, SHELVES } from './lib/sheets.mjs';
 import { auditSheet, fixSheet, sheetReferences, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
 import { pageBreakdown } from './pdf/check.mjs';
 import { withPatience } from './lib/patiently.mjs';
@@ -65,6 +66,7 @@ const SHELF_ORDER = ['vocab', 'reading', 'grammar', 'reallife', 'hangul', 'etc']
 const PER_SHELF = 1;                // every shelf, every day: six a day
 const SHORTEN = 3;                  // tries at fitting a long sheet on two pages
 const REWRITES = 2;                 // a sheet sent back this many times is not saved
+const PLAN_SIZE = 10;               // subjects asked for at once: a week, and spares
 
 // The model that writes and reviews. The smaller one translates well
 // enough and is what the site uses everywhere else; a worksheet that a
@@ -143,16 +145,79 @@ async function putDraft(token, path, bytes) {
   return 'resource-drafts/' + path;
 }
 
+/* ---------------- the shelf's list of subjects ---------------- */
+
+// Each shelf keeps a list of subjects still to be written, made a week
+// at a time (planSubjects) instead of one call to the writing model
+// every morning. It lives in the private drafts bucket, plans/<shelf>.json,
+// where only an admin can read it; one file per shelf, and one job per
+// shelf, so two runs never write the same file.
+const planUrl = (category) => SUPABASE_URL + '/storage/v1/object/resource-drafts/plans/' + category + '.json';
+
+async function loadPlan(token, category) {
+  const res = await fetch(SUPABASE_URL + '/storage/v1/object/authenticated/resource-drafts/plans/' + category + '.json', {
+    headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token }
+  });
+  if (!res.ok) return [];
+  const body = await res.json().catch(() => null);
+  return body && Array.isArray(body.subjects) ? body.subjects : [];
+}
+
+async function savePlan(token, category, subjects) {
+  const headers = { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token };
+  // The bucket lets an admin add and remove, not change: removed, then
+  // written again.
+  await fetch(planUrl(category), { method: 'DELETE', headers }).catch(() => null);
+  const res = await fetch(planUrl(category), {
+    method: 'POST',
+    headers: { ...headers, 'Content-Type': 'application/json', 'x-upsert': 'true' },
+    body: JSON.stringify({ category, updated: new Date().toISOString(), subjects })
+  });
+  if (!res.ok) throw new Error('주제 목록 저장 실패 (' + res.status + '): ' + (await res.text()).slice(0, 200));
+}
+
+// The next subject for the shelf: from its list, dropping any the shelf
+// has got since; a new list when it has run out. Taken off the list
+// before it is written, so a subject that fails is not tried again.
+async function nextSubject(writer, token, category, { today, existing, ownShelf }) {
+  const clash = (s) => existing.some((t) => same(t, s.subject));
+  let list = (await loadPlan(token, category)).filter((s) => s && s.subject && !clash(s));
+  if (!list.length) {
+    const was = stage('주제 모으기');
+    let fresh;
+    try {
+      fresh = await planSubjects(writer, {
+        category, today, count: PLAN_SIZE,
+        existing: ownShelf.concat(existing.filter((t) => !ownShelf.includes(t)))
+      });
+    } finally {
+      stage(was);
+    }
+    for (const s of fresh) {
+      if (!clash(s) && !list.some((k) => same(k.subject, s.subject))) list.push(s);
+    }
+    log('  · ' + category + ' — 주제 ' + list.length + '개를 새로 모았습니다' +
+        (fresh.length > list.length ? ' (겹쳐서 뺀 것 ' + (fresh.length - list.length) + '개)' : ''));
+    if (!list.length) throw new Error('겹치지 않는 주제를 찾지 못했습니다');
+  }
+  const next = list.shift();
+  if (!DRY) {
+    try {
+      await savePlan(token, category, list);
+    } catch (err) {
+      log('    ' + err.message + ' — 다음 실행에서 주제를 새로 모읍니다');
+    }
+  }
+  log('  · ' + category + ' — 남은 주제 ' + list.length + '개');
+  return next;
+}
+
 /* ---------------- one sheet, start to finish ---------------- */
 
 async function makeOne(cfg, category, context, browser) {
-  const today = context.today;
   const writer = context.writer || cfg;
 
-  stage('주제');
-  const subject = await pickSubject(writer, {
-    category, today, existing: context.existing
-  });
+  const subject = await context.nextSubject(category);
   log('  · ' + category + ' — ' + subject.subject);
 
   stage('쓰기');
@@ -515,7 +580,11 @@ export async function run() {
       let savedHere = already;
       for (let i = 0; savedHere < want && i < want * 2; i += 1) {
         try {
-          const out = await makeOne(cfg, category, { today, existing, writer }, browser);
+          const nextSubjectHere = (cat) => nextSubject(writer, session.token, cat, {
+            today, existing,
+            ownShelf: made.filter((r) => r.category === cat).map((r) => r.title + (r.objective ? ' — ' + r.objective : ''))
+          });
+          const out = await makeOne(cfg, category, { today, existing, writer, nextSubject: nextSubjectHere }, browser);
           if (DRY) {
             const bad = Object.entries(out.rendered).filter(([, r]) => !r.check.ok);
             log('    (연습) ' + out.sheet.title + ' — ' +
