@@ -72,7 +72,41 @@ export function untilReset(said, now = new Date()) {
   return at - now;
 }
 
-const LIMIT = /usage limit|session limit|limit reached|hit your limit|rate limit|out of (extra )?usage/i;
+// "You've hit your weekly limit · resets 3am (UTC)" (2026-10-05) was not
+// in this list, so all six shelves and the blog failed at 04:00 instead
+// of waiting the five hours to the reset.
+const LIMIT = /usage limit|session limit|weekly limit|limit reached|hit your (\w+ )?limit|rate limit|out of (extra )?usage/i;
+
+// What each run spent, by step and model, so the log says where the
+// allowance goes (counts only — nothing of what was written).
+// stage() names the step the next calls belong to.
+const spent = new Map();
+let current = 'other';
+export function stage(name) { const was = current; current = name || 'other'; return was; }
+function tally(model, usage, failed) {
+  const key = current + ' · ' + (model || '?');
+  const row = spent.get(key) || { calls: 0, failed: 0, input: 0, cached: 0, output: 0 };
+  row.calls += 1;
+  if (failed) row.failed += 1;
+  if (usage) {
+    row.input += (usage.input_tokens || 0) + (usage.cache_creation_input_tokens || 0);
+    row.cached += usage.cache_read_input_tokens || 0;
+    row.output += usage.output_tokens || 0;
+  }
+  spent.set(key, row);
+}
+export function usageReport() {
+  if (!spent.size) return '';
+  const k = (n) => (n >= 10000 ? Math.round(n / 1000) + 'k' : String(n));
+  const rows = [...spent.entries()].sort((a, b) => b[1].output - a[1].output);
+  const sum = rows.reduce((s, [, r]) => ({ calls: s.calls + r.calls, input: s.input + r.input, cached: s.cached + r.cached, output: s.output + r.output }),
+    { calls: 0, input: 0, cached: 0, output: 0 });
+  return ['토큰 사용 (단계 · 모델: 호출, 입력, 캐시 읽기, 출력)']
+    .concat(rows.map(([key, r]) => '  ' + key + ': ' + r.calls + '번' + (r.failed ? ' (실패 ' + r.failed + ')' : '') +
+      ', 입력 ' + k(r.input) + ', 캐시 ' + k(r.cached) + ', 출력 ' + k(r.output)))
+    .concat(['  합계: ' + sum.calls + '번, 입력 ' + k(sum.input) + ', 캐시 ' + k(sum.cached) + ', 출력 ' + k(sum.output)])
+    .join('\n');
+}
 
 export const claudeCode = {
   label: 'Claude (구독)',
@@ -110,6 +144,7 @@ export const claudeCode = {
         'npm install -g @anthropic-ai/claude-code 가 먼저 필요합니다.');
     }
     if (res.signal === 'SIGKILL') {
+      tally(cfg.model, null, true);
       const e = new TranslateError(504, 'Claude did not answer within ' + Math.round(ms / 1000) + 's.');
       e.transient = true;
       throw e;
@@ -117,7 +152,9 @@ export const claudeCode = {
     let data = null;
     try { data = JSON.parse(res.out); } catch (e) { /* reported below */ }
     const said = String((data && (data.result || data.error)) || res.err || res.out || '').slice(0, 300);
-    if (!data || data.is_error || res.code !== 0) {
+    const failed = !data || data.is_error || res.code !== 0;
+    tally(cfg.model, data && data.usage, failed);
+    if (failed) {
       if (LIMIT.test(said)) {
         const e = new TranslateError(429, 'Claude 구독 사용량 한도에 닿았습니다. (' + said + ')');
         e.said = said;

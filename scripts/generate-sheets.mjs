@@ -24,10 +24,11 @@
 //
 // ── What it costs ──────────────────────────────────────────────────
 //
-// One sheet is three calls to the writing model (pick a subject, write
-// it, review it — more if the review sends it back) plus seven
-// translations on the smaller model, and eight PDF renders which cost
-// nothing but time. A sheet is translated once, ever.
+// One sheet is four calls to the writing model (pick a subject, write
+// it, two readers — more if they send it back), nine translations on
+// the smaller model each checked by the writing model, and ten PDF
+// renders which cost nothing but time. The end of the log says what the
+// run spent, step by step (usageReport, on the subscription).
 //
 // ── Configuration ──────────────────────────────────────────────────
 //
@@ -53,7 +54,7 @@ import { pickSubject, writeSheet, reviewSheet, problemsWith, slugify, cleanKeywo
 import { auditSheet, fixSheet, sheetReferences, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
 import { pageBreakdown } from './pdf/check.mjs';
 import { withPatience } from './lib/patiently.mjs';
-import { subscriptionConfig, useSubscription } from './lib/claude-code.mjs';
+import { subscriptionConfig, useSubscription, stage, usageReport } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
@@ -72,6 +73,11 @@ const WRITING_MODEL = { openai: 'gpt-5' };
 // Ten: the site's eight, and French and German (2026-09-25).
 const LANGS = Object.keys(LANGUAGE_NAMES);
 const SOURCE_LANG = 'en';           // sheets are written with English explanations
+// Longest editions first (the 48 sheets on file, 2026-10-05: fr, de, id,
+// es, pt-BR run 4–8% longer than the English; ko, ja, zh 18–26% shorter).
+const BY_LENGTH = ['fr', 'de', 'id', 'es', 'pt-BR', 'vi', 'ko', 'ja', 'zh'];
+const TRANSLATE_ORDER = BY_LENGTH.filter((l) => LANGS.includes(l))
+  .concat(LANGS.filter((l) => l !== SOURCE_LANG && !BY_LENGTH.includes(l)));
 
 const args = process.argv.slice(2);
 const arg = (name) => {
@@ -143,11 +149,13 @@ async function makeOne(cfg, category, context, browser) {
   const today = context.today;
   const writer = context.writer || cfg;
 
+  stage('주제');
   const subject = await pickSubject(writer, {
     category, today, existing: context.existing
   });
   log('  · ' + category + ' — ' + subject.subject);
 
+  stage('쓰기');
   let sheet = await writeSheet(writer, {
     category, subject: subject.subject,
     objective: subject.objective, level: subject.level
@@ -158,14 +166,23 @@ async function makeOne(cfg, category, context, browser) {
   // every sheet is checked twice) — goes back to the writer as a list.
   // Twice; a sheet that is still wrong after that is not saved, and the
   // shelf gets a different subject tomorrow.
+  // Both readers at once; how many each found is logged, to tell later
+  // whether reading them one after the other would save a call or cost
+  // a rewrite.
+  const readTwice = async (s) => {
+    const was = stage('검수');
+    const [first, second] = await Promise.all([reviewSheet(writer, s), auditSheet(writer, s)]);
+    stage(was);
+    if (first.problems.length || second.problems.length) {
+      log('    검수 ' + first.problems.length + '가지 · 감사 ' + second.problems.length + '가지');
+    }
+    return first.problems.concat(second.problems);
+  };
   let notes = [];
   for (let round = 0; ; round += 1) {
     const problems = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet));
     let found = [];
-    if (!problems.length) {
-      const [first, second] = await Promise.all([reviewSheet(writer, sheet), auditSheet(writer, sheet)]);
-      found = first.problems.concat(second.problems);
-    }
+    if (!problems.length) found = await readTwice(sheet);
     notes = problems.concat(found);
     if (!notes.length) break;
     if (round >= REWRITES) {
@@ -175,6 +192,7 @@ async function makeOne(cfg, category, context, browser) {
     }
     log('    검수에서 ' + notes.length + '가지 걸림 — 다시 씁니다 (' + (round + 1) + '/' + REWRITES + '): ' +
         notes.join(' ').slice(0, 300));
+    stage('다시 쓰기');
     sheet = await writeSheet(writer, {
       category,
       subject: subject.subject + '\n\n[지난번 검수에서 걸린 것 — 전부 고치세요]\n- ' + notes.join('\n- '),
@@ -192,8 +210,7 @@ async function makeOne(cfg, category, context, browser) {
   const recheck = async (s) => {
     const again = problemsWith(s, { existing: context.existing }).concat(markProblems(s));
     if (again.length) return again;
-    const [first, second] = await Promise.all([reviewSheet(writer, s), auditSheet(writer, s)]);
-    return first.problems.concat(second.problems);
+    return readTwice(s);
   };
   const pagesOf = async (s) => pageBreakdown((await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false })).pdf).pages;
   for (let t = 0, n = await pagesOf(sheet); n > 2; t += 1, n = await pagesOf(sheet)) {
@@ -203,6 +220,7 @@ async function makeOne(cfg, category, context, browser) {
       throw err;
     }
     log('    영어판 ' + n + '쪽 — 2쪽으로 줄입니다');
+    stage('줄이기');
     sheet = await shortenSheet(writer, sheet, n);
     sheet.level = normalizeLevel(sheet.level);
     const left = await recheck(sheet);
@@ -213,6 +231,7 @@ async function makeOne(cfg, category, context, browser) {
       // the sheet read again. (Until 2026-09-27 the sheet was dropped
       // here: two reading sheets in a row lost over one word each.)
       log('    줄인 뒤 검수에서 ' + left.length + '가지 걸림 — 그 부분만 고칩니다: ' + left.join(' ').slice(0, 200));
+      stage('고치기');
       sheet = await fixSheet(writer, sheet, left);
       sheet.level = normalizeLevel(sheet.level);
       const still = await recheck(sheet);
@@ -228,17 +247,25 @@ async function makeOne(cfg, category, context, browser) {
   // is the one nothing can go wrong in.
   // Each translation is checked: the Korean in it by machine (it must
   // come through untouched), every line by the reader.
+  // The longest languages first (TRANSLATE_ORDER), each set as soon as
+  // it is translated: the first that runs onto a third page stops the
+  // round there, before the shorter ones are translated for nothing —
+  // the English is cut and they would all be translated again anyway.
   const makeAll = async (source) => {
     const editions = { [SOURCE_LANG]: source };
-    for (const lang of LANGS) {
-      if (lang === SOURCE_LANG) continue;
-      const got = await translateChecked({ translator: cfg, writer }, source, lang);
-      if (got.record.failed) throw new Error(lang + ' 번역에서 한국어가 바뀌어 저장하지 않습니다');
-      editions[lang] = got.edition;
-    }
-    const rendered = {};
-    for (const [lang, edition] of Object.entries(editions)) {
-      rendered[lang] = await renderSheet(edition, { category, lang, browser });
+    const rendered = { [SOURCE_LANG]: await renderSheet(source, { category, lang: SOURCE_LANG, browser }) };
+    if (rendered[SOURCE_LANG].check.pages > 2) return { editions, rendered };
+    const was = stage('번역');
+    try {
+      for (const lang of TRANSLATE_ORDER) {
+        const got = await translateChecked({ translator: cfg, writer }, source, lang);
+        if (got.record.failed) throw new Error(lang + ' 번역에서 한국어가 바뀌어 저장하지 않습니다');
+        editions[lang] = got.edition;
+        rendered[lang] = await renderSheet(got.edition, { category, lang, browser });
+        if (rendered[lang].check.pages > 2) break;
+      }
+    } finally {
+      stage(was);
     }
     return { editions, rendered };
   };
@@ -252,10 +279,12 @@ async function makeOne(cfg, category, context, browser) {
     const longer = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang);
     if (!longer.length || longer.includes(SOURCE_LANG)) break;
     log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다' + (t ? ' (두 번째)' : ''));
+    stage('줄이기');
     let short = await shortenSheet(writer, sheet, 2, longer);
     short.level = normalizeLevel(short.level);
     let left = await recheck(short);
     if (left.length) {
+      stage('고치기');
       short = await fixSheet(writer, short, left);
       short.level = normalizeLevel(short.level);
       left = await recheck(short);
@@ -279,6 +308,7 @@ async function makeOne(cfg, category, context, browser) {
   // the admin-only table; see save()). On the faster model: it is a list.
   let references = [];
   try {
+    stage('참고 자료');
     references = await sheetReferences(cfg, sheet);
   } catch (err) {
     log('    참고 자료 목록 실패 (학습지는 그대로): ' + err.message);
@@ -515,6 +545,8 @@ export async function run() {
 
   log('\n끝: ' + done.length + '편' + (failed.length ? ', 실패 ' + failed.length + '건' : ''));
   failed.forEach((f) => log('  ! ' + f));
+  const report = usageReport();
+  if (report) log('\n' + report);
 
   // A run that made nothing at all is a failed run, and has to look
   // like one. One shelf falling over while the others work is a

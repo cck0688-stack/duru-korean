@@ -27,7 +27,7 @@
 
 import { resolveProvider } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
-import { useSubscription, subscriptionAccount } from './lib/claude-code.mjs';
+import { useSubscription, subscriptionAccount, usageReport } from './lib/claude-code.mjs';
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
@@ -481,6 +481,8 @@ function report(today, results) {
     lines.push(r.ok ? `  ${r.category}: ${r.title}` : `  ${r.category}: 실패 (${r.stage})`);
   });
   lines.push('', 'durukorean.com/blog 에서 검토하고 승인해 주세요.');
+  const spent = usageReport();
+  if (spent) lines.push('', spent);
   const text = lines.join('\n');
   console.log(text);
   if (process.env.GITHUB_STEP_SUMMARY) {
