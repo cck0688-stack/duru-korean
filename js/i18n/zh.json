@@ -805,5 +805,10 @@
   "blog.print": "打印",
   "hero.path.h2html": "五个入口，<em>一个</em>方向。",
   "hero.path.popular": "最受欢迎",
-  "hero.path.free": "免费"
+  "hero.path.free": "免费",
+  "hero.path.learn.short": "从第一个字母到真实对话，配有母语音频的分步课程。",
+  "hero.path.book.short": "每本教材的音频和打印资料，集中在一处。",
+  "hero.path.resources.short": "韩文字母、发音、词汇、语法速查 PDF。",
+  "hero.path.blog.short": "老师们亲自写的韩国日常、美食与旅行故事。",
+  "hero.path.community.short": "提问、分享，在留言簿里留下一句话。"
 }

@@ -805,5 +805,10 @@
   "blog.print": "Imprimir",
   "hero.path.h2html": "Cinco portas de entrada, <em>uma só</em> direção.",
   "hero.path.popular": "Mais popular",
-  "hero.path.free": "Grátis"
+  "hero.path.free": "Grátis",
+  "hero.path.learn.short": "Da primeira letra à conversa de verdade — lições passo a passo com áudio nativo.",
+  "hero.path.book.short": "O áudio e os materiais para imprimir de cada livro, num só lugar.",
+  "hero.path.resources.short": "PDFs de hangul, pronúncia, vocabulário e gramática.",
+  "hero.path.blog.short": "O dia a dia, a comida e as viagens na Coreia, escritos pelos nossos professores.",
+  "hero.path.community.short": "Pergunte, compartilhe e deixe uma linha no livro de visitas."
 }

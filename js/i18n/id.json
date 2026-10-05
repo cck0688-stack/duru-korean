@@ -805,5 +805,10 @@
   "blog.print": "Cetak",
   "hero.path.h2html": "Lima pintu masuk, <em>satu</em> arah.",
   "hero.path.popular": "Paling populer",
-  "hero.path.free": "Gratis"
+  "hero.path.free": "Gratis",
+  "hero.path.learn.short": "Dari huruf pertama hingga percakapan nyata — pelajaran bertahap dengan audio penutur asli.",
+  "hero.path.book.short": "Audio dan bahan cetak setiap buku, di satu tempat.",
+  "hero.path.resources.short": "PDF ringkasan Hangul, pelafalan, kosakata, dan tata bahasa.",
+  "hero.path.blog.short": "Kehidupan sehari-hari, makanan, dan perjalanan di Korea, ditulis guru kami.",
+  "hero.path.community.short": "Bertanya, berbagi, dan tinggalkan satu baris di buku tamu."
 }

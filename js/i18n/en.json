@@ -805,5 +805,10 @@
   "blog.print": "Print",
   "hero.path.h2html": "Five ways in, <em>one</em> direction.",
   "hero.path.popular": "Most popular",
-  "hero.path.free": "Free"
+  "hero.path.free": "Free",
+  "hero.path.learn.short": "From your first letter to real conversation — step-by-step lessons with native audio.",
+  "hero.path.book.short": "Audio and printables for every book, all in one place.",
+  "hero.path.resources.short": "Hangul, pronunciation, vocabulary and grammar cheat-sheet PDFs.",
+  "hero.path.blog.short": "Daily life, food and travel in Korea, written by our teachers.",
+  "hero.path.community.short": "Ask, share, and leave a line in the guestbook."
 }

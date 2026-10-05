@@ -805,5 +805,10 @@
   "blog.print": "Drucken",
   "hero.path.h2html": "Fünf Wege hinein, <em>eine</em> Richtung.",
   "hero.path.popular": "Am beliebtesten",
-  "hero.path.free": "Kostenlos"
+  "hero.path.free": "Kostenlos",
+  "hero.path.learn.short": "Vom ersten Buchstaben bis zum echten Gespräch – Lektionen Schritt für Schritt mit Muttersprachler-Audio.",
+  "hero.path.book.short": "Audio und Druckvorlagen zu jedem Buch, an einem Ort.",
+  "hero.path.resources.short": "PDFs zu Hangul, Aussprache, Wortschatz und Grammatik.",
+  "hero.path.blog.short": "Alltag, Essen und Reisen in Korea, geschrieben von unseren Lehrkräften.",
+  "hero.path.community.short": "Fragen, teilen und einen Gruß im Gästebuch hinterlassen."
 }

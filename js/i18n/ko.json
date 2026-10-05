@@ -805,5 +805,10 @@
   "blog.print": "인쇄",
   "hero.path.h2html": "다섯 갈래 입구, <em>하나의</em> 방향.",
   "hero.path.popular": "가장 인기",
-  "hero.path.free": "무료"
+  "hero.path.free": "무료",
+  "hero.path.learn.short": "첫 글자부터 진짜 대화까지, 원어민 오디오가 함께하는 단계별 레슨.",
+  "hero.path.book.short": "교재별 오디오와 프린트물을 한 곳에.",
+  "hero.path.resources.short": "한글, 발음, 어휘, 문법 치트시트 PDF.",
+  "hero.path.blog.short": "선생님들이 직접 쓰는 한국의 일상, 음식, 여행 이야기.",
+  "hero.path.community.short": "질문하고, 나누고, 방명록에 한 줄 남겨주세요."
 }

@@ -57,18 +57,22 @@ body.home-v2 {
   padding: 56px 0 64px;
 }
 .home-v2 .hero-grid {
-  max-width: 1240px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 0 28px;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 56px;
-  align-items: center;
+  /* The cards' column has a set width; the picture beside it is made as
+     tall as that column (js/home-hero.js), so their tops and feet line up. */
+  grid-template-columns: auto 580px;
+  justify-content: center;
+  gap: 48px;
+  align-items: start;
 }
 .home-v2 .hero-graphic { background: none; overflow: visible; }
 .home-v2 .hero-frame { position: relative; top: auto; bottom: auto; display: block; }
 .home-v2 .hero-scene {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 540px;
+  max-width: none;
   border-radius: 30px;
   box-shadow: 0 40px 70px -40px rgba(70, 40, 60, .55);
 }
@@ -81,16 +85,16 @@ body.home-v2 {
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--hv-rose);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 .home-v2 .path-head h2 {
   font-family: 'Pretendard', 'Inter', 'Noto Sans KR', sans-serif;
   font-weight: 800;
-  font-size: clamp(32px, 3.1vw, 44px);
+  font-size: clamp(32px, 3vw, 40px);
   line-height: 1.08;
   letter-spacing: -.035em;
   color: var(--hv-ink);
-  margin: 0 0 24px;
+  margin: 0 0 16px;
 }
 .home-v2 .path-head h2 em {
   font-family: 'Cormorant Garamond', 'Gowun Batang', Georgia, serif;
@@ -103,22 +107,22 @@ body.home-v2 {
 .home-v2 .path-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 .home-v2 .path-card {
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 182px;
-  padding: 20px 24px 22px;
+  min-height: 132px;
+  padding: 16px 20px 16px;
   border-radius: 26px;
   color: var(--hv-ink);
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .home-v2 .path-card:hover { transform: translateY(-3px); box-shadow: 0 20px 36px -24px rgba(43, 36, 48, .55); }
 .home-v2 .path-card:focus-visible { outline: 3px solid var(--hv-plum); outline-offset: 3px; }
-.home-v2 .path-learn { grid-column: 1 / -1; min-height: 200px; background: #f4b6c2; }
+.home-v2 .path-learn { grid-column: 1 / -1; min-height: 140px; background: #f4b6c2; }
 .home-v2 .path-book { background: #d8c8f0; }
 .home-v2 .path-free { background: #fce3a6; }
 .home-v2 .path-blog { background: #a2d0b8; }
@@ -134,8 +138,8 @@ body.home-v2 {
   background: #fff;
   color: var(--hv-ink);
   border-radius: 999px;
-  padding: 5px 13px;
-  font-size: 12.5px;
+  padding: 4px 11px;
+  font-size: 11.5px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .02em;
@@ -159,17 +163,17 @@ body.home-v2 {
 
 .home-v2 .path-card strong {
   position: relative;
-  margin-top: 26px;
-  font-size: 23px;
+  margin-top: 12px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: -.02em;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
-.home-v2 .path-learn strong { font-size: 27px; }
+.home-v2 .path-learn strong { font-size: 25px; }
 .home-v2 .path-desc {
   position: relative;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13.5px;
+  line-height: 1.5;
   color: rgba(43, 36, 48, .78);
 }
 .home-v2 .path-community .path-desc { color: rgba(255, 255, 255, .78); }
@@ -268,11 +272,15 @@ body.home-v2 {
 .home-v2 .footer-top .logo-img { height: 34px; }
 
 /* ---------- smaller screens ---------- */
-@media (max-width: 980px) {
+/* Too narrow for the picture and the cards side by side at full height:
+   the picture goes above the cards (same width as js/home-hero.js). */
+@media (max-width: 1259px) {
   .home-v2 .hero { padding: 28px 0 44px; }
-  .home-v2 .hero-grid { grid-template-columns: 1fr; gap: 34px; }
-  .home-v2 .hero-graphic { aspect-ratio: auto; }
+  .home-v2 .hero-grid { grid-template-columns: minmax(0, 640px); gap: 34px; }
+  .home-v2 .hero-graphic { aspect-ratio: auto; order: 0; }
+  .home-v2 .hero-text { order: 1; }
   .home-v2 .hero-frame { position: relative; }
+  .home-v2 .hero-scene { width: 100%; height: auto; }
   .home-v2 .hero-text { padding: 0; }
 }
 @media (max-width: 640px) {

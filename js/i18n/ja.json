@@ -805,5 +805,10 @@
   "blog.print": "印刷",
   "hero.path.h2html": "5つの入口、<em>ひとつ</em>の方向。",
   "hero.path.popular": "いちばん人気",
-  "hero.path.free": "無料"
+  "hero.path.free": "無料",
+  "hero.path.learn.short": "最初の一文字から本物の会話まで。ネイティブ音声つきのステップ別レッスン。",
+  "hero.path.book.short": "教材ごとの音声とプリントをひとまとめに。",
+  "hero.path.resources.short": "ハングル・発音・語彙・文法のまとめPDF。",
+  "hero.path.blog.short": "先生たちが書く、韓国の日常・食・旅の話。",
+  "hero.path.community.short": "質問して、話して、ゲストブックに一言どうぞ。"
 }

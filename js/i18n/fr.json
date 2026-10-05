@@ -805,5 +805,10 @@
   "blog.print": "Imprimer",
   "hero.path.h2html": "Cinq entrées, <em>une seule</em> direction.",
   "hero.path.popular": "Le plus populaire",
-  "hero.path.free": "Gratuit"
+  "hero.path.free": "Gratuit",
+  "hero.path.learn.short": "De la première lettre à la vraie conversation : des leçons pas à pas avec audio natif.",
+  "hero.path.book.short": "L’audio et les fiches à imprimer de chaque livre, au même endroit.",
+  "hero.path.resources.short": "Des PDF de hangeul, prononciation, vocabulaire et grammaire.",
+  "hero.path.blog.short": "La vie quotidienne, la cuisine et les voyages en Corée, racontés par nos professeurs.",
+  "hero.path.community.short": "Posez vos questions, partagez, laissez un mot dans le livre d’or."
 }

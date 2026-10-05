@@ -805,5 +805,10 @@
   "blog.print": "In",
   "hero.path.h2html": "Năm lối vào, <em>một</em> hướng đi.",
   "hero.path.popular": "Phổ biến nhất",
-  "hero.path.free": "Miễn phí"
+  "hero.path.free": "Miễn phí",
+  "hero.path.learn.short": "Từ chữ cái đầu tiên đến hội thoại thật — bài học từng bước kèm âm thanh bản ngữ.",
+  "hero.path.book.short": "Âm thanh và tài liệu in của từng cuốn sách, tất cả ở một nơi.",
+  "hero.path.resources.short": "PDF tóm tắt Hangul, phát âm, từ vựng và ngữ pháp.",
+  "hero.path.blog.short": "Đời sống, ẩm thực và du lịch Hàn Quốc, do chính giáo viên viết.",
+  "hero.path.community.short": "Hỏi, chia sẻ và để lại một dòng trong sổ lưu bút."
 }
