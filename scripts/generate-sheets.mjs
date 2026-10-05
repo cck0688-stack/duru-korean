@@ -7,10 +7,10 @@
 //
 // ── How much it makes ──────────────────────────────────────────────
 //
-// One sheet on each of the six shelves, every morning: six a day (the
-// owner, 2026-09-27; it was three a shelf, eighteen a day, until then).
-// --count changes the one; --only picks the shelves. The workflow runs
-// one shelf per job.
+// One sheet per shelf per run; --count changes the one, --only picks
+// the shelves. The workflow runs one shelf per job: three a day from
+// 2026-10-05 (grammar, vocab, and reading or reallife on alternate
+// days), the subjects from the syllabus (lib/curriculum.mjs).
 //
 // ── What "good" means here ─────────────────────────────────────────
 //
@@ -57,13 +57,14 @@ import { pageBreakdown } from './pdf/check.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription, stage, usageReport } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
+import { nextFromSyllabus, levelProblems, progress } from './lib/curriculum.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
   'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 
 const SHELF_ORDER = ['vocab', 'reading', 'grammar', 'reallife', 'hangul', 'etc'];
-const PER_SHELF = 1;                // every shelf, every day: six a day
+const PER_SHELF = 1;                // one a shelf; the workflow picks the shelves
 const SHORTEN = 3;                  // tries at fitting a long sheet on two pages
 const REWRITES = 2;                 // a sheet sent back this many times is not saved
 const PLAN_SIZE = 10;               // subjects asked for at once: a week, and spares
@@ -147,23 +148,26 @@ async function putDraft(token, path, bytes) {
 
 /* ---------------- the shelf's list of subjects ---------------- */
 
-// Each shelf keeps a list of subjects still to be written, made a week
-// at a time (planSubjects) instead of one call to the writing model
-// every morning. It lives in the private drafts bucket, plans/<shelf>.json,
-// where only an admin can read it; one file per shelf, and one job per
-// shelf, so two runs never write the same file.
+// The grammar, vocab, reading and real-life shelves take their subjects
+// from the syllabus (lib/curriculum.mjs: the standard curriculum's lists,
+// in order); the plan file records which items are done. Any other shelf
+// keeps a list of subjects still to be written, made ten at a time
+// (planSubjects) instead of one call to the writing model every morning.
+// The file lives in the private drafts bucket, plans/<shelf>.json, where
+// only an admin can read it; one file per shelf, and one job per shelf,
+// so two runs never write the same file.
 const planUrl = (category) => SUPABASE_URL + '/storage/v1/object/resource-drafts/plans/' + category + '.json';
 
 async function loadPlan(token, category) {
   const res = await fetch(SUPABASE_URL + '/storage/v1/object/authenticated/resource-drafts/plans/' + category + '.json', {
     headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token }
   });
-  if (!res.ok) return [];
+  if (!res.ok) return {};
   const body = await res.json().catch(() => null);
-  return body && Array.isArray(body.subjects) ? body.subjects : [];
+  return body && typeof body === 'object' ? body : {};
 }
 
-async function savePlan(token, category, subjects) {
+async function savePlan(token, category, plan) {
   const headers = { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token };
   // The bucket lets an admin add and remove, not change: removed, then
   // written again.
@@ -171,7 +175,7 @@ async function savePlan(token, category, subjects) {
   const res = await fetch(planUrl(category), {
     method: 'POST',
     headers: { ...headers, 'Content-Type': 'application/json', 'x-upsert': 'true' },
-    body: JSON.stringify({ category, updated: new Date().toISOString(), subjects })
+    body: JSON.stringify({ ...plan, category, updated: new Date().toISOString() })
   });
   if (!res.ok) throw new Error('주제 목록 저장 실패 (' + res.status + '): ' + (await res.text()).slice(0, 200));
 }
@@ -180,8 +184,20 @@ async function savePlan(token, category, subjects) {
 // has got since; a new list when it has run out. Taken off the list
 // before it is written, so a subject that fails is not tried again.
 async function nextSubject(writer, token, category, { today, existing, ownShelf }) {
+  const plan = await loadPlan(token, category);
+
+  // The syllabus: counted as tried before it is written, done once saved
+  // (markDone), so an item that fails twice is passed over.
+  const planned = nextFromSyllabus(category, plan);
+  if (planned) {
+    plan.tried = { ...(plan.tried || {}), [planned.id]: ((plan.tried || {})[planned.id] || 0) + 1 };
+    if (!DRY) await savePlan(token, category, plan).catch((err) => log('    ' + err.message));
+    log('  · ' + category + ' — 교육과정 ' + planned.label + ' (진도 ' + progress(category, plan) + ')');
+    return planned;
+  }
+
   const clash = (s) => existing.some((t) => same(t, s.subject));
-  let list = (await loadPlan(token, category)).filter((s) => s && s.subject && !clash(s));
+  let list = (Array.isArray(plan.subjects) ? plan.subjects : []).filter((s) => s && s.subject && !clash(s));
   if (!list.length) {
     const was = stage('주제 모으기');
     let fresh;
@@ -203,13 +219,19 @@ async function nextSubject(writer, token, category, { today, existing, ownShelf 
   const next = list.shift();
   if (!DRY) {
     try {
-      await savePlan(token, category, list);
+      await savePlan(token, category, { ...plan, subjects: list });
     } catch (err) {
       log('    ' + err.message + ' — 다음 실행에서 주제를 새로 모읍니다');
     }
   }
   log('  · ' + category + ' — 남은 주제 ' + list.length + '개');
   return next;
+}
+
+async function markDone(token, category, id) {
+  const plan = await loadPlan(token, category);
+  plan.done = [...new Set([...(plan.done || []), id])];
+  await savePlan(token, category, plan);
 }
 
 /* ---------------- one sheet, start to finish ---------------- */
@@ -244,8 +266,10 @@ async function makeOne(cfg, category, context, browser) {
     return first.problems.concat(second.problems);
   };
   let notes = [];
+  // A vocabulary sheet on the syllabus: no word above its level + 1.
+  const levelCheck = (s) => (category === 'vocab' ? levelProblems(s, subject) : []);
   for (let round = 0; ; round += 1) {
-    const problems = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet));
+    const problems = problemsWith(sheet, { existing: context.existing }).concat(markProblems(sheet), levelCheck(sheet));
     let found = [];
     if (!problems.length) found = await readTwice(sheet);
     notes = problems.concat(found);
@@ -273,7 +297,7 @@ async function makeOne(cfg, category, context, browser) {
   // still has problems, or is still longer than two pages, is not saved.
   // (recheck: both readers again, after the mechanical checks.)
   const recheck = async (s) => {
-    const again = problemsWith(s, { existing: context.existing }).concat(markProblems(s));
+    const again = problemsWith(s, { existing: context.existing }).concat(markProblems(s), levelCheck(s));
     if (again.length) return again;
     return readTwice(s);
   };
@@ -466,6 +490,25 @@ async function save(call, token, userId, category, made) {
     review_note: '자동 생성된 학습지입니다. 외부 문장·문항·그림을 가져오지 않았습니다. ' +
                  '게시 전에 사람이 내용과 사실을 확인해야 합니다.'
   }));
+  // The curriculum list the subject came from (공공누리 제1유형: credit
+  // the source, in its own words).
+  for (const credit of subject.credit || []) {
+    rows.push({
+      resource_id: resource.id,
+      source_url: 'about:curriculum',
+      source_title: String(credit).slice(0, 200),
+      creator: '국립국어원',
+      asset_type: 'curriculum',
+      intended_use: 'level-reference',
+      license_name: '공공누리 제1유형',
+      commercial_allowed: 'yes',
+      adaptation_allowed: 'yes',
+      redistribution_allowed: 'yes',
+      credit_text: String(credit),
+      rights_status: 'needs-human',
+      review_note: '주제와 등급을 이 교육과정 목록에서 정했습니다. 문장은 가져오지 않았습니다.'
+    });
+  }
   await call('resource_sources', { method: 'POST', body: JSON.stringify(rows) });
 
   // The sites the sheet's facts rest on, into the admin-only table
@@ -596,6 +639,10 @@ export async function run() {
           } else {
             const saved = await save(call, session.token, session.userId, category, { ...out, hasKeyword });
             log('    저장됨: ' + saved.title);
+            if (out.subject.id) {
+              await markDone(session.token, category, out.subject.id)
+                .catch((err) => log('    진도 기록 실패 (' + err.message + ') — 다음 실행에서 한 번 더 시도될 수 있습니다'));
+            }
           }
           existing.push(out.sheet.title + ' — ' + out.sheet.objective);
           done.push(out.sheet.title);

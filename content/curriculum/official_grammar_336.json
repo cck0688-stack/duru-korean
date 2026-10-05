@@ -1,0 +1,4402 @@
+[
+ {
+  "id": "OK-001",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "이",
+  "variants": [
+   "가"
+  ],
+  "related_raw": "가",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-002",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "과",
+  "variants": [
+   "와"
+  ],
+  "related_raw": "와",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-003",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "까지",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "부터/까지",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-004",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "께서",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-005",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "은1",
+  "variants": [
+   "는1",
+   "ㄴ1"
+  ],
+  "related_raw": "는1, ㄴ1",
+  "meaning": "대조",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-006",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "도",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-007",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "을1",
+  "variants": [
+   "를",
+   "ㄹ1"
+  ],
+  "related_raw": "를, ㄹ1",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-008",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "이랑",
+  "variants": [
+   "랑"
+  ],
+  "related_raw": "랑",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-009",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "으로",
+  "variants": [
+   "로"
+  ],
+  "related_raw": "로",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-010",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "부터",
+  "variants": [
+   "에서부터(서부터)"
+  ],
+  "related_raw": "에서부터(서부터)",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-011",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "에",
+  "variants": [
+   "다가",
+   "에다가(에다)"
+  ],
+  "related_raw": "다가, 에다가(에다)",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-012",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "에게",
+  "variants": [
+   "에게로",
+   "에게서"
+  ],
+  "related_raw": "에게로, 에게서",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-013",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "에서",
+  "variants": [
+   "서2"
+  ],
+  "related_raw": "서2",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-014",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "의",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-015",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "하고",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-016",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "만",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "단독",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-017",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "이다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "지정사",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-018",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "한테",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-019",
+  "level": 1,
+  "level_label": "1급",
+  "category": "조사",
+  "form": "보다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-020",
+  "level": 1,
+  "level_label": "1급",
+  "category": "선어말어미",
+  "form": "-겠-",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-021",
+  "level": 1,
+  "level_label": "1급",
+  "category": "선어말어미",
+  "form": "-었-",
+  "variants": [
+   "-았-",
+   "-였-"
+  ],
+  "related_raw": "-았-, -였-",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-022",
+  "level": 1,
+  "level_label": "1급",
+  "category": "선어말어미",
+  "form": "-으시-",
+  "variants": [
+   "-시-"
+  ],
+  "related_raw": "-시-",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-023",
+  "level": 1,
+  "level_label": "1급",
+  "category": "연결어미",
+  "form": "-고3",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "나열",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-024",
+  "level": 1,
+  "level_label": "1급",
+  "category": "연결어미",
+  "form": "-으니까",
+  "variants": [
+   "-니까"
+  ],
+  "related_raw": "-니까",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-025",
+  "level": 1,
+  "level_label": "1급",
+  "category": "연결어미",
+  "form": "-으러",
+  "variants": [
+   "-러"
+  ],
+  "related_raw": "-러",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-026",
+  "level": 1,
+  "level_label": "1급",
+  "category": "연결어미",
+  "form": "-어서",
+  "variants": [
+   "-아서",
+   "-여서",
+   "-어2",
+   "-아2",
+   "-여1",
+   "-라서",
+   "-라4"
+  ],
+  "related_raw": "-아서, -여서, -어2, -아2, -여1, -라서, -라4",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-027",
+  "level": 1,
+  "level_label": "1급",
+  "category": "연결어미",
+  "form": "-지만",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-028",
+  "level": 1,
+  "level_label": "1급",
+  "category": "연결어미",
+  "form": "-으려고1",
+  "variants": [
+   "-려고1",
+   "으려",
+   "려"
+  ],
+  "related_raw": "-려고1, 으려, 려",
+  "meaning": "의도",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-029",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-습니까",
+  "variants": [
+   "-ㅂ니까"
+  ],
+  "related_raw": "-ㅂ니까",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-030",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-습니다",
+  "variants": [
+   "-ㅂ니다"
+  ],
+  "related_raw": "-ㅂ니다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-031",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-읍시다",
+  "variants": [
+   "-ㅂ시다"
+  ],
+  "related_raw": "-ㅂ시다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-032",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-으세요",
+  "variants": [
+   "-세요. -으셔요",
+   "-셔요",
+   "-으시어요",
+   "-시어요"
+  ],
+  "related_raw": "-세요. -으셔요, -셔요, -으시어요, -시어요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-033",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-으십시오",
+  "variants": [
+   "-십시오"
+  ],
+  "related_raw": "-십시오",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-034",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-고4",
+  "variants": [
+   "-고요"
+  ],
+  "related_raw": "-고요",
+  "meaning": "덧붙여 서술",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-035",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-을까",
+  "variants": [
+   "-ㄹ까",
+   "을까요",
+   "-ㄹ까요"
+  ],
+  "related_raw": "-ㄹ까, 을까요, -ㄹ까요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-036",
+  "level": 1,
+  "level_label": "1급",
+  "category": "종결어미",
+  "form": "-어2",
+  "variants": [
+   "-아2",
+   "-여2",
+   "-야3",
+   "-어요",
+   "-아요",
+   "-여요",
+   "-에요"
+  ],
+  "related_raw": "-아2, -여2, -야3, -어요, -아요, -여요, -에요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-037",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "이 아니다",
+  "variants": [
+   "가 아니다"
+  ],
+  "related_raw": "가 아니다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-038",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-고 싶다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-039",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-고 있다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-040",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-어야 되다",
+  "variants": [
+   "-아야 되다",
+   "-여야 되다",
+   "-아야 하다",
+   "-어야 하다"
+  ],
+  "related_raw": "-아야 되다, -여야 되다, <유의> -어야 하다, -아야 하다, -어야 하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-041",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-지 않다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-042",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-을 수 있다",
+  "variants": [
+   "-ㄹ 수 있다",
+   "-을 수 없다"
+  ],
+  "related_raw": "-ㄹ 수 있다, <반의> -ㄹ 수 없다, -을 수 없다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-043",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-지 못하다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-044",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-기 전에",
+  "variants": [
+   "-기 전"
+  ],
+  "related_raw": "-기 전",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-045",
+  "level": 1,
+  "level_label": "1급",
+  "category": "표현",
+  "form": "-은 후에",
+  "variants": [
+   "-은 후",
+   "-ㄴ 후",
+   "-ㄴ 뒤에",
+   "-은 뒤",
+   "-ㄴ 뒤"
+  ],
+  "related_raw": "-은 후, -ㄴ 후, <유의> -은 뒤에, -ㄴ 뒤에, -은 뒤, -ㄴ 뒤",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-046",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "께",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-047",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "마다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-048",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "밖에",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-049",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "처럼",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-050",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "에서부터(서부터)",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-051",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "에다가",
+  "variants": [
+   "에다"
+  ],
+  "related_raw": "에다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-052",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "에게로",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-053",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "에게서",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-054",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "한테서",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-055",
+  "level": 2,
+  "level_label": "2급",
+  "category": "조사",
+  "form": "이나",
+  "variants": [
+   "나1"
+  ],
+  "related_raw": "나1",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-056",
+  "level": 2,
+  "level_label": "2급",
+  "category": "연결어미",
+  "form": "-거나",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-057",
+  "level": 2,
+  "level_label": "2급",
+  "category": "연결어미",
+  "form": "-는데1",
+  "variants": [
+   "-은데1",
+   "-ㄴ데1"
+  ],
+  "related_raw": "-은데1, -ㄴ데1",
+  "meaning": "대립, 배경",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-058",
+  "level": 2,
+  "level_label": "2급",
+  "category": "연결어미",
+  "form": "-으면",
+  "variants": [
+   "-면"
+  ],
+  "related_raw": "-면",
+  "meaning": "가정",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-059",
+  "level": 2,
+  "level_label": "2급",
+  "category": "연결어미",
+  "form": "-으면서",
+  "variants": [
+   "-면서"
+  ],
+  "related_raw": "-면서",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-060",
+  "level": 2,
+  "level_label": "2급",
+  "category": "연결어미",
+  "form": "-게2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "목적",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-061",
+  "level": 2,
+  "level_label": "2급",
+  "category": "연결어미",
+  "form": "-다가1(1)",
+  "variants": [
+   "-다5",
+   "다가도"
+  ],
+  "related_raw": "-다5, 다가도",
+  "meaning": "중단",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-062",
+  "level": 2,
+  "level_label": "2급",
+  "category": "전성어미",
+  "form": "-기",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "명사형",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-063",
+  "level": 2,
+  "level_label": "2급",
+  "category": "전성어미",
+  "form": "-는2",
+  "variants": [
+   "-은3",
+   "-ㄴ3"
+  ],
+  "related_raw": "-은3, -ㄴ3",
+  "meaning": "관형사형(현재)",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-064",
+  "level": 2,
+  "level_label": "2급",
+  "category": "전성어미",
+  "form": "-은2",
+  "variants": [
+   "-ㄴ4"
+  ],
+  "related_raw": "-ㄴ4",
+  "meaning": "관형사형(과거)",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-065",
+  "level": 2,
+  "level_label": "2급",
+  "category": "전성어미",
+  "form": "-을2",
+  "variants": [
+   "-ㄹ2"
+  ],
+  "related_raw": "-ㄹ2",
+  "meaning": "관형사형",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-066",
+  "level": 2,
+  "level_label": "2급",
+  "category": "전성어미",
+  "form": "-은3",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-067",
+  "level": 2,
+  "level_label": "2급",
+  "category": "전성어미",
+  "form": "-음",
+  "variants": [
+   "-ㅁ"
+  ],
+  "related_raw": "-ㅁ",
+  "meaning": "명사형",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-068",
+  "level": 2,
+  "level_label": "2급",
+  "category": "종결어미",
+  "form": "-는군",
+  "variants": [
+   "-군",
+   "-는군요",
+   "-군요"
+  ],
+  "related_raw": "-군, -는군요, -군요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-069",
+  "level": 2,
+  "level_label": "2급",
+  "category": "종결어미",
+  "form": "-을게",
+  "variants": [
+   "-ㄹ게",
+   "을게요",
+   "-ㄹ게요"
+  ],
+  "related_raw": "-ㄹ게, 을게요, -ㄹ게요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-070",
+  "level": 2,
+  "level_label": "2급",
+  "category": "종결어미",
+  "form": "-지",
+  "variants": [
+   "-지요(-죠)"
+  ],
+  "related_raw": "-지요(-죠)",
+  "meaning": "서술, 물음, 명령, 요청",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-071",
+  "level": 2,
+  "level_label": "2급",
+  "category": "종결어미",
+  "form": "-는데2",
+  "variants": [
+   "-ㄴ데2",
+   "-은데2",
+   "-는데요",
+   "-ㄴ데요",
+   "-은데요"
+  ],
+  "related_raw": "-ㄴ데2, -은데2, -는데요, -ㄴ데요, -은데요",
+  "meaning": "감탄",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-072",
+  "level": 2,
+  "level_label": "2급",
+  "category": "종결어미",
+  "form": "-네",
+  "variants": [
+   "-네요"
+  ],
+  "related_raw": "-네요",
+  "meaning": "감탄",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-073",
+  "level": 2,
+  "level_label": "2급",
+  "category": "종결어미",
+  "form": "-을래",
+  "variants": [
+   "-을래요",
+   "-ㄹ래요"
+  ],
+  "related_raw": "-을래요, -ㄹ래요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-074",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-게 되다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-075",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-기 때문에",
+  "variants": [
+   "-기 때문이다"
+  ],
+  "related_raw": "-기 때문이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-076",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-기로 하다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-077",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-는 것 같다",
+  "variants": [
+   "-ㄴ 것 같다",
+   "-은 것 같다",
+   "-ㄹ 것 같다",
+   "-을 것 같다"
+  ],
+  "related_raw": "-ㄴ 것 같다, -은 것 같다, -ㄹ 것 같다, -을 것 같다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-078",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-은 지2",
+  "variants": [
+   "-ㄴ 지2"
+  ],
+  "related_raw": "-ㄴ 지2",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-079",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-는 것",
+  "variants": [
+   "-은 것",
+   "-ㄴ 것",
+   "-을 것2",
+   "-ㄹ 것2"
+  ],
+  "related_raw": "-은 것, -ㄴ 것, -을 것2, -ㄹ 것2",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-080",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-는 동안에",
+  "variants": [
+   "-는 동안"
+  ],
+  "related_raw": "-는 동안",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-081",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-은 적이 있다",
+  "variants": [
+   "-ㄴ 적이 있다",
+   "-는 적이 있다 <반의> -은 적이 없다",
+   "-ㄴ 적이 없다",
+   "-는 적이 없다"
+  ],
+  "related_raw": "-ㄴ 적이 있다, -는 적이 있다 <반의> -은 적이 없다, -ㄴ 적이 없다, -는 적이 없다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-082",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-을 것1",
+  "variants": [
+   "-ㄹ 것1"
+  ],
+  "related_raw": "-ㄹ 것1",
+  "meaning": "명령/지시",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-083",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-을 때",
+  "variants": [
+   "-ㄹ 때"
+  ],
+  "related_raw": "-ㄹ 때",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-084",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-을까 보다",
+  "variants": [
+   "-ㄹ까 보다"
+  ],
+  "related_raw": "-ㄹ까 보다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-085",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-어 보다",
+  "variants": [
+   "-아 보다",
+   "-여 보다"
+  ],
+  "related_raw": "-아 보다, -여 보다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-086",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-어 있다",
+  "variants": [
+   "-아 있다",
+   "-여 있다"
+  ],
+  "related_raw": "-아 있다, -여 있다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-087",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-어 주다",
+  "variants": [
+   "-아 주다",
+   "-여 주다"
+  ],
+  "related_raw": "-아 주다, -여 주다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-088",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-어도 되다",
+  "variants": [
+   "-아도 되다",
+   "-여도 되다"
+  ],
+  "related_raw": "-아도 되다, -여도 되다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-089",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-지 말다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-090",
+  "level": 2,
+  "level_label": "2급",
+  "category": "표현",
+  "form": "-을 수밖에 없다",
+  "variants": [
+   "-ㄹ 수밖에 없다"
+  ],
+  "related_raw": "-ㄹ 수밖에 없다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-091",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "같이",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-092",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "이고",
+  "variants": [
+   "고1"
+  ],
+  "related_raw": "고1",
+  "meaning": "모두 포함",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-093",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "대로",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-094",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "으로부터",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-095",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "만큼",
+  "variants": [],
+  "related_raw": "<유의> 만치",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-096",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "보고",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-097",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "뿐",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-098",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "아1",
+  "variants": [
+   "야1"
+  ],
+  "related_raw": "야1",
+  "meaning": "호격",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-099",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "요1",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "존대",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-100",
+  "level": 3,
+  "level_label": "3급",
+  "category": "조사",
+  "form": "이라고1",
+  "variants": [
+   "라고1",
+   "라3",
+   "이라"
+  ],
+  "related_raw": "라고1, 라3, 이라",
+  "meaning": "직접 인용",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-101",
+  "level": 3,
+  "level_label": "3급",
+  "category": "선어말어미",
+  "form": "-었었-",
+  "variants": [
+   "-았었-",
+   "-였었-"
+  ],
+  "related_raw": "-았었-, -였었-",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-102",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-거든1",
+  "variants": [
+   "거들랑"
+  ],
+  "related_raw": "거들랑",
+  "meaning": "조건",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-103",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-는다거나1",
+  "variants": [
+   "-ㄴ다거나1",
+   "-다거나1",
+   "-라거나1"
+  ],
+  "related_raw": "-ㄴ다거나1, -다거나1, -라거나1",
+  "meaning": "나열",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-104",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-는다고1",
+  "variants": [
+   "-다고1",
+   "-라고3",
+   "-으라고1",
+   "-자고1"
+  ],
+  "related_raw": "-다고1, -라고3, -으라고1, -자고1",
+  "meaning": "이유",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-105",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-으나",
+  "variants": [
+   "-나4"
+  ],
+  "related_raw": "-나4",
+  "meaning": "대립",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-106",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-느라고",
+  "variants": [
+   "-느라"
+  ],
+  "related_raw": "-느라",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-107",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-도록",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-108",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-어다가",
+  "variants": [
+   "-아다가",
+   "-여다가",
+   "-어다",
+   "-아다",
+   "-여다"
+  ],
+  "related_raw": "-아다가, -여다가, -어다, -아다, -여다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-109",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-어도",
+  "variants": [
+   "-아도",
+   "-여도",
+   "-라도2",
+   "이라도"
+  ],
+  "related_raw": "-아도, -여도, -라도2, 이라도",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-110",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-어야",
+  "variants": [
+   "-아야",
+   "-여야",
+   "-어야만",
+   "-아야만",
+   "-여야만"
+  ],
+  "related_raw": "-아야, -여야, -어야만, -아야만, -여야만",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-111",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-어야지1",
+  "variants": [
+   "-아야지1",
+   "-여야지1"
+  ],
+  "related_raw": "-아야지1, -여야지1",
+  "meaning": "필수 조건",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-112",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-었더니",
+  "variants": [
+   "-았더니",
+   "-였더니"
+  ],
+  "related_raw": "-았더니, -였더니",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-113",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-자마자",
+  "variants": [
+   "-자2"
+  ],
+  "related_raw": "-자2",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-114",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-다가1(2)",
+  "variants": [
+   "-다5",
+   "다가도"
+  ],
+  "related_raw": "-다5, 다가도",
+  "meaning": "중단",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-115",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-으니2",
+  "variants": [
+   "-니4"
+  ],
+  "related_raw": "-니4",
+  "meaning": "이유",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-116",
+  "level": 3,
+  "level_label": "3급",
+  "category": "연결어미",
+  "form": "-으려면",
+  "variants": [
+   "-려면"
+  ],
+  "related_raw": "-려면",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-117",
+  "level": 3,
+  "level_label": "3급",
+  "category": "전성어미",
+  "form": "-던-",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "관형사형",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-118",
+  "level": 3,
+  "level_label": "3급",
+  "category": "종결어미",
+  "form": "-거든2",
+  "variants": [
+   "거든요"
+  ],
+  "related_raw": "거든요",
+  "meaning": "이유",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-119",
+  "level": 3,
+  "level_label": "3급",
+  "category": "종결어미",
+  "form": "-는구나",
+  "variants": [
+   "-구나"
+  ],
+  "related_raw": "-구나",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-120",
+  "level": 3,
+  "level_label": "3급",
+  "category": "종결어미",
+  "form": "-는다",
+  "variants": [
+   "-ㄴ다",
+   "-다2"
+  ],
+  "related_raw": "-ㄴ다, -다2",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-121",
+  "level": 3,
+  "level_label": "3급",
+  "category": "종결어미",
+  "form": "-던데2",
+  "variants": [
+   "-던데요"
+  ],
+  "related_raw": "-던데요",
+  "meaning": "감탄",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-122",
+  "level": 3,
+  "level_label": "3급",
+  "category": "종결어미",
+  "form": "-잖아",
+  "variants": [
+   "-잖아요"
+  ],
+  "related_raw": "-잖아요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-123",
+  "level": 3,
+  "level_label": "3급",
+  "category": "종결어미",
+  "form": "-자3",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "청유",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-124",
+  "level": 3,
+  "level_label": "3급",
+  "category": "종결어미",
+  "form": "-니2",
+  "variants": [
+   "-으니5"
+  ],
+  "related_raw": "-으니5",
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-125",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-게 하다",
+  "variants": [
+   "-도록 하다"
+  ],
+  "related_raw": "<유의> -게 만들다, -도록 하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-126",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-고 나다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-127",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-고 말다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-128",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-고 싶어 하다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-129",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-은 결과",
+  "variants": [
+   "-ㄴ 결과"
+  ],
+  "related_raw": "-ㄴ 결과",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-130",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-은 다음에",
+  "variants": [
+   "-ㄴ 다음에"
+  ],
+  "related_raw": "-ㄴ 다음에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-131",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는 대신에",
+  "variants": [
+   "-ㄴ 대신에",
+   "-은 대신에"
+  ],
+  "related_raw": "-ㄴ 대신에, -은 대신에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-132",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는 만큼",
+  "variants": [
+   "-ㄴ 만큼",
+   "-은 만큼",
+   "-ㄹ 만큼",
+   "-을 만큼"
+  ],
+  "related_raw": "-ㄴ 만큼, -은 만큼, -ㄹ 만큼, -을 만큼",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-133",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는 반면",
+  "variants": [
+   "-ㄴ 반면에",
+   "-은 반면에"
+  ],
+  "related_raw": "-ㄴ 반면에, -은 반면에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-134",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-나 보다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-135",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-을 텐데",
+  "variants": [
+   "-ㄹ 텐데",
+   "-을 텐데요",
+   "-ㄹ 텐데요"
+  ],
+  "related_raw": "-ㄹ 텐데, -을 텐데요, -ㄹ 텐데요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-136",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-기 위해",
+  "variants": [
+   "-기 위해서",
+   "-기 위한",
+   "을 위해",
+   "를 위해"
+  ],
+  "related_raw": "-기 위해서, -기 위한, 을 위해, 를 위해",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-137",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "만 아니면",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-138",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-으면 안 되다",
+  "variants": [
+   "-면 안 되다",
+   "-면 되다"
+  ],
+  "related_raw": "-면 안 되다, <반의> -으면 되다, -면 되다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-139",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-으면 좋겠다",
+  "variants": [
+   "-면 좋겠다"
+  ],
+  "related_raw": "-면 좋겠다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-140",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어 가다",
+  "variants": [
+   "-아 가다",
+   "-여 가다"
+  ],
+  "related_raw": "-아 가다, -여 가다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-141",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어 가지고",
+  "variants": [
+   "-아 가지고",
+   "-여 가지고"
+  ],
+  "related_raw": "-아 가지고, -여 가지고",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-142",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어 놓다",
+  "variants": [
+   "-아 놓다",
+   "-여 놓다"
+  ],
+  "related_raw": "-아 놓다, -여 놓다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-143",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어 두다",
+  "variants": [
+   "-아 두다",
+   "-여 두다"
+  ],
+  "related_raw": "-아 두다, -여 두다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-144",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어 드리다",
+  "variants": [
+   "-아 드리다",
+   "-여 드리다"
+  ],
+  "related_raw": "-아 드리다, -여 드리다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-145",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어야겠-",
+  "variants": [
+   "-아야겠-",
+   "-여야겠-"
+  ],
+  "related_raw": "-아야겠-, -여야겠-",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-146",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어지다",
+  "variants": [
+   "-아지다",
+   "-여지다"
+  ],
+  "related_raw": "-아지다, -여지다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-147",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "에 대하여",
+  "variants": [
+   "에 대해",
+   "에 대해서",
+   "에 대한"
+  ],
+  "related_raw": "에 대해, 에 대해서, 에 대한",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-148",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-을 테니",
+  "variants": [
+   "-ㄹ 테니",
+   "-을 테니까",
+   "-ㄹ 테니까"
+  ],
+  "related_raw": "-ㄹ 테니, -을 테니까, -ㄹ 테니까",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-149",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어 오다",
+  "variants": [
+   "-아 오다",
+   "-여 오다"
+  ],
+  "related_raw": "-아 오다, -여 오다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-150",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-기는",
+  "variants": [
+   "-긴",
+   "-기는요",
+   "-긴요"
+  ],
+  "related_raw": "-긴, -기는요, -긴요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-151",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는 모양이다",
+  "variants": [
+   "-ㄴ 모양이다",
+   "-은 모양이다"
+  ],
+  "related_raw": "-ㄴ 모양이다, -은 모양이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-152",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는 편이다",
+  "variants": [
+   "-는 편이다"
+  ],
+  "related_raw": "-는 편이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-153",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는가 보다",
+  "variants": [
+   "-는가 보다"
+  ],
+  "related_raw": "-는가 보다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-154",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는 중이다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-155",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-으려다가",
+  "variants": [
+   "-려다가",
+   "-으려다",
+   "려다"
+  ],
+  "related_raw": "-려다가, -으려다, 려다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-156",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-어 보이다",
+  "variants": [
+   "-아보이다",
+   "-여 보이다"
+  ],
+  "related_raw": "-아보이다, -여 보이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-157",
+  "level": 3,
+  "level_label": "3급",
+  "category": "표현",
+  "form": "-는다고3",
+  "variants": [
+   "-ㄴ다고3",
+   "-다고3",
+   "-라고5",
+   "-느냐고2",
+   "-냐고2",
+   "-으냐고2",
+   "-자고3",
+   "-으라고3",
+   "-라고8"
+  ],
+  "related_raw": "-ㄴ다고3, -다고3, -라고5, -느냐고2, -냐고2, -으냐고2, -자고3, -으라고3, -라고8",
+  "meaning": "인용",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-158",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "커녕",
+  "variants": [
+   "ㄴ커녕",
+   "는커녕",
+   "은커녕"
+  ],
+  "related_raw": "ㄴ커녕, 는커녕, 은커녕",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-159",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "이나마",
+  "variants": [
+   "나마"
+  ],
+  "related_raw": "나마",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-160",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "이며",
+  "variants": [
+   "며",
+   "이니",
+   "니1",
+   "하며",
+   "하고",
+   "이다2"
+  ],
+  "related_raw": "며, 이니, 니1, 하며, 하고, 이다2",
+  "meaning": "나열",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-161",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "이든",
+  "variants": [
+   "든1",
+   "이든지",
+   "든지1",
+   "이든가",
+   "든가1"
+  ],
+  "related_raw": "든1, 이든지, 든지1, 이든가, 든가1",
+  "meaning": "선택",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-162",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "이란",
+  "variants": [
+   "란1"
+  ],
+  "related_raw": "란1",
+  "meaning": "정의",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-163",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "이면",
+  "variants": [
+   "면1"
+  ],
+  "related_raw": "면1",
+  "meaning": "지정",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-164",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "이야",
+  "variants": [
+   "야2"
+  ],
+  "related_raw": "야2",
+  "meaning": "강조",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-165",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "치고",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-166",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "까지2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "마저",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-167",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "이라도",
+  "variants": [
+   "라도1"
+  ],
+  "related_raw": "라도1",
+  "meaning": "차선",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-168",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "으로서",
+  "variants": [
+   "로서"
+  ],
+  "related_raw": "로서",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-169",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "으로써",
+  "variants": [
+   "로써"
+  ],
+  "related_raw": "로써",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-170",
+  "level": 4,
+  "level_label": "4급",
+  "category": "조사",
+  "form": "마저",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-171",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-거니와",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-172",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-고도",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-173",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-고자",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-174",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-기에",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-175",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-는지",
+  "variants": [
+   "-ㄴ지1",
+   "-은지1",
+   "-을지"
+  ],
+  "related_raw": "-ㄴ지1, -은지1, -을지",
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-176",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-다시피",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-177",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-더라도",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-178",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-든지2",
+  "variants": [
+   "-든2"
+  ],
+  "related_raw": "-든2, <유의> -든가2",
+  "meaning": "선택",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-179",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-으므로",
+  "variants": [
+   "-므로"
+  ],
+  "related_raw": "-므로",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-180",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-을래야",
+  "variants": [
+   "-ㄹ래야"
+  ],
+  "related_raw": "-ㄹ래야",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-181",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-고서",
+  "variants": [
+   "-고서는",
+   "-고서야"
+  ],
+  "related_raw": "-고서는, -고서야",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-182",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-는다면1",
+  "variants": [
+   "-ㄴ다면1",
+   "-다면1",
+   "-라면1"
+  ],
+  "related_raw": "-ㄴ다면1, -다면1, -라면1",
+  "meaning": "조건",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-183",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-더니",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-184",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-던데1",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "대립, 배경",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-185",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-듯이",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-186",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-을수록",
+  "variants": [
+   "-ㄹ수록"
+  ],
+  "related_raw": "-ㄹ수록",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-187",
+  "level": 4,
+  "level_label": "4급",
+  "category": "연결어미",
+  "form": "-으며",
+  "variants": [
+   "-며2"
+  ],
+  "related_raw": "-며2",
+  "meaning": "나열/동시",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-188",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-는다니2",
+  "variants": [
+   "-ㄴ다니2",
+   "-다니3",
+   "-라니3"
+  ],
+  "related_raw": "-ㄴ다니2, -다니3, -라니3",
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-189",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-더군",
+  "variants": [
+   "-더군요"
+  ],
+  "related_raw": "-더군요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-190",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-더라",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-191",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-어라1",
+  "variants": [
+   "-아라1",
+   "-여라1"
+  ],
+  "related_raw": "-아라1, -여라1",
+  "meaning": "명령",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-192",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-게5",
+  "variants": [
+   "-게요1"
+  ],
+  "related_raw": "-게요1",
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-193",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-는다면서1",
+  "variants": [
+   "-ㄴ다면서1",
+   "-다면서1",
+   "-라면서1",
+   "-는다면서요",
+   "-다면서요",
+   "-라면서요"
+  ],
+  "related_raw": "-ㄴ다면서1, -다면서1, -라면서1, -는다면서요, -다면서요, -라면서요",
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-194",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-나3",
+  "variants": [
+   "-나요"
+  ],
+  "related_raw": "-나요",
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-195",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-을걸",
+  "variants": [
+   "-ㄹ걸",
+   "-을걸요",
+   "-ㄹ걸요"
+  ],
+  "related_raw": "-ㄹ걸, -을걸요, -ㄹ걸요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-196",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-어야지2",
+  "variants": [
+   "-아야지2",
+   "-여야지2",
+   "-어야지요",
+   "-아야지요",
+   "-여야지요"
+  ],
+  "related_raw": "-아야지2, -여야지2, -어야지요, -아야지요, -여야지요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-197",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-고4",
+  "variants": [
+   "-고요"
+  ],
+  "related_raw": "-고요",
+  "meaning": "덧붙여 질문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-198",
+  "level": 4,
+  "level_label": "4급",
+  "category": "종결어미",
+  "form": "-다니1",
+  "variants": [
+   "-다니요",
+   "-라니1",
+   "-라니요1"
+  ],
+  "related_raw": "-다니요, -라니1, -라니요1",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-199",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-을 따름이다",
+  "variants": [
+   "-ㄹ 따름이다",
+   "ㄹ 뿐이다"
+  ],
+  "related_raw": "-ㄹ 따름이다, <유의> -을 뿐이다, ㄹ 뿐이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-200",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-고 들다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-201",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-고 보다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-202",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-고 해서",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-203",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 김에",
+  "variants": [
+   "-ㄴ 김에",
+   "-은 김에"
+  ],
+  "related_raw": "-ㄴ 김에, -은 김에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-204",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 대로",
+  "variants": [
+   "-ㄴ 대로1",
+   "-ㄴ 대로2",
+   "-은 대로1",
+   "-은 대로2"
+  ],
+  "related_raw": "-ㄴ 대로1, -ㄴ 대로2, -은 대로1, -은 대로2",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-205",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 사이에",
+  "variants": [
+   "-는 사이"
+  ],
+  "related_raw": "-는 사이",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-206",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 듯",
+  "variants": [
+   "-ㄴ 듯",
+   "은 듯 -ㄹ 듯",
+   "-을 듯"
+  ],
+  "related_raw": "-ㄴ 듯, 은 듯 -ㄹ 듯, -을 듯",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-207",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 줄",
+  "variants": [
+   "-ㄴ 줄",
+   "-은 줄",
+   "ㄹ 줄",
+   "-을 줄"
+  ],
+  "related_raw": "-ㄴ 줄, -은 줄, ㄹ 줄, -을 줄",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-208",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 탓에",
+  "variants": [
+   "-ㄴ 탓에",
+   "-은 탓에"
+  ],
+  "related_raw": "-ㄴ 탓에, -은 탓에, <반의 관계> -는 덕분에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-209",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는다거나2",
+  "variants": [
+   "-ㄴ다거나2",
+   "-다거나2",
+   "-라거나2"
+  ],
+  "related_raw": "-ㄴ다거나2, -다거나2, -라거나2",
+  "meaning": "선택",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-210",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-나 싶다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-211",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 바람에",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-212",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 한",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-213",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "으로 인하여",
+  "variants": [
+   "로 인하여",
+   "으로 인해",
+   "로 인해"
+  ],
+  "related_raw": "로 인하여, 으로 인해, 로 인해",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-214",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "만 같아도",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-215",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-어 대다",
+  "variants": [
+   "-아 대다",
+   "-여 대다"
+  ],
+  "related_raw": "-아 대다, -여 대다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-216",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-어서인지",
+  "variants": [
+   "-아서인지",
+   "-여서인지"
+  ],
+  "related_raw": "-아서인지, -여서인지",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-217",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "에 따라",
+  "variants": [
+   "에 따르면"
+  ],
+  "related_raw": "에 따르면",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-218",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "에 비하여",
+  "variants": [
+   "에 비하면"
+  ],
+  "related_raw": "에 비하면",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-219",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "에 의하여",
+  "variants": [
+   "에 의하면"
+  ],
+  "related_raw": "에 의하면",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-220",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-어 버리다",
+  "variants": [
+   "-아 버리다",
+   "-여 버리다"
+  ],
+  "related_raw": "-아 버리다, -여 버리다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-221",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-을 모양이다",
+  "variants": [
+   "-ㄹ 모양이다"
+  ],
+  "related_raw": "-ㄹ 모양이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-222",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-을 뻔하다",
+  "variants": [
+   "-ㄹ 뻔하다"
+  ],
+  "related_raw": "-ㄹ 뻔하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-223",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는대2",
+  "variants": [
+   "-ㄴ대2",
+   "-는대요2",
+   "-대2",
+   "-대요2",
+   "-래2",
+   "-래요2",
+   "-으래2",
+   "-으래요2",
+   "-래4",
+   "-재",
+   "-재요"
+  ],
+  "related_raw": "-ㄴ대2, -는대요2, -대2, -대요2, -래2, -래요2, -으래2, -으래요2, -래4, -재, -재요",
+  "meaning": "인용",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-224",
+  "level": 4,
+  "level_label": "4급",
+  "category": "표현",
+  "form": "-는 통에",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-225",
+  "level": 5,
+  "level_label": "5급",
+  "category": "조사",
+  "form": "이라든가",
+  "variants": [
+   "라든가1",
+   "이라든지",
+   "라든지1"
+  ],
+  "related_raw": "라든가1, 이라든지, 라든지1",
+  "meaning": "선택",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-226",
+  "level": 5,
+  "level_label": "5급",
+  "category": "조사",
+  "form": "따라",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-227",
+  "level": 5,
+  "level_label": "5급",
+  "category": "조사",
+  "form": "조차",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-228",
+  "level": 5,
+  "level_label": "5급",
+  "category": "연결어미",
+  "form": "-지1",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "대조",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-229",
+  "level": 5,
+  "level_label": "5급",
+  "category": "연결어미",
+  "form": "-을뿐더러",
+  "variants": [
+   "-ㄹ뿐더러"
+  ],
+  "related_raw": "-ㄹ뿐더러",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-230",
+  "level": 5,
+  "level_label": "5급",
+  "category": "연결어미",
+  "form": "-고는",
+  "variants": [
+   "-곤",
+   "-고는 하다",
+   "-곤 하다"
+  ],
+  "related_raw": "-곤, -고는 하다, -곤 하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-231",
+  "level": 5,
+  "level_label": "5급",
+  "category": "연결어미",
+  "form": "-길래",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-232",
+  "level": 5,
+  "level_label": "5급",
+  "category": "연결어미",
+  "form": "-다가는",
+  "variants": [
+   "-다간",
+   "-단1"
+  ],
+  "related_raw": "-다간, -단1",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-233",
+  "level": 5,
+  "level_label": "5급",
+  "category": "연결어미",
+  "form": "-을지라도",
+  "variants": [
+   "-ㄹ지라도"
+  ],
+  "related_raw": "-ㄹ지라도",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-234",
+  "level": 5,
+  "level_label": "5급",
+  "category": "연결어미",
+  "form": "-느니1",
+  "variants": [
+   "-느니보다",
+   "-느니보다는"
+  ],
+  "related_raw": "-느니보다, -느니보다는",
+  "meaning": "비교",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-235",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-네2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "감탄",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-236",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-다4",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "서술(신문)",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-237",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-다니1",
+  "variants": [
+   "-다니요",
+   "-라니1",
+   "-라니요1",
+   "으라니1",
+   "-으라니요"
+  ],
+  "related_raw": "-다니요, -라니1, -라니요1, 으라니1, -으라니요",
+  "meaning": "감탄",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-238",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "­으려고2",
+  "variants": [
+   "­려고2",
+   "­려고요",
+   "­으려고요"
+  ],
+  "related_raw": "­려고2, ­려고요, ­으려고요",
+  "meaning": "의심",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-239",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-거라",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-240",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-고말고",
+  "variants": [
+   "-고말고요"
+  ],
+  "related_raw": "-고말고요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-241",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-는가1",
+  "variants": [
+   "-ㄴ가1",
+   "-은가1"
+  ],
+  "related_raw": "-ㄴ가1, -은가1",
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-242",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-는걸",
+  "variants": [
+   "-ㄴ걸",
+   "-은걸",
+   "-ㄴ걸요",
+   "-는걸요",
+   "-은걸요"
+  ],
+  "related_raw": "-ㄴ걸, -은걸, -ㄴ걸요, -는걸요, -은걸요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-243",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-데",
+  "variants": [
+   "-데요"
+  ],
+  "related_raw": "-데요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-244",
+  "level": 5,
+  "level_label": "5급",
+  "category": "종결어미",
+  "form": "-더라고",
+  "variants": [
+   "-더라고요"
+  ],
+  "related_raw": "-더라고요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-245",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는다니1",
+  "variants": [
+   "-다니2",
+   "-라니5",
+   "-으라니2",
+   "-자니2"
+  ],
+  "related_raw": "-다니2, -라니5, -으라니2, -자니2",
+  "meaning": "명령 내용 질문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-246",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-었던",
+  "variants": [
+   "-았던",
+   "-였던"
+  ],
+  "related_raw": "-았던, -였던",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-247",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "에 관하여",
+  "variants": [
+   "에 관한"
+  ],
+  "related_raw": "에 관한",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-248",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-자기에",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-249",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-게 마련이다",
+  "variants": [
+   "-기 마련이다"
+  ],
+  "related_raw": "-기 마련이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-250",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-게 생겼다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-251",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-기 나름이다",
+  "variants": [
+   "-을 나름이다"
+  ],
+  "related_raw": "-을 나름이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-252",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-기가 바쁘게",
+  "variants": [],
+  "related_raw": "<유의> -기가 무섭게",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-253",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-기가 쉽다",
+  "variants": [],
+  "related_raw": "<유의> -기 십상이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-254",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-기만 하다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-255",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-기에 따라",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-256",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-기에 앞서(서)",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-257",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-은 나머지",
+  "variants": [
+   "-ㄴ 나머지"
+  ],
+  "related_raw": "-ㄴ 나머지",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-258",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는 데다가",
+  "variants": [
+   "-ㄴ데다가1",
+   "-은 데다가2",
+   "-ㄴ 데다가2",
+   "-은 데다가1"
+  ],
+  "related_raw": "-ㄴ데다가1, -은 데다가2, -ㄴ 데다가2, -은 데다가1",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-259",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는 동시에",
+  "variants": [
+   "-ㄴ 동시에"
+  ],
+  "related_raw": "-ㄴ 동시에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-260",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는 듯하다",
+  "variants": [
+   "-ㄴ듯하다",
+   "-은 듯하다",
+   "-ㄹ 듯하다",
+   "-을 듯하다"
+  ],
+  "related_raw": "-ㄴ듯하다, -은 듯하다, -ㄹ 듯하다, -을 듯하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-261",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는 법이다",
+  "variants": [
+   "-ㄴ 법이다",
+   "-은 법이다"
+  ],
+  "related_raw": "-ㄴ 법이다, -은 법이다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-262",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는 이상",
+  "variants": [
+   "-ㄴ 이상",
+   "-은 이상"
+  ],
+  "related_raw": "-ㄴ 이상, -은 이상",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-263",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-은 채로",
+  "variants": [
+   "-ㄴ 채로"
+  ],
+  "related_raw": "-ㄴ 채로",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-264",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는 척하다",
+  "variants": [
+   "-ㄴ 척하다",
+   "-은 척하다",
+   "-은 체하다"
+  ],
+  "related_raw": "-ㄴ 척하다, -은 척하다, <유의> -는 체하다, -은 체하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-265",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는 가운데",
+  "variants": [
+   "-은 가운데"
+  ],
+  "related_raw": "-은 가운데",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-266",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "는 말할 것도 없고",
+  "variants": [
+   "은 말할 것도 없고",
+   "은 고사하고"
+  ],
+  "related_raw": "은 말할 것도 없고, <유의> 는 고사하고, 은 고사하고",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-267",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-을 만하다",
+  "variants": [
+   "-ㄹ 만하다"
+  ],
+  "related_raw": "-ㄹ 만하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-268",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-을 법하다",
+  "variants": [
+   "-ㄹ 법하다"
+  ],
+  "related_raw": "-ㄹ 법하다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-269",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-을 테다",
+  "variants": [
+   "-ㄹ 테다"
+  ],
+  "related_raw": "-ㄹ 테다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-270",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-을 테면",
+  "variants": [
+   "-ㄹ 테면"
+  ],
+  "related_raw": "-ㄹ 테면",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-271",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-을 테지만",
+  "variants": [
+   "-ㄹ 테지만"
+  ],
+  "related_raw": "-ㄹ 테지만",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-272",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-으려나 보다",
+  "variants": [
+   "-려나 보다"
+  ],
+  "related_raw": "-려나 보다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-273",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "를 가지고",
+  "variants": [
+   "을 가지고"
+  ],
+  "related_raw": "을 가지고",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-274",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-으면 몰라도",
+  "variants": [
+   "-면 몰라도"
+  ],
+  "related_raw": "-면 몰라도",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-275",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "에도 불구하고",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-276",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는데도",
+  "variants": [
+   "-ㄴ데도",
+   "-은데도"
+  ],
+  "related_raw": "-ㄴ데도, -은데도",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-277",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-어 내다",
+  "variants": [
+   "-아 내다",
+   "-여 내다"
+  ],
+  "related_raw": "-아 내다, -여 내다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-278",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는다기에",
+  "variants": [
+   "-ㄴ다기에",
+   "-다기에",
+   "-라기에1"
+  ],
+  "related_raw": "-ㄴ다기에, -다기에, -라기에1",
+  "meaning": "이유",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-279",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는다는 것이",
+  "variants": [
+   "-ㄴ다는 것이"
+  ],
+  "related_raw": "-ㄴ다는 것이",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-280",
+  "level": 5,
+  "level_label": "5급",
+  "category": "표현",
+  "form": "-는데도 불구하고",
+  "variants": [
+   "-ㄴ데도 불구하고",
+   "-은데도 불구하고"
+  ],
+  "related_raw": "-ㄴ데도 불구하고, -은데도 불구하고",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-281",
+  "level": 6,
+  "level_label": "6급",
+  "category": "조사",
+  "form": "마는",
+  "variants": [
+   "만2"
+  ],
+  "related_raw": "만2",
+  "meaning": "상반",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-282",
+  "level": 6,
+  "level_label": "6급",
+  "category": "조사",
+  "form": "깨나",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-283",
+  "level": 6,
+  "level_label": "6급",
+  "category": "조사",
+  "form": "이라고2",
+  "variants": [
+   "라고2"
+  ],
+  "related_raw": "라고2",
+  "meaning": "보잘것없음",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-284",
+  "level": 6,
+  "level_label": "6급",
+  "category": "조사",
+  "form": "을랑",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-285",
+  "level": 6,
+  "level_label": "6급",
+  "category": "조사",
+  "form": "이라면",
+  "variants": [
+   "라면1"
+  ],
+  "related_raw": "라면1",
+  "meaning": "강조",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-286",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-거들랑1",
+  "variants": [
+   "-걸랑1"
+  ],
+  "related_raw": "-걸랑1",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-287",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-노라면",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-288",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-건대",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-289",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-건만",
+  "variants": [
+   "-건마는"
+  ],
+  "related_raw": "-건마는",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-290",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-기로서니",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-291",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-느니만큼",
+  "variants": [
+   "-니만큼",
+   "-으니만큼",
+   "니만치",
+   "-으니만치"
+  ],
+  "related_raw": "-니만큼, -으니만큼, <유의> -느니만치, 니만치, -으니만치",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-292",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-되",
+  "variants": [
+   "-으되",
+   "-로되"
+  ],
+  "related_raw": "-으되, -로되",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-293",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-디1",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "강조",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-294",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-이라야",
+  "variants": [
+   "-라야",
+   "-이라야만",
+   "-라야만"
+  ],
+  "related_raw": "-라야, -이라야만, -라야만",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-295",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-으련마는",
+  "variants": [
+   "-련마는",
+   "-으련만",
+   "-련만"
+  ],
+  "related_raw": "-련마는, -으련만, -련만",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-296",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-자니3",
+  "variants": [
+   "-자2",
+   "-자니까3"
+  ],
+  "related_raw": "-자2,-자니까3",
+  "meaning": "의도",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-297",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-는다고1",
+  "variants": [
+   "-다고1",
+   "-라고3",
+   "으라고1",
+   "-자고1"
+  ],
+  "related_raw": "-다고1, -라고3, 으라고1, -자고1",
+  "meaning": "의도",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-298",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-자면1",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "의도",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-299",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-은들",
+  "variants": [
+   "-ㄴ들2",
+   "인들"
+  ],
+  "related_raw": "-ㄴ들2, 인들",
+  "meaning": "양보",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-300",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-을망정,",
+  "variants": [
+   "-ㄹ망정 <유의> -ㄹ지언정",
+   "-을지언정"
+  ],
+  "related_raw": "-ㄹ망정 <유의> -ㄹ지언정, -을지언정",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-301",
+  "level": 6,
+  "level_label": "6급",
+  "category": "연결어미",
+  "form": "-을라치면",
+  "variants": [
+   "-ㄹ라치면"
+  ],
+  "related_raw": "-ㄹ라치면",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-302",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-는구려",
+  "variants": [
+   "-구려1"
+  ],
+  "related_raw": "-구려1",
+  "meaning": "감탄",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-303",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-는구먼",
+  "variants": [
+   "-구먼",
+   "-구먼요",
+   "-는구먼요"
+  ],
+  "related_raw": "-구먼, -구먼요, -는구먼요",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-304",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-그려",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-305",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-으리라",
+  "variants": [
+   "-리라"
+  ],
+  "related_raw": "-리라",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-306",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-으오",
+  "variants": [
+   "-오"
+  ],
+  "related_raw": "-오",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-307",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-으니4",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "비난",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-308",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-거들랑2",
+  "variants": [
+   "-걸랑2"
+  ],
+  "related_raw": "-걸랑2",
+  "meaning": "이유",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-309",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-게3",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "명령",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-310",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-게4",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "환기",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-311",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-구려2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "명령",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-312",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-네1",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "서술",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-313",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-는구만",
+  "variants": [
+   "-구만"
+  ],
+  "related_raw": "-구만",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-314",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-는가2",
+  "variants": [
+   "-ㄴ가2",
+   "-은가2"
+  ],
+  "related_raw": "-ㄴ가2, -은가2",
+  "meaning": "문제 제기",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-315",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-나2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-316",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-던2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "의문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-317",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-던가1",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "의문(경험)",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-318",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-던가2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "의문(추측)",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-319",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-라2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "서술",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-320",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-으리오",
+  "variants": [
+   "-리오"
+  ],
+  "related_raw": "-리오",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-321",
+  "level": 6,
+  "level_label": "6급",
+  "category": "종결어미",
+  "form": "-소",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-322",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-기 일쑤이다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-323",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-기 짝이 없다",
+  "variants": [],
+  "related_raw": null,
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-324",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "는 마당에",
+  "variants": [
+   "-ㄴ 마당에",
+   "-은 마당에"
+  ],
+  "related_raw": "-ㄴ 마당에, -은 마당에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-325",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-는 한이 있어도",
+  "variants": [
+   "-는 한이 있더라도"
+  ],
+  "related_raw": "-는 한이 있더라도",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-326",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-을 바에",
+  "variants": [
+   "-ㄹ 바에"
+  ],
+  "related_raw": "-ㄹ 바에",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-327",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-으려도",
+  "variants": [
+   "-려도"
+  ],
+  "related_raw": "-려도",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-328",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-으리라는",
+  "variants": [
+   "-리라는"
+  ],
+  "related_raw": "-리라는",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-329",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "를 막론하고",
+  "variants": [
+   "을 막론하고",
+   "을 불문하고"
+  ],
+  "related_raw": "을 막론하고, <유의> 를 불문하고, 을 불문하고",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-330",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-어 치우다",
+  "variants": [
+   "-아 치우다",
+   "-여 치우다"
+  ],
+  "related_raw": "-아 치우다, -여 치우다",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-331",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-는다는",
+  "variants": [
+   "-ㄴ다는",
+   "-는단",
+   "-다는",
+   "-단2",
+   "-라는1",
+   "-란2"
+  ],
+  "related_raw": "-ㄴ다는, -는단, -다는, -단2, -라는1, -란2",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-332",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "이라고는",
+  "variants": [
+   "라고는",
+   "이라곤",
+   "라곤"
+  ],
+  "related_raw": "라고는, 이라곤, 라곤,",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-333",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-는다던가1",
+  "variants": [
+   "-다던가1",
+   "-라던가1"
+  ],
+  "related_raw": "-다던가1, -라던가1",
+  "meaning": "명령 확인 질문",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-334",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-으래서야",
+  "variants": [
+   "-래서야2"
+  ],
+  "related_raw": "-래서야2",
+  "meaning": "의문 제기",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-335",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-으리라고",
+  "variants": [
+   "-리라고"
+  ],
+  "related_raw": "-리라고",
+  "meaning": null,
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ },
+ {
+  "id": "OK-336",
+  "level": 6,
+  "level_label": "6급",
+  "category": "표현",
+  "form": "-자면2",
+  "variants": [],
+  "related_raw": null,
+  "meaning": "권유",
+  "source": "국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계 (2017, 2020-11-17 수정)"
+ }
+]

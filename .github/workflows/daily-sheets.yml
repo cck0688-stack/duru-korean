@@ -54,7 +54,7 @@ on:
         type: string
         default: ''
       count:
-        description: 'How many per shelf (default 1: six a day)'
+        description: 'How many per shelf (default 1: three a day)'
         type: string
         default: ''
       force:
@@ -71,9 +71,12 @@ concurrency:
 jobs:
   sheets:
     runs-on: ubuntu-latest
-    # One job per shelf, six at once: one sheet each, six a day. A shelf that fails takes only itself down. The subjects
-    # cannot collide, because each job writes for one shelf and reads
-    # the whole shelf before it picks.
+    # One job per shelf. Three sheets a day from the syllabus (the owner,
+    # 2026-10-05; content/curriculum, scripts/lib/curriculum.mjs):
+    # grammar and vocab every day, reading and reallife on alternate days.
+    # hangul and etc run only when a dispatch names them. A shelf that
+    # fails takes only itself down. The subjects cannot collide, because
+    # each job writes for one shelf and keeps its own plan file.
     strategy:
       fail-fast: false
       matrix:
@@ -86,25 +89,62 @@ jobs:
     # subscription's session limit (CLAUDE_LIMIT_WAIT_MIN) before it.
     timeout-minutes: 360
     steps:
-      - uses: actions/checkout@v4
+      # Whether this shelf writes today — decided first, so a shelf that
+      # does not installs nothing.
+      - name: Is this shelf on today
+        id: today
+        env:
+          ONLY: ${{ inputs.only }}
+          SHELF: ${{ matrix.shelf }}
+          # Seoul dates the 04:00 run makes nothing (the owner's call).
+          # 2026-09-28: no allowance that morning; one sheet was made
+          # the evening before instead. 2026-10-01 to 10-04: a week off
+          # to save the allowance (owner, 2026-09-30).
+          SKIP_DATES: '2026-09-28 2026-10-01 2026-10-02 2026-10-03 2026-10-04'
+        run: |
+          today=$(TZ=Asia/Seoul date +%F)
+          run=true
+          if [ -n "$ONLY" ]; then
+            # A dispatch that names shelves runs only those.
+            echo ",$ONLY," | tr -d ' ' | grep -q ",$SHELF," || run=false
+          else
+            if [ "$GITHUB_EVENT_NAME" = "schedule" ] && echo " $SKIP_DATES " | grep -q " $today "; then run=false; fi
+            day=$(( $(TZ=Asia/Seoul date +%s) / 86400 ))
+            case "$SHELF" in
+              grammar|vocab) ;;
+              reading) [ $((day % 2)) -eq 0 ] || run=false ;;
+              reallife) [ $((day % 2)) -eq 1 ] || run=false ;;
+              *) run=false ;;
+            esac
+          fi
+          echo "$SHELF on $today: $run"
+          echo "run=$run" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/setup-node@v4
+      - if: steps.today.outputs.run == 'true'
+        uses: actions/checkout@v4
+
+      - if: steps.today.outputs.run == 'true'
+        uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
 
-      - run: npm ci
+      - if: steps.today.outputs.run == 'true'
+        run: npm ci
 
       # Only Chromium, and only its own dependencies. The renderer
       # needs a browser; it does not need three of them.
       - name: Install the browser that renders the PDFs
+        if: steps.today.outputs.run == 'true'
         run: npx playwright install --with-deps chromium
 
       # The Claude Code command line, for when the subscription writes.
       - name: Install Claude Code
+        if: steps.today.outputs.run == 'true'
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Write the worksheets (${{ matrix.shelf }})
+        if: steps.today.outputs.run == 'true'
         env:
           DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
           DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
@@ -132,24 +172,7 @@ jobs:
           COUNT: ${{ inputs.count }}
           FORCE: ${{ inputs.force }}
           SHELF: ${{ matrix.shelf }}
-          # Seoul dates the 04:00 run makes nothing (the owner's call).
-          # 2026-09-28: no allowance that morning; one sheet was made
-          # the evening before instead. 2026-10-01 to 10-04: a week off
-          # to save the allowance (owner, 2026-09-30); six a day again
-          # from 10-05.
-          SKIP_DATES: '2026-09-28 2026-10-01 2026-10-02 2026-10-03 2026-10-04'
         run: |
-          today=$(TZ=Asia/Seoul date +%F)
-          if [ "$GITHUB_EVENT_NAME" = "schedule" ] && echo " $SKIP_DATES " | grep -q " $today "; then
-            echo "$today is a day off for the worksheets; nothing to do."
-            exit 0
-          fi
-          # A dispatch that names shelves runs only those: a job whose
-          # shelf is not named does nothing and says so.
-          if [ -n "$ONLY" ] && ! echo ",$ONLY," | tr -d ' ' | grep -q ",$SHELF,"; then
-            echo "$SHELF is not in --only=$ONLY; nothing to do."
-            exit 0
-          fi
           args=(--only="$SHELF")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$COUNT" ]; then args+=(--count="$COUNT"); fi
