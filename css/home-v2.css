@@ -60,8 +60,9 @@ body.home-v2 {
   margin: 0 auto;
   padding: 0 28px;
   /* The cards' column has a set width; the picture beside it is made as
-     tall as that column (js/home-hero.js), so their tops and feet line up. */
-  grid-template-columns: auto 580px;
+     as tall as the cards and set level with them (js/home-hero.js): its
+     top with the first card's, its foot with Blog's and Community's. */
+  grid-template-columns: auto 540px;
   justify-content: center;
   gap: 48px;
   align-items: start;
@@ -69,6 +70,7 @@ body.home-v2 {
 .home-v2 .hero-graphic { background: none; overflow: visible; }
 .home-v2 .hero-frame { position: relative; top: auto; bottom: auto; display: block; }
 .home-v2 .hero-scene {
+  display: block;
   width: auto;
   height: 540px;
   max-width: none;
@@ -106,11 +108,8 @@ body.home-v2 {
   margin: 0;
 }
 .home-v2 .lp-title em {
-  font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 54px;
-  line-height: 1;
+  /* "one": the title's own type, only the colour differs (the owner, 2026-10-07) */
+  font: inherit;
   color: #A8392B;
 }
 
@@ -129,8 +128,8 @@ body.home-v2 {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 8px;
-  padding: 22px 24px;
+  gap: 6px;
+  padding: 17px 21px;
   border-radius: 6px;
   color: var(--lp-ink);
   outline: 1px solid var(--lp-frame);
@@ -142,7 +141,7 @@ body.home-v2 {
 
 .home-v2 .lp-learn {
   grid-column: 1 / -1;
-  padding: 26px 30px;
+  padding: 21px 26px;
   background: #2B3D66;
   --lp-ink: #F3EAD7;
   --lp-sub: rgba(243, 234, 215, .88);
@@ -179,12 +178,12 @@ body.home-v2 {
   top: -4px;
   right: 10px;
   font-family: 'East Sea Dokdo', cursive;
-  font-size: 140px;
+  font-size: 118px;
   line-height: 1;
   color: var(--lp-glyph);
   pointer-events: none;
 }
-.home-v2 .lp-learn .lp-glyph { font-size: 190px; top: -6px; right: 18px; }
+.home-v2 .lp-learn .lp-glyph { font-size: 160px; top: -6px; right: 18px; }
 
 /* the number as a red seal */
 .home-v2 .lp-badge {
@@ -196,8 +195,8 @@ body.home-v2 {
 .home-v2 .lp-seal {
   display: inline-grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 3px;
   background: #A8392B;
   color: #FBF1E2;
@@ -205,7 +204,7 @@ body.home-v2 {
   font-size: 12px;
   font-weight: 700;
 }
-.home-v2 .lp-learn .lp-seal { width: 32px; height: 32px; }
+.home-v2 .lp-learn .lp-seal { width: 30px; height: 30px; }
 .home-v2 .lp-tag {
   font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
   font-size: 12px;
@@ -220,25 +219,24 @@ body.home-v2 {
   position: relative;
   font-family: 'Noto Serif KR', serif;
   font-weight: 700;
-  font-size: 21px;
+  font-size: 19px;
   line-height: 1.25;
   color: var(--lp-ink);
 }
-.home-v2 .lp-learn .lp-name { font-size: 26px; }
+.home-v2 .lp-learn .lp-name { font-size: 23px; }
 .home-v2 .lp-desc {
   position: relative;
   font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--lp-sub);
 }
-.home-v2 .lp-learn .lp-desc { font-size: 15px; }
+.home-v2 .lp-learn .lp-desc { font-size: 14px; }
 
 /* phones and narrow windows: one card to a row */
 @media (max-width: 900px) {
   .home-v2 .lp-grid { grid-template-columns: 1fr; }
   .home-v2 .lp-title { font-size: 36px; }
-  .home-v2 .lp-title em { font-size: 42px; }
 }
 
 /* ---------- authors ---------- */
