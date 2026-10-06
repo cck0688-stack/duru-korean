@@ -316,10 +316,14 @@ export function normalizeLevel(raw) {
 // `cut`: how much to take out, in per cent, measured from what ran past
 // the second page (generate-sheets.mjs) — "make it fit" alone was cut
 // three times on 2026-10-05 and still ran onto a third page.
-export async function shortenSheet(cfg, sheet, pages, longer = [], cut = 0) {
+export async function shortenSheet(cfg, sheet, pages, longer = [], cut = 0, split = '') {
   const category = sheet.category || 'etc';
   const system = [
-    longer.length
+    split
+      ? '당신은 한국어 교재 편집자입니다. 이 학습지는 A4 2쪽에 들어가지만, 번호가 붙은 구역 「' + split + '」이(가) 1쪽 끝에서 ' +
+        '2쪽으로 넘어가 두 쪽에 나뉩니다. 번호가 붙은 구역은 한 쪽 안에 있어야 합니다. 그 구역과 그 앞 구역에서 표의 줄과 ' +
+        '설명을 조금(전체의 5~10% 정도) 줄여, 그 구역이 한 쪽에 들어가게 하세요. 2쪽이 비어 보일 만큼 줄이지는 마세요.'
+      : longer.length
       ? '당신은 한국어 교재 편집자입니다. 이 학습지의 영어판은 A4 2쪽이지만, 글이 더 긴 번역판(' + longer.join(', ') +
         ')은 3쪽이 됩니다. 번역판도 2쪽에 들어가도록 영어판을 조금(전체의 10~15% 정도) 줄이세요.'
       : '당신은 한국어 교재 편집자입니다. 이 학습지는 인쇄하면 A4 ' + pages + '쪽입니다. A4 2쪽 안에 들어가도록 줄이세요.' +

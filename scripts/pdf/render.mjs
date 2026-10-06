@@ -380,6 +380,7 @@ export async function renderSheet(sheet, opts = {}) {
   const context = await browser.newContext();
   const page = await context.newPage();
   let splitLeft = false;
+  let splitTitle = '';
   try {
     await page.setContent(html, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
@@ -486,6 +487,15 @@ export async function renderSheet(sheet, opts = {}) {
         splitLeft = !!seen.spans.find((x) => x.a !== x.b);
         if (moved) pdf = await print();
       }
+      // Which section is left split, by its heading, so the writer can
+      // be told what to shorten (generate-sheets.mjs, fit).
+      const left = splitLeft && seen.spans.find((x) => x.a !== x.b);
+      if (left) {
+        splitTitle = await page.evaluate((i) => {
+          const h = document.querySelector('section[data-k="' + i + '"] > h2');
+          return h ? h.textContent.replace(/\s+/g, ' ').trim() : '';
+        }, left.i);
+      }
       seenLast = seen;
       await page.evaluate(() => document.querySelectorAll('section[data-k]').forEach((el) => el.removeAttribute('data-k')));
     }
@@ -549,6 +559,7 @@ export async function renderSheet(sheet, opts = {}) {
     return {
       pdf,
       split: splitLeft,
+      splitTitle,
       moved,
       space,
       html: used,

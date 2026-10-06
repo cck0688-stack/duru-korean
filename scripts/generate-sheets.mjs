@@ -320,6 +320,23 @@ async function makeOne(cfg, category, context, browser) {
     for (let t = 0; ; t += 1) {
       const r = await renderSheet(s, { category, lang: SOURCE_LANG, browser, check: false });
       const m = pageBreakdown(r.pdf);
+      // A numbered section stays on one page (the owner, 2026-09-29).
+      // The renderer pulls it back or moves it whole when it can; when
+      // it cannot (2026-10-06 and 10-07, reallife: the phrase table ran
+      // from page 1 onto page 2), the sheet is shortened around it.
+      if (m.pages <= 2 && r.split) {
+        if (t >= SHORTEN) {
+          log('    ! 「' + r.splitTitle + '」 구역이 두 쪽에 나뉜 채 남았습니다 (검토 때 확인)');
+          space = r.space;
+          return s;
+        }
+        log('    영어판 2쪽이지만 「' + r.splitTitle + '」 구역이 두 쪽에 나뉨 — 그 구역을 줄입니다');
+        const was = stage('줄이기');
+        s = await shortenSheet(writer, s, 2, [], 0, r.splitTitle || 'a numbered section');
+        stage(was);
+        s.level = normalizeLevel(s.level);
+        continue;
+      }
       if (m.pages <= 2) { space = r.space; return s; }
       if (t >= SHORTEN) throw fail(SHORTEN + '번 줄여도 영어판이 ' + m.pages + '쪽이라 저장하지 않습니다');
       const ops = m.textOps || [];
