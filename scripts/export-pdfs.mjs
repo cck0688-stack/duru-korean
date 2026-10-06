@@ -6,7 +6,7 @@
 // per category and resource, with a list (목록.csv) of what each is.
 // It only reads: nothing is changed, published or removed.
 //
-//   node scripts/export-pdfs.mjs --out=dir [--blog]
+//   node scripts/export-pdfs.mjs --out=dir [--blog | --only-blog]
 
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -18,6 +18,7 @@ const args = process.argv.slice(2);
 const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); return h ? h.slice(n.length + 3) : null; };
 const OUT = arg('out');
 const BLOG = args.includes('--blog');
+const ONLY_BLOG = args.includes('--only-blog');
 const log = (...a) => console.log(...a);
 
 // Safe on Windows: no reserved characters, no trailing dot or space.
@@ -47,7 +48,7 @@ async function main() {
   const list = [['구분', '분류', '폴더', '파일', '언어', '쪽수', '제목', '게시일']];
   let saved = 0, failed = 0, bytes = 0;
 
-  const resources = await call('resources?select=id,title,category,keyword,first_published_at,publish_location' +
+  const resources = ONLY_BLOG ? [] : await call('resources?select=id,title,category,keyword,first_published_at,publish_location' +
     '&status=eq.published&order=first_published_at');
   log('게시된 무료 자료 ' + resources.length + '편');
   for (const r of resources) {
@@ -66,7 +67,7 @@ async function main() {
     }
   }
 
-  if (BLOG) {
+  if (BLOG || ONLY_BLOG) {
     const posts = await call('posts?select=id,slug,title,category,published_at,pdf&published=eq.true&order=published_at');
     log('게시된 블로그 글 ' + posts.length + '편');
     for (const p of posts) {

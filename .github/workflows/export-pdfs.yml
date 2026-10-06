@@ -1,7 +1,7 @@
 # DURU KOREAN — every published PDF as one download, for the owner's copy
 #
 # scripts/export-pdfs.mjs: downloads the PDFs live on the site (Free
-# Downloads; with "blog", the blog posts' PDFs too) and keeps them as
+# Downloads, the blog posts' PDFs, or both) and keeps them as
 # this run's artifact "duru-pdfs" (a ZIP on the run's page, for 7 days).
 # It only reads: nothing is changed or published.
 
@@ -10,10 +10,11 @@ name: Export all PDFs
 on:
   workflow_dispatch:
     inputs:
-      blog:
-        description: 'Blog PDFs too'
-        type: boolean
-        default: false
+      what:
+        description: 'Which PDFs'
+        type: choice
+        options: [free-downloads, blog, both]
+        default: free-downloads
 
 permissions:
   contents: read
@@ -24,7 +25,7 @@ jobs:
     timeout-minutes: 60
     env:
       # Through the environment, never pasted into the command line.
-      BLOG: ${{ inputs.blog }}
+      WHAT: ${{ inputs.what }}
       DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
       DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -42,7 +43,8 @@ jobs:
       - name: Download the PDFs
         run: |
           set -- --out="$RUNNER_TEMP/DuruKorean_PDF"
-          if [ "$BLOG" = "true" ]; then set -- "$@" --blog; fi
+          if [ "$WHAT" = "blog" ]; then set -- "$@" --only-blog; fi
+          if [ "$WHAT" = "both" ]; then set -- "$@" --blog; fi
           node scripts/export-pdfs.mjs "$@"
 
       - uses: actions/upload-artifact@v4
