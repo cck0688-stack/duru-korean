@@ -40,7 +40,7 @@ on:
         type: string
         default: ''
       count:
-        description: 'Posts today (default 6)'
+        description: 'Posts today (default 8)'
         type: string
         default: ''
 
@@ -51,9 +51,9 @@ concurrency:
 jobs:
   drafts:
     runs-on: ubuntu-latest
-    # Six posts (six of the eight shelves, a different six each day),
-    # each written, checked, illustrated and translated into nine
-    # languages: under an hour. The limit leaves room for a wait on the
+    # Eight posts (one on every shelf, the owner, 2026-10-06), each
+    # written, checked, illustrated and translated into nine languages:
+    # about an hour. The limit leaves room for a wait on the
     # subscription's session limit before it.
     timeout-minutes: 360
     steps:

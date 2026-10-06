@@ -13,11 +13,10 @@
   owner approves it on review.html. Never publish without the owner.
 - Work only on branch `claude/duru-korean-homepage-raysf6` (it deploys);
   workflows write to `rework-output`.
-- Daily output (owner, 2026-10-05): 6 blog posts and 3 worksheets every
-  day at 01:00 KST (owner, 2026-10-06; was 04:00) — blog: 6 of the 8
-  shelves, rotating; worksheets:
-  grammar and vocab every day, reading / reallife on alternate days.
-  Keep this unless the owner changes it.
+- Daily output (owner, 2026-10-06, plan A; was 6 posts / 3 sheets):
+  8 blog posts and 6 worksheets every day at 01:00 KST — blog: one
+  on every shelf; worksheets: grammar 2, vocab 2, reading 1,
+  reallife 1. Keep this unless the owner changes it.
 - Worksheet subjects come from the syllabus in content/curriculum (the
   standard curriculum's grammar and vocabulary, Sejong topics), in order
   (owner, 2026-10-05) — scripts/lib/curriculum.mjs. A grammar item's

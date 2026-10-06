@@ -55,7 +55,7 @@ on:
         type: string
         default: ''
       count:
-        description: 'How many per shelf (default 1: three a day)'
+        description: 'How many per shelf (default: grammar 2, vocab 2, reading 1, reallife 1)'
         type: string
         default: ''
       force:
@@ -72,9 +72,9 @@ concurrency:
 jobs:
   sheets:
     runs-on: ubuntu-latest
-    # One job per shelf. Three sheets a day from the syllabus (the owner,
-    # 2026-10-05; content/curriculum, scripts/lib/curriculum.mjs):
-    # grammar and vocab every day, reading and reallife on alternate days.
+    # One job per shelf. Six sheets a day from the syllabus (the owner,
+    # 2026-10-06; content/curriculum, scripts/lib/curriculum.mjs):
+    # grammar 2, vocab 2, reading 1, reallife 1, every day.
     # hangul and etc run only when a dispatch names them. A shelf that
     # fails takes only itself down. The subjects cannot collide, because
     # each job writes for one shelf and keeps its own plan file.
@@ -110,13 +110,8 @@ jobs:
             echo ",$ONLY," | tr -d ' ' | grep -q ",$SHELF," || run=false
           else
             if [ "$GITHUB_EVENT_NAME" = "schedule" ] && echo " $SKIP_DATES " | grep -q " $today "; then run=false; fi
-            # The Seoul date's day number (epoch seconds are UTC; +9h).
-            # 2026-10-06 (even) was reallife; reading and reallife alternate.
-            day=$(( ($(date +%s) + 32400) / 86400 ))
             case "$SHELF" in
-              grammar|vocab) ;;
-              reading) [ $((day % 2)) -eq 1 ] || run=false ;;
-              reallife) [ $((day % 2)) -eq 0 ] || run=false ;;
+              grammar|vocab|reading|reallife) ;;
               *) run=false ;;
             esac
           fi
@@ -178,6 +173,11 @@ jobs:
         run: |
           args=(--only="$SHELF")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
-          if [ -n "$COUNT" ]; then args+=(--count="$COUNT"); fi
+          # A day's number per shelf (the owner, 2026-10-06): two grammar,
+          # two vocab, one each of the others; a dispatch's count wins.
+          if [ -z "$COUNT" ]; then
+            case "$SHELF" in grammar|vocab) COUNT=2 ;; *) COUNT=1 ;; esac
+          fi
+          args+=(--count="$COUNT")
           if [ "$FORCE" = "true" ]; then args+=(--force); fi
           node scripts/generate-sheets.mjs "${args[@]}"

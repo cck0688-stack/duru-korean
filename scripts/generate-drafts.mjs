@@ -56,13 +56,14 @@ const argv = process.argv.slice(2);
 const DRY = argv.includes('--dry-run');
 const ONLY = (argv.find((a) => a.startsWith('--only=')) || '').slice(7)
   .split(',').map((s) => s.trim()).filter(Boolean);
-// Posts a day. Six since 2026-09-27 (the owner's number): six of the
-// eight shelves, a different six each day — the start moves on by six,
-// so every shelf gets its turn and none is skipped two days running.
+// Posts a day. Eight since 2026-10-06 (the owner's number; six from
+// 2026-09-27): every shelf every day. With fewer than eight the start
+// moves on by the count, so every shelf gets its turn and none is
+// skipped two days running.
 // --count= or DAILY_POSTS changes it; --only= writes exactly those.
 const COUNT = Math.max(1, Math.min(CATEGORIES.length,
   Number((argv.find((a) => a.startsWith('--count=')) || '').slice(8)) ||
-  Number(process.env.DAILY_POSTS) || 6));
+  Number(process.env.DAILY_POSTS) || 8));
 
 function todaysShelves(today) {
   const start = (dayNumber(today) * COUNT) % CATEGORIES.length;
