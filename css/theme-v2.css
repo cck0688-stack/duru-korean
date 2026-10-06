@@ -146,3 +146,40 @@ body.theme-v2 {
 .theme-v2 .rd-download:hover { box-shadow: 0 10px 24px rgba(122, 78, 102, .38); }
 .theme-v2 .rd-linkbtn, .theme-v2 .admin-sources-list a { color: #7a4e66; }
 .theme-v2 .rd-globe { stroke: #2b2430; }
+
+/* the old dark bands (Book Resources audio, the closing call-to-action
+   on About / Learn Korean / Book Resources): light, like the home page */
+.theme-v2 .section-dark {
+  background: linear-gradient(180deg, #fbf8f6 0%, #f6ece9 100%);
+  color: #2b2430;
+}
+.theme-v2 .section-dark .section-head h2,
+.theme-v2 .section-dark .split-body h2 { color: #2b2430; }
+.theme-v2 .section-dark .section-head p,
+.theme-v2 .section-dark .split-body p,
+.theme-v2 .section-dark .check-list li { color: #5d5260; }
+.theme-v2 .audio-mock {
+  background: #fff;
+  border-color: #ece2e2;
+  color: #2b2430;
+  box-shadow: 0 22px 46px -30px rgba(95, 58, 79, .45);
+}
+.theme-v2 .audio-mock .track { border-bottom-color: #f1e7e9; }
+.theme-v2 .play-dot { background: #e07a93; color: #fff; }
+.theme-v2 .book-mock {
+  background: linear-gradient(160deg, #8d5d77, #5f3a4f);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 30px 60px -24px rgba(95, 58, 79, .55);
+}
+.theme-v2 .book-mock .eyebrow { color: #f4b6c2; }
+.theme-v2 .book-mock .book-foot { color: rgba(255, 255, 255, .6); }
+.theme-v2 .cta-banner {
+  background: linear-gradient(120deg, #f3e2e8 0%, #ece6f4 55%, #e7ede3 100%);
+  color: #2b2430;
+}
+.theme-v2 .cta-banner h2 { color: #2b2430; letter-spacing: -.02em; }
+.theme-v2 .cta-banner p { color: #5d5260; }
+.theme-v2 .split-visual { background: linear-gradient(140deg, #f4dfe2 0%, #ece6f4 100%); }
+.theme-v2 .btn-outline { background: #fff; }
+.theme-v2 .btn-outline:hover { border-color: #7a4e66; }
