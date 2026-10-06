@@ -1,0 +1,53 @@
+# DURU KOREAN — every published PDF as one download, for the owner's copy
+#
+# scripts/export-pdfs.mjs: downloads the PDFs live on the site (Free
+# Downloads; with "blog", the blog posts' PDFs too) and keeps them as
+# this run's artifact "duru-pdfs" (a ZIP on the run's page, for 7 days).
+# It only reads: nothing is changed or published.
+
+name: Export all PDFs
+
+on:
+  workflow_dispatch:
+    inputs:
+      blog:
+        description: 'Blog PDFs too'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      # Through the environment, never pasted into the command line.
+      BLOG: ${{ inputs.blog }}
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Download the PDFs
+        run: |
+          set -- --out="$RUNNER_TEMP/DuruKorean_PDF"
+          if [ "$BLOG" = "true" ]; then set -- "$@" --blog; fi
+          node scripts/export-pdfs.mjs "$@"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: duru-pdfs
+          path: ${{ runner.temp }}/DuruKorean_PDF
+          retention-days: 7
+          compression-level: 0
