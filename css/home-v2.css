@@ -48,43 +48,51 @@ body.home-v2 {
 .home-v2 .account-trigger .avatar { background: var(--hv-plum); color: #fff; }
 .home-v2 .notify-bell { background: #fff; border: 1px solid var(--hv-line); }
 
-/* ---------- hero: the picture, framed, beside the five ways in ---------- */
+/* ---------- hero: an ink landscape on the left, the five ways in on the right ----------
+   The owner's reference (2026-10-07): the painting starts at the left
+   edge and fades out towards the heading, which stands on plain paper.
+   It is a background (assets/hero-ink.webp, cut from the reference); the
+   heading and the cards are real elements. */
 .home-v2 .hero {
-  background: #F3ECDF;   /* hanji (owner, 2026-10-05) */
-  /* Close under the header, so the last two cards are on the first
-     screen of an ordinary laptop (the owner, 2026-10-06). */
-  padding: 12px 0 56px;
+  position: relative;
+  overflow: hidden;
+  background: #F8EFE2;   /* the painting's own paper */
+  /* The last two cards on the first screen of an ordinary laptop
+     (the owner, 2026-10-06). */
+  min-height: min(calc(100vh - var(--header-h, 84px)), 900px);
+  display: flex;
+  align-items: center;
+}
+.home-v2 .hero-ink {
+  position: absolute;
+  inset: 0 auto 0 0;
+  /* the painting's own shape, as tall as the hero; its right part fades
+     into the paper so no edge shows */
+  aspect-ratio: 872 / 941;
+  max-width: 64%;
+  background: url("../assets/hero-ink.webp") left center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to right, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 80%, transparent 100%);
+  pointer-events: none;
 }
 .home-v2 .hero-grid {
-  max-width: 1360px;
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 28px;
-  /* The cards' column has a set width; the picture beside it is made as
-     as tall as the cards and set level with them (js/home-hero.js): its
-     top with the first card's, its foot with Blog's and Community's. */
-  grid-template-columns: auto 540px;
-  justify-content: center;
-  gap: 48px;
-  align-items: start;
+  padding: 28px 40px 32px;
+  grid-template-columns: minmax(0, 1fr) min(620px, 47%);
+  gap: 0;
+  align-items: center;
 }
-.home-v2 .hero-graphic { background: none; overflow: visible; }
-.home-v2 .hero-frame { position: relative; top: auto; bottom: auto; display: block; }
-.home-v2 .hero-scene {
-  display: block;
-  width: auto;
-  height: 540px;
-  max-width: none;
-  border-radius: 30px;
-  box-shadow: 0 40px 70px -40px rgba(70, 40, 60, .55);
-}
-.home-v2 .hero-text { padding: 0; }
+.home-v2 .hero-text { grid-column: 2; padding: 0; }
 
 /* ---------- "Your Learning Path": the five ways in ----------
    The owner's own design (2026-10-05), to sit beside the folding screens:
    the old colours of Korea (obangsaek), each card mounted like a painting
    (an inner frame), its syllable of 두루한국어 in brush behind it, its
    number in a red seal. Classes are this section's own (lp-…). */
-.home-v2 .lp-head { margin-bottom: 8px; }
+.home-v2 .lp-head { margin-bottom: 18px; }
 .home-v2 .lp-eyebrow {
   display: flex;
   align-items: center;
@@ -101,8 +109,8 @@ body.home-v2 {
 .home-v2 .lp-title {
   font-family: 'Noto Serif KR', serif;
   font-weight: 900;
-  font-size: 46px;
-  line-height: 1.12;
+  font-size: clamp(40px, 3.9vw, 62px);
+  line-height: 1.08;
   letter-spacing: -.01em;
   color: #22180F;
   margin: 0;
@@ -142,17 +150,17 @@ body.home-v2 {
 .home-v2 .lp-learn {
   grid-column: 1 / -1;
   padding: 21px 26px;
-  background: #2B3D66;
+  background: #233B6E;
   --lp-ink: #F3EAD7;
   --lp-sub: rgba(243, 234, 215, .88);
   --lp-frame: rgba(243, 234, 215, .25);
   --lp-glyph: rgba(243, 234, 215, .10);
 }
-.home-v2 .lp-book { background: #E7D5A2; }
-.home-v2 .lp-free { background: #EBCDBF; --lp-glyph: rgba(140, 40, 28, .10); }
-.home-v2 .lp-blog { background: #D2E2D5; }
+.home-v2 .lp-book { background: #ECD290; }
+.home-v2 .lp-free { background: #F0C0B7; --lp-glyph: rgba(140, 40, 28, .10); }
+.home-v2 .lp-blog { background: #CADDD2; }
 .home-v2 .lp-community {
-  background: #6E2F3C;
+  background: #85283A;
   --lp-ink: #F3EAD7;
   --lp-sub: rgba(243, 234, 215, .86);
   --lp-frame: rgba(243, 234, 215, .25);
@@ -333,18 +341,27 @@ body.home-v2 {
 .home-v2 .footer-top .logo-img { height: 34px; }
 
 /* ---------- smaller screens ---------- */
-/* Too narrow for the picture and the cards side by side at full height:
-   the picture goes above the cards (same width as js/home-hero.js). */
-@media (max-width: 1259px) {
-  .home-v2 .hero { padding: 28px 0 44px; }
-  .home-v2 .hero-grid { grid-template-columns: minmax(0, 640px); gap: 34px; }
-  .home-v2 .hero-graphic { aspect-ratio: auto; order: 0; }
-  .home-v2 .hero-text { order: 1; }
-  .home-v2 .hero-frame { position: relative; }
-  .home-v2 .hero-scene { width: 100%; height: auto; }
-  .home-v2 .hero-text { padding: 0; }
+/* Too narrow for the painting beside the cards: it becomes a band across
+   the top, fading into the paper, and the heading and cards follow below
+   it — nothing is printed over the painting. */
+@media (max-width: 1099px) {
+  .home-v2 .hero { display: block; min-height: 0; }
+  .home-v2 .hero-ink {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+    height: clamp(200px, 42vw, 360px);
+    background-size: cover;
+    background-position: left 55%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+  }
+  .home-v2 .hero-grid { grid-template-columns: minmax(0, 680px); justify-content: center; padding: 4px 28px 44px; }
+  .home-v2 .hero-text { grid-column: 1; order: 0; }
 }
 @media (max-width: 640px) {
-  .home-v2 .hero-grid { padding: 0 18px; }
+  .home-v2 .hero-grid { padding: 4px 16px 36px; }
   .home-v2 #contact .wrap { padding: 36px 26px; border-radius: 26px; margin: 0 16px; width: auto; }
 }
