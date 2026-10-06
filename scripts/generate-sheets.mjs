@@ -163,13 +163,24 @@ async function putDraft(token, path, bytes) {
 // so two runs never write the same file.
 const planUrl = (category) => SUPABASE_URL + '/storage/v1/object/resource-drafts/plans/' + category + '.json';
 
+// The run's own copy of each plan, once read or written. Storage can
+// hand back the copy from before a write for a while (its cache): on
+// 2026-10-07 grammar's second sheet was the first one's item again, and
+// the plan saved from that stale copy lost the first item's "done".
+// One job writes one shelf's plan, so within a run this copy is the
+// newest there is.
+const planMemo = new Map();
+
 export async function loadPlan(token, category) {
+  if (planMemo.has(category)) return structuredClone(planMemo.get(category));
   const res = await fetch(SUPABASE_URL + '/storage/v1/object/authenticated/resource-drafts/plans/' + category + '.json', {
     headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token }
   });
   if (!res.ok) return {};
   const body = await res.json().catch(() => null);
-  return body && typeof body === 'object' ? body : {};
+  const plan = body && typeof body === 'object' ? body : {};
+  planMemo.set(category, plan);
+  return structuredClone(plan);
 }
 
 export async function savePlan(token, category, plan) {
@@ -183,6 +194,7 @@ export async function savePlan(token, category, plan) {
     body: JSON.stringify({ ...plan, category, updated: new Date().toISOString() })
   });
   if (!res.ok) throw new Error('주제 목록 저장 실패 (' + res.status + '): ' + (await res.text()).slice(0, 200));
+  planMemo.set(category, structuredClone(plan));
 }
 
 // The next subject for the shelf: from its list, dropping any the shelf
