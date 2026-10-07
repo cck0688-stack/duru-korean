@@ -816,9 +816,5 @@
   "resource.readPassage": "읽기",
   "resource.readPractice": "연습",
   "resource.readTask": "해 보기",
-  "resource.readAnswers": "정답 보기",
-  "resource.readYourTurn": "직접 풀어 보기",
-  "resource.readColWord": "낱말",
-  "resource.readColMeaning": "뜻",
-  "resource.readColUse": "쓰임"
+  "resource.readAnswers": "정답 보기"
 }

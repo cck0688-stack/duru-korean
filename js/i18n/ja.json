@@ -816,9 +816,5 @@
   "resource.readPassage": "読み物",
   "resource.readPractice": "練習",
   "resource.readTask": "やってみよう",
-  "resource.readAnswers": "答えを見る",
-  "resource.readYourTurn": "やってみよう",
-  "resource.readColWord": "単語",
-  "resource.readColMeaning": "意味",
-  "resource.readColUse": "使い方"
+  "resource.readAnswers": "答えを見る"
 }

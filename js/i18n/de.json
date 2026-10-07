@@ -816,9 +816,5 @@
   "resource.readPassage": "Lesetext",
   "resource.readPractice": "Übung",
   "resource.readTask": "Probier es aus",
-  "resource.readAnswers": "Antworten anzeigen",
-  "resource.readYourTurn": "Du bist dran",
-  "resource.readColWord": "Wort",
-  "resource.readColMeaning": "Bedeutung",
-  "resource.readColUse": "Verwendung"
+  "resource.readAnswers": "Antworten anzeigen"
 }

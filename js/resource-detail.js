@@ -246,18 +246,20 @@ function renderReadOnline(resource, lang) {
       load(lang).then(function (d) { return d || (lang === 'en' ? null : load('en')); }).then(function (d) {
         if (!d) { box.hidden = true; return; }
         var h = '';
-        var n = 0;
-        function sec(title, inner) { n += 1; return '<section class="rd-read-sec"><h3><span class="rd-num">' + n + '</span><span class="rd-sec-title">' + esc(title) + '</span><span class="rd-rule"></span></h3>' + inner + '</section>'; }
+        function sec(title, inner) { return '<section class="rd-read-sec"><h3>' + esc(title) + '</h3>' + inner + '</section>'; }
         if (d.objective) h += '<p class="rd-read-lead">' + esc(d.objective) + '</p>';
         if (d.words && d.words.length) {
-          h += sec(t('resource.readWords', 'Words'), '<table class="rd-words"><thead><tr><th>' + esc(t('resource.readColWord', 'Word')) + '</th><th>' + esc(t('resource.readColMeaning', 'Meaning')) + '</th><th>' + esc(t('resource.readColUse', 'In use')) + '</th></tr></thead><tbody>' + d.words.map(function (w) {
-            return '<tr><td class="rd-w-ko kr">' + esc(w.korean) + '</td><td class="rd-w-mean">' + esc(w.meaning) + '</td><td class="rd-w-ex">' +
-              (w.example ? '<span class="kr">' + esc(w.example) + '</span>' + (w.exampleMeaning ? '<em>' + esc(w.exampleMeaning) + '</em>' : '') : '') + '</td></tr>';
-          }).join('') + '</tbody></table>');
+          h += sec(t('resource.readWords', 'Words'), '<ul class="rd-words">' + d.words.map(function (w) {
+            return '<li><span class="rd-w-ko kr">' + esc(w.korean) + '</span>' +
+              (w.roman ? '<span class="rd-w-ro">' + esc(w.roman) + '</span>' : '') +
+              '<span class="rd-w-mean">' + esc(w.meaning) + '</span>' +
+              (w.example ? '<span class="rd-w-ex"><span class="kr">' + esc(w.example) + '</span>' +
+                (w.exampleMeaning ? '<em>' + esc(w.exampleMeaning) + '</em>' : '') + '</span>' : '') + '</li>';
+          }).join('') + '</ul>');
         }
         if (d.passage && d.passage.length) h += sec(t('resource.readPassage', 'Read'), d.passage.map(function (p) { return '<p class="kr">' + esc(p) + '</p>'; }).join(''));
         if (d.exercises && d.exercises.length) {
-          h += sec(t('resource.readYourTurn', 'Your turn'), '<div class="rd-turn"><ol class="rd-ex">' + d.exercises.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ol></div>');
+          h += sec(t('resource.readPractice', 'Practice'), '<ol class="rd-ex">' + d.exercises.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ol>');
         }
         if (d.task && d.task.line) {
           h += '<aside class="rd-task"><strong>' + esc(d.task.title || t('resource.readTask', 'Try it')) + '</strong><p>' + esc(d.task.line) + '</p></aside>';
