@@ -71,6 +71,10 @@ body.home-v2 {
   align-items: center;
   overflow: hidden;
 }
+/* between phones and 1259px the site header takes two rows (130px) */
+@media (min-width: 601px) and (max-width: 1259px) {
+  .home-v2 .hero { --hh: calc(100vh - 130px); min-height: calc(100vh - 130px); }
+}
 /* The painting and its sun move together (.hero-art). Its top is the
    hero's top at every window size — never cut (the owner, 2026-10-07) —
    and it fills the left edge at full strength. Its width is 70% of the
@@ -81,7 +85,7 @@ body.home-v2 {
   position: absolute;
   left: 0;
   top: 0;
-  width: min(70%, calc((100vh - var(--header-h, 84px)) * 1.36));
+  width: min(70%, calc(var(--hh, 100vh) * 1.36));
   pointer-events: none;
 }
 .home-v2 .hero-art picture { display: block; }
@@ -361,14 +365,16 @@ body.home-v2 {
 /* ---------- smaller screens ---------- */
 /* 1024px and below: the landscape as a band across the top (50vh), the
    heading and cards below it in one column. */
-@media (max-width: 1024px) {
+@media (max-width: 899px), (max-width: 1024px) and (orientation: portrait), (max-height: 500px) {
   .home-v2 .hero { display: block; min-height: 0; }
   .home-v2 .hero-art { position: static; width: 100%; }
   .home-v2 .hero-landscape {
     width: 100%;
     height: 50vh;
     object-fit: cover;
-    object-position: left center;
+    /* the painting's top always shows (the owner, 2026-10-07: never cut
+       at the top); if the band is short, the water at the foot gives way */
+    object-position: left top;
     -webkit-mask-image: none;
     mask-image: none;
   }
@@ -389,6 +395,11 @@ body.home-v2 {
   .home-v2 .lp-name { font-size: 32px; margin-top: 6px; }
   .home-v2 .lp-learn .lp-name { font-size: 40px; }
   .home-v2 .lp-desc { font-size: 18px; }
+}
+/* a phone on its side: the wide painting whole above the heading (a
+   50vh band there would show only the sky) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .home-v2 .hero-landscape { height: auto; }
 }
 /* 640px and below: one card to a row */
 @media (max-width: 640px) {

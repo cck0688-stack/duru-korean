@@ -76,7 +76,9 @@
   <div class="hero-art" aria-hidden="true">
     <picture>
       <!-- 1024px and below: the band above the heading, the painting whole (sun included) -->
-      <source media="(max-width: 1024px)" srcset="assets/hero-landscape-band.webp" width="940" height="941">
+      <!-- a phone on its side: the whole painting, wide, in the band -->
+      <source media="(max-height: 500px) and (orientation: landscape)" srcset="assets/hero-landscape-wide.webp" width="1400" height="941">
+      <source media="(max-width: 899px), (max-width: 1024px) and (orientation: portrait), (max-height: 500px)" srcset="assets/hero-landscape-band.webp" width="940" height="941">
       <img class="hero-landscape" src="assets/hero-landscape.webp" width="940" height="941" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
     </picture>
     <img class="hero-sun" src="assets/hero-sun.webp" width="170" height="722" alt="" aria-hidden="true" decoding="async">
