@@ -810,5 +810,11 @@
   "hero.path.book.short": "O áudio e os materiais para imprimir de cada livro, num só lugar.",
   "hero.path.resources.short": "PDFs de hangul, pronúncia, vocabulário e gramática.",
   "hero.path.blog.short": "O dia a dia, a comida e as viagens na Coreia, escritos pelos nossos professores.",
-  "hero.path.community.short": "Pergunte, compartilhe e deixe uma linha no livro de visitas."
+  "hero.path.community.short": "Pergunte, compartilhe e deixe uma linha no livro de visitas.",
+  "resource.readEyebrow": "Leia aqui",
+  "resource.readWords": "Palavras",
+  "resource.readPassage": "Leitura",
+  "resource.readPractice": "Prática",
+  "resource.readTask": "Experimente",
+  "resource.readAnswers": "Ver as respostas"
 }

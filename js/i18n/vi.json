@@ -810,5 +810,11 @@
   "hero.path.book.short": "Âm thanh và tài liệu in của từng cuốn sách, tất cả ở một nơi.",
   "hero.path.resources.short": "PDF tóm tắt Hangul, phát âm, từ vựng và ngữ pháp.",
   "hero.path.blog.short": "Đời sống, ẩm thực và du lịch Hàn Quốc, do chính giáo viên viết.",
-  "hero.path.community.short": "Hỏi, chia sẻ và để lại một dòng trong sổ lưu bút."
+  "hero.path.community.short": "Hỏi, chia sẻ và để lại một dòng trong sổ lưu bút.",
+  "resource.readEyebrow": "Đọc ngay tại đây",
+  "resource.readWords": "Từ vựng",
+  "resource.readPassage": "Đọc",
+  "resource.readPractice": "Luyện tập",
+  "resource.readTask": "Thử làm",
+  "resource.readAnswers": "Xem đáp án"
 }

@@ -810,5 +810,11 @@
   "hero.path.book.short": "L’audio et les fiches à imprimer de chaque livre, au même endroit.",
   "hero.path.resources.short": "Des PDF de hangeul, prononciation, vocabulaire et grammaire.",
   "hero.path.blog.short": "La vie quotidienne, la cuisine et les voyages en Corée, racontés par nos professeurs.",
-  "hero.path.community.short": "Posez vos questions, partagez, laissez un mot dans le livre d’or."
+  "hero.path.community.short": "Posez vos questions, partagez, laissez un mot dans le livre d’or.",
+  "resource.readEyebrow": "À lire ici",
+  "resource.readWords": "Mots",
+  "resource.readPassage": "Lecture",
+  "resource.readPractice": "Exercices",
+  "resource.readTask": "À vous de jouer",
+  "resource.readAnswers": "Voir les réponses"
 }

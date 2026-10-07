@@ -810,5 +810,11 @@
   "hero.path.book.short": "교재별 오디오와 프린트물을 한 곳에.",
   "hero.path.resources.short": "한글, 발음, 어휘, 문법 치트시트 PDF.",
   "hero.path.blog.short": "선생님들이 직접 쓰는 한국의 일상, 음식, 여행 이야기.",
-  "hero.path.community.short": "질문하고, 나누고, 방명록에 한 줄 남겨주세요."
+  "hero.path.community.short": "질문하고, 나누고, 방명록에 한 줄 남겨주세요.",
+  "resource.readEyebrow": "여기서 바로 보기",
+  "resource.readWords": "낱말",
+  "resource.readPassage": "읽기",
+  "resource.readPractice": "연습",
+  "resource.readTask": "해 보기",
+  "resource.readAnswers": "정답 보기"
 }

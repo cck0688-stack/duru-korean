@@ -810,5 +810,11 @@
   "hero.path.book.short": "每本教材的音频和打印资料，集中在一处。",
   "hero.path.resources.short": "韩文字母、发音、词汇、语法速查 PDF。",
   "hero.path.blog.short": "老师们亲自写的韩国日常、美食与旅行故事。",
-  "hero.path.community.short": "提问、分享，在留言簿里留下一句话。"
+  "hero.path.community.short": "提问、分享，在留言簿里留下一句话。",
+  "resource.readEyebrow": "在这里阅读",
+  "resource.readWords": "词汇",
+  "resource.readPassage": "阅读",
+  "resource.readPractice": "练习",
+  "resource.readTask": "试一试",
+  "resource.readAnswers": "查看答案"
 }

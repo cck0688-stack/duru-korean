@@ -191,3 +191,28 @@ body.theme-v2 {
   .theme-v2 .level-head span { white-space: nowrap; }
 }
 .theme-v2 .card-icon { white-space: nowrap; width: auto; min-width: 44px; padding: 0 8px; align-self: flex-start; display: inline-flex; }
+
+/* Read it here: a download's content on its own page, as on the blog */
+.theme-v2 .rd-read { max-width: none; margin: 24px 0 0; padding: 32px 36px; background: #fff; border: 1px solid #ece2e2; border-radius: 22px; box-shadow: 0 22px 46px -34px rgba(95, 58, 79, .4); }
+.theme-v2 .rd-read h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.25; margin: 6px 0 14px; letter-spacing: -.02em; }
+.theme-v2 .rd-read-lead { color: #5d5260; font-size: 16px; line-height: 1.7; margin: 0 0 8px; }
+.theme-v2 .rd-read-sec { margin-top: 28px; }
+.theme-v2 .rd-read-sec h3 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #e07a93; margin: 0 0 12px; }
+.theme-v2 .rd-words { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.theme-v2 .rd-words li { display: grid; grid-template-columns: minmax(120px, 170px) 1fr; column-gap: 18px; row-gap: 2px; padding: 14px 16px; background: #fbf8f6; border-radius: 14px; }
+.theme-v2 .rd-w-ko { grid-row: span 2; font-size: 20px; font-weight: 800; color: #2b2430; align-self: center; }
+.theme-v2 .rd-w-ro { display: none; }
+.theme-v2 .rd-w-mean { font-weight: 600; color: #7a4e66; }
+.theme-v2 .rd-w-ex { display: block; color: #3a3040; font-size: 15px; line-height: 1.55; }
+.theme-v2 .rd-w-ex em { display: block; font-style: normal; color: #8c8090; font-size: 14px; }
+.theme-v2 .rd-ex { margin: 0; padding-left: 22px; display: grid; gap: 12px; line-height: 1.7; color: #2b2430; }
+.theme-v2 .rd-task { margin-top: 26px; padding: 16px 20px; background: #f6ece9; border-radius: 14px; color: #3a3040; }
+.theme-v2 .rd-task p { margin: 4px 0 0; line-height: 1.65; }
+.theme-v2 .rd-ans { margin-top: 24px; background: #fbf8f6; border-radius: 14px; padding: 14px 18px; }
+.theme-v2 .rd-ans summary { cursor: pointer; font-weight: 700; color: #7a4e66; }
+.theme-v2 .rd-ans ol { margin: 12px 0 0; padding-left: 22px; display: grid; gap: 6px; }
+@media (max-width: 600px) {
+  .theme-v2 .rd-read { margin: 24px 16px 0; padding: 22px 18px; border-radius: 18px; }
+  .theme-v2 .rd-words li { grid-template-columns: 1fr; }
+  .theme-v2 .rd-w-ko { grid-row: auto; }
+}

@@ -810,5 +810,11 @@
   "hero.path.book.short": "Audio dan bahan cetak setiap buku, di satu tempat.",
   "hero.path.resources.short": "PDF ringkasan Hangul, pelafalan, kosakata, dan tata bahasa.",
   "hero.path.blog.short": "Kehidupan sehari-hari, makanan, dan perjalanan di Korea, ditulis guru kami.",
-  "hero.path.community.short": "Bertanya, berbagi, dan tinggalkan satu baris di buku tamu."
+  "hero.path.community.short": "Bertanya, berbagi, dan tinggalkan satu baris di buku tamu.",
+  "resource.readEyebrow": "Baca di sini",
+  "resource.readWords": "Kosakata",
+  "resource.readPassage": "Bacaan",
+  "resource.readPractice": "Latihan",
+  "resource.readTask": "Coba sendiri",
+  "resource.readAnswers": "Lihat jawaban"
 }

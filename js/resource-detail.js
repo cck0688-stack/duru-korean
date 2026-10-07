@@ -140,6 +140,7 @@
       document.querySelector('.res-body').hidden = !(aboutTitle || text);
 
       renderLanguagePicker(files);
+      renderReadOnline(resource, lang);
       $('resAdmin').hidden = !isAdmin;
       $('resAdminSources').hidden = !isAdmin;
       if (isAdmin) R.fillAdminSources(client, 'resource_id', resource.id, $('resAdminSources'));
@@ -232,6 +233,47 @@
     // The order tried: the language the list was filtered to, then the
     // site language, then the first file there is. When the one asked
     // for is missing, say so and let the visitor pick.
+    // The sheet's content on the page itself, as on the blog (only the
+// downloads that have read/<id>/<lang>.json — a sample so far). Falls
+// back to English, then to nothing: the section stays hidden.
+function renderReadOnline(resource, lang) {
+      var box = $('resRead');
+      if (!box || !resource || !/^[0-9a-f-]{36}$/i.test(resource.id)) return;
+      var base = '/read/' + resource.id + '/';
+      function load(code) {
+        return fetch(base + code + '.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+      }
+      load(lang).then(function (d) { return d || (lang === 'en' ? null : load('en')); }).then(function (d) {
+        if (!d) { box.hidden = true; return; }
+        var h = '';
+        function sec(title, inner) { return '<section class="rd-read-sec"><h3>' + esc(title) + '</h3>' + inner + '</section>'; }
+        if (d.objective) h += '<p class="rd-read-lead">' + esc(d.objective) + '</p>';
+        if (d.words && d.words.length) {
+          h += sec(t('resource.readWords', 'Words'), '<ul class="rd-words">' + d.words.map(function (w) {
+            return '<li><span class="rd-w-ko kr">' + esc(w.korean) + '</span>' +
+              (w.roman ? '<span class="rd-w-ro">' + esc(w.roman) + '</span>' : '') +
+              '<span class="rd-w-mean">' + esc(w.meaning) + '</span>' +
+              (w.example ? '<span class="rd-w-ex"><span class="kr">' + esc(w.example) + '</span>' +
+                (w.exampleMeaning ? '<em>' + esc(w.exampleMeaning) + '</em>' : '') + '</span>' : '') + '</li>';
+          }).join('') + '</ul>');
+        }
+        if (d.passage && d.passage.length) h += sec(t('resource.readPassage', 'Read'), d.passage.map(function (p) { return '<p class="kr">' + esc(p) + '</p>'; }).join(''));
+        if (d.exercises && d.exercises.length) {
+          h += sec(t('resource.readPractice', 'Practice'), '<ol class="rd-ex">' + d.exercises.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ol>');
+        }
+        if (d.task && d.task.line) {
+          h += '<aside class="rd-task"><strong>' + esc(d.task.title || t('resource.readTask', 'Try it')) + '</strong><p>' + esc(d.task.line) + '</p></aside>';
+        }
+        if (d.answers && d.answers.length) {
+          h += '<details class="rd-ans"><summary>' + esc(t('resource.readAnswers', 'Show the answers')) + '</summary><ol>' +
+            d.answers.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join('') + '</ol></details>';
+        }
+        $('resReadTitle').textContent = d.title || '';
+        $('resReadBody').innerHTML = h;
+        box.hidden = !h;
+      });
+    }
+
     function renderLanguagePicker(files) {
       var sel = $('resPdfLang');
       var notice = $('resLangNotice');

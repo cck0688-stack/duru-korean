@@ -810,5 +810,11 @@
   "hero.path.book.short": "教材ごとの音声とプリントをひとまとめに。",
   "hero.path.resources.short": "ハングル・発音・語彙・文法のまとめPDF。",
   "hero.path.blog.short": "先生たちが書く、韓国の日常・食・旅の話。",
-  "hero.path.community.short": "質問して、話して、ゲストブックに一言どうぞ。"
+  "hero.path.community.short": "質問して、話して、ゲストブックに一言どうぞ。",
+  "resource.readEyebrow": "ここで読む",
+  "resource.readWords": "単語",
+  "resource.readPassage": "読み物",
+  "resource.readPractice": "練習",
+  "resource.readTask": "やってみよう",
+  "resource.readAnswers": "答えを見る"
 }
