@@ -816,5 +816,9 @@
   "resource.readPassage": "Leitura",
   "resource.readPractice": "Prática",
   "resource.readTask": "Experimente",
-  "resource.readAnswers": "Ver as respostas"
+  "resource.readAnswers": "Ver as respostas",
+  "resource.readYourTurn": "Sua vez",
+  "resource.readColWord": "Palavra",
+  "resource.readColMeaning": "Significado",
+  "resource.readColUse": "Uso"
 }
