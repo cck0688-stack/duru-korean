@@ -803,7 +803,7 @@
   "admin.sources.none": "Aucune source n’a été enregistrée pour ce contenu.",
   "admin.sources.missing": "La table des sources n’est pas encore créée (supabase/schema.sql §43).",
   "blog.print": "Imprimer",
-  "hero.path.h2html": "Cinq entrées, <em>une seule</em> direction.",
+  "hero.path.h2html": "Cinq entrées,<br><em>une seule</em> direction.",
   "hero.path.popular": "Le plus populaire",
   "hero.path.free": "Gratuit",
   "hero.path.learn.short": "De la première lettre à la vraie conversation : des leçons pas à pas avec audio natif.",

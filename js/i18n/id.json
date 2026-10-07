@@ -803,7 +803,7 @@
   "admin.sources.none": "Tidak ada sumber yang dicatat untuk konten ini.",
   "admin.sources.missing": "Tabel sumber belum disiapkan (supabase/schema.sql §43).",
   "blog.print": "Cetak",
-  "hero.path.h2html": "Lima pintu masuk, <em>satu</em> arah.",
+  "hero.path.h2html": "Lima pintu masuk,<br><em>satu</em> arah.",
   "hero.path.popular": "Paling populer",
   "hero.path.free": "Gratis",
   "hero.path.learn.short": "Dari huruf pertama hingga percakapan nyata — pelajaran bertahap dengan audio penutur asli.",

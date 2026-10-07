@@ -803,7 +803,7 @@
   "admin.sources.none": "이 자료에는 기록된 참고 자료가 없습니다.",
   "admin.sources.missing": "참고 자료 표가 아직 없습니다 (supabase/schema.sql §43).",
   "blog.print": "인쇄",
-  "hero.path.h2html": "다섯 갈래 입구, <em>하나의</em> 방향.",
+  "hero.path.h2html": "다섯 갈래 입구,<br><em>하나의</em> 방향.",
   "hero.path.popular": "가장 인기",
   "hero.path.free": "무료",
   "hero.path.learn.short": "첫 글자부터 진짜 대화까지, 원어민 오디오가 함께하는 단계별 레슨.",

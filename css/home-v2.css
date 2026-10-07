@@ -48,122 +48,111 @@ body.home-v2 {
 .home-v2 .account-trigger .avatar { background: var(--hv-plum); color: #fff; }
 .home-v2 .notify-bell { background: #fff; border: 1px solid var(--hv-line); }
 
-/* ---------- hero: one ink landscape across the whole width ----------
-   The owner's reference (2026-10-07): a crag with pines and plum on the
-   left, a pavilion by the water, the lake running on under the cards and
-   mist and a far ridge beside the heading — one painting, left to right.
-   assets/hero-ink.webp is the reference with its lettering and cards
-   taken out (the heading and the cards here are real elements). */
+/* ---------- hero: the owner's spec (2026-10-07), from reference.png ----------
+   Measured at 1672×941: the sizes are the spec's at that width and
+   shrink with the window below it (min(px, vw)), so the picture keeps
+   its proportions and Blog and Community stay on a laptop's first
+   screen (the owner, 2026-10-06). The landscape is an image (assets/hero-landscape
+   .webp), never redrawn; the heading and the five cards are real links.
+   No gradient, shadow or rounding beyond what the spec gives. */
 .home-v2 .hero {
   position: relative;
-  overflow: hidden;
-  background: #F8F0E3;   /* the painting's own paper */
-  /* The last two cards on the first screen of an ordinary laptop
-     (the owner, 2026-10-06). */
-  min-height: min(calc(100vh - var(--header-h, 84px)), 900px);
+  width: 100%;
+  /* the spec's 100vh, less the site header above it, so the hero is
+     exactly the first screen */
+  min-height: calc(100vh - var(--header-h, 84px));
+  background: #F3ECDF;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
-.home-v2 .hero-ink {
+.home-v2 .hero-landscape {
   position: absolute;
-  inset: 0;
-  background: url("../assets/hero-ink.webp") left center / cover no-repeat;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 55%;
+  object-fit: cover;
+  object-position: left center;
+  -webkit-mask-image: linear-gradient(to right, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 70%, transparent 100%);
   pointer-events: none;
 }
-.home-v2 .hero-grid {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 28px 40px 32px;
-  grid-template-columns: minmax(0, 1fr) min(620px, 47%);
-  gap: 0;
-  align-items: center;
+/* the far ridge in mist beside the heading, as in the reference (the same
+   painting's paper made transparent, so it sits on the hanji) */
+.home-v2 .hero-ridge {
+  position: absolute;
+  right: 0;
+  top: 10.2%;
+  width: 22.2%;
+  height: auto;
+  pointer-events: none;
 }
-.home-v2 .hero-text { grid-column: 2; padding: 0; }
-.home-v2 .hero-entry.lp { max-width: none; }
+.home-v2 .hero-content {
+  position: relative;
+  margin-left: 53%;
+  margin-right: 2%;
+  width: 100%;
+  max-width: 760px;
+  padding: min(40px, 2.4vw) 0;
+}
 
-/* ---------- "Your Learning Path": the five ways in ----------
-   The owner's own design (2026-10-05), to sit beside the folding screens:
-   the old colours of Korea (obangsaek), each card mounted like a painting
-   (an inner frame), its syllable of 두루한국어 in brush behind it, its
-   number in a red seal. Classes are this section's own (lp-…). */
-.home-v2 .lp-head { margin-bottom: 18px; }
+/* eyebrow */
 .home-v2 .lp-eyebrow {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .22em;
+  margin: 0 0 min(12px, .72vw);
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: min(20px, 1.2vw);
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: #A8392B;
-  margin-bottom: 6px;
+  color: #C62828;
 }
-.home-v2 .lp-eyebrow::before { content: ''; flex: none; width: 28px; height: 2px; background: #A8392B; }
-.home-v2 .lp-title {
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 900;
-  font-size: clamp(40px, 3.9vw, 62px);
-  line-height: 1.08;
-  letter-spacing: -.01em;
-  color: #22180F;
-  margin: 0;
-}
-.home-v2 .lp-title em {
-  /* "one": the title's own type, only the colour differs (the owner, 2026-10-07) */
-  font: inherit;
-  color: #A8392B;
-}
+.home-v2 .lp-rule { flex: none; width: min(56px, 3.35vw); height: 2px; margin-right: min(16px, .96vw); background: #C62828; }
 
+/* headline */
+.home-v2 .lp-title {
+  margin: 0 0 min(24px, 1.44vw);
+  font-family: 'Source Serif 4', 'Noto Serif KR', serif;
+  font-weight: 700;
+  font-size: clamp(48px, 5.2vw, 88px);
+  line-height: 1.0;
+  letter-spacing: -.025em;
+  color: #141414;
+}
+.home-v2 .lp-title em { font: inherit; color: #C62828; }
+
+/* cards */
 .home-v2 .lp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: min(10px, .6vw);
 }
 .home-v2 .lp-card {
-  --lp-ink: #2A1E14;
-  --lp-sub: #4A3A2A;
-  --lp-frame: rgba(42, 30, 20, .22);
-  --lp-glyph: rgba(42, 30, 20, .08);
+  --lp-ink: #2A2216;
+  --lp-line: rgba(0, 0, 0, .18);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 6px;
-  padding: 17px 21px;
-  border-radius: 6px;
+  justify-content: center;
+  min-height: min(168px, 10.05vw);
+  padding: min(22px, 1.32vw) min(28px, 1.67vw);
+  border-radius: 4px;
   color: var(--lp-ink);
-  outline: 1px solid var(--lp-frame);
-  outline-offset: -9px;
-  transition: transform .25s ease, box-shadow .25s ease;
+  text-decoration: none;
+  transition: transform .2s;
 }
-.home-v2 .lp-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(42, 30, 20, .16); }
-.home-v2 .lp-card:focus-visible { outline: 2px solid #A8392B; outline-offset: 3px; }
-
-.home-v2 .lp-learn {
-  grid-column: 1 / -1;
-  padding: 21px 26px;
-  background: #233B6E;
-  --lp-ink: #F3EAD7;
-  --lp-sub: rgba(243, 234, 215, .88);
-  --lp-frame: rgba(243, 234, 215, .25);
-  --lp-glyph: rgba(243, 234, 215, .10);
+.home-v2 .lp-card::before {
+  content: '';
+  position: absolute;
+  inset: min(10px, .6vw);
+  border: 1px solid var(--lp-line);
+  pointer-events: none;
 }
-.home-v2 .lp-book { background: #ECD290; }
-.home-v2 .lp-free { background: #F0C0B7; --lp-glyph: rgba(140, 40, 28, .10); }
-.home-v2 .lp-blog { background: #CADDD2; }
-.home-v2 .lp-community {
-  background: #85283A;
-  --lp-ink: #F3EAD7;
-  --lp-sub: rgba(243, 234, 215, .86);
-  --lp-frame: rgba(243, 234, 215, .25);
-  --lp-glyph: rgba(243, 234, 215, .10);
-}
-
-/* 01: two soft ridges along the foot, right side */
+.home-v2 .lp-card:hover { transform: translateY(-3px); }
+/* 01: two soft ridges along the foot, right side, as in the reference */
 .home-v2 .lp-learn::after {
   content: '';
   position: absolute;
@@ -171,76 +160,75 @@ body.home-v2 {
   bottom: 0;
   width: 62%;
   height: 70px;
-  opacity: .16;
-  background: no-repeat right bottom / 100% 100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70V52C40 40 70 26 110 34S180 56 220 44 290 18 330 24 380 40 400 42V70Z' fill='%23F3EAD7' fill-opacity='.6'/%3E%3Cpath d='M60 70V60C110 48 150 40 200 48S280 64 330 52 380 40 400 44V70Z' fill='%23F3EAD7'/%3E%3C/svg%3E");
+  opacity: .14;
+  background: no-repeat right bottom / 100% 100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70V52C40 40 70 26 110 34S180 56 220 44 290 18 330 24 380 40 400 42V70Z' fill='%23FFFFFF' fill-opacity='.6'/%3E%3Cpath d='M60 70V60C110 48 150 40 200 48S280 64 330 52 380 40 400 44V70Z' fill='%23FFFFFF'/%3E%3C/svg%3E");
   pointer-events: none;
 }
+.home-v2 .lp-card:focus-visible { outline: 2px solid #C62828; outline-offset: 3px; }
 
-/* the syllable behind each card, in brush */
+.home-v2 .lp-learn { grid-column: 1 / -1; min-height: min(185px, 11.06vw); background: #1E3A6E; --lp-ink: #fff; --lp-line: rgba(255, 255, 255, .22); }
+.home-v2 .lp-book { background: #EDCF8B; --lp-ink: #2A2216; }
+.home-v2 .lp-free { background: #F2B5AE; --lp-ink: #2A1A1A; }
+.home-v2 .lp-blog { background: #C3D8CA; --lp-ink: #1F2A24; }
+.home-v2 .lp-community { background: #7D1D2B; --lp-ink: #fff; --lp-line: rgba(255, 255, 255, .22); }
+
+/* the syllable of 두루한국어 behind each card */
 .home-v2 .lp-glyph {
   position: absolute;
-  top: -4px;
-  right: 10px;
-  font-family: 'East Sea Dokdo', cursive;
-  font-size: 118px;
+  top: 50%;
+  right: min(28px, 1.67vw);
+  transform: translateY(-50%) rotate(-6deg);
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 900;
+  font-size: min(120px, 7.18vw);
   line-height: 1;
-  color: var(--lp-glyph);
+  color: var(--lp-ink);
+  opacity: .08;
   pointer-events: none;
 }
-.home-v2 .lp-learn .lp-glyph { font-size: 160px; top: -6px; right: 18px; }
 
-/* the number as a red seal */
-.home-v2 .lp-badge {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
+/* number badge and label */
+.home-v2 .lp-badge { position: relative; display: flex; align-items: center; gap: min(14px, .84vw); }
 .home-v2 .lp-seal {
   display: inline-grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 3px;
-  background: #A8392B;
-  color: #FBF1E2;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 12px;
-  font-weight: 700;
+  width: min(40px, 2.39vw);
+  height: min(38px, 2.27vw);
+  border-radius: 2px;
+  background: #D32F2F;
+  color: #fff;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: min(18px, 1.08vw);
 }
-.home-v2 .lp-learn .lp-seal { width: 30px; height: 30px; }
 .home-v2 .lp-tag {
-  font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: min(16px, .96vw);
   letter-spacing: .18em;
   text-transform: uppercase;
 }
-.home-v2 .lp-learn .lp-tag { color: #E9D9A8; }
-.home-v2 .lp-free .lp-tag { color: #8A2E22; }
+.home-v2 .lp-learn .lp-tag { color: #E8C46A; }
+.home-v2 .lp-free .lp-tag { color: #C62828; }
 
 .home-v2 .lp-name {
   position: relative;
-  font-family: 'Noto Serif KR', serif;
+  display: block;
+  margin-top: min(6px, .36vw);
+  font-family: 'Source Serif 4', 'Noto Serif KR', serif;
   font-weight: 700;
-  font-size: 19px;
-  line-height: 1.25;
-  color: var(--lp-ink);
+  font-size: min(32px, 1.91vw);
+  line-height: 1.15;
 }
-.home-v2 .lp-learn .lp-name { font-size: 23px; }
+.home-v2 .lp-learn .lp-name { font-size: min(40px, 2.39vw); }
 .home-v2 .lp-desc {
   position: relative;
-  font-family: 'Gowun Dodum', 'Pretendard', sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--lp-sub);
-}
-.home-v2 .lp-learn .lp-desc { font-size: 14px; }
-
-/* phones and narrow windows: one card to a row */
-@media (max-width: 900px) {
-  .home-v2 .lp-grid { grid-template-columns: 1fr; }
-  .home-v2 .lp-title { font-size: 36px; }
+  display: block;
+  font-family: 'Source Serif 4', 'Noto Serif KR', serif;
+  font-weight: 400;
+  font-size: min(18px, 1.08vw);
+  line-height: 1.35;
+  opacity: .85;
 }
 
 /* ---------- authors ---------- */
@@ -337,26 +325,40 @@ body.home-v2 {
 .home-v2 .footer-top .logo-img { height: 34px; }
 
 /* ---------- smaller screens ---------- */
-/* Too narrow for the painting beside the cards: it becomes a band across
-   the top, fading into the paper, and the heading and cards follow below
-   it — nothing is printed over the painting. */
-@media (max-width: 1099px) {
+/* 1024px and below: the landscape as a band across the top (50vh), the
+   heading and cards below it in one column. */
+@media (max-width: 1024px) {
   .home-v2 .hero { display: block; min-height: 0; }
-  .home-v2 .hero-ink {
-    position: relative;
-    inset: auto;
+  .home-v2 .hero-landscape {
+    position: static;
+    display: block;
     width: 100%;
-    height: clamp(220px, 56vw, 440px);
-    /* the left part of the painting: the crag, the pavilion, the lake */
-    background-size: 182% auto;
-    background-position: 0 55%;
-    -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+    height: 50vh;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
-  .home-v2 .hero-grid { grid-template-columns: minmax(0, 680px); justify-content: center; padding: 4px 28px 44px; }
-  .home-v2 .hero-text { grid-column: 1; order: 0; }
+  .home-v2 .hero-ridge { display: none; }
+  .home-v2 .hero-content { margin: 0 auto; max-width: 760px; padding: 32px 24px 44px; }
+  /* one column under the picture: the spec's sizes as they are */
+  .home-v2 .lp-eyebrow { font-size: 20px; margin-bottom: 12px; }
+  .home-v2 .lp-rule { width: 56px; margin-right: 16px; }
+  .home-v2 .lp-title { margin-bottom: 24px; }
+  .home-v2 .lp-grid { gap: 10px; }
+  .home-v2 .lp-card { min-height: 168px; padding: 22px 28px; }
+  .home-v2 .lp-card::before { inset: 10px; }
+  .home-v2 .lp-learn { min-height: 185px; }
+  .home-v2 .lp-glyph { font-size: 120px; right: 28px; }
+  .home-v2 .lp-badge { gap: 14px; }
+  .home-v2 .lp-seal { width: 40px; height: 38px; font-size: 18px; }
+  .home-v2 .lp-tag { font-size: 16px; }
+  .home-v2 .lp-name { font-size: 32px; margin-top: 6px; }
+  .home-v2 .lp-learn .lp-name { font-size: 40px; }
+  .home-v2 .lp-desc { font-size: 18px; }
 }
+/* 640px and below: one card to a row */
 @media (max-width: 640px) {
-  .home-v2 .hero-grid { padding: 4px 16px 36px; }
+  .home-v2 .lp-grid { grid-template-columns: 1fr; }
+  .home-v2 .lp-eyebrow { font-size: 15px; }
+  .home-v2 .hero-content { padding: 28px 16px 36px; }
   .home-v2 #contact .wrap { padding: 36px 26px; border-radius: 26px; margin: 0 16px; width: auto; }
 }

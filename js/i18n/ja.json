@@ -803,7 +803,7 @@
   "admin.sources.none": "この項目には参考資料が記録されていません。",
   "admin.sources.missing": "参考資料の表がまだ作成されていません（supabase/schema.sql §43）。",
   "blog.print": "印刷",
-  "hero.path.h2html": "5つの入口、<em>ひとつ</em>の方向。",
+  "hero.path.h2html": "5つの入口、<br><em>ひとつ</em>の方向。",
   "hero.path.popular": "いちばん人気",
   "hero.path.free": "無料",
   "hero.path.learn.short": "最初の一文字から本物の会話まで。ネイティブ音声つきのステップ別レッスン。",

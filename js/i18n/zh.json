@@ -803,7 +803,7 @@
   "admin.sources.none": "此内容没有记录参考资料。",
   "admin.sources.missing": "参考资料表尚未建立（supabase/schema.sql §43）。",
   "blog.print": "打印",
-  "hero.path.h2html": "五个入口，<em>一个</em>方向。",
+  "hero.path.h2html": "五个入口，<br><em>一个</em>方向。",
   "hero.path.popular": "最受欢迎",
   "hero.path.free": "免费",
   "hero.path.learn.short": "从第一个字母到真实对话，配有母语音频的分步课程。",

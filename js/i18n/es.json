@@ -803,7 +803,7 @@
   "admin.sources.none": "No se registraron fuentes para este contenido.",
   "admin.sources.missing": "La tabla de fuentes aún no está creada (supabase/schema.sql §43).",
   "blog.print": "Imprimir",
-  "hero.path.h2html": "Cinco entradas, <em>una sola</em> dirección.",
+  "hero.path.h2html": "Cinco entradas,<br><em>una sola</em> dirección.",
   "hero.path.popular": "Lo más popular",
   "hero.path.free": "Gratis",
   "hero.path.learn.short": "De tu primera letra a una conversación real: lecciones paso a paso con audio nativo.",

@@ -803,7 +803,7 @@
   "admin.sources.none": "Chưa có nguồn nào được ghi lại cho mục này.",
   "admin.sources.missing": "Bảng nguồn tham khảo chưa được thiết lập (supabase/schema.sql §43).",
   "blog.print": "In",
-  "hero.path.h2html": "Năm lối vào, <em>một</em> hướng đi.",
+  "hero.path.h2html": "Năm lối vào,<br><em>một</em> hướng đi.",
   "hero.path.popular": "Phổ biến nhất",
   "hero.path.free": "Miễn phí",
   "hero.path.learn.short": "Từ chữ cái đầu tiên đến hội thoại thật — bài học từng bước kèm âm thanh bản ngữ.",

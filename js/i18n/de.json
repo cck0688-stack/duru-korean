@@ -803,7 +803,7 @@
   "admin.sources.none": "Für diesen Inhalt wurden keine Quellen erfasst.",
   "admin.sources.missing": "Die Quellentabelle ist noch nicht angelegt (supabase/schema.sql §43).",
   "blog.print": "Drucken",
-  "hero.path.h2html": "Fünf Wege hinein, <em>eine</em> Richtung.",
+  "hero.path.h2html": "Fünf Wege hinein,<br><em>eine</em> Richtung.",
   "hero.path.popular": "Am beliebtesten",
   "hero.path.free": "Kostenlos",
   "hero.path.learn.short": "Vom ersten Buchstaben bis zum echten Gespräch – Lektionen Schritt für Schritt mit Muttersprachler-Audio.",

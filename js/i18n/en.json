@@ -803,7 +803,7 @@
   "admin.sources.none": "No sources were recorded for this one.",
   "admin.sources.missing": "The sources table is not set up yet (supabase/schema.sql §43).",
   "blog.print": "Print",
-  "hero.path.h2html": "Five ways in, <em>one</em> direction.",
+  "hero.path.h2html": "Five ways in,<br><em>one</em> direction.",
   "hero.path.popular": "Most popular",
   "hero.path.free": "Free",
   "hero.path.learn.short": "From your first letter to real conversation — step-by-step lessons with native audio.",
