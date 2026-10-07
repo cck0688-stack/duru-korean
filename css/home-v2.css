@@ -66,32 +66,37 @@ body.home-v2 {
   align-items: center;
   overflow: hidden;
 }
-.home-v2 .hero-landscape {
+/* The painting and its sun move together (.hero-art). Its top is the
+   hero's top at every window size — never cut (the owner, 2026-10-07) —
+   and it fills the left edge at full strength. Its width is 70% of the
+   window (so the pavilion ends at 50.6%, clear of the cards at 53%), but
+   never more than 1.36 x the hero's height, so on a wide, low window it
+   is not blown up past the top and the pavilion stays in view. */
+.home-v2 .hero-art {
   position: absolute;
-  /* The painting at full strength, from the window's left edge (the
-     owner, 2026-10-07), enlarged so the pavilion stands to the right of
-     the sun yet clear of the cards: 70% of the width puts the pavilion's
-     right end at 50.6%, the cards begin at 53%. Its middle (the
-     pavilion) sits at 63% of the hero's height; the picture never starts
-     below the hero's top. Only its far right melts into the paper. */
   left: 0;
-  top: min(0px, calc(63% - 37.1vw));
-  width: 70%;
-  height: auto;
-  max-width: none;
-  -webkit-mask-image: linear-gradient(to right, #000 76%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 76%, transparent 100%);
+  top: 0;
+  width: min(70%, calc((100vh - var(--header-h, 84px)) * 1.36));
   pointer-events: none;
 }
-/* the sun (and its reflection below it) stays where it was when the
-   landscape moved: its own layer, from the same painting */
+.home-v2 .hero-art picture { display: block; }
+.home-v2 .hero-landscape {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  /* only its far right melts into the paper */
+  -webkit-mask-image: linear-gradient(to right, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 76%, transparent 100%);
+}
+/* the sun, set in the painting to the left of the pavilion, so the
+   pavilion always stands to its right (the owner, 2026-10-07) */
 .home-v2 .hero-sun {
   position: absolute;
-  left: 36.9%;
-  top: calc(18.4% - 4.87vw);
-  width: 9.98%;
+  left: 48.7%;
+  top: 10.6%;
+  width: 18.1%;
   height: auto;
-  pointer-events: none;
 }
 /* fainter ridges further off, above the heading */
 .home-v2 .hero-ridge-far {
@@ -353,12 +358,11 @@ body.home-v2 {
    heading and cards below it in one column. */
 @media (max-width: 1024px) {
   .home-v2 .hero { display: block; min-height: 0; }
+  .home-v2 .hero-art { position: static; width: 100%; }
   .home-v2 .hero-landscape {
-    position: static;
-    display: block;
     width: 100%;
-    max-width: none;
     height: 50vh;
+    object-fit: cover;
     object-position: left center;
     -webkit-mask-image: none;
     mask-image: none;

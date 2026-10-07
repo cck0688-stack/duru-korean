@@ -73,12 +73,14 @@
 <section class="hero">
   <!-- The ink landscape (crag and pines, sun, pavilion, lake): an image,
      never redrawn. The heading and the cards are real elements. -->
-  <picture>
-    <!-- 1024px and below: the band above the heading, the painting whole (sun included) -->
-    <source media="(max-width: 1024px)" srcset="assets/hero-landscape-band.webp" width="940" height="941">
-    <img class="hero-landscape" src="assets/hero-landscape.webp" width="940" height="941" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
-  </picture>
-  <img class="hero-sun" src="assets/hero-sun.webp" width="170" height="722" alt="" aria-hidden="true" decoding="async">
+  <div class="hero-art" aria-hidden="true">
+    <picture>
+      <!-- 1024px and below: the band above the heading, the painting whole (sun included) -->
+      <source media="(max-width: 1024px)" srcset="assets/hero-landscape-band.webp" width="940" height="941">
+      <img class="hero-landscape" src="assets/hero-landscape.webp" width="940" height="941" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+    </picture>
+    <img class="hero-sun" src="assets/hero-sun.webp" width="170" height="722" alt="" aria-hidden="true" decoding="async">
+  </div>
   <img class="hero-ridge-far" src="assets/hero-ridge-far.webp" width="372" height="230" alt="" aria-hidden="true" decoding="async">
   <img class="hero-ridge" src="assets/hero-ridge.webp" width="372" height="230" alt="" aria-hidden="true" decoding="async">
   <div class="hero-content lp">
