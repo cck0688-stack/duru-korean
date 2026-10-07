@@ -68,18 +68,19 @@ body.home-v2 {
 }
 .home-v2 .hero-landscape {
   position: absolute;
-  /* Never cropped at the top: the picture keeps its own shape, as tall as
-     the hero, and every edge of it fades into mist inside the image (the
-     owner, 2026-10-07: on a wide window the top was cut in a straight
-     line). On the left the painting carries on faintly to the window's
-     edge; it is set a little low so the crag's top shows. */
+  /* The painting at full strength, from the window's left edge (the
+     owner, 2026-10-07), enlarged so the pavilion stands to the right of
+     the sun yet clear of the cards: 70% of the width puts the pavilion's
+     right end at 50.6%, the cards begin at 53%. Its middle (the
+     pavilion) sits at 63% of the hero's height; the picture never starts
+     below the hero's top. Only its far right melts into the paper. */
   left: 0;
-  top: 6%;
-  height: 100%;
-  width: auto;
-  max-width: 62%;
-  object-fit: cover;
-  object-position: left top;
+  top: min(0px, calc(63% - 37.1vw));
+  width: 70%;
+  height: auto;
+  max-width: none;
+  -webkit-mask-image: linear-gradient(to right, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 76%, transparent 100%);
   pointer-events: none;
 }
 /* the sun (and its reflection below it) stays where it was when the
