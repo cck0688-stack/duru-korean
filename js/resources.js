@@ -477,6 +477,10 @@
     document.addEventListener('duru:langchange', function () {
       followSiteLang();
       buildLangSelect();
+      // The topic names and the list's heading in the new language, now
+      // that its dictionary is here (they were set before it arrived and
+      // showed the bare ids, 'hangul', 'reading', in Korean).
+      paintShelves();
       // The cards carry one language's titles: ask again.
       load(false);
     });

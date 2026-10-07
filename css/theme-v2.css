@@ -183,3 +183,11 @@ body.theme-v2 {
 .theme-v2 .split-visual { background: linear-gradient(140deg, #f4dfe2 0%, #ece6f4 100%); }
 .theme-v2 .btn-outline { background: #fff; }
 .theme-v2 .btn-outline:hover { border-color: #7a4e66; }
+
+/* phones: a level's name and its tag ("Intermediate · Level 2") wrap
+   as whole pieces, and a chapter range ("11–18") stays on one line */
+@media (max-width: 600px) {
+  .theme-v2 .level-head { flex-wrap: wrap; row-gap: 4px; }
+  .theme-v2 .level-head span { white-space: nowrap; }
+}
+.theme-v2 .card-icon { white-space: nowrap; width: auto; min-width: 44px; padding: 0 8px; align-self: flex-start; display: inline-flex; }
