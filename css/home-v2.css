@@ -68,14 +68,27 @@ body.home-v2 {
 }
 .home-v2 .hero-landscape {
   position: absolute;
-  left: 0;
-  top: 0;
+  /* set a little lower and to the right so the crag's top shows (the
+     owner, 2026-10-07); its paper is transparent, so it sits on the
+     hanji with no edge, and the frame's cut at its top fades into mist */
+  left: 5%;
+  top: 8%;
   height: 100%;
   width: 55%;
   object-fit: cover;
   object-position: left center;
   -webkit-mask-image: linear-gradient(to right, #000 70%, transparent 100%);
   mask-image: linear-gradient(to right, #000 70%, transparent 100%);
+  pointer-events: none;
+}
+/* the sun (and its reflection below it) stays where it was when the
+   landscape moved: its own layer, from the same painting */
+.home-v2 .hero-sun {
+  position: absolute;
+  left: 36.9%;
+  top: calc(18.4% - 4.87vw);
+  width: 9.98%;
+  height: auto;
   pointer-events: none;
 }
 /* the far ridge in mist beside the heading, as in the reference (the same
@@ -337,7 +350,7 @@ body.home-v2 {
     -webkit-mask-image: none;
     mask-image: none;
   }
-  .home-v2 .hero-ridge { display: none; }
+  .home-v2 .hero-ridge, .home-v2 .hero-sun { display: none; }
   .home-v2 .hero-content { margin: 0 auto; max-width: 760px; padding: 32px 24px 44px; }
   /* one column under the picture: the spec's sizes as they are */
   .home-v2 .lp-eyebrow { font-size: 20px; margin-bottom: 12px; }
