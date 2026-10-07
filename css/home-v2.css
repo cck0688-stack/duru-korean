@@ -61,6 +61,11 @@ body.home-v2 {
   /* the spec's 100vh, less the site header above it, so the hero is
      exactly the first screen */
   min-height: calc(100vh - var(--header-h, 84px));
+  /* the first screen's height below the header: the sizes below also
+     shrink with it (x/900, the content's height at the spec's sizes), so
+     a wide but low window still shows all five cards (the owner,
+     2026-10-07: 2000x806) */
+  --hh: calc(100vh - var(--header-h, 84px));
   background: #F3ECDF;
   display: flex;
   align-items: center;
@@ -123,29 +128,29 @@ body.home-v2 {
   margin-right: 2%;
   width: 100%;
   max-width: 760px;
-  padding: min(40px, 2.4vw) 0;
+  padding: min(40px, 2.4vw, calc(var(--hh) * 0.0444)) 0;
 }
 
 /* eyebrow */
 .home-v2 .lp-eyebrow {
   display: flex;
   align-items: center;
-  margin: 0 0 min(12px, .72vw);
+  margin: 0 0 min(12px, .72vw, calc(var(--hh) * 0.0134));
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   font-weight: 500;
-  font-size: min(20px, 1.2vw);
+  font-size: min(20px, 1.2vw, calc(var(--hh) * 0.0222));
   letter-spacing: .12em;
   text-transform: uppercase;
   color: #C62828;
 }
-.home-v2 .lp-rule { flex: none; width: min(56px, 3.35vw); height: 2px; margin-right: min(16px, .96vw); background: #C62828; }
+.home-v2 .lp-rule { flex: none; width: min(56px, 3.35vw, calc(var(--hh) * 0.0622)); height: 2px; margin-right: min(16px, .96vw, calc(var(--hh) * 0.0177)); background: #C62828; }
 
 /* headline */
 .home-v2 .lp-title {
-  margin: 0 0 min(24px, 1.44vw);
+  margin: 0 0 min(24px, 1.44vw, calc(var(--hh) * 0.0267));
   font-family: 'Source Serif 4', 'Noto Serif KR', serif;
   font-weight: 700;
-  font-size: clamp(48px, 5.2vw, 88px);
+  font-size: clamp(36px, min(5.2vw, calc(var(--hh) * 0.0977)), 88px);
   line-height: 1.0;
   letter-spacing: -.025em;
   color: #141414;
@@ -156,7 +161,7 @@ body.home-v2 {
 .home-v2 .lp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: min(10px, .6vw);
+  gap: min(10px, .6vw, calc(var(--hh) * 0.0111));
 }
 .home-v2 .lp-card {
   --lp-ink: #2A2216;
@@ -166,8 +171,8 @@ body.home-v2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: min(168px, 10.05vw);
-  padding: min(22px, 1.32vw) min(28px, 1.67vw);
+  min-height: min(168px, 10.05vw, calc(var(--hh) * 0.1866));
+  padding: min(22px, 1.32vw, calc(var(--hh) * 0.0245)) min(28px, 1.67vw, calc(var(--hh) * 0.0311));
   border-radius: 4px;
   color: var(--lp-ink);
   text-decoration: none;
@@ -176,7 +181,7 @@ body.home-v2 {
 .home-v2 .lp-card::before {
   content: '';
   position: absolute;
-  inset: min(10px, .6vw);
+  inset: min(10px, .6vw, calc(var(--hh) * 0.0111));
   border: 1px solid var(--lp-line);
   pointer-events: none;
 }
@@ -195,7 +200,7 @@ body.home-v2 {
 }
 .home-v2 .lp-card:focus-visible { outline: 2px solid #C62828; outline-offset: 3px; }
 
-.home-v2 .lp-learn { grid-column: 1 / -1; min-height: min(185px, 11.06vw); background: #1E3A6E; --lp-ink: #fff; --lp-line: rgba(255, 255, 255, .22); }
+.home-v2 .lp-learn { grid-column: 1 / -1; min-height: min(185px, 11.06vw, calc(var(--hh) * 0.2056)); background: #1E3A6E; --lp-ink: #fff; --lp-line: rgba(255, 255, 255, .22); }
 .home-v2 .lp-book { background: #EDCF8B; --lp-ink: #2A2216; }
 .home-v2 .lp-free { background: #F2B5AE; --lp-ink: #2A1A1A; }
 .home-v2 .lp-blog { background: #C3D8CA; --lp-ink: #1F2A24; }
@@ -205,11 +210,11 @@ body.home-v2 {
 .home-v2 .lp-glyph {
   position: absolute;
   top: 50%;
-  right: min(28px, 1.67vw);
+  right: min(28px, 1.67vw, calc(var(--hh) * 0.0311));
   transform: translateY(-50%) rotate(-6deg);
   font-family: 'Noto Serif KR', serif;
   font-weight: 900;
-  font-size: min(120px, 7.18vw);
+  font-size: min(120px, 7.18vw, calc(var(--hh) * 0.1333));
   line-height: 1;
   color: var(--lp-ink);
   opacity: .08;
@@ -217,23 +222,23 @@ body.home-v2 {
 }
 
 /* number badge and label */
-.home-v2 .lp-badge { position: relative; display: flex; align-items: center; gap: min(14px, .84vw); }
+.home-v2 .lp-badge { position: relative; display: flex; align-items: center; gap: min(14px, .84vw, calc(var(--hh) * 0.0156)); }
 .home-v2 .lp-seal {
   display: inline-grid;
   place-items: center;
-  width: min(40px, 2.39vw);
-  height: min(38px, 2.27vw);
+  width: min(40px, 2.39vw, calc(var(--hh) * 0.0444));
+  height: min(38px, 2.27vw, calc(var(--hh) * 0.0422));
   border-radius: 2px;
   background: #D32F2F;
   color: #fff;
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   font-weight: 500;
-  font-size: min(18px, 1.08vw);
+  font-size: min(18px, 1.08vw, calc(var(--hh) * 0.0200));
 }
 .home-v2 .lp-tag {
   font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   font-weight: 500;
-  font-size: min(16px, .96vw);
+  font-size: min(16px, .96vw, calc(var(--hh) * 0.0177));
   letter-spacing: .18em;
   text-transform: uppercase;
 }
@@ -243,19 +248,19 @@ body.home-v2 {
 .home-v2 .lp-name {
   position: relative;
   display: block;
-  margin-top: min(6px, .36vw);
+  margin-top: min(6px, .36vw, calc(var(--hh) * 0.0066));
   font-family: 'Source Serif 4', 'Noto Serif KR', serif;
   font-weight: 700;
-  font-size: min(32px, 1.91vw);
+  font-size: min(32px, 1.91vw, calc(var(--hh) * 0.0356));
   line-height: 1.15;
 }
-.home-v2 .lp-learn .lp-name { font-size: min(40px, 2.39vw); }
+.home-v2 .lp-learn .lp-name { font-size: min(40px, 2.39vw, calc(var(--hh) * 0.0444)); }
 .home-v2 .lp-desc {
   position: relative;
   display: block;
   font-family: 'Source Serif 4', 'Noto Serif KR', serif;
   font-weight: 400;
-  font-size: min(18px, 1.08vw);
+  font-size: min(18px, 1.08vw, calc(var(--hh) * 0.0200));
   line-height: 1.35;
   opacity: .85;
 }
