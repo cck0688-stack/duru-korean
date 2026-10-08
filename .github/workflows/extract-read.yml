@@ -1,0 +1,87 @@
+# DURU KOREAN — "Read it here" files for the sheets that have only a PDF
+#
+# scripts/extract-read.mjs reads each such sheet's published PDFs, has the
+# model copy the text into the sheet's shape, and keeps the result on
+# rework-output/read/ (the download page falls back to it). It changes
+# nothing in the database and publishes nothing.
+
+name: Read-online files from PDFs
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'How many sheets (0 = all that are missing)'
+        default: '0'
+      langs:
+        description: 'Only these languages, e.g. en,ko (empty = all)'
+        default: ''
+      text_only:
+        description: 'Only print the PDFs text (no model, nothing kept)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      LIMIT: ${{ inputs.limit }}
+      LANGS: ${{ inputs.langs }}
+      TEXT_ONLY: ${{ inputs.text_only }}
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+      TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+      TRANSLATE_FAST_MODEL: ${{ vars.TRANSLATE_FAST_MODEL }}
+      SHEET_PROVIDER: ${{ vars.SHEET_PROVIDER }}
+      AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      CLAUDE_LIMIT_WAIT_MIN: '300'
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: pip install pymupdf
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Read the PDFs
+        run: |
+          set -- --out=read-output
+          [ "$LIMIT" != "0" ] && [ -n "$LIMIT" ] && set -- "$@" --limit="$LIMIT"
+          [ -n "$LANGS" ] && set -- "$@" --langs="$LANGS"
+          [ "$TEXT_ONLY" = "true" ] && set -- "$@" --text-only
+          node scripts/extract-read.mjs "$@"
+
+      - name: Keep the files
+        if: always() && inputs.text_only != true
+        run: |
+          rm -rf read-output/_pdf
+          [ -d read-output ] || exit 0
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/read
+          cp -r read-output/. ../rework-output/read/
+          cd ../rework-output
+          git add -A read
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Read-online files from PDFs"
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1
