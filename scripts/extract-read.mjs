@@ -53,7 +53,7 @@ const PY = 'import sys,fitz\n' +
   '        t=b[4].strip()\n' +
   '        if t: print(t.replace("\\n"," / "))\n';
 function pdfText(file) {
-  return execFileSync('python3', ['-I', '-c', PY, file], { encoding: 'utf8', maxBuffer: 20e6 });
+  return execFileSync('python3', ['-P', '-c', PY, file], { encoding: 'utf8', maxBuffer: 20e6 });
 }
 
 const SYSTEM = [
