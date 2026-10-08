@@ -816,5 +816,9 @@
   "resource.readPassage": "Đọc",
   "resource.readPractice": "Luyện tập",
   "resource.readTask": "Thử làm",
-  "resource.readAnswers": "Xem đáp án"
+  "resource.readAnswers": "Xem đáp án",
+  "resource.readLetters": "Chữ cái",
+  "resource.readPattern": "Mẫu câu",
+  "resource.readWatchOut": "Lưu ý",
+  "resource.readDialogue": "Hội thoại"
 }

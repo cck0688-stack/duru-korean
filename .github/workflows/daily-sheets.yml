@@ -63,6 +63,9 @@ on:
         type: boolean
         default: false
 
+permissions:
+  contents: write
+
 # The rework run (rework-sheets.yml) and this one share the model
 # account; one waits for the other instead of both running at once.
 concurrency:
@@ -181,3 +184,29 @@ jobs:
           args+=(--count="$COUNT")
           if [ "$FORCE" = "true" ]; then args+=(--force); fi
           node scripts/generate-sheets.mjs "${args[@]}"
+
+      # What readers see on the download's page, beside the PDFs on
+      # rework-output (read/<id>/<lang>.json); the page reads it from
+      # there until the site carries it itself. Kept even when a shelf
+      # failed, for the sheets it did save.
+      - name: Keep the read-online files
+        if: always() && steps.today.outputs.run == 'true'
+        env:
+          SHELF: ${{ matrix.shelf }}
+        run: |
+          [ -d read-output ] || exit 0
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/read
+          cp -r read-output/. ../rework-output/read/
+          cd ../rework-output
+          git add -A read
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Read-online files ($SHELF)"
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1

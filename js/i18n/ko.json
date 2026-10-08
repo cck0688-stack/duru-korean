@@ -816,5 +816,9 @@
   "resource.readPassage": "읽기",
   "resource.readPractice": "연습",
   "resource.readTask": "해 보기",
-  "resource.readAnswers": "정답 보기"
+  "resource.readAnswers": "정답 보기",
+  "resource.readLetters": "글자",
+  "resource.readPattern": "문형",
+  "resource.readWatchOut": "주의",
+  "resource.readDialogue": "대화"
 }

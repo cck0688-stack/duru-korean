@@ -816,5 +816,9 @@
   "resource.readPassage": "Lectura",
   "resource.readPractice": "Práctica",
   "resource.readTask": "Inténtalo",
-  "resource.readAnswers": "Ver las respuestas"
+  "resource.readAnswers": "Ver las respuestas",
+  "resource.readLetters": "Letras",
+  "resource.readPattern": "El patrón",
+  "resource.readWatchOut": "Ojo",
+  "resource.readDialogue": "La conversación"
 }

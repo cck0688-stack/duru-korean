@@ -816,5 +816,9 @@
   "resource.readPassage": "Bacaan",
   "resource.readPractice": "Latihan",
   "resource.readTask": "Coba sendiri",
-  "resource.readAnswers": "Lihat jawaban"
+  "resource.readAnswers": "Lihat jawaban",
+  "resource.readLetters": "Huruf",
+  "resource.readPattern": "Pola",
+  "resource.readWatchOut": "Perhatikan",
+  "resource.readDialogue": "Percakapan"
 }

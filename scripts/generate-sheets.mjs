@@ -54,6 +54,7 @@ import { resolveProvider, LANGUAGE_NAMES, TranslateError } from '../api/_provide
 import { planSubjects, writeSheet, reviewSheet, problemsWith, slugify, cleanKeyword, same, SHELVES } from './lib/sheets.mjs';
 import { auditSheet, fixSheet, sheetReferences, markProblems, translateChecked, normalizeLevel, shortenSheet } from './lib/proofread.mjs';
 import { pageBreakdown } from './pdf/check.mjs';
+import { writeRead } from './build-read.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription, stage, usageReport } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
@@ -533,6 +534,15 @@ async function save(call, token, userId, category, made) {
   // a whole sheet and then lost it at the upload. The id is a UUID,
   // which nothing refuses, and it is what the review screen uses for
   // the public key too, so the two never disagree.
+  // What a reader sees on the download's page (js/resource-detail.js:
+  // "Read it here"), one file a language, beside the PDFs: written to
+  // READ_OUT, which the workflow keeps on rework-output (read/<id>/).
+  // A fault here must not lose the sheet.
+  try {
+    const dir = process.env.READ_OUT || 'read-output';
+    for (const [lang, edition] of Object.entries(made.editions || {})) writeRead(resource.id, lang, { ...edition, category }, dir);
+  } catch (err) { log('    읽기용 파일을 쓰지 못했습니다 (' + err.message + ')'); }
+
   for (const [lang, out] of Object.entries(rendered)) {
     const path = resource.id + '/' + lang + '-v1.pdf';
     const key = await putDraft(token, path, out.pdf);

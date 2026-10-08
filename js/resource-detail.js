@@ -240,33 +240,98 @@ function renderReadOnline(resource, lang) {
       var box = $('resRead');
       if (!box || !resource || !/^[0-9a-f-]{36}$/i.test(resource.id)) return;
       var base = '/read/' + resource.id + '/';
+      // The site's own copy first; a sheet made since the last site update
+      // is read from where the daily run keeps it (rework-output).
+      var fallback = 'https://raw.githubusercontent.com/cck0688-stack/duru-korean/rework-output/read/' + resource.id + '/';
+      function get(url) {
+        return fetch(url).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+      }
       function load(code) {
-        return fetch(base + code + '.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+        return get(base + code + '.json').then(function (d) { return d || get(fallback + code + '.json'); });
       }
       load(lang).then(function (d) { return d || (lang === 'en' ? null : load('en')); }).then(function (d) {
         if (!d) { box.hidden = true; return; }
         var h = '';
         function sec(title, inner) { return '<section class="rd-read-sec"><h3>' + esc(title) + '</h3>' + inner + '</section>'; }
-        if (d.objective) h += '<p class="rd-read-lead">' + esc(d.objective) + '</p>';
-        if (d.words && d.words.length) {
-          h += sec(t('resource.readWords', 'Words'), '<ul class="rd-words">' + d.words.map(function (w) {
-            return '<li><span class="rd-w-ko kr">' + esc(w.korean) + '</span>' +
-              (w.roman ? '<span class="rd-w-ro">' + esc(w.roman) + '</span>' : '') +
-              '<span class="rd-w-mean">' + esc(w.meaning) + '</span>' +
-              (w.example ? '<span class="rd-w-ex"><span class="kr">' + esc(w.example) + '</span>' +
-                (w.exampleMeaning ? '<em>' + esc(w.exampleMeaning) + '</em>' : '') + '</span>' : '') + '</li>';
+        if (d.setting) h += '<p class="rd-read-lead">' + esc(d.setting) + '</p>';
+        else if (d.objective) h += '<p class="rd-read-lead">' + esc(d.objective) + '</p>';
+        function flat(x) {
+          if (x == null) return '';
+          if (typeof x === 'string' || typeof x === 'number') return String(x);
+          if (Array.isArray(x)) return x.map(flat).filter(Boolean).join(' / ');
+          return Object.keys(x).filter(function (k) { return ['plain', 'tone', 'icon', 'pill', 'style', 'level'].indexOf(k) < 0; }).map(function (k) { return flat(x[k]); }).filter(Boolean).join(' ');
+        }
+        function line(x) {
+          if (x && typeof x === 'object' && !Array.isArray(x) && x.ask) {
+            return esc(x.ask) + (x.items && x.items.length ? '<ul class="rd-sub">' + x.items.map(function (i) { return '<li>' + esc(flat(i)) + '</li>'; }).join('') + '</ul>' : '');
+          }
+          return esc(flat(x)).replace(/\n/g, '<br>');
+        }
+        function extras(sc) {
+          var o = '';
+          if (sc.doc) o += '<div class="rd-box"><b>' + esc(sc.doc.title || '') + '</b>' + (sc.doc.rows || []).map(function (r) { return '<p><span>' + esc(r.label) + '</span> ' + esc(r.value).replace(/\n/g, '<br>') + '</p>'; }).join('') + '</div>';
+          if (sc.screen && sc.screen.rows) o += '<div class="rd-box">' + sc.screen.rows.map(function (r) { return '<p><b>' + esc(r.head || '') + '</b> ' + esc(r.sky || '') + ' · ' + (r.cells || []).map(function (c) { return esc(c.label) + ' ' + esc(c.value); }).join(' · ') + '</p>'; }).join('') + '</div>';
+          if (sc.cards) o += sc.cards.map(function (c) { return '<div class="rd-box"><b>' + esc(c.title || '') + '</b><p>' + esc(c.text || '') + '</p>' + (c.example ? '<p class="kr">' + esc(c.example).replace(/\n/g, '<br>') + '</p>' : '') + '</div>'; }).join('');
+          if (sc.panels) o += sc.panels.map(function (c) { return '<div class="rd-box"><b>' + esc(c.title || '') + '</b>' + (c.lines || []).map(function (l) { return '<p>' + esc(l) + '</p>'; }).join('') + '</div>'; }).join('');
+          if (sc.points) o += '<ul class="rd-watch">' + sc.points.map(function (p) { return '<li><b>' + esc(p.lead || '') + '</b> ' + esc(p.text || '') + '</li>'; }).join('') + '</ul>';
+          if (sc.steps) o += '<ol class="rd-ex">' + sc.steps.map(function (p) { return '<li><span class="kr">' + esc(p.ko || '') + '</span> — ' + esc(p.en || '') + '</li>'; }).join('') + '</ol>';
+          if (sc.aside) o += '<div class="rd-box"><b>' + esc(sc.aside.title || '') + '</b>' + (sc.aside.lines || []).map(function (l) { return '<p>' + esc(l) + '</p>'; }).join('') + '</div>';
+          return o;
+        }
+        function words(list, ko, ro, mean, ex, exm) {
+          return '<ul class="rd-words">' + list.map(function (w) {
+            return '<li><span class="rd-w-ko kr">' + esc(w[ko]) + '</span>' +
+              (w[mean] ? '<span class="rd-w-mean">' + esc(w[mean]) + '</span>' : '') +
+              (w[ex] ? '<span class="rd-w-ex"><span class="kr">' + esc(w[ex]) + '</span>' +
+                (w[exm] ? '<em>' + esc(w[exm]) + '</em>' : '') + '</span>' : '') + '</li>';
+          }).join('') + '</ul>';
+        }
+        if (d.letters && d.letters.length) {
+          h += sec(t('resource.readLetters', 'Letters'), '<ul class="rd-words">' + d.letters.map(function (l) {
+            return '<li><span class="rd-w-ko kr">' + esc(l.letter) + '</span><span class="rd-w-mean">' + esc(l.sound) + '</span>' +
+              (l.as ? '<span class="rd-w-ex">' + esc(l.as) + '</span>' : '') + '</li>';
+          }).join('') + '</ul>');
+        }
+        if (d.sections && d.sections.length) {
+          d.sections.forEach(function (sc) {
+            var inner = (sc.paragraphs || []).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+            if (sc.items && sc.items.length) {
+              inner += '<ul class="rd-words">' + sc.items.map(function (i) {
+                return '<li><span class="rd-w-ko kr">' + esc(i.term) + '</span>' +
+                  '<span class="rd-w-ex">' + esc(i.text || '') + (i.example ? '<span class="kr">' + esc(i.example) + '</span>' : '') + (i.exampleMeaning ? '<em>' + esc(i.exampleMeaning) + '</em>' : '') + '</span></li>';
+              }).join('') + '</ul>';
+            }
+            if (sc.example && sc.example.ko) inner += '<p class="rd-w-ex"><span class="kr">' + esc(sc.example.ko) + '</span><em>' + esc(sc.example.en || '') + '</em></p>';
+            inner += extras(sc);
+            if (sc.note) inner += '<p class="rd-read-note">' + esc(sc.note) + '</p>';
+            h += sec(sc.heading || '', inner);
+          });
+        }
+        if (d.words && d.words.length) h += sec(t('resource.readWords', 'Words'), words(d.words, 'korean', 'roman', 'meaning', 'example', 'exampleMeaning'));
+        if (d.forms && d.forms.length) {
+          h += sec(t('resource.readPattern', 'The pattern'), '<ul class="rd-words">' + d.forms.map(function (f) {
+            return '<li><span class="rd-w-ko">' + esc(f.form) + '</span><span class="rd-w-mean">' + esc(f.means || '') + '</span>' +
+              '<span class="rd-w-ex">' + esc(f.when || '') + (f.example ? '<span class="kr">' + esc(f.example) + '</span>' : '') +
+              (f.exampleMeaning ? '<em>' + esc(f.exampleMeaning) + '</em>' : '') + '</span></li>';
+          }).join('') + '</ul>');
+        }
+        if (d.watchOut && d.watchOut.length) h += sec(t('resource.readWatchOut', 'Watch out'), '<ul class="rd-watch">' + d.watchOut.map(function (w) { return '<li>' + esc(w) + '</li>'; }).join('') + '</ul>');
+        if (d.dialogue && d.dialogue.length) {
+          h += sec(t('resource.readDialogue', 'The conversation'), '<ul class="rd-dlg">' + d.dialogue.map(function (l) {
+            return '<li><b>' + esc(l.who || '') + '</b><span class="kr">' + esc(l.korean) + '</span>' + (l.meaning ? '<em>' + esc(l.meaning) + '</em>' : '') + '</li>';
           }).join('') + '</ul>');
         }
         if (d.passage && d.passage.length) h += sec(t('resource.readPassage', 'Read'), d.passage.map(function (p) { return '<p class="kr">' + esc(p) + '</p>'; }).join(''));
         if (d.exercises && d.exercises.length) {
-          h += sec(t('resource.readPractice', 'Practice'), '<ol class="rd-ex">' + d.exercises.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('') + '</ol>');
+          h += sec(t('resource.readPractice', 'Practice'), '<ol class="rd-ex">' + d.exercises.map(function (e) { return '<li>' + line(e) + '</li>'; }).join('') + '</ol>');
         }
         if (d.task && d.task.line) {
           h += '<aside class="rd-task"><strong>' + esc(d.task.title || t('resource.readTask', 'Try it')) + '</strong><p>' + esc(d.task.line) + '</p></aside>';
         }
+        if (d.note) h += '<p class="rd-read-note">' + esc(d.note) + '</p>';
         if (d.answers && d.answers.length) {
           h += '<details class="rd-ans"><summary>' + esc(t('resource.readAnswers', 'Show the answers')) + '</summary><ol>' +
-            d.answers.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join('') + '</ol></details>';
+            d.answers.map(function (a) { return '<li>' + line(a) + '</li>'; }).join('') + '</ol></details>';
         }
         $('resReadTitle').textContent = d.title || '';
         $('resReadBody').innerHTML = h;

@@ -816,5 +816,9 @@
   "resource.readPassage": "読み物",
   "resource.readPractice": "練習",
   "resource.readTask": "やってみよう",
-  "resource.readAnswers": "答えを見る"
+  "resource.readAnswers": "答えを見る",
+  "resource.readLetters": "文字",
+  "resource.readPattern": "文型",
+  "resource.readWatchOut": "注意",
+  "resource.readDialogue": "会話"
 }

@@ -816,5 +816,9 @@
   "resource.readPassage": "阅读",
   "resource.readPractice": "练习",
   "resource.readTask": "试一试",
-  "resource.readAnswers": "查看答案"
+  "resource.readAnswers": "查看答案",
+  "resource.readLetters": "字母",
+  "resource.readPattern": "句型",
+  "resource.readWatchOut": "注意",
+  "resource.readDialogue": "对话"
 }
