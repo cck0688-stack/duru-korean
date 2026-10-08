@@ -85,7 +85,9 @@ function grounded(sheet, text) {
   for (const p of sheet.passage || []) items.push(p);
   const korean = items.filter((s) => /[가-힣]/.test(s || ''));
   if (!korean.length) return { ok: true, miss: 0, n: 0 };
-  const missed = korean.filter((s) => !hay.includes(strip(s)));
+  // A line wrapped across two blocks of the PDF's text is found sentence by sentence.
+  const found = (s) => String(s).split(/(?<=[.?!。])\s+/).every((part) => hay.includes(strip(part)));
+  const missed = korean.filter((s) => !found(s));
   const miss = missed.length;
   // One line in a short sheet may sit across two blocks of the PDF's text.
   return { ok: miss <= Math.max(1, Math.floor(korean.length * 0.1)), miss, n: korean.length, missed };
@@ -110,14 +112,20 @@ async function main() {
   if (cfg) cfg.timeoutMs = Number(process.env.DURU_CALL_TIMEOUT_MS) || 240000;
   if (cfg) log('model: ' + cfg.label + ' / ' + cfg.model);
 
-  const { token } = await signIn();
-  const call = api(token);
+  // A login lasts an hour; a full run takes longer. Sign in again every 30 minutes.
+  let token, call, signedAt = 0;
+  const fresh = async () => {
+    if (call && Date.now() - signedAt < 30 * 60 * 1000) return;
+    token = (await signIn()).token; call = (...a) => api(token)(...a); signedAt = Date.now();
+  };
+  await fresh();
   let rows = await call('resources?select=id,title,category&status=eq.published&order=first_published_at');
   rows = rows.filter((r) => (!IDS.length || IDS.includes(r.id)) && !existsSync(path.join('content/sheets', r.id)));
   const tmp = path.join(OUT, '_pdf'); mkdirSync(tmp, { recursive: true });
   let done = 0, skipped = 0, bad = 0, sheets = 0;
   for (const r of rows) {
     if (LIMIT && sheets >= LIMIT) break;
+    await fresh();
     const files = await call('resource_files?select=lang,storage_key&published=eq.true&resource_id=eq.' + r.id + '&order=lang');
     const want = files.filter((f) => !LANGS.length || LANGS.includes(f.lang));
     sheets += 1;

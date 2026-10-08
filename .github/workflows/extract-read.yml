@@ -57,6 +57,14 @@ jobs:
       - name: Install Claude Code
         run: npm install -g @anthropic-ai/claude-code
 
+      # What is already kept is not made again.
+      - name: Take what is already kept
+        run: |
+          git fetch -q origin rework-output
+          mkdir -p read-output "$RUNNER_TEMP/kept"
+          git archive origin/rework-output read | tar -x -C "$RUNNER_TEMP/kept" || true
+          [ -d "$RUNNER_TEMP/kept/read" ] && cp -r "$RUNNER_TEMP/kept/read/." read-output/ || true
+
       - name: Read the PDFs
         run: |
           set -- --out=read-output
