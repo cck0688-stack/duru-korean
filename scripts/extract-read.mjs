@@ -85,8 +85,10 @@ function grounded(sheet, text) {
   for (const p of sheet.passage || []) items.push(p);
   const korean = items.filter((s) => /[가-힣]/.test(s || ''));
   if (!korean.length) return { ok: true, miss: 0, n: 0 };
-  const miss = korean.filter((s) => !hay.includes(strip(s))).length;
-  return { ok: miss / korean.length <= 0.1, miss, n: korean.length };
+  const missed = korean.filter((s) => !hay.includes(strip(s)));
+  const miss = missed.length;
+  // One line in a short sheet may sit across two blocks of the PDF's text.
+  return { ok: miss <= Math.max(1, Math.floor(korean.length * 0.1)), miss, n: korean.length, missed };
 }
 
 function clean(o) {
@@ -133,7 +135,8 @@ async function main() {
         const raw = await cfg.provider.chat(cfg, SYSTEM + '\n\nShelf: ' + r.category, text, sheetSchema(r.category, strictSchema));
         const sheet = typeof raw === 'string' ? JSON.parse(raw) : raw;
         const g = grounded(sheet, text);
-        if (!g.ok) { bad += 1; log('  not matching the PDF (' + g.miss + '/' + g.n + '): ' + r.title + ' ' + f.lang); continue; }
+        if (!g.ok) { bad += 1; log('  not matching the PDF (' + g.miss + '/' + g.n + '): ' + r.title + ' ' + f.lang + ' → ' + g.missed.join(' | ').slice(0, 200)); continue; }
+        if (g.miss) log('  1 line not found in the PDF text, kept: ' + g.missed.join(' | ').slice(0, 120));
         writeRead(r.id, f.lang, { ...clean(sheet), category: r.category }, OUT);
         done += 1;
       } catch (e) { bad += 1; log('  failed: ' + r.title + ' ' + f.lang + ' — ' + (e.message || e)); }
