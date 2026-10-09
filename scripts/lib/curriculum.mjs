@@ -241,10 +241,16 @@ export function progress(shelf, plan) {
 function vocabLevels() {
   if (VOCAB) return VOCAB;
   VOCAB = new Map();
+  // A row may name several homographs: "천02/천03" (the number) is 1급
+  // while "천01" (cloth) is 5급. Each one is read, and a word takes the
+  // lowest level any of its homographs has (2026-10-09: 천, 백 and 월
+  // were held as 3–5급 and two number sheets failed).
   for (const v of load('official_vocab_10635.json')) {
-    const w = String(v.word || '').replace(/\d+$/, '').replace(/\s+/g, '');
-    if (!w) continue;
-    VOCAB.set(w, Math.min(VOCAB.get(w) || 99, v.level));
+    for (const part of String(v.word || '').split('/')) {
+      const w = part.replace(/\d+$/, '').replace(/\s+/g, '');
+      if (!w) continue;
+      VOCAB.set(w, Math.min(VOCAB.get(w) || 99, v.level));
+    }
   }
   return VOCAB;
 }
