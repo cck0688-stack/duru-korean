@@ -21,11 +21,17 @@ const load = (name) => JSON.parse(readFileSync(new URL(name, dir), 'utf8'));
 
 const GRAMMAR = load('official_grammar_336.json');
 const TOPICS = load('sejong_topics.json');
+// The owner's first series (2026-10-09): 100 sheets each for Hangul
+// Starter, Grammar Cheat Sheets and Vocabulary, in this order, none of
+// them repeating a sheet already on the shelf. These three shelves take
+// their subjects from it instead of the lists above.
+const SERIES = load('duru_series_300.json');
+const SERIES_SHELVES = ['hangul', 'grammar', 'vocab'];
 let VOCAB = null;       // 1.2 MB: read only when a vocabulary sheet is checked
 
 const SEJONG_SOURCE = '국립국어원·세종학당재단 『세종학당 한국어 기본 교육과정』(2020)';
 const MAX_LEVEL = 4;
-export const CURRICULUM_SHELVES = ['grammar', 'vocab', 'reading', 'reallife'];
+export const CURRICULUM_SHELVES = ['grammar', 'vocab', 'reading', 'reallife', 'hangul'];
 
 // The site's five levels, from the standard's 1–4급.
 const LEVEL_NAME = { 1: 'Beginner', 2: 'Beginner (high)', 3: 'Intermediate (low)', 4: 'Intermediate' };
@@ -126,6 +132,70 @@ function topicSubject(shelf, t, index) {
   };
 }
 
+const GRAMMAR_BY_ID = new Map(GRAMMAR.map((g) => [g.id, g]));
+
+// One row of the series as a subject. Its level is the standard's level
+// (the row's), never a model's guess.
+function seriesSubject(shelf, row) {
+  const head = ['이 학습지: ' + row.id + ' 「' + row.title + '」 — DURU KOREAN 1차 시리즈', ''];
+  if (shelf === 'grammar') {
+    const items = row.items.map((id) => GRAMMAR_BY_ID.get(id));
+    const near = items.flatMap(namesakes).filter((x, i, a) => a.indexOf(x) === i);
+    const lines = head.concat(
+      row.system
+        ? ['이 장은 문법 체계를 한 장에 정리합니다 (표준 ' + row.level + '급까지). 다룰 것: ' + row.content,
+           '- 규칙을 표로 보이고, 규칙마다 쉬운 예문을 드세요. 처음 보는 학습자도 이 장만으로 이해할 수 있게 쓰세요.']
+        : ['이 학습지의 문법 (국립국어원 국제 통용 한국어 표준 교육과정):',
+           items.map((g) => '    ' + describe(g) + ' (항목 ' + g.id + ')').join('\n'),
+           '핵심: ' + row.content,
+           items.length > 1 ? '- 이 항목들을 한 장에서 비교해 차이가 보이게 가르치세요.' : ''],
+      ['', '[기준 — 꼭 지키세요]',
+       '- 등급과 뜻은 표준 교육과정을 따릅니다. 같은 모양의 다른 뜻으로 가르치지 마세요.',
+       near.length ? '- 모양이 같지만 다른 항목입니다. 이것들과 섞지 마세요: ' + near.join(' / ') : '',
+       '- 예문의 다른 문법과 낱말은 ' + row.level + '급 이하로 쓰세요. 장면에 꼭 필요할 때만 ' + (row.level + 1) + '급까지.']
+    ).filter(Boolean);
+    return {
+      id: row.id, subject: lines.join('\n'),
+      objective: row.system ? '「' + row.title.replace(/:.*$/, '') + '」의 규칙을 한눈에 보고 바르게 쓸 수 있다.'
+                            : items.map((g) => '「' + bare(g.form) + '」').join('·') + '의 형태와 뜻을 알고 문장에서 바르게 쓸 수 있다.',
+      level: LEVEL_NAME[row.level], levelNum: row.level, checkThese: [],
+      credit: row.system ? [GRAMMAR[0].source] : items.map((g) => g.source + ' — ' + g.id + ' ' + bare(g.form)),
+      label: row.id + ' ' + row.title
+    };
+  }
+  if (shelf === 'vocab') {
+    const lines = head.concat([
+      '주제: 「' + row.topic + '」 — ' + (row.topic === '단어의 짜임' ? '어휘 확장' : '세종학당 기본 교육과정 주제'),
+      '중심 낱말(이것을 포함해 10개 안팎): ' + row.words.join(', '),
+      '', '[기준 — 꼭 지키세요]',
+      '- 국제 통용 한국어 표준 교육과정 ' + row.level + '급 이하 어휘를 중심으로, 꼭 필요할 때만 ' + (row.level + 1) + '급까지 씁니다.',
+      '- 이미 자료실에 있는 어휘 학습지와 같은 낱말 묶음이 되지 않게 하세요.'
+    ]);
+    return {
+      id: row.id, subject: lines.join('\n'),
+      objective: '「' + row.title + '」에 나오는 낱말을 알고 짧은 문장에서 쓸 수 있다.',
+      level: LEVEL_NAME[row.level], levelNum: row.level, checkThese: [],
+      credit: row.topic === '단어의 짜임' ? [GRAMMAR[0].source] : [SEJONG_SOURCE + ' — 주제 「' + row.topic + '」', GRAMMAR[0].source],
+      label: row.id + ' ' + row.title
+    };
+  }
+  // hangul
+  const lines = head.concat([
+    '단원: ' + row.unit, '다룰 것: ' + row.content,
+    row.related ? '기존 자료와의 관계: ' + row.related + ' — 같은 내용을 되풀이하지 말고 이어서 넓히세요.' : '',
+    '', '[기준 — 꼭 지키세요]',
+    '- 한글을 처음 배우는 사람이 읽습니다. 예시 낱말은 표준 교육과정 1~2급의 쉬운 낱말로 고르세요.',
+    '- letters 칸에는 이 장의 핵심 글자·규칙 3~5개를 넣으세요 (소리 변화 장이면 「받침 + ㅇ → 넘어감」처럼 규칙 하나가 한 줄).',
+    '- 소리 설명은 표준 발음법을 따르고, [ ] 안에 실제 소리를 적으세요.'
+  ]).filter(Boolean);
+  return {
+    id: row.id, subject: lines.join('\n'),
+    objective: '「' + row.title + '」을(를) 읽고 바르게 소리 낼 수 있다.',
+    level: LEVEL_NAME[1], levelNum: 1, checkThese: [], credit: [],
+    label: row.id + ' ' + row.title
+  };
+}
+
 // The next subject for a shelf, or null when the shelf is not on the
 // syllabus or has finished levels 1–4. `plan`: { done: [ids], tried: {id: n} }.
 // An item tried three times (at most once a run) without a sheet being
@@ -137,6 +207,10 @@ export function nextFromSyllabus(shelf, plan, skip = new Set()) {
   const done = new Set([...(ALREADY[shelf] || []), ...((plan && plan.done) || [])]);
   const tried = (plan && plan.tried) || {};
   const open = (id) => !done.has(id) && !skip.has(id) && (tried[id] || 0) < 3;
+  if (SERIES_SHELVES.includes(shelf)) {
+    const row = SERIES[shelf].find((r) => open(r.id));
+    return row ? seriesSubject(shelf, row) : null;
+  }
   if (shelf === 'grammar') {
     const g = grammarOrder.find((x) => open(x.id));
     return g ? grammarSubject(g) : null;
@@ -152,13 +226,15 @@ export function nextFromSyllabus(shelf, plan, skip = new Set()) {
 export function shelfCredits(shelf) {
   const official = GRAMMAR[0].source;
   if (shelf === 'grammar') return [official];
+  if (shelf === 'hangul') return [];
   return CURRICULUM_SHELVES.includes(shelf) ? [SEJONG_SOURCE, official] : [];
 }
 
 // How far a shelf has got, for the log.
 export function progress(shelf, plan) {
   const done = new Set([...(ALREADY[shelf] || []), ...((plan && plan.done) || [])]);
-  const all = shelf === 'grammar' ? grammarOrder.map((g) => g.id) : topicOrder.map((t) => t.id);
+  const all = SERIES_SHELVES.includes(shelf) ? SERIES[shelf].map((r) => r.id)
+    : shelf === 'grammar' ? grammarOrder.map((g) => g.id) : topicOrder.map((t) => t.id);
   return all.filter((id) => done.has(id)).length + '/' + all.length;
 }
 

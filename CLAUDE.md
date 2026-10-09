@@ -14,9 +14,15 @@
 - Work only on branch `claude/duru-korean-homepage-raysf6` (it deploys);
   workflows write to `rework-output`.
 - Daily output (owner, 2026-10-06, plan A; was 6 posts / 3 sheets):
-  8 blog posts and 6 worksheets every day at 01:00 KST — blog: one
-  on every shelf; worksheets: grammar 2, vocab 2, reading 1,
-  reallife 1. Keep this unless the owner changes it.
+  8 blog posts and 8 worksheets every day at 01:00 KST — blog: one
+  on every shelf; worksheets: grammar 2, vocab 2, hangul 2 (added
+  2026-10-09 for the series), reading 1, reallife 1. Keep this unless
+  the owner changes it.
+- First series (owner, 2026-10-09): Hangul Starter, Grammar Cheat
+  Sheets and Vocabulary, 100 new sheets each, in the order of
+  content/curriculum/duru_series_300.json (none repeats a sheet already
+  on the shelf; grammar covers every standard 1–3급 item). Standard 4급
+  is a later series.
 - Worksheet subjects come from the syllabus in content/curriculum (the
   standard curriculum's grammar and vocabulary, Sejong topics), in order
   (owner, 2026-10-05) — scripts/lib/curriculum.mjs. A grammar item's

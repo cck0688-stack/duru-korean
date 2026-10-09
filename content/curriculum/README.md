@@ -8,6 +8,7 @@ from these lists, in order, instead of a model choosing them
 |---|---|---|
 | `official_grammar_336.json` | 336 | 국제 통용 한국어 표준 교육과정 grammar, levels 1–6. **The only source for a grammar item's level.** |
 | `official_vocab_10635.json` | 10,635 | The same document's vocabulary, levels 1–6, with a collocation. Used to check the level of a vocabulary sheet's words. |
+| `duru_series_300.json` | 300 | The owner's first series (2026-10-09): Hangul Starter, Grammar Cheat Sheets, Vocabulary, 100 each, in order. The hangul, grammar and vocab shelves follow it. |
 | `sejong_topics.json` | 135 | 세종학당 기본 교육과정 topics, levels 1–4. Subjects for the vocab, reading and real-life shelves. |
 
 Source and licence: 국립국어원 국제 통용 한국어 표준 교육과정 적용 연구 4단계

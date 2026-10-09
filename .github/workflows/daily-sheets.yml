@@ -114,7 +114,7 @@ jobs:
           else
             if [ "$GITHUB_EVENT_NAME" = "schedule" ] && echo " $SKIP_DATES " | grep -q " $today "; then run=false; fi
             case "$SHELF" in
-              grammar|vocab|reading|reallife) ;;
+              grammar|vocab|reading|reallife|hangul) ;;
               *) run=false ;;
             esac
           fi
@@ -179,7 +179,7 @@ jobs:
           # A day's number per shelf (the owner, 2026-10-06): two grammar,
           # two vocab, one each of the others; a dispatch's count wins.
           if [ -z "$COUNT" ]; then
-            case "$SHELF" in grammar|vocab) COUNT=2 ;; *) COUNT=1 ;; esac
+            case "$SHELF" in grammar|vocab|hangul) COUNT=2 ;; *) COUNT=1 ;; esac
           fi
           args+=(--count="$COUNT")
           if [ "$FORCE" = "true" ]; then args+=(--force); fi
