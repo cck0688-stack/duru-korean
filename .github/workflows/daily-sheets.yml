@@ -73,6 +73,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 # The rework run (rework-sheets.yml) and this one share the model
 # account; one waits for the other instead of both running at once.
@@ -219,3 +220,25 @@ jobs:
             sleep $((2 ** i))
           done
           exit 1
+
+  # The series runs back to back (the owner, 2026-10-09: all 300 by
+  # 10-15): when a series run ends, it starts the next one (the cron
+  # alone left a gap — 10:00 UTC never fired). A run that ended within
+  # 30 minutes did nothing (every shelf has its 100), so the chain stops.
+  next:
+    needs: sheets
+    if: always() && (github.event.schedule == '0 */2 * * *' || inputs.only == 'grammar,vocab,hangul')
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          REF: ${{ github.ref_name }}
+        run: |
+          started=$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq .run_started_at)
+          took=$(( ($(date +%s) - $(date -d "$started" +%s)) / 60 ))
+          echo "this run took $took minutes"
+          if [ "$took" -lt 30 ]; then echo "nothing left to make; the chain stops"; exit 0; fi
+          gh workflow run daily-sheets.yml --repo "$REPO" --ref "$REF" \
+            -f only=grammar,vocab,hangul -f count=40 -f force=true
