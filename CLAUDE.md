@@ -18,6 +18,9 @@
   on every shelf; worksheets: grammar 2, vocab 2, hangul 2 (added
   2026-10-09 for the series), reading 1, reallife 1. Keep this unless
   the owner changes it.
+  PAUSED (owner, 2026-10-09): worksheets are on hold until the owner
+  gives new orders — daily-sheets.yml is disabled on GitHub (enable it
+  again only when told). Blog and community run as before.
 - First series (owner, 2026-10-09): Hangul Starter, Grammar Cheat
   Sheets and Vocabulary, 100 new sheets each, in the order of
   content/curriculum/duru_series_300.json (none repeats a sheet already
