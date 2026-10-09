@@ -298,14 +298,19 @@ export const LEVELS = ['Beginner', 'Beginner (high)', 'Intermediate (low)', 'Int
 export function normalizeLevel(raw) {
   const s = String(raw || '').toLowerCase();
   if (/advanced|고급|\bc[12]\b/.test(s)) return 'Advanced';
-  // A range across the line ("Beginner (high) – Intermediate (low)", "초중급")
-  // is placed at its upper end.
-  if (/초중급|a2\s*[–~-]\s*b1|beginner.*intermediate/.test(s)) return 'Intermediate (low)';
-  if (/intermediate|중급|\bb[12]\b/.test(s)) {
-    return /low|초반|lower|\bb1\b/.test(s) ? 'Intermediate (low)' : 'Intermediate';
+  // A CEFR code, when there is one, decides (A1 1급, A2 2급, B1 3급,
+  // B2 4급); a range is placed at its upper end. "A2 (초급 중급)" is
+  // 2급, not 중급.
+  if (/\bb2\b/.test(s)) return 'Intermediate';
+  if (/\bb1\b/.test(s)) return 'Intermediate (low)';
+  if (/\ba2\b/.test(s)) return 'Beginner (high)';
+  if (/\ba1\b/.test(s)) return 'Beginner';
+  if (/초중급|beginner.*intermediate/.test(s)) return 'Intermediate (low)';
+  if (/intermediate|중급/.test(s)) {
+    return /low|초반|lower/.test(s) ? 'Intermediate (low)' : 'Intermediate';
   }
   if (/초급 [중하]/.test(s)) return 'Beginner';
-  if (/high|late|초급 상|후반|\ba2\b|upper/.test(s)) return 'Beginner (high)';
+  if (/high|late|초급 상|후반|upper/.test(s)) return 'Beginner (high)';
   return 'Beginner';
 }
 
