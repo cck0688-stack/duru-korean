@@ -26,7 +26,7 @@ const TOPICS = load('sejong_topics.json');
 // them repeating a sheet already on the shelf. These three shelves take
 // their subjects from it instead of the lists above.
 const SERIES = load('duru_series_300.json');
-const SERIES_SHELVES = ['hangul', 'grammar', 'vocab'];
+export const SERIES_SHELVES = ['hangul', 'grammar', 'vocab'];
 let VOCAB = null;       // 1.2 MB: read only when a vocabulary sheet is checked
 
 const SEJONG_SOURCE = '국립국어원·세종학당재단 『세종학당 한국어 기본 교육과정』(2020)';

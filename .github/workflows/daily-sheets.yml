@@ -43,11 +43,15 @@ on:
     # what is already on the shelf rather than the date, so a late
     # start, a missed day or a half-finished run leaves no hole that
     # the next one does not fill.
-    - cron: '0 16 * * *'
+    # Off while the first series runs (owner, 2026-10-09: all 300 by
+    # 10-15); put back when it is done.
+    # - cron: '0 16 * * *'
     # The first series (the owner, 2026-10-09: 100 each of hangul, grammar
-    # and vocab as soon as can be): three more runs a day, those shelves
-    # only, six tried per shelf (07:00, 13:00, 19:00 Seoul).
-    - cron: '0 4,10,22 * * *'
+    # and vocab by 10-15, without a break): a run every two hours, those
+    # shelves only. A run stops starting sheets after five hours
+    # (DURU_TIME_BUDGET_MIN); while one runs, the next waits in the
+    # concurrency queue, so they follow each other back to back.
+    - cron: '0 */2 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -102,7 +106,7 @@ jobs:
       - name: Is this shelf on today
         id: today
         env:
-          ONLY: ${{ github.event.schedule == '0 4,10,22 * * *' && 'grammar,vocab,hangul' || inputs.only }}
+          ONLY: ${{ github.event.schedule == '0 */2 * * *' && 'grammar,vocab,hangul' || inputs.only }}
           SHELF: ${{ matrix.shelf }}
           # Seoul dates the daily run makes nothing (the owner's call).
           # 2026-09-28: no allowance that morning; one sheet was made
@@ -174,8 +178,9 @@ jobs:
           # but that is not a reason to hand them a shell.
           DRY_RUN: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
-          COUNT: ${{ github.event.schedule == '0 4,10,22 * * *' && '6' || inputs.count }}
-          FORCE: ${{ github.event.schedule == '0 4,10,22 * * *' || inputs.force }}
+          COUNT: ${{ github.event.schedule == '0 */2 * * *' && '40' || inputs.count }}
+          FORCE: ${{ github.event.schedule == '0 */2 * * *' || inputs.force }}
+          DURU_TIME_BUDGET_MIN: '290'
           SHELF: ${{ matrix.shelf }}
         run: |
           args=(--only="$SHELF")

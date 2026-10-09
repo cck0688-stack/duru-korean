@@ -18,16 +18,17 @@
   on every shelf; worksheets: grammar 2, vocab 2, hangul 2 (added
   2026-10-09 for the series), reading 1, reallife 1. Keep this unless
   the owner changes it.
-  PAUSED (owner, 2026-10-09): worksheets are on hold until the owner
-  gives new orders — daily-sheets.yml is disabled on GitHub (enable it
-  again only when told). Blog and community run as before.
+  Until the first series is done (owner, 2026-10-09: all 300 by
+  10-15, running without a break): the 01:00 run is off; daily-sheets
+  runs every two hours, hangul/grammar/vocab only, each run stopping
+  new sheets after 290 minutes, so runs follow back to back. A shelf
+  stops when its 100 are done. Put the 01:00 run back afterwards.
 - First series (owner, 2026-10-09): Hangul Starter, Grammar Cheat
   Sheets and Vocabulary, 100 new sheets each, in the order of
   content/curriculum/duru_series_300.json (none repeats a sheet already
   on the shelf; grammar covers every standard 1–3급 item). Standard 4급
   is a later series.
-  Until the series is done: three extra runs a day (cron 0 4,10,22 UTC,
-  those three shelves, 6 tried each). Opus writes and audits; Sonnet
+  Opus writes and audits; Sonnet
   does the first review, fixes, cuts, translations and their check
   (owner, 2026-10-09: save tokens). Every draft gets read-online
   files (read/<id>/<lang>.json) so it reads on its page once published.

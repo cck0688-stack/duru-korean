@@ -58,7 +58,7 @@ import { writeRead } from './build-read.mjs';
 import { withPatience } from './lib/patiently.mjs';
 import { subscriptionConfig, useSubscription, stage, usageReport } from './lib/claude-code.mjs';
 import { renderSheet } from './pdf/render.mjs';
-import { nextFromSyllabus, levelProblems, progress } from './lib/curriculum.mjs';
+import { nextFromSyllabus, levelProblems, progress, SERIES_SHELVES } from './lib/curriculum.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
@@ -67,7 +67,9 @@ const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
 const SHELF_ORDER = ['vocab', 'reading', 'grammar', 'reallife', 'hangul', 'etc'];
 const PER_SHELF = 1;                // one a shelf; the workflow picks the shelves
 const SHORTEN = 3;                  // tries at fitting a long sheet on two pages
-const REWRITES = 2;                 // a sheet sent back this many times is not saved
+const REWRITES = 2;
+const STARTED = Date.now();
+const BUDGET_MS = (Number(process.env.DURU_TIME_BUDGET_MIN) || 0) * 60000;                 // a sheet sent back this many times is not saved
 const PLAN_SIZE = 10;               // subjects asked for at once: a week, and spares
 // Most a page may stand empty (see thinNotes): just past the emptiest of
 // the 48 sheets on file, 2026-10-05 (page one up to 44% — the hangul
@@ -212,6 +214,13 @@ async function nextSubject(writer, token, category, { today, existing, ownShelf,
     if (!DRY) await savePlan(token, category, plan).catch((err) => log('    ' + err.message));
     log('  · ' + category + ' — 교육과정 ' + planned.label + ' (진도 ' + progress(category, plan) + ')');
     return planned;
+  }
+  // The first series is a fixed list of 100 (the owner, 2026-10-09):
+  // when it is done, the shelf stops — nothing made up to fill it.
+  if (SERIES_SHELVES.includes(category)) {
+    const err = new Error('시리즈 100편을 모두 시도했습니다 (남은 것은 3번 실패한 항목뿐)');
+    err.seriesDone = true;
+    throw err;
   }
 
   const clash = (s) => existing.some((t) => same(t, s.subject));
@@ -706,7 +715,11 @@ export async function run() {
       const already = FORCE ? 0 : madeToday(category);
       if (already >= want) { log('  · ' + category + ' — 오늘(' + today + ') 이미 ' + already + '편 만들었습니다. 건너뜁니다.'); continue; }
       let savedHere = already;
+      // Runs back to back until the series is done (the owner, 2026-10-09):
+      // a run stops starting sheets after DURU_TIME_BUDGET_MIN, so it ends
+      // inside the job's six hours and the next run picks up.
       for (let i = 0; savedHere < want && i < want * 2; i += 1) {
+        if (BUDGET_MS && Date.now() - STARTED > BUDGET_MS) { log('  · ' + category + ' — 시간 예산을 다 써서 여기서 멈춥니다'); break; }
         current = null;
         try {
           const nextSubjectHere = async (cat) => {
@@ -746,6 +759,7 @@ export async function run() {
           // is not a title, and as one it matched the next sheets.
           if (err.subject && !(current && current.id)) existing.push(err.subject);
           log('    실패 — ' + err.message);
+          if (err.seriesDone) break;
         }
       }
     }
