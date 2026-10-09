@@ -140,6 +140,18 @@ export function api(token) {
 }
 
 async function putDraft(token, path, bytes) {
+  // Storage answered 520 once (2026-10-09) and a finished sheet was lost:
+  // a server error is tried again, up to three times.
+  for (let i = 0; ; i += 1) {
+    try { return await putDraftOnce(token, path, bytes); }
+    catch (err) {
+      if (i >= 3 || !/\((5\d\d)\)/.test(err.message)) throw err;
+      await new Promise((r) => setTimeout(r, 5000 * 2 ** i));
+    }
+  }
+}
+
+async function putDraftOnce(token, path, bytes) {
   const res = await fetch(SUPABASE_URL + '/storage/v1/object/resource-drafts/' + path, {
     method: 'POST',
     headers: {
@@ -313,7 +325,10 @@ async function makeOne(cfg, category, context, browser) {
   };
   // A vocabulary sheet on the syllabus: no word above its level + 1.
   const levelCheck = (s) => (category === 'vocab' ? levelProblems(s, subject) : []);
-  const mechanical = (s) => problemsWith(s, { existing: context.existing }).concat(markProblems(s), levelCheck(s));
+  // A series item was checked against the shelf when the list was made
+  // (duru_series_300.json); its title is not compared again — "음절표 4"
+  // was turned down as the same as "음절표 1" (2026-10-09).
+  const mechanical = (s) => problemsWith(s, { existing: SERIES_SHELVES.includes(category) && subject.id ? [] : context.existing }).concat(markProblems(s), levelCheck(s));
   const recheck = async (s) => {
     const again = mechanical(s);
     return again.length ? again : readTwice(s);
