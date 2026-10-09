@@ -44,6 +44,10 @@ on:
     # start, a missed day or a half-finished run leaves no hole that
     # the next one does not fill.
     - cron: '0 16 * * *'
+    # The first series (the owner, 2026-10-09: 100 each of hangul, grammar
+    # and vocab as soon as can be): three more runs a day, those shelves
+    # only, six tried per shelf (07:00, 13:00, 19:00 Seoul).
+    - cron: '0 4,10,22 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -98,7 +102,7 @@ jobs:
       - name: Is this shelf on today
         id: today
         env:
-          ONLY: ${{ inputs.only }}
+          ONLY: ${{ github.event.schedule == '0 4,10,22 * * *' && 'grammar,vocab,hangul' || inputs.only }}
           SHELF: ${{ matrix.shelf }}
           # Seoul dates the daily run makes nothing (the owner's call).
           # 2026-09-28: no allowance that morning; one sheet was made
@@ -170,8 +174,8 @@ jobs:
           # but that is not a reason to hand them a shell.
           DRY_RUN: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
-          COUNT: ${{ inputs.count }}
-          FORCE: ${{ inputs.force }}
+          COUNT: ${{ github.event.schedule == '0 4,10,22 * * *' && '6' || inputs.count }}
+          FORCE: ${{ github.event.schedule == '0 4,10,22 * * *' || inputs.force }}
           SHELF: ${{ matrix.shelf }}
         run: |
           args=(--only="$SHELF")

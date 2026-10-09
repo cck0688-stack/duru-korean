@@ -16,6 +16,9 @@ on:
       langs:
         description: 'Only these languages, e.g. en,ko (empty = all)'
         default: ''
+      status:
+        description: 'published, or review (the drafts held for approval)'
+        default: 'published'
       text_only:
         description: 'Only print the PDFs text (no model, nothing kept)'
         type: boolean
@@ -30,6 +33,7 @@ jobs:
     timeout-minutes: 350
     env:
       LIMIT: ${{ inputs.limit }}
+      STATUS: ${{ inputs.status }}
       LANGS: ${{ inputs.langs }}
       TEXT_ONLY: ${{ inputs.text_only }}
       DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
@@ -70,6 +74,7 @@ jobs:
           set -- --out=read-output
           [ "$LIMIT" != "0" ] && [ -n "$LIMIT" ] && set -- "$@" --limit="$LIMIT"
           [ -n "$LANGS" ] && set -- "$@" --langs="$LANGS"
+          [ -n "$STATUS" ] && set -- "$@" --status="$STATUS"
           [ "$TEXT_ONLY" = "true" ] && set -- "$@" --text-only
           node scripts/extract-read.mjs "$@"
 

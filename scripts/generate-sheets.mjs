@@ -279,6 +279,10 @@ async function makeOne(cfg, category, context, browser) {
   const subject = await context.nextSubject(category);
   log('  · ' + category + ' — ' + (subject.label || subject.subject));
 
+  // Opus writes and gives the stricter read (auditSheet); Sonnet does
+  // the rest — the first read, the fixes, the cuts, the translations
+  // and their check (the owner, 2026-10-09: save tokens, use Sonnet
+  // for what it can do).
   stage('쓰기');
   let sheet = await writeSheet(writer, {
     category, subject: subject.subject,
@@ -291,7 +295,7 @@ async function makeOne(cfg, category, context, browser) {
   // each found is logged.
   const readTwice = async (s) => {
     const was = stage('검수');
-    const [first, second] = await Promise.all([reviewSheet(writer, s), auditSheet(writer, s)]);
+    const [first, second] = await Promise.all([reviewSheet(cfg, s), auditSheet(writer, s)]);
     stage(was);
     if (first.problems.length || second.problems.length) {
       log('    검수 ' + first.problems.length + '가지 · 감사 ' + second.problems.length + '가지');
@@ -333,7 +337,7 @@ async function makeOne(cfg, category, context, browser) {
         }
         log('    영어판 2쪽이지만 「' + r.splitTitle + '」 구역이 두 쪽에 나뉨 — 그 구역을 줄입니다');
         const was = stage('줄이기');
-        s = await shortenSheet(writer, s, 2, [], 0, r.splitTitle || 'a numbered section');
+        s = await shortenSheet(cfg, s, 2, [], 0, r.splitTitle || 'a numbered section');
         stage(was);
         s.level = normalizeLevel(s.level);
         continue;
@@ -349,7 +353,7 @@ async function makeOne(cfg, category, context, browser) {
       log('    영어판 ' + m.pages + '쪽 (넘친 분량 약 ' + (total ? Math.round(over / total * 100) : '?') + '%) — ' +
           (cut ? cut + '% 줄입니다' : '2쪽으로 줄입니다'));
       const was = stage('줄이기');
-      s = await shortenSheet(writer, s, m.pages, [], cut);
+      s = await shortenSheet(cfg, s, m.pages, [], cut);
       stage(was);
       s.level = normalizeLevel(s.level);
     }
@@ -377,7 +381,7 @@ async function makeOne(cfg, category, context, browser) {
     log('    검수에서 ' + notes.length + '가지 걸림 — 그 부분만 고칩니다 (' + (round + 1) + '/' + REWRITES + '): ' +
         notes.join(' ').slice(0, 300));
     stage('고치기');
-    sheet = await fixSheet(writer, sheet, notes);
+    sheet = await fixSheet(cfg, sheet, notes);
     sheet.level = normalizeLevel(sheet.level);
   }
 
@@ -418,12 +422,12 @@ async function makeOne(cfg, category, context, browser) {
     if (!longer.length || longer.includes(SOURCE_LANG)) break;
     log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다' + (t ? ' (두 번째)' : ''));
     stage('줄이기');
-    let short = await shortenSheet(writer, sheet, 2, longer);
+    let short = await shortenSheet(cfg, sheet, 2, longer);
     short.level = normalizeLevel(short.level);
     let left = await recheck(short);
     if (left.length) {
       stage('고치기');
-      short = await fixSheet(writer, short, left);
+      short = await fixSheet(cfg, short, left);
       short.level = normalizeLevel(short.level);
       left = await recheck(short);
     }

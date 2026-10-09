@@ -31,11 +31,15 @@ const IDS = (arg('ids') || '').split(',').filter(Boolean);
 const LIMIT = Number(arg('limit')) || 0;
 const LANGS = (arg('langs') || '').split(',').filter(Boolean);
 const TEXT_ONLY = args.includes('--text-only');
+// --status=review: the drafts held for the owner (2026-10-09: none published yet,
+// and each should read on its page once it is).
+const STATUS = arg('status') || 'published';
 const log = (...a) => console.log(...a);
 
 async function fetchFile(token, key) {
   for (let i = 0; i < 4; i += 1) {
-    const res = await fetch(SUPABASE_URL + '/storage/v1/object/authenticated/resources/' + key, {
+    const where = key.startsWith('resource-drafts/') ? key : 'resources/' + key;
+    const res = await fetch(SUPABASE_URL + '/storage/v1/object/authenticated/' + where, {
       headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token }
     }).catch(() => null);
     if (res && res.ok) return Buffer.from(await res.arrayBuffer());
@@ -119,14 +123,14 @@ async function main() {
     token = (await signIn()).token; call = (...a) => api(token)(...a); signedAt = Date.now();
   };
   await fresh();
-  let rows = await call('resources?select=id,title,category&status=eq.published&order=first_published_at');
+  let rows = await call('resources?select=id,title,category&status=eq.' + STATUS + '&order=created_at');
   rows = rows.filter((r) => (!IDS.length || IDS.includes(r.id)) && !existsSync(path.join('content/sheets', r.id)));
   const tmp = path.join(OUT, '_pdf'); mkdirSync(tmp, { recursive: true });
   let done = 0, skipped = 0, bad = 0, sheets = 0;
   for (const r of rows) {
     if (LIMIT && sheets >= LIMIT) break;
     await fresh();
-    const files = await call('resource_files?select=lang,storage_key&published=eq.true&resource_id=eq.' + r.id + '&order=lang');
+    const files = await call('resource_files?select=lang,storage_key' + (STATUS === 'published' ? '&published=eq.true' : '') + '&resource_id=eq.' + r.id + '&order=lang');
     const want = files.filter((f) => !LANGS.length || LANGS.includes(f.lang));
     sheets += 1;
     for (const f of want) {

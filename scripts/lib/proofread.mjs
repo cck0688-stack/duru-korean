@@ -255,7 +255,7 @@ export async function translateChecked(cfgs, en, lang) {
       log('    ' + lang + ': 한국어가 바뀐 줄 ' + lost.length + '개 — 다시 번역');
       continue;
     }
-    const checked = await checkTranslation(cfgs.writer, en, edition, lang, name);
+    const checked = await checkTranslation(cfgs.translator, en, edition, lang, name);
     if (checked.broken) { extra = ''; continue; }
     if (checked.lines.length) {
       // A corrected line is taken only if its Korean is still exactly the

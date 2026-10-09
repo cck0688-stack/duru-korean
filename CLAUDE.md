@@ -23,6 +23,11 @@
   content/curriculum/duru_series_300.json (none repeats a sheet already
   on the shelf; grammar covers every standard 1–3급 item). Standard 4급
   is a later series.
+  Until the series is done: three extra runs a day (cron 0 4,10,22 UTC,
+  those three shelves, 6 tried each). Opus writes and audits; Sonnet
+  does the first review, fixes, cuts, translations and their check
+  (owner, 2026-10-09: save tokens). Every draft gets read-online
+  files (read/<id>/<lang>.json) so it reads on its page once published.
 - Worksheet subjects come from the syllabus in content/curriculum (the
   standard curriculum's grammar and vocabulary, Sejong topics), in order
   (owner, 2026-10-05) — scripts/lib/curriculum.mjs. A grammar item's
