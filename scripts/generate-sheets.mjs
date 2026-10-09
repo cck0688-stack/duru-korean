@@ -441,10 +441,12 @@ async function makeOne(cfg, category, context, browser) {
   // third page gets the English cut a little, read again by both
   // reviewers, and everything translated again.
   // Up to twice: the second cut is made against what is still long.
-  for (let t = 0; t < 2; t += 1) {
+  // Three times (2026-10-09: hangul lost 11 of 25 sheets to a translation
+  // on a third page after two cuts).
+  for (let t = 0; t < 3; t += 1) {
     const longer = Object.entries(rendered).filter(([, out]) => out.check.pages > 2).map(([lang]) => lang);
     if (!longer.length || longer.includes(SOURCE_LANG)) break;
-    log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다' + (t ? ' (두 번째)' : ''));
+    log('    번역판 3쪽 (' + longer.join(', ') + ') — 영어판을 조금 줄입니다' + (t ? ' (' + (t + 1) + '번째)' : ''));
     stage('줄이기');
     let short = await shortenSheet(cfg, sheet, 2, longer);
     short.level = normalizeLevel(short.level);
