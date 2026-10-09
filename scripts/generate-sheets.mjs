@@ -738,7 +738,9 @@ export async function run() {
           // One shelf failing must not take the others down with it.
           failed.push(category + ': ' + err.message);
           if (current && current.id) failedItems.add(current.id);
-          if (err.subject) existing.push(err.subject);
+          // A syllabus item is passed over through failedItems; its brief
+          // is not a title, and as one it matched the next sheets.
+          if (err.subject && !(current && current.id)) existing.push(err.subject);
           log('    실패 — ' + err.message);
         }
       }

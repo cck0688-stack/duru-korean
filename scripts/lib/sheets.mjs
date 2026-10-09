@@ -464,8 +464,8 @@ export function problemsWith(sheet, opts = {}) {
 export function same(a, b) {
   const stem = (w) => (w.length > 3 && w.endsWith('s') ? w.slice(0, -1) : w);
   const bag = (s) => new Set(String(s || '').toLowerCase()
-    .replace(/[^0-9a-z가-힣\s]/g, ' ').split(/\s+/)
-    .filter((w) => w.length > 1).map(stem));
+    .replace(/[^0-9a-z가-힣ㄱ-ㅣ\s]/g, ' ').split(/\s+/)
+    .filter((w) => w.length > 1 || /[ㄱ-ㅣ]/.test(w)).map(stem));
   const x = bag(a);
   const y = bag(b);
   if (!x.size || !y.size) return false;
