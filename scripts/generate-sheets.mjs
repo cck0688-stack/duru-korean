@@ -648,8 +648,18 @@ export async function run() {
   log('작성·검수: ' + writer.label + ' / ' + writer.model + ' (한 번에 최대 ' + Math.round(writer.timeoutMs / 1000) + '초)');
   log('번역: ' + cfg.label + ' / ' + cfg.model + ' (한 번에 최대 ' + Math.round(cfg.timeoutMs / 1000) + '초)');
 
+  // A login lasts an hour; a run of many sheets lasts longer (2026-10-09:
+  // the hangul shelf's tenth sheet failed on "JWT expired"). Signed in
+  // again every 40 minutes; every use reads session.token at the time.
   const session = await signIn();
-  const call = api(session.token);
+  let signedAt = Date.now();
+  const fresh = async () => {
+    if (Date.now() - signedAt < 40 * 60 * 1000) return;
+    const again = await signIn();
+    session.token = again.token;
+    signedAt = Date.now();
+  };
+  const call = async (...a) => { await fresh(); return api(session.token)(...a); };
 
   // What is already on the shelf, so that nothing is written twice.
   // Rejected sheets stay in this list on purpose: a subject the owner
@@ -696,6 +706,7 @@ export async function run() {
         current = null;
         try {
           const nextSubjectHere = async (cat) => {
+            await fresh();
             current = await nextSubject(writer, session.token, cat, {
               today, existing, skip: failedItems,
               ownShelf: made.filter((r) => r.category === cat).map((r) => r.title + (r.objective ? ' — ' + r.objective : ''))
@@ -712,6 +723,7 @@ export async function run() {
             // The English sheet, so a practice run can be looked at.
             log('    SHEET ' + JSON.stringify(out.sheet));
           } else {
+            await fresh();
             const saved = await save(call, session.token, session.userId, category, { ...out, hasKeyword });
             log('    저장됨: ' + saved.title);
             if (out.subject.id) {
