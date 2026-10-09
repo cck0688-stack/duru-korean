@@ -53,7 +53,9 @@
     var moreEl = document.getElementById('resourceMore');
     var moreBtn = document.getElementById('resourceMoreBtn');
     // pending: an admin looking at what is not published yet.
-    var state = { type: 'all', lang: R.preferredLang(), pending: false };
+    var state = { type: 'all', lang: R.preferredLang(), pending: false, level: 'all', q: '' };
+    var levelsEl = document.getElementById('resourceLevels');
+    var searchEl = document.getElementById('resourceSearch');
     // The site language this list is currently tuned to. A choice the
     // reader made in the dropdown is remembered, but only against the
     // site language it was made under: picking 中文 at the top of the
@@ -64,10 +66,12 @@
     var saved = null;
     try { saved = JSON.parse(sessionStorage.getItem(STATE_KEY) || 'null'); } catch (e) {}
     if (saved && typeof saved === 'object' && saved.type) state.type = saved.type;
+    if (saved && typeof saved === 'object' && saved.level) state.level = saved.level;
+    if (saved && typeof saved === 'object' && typeof saved.q === 'string') state.q = saved.q;
 
     function saveState(extra) {
       try {
-        var s = { type: state.type, lang: state.lang, site: tunedTo };
+        var s = { type: state.type, lang: state.lang, site: tunedTo, level: state.level, q: state.q };
         if (extra) Object.keys(extra).forEach(function (k) { s[k] = extra[k]; });
         sessionStorage.setItem(STATE_KEY, JSON.stringify(s));
       } catch (e) {}
@@ -115,6 +119,19 @@
         // out of every list.
         .or('status.is.null,status.neq.rejected');
       if (state.type !== 'all') q = q.eq('category', state.type);
+      if (state.level !== 'all') q = q.eq('learning_level', state.level);
+      // Words typed into the search box: the title, the description, or
+      // the title in the language being read. Characters PostgREST reads
+      // as syntax inside or() are dropped, not escaped.
+      var words = state.q.replace(/[,()*%\\"'.:]/g, ' ').trim();
+      if (words) {
+        var like = '*' + words.replace(/\s+/g, '*') + '*';
+        var tl = lang || state.lang;
+        // pt-BR's hyphen cannot stand in a JSON path here; its readers
+        // still find the Korean and English-named title and description.
+        q = q.or('title.ilike.' + like + ',description.ilike.' + like +
+                 (/^[a-z]+$/.test(tl) ? ',i18n->' + tl + '->>title.ilike.' + like : ''));
+      }
       // Everything waiting, whatever language it is in.
       if (state.pending) return q.or('published.eq.false,status.neq.published');
       return q.eq('hit.lang', lang || state.lang);
@@ -272,6 +289,13 @@
         emptyText.textContent = t('resources.emptyNote', 'No files have been attached yet.');
         suggestEl.innerHTML = '';
         suggestEl.hidden = true;
+        // A level or words that match nothing: say so, and offer the way back.
+        if (state.level !== 'all' || state.q) {
+          emptyText.textContent = t('resources.searchNone', 'No downloads match these filters yet.');
+          suggestEl.innerHTML = '<button type="button" class="btn btn-ghost" data-clear="1">' + esc(t('resources.clearFilters', 'Clear filters')) + '</button>';
+          suggestEl.hidden = false;
+          return attachCardLinks();
+        }
         // Nothing in this language: name the ones that do have something,
         // as buttons, so the reader is one click from a file instead of
         // working through the dropdown.
@@ -287,11 +311,63 @@
           suggestEl.hidden = false;
         });
       }
+      attachCardLinks();
+    }
+
+    function attachCardLinks() {
       listEl.querySelectorAll('a[href*="/resource/"]').forEach(function (a) {
         a.addEventListener('click', function () {
           saveState({ scrollY: window.scrollY, shown: all.length });
           try { sessionStorage.setItem(RETURN_KEY, '1'); } catch (e) {}
         });
+      });
+    }
+
+    /* ---------------- Levels and search ---------------- */
+
+    // One chip per level the series is written at (1급–4급) and one for
+    // all; the database filters on learning_level, which the generator
+    // writes in these exact words (normalizeLevel).
+    function buildLevels() {
+      if (!levelsEl) return;
+      var ids = ['all'].concat(Object.keys(R.LEVEL_NUM));
+      levelsEl.innerHTML = ids.map(function (id) {
+        return '<button type="button" class="level-chip" data-level="' + esc(id) + '" aria-pressed="false"></button>';
+      }).join('');
+      levelsEl.addEventListener('click', function (e) {
+        var b = e.target.closest('.level-chip');
+        if (!b) return;
+        state.level = b.dataset.level;
+        saveState();
+        paintLevels();
+        load(false);
+      });
+      paintLevels();
+    }
+
+    function paintLevels() {
+      if (!levelsEl) return;
+      levelsEl.querySelectorAll('.level-chip').forEach(function (b) {
+        var id = b.dataset.level;
+        b.textContent = id === 'all' ? t('resources.levelAll', 'All levels') : R.levelLabel(id);
+        b.setAttribute('aria-pressed', id === state.level ? 'true' : 'false');
+      });
+    }
+
+    function buildSearch() {
+      if (!searchEl) return;
+      searchEl.value = state.q;
+      searchEl.placeholder = t('resources.searchPlaceholder', 'Search by title or word');
+      var timer = null;
+      searchEl.addEventListener('input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          var q = searchEl.value.trim();
+          if (q === state.q) return;
+          state.q = q;
+          saveState();
+          load(false);
+        }, 300);
       });
     }
 
@@ -458,6 +534,8 @@
     }
 
     buildShelves();
+    buildLevels();
+    buildSearch();
     if (langSel) {
       langSel.addEventListener('change', function () {
         state.lang = langSel.value;
@@ -467,6 +545,12 @@
     }
     if (suggestEl) {
       suggestEl.addEventListener('click', function (e) {
+        if (e.target.closest('button[data-clear]')) {
+          state.level = 'all'; state.q = '';
+          if (searchEl) searchEl.value = '';
+          saveState(); paintLevels(); load(false);
+          return;
+        }
         var btn = e.target.closest('button[data-lang]');
         if (!btn) return;
         state.lang = btn.dataset.lang;
@@ -481,6 +565,8 @@
       // that its dictionary is here (they were set before it arrived and
       // showed the bare ids, 'hangul', 'reading', in Korean).
       paintShelves();
+      paintLevels();
+      if (searchEl) searchEl.placeholder = t('resources.searchPlaceholder', 'Search by title or word');
       // The cards carry one language's titles: ask again.
       load(false);
     });

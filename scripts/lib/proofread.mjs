@@ -304,7 +304,7 @@ export function normalizeLevel(raw) {
   if (/intermediate|중급|\bb[12]\b/.test(s)) {
     return /low|초반|lower|\bb1\b/.test(s) ? 'Intermediate (low)' : 'Intermediate';
   }
-  if (/초급 중/.test(s)) return 'Beginner';
+  if (/초급 [중하]/.test(s)) return 'Beginner';
   if (/high|late|초급 상|후반|\ba2\b|upper/.test(s)) return 'Beginner (high)';
   return 'Beginner';
 }

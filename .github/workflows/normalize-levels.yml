@@ -1,0 +1,38 @@
+# DURU KOREAN — one name per level (scripts/normalize-levels.mjs)
+#
+# Run once by hand: rewrites only learning_level on downloads whose level
+# was written in the writer's own words, so the Free Downloads level
+# filter finds them. Nothing is published or unpublished.
+
+name: Normalize levels
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only list what would change'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DRY_RUN: ${{ inputs.dry_run }}
+      DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+      DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: |
+          if [ "$DRY_RUN" = "true" ]; then node scripts/normalize-levels.mjs --dry-run; else node scripts/normalize-levels.mjs; fi

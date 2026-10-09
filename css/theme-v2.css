@@ -230,3 +230,31 @@ body.theme-v2 {
 .theme-v2 .rd-box p { margin: 4px 0 0; }
 .theme-v2 .rd-box p span { color: #8c8090; margin-right: 6px; }
 .theme-v2 .rd-sub { margin: 6px 0 0; padding-left: 18px; color: #5d5260; }
+
+/* Free Downloads: levels and search (owner, 2026-10-09). The chips sit
+   under the topic cards; the search box leads the toolbar. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.level-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
+.level-chip {
+  font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+  padding: 9px 16px; border-radius: 999px;
+  border: 1px solid #ead9de; background: #fff; color: #5d5260;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.level-chip:hover { border-color: #d9b9c4; color: #7a4e66; }
+.level-chip:focus-visible { outline: 2px solid #e07a93; outline-offset: 2px; }
+.level-chip[aria-pressed="true"] { background: #7a4e66; border-color: #7a4e66; color: #fff; }
+.dl-search {
+  display: inline-flex; align-items: center; gap: 8px; flex: 1 1 240px; max-width: 360px;
+  padding: 0 14px; border-radius: 999px; border: 1px solid #ead9de; background: #fff;
+}
+.dl-search:focus-within { border-color: #e07a93; box-shadow: 0 0 0 3px rgba(224, 122, 147, .18); }
+.dl-search svg { width: 16px; height: 16px; flex: none; fill: none; stroke: #7a4e66; stroke-width: 2.2; stroke-linecap: round; }
+.dl-search input {
+  border: 0; outline: 0; background: transparent; font: inherit; font-size: 14px;
+  color: #2b2430; padding: 10px 0; width: 100%; min-width: 0;
+}
+@media (max-width: 640px) {
+  .level-chip { font-size: 13px; padding: 8px 12px; }
+  .dl-search { max-width: none; flex-basis: 100%; }
+}

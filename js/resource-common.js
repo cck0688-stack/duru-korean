@@ -66,7 +66,11 @@
     // a folder, for the things that are none of the above
     etc: '<path d="M3.5 7.2a1.7 1.7 0 0 1 1.7-1.7h3.4l2 2.4h7.7a1.7 1.7 0 0 1 1.7 1.7v8.9a1.7 1.7 0 0 1-1.7 1.7H5.2a1.7 1.7 0 0 1-1.7-1.7Z"/>'
   };
-  var LEVELS = ['Any level', 'Beginner', 'Intermediate', 'Advanced'];
+  var LEVELS = ['Any level', 'Beginner', 'Beginner (high)', 'Intermediate (low)', 'Intermediate', 'Advanced'];
+  // The levels a reader can filter by, with the standard curriculum's
+  // 급 they stand for (scripts/lib/curriculum.mjs: 1급 Beginner, 2급
+  // Beginner (high), 3급 Intermediate (low), 4급 Intermediate).
+  var LEVEL_NUM = { 'Beginner': 1, 'Beginner (high)': 2, 'Intermediate (low)': 3, 'Intermediate': 4 };
 
   // 50 MB is what a Supabase project allows per upload by default, and
   // the ceiling on the free plan. Raising it further means raising it in
@@ -187,14 +191,20 @@
   function categoryLabel(cat) { return t('resources.cat.' + cat, cat); }
   function categoryDescribe(cat) { return t('resources.cat.' + cat + '.desc', ''); }
   function categoryIcon(cat) { return CATEGORY_ICON[cat] || CATEGORY_ICON.etc; }
+  // "Level 1 · Beginner" / "1급 · 초급": the number first, so a reader
+  // who knows their 급 finds it at once.
   function levelLabel(level) {
     var map = {
       'Any level': t('resources.levelAny', 'Any level'),
       'Beginner': t('resources.levelBeginner', 'Beginner'),
+      'Beginner (high)': t('resources.levelBeginnerHigh', 'Beginner (high)'),
+      'Intermediate (low)': t('resources.levelIntermediateLow', 'Intermediate (low)'),
       'Intermediate': t('resources.levelIntermediate', 'Intermediate'),
       'Advanced': t('resources.levelAdvanced', 'Advanced')
     };
-    return map[level] || level || '';
+    var name = map[level] || level || '';
+    var n = LEVEL_NUM[level];
+    return n ? t('resources.levelN', 'Level {n}').replace('{n}', n) + ' · ' + name : name;
   }
 
   // The text in the visitor's own language when the admin has written
@@ -461,7 +471,7 @@
 
   window.DURU_RES = {
     BUCKET: BUCKET, DRAFTS: DRAFTS, COVERS: COVERS,
-    publishResource: publishResource, publishFiles: publishFiles, rejectResource: rejectResource, isPending: isPending, LANGS: LANGS, FILE_LANGS: FILE_LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS,
+    publishResource: publishResource, publishFiles: publishFiles, rejectResource: rejectResource, isPending: isPending, LANGS: LANGS, FILE_LANGS: FILE_LANGS, CATEGORIES: CATEGORIES, LEVELS: LEVELS, LEVEL_NUM: LEVEL_NUM,
     MAX_SIZE: MAX_SIZE, MIME_BY_EXT: MIME_BY_EXT, COVER_MAX: COVER_MAX, ACCEPT: ACCEPT, PREVIEWABLE: PREVIEWABLE,
     t: t, escapeHTML: escapeHTML, fileExt: fileExt, formatSize: formatSize,
     schemaHint: schemaHint, uploadErrorText: uploadErrorText,

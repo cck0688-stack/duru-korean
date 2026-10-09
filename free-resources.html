@@ -108,6 +108,10 @@
     <h2 class="browse-head" data-i18n="blog.browseByTopic">Browse by topic</h2>
     <nav class="cat-grid cat-grid--three reveal" id="resourceFilters" aria-label="Download topics"></nav>
 
+    <!-- The standard curriculum's levels (1급–4급), built by js/resources.js. -->
+    <h2 class="browse-head" data-i18n="resources.browseByLevel">Browse by level</h2>
+    <nav class="level-row" id="resourceLevels" aria-label="Levels"></nav>
+
     <div class="topic-rule"></div>
 
     <div class="list-head">
@@ -116,6 +120,11 @@
         <p class="list-head-count" id="resourceCount"></p>
       </div>
       <div class="dl-toolbar-row">
+        <label class="dl-search" for="resourceSearch">
+          <span class="visually-hidden" data-i18n="resources.search">Search downloads</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="resourceSearch" autocomplete="off" enterkeyhint="search">
+        </label>
         <label class="dl-lang" for="resourceLang">
           <span data-i18n="resources.langPick">Pick a language</span>
           <select id="resourceLang"></select>
