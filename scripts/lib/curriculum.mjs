@@ -213,10 +213,10 @@ export function nextFromSyllabus(shelf, plan, skip = new Set()) {
   if (!CURRICULUM_SHELVES.includes(shelf)) return null;
   const done = new Set([...(ALREADY[shelf] || []), ...((plan && plan.done) || [])]);
   const tried = (plan && plan.tried) || {};
-  // A series item gets six tries, not three (the owner, 2026-10-09: all
+  // A series item gets twelve tries, not three (the owner, 2026-10-09: all
   // 100 must be made; vocab ran out of items at 91 with nine left that
   // had failed review three times each).
-  const most = SERIES_SHELVES.includes(shelf) ? 6 : 3;
+  const most = SERIES_SHELVES.includes(shelf) ? 12 : 3;
   const open = (id) => !done.has(id) && !skip.has(id) && (tried[id] || 0) < most;
   if (SERIES_SHELVES.includes(shelf)) {
     const row = SERIES[shelf].find((r) => open(r.id));
