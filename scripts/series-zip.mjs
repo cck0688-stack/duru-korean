@@ -40,7 +40,7 @@ async function run() {
   let token = await signIn();
   const index = [['shelf', 'no', 'file', 'title', 'status', 'id']];
   for (const [shelf, name] of Object.entries(SHELVES)) {
-    const rows = await rest(token, 'resources?select=id,title,status,i18n,created_at,resource_files(lang,version,storage_key,draft_key)' +
+    const rows = await rest(token, 'resources?select=id,title,status,keyword,i18n,created_at,resource_files(lang,version,storage_key,draft_key)' +
       '&origin=eq.auto&status=neq.rejected&publish_location=eq.free-resources&category=eq.' + shelf +
       '&created_at=gte.' + SINCE + '&order=created_at.asc&limit=1000');
     const dir = path.join(out, name);
@@ -54,7 +54,10 @@ async function run() {
       const bytes = await download(token, where(files[0]));
       n += 1;
       const en = (r.i18n && r.i18n.en && r.i18n.en.title) || r.title;
-      const file = String(n).padStart(3, '0') + '-' + slug(en) + '.pdf';
+      // The sheet's keyword (English, as on the site's download button);
+      // else the start of its id. Titles are in index.csv.
+      const key = slug(r.keyword || '') !== 'sheet' ? slug(r.keyword) : r.id.slice(0, 8);
+      const file = String(n).padStart(3, '0') + '-' + key + '.pdf';
       fs.writeFileSync(path.join(dir, file), bytes);
       index.push([shelf, n, file, en, r.status, r.id]);
     }
