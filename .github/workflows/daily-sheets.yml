@@ -36,7 +36,7 @@
 name: Daily worksheets
 
 on:
-  schedule:
+  # schedule: (off — see the notes below; put it back with a cron line)
     # 16:00 UTC is 01:00 the next morning in Seoul (the owner, 2026-10-06:
     # it was 04:00, and ran three to four hours late). GitHub's scheduler
     # runs late when it is busy, which is harmless here: the run reads
