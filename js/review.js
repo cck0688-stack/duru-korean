@@ -256,6 +256,10 @@
         }).join('') + '</div>' +
 
         checkHTML(file) +
+        // What the download page will show under "Read it here" once it
+        // is published (the owner, 2026-10-10: check the body too).
+        '<details class="review-read" data-read-for="' + esc(row.id) + '"><summary>' +
+          esc(t('review.readPreview', 'Read-online text (as on the page)')) + '</summary><div class="review-read-body"></div></details>' +
         '<div class="review-pdf" data-for="' + esc(row.id) + '">' +
           '<p class="review-none">' + esc(t('review.loadingPdf', 'Loading the PDF…')) + '</p>' +
         '</div>' +
@@ -284,6 +288,41 @@
       '</article>';
     }
 
+    // The read-online file for a draft, from where the daily run keeps it.
+    var READ_BASE = 'https://raw.githubusercontent.com/cck0688-stack/duru-korean/rework-output/read/';
+    function flat(x) {
+      if (x == null) return '';
+      if (typeof x === 'string' || typeof x === 'number') return String(x);
+      if (Array.isArray(x)) return x.map(flat).filter(Boolean).join(' / ');
+      return Object.keys(x).filter(function (k) { return ['plain', 'tone', 'icon', 'pill', 'style', 'level', 'lines', 'write'].indexOf(k) < 0; })
+        .map(function (k) { return flat(x[k]); }).filter(Boolean).join(' ');
+    }
+    function readHTML(d) {
+      function sec(title, inner) { return '<h5>' + esc(title) + '</h5>' + inner; }
+      function ul(items) { return '<ul>' + items.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>'; }
+      var h = '<p><b>' + esc(d.title) + '</b></p>' + (d.objective ? '<p>' + esc(d.objective) + '</p>' : '');
+      if (d.letters) h += sec('Letters', ul(d.letters.map(function (l) { return '<b>' + esc(l.letter) + '</b> — ' + esc(l.sound) + (l.as ? ' · ' + esc(l.as) : ''); })));
+      if (d.words) h += sec('Words', ul(d.words.map(function (w) { return '<b>' + esc(w.korean) + '</b> ' + esc(w.meaning || '') + (w.example ? ' — ' + esc(w.example) : ''); })));
+      if (d.forms) h += sec('Forms', ul(d.forms.map(function (f) { return esc(flat(f)); })));
+      if (d.dialogue) h += sec('Dialogue', ul(d.dialogue.map(function (f) { return esc(flat(f)); })));
+      if (d.passage) h += sec('Passage', ul((Array.isArray(d.passage) ? d.passage : [d.passage]).map(function (f) { return esc(flat(f)); })));
+      if (d.sections) h += sec('Sections', ul(d.sections.map(function (f) { return esc(flat(f)); })));
+      if (d.exercises) h += sec('Exercises', '<ol>' + d.exercises.map(function (q) { return '<li>' + esc(flat(q)) + '</li>'; }).join('') + '</ol>');
+      if (d.answers) h += sec('Answers', '<ol>' + d.answers.map(function (q) { return '<li>' + esc(flat(q)) + '</li>'; }).join('') + '</ol>');
+      return h;
+    }
+    function showRead(row, lang) {
+      var box = listEl.querySelector('.review-read[data-read-for="' + row.id + '"] .review-read-body');
+      if (!box) return;
+      box.innerHTML = '<p class="review-none">…</p>';
+      fetch(READ_BASE + row.id + '/' + (lang || 'en') + '.json').then(function (r) { return r.ok ? r.json() : null; })
+        .catch(function () { return null; })
+        .then(function (d) {
+          box.innerHTML = d ? readHTML(d) : '<p class="review-none">' +
+            esc(t('review.noRead', 'No read-online file yet for this language.')) + '</p>';
+        });
+    }
+
     function render() {
       countEl.textContent = drafts.length
         ? drafts.length + ' ' + t('review.waitingCount', 'waiting')
@@ -292,6 +331,10 @@
       listEl.innerHTML = drafts.map(draftHTML).join('');
       drafts.forEach(function (row) {
         showPdf(row);
+        var det = listEl.querySelector('.review-read[data-read-for="' + row.id + '"]');
+        if (det) det.addEventListener('toggle', function () {
+          if (det.open) showRead(row, open[row.id] || (filesOf(row)[0] && filesOf(row)[0].lang) || 'en');
+        });
         paintSays(row.id);
         if (window.DURU_RES && window.DURU_RES.fillAdminSources) {
           window.DURU_RES.fillAdminSources(client, 'resource_id', row.id,

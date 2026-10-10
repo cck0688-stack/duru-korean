@@ -49,7 +49,9 @@ function question(text, i, lines = 1, design, items, opts = {}) {
   // parts are lines without a number. `write` leaves a line to answer on.
   const parts = list(items).length
     ? '<div class="q-parts">' + list(items).map((it, j) =>
-        '<div class="q-part">' + (opts.plain ? '' : '<span class="q-pn">' + String.fromCharCode(0x2460 + j) + '</span>') + esc(it) + '</div>').join('') + '</div>'
+        '<div class="q-part' + (opts.answerLines ? ' has-ans' : '') + '">' + (opts.plain ? '' : '<span class="q-pn">' + String.fromCharCode(0x2460 + j) + '</span>') + (opts.answerLines ? '<span class="q-pt">' + esc(it) + '</span>' : esc(it)) +
+        // A line to write the answer on (hangul, the owner 2026-10-10).
+        (opts.answerLines ? '<span class="ans"></span>' : '') + '</div>').join('') + '</div>'
     : '';
   const rules = opts.write ? Math.max(1, lines) : lines;
   return '<div class="q' + (rules > 1 || opts.write ? ' q-lines' : '') + (parts ? ' q-multi' : '') + '"><div class="q-ask"><span class="n">' + (i + 1) +
@@ -175,21 +177,43 @@ function reallife(s, L) {
 }
 
 /* ---- hangul ------------------------------------------------------ */
-// Mostly empty space on purpose: this one is printed and written on.
-// The boxes are square because Hangul is written in squares.
+// The owner (2026-10-10): a learner must be able to write on it. Each
+// letter is a card: the letter or rule on top, sized to its length and
+// never cut off; its sound and note beside it with room to read; under
+// them a row of squares, one per syllable — the example traced in grey,
+// then the same number empty to copy it into.
+function traceWord(l) {
+  const letter = String(l.letter || '').trim();
+  // A letter, a syllable or a short word: that is what is written.
+  if (/^[\u3131-\u318e\uac00-\ud7a3]{1,6}$/.test(letter)) return letter;
+  // A rule ("받침 + ㅇ → linking"): the first Korean word of its sound.
+  // Digits count ("3월"); the first such word with Hangul in it.
+  const first = (t) => (String(t || '').match(/[0-9\uac00-\ud7a3]+/g) || []).find((x) => /[\uac00-\ud7a3]/.test(x) && x.length <= 6);
+  return first(letter) || first(l.sound) || '';
+}
+function letterSize(t) {
+  const n = [...String(t || '')].length;
+  return n <= 3 ? 44 : n <= 6 ? 34 : n <= 10 ? 24 : n <= 18 ? 18 : 15;
+}
 function hangul(s, L) {
   return '<section><h2>' + esc(L.letters) + '</h2>' +
-    '<table class="letters"><thead><tr><th style="width:26%">' + esc(L.letter) + '</th><th>' + esc(L.sound) +
-    '</th><th>' + esc(L.practice) + '</th></tr></thead><tbody>' +
-    list(s.letters).map((l) =>
-      '<tr><td><div class="word" lang="ko" style="font-size:24px">' + esc(l.letter) + '</div></td>' +
-      '<td><div class="sound">' + soundHTML(l.sound) + '</div>' + (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</td>' +
-      '<td><div class="boxes">' + '<div class="box"></div>'.repeat(8) + '</div></td></tr>').join('') +
-    '</tbody></table></section>' +
+    list(s.letters).map((l) => {
+      const w = [...traceWord(l)];
+      const n = Math.max(4, Math.min(8, w.length * 2));
+      const boxes = Array.from({ length: n }, (_, i) =>
+        '<div class="box">' + (i < w.length ? '<span lang="ko">' + esc(w[i]) + '</span>' : '') + '</div>').join('');
+      return '<div class="lcard"><div class="lc-top">' +
+        '<div class="lc-letter" lang="ko" style="font-size:' + letterSize(l.letter) + 'px">' + esc(l.letter) + '</div>' +
+        '<div class="lc-sound"><div class="sound">' + soundHTML(l.sound) + '</div>' +
+        (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</div></div>' +
+        (w.length ? '<div class="lc-trace"><span class="lc-label">' + esc(L.practice) + '</span><div class="boxes">' + boxes + '</div></div>' : '') +
+        '</div>';
+    }).join('') +
+    '</section>' +
     (list(s.words).length
       ? '<section><h2>' + esc(L.nowTheWords) + '</h2>' + wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>'
       : '') +
-    practice(s, L);
+    practice(s, L, { answerLines: true });
 }
 
 /* ---- everything else --------------------------------------------- */
@@ -323,7 +347,7 @@ function asideBlock(a) {
 // The part the learner fills in. Shared, because every shelf has one —
 // a sheet with nothing to do on it is a reference card, not a
 // worksheet.
-function practice(s, L) {
+function practice(s, L, how = {}) {
   const qs = list(s.exercises);
   if (!qs.length) return '';
   // What the questions ask the learner to do, said once above them —
@@ -336,7 +360,7 @@ function practice(s, L) {
   return '<section><h2>' + esc(L.yourTurn) + '</h2>' + task +
     qs.map((q, i) => {
       const own = typeof q === 'object' ? q : withParts(q);
-      return question(own.ask, i, own.lines || 1, L.design, own.items, { plain: own.plain, write: own.write });
+      return question(own.ask, i, own.lines || 1, L.design, own.items, { plain: own.plain, write: own.write, answerLines: how.answerLines });
     }).join('') +
     '</section>';
 }

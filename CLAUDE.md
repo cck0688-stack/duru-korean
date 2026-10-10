@@ -32,6 +32,10 @@
   does the first review, fixes, cuts, translations and their check
   (owner, 2026-10-09: save tokens). Every draft gets read-online
   files (read/<id>/<lang>.json) so it reads on its page once published.
+  Hangul layout (owner, 2026-10-10): each letter is a card — a short
+  letter/word on top (never cut off), its sound beside it with room,
+  and squares to trace (grey) and copy, one per syllable. Practice
+  parts get an answer line. review.html shows each draft's read text.
 - Worksheet subjects come from the syllabus in content/curriculum (the
   standard curriculum's grammar and vocabulary, Sejong topics), in order
   (owner, 2026-10-05) — scripts/lib/curriculum.mjs. A grammar item's

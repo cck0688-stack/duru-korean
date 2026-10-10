@@ -4590,3 +4590,10 @@ section { position: relative; }
 .blog-pdf-actions { margin-left: auto; display: inline-flex; gap: 8px; flex-wrap: wrap; }
 .blog-pdf-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; padding: 8px 18px; }
 @media (max-width: 600px) { .blog-pdf-actions { margin-left: 0; } }
+
+/* Review: the read-online text of a draft (owner, 2026-10-10). */
+.review-read { margin: 10px 0; border: 1px solid #e6dcdc; border-radius: 10px; padding: 8px 12px; background: #fff; }
+.review-read summary { cursor: pointer; font-weight: 600; }
+.review-read-body { font-size: 14px; line-height: 1.6; max-height: 420px; overflow: auto; }
+.review-read-body h5 { margin: 12px 0 4px; font-size: 13px; color: #7a4a63; }
+.review-read-body ul, .review-read-body ol { margin: 0 0 0 18px; padding: 0; }

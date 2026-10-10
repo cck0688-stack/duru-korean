@@ -325,10 +325,18 @@ async function makeOne(cfg, category, context, browser) {
   };
   // A vocabulary sheet on the syllabus: no word above its level + 1.
   const levelCheck = (s) => (category === 'vocab' ? levelProblems(s, subject) : []);
+  // A hangul letter card is written on (the owner, 2026-10-10): a short
+  // letter or word on top, and an example with its sound to trace.
+  const cardCheck = (s) => (category !== 'hangul' ? [] : (s.letters || []).flatMap((l, i) => {
+    const bad = [];
+    if ([...String(l.letter || '')].length > 8 || /[a-z]{3,}/i.test(l.letter || '')) bad.push('letters[' + i + '].letter 는 글자·음절·짧은 낱말만 쓰세요 (한글 6자 이내, 영어 없이). 규칙 설명은 as 로 옮기세요.');
+    if (!/[가-힣]/.test(l.sound || '')) bad.push('letters[' + i + '].sound 를 「예시 낱말 [실제 소리]」 꼴로 채우세요.');
+    return bad;
+  }));
   // A series item was checked against the shelf when the list was made
   // (duru_series_300.json); its title is not compared again — "음절표 4"
   // was turned down as the same as "음절표 1" (2026-10-09).
-  const mechanical = (s) => problemsWith(s, { existing: SERIES_SHELVES.includes(category) && subject.id ? [] : context.existing }).concat(markProblems(s), levelCheck(s));
+  const mechanical = (s) => problemsWith(s, { existing: SERIES_SHELVES.includes(category) && subject.id ? [] : context.existing }).concat(markProblems(s), levelCheck(s), cardCheck(s));
   const recheck = async (s) => {
     const again = mechanical(s);
     return again.length ? again : readTwice(s);
