@@ -51,7 +51,9 @@ on:
     # shelves only. A run stops starting sheets after five hours
     # (DURU_TIME_BUDGET_MIN); while one runs, the next waits in the
     # concurrency queue, so they follow each other back to back.
-    - cron: '0 */2 * * *'
+    # Off (2026-10-10): the series is made; each empty run only asked for
+    # the zips again.
+    # - cron: '0 */2 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
