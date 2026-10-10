@@ -1,0 +1,72 @@
+# DURU KOREAN — the first series as three zips, English PDFs only
+#
+# The owner (2026-10-10): once all 300 are made, one zip each for
+# Hangul Starter, Grammar Cheat Sheets and Vocabulary. Started by the
+# last series run (daily-sheets.yml, when nothing is left to make) or by
+# hand. Saved under series-zip/ on the `rework-output` branch.
+
+name: Series zips (English)
+
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'Series start (UTC), sheets made since then'
+        default: '2026-10-09T02:00:00Z'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: series-zip
+  cancel-in-progress: false
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Open the rework-output branch
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+
+      - name: Collect the English PDFs
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SINCE: ${{ inputs.since }}
+        run: node scripts/series-zip.mjs --out=../rework-output/series-zip --since="${SINCE:-2026-10-09T02:00:00Z}"
+
+      - name: Keep them as a download too
+        uses: actions/upload-artifact@v4
+        with:
+          name: series-zips-en
+          path: ../rework-output/series-zip/*
+          retention-days: 30
+
+      - name: Save
+        working-directory: ../rework-output
+        run: |
+          git add -A series-zip
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "Series zips (English)"
+          for i in 1 2 3 4; do
+            git push -q origin rework-output && exit 0
+            git pull -q --rebase origin rework-output || true
+            sleep $((i * 5))
+          done
+          exit 1

@@ -239,6 +239,10 @@ jobs:
           started=$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq .run_started_at)
           took=$(( ($(date +%s) - $(date -d "$started" +%s)) / 60 ))
           echo "this run took $took minutes"
-          if [ "$took" -lt 30 ]; then echo "nothing left to make; the chain stops"; exit 0; fi
+          if [ "$took" -lt 30 ]; then
+            echo "nothing left to make; the chain stops and the three English zips are made"
+            gh workflow run series-zip.yml --repo "$REPO" --ref "$REF"
+            exit 0
+          fi
           gh workflow run daily-sheets.yml --repo "$REPO" --ref "$REF" \
             -f only=grammar,vocab,hangul -f count=40 -f force=true
