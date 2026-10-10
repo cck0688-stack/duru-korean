@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: series-zips-en
-          path: ../rework-output/series-zip/*
+          path: /home/runner/work/duru-korean/rework-output/series-zip/*
           retention-days: 30
 
       - name: Save
