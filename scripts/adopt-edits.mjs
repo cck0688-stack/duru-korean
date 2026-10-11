@@ -29,7 +29,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { chromium } from 'playwright';
 import { rest, where, replace } from './relayout-sheets.mjs';
-import { csv, fromDrive, prepare, judge, parseHangul } from './lib/edited-pdf.mjs';
+import { csv, fromDrive, prepare, judge, parseHangul, overflowPt } from './lib/edited-pdf.mjs';
 import { renderSheet } from './pdf/render.mjs';
 import { writeRead } from './build-read.mjs';
 import { LANGUAGE_NAMES } from '../api/_providers.js';
@@ -188,7 +188,7 @@ async function main() {
         if (lang === 'en' && !contentOnly) continue;
         const r = await renderSheet(ed, { category: SHELF, lang, browser });
         if (r.check.pages !== 2 || !r.check.ok) {
-          stat.skippedLang.push(n + ' ' + lang + ' (' + r.check.pages + '쪽' + (r.check.ok ? '' : ', ' + r.check.why.join('; ').slice(0, 80)) + ')');
+          stat.skippedLang.push(n + ' ' + lang + ' (' + r.check.pages + '쪽' + (r.check.pages > 2 ? ', 넘친 글 약 ' + overflowPt(r.pdf, work) + 'pt' : '') + (r.check.ok ? '' : ', ' + r.check.why.join('; ').slice(0, 80)) + ')');
           continue;
         }
         outputs[lang] = { pdf: r.pdf, check: r.check, bytes: r.bytes, hash: r.hash };

@@ -190,3 +190,19 @@ const PY_HANGUL = [
 export function parseHangul(file) {
   return JSON.parse(execFileSync('python3', ['-P', '-c', PY_HANGUL, file], { encoding: 'utf8', maxBuffer: 50e6 }));
 }
+
+// How far a sheet that came out at three pages runs over: the height of the
+// text on the pages past the second (points), for the log.
+export function overflowPt(pdf, work) {
+  const f = path.join(work, 'over-' + process.pid + '.pdf');
+  fs.writeFileSync(f, pdf);
+  const py = [
+    'import sys, pymupdf',
+    'd = pymupdf.open(sys.argv[1]); tot = 0',
+    'for p in list(d)[2:]:',
+    '    ys = [b[3] - b[1] for b in p.get_text("blocks") if 100 < b[1] < 770]',
+    '    tot += sum(ys)',
+    'print(round(tot))'
+  ].join('\n');
+  try { return Number(execFileSync('python3', ['-P', '-c', py, f], { encoding: 'utf8' }).trim()); } catch (e) { return -1; } finally { fs.rmSync(f, { force: true }); }
+}
