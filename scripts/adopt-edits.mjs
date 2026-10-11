@@ -44,6 +44,7 @@ const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); r
 const SHELF = arg('shelf');
 const DRY = args.includes('--dry-run');
 const ONLY = arg('only');
+const READ_ONLY = args.includes('--read-only');   // only write the read-online text: no render, no replace
 const CONTENT_ONLY = (arg('content-only') || '').split(',').filter(Boolean);
 const READ = arg('read');
 const READ_OUT = arg('read-out');
@@ -115,7 +116,7 @@ async function main() {
 
   const numbers = ids ? Object.keys(ids) : fs.readdirSync(dir).filter((f) => /^\d{3}-.*\.pdf$/.test(f)).map((f) => f.slice(0, 3));
   for (const n of numbers.sort()) {
-    if (ONLY && ONLY !== n) continue;
+    if (ONLY && !ONLY.split(',').includes(n)) continue;
     if (arg('from') && n < arg('from')) continue;
     if (arg('to') && n > arg('to')) continue;
     try {
@@ -137,7 +138,7 @@ async function main() {
       const outputs = {};
       const prep = prepare(hisBytes, work, n, null);
       const parsed = SHELF === 'hangul' && !contentOnly ? parseHangul(path.join(work, n + '-in.pdf')) : null;
-      if (!contentOnly) {
+      if (!contentOnly && !READ_ONLY) {
         const check = judge(prep.info, prep.pdf);
         if (!check.ok) throw new Error('영어판 검사를 통과하지 못했습니다: ' + check.why.join('; '));
         outputs.en = { pdf: prep.pdf, check, bytes: prep.pdf.length, hash: crypto.createHash('sha256').update(prep.pdf).digest('hex') };
@@ -185,7 +186,7 @@ async function main() {
         ed.category = SHELF;
       }
 
-      for (const [lang, ed] of Object.entries(editions)) {
+      for (const [lang, ed] of Object.entries(READ_ONLY ? {} : editions)) {
         if (outputs[lang]) continue;
         if (lang === 'en' && !contentOnly) continue;
         const r = await renderSheet(ed, { category: SHELF, lang, browser });
@@ -201,7 +202,7 @@ async function main() {
           (stat.skippedLang.filter((x) => x.startsWith(n + ' ')).length ? ' ! ' + stat.skippedLang.filter((x) => x.startsWith(n + ' ')).join(', ') : ''));
       if (OUT) for (const [lang, o] of Object.entries(outputs)) fs.writeFileSync(path.join(OUT, n + '-' + want + '(' + lang + ').pdf'), o.pdf);
       if (READ_OUT && SHELF === 'hangul') for (const [lang, ed] of Object.entries(editions)) writeRead(row.id, lang, ed, READ_OUT);
-      if (DRY) { stat.done += 1; continue; }
+      if (DRY || READ_ONLY) { stat.done += 1; continue; }
 
       const token = await signIn();
       const [res] = await rest(token, 'resources?select=id,title,status,resource_files(id,lang,version,published,storage_key,draft_key)&id=eq.' + row.id);

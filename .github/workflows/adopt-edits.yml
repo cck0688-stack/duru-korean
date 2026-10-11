@@ -19,8 +19,12 @@ on:
         type: boolean
         default: true
       only:
-        description: 'Only this number (e.g. 050)'
+        description: 'Only these numbers (e.g. 050 or 002,026,029)'
         default: ''
+      read_only:
+        description: 'Only write the read-online text (no PDFs rendered or replaced)'
+        type: boolean
+        default: false
       from:
         description: 'First number (e.g. 001) — a range keeps one run under six hours'
         default: ''
@@ -80,22 +84,24 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
           FROM: ${{ inputs.from }}
+          READ_ONLY: ${{ inputs.read_only }}
           TO: ${{ inputs.to }}
         run: |
           args=(--shelf="$SHELF" --index=/tmp/index.csv --read=../rework-output/read)
           if [ "$SHELF" = "hangul" ]; then
-            args+=(--ids=content/edited/hangul-starter-drive-ids.json --content-only=008,032,054,067,068 --read-out=read-output)
+            args+=(--ids=content/edited/hangul-starter-drive-ids.json --content-only=008,009,017,028,031,032,033,035,054,058,062,065,067,068,082,085 --read-out=read-output)
           else
             args+=(--dir=/tmp/g/Grammar-Cheat-Sheets-aligned)
           fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ "$READ_ONLY" = "true" ]; then args+=(--read-only); fi
           if [ -n "$FROM" ]; then args+=(--from="$FROM"); fi
           if [ -n "$TO" ]; then args+=(--to="$TO"); fi
           node scripts/adopt-edits.mjs "${args[@]}"
 
       - name: Keep the new read-online text
-        if: inputs.shelf == 'hangul' && inputs.dry_run != true
+        if: always() && inputs.shelf == 'hangul' && inputs.dry_run != true
         run: |
           [ -d read-output ] || exit 0
           cp -r read-output/. ../rework-output/read/
