@@ -1,0 +1,66 @@
+# DURU KOREAN — the owner's own edited English PDFs in place of ours
+#
+# On demand (scripts/replace-en-pdf.mjs). The owner (2026-10-11) edited
+# the 100 Hangul Starter sheets by hand and shared the Drive folder by
+# link. dry_run (the default) downloads, shrinks and checks every file
+# and writes nothing; a real run replaces the English PDF and holds the
+# download on the review screen until the owner presses Publish.
+
+name: Replace English PDFs with the owner's edits
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only download and check; change nothing'
+        type: boolean
+        default: true
+      only:
+        description: 'Only this number (e.g. 050)'
+        default: ''
+      skip:
+        description: 'Numbers left alone (the owner marked these as missing Sound text)'
+        default: '008,032,054,067,068'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: replace-en-pdf
+  cancel-in-progress: false
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+      - run: pip install --quiet pymupdf fonttools
+
+      - name: The list of numbers and resources
+        run: |
+          git fetch --depth=1 origin rework-output
+          git show origin/rework-output:series-zip/index.csv > /tmp/index.csv
+
+      - name: Replace
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          ONLY: ${{ inputs.only }}
+          SKIP: ${{ inputs.skip }}
+        run: |
+          args=(--index=/tmp/index.csv)
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ -n "$SKIP" ]; then args+=(--skip="$SKIP"); fi
+          node scripts/replace-en-pdf.mjs "${args[@]}"
