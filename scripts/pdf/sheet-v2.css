@@ -492,7 +492,10 @@ section.k-next { break-before: page; page-break-before: always; }
 .pg2 { break-before: page; }
 /* the owner's table: every cell centred, the rows closer */
 .pg2 td, .pg2 th { text-align: center; }
-.pg2 td { padding: 4px 10px; }
+.pg2 td { padding: 3px 10px; line-height: 1.25; }
+.pg2 .word { line-height: 1.15; }
+.pg2 .rom { line-height: 1.15; margin-top: 1px; }
+.pg2 .ex-kr, .pg2 .ex-tr { line-height: 1.25; }
 .pg2 .word { font-weight: 700; }
 .pg2 ~ section .q { margin-bottom: 7px; }
 .q-part.has-ans { align-items: flex-end; }

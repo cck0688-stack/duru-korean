@@ -27,9 +27,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { execFileSync } from 'node:child_process';
 import { rest, where, download, replace } from './relayout-sheets.mjs';
-import { textIsReal, pageBreakdown } from './pdf/check.mjs';
+import { csv, fromDrive, prepare, judge } from './lib/edited-pdf.mjs';
 
 const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co').replace(/\/+$/, '');
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
@@ -54,128 +53,6 @@ async function signIn() {
   const body = await res.json().catch(() => ({}));
   if (!res.ok || !body.access_token) throw new Error('로그인 실패 (' + res.status + ').');
   return body.access_token;
-}
-
-function csv(text) {
-  const rows = [];
-  for (const line of text.replace(/^﻿/, '').split(/\r?\n/)) {
-    if (!line.trim()) continue;
-    rows.push([...line.matchAll(/"((?:[^"]|"")*)"/g)].map((m) => m[1].replace(/""/g, '"')));
-  }
-  return rows;
-}
-
-async function fromDrive(id) {
-  for (let i = 0; i < 4; i += 1) {
-    const res = await fetch('https://drive.google.com/uc?export=download&id=' + id, { redirect: 'follow' }).catch(() => null);
-    if (res && res.ok && !/text\/html/.test(res.headers.get('content-type') || '')) {
-      const buf = Buffer.from(await res.arrayBuffer());
-      if (buf.subarray(0, 5).toString() === '%PDF-') return buf;
-    }
-    await new Promise((r) => setTimeout(r, 3000 * (i + 1)));
-  }
-  throw new Error('드라이브에서 받지 못했습니다');
-}
-
-// Fonts cut to the glyphs used, and what a person would look at.
-const PY = [
-  'import sys, json, pymupdf',
-  'src, dst = sys.argv[1], sys.argv[2]',
-  'fill = json.load(open(sys.argv[3])) if len(sys.argv) > 3 else None',
-  'd = pymupdf.open(src)',
-  'cards = 0',
-  'if fill:',
-  '    DJ = pymupdf.Font(fontfile="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")',
-  '    WQ = pymupdf.Font(fontfile="/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc")',
-  '    def fnt(ch): return WQ if ord(ch) > 0x2E80 or 0x1100 <= ord(ch) <= 0x11FF or 0x3130 <= ord(ch) <= 0x318F or 0xAC00 <= ord(ch) <= 0xD7A3 else DJ',
-  '    def width(t, sz): return sum(fnt(c).text_length(c, fontsize=sz) for c in t)',
-  '    def wrap(t, sz, w):',
-  '        lines, cur = [], ""',
-  '        for word in t.split(" "):',
-  '            trial = (cur + " " + word).strip()',
-  '            if width(trial, sz) <= w or not cur: cur = trial',
-  '            else: lines.append(cur); cur = word',
-  '        if cur: lines.append(cur)',
-  '        return lines',
-  '    pg = d[0]',
-  '    marks = []',
-  '    for b in pg.get_text("dict")["blocks"]:',
-  '        for ln in b.get("lines", []):',
-  '            for sp in ln["spans"]:',
-  '                if sp["text"].replace(" ", "").upper().startswith("TRACEAND"): marks.append(sp["bbox"][1])',
-  '    # the card starts 76 pt above its "TRACE AND COPY" label (the owner\'s layout)',
-  '    cs = [pymupdf.Rect(42, my - 76, 553, my + 46) for my in sorted(marks)]',
-  '    if len(cs) != len(fill): raise SystemExit("cards " + str(len(cs)) + " != letters " + str(len(fill)))',
-  '    cards = len(cs)',
-  '    DARK, GREY = (0.098, 0.231, 0.18), (0.26, 0.33, 0.30)',
-  '    for r, l in zip(cs, fill):',
-  '        tws = {DARK: pymupdf.TextWriter(pg.rect), GREY: pymupdf.TextWriter(pg.rect)}',
-  '        y = r.y0 + 22',
-  '        for t, sz, lh, col in ((l.get("sound") or "", 9.4, 11.5, DARK), (l.get("as") or "", 7.3, 9.0, GREY)):',
-  '            if not t: continue',
-  '            for line in wrap(t, sz, 243):',
-  '                x = 298',
-  '                cur = ""',
-  '                # one run per font so each character comes from a font that has it',
-  '                runs, run, rf = [], "", None',
-  '                for ch in line:',
-  '                    f = fnt(ch)',
-  '                    if rf is not None and f is not rf: runs.append((run, rf)); run = ""',
-  '                    run += ch; rf = f',
-  '                if run: runs.append((run, rf))',
-  '                for txt, f in runs:',
-  '                    tws[col].append((x, y), txt, font=f, fontsize=sz)',
-  '                    x += f.text_length(txt, fontsize=sz)',
-  '                y += lh',
-  '            y += 3',
-  '        if y - 3 > r.y0 + 72: raise SystemExit("sound text too long for the card")',
-  '        for c, tw in tws.items(): tw.write_text(pg, color=c)',
-  'info = {"pages": d.page_count, "sizes": [[round(p.rect.width), round(p.rect.height)] for p in d]}',
-  'mins, outside, texts = [], 0, []',
-  'for p in d:',
-  '    t = p.get_text("dict"); small = 99; r = p.rect',
-  '    for b in t["blocks"]:',
-  '        for l in b.get("lines", []):',
-  '            for s in l["spans"]:',
-  '                if s["text"].strip():',
-  '                    small = min(small, s["size"])',
-  '                    x0, y0, x1, y1 = s["bbox"]',
-  '                    if x0 < r.x0 - 1 or y0 < r.y0 - 1 or x1 > r.x1 + 1 or y1 > r.y1 + 1: outside += 1',
-  '    mins.append(round(small, 1)); texts.append(p.get_text())',
-  'info["minfont"] = mins; info["outside"] = outside; info["chars"] = [len(x) for x in texts]; info["cards"] = cards',
-  'try:',
-  '    d.subset_fonts()',
-  'except Exception as e:',
-  '    info["subsetError"] = str(e)',
-  'd.save(dst, garbage=4, deflate=True, clean=True)',
-  'print(json.dumps(info))'
-].join('\n');
-
-function prepare(bytes, work, n, fill) {
-  const src = path.join(work, n + '-in.pdf');
-  const dst = path.join(work, n + '-out.pdf');
-  fs.writeFileSync(src, bytes);
-  const extra = [];
-  if (fill) { const f = path.join(work, n + '-fill.json'); fs.writeFileSync(f, JSON.stringify(fill)); extra.push(f); }
-  const info = JSON.parse(execFileSync('python3', ['-P', '-c', PY, src, dst, ...extra], { encoding: 'utf8' }));
-  return { info, pdf: fs.readFileSync(dst) };
-}
-
-function judge(info, pdf) {
-  const why = [];
-  if (info.pages !== 2) why.push('the file has ' + info.pages + ' pages, not 2');
-  info.sizes.forEach(([w, h], i) => { if (Math.abs(w - 595) > 3 || Math.abs(h - 842) > 3) why.push('page ' + (i + 1) + ' is not A4'); });
-  info.minfont.forEach((m, i) => { if (m < 5.5) why.push('page ' + (i + 1) + ' has text under 5.5 pt'); });
-  if (info.outside) why.push(info.outside + ' pieces of text run off the page');
-  info.chars.forEach((c, i) => { if (c < 40) why.push('page ' + (i + 1) + ' has almost no text'); });
-  const text = textIsReal(pdf);
-  if (!text.ok) why.push('the text is not selectable');
-  const { pages, pagesDrawingText } = pageBreakdown(pdf);
-  return {
-    ok: why.length === 0, why, pages, pagesDrawingText, bytes: pdf.length,
-    textLength: info.chars.reduce((a, b) => a + b, 0), selectableText: text.ok,
-    editedByOwner: true, checkedAt: new Date().toISOString()
-  };
 }
 
 async function hold(token, id) {
