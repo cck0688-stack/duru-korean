@@ -110,7 +110,7 @@ jobs:
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -q -m "Read-online text for the owner's edited Hangul Starter sheets"
           for i in 1 2 3 4; do
-            git pull -q --rebase origin rework-output && git push -q origin rework-output && exit 0
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
             sleep $((2 ** i))
           done
           exit 1
