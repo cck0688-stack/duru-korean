@@ -116,6 +116,8 @@ async function main() {
   const numbers = ids ? Object.keys(ids) : fs.readdirSync(dir).filter((f) => /^\d{3}-.*\.pdf$/.test(f)).map((f) => f.slice(0, 3));
   for (const n of numbers.sort()) {
     if (ONLY && ONLY !== n) continue;
+    if (arg('from') && n < arg('from')) continue;
+    if (arg('to') && n > arg('to')) continue;
     try {
       const row = byNo[n];
       if (!row) throw new Error('목록에 없는 번호');

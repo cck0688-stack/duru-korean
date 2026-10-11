@@ -21,12 +21,18 @@ on:
       only:
         description: 'Only this number (e.g. 050)'
         default: ''
+      from:
+        description: 'First number (e.g. 001) — a range keeps one run under six hours'
+        default: ''
+      to:
+        description: 'Last number (e.g. 034)'
+        default: ''
 
 permissions:
   contents: write
 
 concurrency:
-  group: adopt-edits-${{ inputs.shelf }}
+  group: adopt-edits-${{ inputs.shelf }}-${{ inputs.from }}-${{ inputs.only }}
   cancel-in-progress: false
 
 jobs:
@@ -73,6 +79,8 @@ jobs:
           SHELF: ${{ inputs.shelf }}
           DRY_RUN: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
+          FROM: ${{ inputs.from }}
+          TO: ${{ inputs.to }}
         run: |
           args=(--shelf="$SHELF" --index=/tmp/index.csv --read=../rework-output/read)
           if [ "$SHELF" = "hangul" ]; then
@@ -82,6 +90,8 @@ jobs:
           fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ -n "$FROM" ]; then args+=(--from="$FROM"); fi
+          if [ -n "$TO" ]; then args+=(--to="$TO"); fi
           node scripts/adopt-edits.mjs "${args[@]}"
 
       - name: Keep the new read-online text
