@@ -36,6 +36,15 @@
   letter/word on top (never cut off), its sound beside it with room,
   and squares to trace (grey) and copy, one per syllable. Practice
   parts get an answer line. review.html shows each draft's read text.
+- The owner's hand-edited Hangul (100) and Grammar (102) sheets (owner,
+  2026-10-11): scripts/adopt-edits.mjs, workflow adopt-edits.yml (dry_run by
+  default; from/to, only, read_only). English is his PDF; every other
+  language is the stored text set in his layout; each replaced resource is
+  held (review) for his Publish. Hangul read-online text goes to
+  rework-output/read. Hangul 009, 017, 028, 031, 033, 035, 058, 062, 065, 082,
+  085 (and the 5 he named) are set from the stored text (his PDF had tiny
+  text). Left on the old layout: grammar 100 (vi, es, id, pt-BR, fr, de: table
+  too long for two pages); grammar 018 and 044 have no files for some languages.
 - Worksheet subjects come from the syllabus in content/curriculum (the
   standard curriculum's grammar and vocabulary, Sejong topics), in order
   (owner, 2026-10-05) — scripts/lib/curriculum.mjs. A grammar item's
