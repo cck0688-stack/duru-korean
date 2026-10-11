@@ -242,7 +242,7 @@ export async function sheetHTML(sheet, opts = {}) {
 
   return '<!doctype html><html lang="' + esc(lang) + '"><head><meta charset="utf-8">' +
     '<title>' + esc(sheet.title) + '</title>' +
-    '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2' + (opts.compact === true ? ' compact' : '') + '"' : '') + '>' +
+    '<style>' + fonts + '</style><style>' + css + '</style></head><body' + (v2 ? ' class="v2' + (opts.compact === true ? ' compact' : '') + ((opts.category || sheet.category) === 'grammar' ? ' shelf-grammar' : '') + '"' : '') + '>' +
     (v2 ? '' : masthead(sheet, L)) +
     '<h1' + (lang === 'ko' ? ' lang="ko"' : '') + '>' +
     (v2 && (opts.category || sheet.category) === 'hangul' ? titleHTML(sheet.title) : esc(sheet.title)) + '</h1>' +

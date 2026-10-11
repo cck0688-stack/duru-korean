@@ -514,3 +514,14 @@ html body.compact table.forms.forms2 td { padding: 7px 14px; }
    the numbered parts of an exercise run along one line instead of one under
    the other — same type, fewer lines. */
 .compact .pg2 ~ section .q-body { flex-direction: row; flex-wrap: wrap; gap: 0 22px; }
+/* Grammar, set closer (a long language, the owner's table): the same type,
+   the lines and boxes drawn closer. */
+.compact.shelf-grammar .q { padding: 3px 12px; margin-bottom: 4px; }
+.compact.shelf-grammar .q-part, .compact.shelf-grammar .q-ask { line-height: 1.25; }
+.compact.shelf-grammar .q-body { gap: 0; }
+.compact.shelf-grammar .q.q-multi { padding-top: 4px; padding-bottom: 4px; }
+.compact.shelf-grammar .task { padding: 6px 16px; margin-bottom: 5px; }
+.compact.shelf-grammar .note { padding: 4px 11px; line-height: 1.35; }
+.compact.shelf-grammar .answers { margin-top: 4px; padding-top: 6px; }
+.compact.shelf-grammar .answer-box { padding: 7px 20px; }
+.compact.shelf-grammar .answers .a { margin-bottom: 1px; }
