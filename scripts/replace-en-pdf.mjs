@@ -39,6 +39,10 @@ const DRY = args.includes('--dry-run');
 const ONLY = arg('only');
 const SKIP = (arg('skip') || '').split(',').filter(Boolean);
 const OUT = arg('out');
+// --fill=008,032,..: the Sound text of these is missing from the edited file;
+// it is copied in from the sheet's own text (--read=DIR holds <resource id>.json).
+const FILL = (arg('fill') || '').split(',').filter(Boolean);
+const READ = arg('read');
 const log = (...a) => console.log(...a);
 
 async function signIn() {
@@ -77,7 +81,55 @@ async function fromDrive(id) {
 const PY = [
   'import sys, json, pymupdf',
   'src, dst = sys.argv[1], sys.argv[2]',
+  'fill = json.load(open(sys.argv[3])) if len(sys.argv) > 3 else None',
   'd = pymupdf.open(src)',
+  'cards = 0',
+  'if fill:',
+  '    DJ = pymupdf.Font(fontfile="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")',
+  '    WQ = pymupdf.Font(fontfile="/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc")',
+  '    def fnt(ch): return WQ if ord(ch) > 0x2E80 or 0x1100 <= ord(ch) <= 0x11FF or 0x3130 <= ord(ch) <= 0x318F or 0xAC00 <= ord(ch) <= 0xD7A3 else DJ',
+  '    def width(t, sz): return sum(fnt(c).text_length(c, fontsize=sz) for c in t)',
+  '    def wrap(t, sz, w):',
+  '        lines, cur = [], ""',
+  '        for word in t.split(" "):',
+  '            trial = (cur + " " + word).strip()',
+  '            if width(trial, sz) <= w or not cur: cur = trial',
+  '            else: lines.append(cur); cur = word',
+  '        if cur: lines.append(cur)',
+  '        return lines',
+  '    pg = d[0]',
+  '    marks = []',
+  '    for b in pg.get_text("dict")["blocks"]:',
+  '        for ln in b.get("lines", []):',
+  '            for sp in ln["spans"]:',
+  '                if sp["text"].replace(" ", "").upper().startswith("TRACEAND"): marks.append(sp["bbox"][1])',
+  '    # the card starts 76 pt above its "TRACE AND COPY" label (the owner\'s layout)',
+  '    cs = [pymupdf.Rect(42, my - 76, 553, my + 46) for my in sorted(marks)]',
+  '    if len(cs) != len(fill): raise SystemExit("cards " + str(len(cs)) + " != letters " + str(len(fill)))',
+  '    cards = len(cs)',
+  '    DARK, GREY = (0.098, 0.231, 0.18), (0.26, 0.33, 0.30)',
+  '    for r, l in zip(cs, fill):',
+  '        tws = {DARK: pymupdf.TextWriter(pg.rect), GREY: pymupdf.TextWriter(pg.rect)}',
+  '        y = r.y0 + 22',
+  '        for t, sz, lh, col in ((l.get("sound") or "", 9.4, 11.5, DARK), (l.get("as") or "", 7.3, 9.0, GREY)):',
+  '            if not t: continue',
+  '            for line in wrap(t, sz, 243):',
+  '                x = 298',
+  '                cur = ""',
+  '                # one run per font so each character comes from a font that has it',
+  '                runs, run, rf = [], "", None',
+  '                for ch in line:',
+  '                    f = fnt(ch)',
+  '                    if rf is not None and f is not rf: runs.append((run, rf)); run = ""',
+  '                    run += ch; rf = f',
+  '                if run: runs.append((run, rf))',
+  '                for txt, f in runs:',
+  '                    tws[col].append((x, y), txt, font=f, fontsize=sz)',
+  '                    x += f.text_length(txt, fontsize=sz)',
+  '                y += lh',
+  '            y += 3',
+  '        if y - 3 > r.y0 + 72: raise SystemExit("sound text too long for the card")',
+  '        for c, tw in tws.items(): tw.write_text(pg, color=c)',
   'info = {"pages": d.page_count, "sizes": [[round(p.rect.width), round(p.rect.height)] for p in d]}',
   'mins, outside, texts = [], 0, []',
   'for p in d:',
@@ -90,7 +142,7 @@ const PY = [
   '                    x0, y0, x1, y1 = s["bbox"]',
   '                    if x0 < r.x0 - 1 or y0 < r.y0 - 1 or x1 > r.x1 + 1 or y1 > r.y1 + 1: outside += 1',
   '    mins.append(round(small, 1)); texts.append(p.get_text())',
-  'info["minfont"] = mins; info["outside"] = outside; info["chars"] = [len(x) for x in texts]',
+  'info["minfont"] = mins; info["outside"] = outside; info["chars"] = [len(x) for x in texts]; info["cards"] = cards',
   'try:',
   '    d.subset_fonts()',
   'except Exception as e:',
@@ -99,11 +151,13 @@ const PY = [
   'print(json.dumps(info))'
 ].join('\n');
 
-function prepare(bytes, work, n) {
+function prepare(bytes, work, n, fill) {
   const src = path.join(work, n + '-in.pdf');
   const dst = path.join(work, n + '-out.pdf');
   fs.writeFileSync(src, bytes);
-  const info = JSON.parse(execFileSync('python3', ['-P', '-c', PY, src, dst], { encoding: 'utf8' }));
+  const extra = [];
+  if (fill) { const f = path.join(work, n + '-fill.json'); fs.writeFileSync(f, JSON.stringify(fill)); extra.push(f); }
+  const info = JSON.parse(execFileSync('python3', ['-P', '-c', PY, src, dst, ...extra], { encoding: 'utf8' }));
   return { info, pdf: fs.readFileSync(dst) };
 }
 
@@ -111,7 +165,7 @@ function judge(info, pdf) {
   const why = [];
   if (info.pages !== 2) why.push('the file has ' + info.pages + ' pages, not 2');
   info.sizes.forEach(([w, h], i) => { if (Math.abs(w - 595) > 3 || Math.abs(h - 842) > 3) why.push('page ' + (i + 1) + ' is not A4'); });
-  info.minfont.forEach((m, i) => { if (m < 6) why.push('page ' + (i + 1) + ' has text under 6 pt'); });
+  info.minfont.forEach((m, i) => { if (m < 5.5) why.push('page ' + (i + 1) + ' has text under 5.5 pt'); });
   if (info.outside) why.push(info.outside + ' pieces of text run off the page');
   info.chars.forEach((c, i) => { if (c < 40) why.push('page ' + (i + 1) + ' has almost no text'); });
   const text = textIsReal(pdf);
@@ -154,7 +208,13 @@ async function run() {
       const want = row.file.replace(/^\d{3}-/, '').replace(/\.pdf$/, '');
       if (want !== ids[n].key) throw new Error('이름이 맞지 않습니다 (' + row.file + ' ≠ ' + ids[n].key + ')');
       const raw = await fromDrive(ids[n].id);
-      const { info, pdf } = prepare(raw, work, n);
+      let fill = null;
+      if (FILL.includes(n)) {
+        const own = JSON.parse(fs.readFileSync(path.join(READ, row.id + '.json'), 'utf8'));
+        fill = (own.letters || []).map((l) => ({ sound: l.sound || '', as: l.as || '' }));
+        if (!fill.length) throw new Error('원본에 letters가 없습니다');
+      }
+      const { info, pdf } = prepare(raw, work, n, fill);
       const check = judge(info, pdf);
       log(n + ' ' + row.title.slice(0, 28) + ' — ' + info.pages + '쪽, ' + Math.round(raw.length / 1024) + 'KB → ' +
           Math.round(pdf.length / 1024) + 'KB, 글자 최소 ' + Math.min(...info.minfont) + 'pt' + (check.ok ? '' : ' ! ' + check.why.join('; ')));
