@@ -510,3 +510,7 @@ html body table.forms.forms2 .word { font-size: 17px; font-weight: 700; }
 html body table.forms.forms2 .rom { font-size: 10.5px; line-height: 1.4; margin-top: 4px; }
 html body table.forms.forms2 .gm { font-size: 10.5px; color: #33423d; line-height: 1.4; margin-top: 5px; }
 html body.compact table.forms.forms2 td { padding: 7px 14px; }
+/* Hangul page 2, set closer (a long language with the owner's four words):
+   the numbered parts of an exercise run along one line instead of one under
+   the other — same type, fewer lines. */
+.compact .pg2 ~ section .q-body { flex-direction: row; flex-wrap: wrap; gap: 0 22px; }
