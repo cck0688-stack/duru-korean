@@ -142,10 +142,13 @@ export function markedHTML(text, marks) {
 // wrong. The last part is what people actually keep the sheet for.
 function grammar(s, L) {
   return '<section><h2>' + esc(L.pattern) + '</h2>' +
-    '<table class="forms"><tbody>' + list(s.forms).map((f) =>
+    // The owner's layout (2026-10-11, his edit of the 102): two columns, the
+    // form, when it applies and what it does stacked and centred on the left,
+    // the example on the right.
+    '<table class="forms forms2"><tbody>' + list(s.forms).map((f) =>
       '<tr><td><div class="word" lang="ko">' + prose(f.form) + '</div>' +
-      (f.when ? '<div class="rom">' + prose(f.when) + '</div>' : '') + '</td>' +
-      '<td>' + prose(f.means) + '</td>' +
+      (f.when ? '<div class="rom">' + prose(f.when) + '</div>' : '') +
+      (f.means ? '<div class="gm">' + prose(f.means) + '</div>' : '') + '</td>' +
       '<td><div class="ex-kr" lang="ko">' + markedHTML(f.example, f.mark) + '</div>' +
       (f.exampleMeaning ? '<div class="ex-tr">' + esc(f.exampleMeaning) + '</div>' : '') +
       '</td></tr>').join('') + '</tbody></table></section>' +
@@ -177,43 +180,41 @@ function reallife(s, L) {
 }
 
 /* ---- hangul ------------------------------------------------------ */
-// The owner (2026-10-10): a learner must be able to write on it. Each
-// letter is a card: the letter or rule on top, sized to its length and
-// never cut off; its sound and note beside it with room to read; under
-// them a row of squares, one per syllable — the example traced in grey,
-// then the same number empty to copy it into.
-function traceWord(l) {
-  const letter = String(l.letter || '').trim();
-  // A letter, a syllable or a short word: that is what is written.
-  if (/^[\u3131-\u318e\uac00-\ud7a3]{1,6}$/.test(letter)) return letter;
-  // A rule ("받침 + ㅇ → linking"): the first Korean word of its sound.
-  // Digits count ("3월"); the first such word with Hangul in it.
-  const first = (t) => (String(t || '').match(/[0-9\uac00-\ud7a3]+/g) || []).find((x) => /[\uac00-\ud7a3]/.test(x) && x.length <= 6);
-  return first(letter) || first(l.sound) || '';
+// The owner's layout (2026-10-11, from his own edit of the 100): page 1
+// is "The letters" — a card each, the letter or rule on the left, its
+// sound and note on the right, under them ten squares to trace (the first
+// carry the example, in grey) and copy; page 2 is the words, Your turn
+// and the answers. A letter's `trace` is Korean, so it is the same in
+// every language.
+function traceOf(l) {
+  if (Array.isArray(l.trace) && l.trace.length) return l.trace.map((x) => String(x).slice(0, 3));
+  const first = (t) => (String(t || '').match(/[0-9\uac00-\ud7a3\u3131-\u318e]+/g) || []).find((x) => /[\uac00-\ud7a3\u3131-\u318e]/.test(x) && x.length <= 4);
+  const one = first(l.letter) || first(l.sound) || '';
+  return one ? [one, one] : [];
 }
 function letterSize(t) {
   const n = [...String(t || '')].length;
-  return n <= 3 ? 44 : n <= 6 ? 34 : n <= 10 ? 24 : n <= 18 ? 18 : 15;
+  return n <= 3 ? 40 : n <= 8 ? 34 : n <= 16 ? 24 : n <= 30 ? 19 : 16;
 }
 function hangul(s, L) {
   return '<section><h2>' + esc(L.letters) + '</h2>' +
+    '<div class="lhead"><div>' + esc(L.letter).toUpperCase() + '</div><div>' + esc(L.sound).toUpperCase() + '</div></div>' +
     list(s.letters).map((l) => {
-      const w = [...traceWord(l)];
-      const n = Math.max(4, Math.min(8, w.length * 2));
-      const boxes = Array.from({ length: n }, (_, i) =>
-        '<div class="box">' + (i < w.length ? '<span lang="ko">' + esc(w[i]) + '</span>' : '') + '</div>').join('');
+      const tr = traceOf(l);
+      const boxes = Array.from({ length: 10 }, (_, i) =>
+        '<div class="box">' + (tr[i] ? '<span lang="ko">' + esc(tr[i]) + '</span>' : '') + '</div>').join('');
       return '<div class="lcard"><div class="lc-top">' +
         '<div class="lc-letter" lang="ko" style="font-size:' + letterSize(l.letter) + 'px">' + esc(l.letter) + '</div>' +
         '<div class="lc-sound"><div class="sound">' + soundHTML(l.sound) + '</div>' +
         (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</div></div>' +
-        (w.length ? '<div class="lc-trace"><span class="lc-label">' + esc(L.practice) + '</span><div class="boxes">' + boxes + '</div></div>' : '') +
+        '<div class="lc-trace"><div class="lc-label">' + esc(L.practice) + '</div><div class="boxes">' + boxes + '</div></div>' +
         '</div>';
     }).join('') +
     '</section>' +
     (list(s.words).length
-      ? '<section><h2>' + esc(L.nowTheWords) + '</h2>' + wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>'
+      ? '<section class="pg2"><h2>' + esc(L.nowTheWords) + '</h2>' + wordRows(s.words, [L.word, L.meaning, L.inUse]) + '</section>'
       : '') +
-    practice(s, L, { answerLines: true });
+    practice(s, L, { answerLines: false });
 }
 
 /* ---- everything else --------------------------------------------- */
