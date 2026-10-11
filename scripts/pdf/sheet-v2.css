@@ -503,10 +503,10 @@ section.k-next { break-before: page; page-break-before: always; }
 .q-part .ans { flex: 1 0 150px; border-bottom: 1px solid #b8c1bc; margin-left: 10px; height: 18px; }
 
 /* Grammar, the owner's two-column table (2026-10-11): every cell centred. */
-html body table.forms.forms2 td { text-align: center; padding: 11px 16px; }
+html body table.forms.forms2 td { text-align: center; padding: 8px 14px; }
 html body table.forms.forms2 td:nth-child(1) { width: 60%; }
 html body table.forms.forms2 td:nth-child(2) { width: 40%; }
 html body table.forms.forms2 .word { font-size: 17px; font-weight: 700; }
-html body table.forms.forms2 .rom { font-size: 10.5px; margin-top: 6px; }
-html body table.forms.forms2 .gm { font-size: 10.5px; color: #33423d; line-height: 1.5; margin-top: 8px; }
+html body table.forms.forms2 .rom { font-size: 10.5px; line-height: 1.4; margin-top: 4px; }
+html body table.forms.forms2 .gm { font-size: 10.5px; color: #33423d; line-height: 1.4; margin-top: 5px; }
 html body.compact table.forms.forms2 td { padding: 7px 14px; }
