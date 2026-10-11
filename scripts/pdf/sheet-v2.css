@@ -530,3 +530,7 @@ html body.compact table.forms.forms2 td { padding: 7px 14px; }
 .compact.shelf-tight .lc-top { min-height: 40px; }
 .compact.shelf-tight .lc-trace .box { height: 42px; }
 .compact.shelf-tight .lc-label { margin: 0 0 2px; }
+/* Set closer: the question on its own line, its numbered parts in a row under it. */
+.compact.shelf-tight .q-body > div:first-child { flex: 0 0 100%; }
+.compact.shelf-tight .q-part { flex: 0 0 auto; }
+.compact.shelf-tight .q-body > .q-parts { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 0 22px; }
