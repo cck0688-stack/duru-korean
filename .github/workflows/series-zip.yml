@@ -13,6 +13,9 @@ on:
       since:
         description: 'Series start (UTC), sheets made since then'
         default: '2026-10-09T02:00:00Z'
+      pick:
+        description: 'Only some numbers of one shelf, e.g. hangul:008,009 (saved under claude-modified-en/)'
+        default: ''
 
 permissions:
   contents: write
@@ -49,19 +52,28 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SINCE: ${{ inputs.since }}
-        run: node scripts/series-zip.mjs --out=../rework-output/series-zip --since="${SINCE:-2026-10-09T02:00:00Z}"
+          PICK: ${{ inputs.pick }}
+        run: |
+          if [ -n "$PICK" ]; then
+            node scripts/series-zip.mjs --out=../rework-output/claude-modified-en --since="${SINCE:-2026-10-09T02:00:00Z}" --pick="$PICK"
+          else
+            node scripts/series-zip.mjs --out=../rework-output/series-zip --since="${SINCE:-2026-10-09T02:00:00Z}"
+          fi
 
       - name: Keep them as a download too
         uses: actions/upload-artifact@v4
         with:
           name: series-zips-en
-          path: /home/runner/work/duru-korean/rework-output/series-zip/*
+          path: |
+            /home/runner/work/duru-korean/rework-output/series-zip/*
+            /home/runner/work/duru-korean/rework-output/claude-modified-en/*
+          if-no-files-found: ignore
           retention-days: 30
 
       - name: Save
         working-directory: ../rework-output
         run: |
-          git add -A series-zip
+          git add -A series-zip claude-modified-en 2>/dev/null || git add -A series-zip
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -q -m "Series zips (English)"
           for i in 1 2 3 4; do

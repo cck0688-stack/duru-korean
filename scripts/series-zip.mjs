@@ -19,6 +19,8 @@ const arg = (n) => { const h = process.argv.find((a) => a.startsWith('--' + n + 
 const log = (...a) => console.log(...a);
 const SHELVES = { hangul: 'Hangul-Starter', grammar: 'Grammar-Cheat-Sheets', vocab: 'Vocabulary' };
 const SINCE = arg('since') || '2026-10-09T02:00:00Z';
+// --pick=hangul:008,009,… : only those numbers of that shelf (the files the owner asked for by number).
+const PICK = arg('pick') ? { shelf: arg('pick').split(':')[0], nos: arg('pick').split(':')[1].split(',').map((x) => Number(x)) } : null;
 
 async function signIn() {
   const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
@@ -40,6 +42,7 @@ async function run() {
   let token = await signIn();
   const index = [['shelf', 'no', 'file', 'title', 'status', 'id']];
   for (const [shelf, name] of Object.entries(SHELVES)) {
+    if (PICK && PICK.shelf !== shelf) continue;
     const rows = await rest(token, 'resources?select=id,title,status,keyword,i18n,created_at,resource_files(lang,version,storage_key,draft_key)' +
       '&origin=eq.auto&status=neq.rejected&publish_location=eq.free-resources&category=eq.' + shelf +
       '&created_at=gte.' + SINCE + '&order=created_at.asc&limit=1000');
@@ -51,6 +54,7 @@ async function run() {
       files.sort((a, b) => (b.version || 1) - (a.version || 1));
       if (!files.length) { log('  English PDF 없음: ' + r.title); continue; }
       if (n % 10 === 0) token = await signIn();
+      if (PICK && !PICK.nos.includes(n + 1)) { n += 1; continue; }
       const bytes = await download(token, where(files[0]));
       n += 1;
       const en = (r.i18n && r.i18n.en && r.i18n.en.title) || r.title;
