@@ -25,6 +25,10 @@ on:
         description: 'Only write the read-online text (no PDFs rendered or replaced)'
         type: boolean
         default: false
+      keep_pdfs:
+        description: 'Also keep the built PDFs as a download (for the owner to look at)'
+        type: boolean
+        default: false
       from:
         description: 'First number (e.g. 001) — a range keeps one run under six hours'
         default: ''
@@ -85,6 +89,7 @@ jobs:
           ONLY: ${{ inputs.only }}
           FROM: ${{ inputs.from }}
           READ_ONLY: ${{ inputs.read_only }}
+          KEEP_PDFS: ${{ inputs.keep_pdfs }}
           TO: ${{ inputs.to }}
         run: |
           args=(--shelf="$SHELF" --index=/tmp/index.csv --read=../rework-output/read)
@@ -95,10 +100,20 @@ jobs:
           fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ "$KEEP_PDFS" = "true" ]; then args+=(--out=pdf-out); fi
           if [ "$READ_ONLY" = "true" ]; then args+=(--read-only); fi
           if [ -n "$FROM" ]; then args+=(--from="$FROM"); fi
           if [ -n "$TO" ]; then args+=(--to="$TO"); fi
           node scripts/adopt-edits.mjs "${args[@]}"
+
+      - name: The built PDFs, to look at
+        if: always() && inputs.keep_pdfs == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: adopt-pdfs-${{ inputs.shelf }}
+          path: pdf-out/*
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Keep the new read-online text
         if: always() && inputs.shelf == 'hangul' && inputs.dry_run != true

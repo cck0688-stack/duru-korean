@@ -197,14 +197,21 @@ function letterSize(t) {
   return n <= 3 ? 40 : n <= 8 ? 34 : n <= 16 ? 24 : n <= 30 ? 19 : 16;
 }
 function hangul(s, L) {
+  // `cleanCards` (the owner, 2026-10-12, the 16 sheets set from the stored text): the
+  // squares all left empty, what stands under SOUND centred, and what follows an
+  // arrow on the line below ("1. 받침 + ㅇ" / "→ 받침이 넘어감").
+  const clean = !!s.cleanCards;
   return '<section><h2>' + esc(L.letters) + '</h2>' +
     '<div class="lhead"><div>' + esc(L.letter).toUpperCase() + '</div><div>' + esc(L.sound).toUpperCase() + '</div></div>' +
     list(s.letters).map((l) => {
-      const tr = traceOf(l);
+      const tr = clean ? [] : traceOf(l);
       const boxes = Array.from({ length: 10 }, (_, i) =>
         '<div class="box">' + (tr[i] ? '<span lang="ko">' + esc(tr[i]) + '</span>' : '') + '</div>').join('');
-      return '<div class="lcard"><div class="lc-top">' +
-        '<div class="lc-letter" lang="ko" style="font-size:' + letterSize(l.letter) + 'px">' + esc(l.letter) + '</div>' +
+      const arrow = clean ? String(l.letter || '').search(/\s*→/) : -1;
+      const lines = arrow > 0 ? [String(l.letter).slice(0, arrow).trim(), String(l.letter).slice(arrow).trim()] : [String(l.letter || '')];
+      const size = letterSize(lines.reduce((a, b) => (b.length > a.length ? b : a), ''));
+      return '<div class="lcard' + (clean ? ' clean' : '') + '"><div class="lc-top">' +
+        '<div class="lc-letter" lang="ko" style="font-size:' + size + 'px">' + lines.map(esc).join('<br>') + '</div>' +
         '<div class="lc-sound"><div class="sound">' + soundHTML(l.sound) + '</div>' +
         (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</div></div>' +
         '<div class="lc-trace"><div class="lc-label">' + esc(L.practice) + '</div><div class="boxes">' + boxes + '</div></div>' +

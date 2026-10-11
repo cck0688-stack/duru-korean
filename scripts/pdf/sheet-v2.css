@@ -534,3 +534,6 @@ html body.compact table.forms.forms2 td { padding: 7px 14px; }
 .compact.shelf-tight .q-body > div:first-child { flex: 0 0 100%; }
 .compact.shelf-tight .q-part { flex: 0 0 auto; }
 .compact.shelf-tight .q-body > .q-parts { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 0 22px; }
+
+/* The owner's clean cards (2026-10-12): what stands under SOUND is centred. */
+.lcard.clean .lc-sound { text-align: center; }

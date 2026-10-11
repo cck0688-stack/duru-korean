@@ -189,7 +189,7 @@ async function main() {
       for (const [lang, ed] of Object.entries(READ_ONLY ? {} : editions)) {
         if (outputs[lang]) continue;
         if (lang === 'en' && !contentOnly) continue;
-        const r = await renderSheet(ed, { category: SHELF, lang, browser });
+        const r = await renderSheet(contentOnly && SHELF === 'hangul' ? { ...ed, cleanCards: true } : ed, { category: SHELF, lang, browser });
         if (r.check.pages !== 2 || !r.check.ok) {
           stat.skippedLang.push(n + ' ' + lang + ' (' + r.check.pages + '쪽' + (r.check.pages > 2 ? ', 넘친 글 약 ' + overflowPt(r.pdf, work) + 'pt' : '') + (r.check.ok ? '' : ', ' + r.check.why.join('; ').slice(0, 80)) + ')');
           continue;
