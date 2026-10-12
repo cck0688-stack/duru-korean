@@ -50,6 +50,9 @@
   centred up and down, Watch out on page 2 with the differing words underlined.
   English first (adopt-edits --shelf=grammar --clean-all --langs=en); other
   languages later, when the owner says.
+- Grammar duplicates (owner, 2026-10-12): 018-goyo (same as 043) and 044-haveto
+  (same as 064) are not published; 043 and 064 are. They stay held in review,
+  not deleted. Their layout is still edited with the rest.
 - Hangul letter cards (owner, 2026-10-12, sample 058 v3): skill
   .claude/skills/hangul-starter-card-layout — empty trace squares, SOUND
   text centred, text after an arrow on its own line, letters the same
