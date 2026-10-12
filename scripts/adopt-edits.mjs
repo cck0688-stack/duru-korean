@@ -44,6 +44,8 @@ const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); r
 const SHELF = arg('shelf');
 const DRY = args.includes('--dry-run');
 const ONLY = arg('only');
+const CLEAN_ALL = args.includes('--clean-all');   // every sheet's English set on the stored text in the clean-card layout (owner, 2026-10-12)
+const LANG_ONLY = arg('langs') ? arg('langs').split(',') : null;
 const READ_ONLY = args.includes('--read-only');   // only write the read-online text: no render, no replace
 const CONTENT_ONLY = (arg('content-only') || '').split(',').filter(Boolean);
 const READ = arg('read');
@@ -138,7 +140,7 @@ async function main() {
       const outputs = {};
       const prep = prepare(hisBytes, work, n, null);
       const parsed = SHELF === 'hangul' && !contentOnly ? parseHangul(path.join(work, n + '-in.pdf')) : null;
-      if (!contentOnly && !READ_ONLY) {
+      if (!contentOnly && !READ_ONLY && !CLEAN_ALL) {
         const check = judge(prep.info, prep.pdf);
         if (!check.ok) throw new Error('영어판 검사를 통과하지 못했습니다: ' + check.why.join('; '));
         outputs.en = { pdf: prep.pdf, check, bytes: prep.pdf.length, hash: crypto.createHash('sha256').update(prep.pdf).digest('hex') };
@@ -147,6 +149,7 @@ async function main() {
       // The stored sheet in every language, in the new layout.
       const editions = {};
       for (const lang of LANGS) {
+        if (LANG_ONLY && !LANG_ONLY.includes(lang)) continue;
         const f = path.join(READ, row.id, lang + '.json');
         if (fs.existsSync(f)) editions[lang] = JSON.parse(fs.readFileSync(f, 'utf8'));
       }
@@ -188,8 +191,8 @@ async function main() {
 
       for (const [lang, ed] of Object.entries(READ_ONLY ? {} : editions)) {
         if (outputs[lang]) continue;
-        if (lang === 'en' && !contentOnly) continue;
-        const r = await renderSheet(contentOnly && SHELF === 'hangul' ? { ...ed, cleanCards: true } : ed, { category: SHELF, lang, browser });
+        if (lang === 'en' && !contentOnly && !CLEAN_ALL) continue;
+        const r = await renderSheet((contentOnly || CLEAN_ALL) && SHELF === 'hangul' ? { ...ed, cleanCards: true } : ed, { category: SHELF, lang, browser });
         if (r.check.pages !== 2 || !r.check.ok) {
           stat.skippedLang.push(n + ' ' + lang + ' (' + r.check.pages + '쪽' + (r.check.pages > 2 ? ', 넘친 글 약 ' + overflowPt(r.pdf, work) + 'pt' : '') + (r.check.ok ? '' : ', ' + r.check.why.join('; ').slice(0, 80)) + ')');
           continue;

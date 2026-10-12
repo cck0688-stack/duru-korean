@@ -29,6 +29,13 @@ on:
         description: 'Also keep the built PDFs as a download (for the owner to look at)'
         type: boolean
         default: false
+      clean_all:
+        description: 'Hangul: set every sheet in the clean-card layout (English from the stored text and his words)'
+        type: boolean
+        default: false
+      langs:
+        description: 'Only these languages, e.g. en'
+        default: ''
       from:
         description: 'First number (e.g. 001) — a range keeps one run under six hours'
         default: ''
@@ -90,6 +97,8 @@ jobs:
           FROM: ${{ inputs.from }}
           READ_ONLY: ${{ inputs.read_only }}
           KEEP_PDFS: ${{ inputs.keep_pdfs }}
+          CLEAN_ALL: ${{ inputs.clean_all }}
+          LANGS_ONLY: ${{ inputs.langs }}
           TO: ${{ inputs.to }}
         run: |
           args=(--shelf="$SHELF" --index=/tmp/index.csv --read=../rework-output/read)
@@ -100,6 +109,8 @@ jobs:
           fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          if [ "$CLEAN_ALL" = "true" ]; then args+=(--clean-all); fi
+          if [ -n "$LANGS_ONLY" ]; then args+=(--langs="$LANGS_ONLY"); fi
           if [ "$KEEP_PDFS" = "true" ]; then args+=(--out=pdf-out); fi
           if [ "$READ_ONLY" = "true" ]; then args+=(--read-only); fi
           if [ -n "$FROM" ]; then args+=(--from="$FROM"); fi

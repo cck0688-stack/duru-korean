@@ -45,6 +45,12 @@
   085 (and the 5 he named) are set from the stored text (his PDF had tiny
   text). Left on the old layout: grammar 100 (vi, es, id, pt-BR, fr, de: table
   too long for two pages); grammar 018 and 044 have no files for some languages.
+- Hangul letter cards (owner, 2026-10-12, sample 058 v3): skill
+  .claude/skills/hangul-starter-card-layout — empty trace squares, SOUND
+  text centred, text after an arrow on its own line, letters the same
+  size to the eye. The Hangul Starter English PDFs are to be made on it;
+  built for the owner to look at first (adopt-edits keep_pdfs, never
+  replaced before he agrees).
 - Worksheet subjects come from the syllabus in content/curriculum (the
   standard curriculum's grammar and vocabulary, Sejong topics), in order
   (owner, 2026-10-05) — scripts/lib/curriculum.mjs. A grammar item's
