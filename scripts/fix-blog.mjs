@@ -77,7 +77,10 @@ async function rewrite(cfg, sentences) {
   });
   const out = JSON.parse(text).sentences || [];
   if (out.length !== sentences.length) throw new Error('고친 문장 수가 다릅니다');
-  return out.map((s, i) => String(s || '').trim() || sentences[i]);
+  // What the model left of the writer as teacher goes by rule.
+  return out.map((s, i) => (String(s || '').trim() || sentences[i])
+    .replace(/제가 가르(치는|친|치던|쳤던)\s*(외국인\s*)?(학생|친구)/g, '외국인 $3')
+    .replace(/(베트남|일본|중국|미국|독일)(에서 온)?\s*(학생|친구)/g, '외국인 $3'));
 }
 
 async function fixWords(cfg, token, posts) {
