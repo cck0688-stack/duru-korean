@@ -251,6 +251,11 @@ export const SHELF_QUERIES = {
 // back taken rather than refused. A Korean street under a post about
 // Korean streets is not a mismatch, and a post with no picture at all
 // reads as unfinished.
+// The same photograph under two addresses (size or tracking parameters) is one photo.
+export function photoKey(url) {
+  return String(url || '').split('?')[0].replace(/\/+$/, '');
+}
+
 export async function findPhoto(cfg, photoCfg, opts, log) {
   const note = log || (() => {});
   let queries = [];
@@ -268,7 +273,7 @@ export async function findPhoto(cfg, photoCfg, opts, log) {
     note(`사진 찾는 중: "${query}"`);
     let found = [];
     try {
-      found = await photoCfg.service.search(photoCfg.key, query, opts.count || 8);
+      found = await photoCfg.service.search(photoCfg.key, query, opts.count || (opts.avoid && opts.avoid.size ? 20 : 8));
     } catch (err) {
       note(`  검색 실패 (${err.message})`);
       if (!last) continue;
@@ -276,6 +281,13 @@ export async function findPhoto(cfg, photoCfg, opts, log) {
     if (!found.length) {
       if (!last) note('  결과가 없어 다음 검색어로 넘어갑니다');
       continue;
+    }
+    // A photo already on another post is not used again (owner, 2026-10-12).
+    if (opts.avoid && opts.avoid.size) {
+      const before = found.length;
+      found = found.filter((p) => !opts.avoid.has(photoKey(p.url)));
+      if (found.length < before) note(`  다른 글에 이미 쓴 사진 ${before - found.length}장을 뺐습니다`);
+      if (!found.length) { if (!last) note('  새 사진이 없어 다음 검색어로 넘어갑니다'); continue; }
     }
     const chosen = await pickPhoto(cfg, found, opts);
     if (chosen) {

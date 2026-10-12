@@ -31,7 +31,7 @@ import { useSubscription, subscriptionAccount, usageReport } from './lib/claude-
 import { writeOne } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
-import { resolvePhotos, findPhoto } from '../api/_photos.js';
+import { resolvePhotos, findPhoto, photoKey } from '../api/_photos.js';
 import { translateDraft, studyDraft } from './lib/mt.mjs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
@@ -183,7 +183,7 @@ async function main() {
 
   let call = null;
   let userId = null;
-  let existing = { titles: [], slugs: [], byCategory: {} };
+  let existing = { titles: [], slugs: [], byCategory: {}, photos: new Set() };
 
   if (!DRY) {
     const session = await withRetry('로그인', signIn);
@@ -279,8 +279,10 @@ async function main() {
             title: draft.title, topic: draft.topic, content: draft.content,
             // The shelf is the last resort's search term, so it has to
             // travel with the post — see SHELF_QUERIES in api/_photos.js.
-            category: category.id
+            category: category.id,
+            avoid: existing.photos
           }, (m) => log(`  ${m}`));
+          if (draft.photo && existing.photos) existing.photos.add(photoKey(draft.photo.url));
           if (!draft.photo) log('  사진을 끝내 찾지 못했습니다 — 사진 없이 저장합니다');
           else log(`  사진: ${draft.photo.credit} (${draft.photo.source})` +
                    (draft.photo.fallback ? ' — 주제 기본 사진' : ''));
@@ -400,7 +402,7 @@ function stageOf(err) {
 
 async function readExisting(call) {
   const rows = await call(
-    'posts?select=title,slug,category&order=post_date.desc&limit=300');
+    'posts?select=title,slug,category,image_url&order=post_date.desc&limit=1000');
   const byCategory = {};
   (rows || []).forEach((r) => {
     (byCategory[r.category] = byCategory[r.category] || []).push(r.title);
@@ -408,7 +410,8 @@ async function readExisting(call) {
   return {
     titles: (rows || []).map((r) => r.title),
     slugs: (rows || []).map((r) => r.slug),
-    byCategory: byCategory
+    byCategory: byCategory,
+    photos: new Set((rows || []).map((r) => photoKey(r.image_url)).filter(Boolean))
   };
 }
 

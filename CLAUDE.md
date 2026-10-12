@@ -70,6 +70,10 @@
   meaning together (same form ≠ same item); ±1 level at most.
 - Spend as few tokens as quality allows (owner, 2026-10-05): the runs
   log what each step spent (usageReport); check it and report.
+- Blog voice and photos (owner, 2026-10-12): the owner does not teach now —
+  never "my student"/"베트남 제자"; just "외국인 학생", no nationality. A
+  post's photo is never one another post already uses (generate-drafts
+  passes the used photos to findPhoto).
 - Blog PDFs (owner, 2026-09-28): every blog post gets, per language, a
   download PDF (with the photo) and a print PDF (no photo, two pages
   where it fits; Print prints that one). scripts/blog-pdf.mjs, workflow
