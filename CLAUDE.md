@@ -70,6 +70,10 @@
   meaning together (same form ≠ same item); ±1 level at most.
 - Spend as few tokens as quality allows (owner, 2026-10-05): the runs
   log what each step spent (usageReport); check it and report.
+- Community sample posts (owner, 2026-10-12): 3–5 writers a day, each
+  100/200/300 characters or thereabouts, arriving at irregular times — the
+  day's plan comes from the date (scripts/sim/live.mjs dayPlan); replies and
+  hearts are few and irregular. No rhythm should show.
 - Blog voice and photos (owner, 2026-10-12): the owner does not teach now —
   never "my student"/"베트남 제자"; just "외국인 학생", no nationality. A
   post's photo is never one another post already uses (generate-drafts

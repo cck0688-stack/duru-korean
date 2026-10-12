@@ -36,10 +36,42 @@ import { liveProject, DETECT, LANGS, TOPICS, seoulNow, pick, between, shuffle, l
 import { inventPeople, writePost, writeReply, placeless } from './writer.mjs';
 import { balanced, chooseThread, threadOf } from './run.mjs';
 
-const PER_DAY = 20;
-const TICKS_PER_HOUR = 3;
 const ONLINE = 8;
 const THREAD_DAYS = 10;
+
+
+// ── the day's plan (owner, 2026-10-12): three to five people write a day,
+// a hundred characters, two hundred, three hundred — all sorts — and they
+// come in at irregular times, never at a fixed rhythm. The plan comes from
+// the date, so every run of the day reads the same one.
+function rng(seed) {
+  let a = 0;
+  for (const ch of String(seed)) a = (Math.imul(a, 31) + ch.charCodeAt(0)) >>> 0;
+  return function next() {
+    a = (a + 0x6D2B79F5) >>> 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const CENTRES = [[70, 1], [100, 3], [130, 1.5], [160, 1.5], [200, 3], [240, 1.5], [300, 3], [360, 1]];
+export function dayPlan(date) {
+  const r = rng('duru-day:' + date);
+  const n = r() < 0.34 ? 3 : r() < 0.5 ? 4 : 5;
+  const when = [];
+  for (let guard = 0; when.length < n && guard < 200; guard += 1) {
+    const m = 540 + Math.floor(r() * 870);           // 09:00 – 23:30
+    if (when.every((x) => Math.abs(x - m) >= 25)) when.push(m);
+  }
+  when.sort((a, b) => a - b);
+  const total = CENTRES.reduce((x, c) => x + c[1], 0);
+  return when.map((minute) => {
+    let k = r() * total, centre = CENTRES[0][0];
+    for (const c of CENTRES) { k -= c[1]; if (k < 0) { centre = c[0]; break; } }
+    centre = Math.round(centre * (0.9 + r() * 0.2));
+    return { minute, min: Math.round(centre * 0.78), max: Math.round(centre * 1.22), centre };
+  });
+}
 
 const args = process.argv.slice(2);
 const flag = (name) => {
@@ -159,9 +191,15 @@ export async function tick() {
     }
   }
 
-  /* 1. new sample writers — twenty a day */
+  /* 1. the day's writers: three to five, one at a time, at irregular times */
+  const plan = dayPlan(now.date);
+  const nowMin = now.hour * 60 + now.minute;
+  const arrived = plan.filter((x) => x.minute <= nowMin).length;
   const joinedToday = personas.filter((p) => p.joined_on === now.date).length;
-  const due = flag('signups') ?? Math.max(0, PER_DAY - joinedToday);
+  log('오늘 계획: ' + plan.length + '명 · 들어오는 시각 ' + plan.map((x) => String(Math.floor(x.minute / 60)).padStart(2, '0') + ':' + String(x.minute % 60).padStart(2, '0')).join(', ') +
+      ' · 글자 수 ' + plan.map((x) => x.min + '~' + x.max).join(', ') + ' · 지금까지 ' + joinedToday + '명');
+  // Only one new person per run, so a late run does not post them all at once.
+  const due = flag('signups') ?? (arrived > joinedToday ? 1 : 0);
   if (due > 0) {
     const langs = balanced(personas, due, 'lang', LANGS);
     const topics = balanced(personas, due, 'topic', TOPICS);
@@ -180,7 +218,7 @@ export async function tick() {
         personas.push(saved); byNick.set(saved.nickname, saved); made += 1;
       } catch (err) { log('  작성자 저장 실패 — ' + err.message); }
     }
-    log('새 예시 작성자: ' + made + '명 (오늘 ' + (joinedToday + made) + '/' + PER_DAY + ')');
+    log('새 예시 작성자: ' + made + '명 (오늘 ' + (joinedToday + made) + '/' + plan.length + ')');
   }
 
   /* 2. sample threads only — a real member's post is never touched */
@@ -211,21 +249,26 @@ export async function tick() {
     }
   }
 
-  const unposted = personas.filter((p) => !p.posted_at && p.joined_on === now.date);
-  const ticksLeft = Math.max(1, (24 - now.hour) * TICKS_PER_HOUR - Math.floor(now.minute / 20));
-  const postsNow = Math.min(unposted.length, Math.ceil(unposted.length / ticksLeft));
+  // Whoever came in today and has not written yet writes now, a little
+  // after the run starts (a random wait, so it is never on the same minute).
+  const todays = personas.filter((p) => p.joined_on === now.date);
+  const unposted = todays.filter((p) => !p.posted_at);
   const recent = stories.filter((s) => !s.parent_id).map((s) => s.body).reverse();
   let posted = 0;
-  for (const p of shuffle(unposted).slice(0, postsNow)) {
+  for (const p of unposted) {
+    const slot = plan[Math.max(0, Math.min(plan.length - 1, todays.indexOf(p)))];
+    const manner = { effort: { min: slot.min, max: slot.max, say: 'Aim for about ' + slot.centre + ' characters — ' +
+      (slot.centre <= 110 ? 'a short post, one or two sentences.' : slot.centre <= 220 ? 'a few sentences.' : 'a fuller post with some detail.') } };
     try {
-      const body = await writePost(cfg, { ...p, user_id: p.id }, recent);
+      if (!DRY && !flag('signups')) await new Promise((r) => setTimeout(r, between(0, 11 * 60) * 1000));
+      const body = await writePost(cfg, { ...p, user_id: p.id }, recent, manner);
       if (DRY) { log('  (연습) 글 · ' + p.nickname + ' [' + p.lang + '/' + p.topic + ']: ' + body.slice(0, 60)); continue; }
       const row = await save(call, bot.userId, p, body, p.topic, null);
       await call('sample_personas?id=eq.' + p.id, {
         method: 'PATCH', body: JSON.stringify({ posted_at: new Date().toISOString() })
       });
       stories.push({ ...row, user_id: p.id }); recent.unshift(body); posted += 1;
-      log('  글 · ' + p.nickname + ' [' + p.lang + '/' + p.topic + '] ' + [...body].length + '자');
+      log('  글 · ' + p.nickname + ' [' + p.lang + '/' + p.topic + '] ' + [...body].length + '자 (목표 ' + slot.min + '~' + slot.max + ')');
     } catch (err) { log('  글 실패 · ' + p.nickname + ' — ' + err.message); }
   }
 
@@ -236,7 +279,8 @@ export async function tick() {
   const members = personas.filter((p) => p.joined_on === now.date).map((p) => ({ ...p, user_id: p.id }));
   const online = shuffle(members).slice(0, ONLINE);
   const roots = stories.filter((s) => !s.parent_id);
-  const replyCount = flag('replies') ?? between(1, 3);
+  // Few people, so few answers, and not every run (irregular, never a rhythm).
+  const replyCount = flag('replies') ?? (Math.random() < 0.07 ? between(1, 2) : 0);
   let replied = 0;
   for (let i = 0; i < replyCount && roots.length && online.length; i += 1) {
     const root = chooseThread(roots, stories);
@@ -257,7 +301,7 @@ export async function tick() {
   }
 
   /* 4. hearts, on sample rows only, one anonymous reader id per writer */
-  const likeCount = flag('likes') ?? between(4, 9);
+  const likeCount = flag('likes') ?? (Math.random() < 0.15 ? between(1, 3) : 0);
   const likeable = stories.slice(-400);
   let liked = 0;
   for (let i = 0; i < likeCount && likeable.length && online.length; i += 1) {

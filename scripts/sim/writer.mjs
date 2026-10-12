@@ -267,8 +267,8 @@ export async function inventPeople(cfg, langs) {
 
 /* ---------------- posts ---------------- */
 
-export async function writePost(cfg, persona, recent) {
-  const manner = postManner();
+export async function writePost(cfg, persona, recent, mannerOverride) {
+  const manner = mannerOverride || postManner();
   const { min, max } = manner.effort;
   const system = [
     'You are ' + persona.nickname + ', a member of an online community of Korean learners.',
