@@ -539,3 +539,12 @@ html body.compact table.forms.forms2 td { padding: 7px 14px; }
 .lcard.clean .lc-sound { text-align: center; }
 .lcard.clean .lc-letter .sy { font-size: .86em; font-weight: 700; }
 .lcard.clean .lc-letter .jm { font-size: 1.15em; font-weight: 500; }
+
+/* The pattern table filling page 1 (the owner's edit of 001 and 007): rows of one height,
+   the content of each cell centred up and down; what follows starts page 2. */
+section.pat-fill { margin-bottom: 0; }
+section.pat-fill + section { break-before: page; }
+html body table.forms.forms2.fill { table-layout: fixed; width: 100%; }
+html body table.forms.forms2.fill td { vertical-align: middle; }
+/* Under a pattern table that fills page 1 (the owner's edit): the Watch out notes set close, as in his PDF. */
+section.pat-fill + section .note { padding: 4px 11px; line-height: 1.35; margin-bottom: 5px !important; }

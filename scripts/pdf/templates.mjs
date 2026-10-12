@@ -141,12 +141,16 @@ export function markedHTML(text, marks) {
 // The pattern stated once, then what it does, then where it goes
 // wrong. The last part is what people actually keep the sheet for.
 function grammar(s, L) {
-  return '<section><h2>' + esc(L.pattern) + '</h2>' +
+  // `fillPattern` (the owner, 2026-10-12, his edit of 001 and 007): the pattern table
+  // fills page 1 in rows of one height, what is in each cell centred up and down.
+  const fill = !!s.fillPattern;
+  const rowH = fill ? ' style="height:' + (100 / Math.max(1, list(s.forms).length)).toFixed(3) + '%"' : '';
+  return '<section' + (fill ? ' class="pat-fill"' : '') + '><h2>' + esc(L.pattern) + '</h2>' +
     // The owner's layout (2026-10-11, his edit of the 102): two columns, the
     // form, when it applies and what it does stacked and centred on the left,
     // the example on the right.
-    '<table class="forms forms2"><tbody>' + list(s.forms).map((f) =>
-      '<tr><td><div class="word" lang="ko">' + prose(f.form) + '</div>' +
+    '<table class="forms forms2' + (fill ? ' fill' : '') + '"><tbody>' + list(s.forms).map((f) =>
+      '<tr' + rowH + '><td><div class="word" lang="ko">' + prose(f.form) + '</div>' +
       (f.when ? '<div class="rom">' + prose(f.when) + '</div>' : '') +
       (f.means ? '<div class="gm">' + prose(f.means) + '</div>' : '') + '</td>' +
       '<td><div class="ex-kr" lang="ko">' + markedHTML(f.example, f.mark) + '</div>' +

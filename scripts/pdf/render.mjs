@@ -384,6 +384,21 @@ export async function renderSheet(sheet, opts = {}) {
   try {
     await page.setContent(html, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
+    // The pattern table that fills page 1 (templates.mjs grammar, `fillPattern`): its height is
+    // what is left of page 1 under the title and the aim box.
+    if (sheet.fillPattern) {
+      const mm = (v) => Number(String(v).replace('mm', ''));
+      const pageH = (297 - mm(frame.margin.top) - mm(frame.margin.bottom)) / 25.4 * 96;
+      // Measured at the printed width: 210 mm less the two 15 mm margins.
+      await page.emulateMedia({ media: 'print' });
+      await page.setViewportSize({ width: Math.round(180 / 25.4 * 96), height: 1200 });
+      await page.evaluate((H) => {
+        const t = document.querySelector('table.forms2.fill');
+        if (!t) return;
+        const top = t.getBoundingClientRect().top + window.scrollY;
+        t.style.height = Math.floor(H - top - 6) + 'px';
+      }, pageH);
+    }
     const print = () => page.pdf({
       format: 'A4',
       printBackground: true,
