@@ -140,6 +140,20 @@ export function markedHTML(text, marks) {
 /* ---- grammar ----------------------------------------------------- */
 // The pattern stated once, then what it does, then where it goes
 // wrong. The last part is what people actually keep the sheet for.
+// The parts to underline in a "Watch out" line "wrong (X) → right (O): …": what differs between
+// the wrong phrase and the right one, on both sides (the owner, 2026-10-12: underline the wrong part).
+function watchMarks(w) {
+  const m = /^\s*(.+?)\s*\(X\)\s*→\s*(.+?)\s*\(O\)/.exec(String(w || ''));
+  if (!m) return [];
+  const a = m[1].split(/\s+/), b = m[2].split(/\s+/);
+  const runs = (x, y) => {
+    const out = []; let cur = [];
+    x.forEach((t) => { if (y.includes(t)) { if (cur.length) out.push(cur.join(' ')); cur = []; } else cur.push(t); });
+    if (cur.length) out.push(cur.join(' '));
+    return out;
+  };
+  return [...runs(a, b), ...runs(b, a)];
+}
 function grammar(s, L) {
   // `fillPattern` (the owner, 2026-10-12, his edit of 001 and 007): the pattern table
   // fills page 1 in rows of one height, what is in each cell centred up and down.
@@ -160,7 +174,7 @@ function grammar(s, L) {
       ? '<section><h2>' + esc(L.watchOut) + '</h2>' +
         // The wrong form and the right one, underlined: "맛있은 음식 (X) → 맛있는 음식 (O)".
         list(s.watchOut).map((w, i) => '<div class="note" style="margin-bottom:8px">' +
-          keepEndings(markedHTML(w, list(s.watchOutMark)[i])) + '</div>').join('') +
+          keepEndings(markedHTML(w, (list(s.watchOutMark)[i] || watchMarks(w)))) + '</div>').join('') +
         '</section>'
       : '') +
     practice(s, L);
