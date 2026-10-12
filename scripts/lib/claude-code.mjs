@@ -23,6 +23,9 @@ import { spawn } from 'node:child_process';
 import os from 'node:os';
 import { TranslateError } from '../../api/_providers.js';
 
+// A token pasted into the secret can carry line breaks; the header refuses them.
+if (process.env.CLAUDE_CODE_OAUTH_TOKEN) process.env.CLAUDE_CODE_OAUTH_TOKEN = process.env.CLAUDE_CODE_OAUTH_TOKEN.replace(/\s+/g, '');
+
 const EFFORT = { minimal: 'low', low: 'low', medium: 'medium', high: 'high' };
 
 function run(args, input, ms) {
