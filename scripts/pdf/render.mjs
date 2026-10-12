@@ -396,7 +396,15 @@ export async function renderSheet(sheet, opts = {}) {
         const t = document.querySelector('table.forms2.fill');
         if (!t) return;
         const top = t.getBoundingClientRect().top + window.scrollY;
-        t.style.height = Math.floor(H - top - 6) + 'px';
+        const room = Math.floor(H - top - 6);
+        if (t.getBoundingClientRect().height >= room - 4) {
+          // Taller than the page already: no stretching, nothing forced.
+          t.classList.remove('fill');
+          t.closest('section').classList.remove('pat-fill');
+          t.querySelectorAll('tr').forEach((tr) => { tr.style.height = ''; });
+          return;
+        }
+        t.style.height = room + 'px';
       }, pageH);
     }
     const print = () => page.pdf({

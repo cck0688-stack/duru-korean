@@ -45,6 +45,11 @@
   085 (and the 5 he named) are set from the stored text (his PDF had tiny
   text). Left on the old layout: grammar 100 (vi, es, id, pt-BR, fr, de: table
   too long for two pages); grammar 018 and 044 have no files for some languages.
+- Grammar page layout (owner, 2026-10-12, sample 007-hago): skill
+  .claude/skills/grammar-cheat-sheet-layout — pattern table fills page 1, cells
+  centred up and down, Watch out on page 2 with the differing words underlined.
+  English first (adopt-edits --shelf=grammar --clean-all --langs=en); other
+  languages later, when the owner says.
 - Hangul letter cards (owner, 2026-10-12, sample 058 v3): skill
   .claude/skills/hangul-starter-card-layout — empty trace squares, SOUND
   text centred, text after an arrow on its own line, letters the same

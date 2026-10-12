@@ -185,14 +185,13 @@ async function main() {
         if (SHELF === 'hangul' && parsed && Array.isArray(ed.letters) && parsed.trace.length === ed.letters.length) {
           ed.letters = ed.letters.map((l, i) => ({ ...l, ...(parsed.trace[i].length ? { trace: parsed.trace[i] } : {}) }));
         }
-        if (SHELF === 'grammar') ed.watchOutMark = marksFor(ed.watchOut);
         ed.category = SHELF;
       }
 
       for (const [lang, ed] of Object.entries(READ_ONLY ? {} : editions)) {
         if (outputs[lang]) continue;
         if (lang === 'en' && !contentOnly && !CLEAN_ALL) continue;
-        const r = await renderSheet((contentOnly || CLEAN_ALL) && SHELF === 'hangul' ? { ...ed, cleanCards: true } : ed, { category: SHELF, lang, browser });
+        const r = await renderSheet(SHELF === 'hangul' && (contentOnly || CLEAN_ALL) ? { ...ed, cleanCards: true } : SHELF === 'grammar' && CLEAN_ALL ? { ...ed, fillPattern: true } : ed, { category: SHELF, lang, browser });
         if (r.check.pages !== 2 || !r.check.ok) {
           stat.skippedLang.push(n + ' ' + lang + ' (' + r.check.pages + '쪽' + (r.check.pages > 2 ? ', 넘친 글 약 ' + overflowPt(r.pdf, work) + 'pt' : '') + (r.check.ok ? '' : ', ' + r.check.why.join('; ').slice(0, 80)) + ')');
           continue;
