@@ -27,7 +27,7 @@ const ONLY = (args.find((a) => a.startsWith('--only=')) || '').slice(7);
 const log = (...a) => console.log(...a);
 
 // The writer as somebody's teacher, or a student named by nationality.
-const TEACHER = /제자|가르친|가르치던|가르쳤던|가르치는 학생|가르치고 있는|제 학생|우리 학생|제 수업|우리 반 학생|베트남\s?(에서 온\s?)?(학생|친구)|베트남 출신/;
+const TEACHER = /제가 가르|제자|가르친|가르치던|가르쳤던|가르치는 학생|가르치고 있는|제 학생|우리 학생|제 수업|우리 반 학생|베트남\s?(에서 온\s?)?(학생|친구)|베트남 출신/;
 
 async function signIn() {
   const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
