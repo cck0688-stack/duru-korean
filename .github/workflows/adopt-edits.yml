@@ -36,6 +36,10 @@ on:
       langs:
         description: 'Only these languages, e.g. en'
         default: ''
+      add_missing:
+        description: 'Add a held file for a language the download never had'
+        type: boolean
+        default: false
       from:
         description: 'First number (e.g. 001) — a range keeps one run under six hours'
         default: ''
@@ -99,6 +103,7 @@ jobs:
           KEEP_PDFS: ${{ inputs.keep_pdfs }}
           CLEAN_ALL: ${{ inputs.clean_all }}
           LANGS_ONLY: ${{ inputs.langs }}
+          ADD_MISSING: ${{ inputs.add_missing }}
           TO: ${{ inputs.to }}
         run: |
           args=(--shelf="$SHELF" --index=/tmp/index.csv --read=../rework-output/read)
@@ -113,6 +118,7 @@ jobs:
           if [ -n "$LANGS_ONLY" ]; then args+=(--langs="$LANGS_ONLY"); fi
           if [ "$KEEP_PDFS" = "true" ]; then args+=(--out=pdf-out); fi
           if [ "$READ_ONLY" = "true" ]; then args+=(--read-only); fi
+          if [ "$ADD_MISSING" = "true" ]; then args+=(--add-missing=1); fi
           if [ -n "$FROM" ]; then args+=(--from="$FROM"); fi
           if [ -n "$TO" ]; then args+=(--to="$TO"); fi
           node scripts/adopt-edits.mjs "${args[@]}"

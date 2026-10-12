@@ -51,6 +51,7 @@ const CONTENT_ONLY = (arg('content-only') || '').split(',').filter(Boolean);
 const READ = arg('read');
 const READ_OUT = arg('read-out');
 const OUT = arg('out');
+const ADD_MISSING = !!arg('add-missing');
 const LANGS = Object.keys(LANGUAGE_NAMES);
 const log = (...a) => console.log(...a);
 
@@ -212,6 +213,20 @@ async function main() {
       let put = 0;
       for (const [lang, o] of Object.entries(outputs)) {
         const f = (res.resource_files || []).filter((x) => x.lang === lang && where(x)).sort((a, b) => (b.version || 1) - (a.version || 1))[0];
+        if (!f && ADD_MISSING) {
+          // A language this download never had: the PDF goes in as a held draft file.
+          const key = res.id + '/' + lang + '-v1.pdf';
+          const up = await fetch(SUPABASE_URL + '/storage/v1/object/resource-drafts/' + key, {
+            method: 'POST', headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token, 'Content-Type': 'application/pdf', 'x-upsert': 'true' }, body: o.pdf
+          });
+          if (!up.ok) { stat.skippedLang.push(n + ' ' + lang + ' (올리지 못함 ' + up.status + ')'); continue; }
+          const uid = JSON.parse(Buffer.from(token.split('.')[1], 'base64url').toString()).sub;
+          await rest(token, 'resource_files', {
+            method: 'POST', body: JSON.stringify([{ resource_id: res.id, lang, version: 1, file_type: 'pdf', draft_key: 'resource-drafts/' + key,
+              file_size: o.bytes, file_hash: o.hash, page_count: 2, check_result: { ...o.check, editedByOwner: true }, published: false, mime_type: 'application/pdf', created_by: uid }])
+          });
+          put += 1; continue;
+        }
         if (!f) { stat.skippedLang.push(n + ' ' + lang + ' (파일 없음)'); continue; }
         const loc = where(f);
         await replace(token, loc, o.pdf);
