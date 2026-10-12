@@ -59,6 +59,10 @@
   size to the eye. The Hangul Starter English PDFs are to be made on it;
   built for the owner to look at first (adopt-edits keep_pdfs, never
   replaced before he agrees).
+- Second series (owner, 2026-10-12, confirmed): Reading Practice, Real-life
+  Korean and Everything Else (etc), 100 topics each, in the order of
+  content/curriculum/duru_series2_300.json (RD/RL/EE ids). One sample per
+  shelf first; the rest after the owner approves the samples.
 - Worksheet subjects come from the syllabus in content/curriculum (the
   standard curriculum's grammar and vocabulary, Sejong topics), in order
   (owner, 2026-10-05) — scripts/lib/curriculum.mjs. A grammar item's

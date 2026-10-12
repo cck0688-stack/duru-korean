@@ -26,12 +26,16 @@ const TOPICS = load('sejong_topics.json');
 // them repeating a sheet already on the shelf. These three shelves take
 // their subjects from it instead of the lists above.
 const SERIES = load('duru_series_300.json');
-export const SERIES_SHELVES = ['hangul', 'grammar', 'vocab'];
+// The second series (owner, 2026-10-12): Reading Practice, Real-life Korean
+// and Everything Else, 100 topics each, in order.
+const SERIES2 = load('duru_series2_300.json');
+for (const shelf of ['reading', 'reallife', 'etc']) SERIES[shelf] = SERIES2[shelf];
+export const SERIES_SHELVES = ['hangul', 'grammar', 'vocab', 'reading', 'reallife', 'etc'];
 let VOCAB = null;       // 1.2 MB: read only when a vocabulary sheet is checked
 
 const SEJONG_SOURCE = '국립국어원·세종학당재단 『세종학당 한국어 기본 교육과정』(2020)';
 const MAX_LEVEL = 4;
-export const CURRICULUM_SHELVES = ['grammar', 'vocab', 'reading', 'reallife', 'hangul'];
+export const CURRICULUM_SHELVES = ['grammar', 'vocab', 'reading', 'reallife', 'hangul', 'etc'];
 
 // The site's five levels, from the standard's 1–4급.
 const LEVEL_NAME = { 1: 'Beginner', 2: 'Beginner (high)', 3: 'Intermediate (low)', 4: 'Intermediate' };
@@ -137,7 +141,7 @@ const GRAMMAR_BY_ID = new Map(GRAMMAR.map((g) => [g.id, g]));
 // One row of the series as a subject. Its level is the standard's level
 // (the row's), never a model's guess.
 function seriesSubject(shelf, row) {
-  const head = ['이 학습지: ' + row.id + ' 「' + row.title + '」 — DURU KOREAN 1차 시리즈', ''];
+  const head = ['이 학습지: ' + row.id + ' 「' + row.title + '」 — DURU KOREAN ' + (SERIES2[shelf] ? '2' : '1') + '차 시리즈', ''];
   if (shelf === 'grammar') {
     const items = row.items.map((id) => GRAMMAR_BY_ID.get(id));
     const near = items.flatMap(namesakes).filter((x, i, a) => a.indexOf(x) === i);
@@ -176,6 +180,33 @@ function seriesSubject(shelf, row) {
       objective: '「' + row.title + '」에 나오는 낱말을 알고 짧은 문장에서 쓸 수 있다.',
       level: LEVEL_NAME[row.level], levelNum: row.level, checkThese: [],
       credit: row.topic === '단어의 짜임' ? [GRAMMAR[0].source] : [SEJONG_SOURCE + ' — 주제 「' + row.topic + '」', GRAMMAR[0].source],
+      label: row.id + ' ' + row.title
+    };
+  }
+  if (shelf === 'reading' || shelf === 'reallife' || shelf === 'etc') {
+    const what = { reading: '읽기 지문', reallife: '대화', etc: '실제 생활 자료(표지판·화면·라벨·서류·알림 등)를 그대로 옮긴 것과 그 읽는 법' }[shelf];
+    const lines = head.concat([
+      '주제: 「' + row.title + '」 (' + row.group + ')',
+      '이 장은 이 주제의 ' + what + '을(를) 다룹니다. 이 주제에서 벗어나지 마세요.',
+      '', '[기준 — 꼭 지키세요]',
+      '- 같은 시리즈의 다른 주제(같은 장면·같은 문서)와 겹치지 않게, 이 주제에만 있는 내용을 쓰세요.',
+      '- 낱말과 문법은 국제 통용 한국어 표준 교육과정 ' + row.level + '급 이하, 꼭 필요할 때만 ' + (row.level + 1) + '급까지.'
+    ]);
+    const credit = [SEJONG_SOURCE, GRAMMAR[0].source];
+    if (shelf !== 'etc') {
+      const pool = practisable(row.level);
+      const five = Array.from({ length: Math.min(5, pool.length) }, (_, i) => pool[((row.no - 1) * 5 + i) % pool.length]);
+      lines.push('- ' + (shelf === 'reading' ? '지문' : '대화') + '에서 연습할 문법 하나를 아래에서 고르세요 — 이 주제에 가장 자연스럽게 맞는 것:',
+                 five.map((x) => '    ' + describe(x)).join('\n'),
+                 '  고른 문법을 ' + (shelf === 'reading' ? '지문' : '대화') + '에 자연스럽게 2~3번 쓰세요. 학습지 전체는 A4 2쪽입니다.');
+    } else {
+      lines.push('- 자료는 한국에서 실제로 볼 법한 모양 그대로 보여 주고, 학습자가 꼭 읽어야 할 낱말·숫자를 짚어 주세요. 학습지 전체는 A4 2쪽입니다.',
+                 '- 실제 회사·브랜드·상표 이름, 실제 전화번호·주소·가격은 지어내지 마세요. 가상의 이름과 예시 숫자를 쓰세요.');
+    }
+    return {
+      id: row.id, subject: lines.join('\n'),
+      objective: '「' + row.title + '」' + (shelf === 'reading' ? '을(를) 읽고 내용을 이해할 수 있다.' : shelf === 'reallife' ? ' 상황에서 필요한 말을 할 수 있다.' : '을(를) 읽고 필요한 정보를 찾을 수 있다.'),
+      level: LEVEL_NAME[row.level], levelNum: row.level, checkThese: [], credit,
       label: row.id + ' ' + row.title
     };
   }
