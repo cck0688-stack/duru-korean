@@ -52,6 +52,8 @@ const READ = arg('read');
 const READ_OUT = arg('read-out');
 const OUT = arg('out');
 const ADD_MISSING = !!arg('add-missing');
+// Owner's call per sheet (content/edited/grammar-trim.json): table rows to drop, in order, and whether three pages may stand.
+const TRIMS = SHELF === 'grammar' && fs.existsSync('content/edited/grammar-trim.json') ? JSON.parse(fs.readFileSync('content/edited/grammar-trim.json', 'utf8')) : {};
 const LANGS = Object.keys(LANGUAGE_NAMES);
 const log = (...a) => console.log(...a);
 
@@ -198,7 +200,23 @@ async function main() {
           const r2 = await renderSheet(ed, { category: SHELF, lang, browser });
           if (r2.check.pages === 2 && r2.check.ok) { r = r2; stat.natural = (stat.natural || []).concat(n + ' ' + lang); }
         }
-        if (r.check.pages !== 2 || !r.check.ok) {
+        // Owner (2026-10-12, grammar 100): drop table rows, in the order given, until it fits two pages; else three pages.
+        const TRIM = (TRIMS[n] && TRIMS[n].dropRows) || [], ALLOW3 = !!(TRIMS[n] && TRIMS[n].allowThreePages);
+        if (TRIM.length && (r.check.pages !== 2 || !r.check.ok)) {
+          const gone = [];
+          for (const i of TRIM) {
+            gone.push(i);
+            const cut = { ...ed, forms: (ed.forms || []).filter((_, k) => !gone.includes(k)) };
+            let t = await renderSheet({ ...cut, fillPattern: true }, { category: SHELF, lang, browser });
+            if (t.check.pages !== 2 || !t.check.ok) t = await renderSheet(cut, { category: SHELF, lang, browser });
+            if (t.check.pages === 2 && t.check.ok) { r = t; stat.trimmed = (stat.trimmed || []).concat(n + ' ' + lang + ' (표 ' + gone.length + '줄 뺌)'); break; }
+          }
+          if (ALLOW3 && r.check.pages !== 2) {
+            const t = await renderSheet(ed, { category: SHELF, lang, browser });
+            if (t.check.pages === 3) { r = { ...t, check: { ...t.check, ok: true } }; stat.trimmed = (stat.trimmed || []).concat(n + ' ' + lang + ' (3쪽)'); }
+          }
+        }
+        if ((r.check.pages !== 2 && !(ALLOW3 && r.check.pages === 3)) || !r.check.ok) {
           stat.skippedLang.push(n + ' ' + lang + ' (' + r.check.pages + '쪽' + (r.check.pages > 2 ? ', 넘친 글 약 ' + overflowPt(r.pdf, work) + 'pt' : '') + (r.check.ok ? '' : ', ' + r.check.why.join('; ').slice(0, 80)) + ')');
           continue;
         }
@@ -237,7 +255,7 @@ async function main() {
         await replace(token, loc, o.pdf);
         if (loc.bucket === 'resources' && f.draft_key) await replace(token, { bucket: 'resource-drafts', key: f.draft_key.replace(/^resource-drafts\//, '') }, o.pdf);
         await rest(token, 'resource_files?id=eq.' + f.id, {
-          method: 'PATCH', body: JSON.stringify({ file_size: o.bytes, file_hash: o.hash, page_count: 2, check_result: { ...o.check, editedByOwner: true } })
+          method: 'PATCH', body: JSON.stringify({ file_size: o.bytes, file_hash: o.hash, page_count: o.check.pages, check_result: { ...o.check, editedByOwner: true } })
         });
         put += 1;
       }
@@ -255,6 +273,7 @@ async function main() {
   fs.rmSync(work, { recursive: true, force: true });
   log('');
   log('처리 ' + stat.done + '편 · 실패 ' + stat.failed + '편 · 바꾼 PDF ' + stat.files + '개 · 검토 대기로 내림 ' + stat.held + '편' + (DRY ? ' (연습)' : ''));
+  if (stat.trimmed) log('줄인 것: ' + stat.trimmed.join(', '));
   if (stat.natural) log('표를 늘리지 않고 만든 언어 ' + stat.natural.length + '개: ' + stat.natural.join(', '));
   if (stat.skippedLang.length) { log('바꾸지 못한 언어 ' + stat.skippedLang.length + '개:'); stat.skippedLang.forEach((x) => log('  - ' + x)); }
   try { const { usageReport } = await import('./lib/claude-code.mjs'); const u = usageReport(); if (u) log(u); } catch (e) { /* none */ }

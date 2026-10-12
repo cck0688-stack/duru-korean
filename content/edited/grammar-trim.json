@@ -1,0 +1,7 @@
+{
+  "100": {
+    "note": "Owner 2026-10-12: cut table rows until two pages; if it still does not fit, three pages. Rows by index: 6 -아서/어서 (order), 8 -기 전에, 7 -(으)ㄴ 후에, 5 -고 (order).",
+    "dropRows": [6, 8, 7, 5],
+    "allowThreePages": true
+  }
+}
