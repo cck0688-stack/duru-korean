@@ -229,7 +229,7 @@ jobs:
   # 30 minutes did nothing (every shelf has its 100), so the chain stops.
   next:
     needs: sheets
-    if: always() && (github.event.schedule == '0 */2 * * *' || inputs.only == 'grammar,vocab,hangul')
+    if: always() && (github.event.schedule == '0 */2 * * *' || inputs.only == 'grammar,vocab,hangul' || inputs.only == 'reading,reallife,etc')
     runs-on: ubuntu-latest
     steps:
       - env:
@@ -237,14 +237,16 @@ jobs:
           REPO: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
           REF: ${{ github.ref_name }}
+          # The second series (owner, 2026-10-12) chains the same way.
+          SHELVES: ${{ inputs.only == 'reading,reallife,etc' && 'reading,reallife,etc' || 'grammar,vocab,hangul' }}
         run: |
           started=$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq .run_started_at)
           took=$(( ($(date +%s) - $(date -d "$started" +%s)) / 60 ))
           echo "this run took $took minutes"
           if [ "$took" -lt 30 ]; then
-            echo "nothing left to make; the chain stops and the three English zips are made"
-            gh workflow run series-zip.yml --repo "$REPO" --ref "$REF"
+            echo "nothing left to make; the chain stops"
+            if [ "$SHELVES" = "grammar,vocab,hangul" ]; then gh workflow run series-zip.yml --repo "$REPO" --ref "$REF"; fi
             exit 0
           fi
           gh workflow run daily-sheets.yml --repo "$REPO" --ref "$REF" \
-            -f only=grammar,vocab,hangul -f count=40 -f force=true
+            -f only="$SHELVES" -f count=40 -f force=true
