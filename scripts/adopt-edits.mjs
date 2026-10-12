@@ -167,7 +167,7 @@ async function main() {
         if (newIdx.length) {
           fresh = newIdx.map((i) => parsed.words[i]);
           const langs = Object.keys(editions).filter((l) => l !== 'en');
-          const tr = DRY ? {} : await translateWords(cfg, fresh, langs);
+          const tr = DRY || !langs.length ? {} : await translateWords(cfg, fresh, langs);
           for (const [lang, ed] of Object.entries(editions)) {
             ed.words = ed.words.map((w, i) => {
               if (w) return w;
