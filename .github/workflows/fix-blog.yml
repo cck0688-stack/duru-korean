@@ -1,0 +1,61 @@
+# DURU KOREAN — the owner's fixes to the blog posts already written
+# (2026-10-12): no "my (Vietnamese) student", and no photo on two posts.
+# scripts/fix-blog.mjs. A practice run (the default) only lists them.
+name: Fix blog posts
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only list what would change'
+        type: boolean
+        default: true
+      only:
+        description: 'words or photos (empty: both)'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fix-blog
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Fix
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_LIMIT_WAIT_MIN: '300'
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PHOTO_PROVIDER: ${{ vars.PHOTO_PROVIDER }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          args=()
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$ONLY" ]; then args+=(--only="$ONLY"); fi
+          node scripts/fix-blog.mjs "${args[@]}"
