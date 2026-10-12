@@ -185,7 +185,10 @@ jobs:
           FORCE: ${{ github.event.schedule == '0 */2 * * *' || inputs.force }}
           DURU_TIME_BUDGET_MIN: '290'
           SHELF: ${{ matrix.shelf }}
+          PUSH_READ: '1'
         run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           args=(--only="$SHELF")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
           # A day's number per shelf (the owner, 2026-10-06): two grammar,
@@ -209,19 +212,7 @@ jobs:
           [ -d read-output ] || exit 0
           git config user.name "duru-korean-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin rework-output
-          git worktree add ../rework-output origin/rework-output -B rework-output
-          mkdir -p ../rework-output/read
-          cp -r read-output/. ../rework-output/read/
-          cd ../rework-output
-          git add -A read
-          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
-          git commit -q -m "Read-online files ($SHELF)"
-          for i in 1 2 3 4; do
-            git pull -q --rebase origin rework-output && git push -q origin rework-output && exit 0
-            sleep $((2 ** i))
-          done
-          exit 1
+          bash scripts/push-read.sh "$SHELF"
 
   # The series runs back to back (the owner, 2026-10-09: all 300 by
   # 10-15): when a series run ends, it starts the next one (the cron

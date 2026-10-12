@@ -579,6 +579,12 @@ async function save(call, token, userId, category, made) {
   try {
     const dir = process.env.READ_OUT || 'read-output';
     for (const [lang, edition] of Object.entries(made.editions || {})) writeRead(resource.id, lang, { ...edition, category }, dir);
+    // On the page at once, not when the run ends (owner, 2026-10-12).
+    if (process.env.PUSH_READ) {
+      const { execFileSync } = await import('node:child_process');
+      try { execFileSync('bash', ['scripts/push-read.sh', category], { stdio: 'ignore', timeout: 120000 }); }
+      catch (err) { log('    읽기용 파일을 바로 올리지 못했습니다 — 실행이 끝날 때 올립니다'); }
+    }
   } catch (err) { log('    읽기용 파일을 쓰지 못했습니다 (' + err.message + ')'); }
 
   for (const [lang, out] of Object.entries(rendered)) {
