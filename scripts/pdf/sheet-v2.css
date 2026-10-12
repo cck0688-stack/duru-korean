@@ -537,3 +537,5 @@ html body.compact table.forms.forms2 td { padding: 7px 14px; }
 
 /* The owner's clean cards (2026-10-12): what stands under SOUND is centred. */
 .lcard.clean .lc-sound { text-align: center; }
+.lcard.clean .lc-letter .sy { font-size: .72em; }
+.lcard.clean .lc-letter .jm { font-size: 1.3em; }

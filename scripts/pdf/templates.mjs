@@ -196,6 +196,14 @@ function letterSize(t) {
   const n = [...String(t || '')].length;
   return n <= 3 ? 40 : n <= 8 ? 34 : n <= 16 ? 24 : n <= 30 ? 19 : 16;
 }
+// Clean cards: Hangul syllables are drawn about twice as tall as the single letters
+// (ㄱ ㅂ …) at one font size, so the letters look uneven. Each kind is set in the
+// size that gives the same height of ink; digits and signs stay as they are.
+function evenInk(html) {
+  return html
+    .replace(/([\uac00-\ud7a3]+)/g, '<span class="sy">$1</span>')
+    .replace(/([\u3131-\u318e]+)/g, '<span class="jm">$1</span>');
+}
 function hangul(s, L) {
   // `cleanCards` (the owner, 2026-10-12, the 16 sheets set from the stored text): the
   // squares all left empty, what stands under SOUND centred, and what follows an
@@ -209,9 +217,10 @@ function hangul(s, L) {
         '<div class="box">' + (tr[i] ? '<span lang="ko">' + esc(tr[i]) + '</span>' : '') + '</div>').join('');
       const arrow = clean ? String(l.letter || '').search(/\s*→/) : -1;
       const lines = arrow > 0 ? [String(l.letter).slice(0, arrow).trim(), String(l.letter).slice(arrow).trim()] : [String(l.letter || '')];
-      const size = letterSize(lines.reduce((a, b) => (b.length > a.length ? b : a), ''));
+      // Clean cards: one size on every card (the owner, 2026-10-12: the size of card 3 of sheet 058).
+      const size = clean ? 21 : letterSize(lines.reduce((a, b) => (b.length > a.length ? b : a), ''));
       return '<div class="lcard' + (clean ? ' clean' : '') + '"><div class="lc-top">' +
-        '<div class="lc-letter" lang="ko" style="font-size:' + size + 'px">' + lines.map(esc).join('<br>') + '</div>' +
+        '<div class="lc-letter" lang="ko" style="font-size:' + size + 'px">' + lines.map((t) => clean ? evenInk(esc(t)) : esc(t)).join('<br>') + '</div>' +
         '<div class="lc-sound"><div class="sound">' + soundHTML(l.sound) + '</div>' +
         (l.as ? '<div class="rom">' + esc(l.as) + '</div>' : '') + '</div></div>' +
         '<div class="lc-trace"><div class="lc-label">' + esc(L.practice) + '</div><div class="boxes">' + boxes + '</div></div>' +
