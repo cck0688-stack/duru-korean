@@ -192,7 +192,12 @@ async function main() {
       for (const [lang, ed] of Object.entries(READ_ONLY ? {} : editions)) {
         if (outputs[lang]) continue;
         if (lang === 'en' && !contentOnly && !CLEAN_ALL) continue;
-        const r = await renderSheet(SHELF === 'hangul' && (contentOnly || CLEAN_ALL) ? { ...ed, cleanCards: true } : SHELF === 'grammar' && CLEAN_ALL ? { ...ed, fillPattern: true } : ed, { category: SHELF, lang, browser });
+        let r = await renderSheet(SHELF === 'hangul' && (contentOnly || CLEAN_ALL) ? { ...ed, cleanCards: true } : SHELF === 'grammar' && CLEAN_ALL ? { ...ed, fillPattern: true } : ed, { category: SHELF, lang, browser });
+        // Grammar: when Watch out and the rest run past page 2, the table is not stretched and page 2 starts where it falls.
+        if (SHELF === 'grammar' && CLEAN_ALL && (r.check.pages !== 2 || !r.check.ok)) {
+          const r2 = await renderSheet(ed, { category: SHELF, lang, browser });
+          if (r2.check.pages === 2 && r2.check.ok) { r = r2; stat.natural = (stat.natural || []).concat(n + ' ' + lang); }
+        }
         if (r.check.pages !== 2 || !r.check.ok) {
           stat.skippedLang.push(n + ' ' + lang + ' (' + r.check.pages + '쪽' + (r.check.pages > 2 ? ', 넘친 글 약 ' + overflowPt(r.pdf, work) + 'pt' : '') + (r.check.ok ? '' : ', ' + r.check.why.join('; ').slice(0, 80)) + ')');
           continue;
@@ -250,6 +255,7 @@ async function main() {
   fs.rmSync(work, { recursive: true, force: true });
   log('');
   log('처리 ' + stat.done + '편 · 실패 ' + stat.failed + '편 · 바꾼 PDF ' + stat.files + '개 · 검토 대기로 내림 ' + stat.held + '편' + (DRY ? ' (연습)' : ''));
+  if (stat.natural) log('표를 늘리지 않고 만든 언어 ' + stat.natural.length + '개: ' + stat.natural.join(', '));
   if (stat.skippedLang.length) { log('바꾸지 못한 언어 ' + stat.skippedLang.length + '개:'); stat.skippedLang.forEach((x) => log('  - ' + x)); }
   try { const { usageReport } = await import('./lib/claude-code.mjs'); const u = usageReport(); if (u) log(u); } catch (e) { /* none */ }
   if (stat.failed) process.exitCode = 1;
