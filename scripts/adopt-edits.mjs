@@ -153,7 +153,7 @@ async function main() {
         const f = path.join(READ, row.id, lang + '.json');
         if (fs.existsSync(f)) editions[lang] = JSON.parse(fs.readFileSync(f, 'utf8'));
       }
-      if (!editions.en) throw new Error('읽기용 영어 본문이 없습니다');
+      if (!Object.keys(editions).length) throw new Error('읽기용 본문이 없습니다');
 
       // Hangul: his words, and the squares he traced, over the stored text.
       let fresh = [];
