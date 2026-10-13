@@ -277,7 +277,7 @@ function secClass(sec) {
   return c.length ? ' class="' + c.join(' ') + '"' : '';
 }
 function sectionBody(sec) {
-  const box = !!sec.box;
+  const box = sec.box !== false;   // one big box for a section's text unless it says otherwise (owner, 2026-10-13)
   const paras = list(sec.paragraphs);
   const intro = box ? '' : paras.map((p) => '<p>' + esc(p) + '</p>').join('');
   const boxed = box && paras.length

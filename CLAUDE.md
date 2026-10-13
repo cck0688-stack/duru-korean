@@ -94,3 +94,7 @@
   Else, 40 each, standard 4급 (content/curriculum/duru_series3_200.json, readable list
   docs/LEVEL4-LIST.md). English samples first, then the owner's confirmation; held back from
   the daily chains until then (DURU_LEVEL4). Everything Else is culture and language sense; TOPIK later.
+- One big rounded box per section (owner, 2026-10-13, reading sample 계절마다 무엇을 먹어요?):
+  skill .claude/skills/worksheet-one-big-box — passage, conversation, Everything Else
+  paragraphs all in one big box; applies to every new sheet and re-render. Production runs
+  without a break (24 hours a day) until the owner says stop; nothing is published.
