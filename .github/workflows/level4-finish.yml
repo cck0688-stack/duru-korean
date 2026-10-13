@@ -10,6 +10,9 @@ on:
       do:
         description: 'reset-samples or zip'
         default: 'zip'
+      langs:
+        description: 'en = English zips only (fast)'
+        default: ''
 permissions:
   contents: write
 jobs:
@@ -36,9 +39,10 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           DO: ${{ inputs.do }}
+          LANGS: ${{ inputs.langs }}
         run: |
           if [ "$DO" = "zip" ]; then
-            node scripts/level4-finish.mjs --do=zip --out=zips --read=../rework-output/read
+            node scripts/level4-finish.mjs --do=zip --out=zips --read=../rework-output/read ${LANGS:+--langs=$LANGS}
           else
             node scripts/level4-finish.mjs --do="$DO" --read=../rework-output/read
           fi

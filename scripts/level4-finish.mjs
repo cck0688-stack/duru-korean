@@ -103,6 +103,7 @@ async function zipAll() {
       const byLang = new Map();
       for (const f of (r.resource_files || []).filter((x) => where(x)).sort((a, b) => (b.version || 1) - (a.version || 1))) if (!byLang.has(f.lang)) byLang.set(f.lang, f);
       for (const [lang, f] of byLang) {
+        if (arg('langs') === 'en' && lang !== 'en') continue;
         const bytes = await download(token, where(f));
         fs.writeFileSync(path.join(dirAll, base + '(' + lang + ').pdf'), bytes);
         if (lang === 'en') fs.writeFileSync(path.join(dirEn, base + '.pdf'), bytes);
@@ -110,7 +111,8 @@ async function zipAll() {
       index.push([shelf, n, base, r.title, r.status, r.id + ' [' + [...byLang.keys()].join('/') + ']']);
     }
     log(name + ': ' + n + '편 (목표 40)');
-    for (const d of [dirEn, dirAll]) { execFileSync('zip', ['-qr', d + '.zip', path.basename(d)], { cwd: out }); fs.rmSync(d, { recursive: true, force: true }); log('  → ' + d + '.zip (' + Math.round(fs.statSync(d + '.zip').size / 1048576 * 10) / 10 + ' MB)'); }
+    if (arg('langs') === 'en') fs.rmSync(dirAll, { recursive: true, force: true });
+    for (const d of (arg('langs') === 'en' ? [dirEn] : [dirEn, dirAll])) { execFileSync('zip', ['-qr', d + '.zip', path.basename(d)], { cwd: out }); fs.rmSync(d, { recursive: true, force: true }); log('  → ' + d + '.zip (' + Math.round(fs.statSync(d + '.zip').size / 1048576 * 10) / 10 + ' MB)'); }
   }
   fs.writeFileSync(path.join(out, 'index.csv'), '﻿' + index.map((row) => row.map((c) => '"' + String(c ?? '').replace(/"/g, '""') + '"').join(',')).join('\n') + '\n');
 }
