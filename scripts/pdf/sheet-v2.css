@@ -567,3 +567,6 @@ section.pat-fill + section .note { padding: 4px 11px; line-height: 1.35; margin-
 .tight .tip-box p { font-size: 12px; line-height: 1.38; margin: 0 0 1px; }
 .roomy .tip-box { padding: 16px 18px; }
 .roomy .tip-box p { font-size: 13px; line-height: 1.75; }
+section.tight, section.roomy { margin-bottom: 9px; }
+section.tight > h2, section.roomy > h2 { margin: 0 0 6px; }
+.roomy .rows .row { padding: 1.5px 0; }
