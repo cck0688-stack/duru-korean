@@ -40,7 +40,7 @@ jobs:
           if [ "$DO" = "zip" ]; then
             node scripts/level4-finish.mjs --do=zip --out=zips --read=../rework-output/read
           else
-            node scripts/level4-finish.mjs --do="$DO"
+            node scripts/level4-finish.mjs --do="$DO" --read=../rework-output/read
           fi
       - name: All-language zips as a download
         if: inputs.do == 'zip'

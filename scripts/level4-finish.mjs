@@ -37,24 +37,38 @@ async function removeObjects(token, bucket, keys) {
 }
 
 async function resetSamples() {
+  // Every Level 4 sheet that has only English (the five samples and any made in English-only mode)
+  // is deleted and its curriculum id opened again, so the chain makes it in ten languages.
+  // Resources and plan ids pair up in the order they were made.
   const token = await signIn();
-  for (const [shelf, [idOrPrefix, sampleId]] of Object.entries(SAMPLES)) {
-    const q = 'id=eq.' + idOrPrefix;
-    const rows = await rest(token, 'resources?select=id,title,status,cover_key,resource_files(lang,storage_key,draft_key)&' + q);
-    for (const r of rows) {
+  const read = arg('read');
+  for (const shelf of Object.keys(SHELVES)) {
+    const rows = await rest(token, 'resources?select=id,title,status,created_at,cover_key,resource_files(lang,storage_key,draft_key)' +
+      '&origin=eq.auto&status=neq.rejected&publish_location=eq.free-resources&category=eq.' + shelf +
+      '&created_at=gte.' + SINCE + '&order=created_at.asc&limit=1000');
+    const l4 = rows.filter((r) => { try { return JSON.parse(fs.readFileSync(path.join(read, r.id, 'en.json'), 'utf8')).level === 'Intermediate'; } catch { return false; } });
+    const plan = await loadPlan(token, shelf);
+    const ids = (plan.done || []).filter((x) => /^[A-Z]4-\d+$/.test(x));
+    const paired = ids.length === l4.length;
+    log(shelf + ': 시트 ' + l4.length + '개, 계획의 Level 4 항목 ' + ids.length + '개' + (paired ? '' : ' — 짝이 안 맞아 알려진 샘플만 처리'));
+    const drop = new Set();
+    for (let i = 0; i < l4.length; i++) {
+      const r = l4[i];
       const langs = new Set((r.resource_files || []).map((f) => f.lang));
-      if (langs.size > 3) { log(shelf + ' ' + r.title + ' — 이미 ' + langs.size + '개 언어라 지우지 않습니다'); continue; }
+      const known = r.id === SAMPLES[shelf][0];
+      if (langs.size > 3 || (!paired && !known)) continue;
       const files = r.resource_files || [];
       await rest(token, 'resources?id=eq.' + r.id, { method: 'DELETE', headers: { Prefer: 'return=representation' } });
       await removeObjects(token, 'resources', files.map((f) => f.storage_key).filter(Boolean));
       await removeObjects(token, 'resource-drafts', files.map((f) => f.draft_key).filter(Boolean).map((k) => k.replace(/^resource-drafts\//, '')));
-      log(shelf + ' — 지움: ' + r.title);
+      drop.add(paired ? ids[i] : SAMPLES[shelf][1]);
+      log('  지움: ' + r.title + ' → ' + (paired ? ids[i] : SAMPLES[shelf][1]) + ' 다시 엽니다');
     }
-    const plan = await loadPlan(token, shelf);
-    plan.done = (plan.done || []).filter((x) => x !== sampleId);
-    if (plan.tried) delete plan.tried[sampleId];
-    await savePlan(token, shelf, plan);
-    log(shelf + ' — 계획에서 ' + sampleId + ' 뺌');
+    if (drop.size) {
+      plan.done = (plan.done || []).filter((x) => !drop.has(x));
+      if (plan.tried) for (const d of drop) delete plan.tried[d];
+      await savePlan(token, shelf, plan);
+    }
   }
 }
 
