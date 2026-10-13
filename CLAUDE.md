@@ -102,3 +102,5 @@
   line, English gloss and "예:" example on their own lines, Your turn instruction / Korean / (a)(b)
   choices on separate lines. Level 4 is made in all ten languages again (owner, 2026-10-13, reversed his
   English-only call); English-only sheets were reset and are made again in ten.
+- "food" (owner, 2026-10-13): when he says "food", every Everything Else (etc) PDF is set in the food-proverb
+  sheet layout — skill .claude/skills/etc-food-layout (redo-sheet mode proverb). Held for review, never published.
