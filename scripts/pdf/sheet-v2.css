@@ -570,3 +570,7 @@ section.pat-fill + section .note { padding: 4px 11px; line-height: 1.35; margin-
 section.tight, section.roomy { margin-bottom: 9px; }
 section.tight > h2, section.roomy > h2 { margin: 0 0 6px; }
 .roomy .rows .row { padding: 1.5px 0; }
+/* Page two of the festival sheet: a little closer so the answers stay on it. */
+section.k-next.tight ~ section .q { margin-bottom: 7px; padding-top: 7px; padding-bottom: 7px; }
+section.k-next.tight ~ .answers { margin-top: 10px; padding-top: 10px; }
+section.k-next.tight .tip-box p { font-size: 11.5px; line-height: 1.35; }
