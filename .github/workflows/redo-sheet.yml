@@ -9,6 +9,12 @@ on:
       id:
         description: 'Resource id'
         default: '5658f4c8-808e-4bdc-838f-0265196d0331'
+      mode:
+        description: 'blank = festival timetable layout; dialogue = conversation in a box'
+        default: ''
+      langs:
+        description: 'Only these languages (e.g. en)'
+        default: ''
       dry_run:
         type: boolean
         default: true
@@ -43,9 +49,13 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           ID: ${{ inputs.id }}
           DRY: ${{ inputs.dry_run }}
+          MODE: ${{ inputs.mode }}
+          LANGS: ${{ inputs.langs }}
         run: |
           args=(--id="$ID" --read=../rework-output/read --out=pdf-out)
           if [ "$DRY" = "true" ]; then args+=(--dry-run); fi
+          if [ -n "$MODE" ]; then args+=(--mode="$MODE"); fi
+          if [ -n "$LANGS" ]; then args+=(--langs="$LANGS"); fi
           node scripts/redo-sheet.mjs "${args[@]}"
       - name: Page pictures
         if: always()

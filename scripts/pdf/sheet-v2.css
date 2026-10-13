@@ -582,3 +582,8 @@ section.k-next.tight .tip-box { margin-bottom: 6px; padding: 5px 12px; }
 section.k-next.tight ~ section .task { padding-top: 6px; padding-bottom: 6px; }
 body:has(section.k-next.tight) .answers { margin-top: 4px !important; padding-top: 6px !important; }
 body:has(section.k-next.tight) .q { padding-top: 3px !important; padding-bottom: 3px !important; }
+
+/* The conversation in one box (owner, 2026-10-13; a sheet that sets dialogueBox). */
+.dlg-box { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 4px 14px; }
+.dlg-box .turn { padding: 6px 0; }
+.dlg-box .turn + .turn { border-top: 1px solid #eef0ec; }

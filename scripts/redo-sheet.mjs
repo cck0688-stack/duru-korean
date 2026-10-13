@@ -16,6 +16,7 @@ const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 const args = process.argv.slice(2);
 const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); return h ? h.slice(n.length + 3) : null; };
+const MODE = arg('mode'), LANGS_ONLY = arg('langs') ? arg('langs').split(',') : null;
 const ID = arg('id'), READ = arg('read'), OUT = arg('out'), DRY = args.includes('--dry-run');
 const log = (...a) => console.log(...a);
 
@@ -31,6 +32,7 @@ async function signIn() {
 
 // Section 1 (poster) in a box; 2 (timetable) as lettered tags, roomy; 3 (words) roomy; 4 (tip) on page two.
 function mark(ed) {
+  if (MODE === 'dialogue') { ed.dialogueBox = true; ed.category = ed.category || 'reallife'; return ed; }
   const s = ed.sections || [];
   if (s[0]) { s[0].box = true; s[0].tight = true; }
   if (s[1]) { s[1].flowStyle = 'tags'; s[1].roomy = true; }
@@ -44,6 +46,7 @@ const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PAT
 const outputs = {};
 for (const lang of Object.keys(LANGUAGE_NAMES)) {
   const f = path.join(READ, ID, lang + '.json');
+  if (LANGS_ONLY && !LANGS_ONLY.includes(lang)) continue;
   if (!fs.existsSync(f)) { log(lang + ' — 본문 없음'); continue; }
   const base = JSON.parse(fs.readFileSync(f, 'utf8'));
   // The owner's layout first; a longer language is set closer, then without the page break before the tip, then as it was.
@@ -55,7 +58,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   ];
   let r, how = '';
   for (const t of tries) {
-    r = await renderSheet(t.ed, { category: 'etc', lang, browser, ...t.opts });
+    r = await renderSheet(t.ed, { category: t.ed.category || 'etc', lang, browser, ...t.opts });
     how = t.how;
     if (r.check.pages === 2 && r.check.ok) { if (t === tries[0]) fs.writeFileSync(f, JSON.stringify(t.ed)); break; }
   }
