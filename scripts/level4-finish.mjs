@@ -88,9 +88,14 @@ async function zipAll() {
     const dirEn = path.join(out, 'Level4-' + name + '-EN'); const dirAll = path.join(out, 'Level4-' + name + '-ALL-LANGUAGES');
     fs.mkdirSync(dirEn, { recursive: true }); fs.mkdirSync(dirAll, { recursive: true });
     let n = 0;
-    for (const r of rows) {
-      // Only Level 4 sheets (the shelves also took the last of the second series).
-      try { const j = JSON.parse(fs.readFileSync(path.join(read, r.id, 'en.json'), 'utf8')); if (j.level !== 'Intermediate') continue; } catch { continue; }
+    // Only Level 4 sheets: the level says Intermediate, and the shelf's plan lists how many Level 4 items are done.
+    // The last sheets of the second series were made in the same hours; when there are more candidates than
+    // plan items, the earliest extras are those (they are named in the log).
+    let cand = rows.filter((r) => { try { return JSON.parse(fs.readFileSync(path.join(read, r.id, 'en.json'), 'utf8')).level === 'Intermediate'; } catch { return false; } });
+    const plan = await loadPlan(token, shelf);
+    const want = (plan.done || []).filter((x) => /^[A-Z]4-\d+$/.test(x)).length;
+    if (want && cand.length > want) { log('  Level 4가 아닌 것으로 보고 뺌: ' + cand.slice(0, cand.length - want).map((r) => r.title).join(' / ')); cand = cand.slice(cand.length - want); }
+    for (const r of cand) {
       if (n % 10 === 0) token = await signIn();
       n += 1;
       const key = slug(r.keyword || '') !== 'sheet' ? slug(r.keyword) : r.id.slice(0, 8);
