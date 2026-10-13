@@ -596,3 +596,13 @@ body:has(section.k-next.tight) .q { padding-top: 3px !important; padding-bottom:
 .row-text .row-exl .row-ex { display: block; }
 .q-line { font-size: 13px; line-height: 1.5; }
 .q-part { display: block; }
+
+/* Proverb rows (owner, 2026-10-13): disc, the term in bold with its gloss beside it,
+   what it means on its own line, the example on its own line. */
+.rows-stack .row { display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 12px; row-gap: 0; align-items: start; padding: 6px 0; }
+.rows-stack .row-n { grid-row: 1 / 3; margin-top: 2px; }
+.rows-stack .row-term { flex: none; grid-column: 2; }
+.rows-stack .row-term b { font-size: 13px; }
+.rows-stack .row-gloss { display: inline; margin: 0 0 0 6px; font-size: 11px; }
+.rows-stack .row-text { grid-column: 2; border-left: 0; padding-left: 0; font-size: 11.5px; }
+.rows-stack .row-text .row-exl { margin-top: 1px; }

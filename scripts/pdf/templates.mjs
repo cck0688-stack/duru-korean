@@ -344,7 +344,7 @@ function itemRows(items, sec = {}) {
   if (!list(items).length) return '';
   const numbered = sec.numbered !== false;
   const cls = ['rows', numbered ? 'rows-n' : 'rows-plain', sec.pill ? 'pill-' + sec.pill : '', sec.define ? 'rows-def' : '',
-    sec.romanBelow ? 'rows-rb' : ''].filter(Boolean).join(' ');
+    sec.romanBelow ? 'rows-rb' : '', sec.stack ? 'rows-stack' : ''].filter(Boolean).join(' ');
   return '<div class="' + cls + '">' + list(items).map((it, i) =>
     '<div class="row">' + (numbered ? '<span class="row-n">' + (i + 1) + '</span>' : '') +
     '<div class="row-term"><b lang="ko">' + esc(it.term) + '</b>' +
