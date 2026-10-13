@@ -53,7 +53,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   const tries = [
     { ed: mark(structuredClone(base)), opts: {}, how: '' },
     { ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' },
-    { ed: (() => { const e = mark(structuredClone(base)); if (e.sections[3]) e.sections[3].newPage = false; return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
+    { ed: (() => { const e = mark(structuredClone(base)); if (e.sections && e.sections[3]) e.sections[3].newPage = false; return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
     { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
   ];
   let r, how = '';
