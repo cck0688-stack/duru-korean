@@ -586,3 +586,6 @@ body:has(section.k-next.tight) .q { padding-top: 3px !important; padding-bottom:
 /* The conversation in one box (owner, 2026-10-13; a sheet that sets dialogueBox). */
 .dlg-box { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 1px 14px; }
 .dlg-box .turn { padding: 2px 0 !important; margin: 0 !important; }
+/* Speaker names in the conversation box: as large as the script, pulled to the left edge. */
+.dlg-box .turn { gap: 8px; }
+.dlg-box .who { width: 34px; font-size: 13px; text-align: left; padding-top: 0; }
