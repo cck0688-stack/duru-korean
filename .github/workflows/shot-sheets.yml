@@ -1,0 +1,59 @@
+# Look at sheets: render stored text to pictures on rework-output/shots/<name>. Read-only.
+name: Sheet pictures
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: 'Resource ids, comma separated'
+      name:
+        default: 'look'
+      lang:
+        default: 'en'
+permissions:
+  contents: write
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: pip install --quiet pymupdf fonttools
+      - run: npx playwright install --with-deps chromium
+      - name: Stored text
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+      - name: Render
+        env:
+          IDS: ${{ inputs.ids }}
+          LANGX: ${{ inputs.lang }}
+        run: node scripts/shot-sheets.mjs --read=../rework-output/read --ids="$IDS" --lang="$LANGX" --out=pdf-out
+      - name: Pictures
+        env:
+          NAME: ${{ inputs.name }}
+        run: |
+          python3 - <<'PY'
+          import pymupdf, os, glob, shutil
+          d='../rework-output/shots/'+os.environ['NAME']
+          shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
+          for p in sorted(glob.glob('pdf-out/*.pdf')):
+              doc=pymupdf.open(p)
+              for i,pg in enumerate(doc):
+                  pg.get_pixmap(dpi=70).save('%s/%s-%d.png'%(d,os.path.basename(p)[:-4],i+1))
+          PY
+          cd ../rework-output
+          git add -A shots
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Sheet pictures"
+          for i in 1 2 3 4; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1
