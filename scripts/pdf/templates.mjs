@@ -291,7 +291,12 @@ function sectionBody(sec) {
   const boxed = box && paras.length
     ? '<div class="tip-box">' + paras.map((p) => '<p>' + prose(p) + '</p>').join('') + '</div>'
     : '';
-  return intro + screenBlock(sec.screen) + (sec.flowStyle === 'tags' ? tagSteps(sec.steps) : flowSteps(sec.steps)) + itemRows(sec.items, sec) + pointRows(sec.points) +
+  const talk = list(sec.dialogue).length
+    ? '<div class="dlg-box" style="--who-w:' + whoWidth(sec.dialogue) + 'px">' + list(sec.dialogue).map((t) =>
+      '<div class="turn"><div class="who">' + esc(t.who) + '</div><div class="said"><div class="ex-kr" lang="ko">' + esc(t.korean) + '</div>' +
+      (t.meaning ? '<div class="ex-tr">' + esc(t.meaning) + '</div>' : '') + '</div></div>').join('') + '</div>'
+    : '';
+  return intro + talk + screenBlock(sec.screen) + (sec.flowStyle === 'tags' ? tagSteps(sec.steps) : flowSteps(sec.steps)) + itemRows(sec.items, sec) + pointRows(sec.points) +
     docBlock(sec.doc) + cardsBlock(sec.cards) + list(sec.panels).map(panelBlock).join('') +
     (sec.aside ? '<div class="duo">' + boxed + asideBlock(sec.aside) + '</div>' : boxed) +
     (sec.example ? '<div class="ex-bar"><b>예:</b> <span lang="ko">' + esc(sec.example.ko) + '</span>' +

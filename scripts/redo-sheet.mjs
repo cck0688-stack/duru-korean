@@ -36,6 +36,17 @@ function mark(ed) {
   if (MODE === 'passage') { ed.passageBox = true; return ed; }
   if (MODE === 'dialogue') { ed.dialogueBox = true; ed.category = ed.category || 'reallife'; return ed; }
   const s = ed.sections || [];
+  if (MODE === 'proverb') {
+    // Nine proverbs in one box; the talk as turns in one big box; the tips on page two.
+    if (s[0]) { s[0].box = true; s[0].tight = true; }
+    if (s[1] && !(s[1].dialogue || []).length) {
+      const turns = String((s[1].paragraphs || [])[0] || '').split(/\s*\/\s*(?=\S{1,3}:\s)/).map((x) => x.match(/^(\S{1,3}):\s*([\s\S]*)$/)).filter(Boolean);
+      if (turns.length) { s[1].dialogue = turns.map((m) => ({ who: m[1], korean: m[2].trim() })); s[1].paragraphs = []; }
+    }
+    if (s[2]) { s[2].newPage = true; s[2].tight = true; }
+    ed.category = ed.category || 'etc';
+    return ed;
+  }
   if (s[0]) { s[0].box = true; s[0].tight = true; }
   if (s[1]) { s[1].flowStyle = 'tags'; s[1].roomy = true; }
   if (s[2]) s[2].roomy = true;
@@ -54,6 +65,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   // The owner's layout first; a longer language is set closer, then without the page break before the tip, then as it was.
   const tries = [
     { ed: mark(structuredClone(base)), opts: {}, how: '' },
+    ...(MODE === 'proverb' ? [{ ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' }] : []),
     { ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' },
     { ed: (() => { const e = mark(structuredClone(base)); if (e.sections && e.sections[3]) e.sections[3].newPage = false; return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
     { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
