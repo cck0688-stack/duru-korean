@@ -45,11 +45,22 @@ const outputs = {};
 for (const lang of Object.keys(LANGUAGE_NAMES)) {
   const f = path.join(READ, ID, lang + '.json');
   if (!fs.existsSync(f)) { log(lang + ' — 본문 없음'); continue; }
-  const ed = mark(JSON.parse(fs.readFileSync(f, 'utf8')));
-  fs.writeFileSync(f, JSON.stringify(ed));
-  const r = await renderSheet(ed, { category: 'etc', lang, browser });
+  const base = JSON.parse(fs.readFileSync(f, 'utf8'));
+  // The owner's layout first; a longer language is set closer, then without the page break before the tip, then as it was.
+  const tries = [
+    { ed: mark(structuredClone(base)), opts: {}, how: '' },
+    { ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' },
+    { ed: (() => { const e = mark(structuredClone(base)); if (e.sections[3]) e.sections[3].newPage = false; return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
+    { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
+  ];
+  let r, how = '';
+  for (const t of tries) {
+    r = await renderSheet(t.ed, { category: 'etc', lang, browser, ...t.opts });
+    how = t.how;
+    if (r.check.pages === 2 && r.check.ok) { if (t === tries[0]) fs.writeFileSync(f, JSON.stringify(t.ed)); break; }
+  }
   outputs[lang] = r;
-  log(lang + ' — ' + r.check.pages + '쪽' + (r.check.ok ? '' : ' (검사 실패: ' + (r.check.problems || r.check.why || '') + ')'));
+  log(lang + ' — ' + r.check.pages + '쪽' + how + (r.check.ok ? '' : ' (검사 실패: ' + (r.check.problems || r.check.why || '') + ')'));
   if (OUT) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, lang + '.pdf'), r.pdf); }
 }
 await browser.close();
