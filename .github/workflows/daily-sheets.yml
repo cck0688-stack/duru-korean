@@ -246,6 +246,7 @@ jobs:
           # The second series (owner, 2026-10-12) chains the same way.
           SHELVES: ${{ inputs.level4 == 'all' && 'grammar,vocab,reading,reallife,etc' || inputs.only == 'reading,reallife,etc' && 'reading,reallife,etc' || 'grammar,vocab,hangul' }}
           LEVEL4: ${{ inputs.level4 }}
+          ENGLISH_ONLY: ${{ inputs.english_only }}
         run: |
           started=$(gh api "repos/$REPO/actions/runs/$RUN_ID" --jq .run_started_at)
           took=$(( ($(date +%s) - $(date -d "$started" +%s)) / 60 ))
@@ -257,7 +258,7 @@ jobs:
           fi
           if [ -n "$LEVEL4" ]; then
             gh workflow run daily-sheets.yml --repo "$REPO" --ref "$REF" \
-              -f only="$SHELVES" -f count=40 -f force=true -f level4="$LEVEL4"
+              -f only="$SHELVES" -f count=40 -f force=true -f level4="$LEVEL4" -f english_only="$ENGLISH_ONLY" -f reset_tried=true
             exit 0
           fi
           gh workflow run daily-sheets.yml --repo "$REPO" --ref "$REF" \
