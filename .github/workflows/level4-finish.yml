@@ -1,0 +1,67 @@
+# DURU KOREAN — Level 4 series: reset the five English-only samples, and the zips.
+# do=reset-samples : delete the five English-only samples and open their ids in the plans
+# do=zip           : Level4-<shelf>-EN.zip (kept on rework-output/level4-zip, raw link) and
+#                    Level4-<shelf>-ALL-LANGUAGES.zip (workflow artifact "level4-zips")
+# Nothing is published (scripts/level4-finish.mjs).
+name: Level 4 finish
+on:
+  workflow_dispatch:
+    inputs:
+      do:
+        description: 'reset-samples or zip'
+        default: 'zip'
+permissions:
+  contents: write
+jobs:
+  finish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Open rework-output
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+      - name: Run
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          DO: ${{ inputs.do }}
+        run: |
+          if [ "$DO" = "zip" ]; then
+            node scripts/level4-finish.mjs --do=zip --out=zips --read=../rework-output/read
+          else
+            node scripts/level4-finish.mjs --do="$DO"
+          fi
+      - name: All-language zips as a download
+        if: inputs.do == 'zip'
+        uses: actions/upload-artifact@v4
+        with:
+          name: level4-zips
+          path: zips/*
+          retention-days: 30
+      - name: English zips on rework-output
+        if: inputs.do == 'zip'
+        run: |
+          mkdir -p ../rework-output/level4-zip
+          rm -f ../rework-output/level4-zip/*
+          cp zips/*-EN.zip zips/index.csv ../rework-output/level4-zip/
+          cd ../rework-output
+          git add -A level4-zip
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Level 4 zips (English)"
+          for i in 1 2 3 4; do
+            git push -q origin rework-output && exit 0
+            git pull -q --rebase -X theirs origin rework-output || true
+            sleep $((i * 5))
+          done
+          exit 1
