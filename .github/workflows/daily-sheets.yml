@@ -68,6 +68,13 @@ on:
         description: 'How many per shelf (default: grammar 2, vocab 2, reading 1, reallife 1)'
         type: string
         default: ''
+      level4:
+        description: 'Level 4 series: ids to make (G4-07,V4-11 …) or all; only those rows are used'
+        default: ''
+      english_only:
+        description: 'Only the English edition (samples for the owner to look at)'
+        type: boolean
+        default: false
       force:
         description: 'Make them even if this shelf already has its sheets today (Seoul date)'
         type: boolean
@@ -80,7 +87,7 @@ permissions:
 # The rework run (rework-sheets.yml) and this one share the model
 # account; one waits for the other instead of both running at once.
 concurrency:
-  group: rework-sheets
+  group: ${{ inputs.level4 != '' && 'level4-samples' || 'rework-sheets' }}
   cancel-in-progress: false
 
 jobs:
@@ -184,6 +191,9 @@ jobs:
           COUNT: ${{ github.event.schedule == '0 */2 * * *' && '40' || inputs.count }}
           FORCE: ${{ github.event.schedule == '0 */2 * * *' || inputs.force }}
           DURU_TIME_BUDGET_MIN: '290'
+          DURU_LEVEL4: ${{ inputs.level4 }}
+          DURU_LEVEL4_ONLY: ${{ inputs.level4 != '' && '1' || '' }}
+          DURU_ENGLISH_ONLY: ${{ inputs.english_only && '1' || '' }}
           SHELF: ${{ matrix.shelf }}
           PUSH_READ: '1'
         run: |

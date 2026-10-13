@@ -30,6 +30,17 @@ const SERIES = load('duru_series_300.json');
 // and Everything Else, 100 topics each, in order.
 const SERIES2 = load('duru_series2_300.json');
 for (const shelf of ['reading', 'reallife', 'etc']) SERIES[shelf] = SERIES2[shelf];
+// The Level 4 series (owner, 2026-10-13): 40 each for Grammar, Vocabulary,
+// Reading Practice, Real-life Korean and Everything Else, standard 4급.
+// Kept out of every run until the owner has confirmed the samples:
+// DURU_LEVEL4 = 'all', or the ids to make (G4-07,V4-11,…).
+const SERIES3 = load('duru_series3_200.json');
+const LEVEL4 = process.env.DURU_LEVEL4 || '';
+const level4Open = (id) => LEVEL4 === 'all' || LEVEL4.split(',').map((x) => x.trim()).includes(id);
+for (const shelf of ['grammar', 'vocab', 'reading', 'reallife', 'etc']) {
+  const l4 = SERIES3[shelf].filter((r) => level4Open(r.id));
+  SERIES[shelf] = process.env.DURU_LEVEL4_ONLY === '1' ? l4 : SERIES[shelf].concat(l4);
+}
 export const SERIES_SHELVES = ['hangul', 'grammar', 'vocab', 'reading', 'reallife', 'etc'];
 let VOCAB = null;       // 1.2 MB: read only when a vocabulary sheet is checked
 
@@ -141,7 +152,7 @@ const GRAMMAR_BY_ID = new Map(GRAMMAR.map((g) => [g.id, g]));
 // One row of the series as a subject. Its level is the standard's level
 // (the row's), never a model's guess.
 function seriesSubject(shelf, row) {
-  const head = ['이 학습지: ' + row.id + ' 「' + row.title + '」 — DURU KOREAN ' + (SERIES2[shelf] ? '2' : '1') + '차 시리즈', ''];
+  const head = ['이 학습지: ' + row.id + ' 「' + row.title + '」 — DURU KOREAN ' + (/^[A-Z]4-/.test(row.id) ? '레벨 4' : SERIES2[shelf] ? '2차' : '1차') + ' 시리즈', ''];
   if (shelf === 'grammar') {
     const items = row.items.map((id) => GRAMMAR_BY_ID.get(id));
     const near = items.flatMap(namesakes).filter((x, i, a) => a.indexOf(x) === i);
@@ -170,7 +181,8 @@ function seriesSubject(shelf, row) {
   if (shelf === 'vocab') {
     const lines = head.concat([
       '주제: 「' + row.topic + '」 — ' + (row.topic === '단어의 짜임' ? '어휘 확장' : '세종학당 기본 교육과정 주제'),
-      '중심 낱말(이것을 포함해 10개 안팎): ' + row.words.join(', '),
+      row.words.length ? '중심 낱말(이것을 포함해 10개 안팎): ' + row.words.join(', ')
+        : '낱말: 표준 교육과정 ' + row.level + '급 어휘 목록에서 이 주제에 맞는 ' + row.level + '급 낱말 12~15개를 고르세요 (' + row.stage + ' 단계). 쉬운 낱말(1~2급)은 피하세요.',
       '', '[기준 — 꼭 지키세요]',
       '- 국제 통용 한국어 표준 교육과정 ' + row.level + '급 이하 어휘를 중심으로, 꼭 필요할 때만 ' + (row.level + 1) + '급까지 씁니다.',
       '- 이미 자료실에 있는 어휘 학습지와 같은 낱말 묶음이 되지 않게 하세요.'
@@ -184,7 +196,8 @@ function seriesSubject(shelf, row) {
     };
   }
   if (shelf === 'reading' || shelf === 'reallife' || shelf === 'etc') {
-    const what = { reading: '읽기 지문', reallife: '대화', etc: '실제 생활 자료(표지판·화면·라벨·서류·알림 등)를 그대로 옮긴 것과 그 읽는 법' }[shelf];
+    const culture = shelf === 'etc' && /^E4-/.test(row.id);
+    const what = { reading: '읽기 지문', reallife: '대화', etc: culture ? '한국어의 문화와 언어 감각(관용·말투·예절·문화 배경·표현의 느낌)을 설명하고 연습하는 학습 자료' : '실제 생활 자료(표지판·화면·라벨·서류·알림 등)를 그대로 옮긴 것과 그 읽는 법' }[shelf];
     const lines = head.concat([
       '주제: 「' + row.title + '」 (' + row.group + ')',
       '이 장은 이 주제의 ' + what + '을(를) 다룹니다. 이 주제에서 벗어나지 마세요.',
@@ -199,6 +212,9 @@ function seriesSubject(shelf, row) {
       lines.push('- ' + (shelf === 'reading' ? '지문' : '대화') + '에서 연습할 문법 하나를 아래에서 고르세요 — 이 주제에 가장 자연스럽게 맞는 것:',
                  five.map((x) => '    ' + describe(x)).join('\n'),
                  '  고른 문법을 ' + (shelf === 'reading' ? '지문' : '대화') + '에 자연스럽게 2~3번 쓰세요. 학습지 전체는 A4 2쪽입니다.');
+    } else if (culture) {
+      lines.push('- 한국어 중급(4급) 학습자가 문화와 언어 감각을 익히는 자료입니다. 예시 문장·짧은 대화·비교표로 보여 주고, 학습자 나라와 다른 점을 짚어 주세요.',
+                 '- 이 시리즈는 위계가 있습니다 (' + row.group + '). 앞 장에서 배운 것을 이어 가되 되풀이하지 마세요. 학습지 전체는 A4 2쪽입니다.');
     } else {
       lines.push('- 자료는 한국에서 실제로 볼 법한 모양 그대로 보여 주고, 학습자가 꼭 읽어야 할 낱말·숫자를 짚어 주세요. 학습지 전체는 A4 2쪽입니다.',
                  '- 실제 회사·브랜드·상표 이름, 실제 전화번호·주소·가격은 지어내지 마세요. 가상의 이름과 예시 숫자를 쓰세요.');

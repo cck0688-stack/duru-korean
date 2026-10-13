@@ -87,7 +87,7 @@ const SOURCE_LANG = 'en';           // sheets are written with English explanati
 // Longest editions first (the 48 sheets on file, 2026-10-05: fr, de, id,
 // es, pt-BR run 4–8% longer than the English; ko, ja, zh 18–26% shorter).
 const BY_LENGTH = ['fr', 'de', 'id', 'es', 'pt-BR', 'vi', 'ko', 'ja', 'zh'];
-const TRANSLATE_ORDER = BY_LENGTH.filter((l) => LANGS.includes(l))
+const TRANSLATE_ORDER = process.env.DURU_ENGLISH_ONLY === '1' ? [] : BY_LENGTH.filter((l) => LANGS.includes(l))
   .concat(LANGS.filter((l) => l !== SOURCE_LANG && !BY_LENGTH.includes(l)));
 
 const args = process.argv.slice(2);
