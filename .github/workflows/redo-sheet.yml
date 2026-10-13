@@ -52,11 +52,11 @@ jobs:
         run: |
           python3 - <<'PY'
           import fitz, os
-          os.makedirs('../rework-output/shots/redo-sheet', exist_ok=True)
+          import shutil; shutil.rmtree('../rework-output/shots/redo-sheet', ignore_errors=True); os.makedirs('../rework-output/shots/redo-sheet', exist_ok=True)
           for l in ('en','ko','de','vi'):
               p='pdf-out/%s.pdf'%l
               if not os.path.exists(p): continue
-              d=fitz.open(p)
+              d=fitz.open(p); print(l, len(d), 'pages')
               for i,pg in enumerate(d):
                   pg.get_pixmap(dpi=80).save('../rework-output/shots/redo-sheet/%s-%d.png'%(l,i+1))
           PY
