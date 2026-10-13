@@ -86,3 +86,11 @@
   footer, the home page's five pastel card colours. css/theme-v2.css on
   every page (body.theme-v2), css/home-v2.css on the home page; new pages
   and new UI follow them, not the old deep green.
+- Real-life conversation box and Everything Else timetable tags (owner, 2026-10-13):
+  skills .claude/skills/reallife-conversation-box-layout (the whole conversation in
+  ONE big rounded box, no lines between turns) and etc-timetable-tags-layout (poster
+  boxed, lettered A–F timetable tags, tip on page two). New sheets of those kinds use them.
+- Level 4 series (owner, 2026-10-13): Grammar, Vocabulary, Reading, Real-life and Everything
+  Else, 40 each, standard 4급 (content/curriculum/duru_series3_200.json, readable list
+  docs/LEVEL4-LIST.md). English samples first, then the owner's confirmation; held back from
+  the daily chains until then (DURU_LEVEL4). Everything Else is culture and language sense; TOPIK later.
