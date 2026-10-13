@@ -100,5 +100,5 @@
   without a break (24 hours a day) until the owner says stop; nothing is published.
 - Line breaks (owner, 2026-10-13): skill .claude/skills/worksheet-line-breaks — speaker names on one
   line, English gloss and "예:" example on their own lines, Your turn instruction / Korean / (a)(b)
-  choices on separate lines. Level 4 is made in English only until the owner has edited it; the
-  other nine languages are made from his edited English afterwards (his word).
+  choices on separate lines. Level 4 is made in all ten languages again (owner, 2026-10-13, reversed his
+  English-only call); English-only sheets were reset and are made again in ten.
