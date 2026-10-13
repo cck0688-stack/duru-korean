@@ -59,6 +59,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
     how = t.how;
     if (r.check.pages === 2 && r.check.ok) { if (t === tries[0]) fs.writeFileSync(f, JSON.stringify(t.ed)); break; }
   }
+  if (r.check.pages !== 2 || !r.check.ok) { log(lang + ' — 2쪽이 안 돼서 이 언어는 그대로 둡니다 (' + r.check.pages + '쪽)'); continue; }
   outputs[lang] = r;
   log(lang + ' — ' + r.check.pages + '쪽' + how + (r.check.ok ? '' : ' (검사 실패: ' + (r.check.problems || r.check.why || '') + ')'));
   if (OUT) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, lang + '.pdf'), r.pdf); }
@@ -66,8 +67,6 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
 await browser.close();
 if (DRY) process.exit(0);
 
-const bad = Object.entries(outputs).filter(([, o]) => o.check.pages !== 2 || !o.check.ok).map(([l]) => l);
-if (bad.length) { log('2쪽이 아니거나 검사에 걸린 언어: ' + bad.join(', ') + ' — 올리지 않습니다'); process.exit(1); }
 const token = await signIn();
 const [res] = await rest(token, 'resources?select=id,title,status,resource_files(id,lang,version,published,storage_key,draft_key)&id=eq.' + ID);
 if (!res) throw new Error('자료를 찾지 못했습니다');
