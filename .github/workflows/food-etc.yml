@@ -1,0 +1,96 @@
+# DURU KOREAN — "food" (owner, 2026-10-13): every Everything Else sheet in the food-proverb layout.
+# dry_run keeps PDFs and pictures on rework-output/shots/food; otherwise replaces the files and holds each resource.
+name: Food layout for Everything Else
+
+on:
+  workflow_dispatch:
+    inputs:
+      langs:
+        description: 'Languages'
+        default: 'en'
+      dry_run:
+        type: boolean
+        default: true
+      only:
+        description: 'Only these resource ids (comma separated, blank = all etc)'
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: food-etc
+  cancel-in-progress: false
+
+jobs:
+  food:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: pip install --quiet pymupdf fonttools
+      - run: npx playwright install --with-deps chromium
+      - name: Stored text
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+      - name: Redo every etc sheet
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          LANGS: ${{ inputs.langs }}
+          DRY: ${{ inputs.dry_run }}
+          ONLY: ${{ inputs.only }}
+        run: |
+          python3 - <<'PY' > ids.txt
+          import json, glob, os
+          only = [x for x in os.environ.get('ONLY','').split(',') if x]
+          for f in sorted(glob.glob('../rework-output/read/*/en.json')):
+              try: d = json.load(open(f))
+              except Exception: continue
+              i = f.split('/')[-2]
+              if d.get('category') == 'etc' and (not only or i in only): print(i)
+          PY
+          wc -l ids.txt
+          : > summary.txt
+          while read -r id; do
+            args=(--id="$id" --read=../rework-output/read --out=pdf-out/$id --mode=food --langs="$LANGS")
+            if [ "$DRY" = "true" ]; then args+=(--dry-run); fi
+            echo "== $id" | tee -a summary.txt
+            node scripts/redo-sheet.mjs "${args[@]}" 2>&1 | tee -a summary.txt || echo "FAILED $id" | tee -a summary.txt
+          done < ids.txt
+      - name: Pictures and summary
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import fitz, os, glob, shutil
+          out = '../rework-output/shots/food'
+          shutil.rmtree(out, ignore_errors=True); os.makedirs(out, exist_ok=True)
+          for p in glob.glob('pdf-out/*/en.pdf'):
+              i = p.split('/')[1]
+              shutil.copy(p, '%s/%s.pdf' % (out, i))
+              d = fitz.open(p)
+              for n, pg in enumerate(d): pg.get_pixmap(dpi=45).save('%s/%s-%d.png' % (out, i, n + 1))
+          shutil.copy('summary.txt', out + '/summary.txt')
+          PY
+      - name: Keep pictures and read text
+        if: always()
+        run: |
+          cd ../rework-output
+          git add -A shots read
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Food layout: pictures and read text"
+          for i in 1 2 3 4; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1
