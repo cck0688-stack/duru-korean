@@ -462,7 +462,7 @@ function splitAsk(own) {
   const colon = ask.lastIndexOf(': ');
   if (colon > 0) {
     const head = ask.slice(0, colon + 1), rest = ask.slice(colon + 2).trim();
-    if (!HANGUL.test(head) && rest && /^[\[\uac00-\ud7a3"\u201c\u300c'\u2018(]/.test(rest)) return { ask: head, body: rest, items, plain };
+    if (/^[A-Za-z]/.test(head) && rest && /^[\[\uac00-\ud7a3"\u201c\u300c'\u2018(]/.test(rest)) return { ask: head, body: rest, items, plain };
   }
   return { ask, items, plain };
 }
