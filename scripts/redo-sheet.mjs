@@ -65,28 +65,6 @@ function mark(ed) {
     ed.category = ed.category || 'etc';
     return ed;
   }
-  if (s[0]) { s[0].box = true; s[0].tight = true; s[0].stack = true; }
-    if (s[1] && !(s[1].dialogue || []).length) {
-      const turns = String((s[1].paragraphs || [])[0] || '').split(/\s*\/\s*(?=\S{1,3}:\s)/).map((x) => x.match(/^(\S{1,3}):\s*([\s\S]*)$/)).filter(Boolean);
-      if (turns.length) { s[1].dialogue = turns.map((m) => ({ who: m[1], korean: m[2].trim() })); s[1].paragraphs = []; }
-    }
-    if (s[2]) {
-      s[2].newPage = true; s[2].tight = true;
-      // The tips as numbered points: the first sentence is the lead, then one point for each sentence that follows.
-      const sents = String((s[2].paragraphs || [])[0] || '').split(/(?<=[.:])\s+(?=[A-Z])/);
-      if (sents.length > 2) {
-        s[2].points = sents.slice(1).map((x) => ({ lead: x.split(/\s+(?:to|after)\s|:\s/)[0].replace(/[.:]+$/, ''), text: x.slice(x.split(/\s+(?:to|after)\s|:\s/)[0].length).replace(/^[:\s]*/, '') }));
-        s[2].points.unshift({ lead: sents[0].replace(/\.$/, ''), text: '' });
-        s[2].paragraphs = [];
-      }
-    }
-    ed.exercises = (ed.exercises || []).map((q) => {
-      const m = typeof q === 'string' && q.match(/^(Read and explain[^:]*:)\s*(A:[\s\S]*?)\s+(B:[\s\S]*)$/);
-      return m ? { ask: m[1], items: [m[2], m[3]], plain: true } : q;
-    });
-    ed.category = ed.category || 'etc';
-    return ed;
-  }
   if (s[0]) { s[0].box = true; s[0].tight = true; }
   if (s[1]) { s[1].flowStyle = 'tags'; s[1].roomy = true; }
   if (s[2]) s[2].roomy = true;
