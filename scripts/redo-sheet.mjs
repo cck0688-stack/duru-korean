@@ -32,7 +32,7 @@ async function signIn() {
 // Section 1 (poster) in a box; 2 (timetable) as lettered tags, roomy; 3 (words) roomy; 4 (tip) on page two.
 function mark(ed) {
   const s = ed.sections || [];
-  if (s[0]) s[0].box = true;
+  if (s[0]) { s[0].box = true; s[0].tight = true; }
   if (s[1]) { s[1].flowStyle = 'tags'; s[1].roomy = true; }
   if (s[2]) s[2].roomy = true;
   if (s[3]) s[3].newPage = true;

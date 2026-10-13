@@ -273,7 +273,7 @@ function etc(s, L) {
 // panels, a tip in a box (with a side note), an example bar and a note.
 // Each is used only when the content carries it.
 function secClass(sec) {
-  const c = [sec.card ? 'sec-card' : '', sec.roomy ? 'roomy' : '', sec.newPage ? 'k-next' : ''].filter(Boolean);
+  const c = [sec.card ? 'sec-card' : '', sec.roomy ? 'roomy' : '', sec.tight ? 'tight' : '', sec.newPage ? 'k-next' : ''].filter(Boolean);
   return c.length ? ' class="' + c.join(' ') + '"' : '';
 }
 function sectionBody(sec) {
@@ -307,14 +307,14 @@ function flowSteps(steps) {
 // when a section says `flowStyle: 'tags'`.
 function tagSteps(steps) {
   if (!list(steps).length) return '';
-  return '<div class="tags">' + list(steps).map((st, i) => {
+  return '<div class="tags" style="grid-template-columns:repeat(' + Math.min(6, list(steps).length) + ',minmax(0,1fr))">' + list(steps).map((st, i) => {
     const parts = String(st.ko || '').split(/\s*\|\s*/);
     const m = (parts[0] || '').match(/^(\d{1,2}:\d{2}\s*[~\-–]\s*\d{1,2}:\d{2})\s*(.*)$/);
     const time = m ? m[1] : '';
     const name = m ? m[2] : parts[0];
     const rest = parts.slice(1);
-    return '<div class="tag"><span class="tag-n">' + String.fromCharCode(65 + i) + '</span><div class="tag-body">' +
-      (time ? '<span class="tag-time">' + esc(time) + '</span>' : '') +
+    return '<div class="tag"><div class="tag-top"><span class="tag-n">' + String.fromCharCode(65 + i) + '</span>' +
+      (time ? '<span class="tag-time">' + esc(time) + '</span>' : '') + '</div><div class="tag-body">' +
       '<b lang="ko">' + esc(name) + '</b>' +
       (rest.length ? '<span class="tag-ko" lang="ko">' + esc(rest.join(' · ')) + '</span>' : '') +
       (st.en && st.en !== st.ko ? '<span class="tag-en">' + esc(st.en) + '</span>' : '') + '</div></div>';
