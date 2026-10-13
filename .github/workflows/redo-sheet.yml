@@ -66,6 +66,7 @@ jobs:
           for l in ('en','ko','de','vi'):
               p='pdf-out/%s.pdf'%l
               if not os.path.exists(p): continue
+              shutil.copy(p, '../rework-output/shots/redo-sheet/%s.pdf'%l)
               d=fitz.open(p); print(l, len(d), 'pages')
               for i,pg in enumerate(d):
                   pg.get_pixmap(dpi=80).save('../rework-output/shots/redo-sheet/%s-%d.png'%(l,i+1))
