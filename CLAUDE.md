@@ -98,3 +98,7 @@
   skill .claude/skills/worksheet-one-big-box — passage, conversation, Everything Else
   paragraphs all in one big box; applies to every new sheet and re-render. Production runs
   without a break (24 hours a day) until the owner says stop; nothing is published.
+- Line breaks (owner, 2026-10-13): skill .claude/skills/worksheet-line-breaks — speaker names on one
+  line, English gloss and "예:" example on their own lines, Your turn instruction / Korean / (a)(b)
+  choices on separate lines. Level 4 is made in English only until the owner has edited it; the
+  other nine languages are made from his edited English afterwards (his word).
