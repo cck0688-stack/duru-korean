@@ -36,9 +36,36 @@ function mark(ed) {
   if (MODE === 'passage') { ed.passageBox = true; return ed; }
   if (MODE === 'dialogue') { ed.dialogueBox = true; ed.category = ed.category || 'reallife'; return ed; }
   const s = ed.sections || [];
-  if (MODE === 'proverb') {
-    // Nine proverbs in one box; the talk as turns in one big box; the tips on page two.
-    if (s[0]) { s[0].box = true; s[0].tight = true; s[0].stack = true; }
+  if (MODE === 'proverb' || MODE === 'food') {
+    // "food" (owner, 2026-10-13): item rows stacked in one box; a spoken exchange as turns in one big box;
+    // the closing tips on page two as points; A:/B: question lines apart. Works on whatever sections the sheet has.
+    s.forEach((sec) => {
+      if ((sec.items || []).length) { sec.box = true; sec.tight = true; sec.stack = true; }
+      const para = (sec.paragraphs || []).join(' ');
+      if (!(sec.dialogue || []).length && /^[^\s:\/]{1,6}:\s/.test(para) && /\s\/\s[^\s:\/]{1,6}:\s/.test(para)) {
+        const turns = para.split(/\s*\/\s*(?=[^\s:\/]{1,6}:\s)/).map((x) => x.match(/^([^\s:\/]{1,6}):\s*([\s\S]*)$/)).filter(Boolean);
+        if (turns.length > 1) { sec.dialogue = turns.map((m) => ({ who: m[1], korean: m[2].trim() })); sec.paragraphs = []; }
+      }
+    });
+    const last = s[s.length - 1];
+    if (s.length > 1 && last && (last.paragraphs || []).length && !(last.items || []).length && !(last.steps || []).length && !(last.dialogue || []).length) {
+      last.newPage = true; last.tight = true;
+      // The tips as numbered points: the first sentence is the lead, then one point for each sentence that follows.
+      const sents = String(last.paragraphs.join(' ')).split(/(?<=[.:])\s+(?=[A-Z])/);
+      if (sents.length > 2 && last.paragraphs.length === 1) {
+        last.points = sents.slice(1).map((x) => { const lead = x.split(/\s+(?:to|after)\s|:\s/)[0]; return { lead: lead.replace(/[.:]+$/, ''), text: x.slice(lead.length).replace(/^[:\s]*/, '') }; });
+        last.points.unshift({ lead: sents[0].replace(/\.$/, ''), text: '' });
+        last.paragraphs = [];
+      }
+    }
+    ed.exercises = (ed.exercises || []).map((q) => {
+      const m = typeof q === 'string' && q.match(/^(Read and explain[^:]*:)\s*(A:[\s\S]*?)\s+(B:[\s\S]*)$/);
+      return m ? { ask: m[1], items: [m[2], m[3]], plain: true } : q;
+    });
+    ed.category = ed.category || 'etc';
+    return ed;
+  }
+  if (s[0]) { s[0].box = true; s[0].tight = true; s[0].stack = true; }
     if (s[1] && !(s[1].dialogue || []).length) {
       const turns = String((s[1].paragraphs || [])[0] || '').split(/\s*\/\s*(?=\S{1,3}:\s)/).map((x) => x.match(/^(\S{1,3}):\s*([\s\S]*)$/)).filter(Boolean);
       if (turns.length) { s[1].dialogue = turns.map((m) => ({ who: m[1], korean: m[2].trim() })); s[1].paragraphs = []; }
@@ -78,9 +105,9 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   // The owner's layout first; a longer language is set closer, then without the page break before the tip, then as it was.
   const tries = [
     { ed: mark(structuredClone(base)), opts: {}, how: '' },
-    ...(MODE === 'proverb' ? [{ ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' }] : []),
+    ...(MODE === 'proverb' || MODE === 'food' ? [{ ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' }] : []),
     { ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' },
-    { ed: (() => { const e = mark(structuredClone(base)); if (e.sections && e.sections[3]) e.sections[3].newPage = false; return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
+    { ed: (() => { const e = mark(structuredClone(base)); if (e.sections) e.sections.forEach((x) => { x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
     { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
   ];
   let r, how = '';
