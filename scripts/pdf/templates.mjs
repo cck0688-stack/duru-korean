@@ -260,7 +260,7 @@ function etc(s, L) {
       : '') +
     // A long heading is set a size smaller so it stays on one line; a
     // section may be one outlined card (the owner's signs sheet).
-    list(s.sections).map((sec) => '<section' + (sec.card ? ' class="sec-card"' : '') + '>' +
+    list(s.sections).map((sec) => '<section' + secClass(sec) + '>' +
       '<h2' + (String(sec.heading || '').length > 34 ? ' class="long"' : '') + '>' + esc(sec.heading) + '</h2>' +
       (sec.card ? '<div class="card-body">' + sectionBody(sec) + '</div>' : sectionBody(sec)) + '</section>').join('') +
     (s.note ? '<section><div class="note">' + esc(s.note) + '</div></section>' : '') +
@@ -272,6 +272,10 @@ function etc(s, L) {
 // a flow of steps, rows of words or labels, numbered points, cards,
 // panels, a tip in a box (with a side note), an example bar and a note.
 // Each is used only when the content carries it.
+function secClass(sec) {
+  const c = [sec.card ? 'sec-card' : '', sec.roomy ? 'roomy' : '', sec.newPage ? 'k-next' : ''].filter(Boolean);
+  return c.length ? ' class="' + c.join(' ') + '"' : '';
+}
 function sectionBody(sec) {
   const box = !!sec.box;
   const paras = list(sec.paragraphs);
@@ -279,7 +283,7 @@ function sectionBody(sec) {
   const boxed = box && paras.length
     ? '<div class="tip-box">' + paras.map((p) => '<p>' + prose(p) + '</p>').join('') + '</div>'
     : '';
-  return intro + screenBlock(sec.screen) + flowSteps(sec.steps) + itemRows(sec.items, sec) + pointRows(sec.points) +
+  return intro + screenBlock(sec.screen) + (sec.flowStyle === 'tags' ? tagSteps(sec.steps) : flowSteps(sec.steps)) + itemRows(sec.items, sec) + pointRows(sec.points) +
     docBlock(sec.doc) + cardsBlock(sec.cards) + list(sec.panels).map(panelBlock).join('') +
     (sec.aside ? '<div class="duo">' + boxed + asideBlock(sec.aside) + '</div>' : boxed) +
     (sec.example ? '<div class="ex-bar"><b>예:</b> <span lang="ko">' + esc(sec.example.ko) + '</span>' +
@@ -295,6 +299,26 @@ function flowSteps(steps) {
     (i ? '<span class="flow-arrow">→</span>' : '') +
     '<div class="flow-step"><span class="flow-n">' + (i + 1) + '</span><div class="flow-card"><b>' + esc(st.ko) + '</b>' +
     (st.en && st.en !== st.ko ? '<span>(' + esc(st.en) + ')</span>' : '') + '</div></div>').join('') + '</div>';
+}
+
+// The same steps as small lettered tags in a grid (owner, 2026-10-13, the
+// festival timetable): A, B, C… on a blue badge, the time on top, the
+// name, then the place and the sign-up note, all free to wrap. Used only
+// when a section says `flowStyle: 'tags'`.
+function tagSteps(steps) {
+  if (!list(steps).length) return '';
+  return '<div class="tags">' + list(steps).map((st, i) => {
+    const parts = String(st.ko || '').split(/\s*\|\s*/);
+    const m = (parts[0] || '').match(/^(\d{1,2}:\d{2}\s*[~\-–]\s*\d{1,2}:\d{2})\s*(.*)$/);
+    const time = m ? m[1] : '';
+    const name = m ? m[2] : parts[0];
+    const rest = parts.slice(1);
+    return '<div class="tag"><span class="tag-n">' + String.fromCharCode(65 + i) + '</span><div class="tag-body">' +
+      (time ? '<span class="tag-time">' + esc(time) + '</span>' : '') +
+      '<b lang="ko">' + esc(name) + '</b>' +
+      (rest.length ? '<span class="tag-ko" lang="ko">' + esc(rest.join(' · ')) + '</span>' : '') +
+      (st.en && st.en !== st.ko ? '<span class="tag-en">' + esc(st.en) + '</span>' : '') + '</div></div>';
+  }).join('') + '</div>';
 }
 
 // Rows of words, labels or buttons, one column: the Korean (with its

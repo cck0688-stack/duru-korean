@@ -1,0 +1,74 @@
+# DURU KOREAN — set one sheet again with the owner's layout notes for it
+# (scripts/redo-sheet.mjs). dry_run builds, checks and keeps page pictures
+# on rework-output/shots; nothing is replaced. Never publishes.
+name: Redo one sheet
+
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'Resource id'
+        default: '5658f4c8-808e-4bdc-838f-0265196d0331'
+      dry_run:
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  redo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: pip install --quiet pymupdf fonttools
+      - run: npx playwright install --with-deps chromium
+      - name: Stored text
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+      - name: Redo
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          ID: ${{ inputs.id }}
+          DRY: ${{ inputs.dry_run }}
+        run: |
+          args=(--id="$ID" --read=../rework-output/read --out=pdf-out)
+          if [ "$DRY" = "true" ]; then args+=(--dry-run); fi
+          node scripts/redo-sheet.mjs "${args[@]}"
+      - name: Page pictures
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import fitz, os
+          os.makedirs('../rework-output/shots/redo-sheet', exist_ok=True)
+          for l in ('en','ko','de','vi'):
+              p='pdf-out/%s.pdf'%l
+              if not os.path.exists(p): continue
+              d=fitz.open(p)
+              for i,pg in enumerate(d):
+                  pg.get_pixmap(dpi=80).save('../rework-output/shots/redo-sheet/%s-%d.png'%(l,i+1))
+          PY
+      - name: Keep pictures and read text
+        if: always()
+        run: |
+          cd ../rework-output
+          git add -A shots read
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Redo one sheet: pictures and read text"
+          for i in 1 2 3 4; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $((2 ** i))
+          done
+          exit 1
