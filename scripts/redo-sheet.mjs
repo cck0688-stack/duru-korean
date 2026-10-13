@@ -32,6 +32,7 @@ async function signIn() {
 
 // Section 1 (poster) in a box; 2 (timetable) as lettered tags, roomy; 3 (words) roomy; 4 (tip) on page two.
 function mark(ed) {
+  if (MODE === 'passage') { ed.passageBox = true; return ed; }
   if (MODE === 'dialogue') { ed.dialogueBox = true; ed.category = ed.category || 'reallife'; return ed; }
   const s = ed.sections || [];
   if (s[0]) { s[0].box = true; s[0].tight = true; }

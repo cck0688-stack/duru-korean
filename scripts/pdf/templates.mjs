@@ -103,7 +103,7 @@ function reading(s, L) {
   const cut = s.wordsBreak > 0 && s.wordsBreak < words.length ? s.wordsBreak : words.length;
   const heads = [L.word, L.meaning, L.inUse];
   return '<section><h2>' + esc(L.passage) + '</h2>' +
-    '<div class="passage' + (s.passageBox ? ' passage-box' : '') + '" lang="ko">' +
+    '<div class="passage' + (s.passageBox !== false ? ' passage-box' : '') + '" lang="ko">' +
     list(s.passage).map((p) => '<p>' + esc(p) + '</p>').join('') +
     '</div></section>' +
     (words.length
