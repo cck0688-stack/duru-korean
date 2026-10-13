@@ -588,4 +588,11 @@ body:has(section.k-next.tight) .q { padding-top: 3px !important; padding-bottom:
 .dlg-box .turn { padding: 2px 0 !important; margin: 0 !important; }
 /* Speaker names in the conversation box: as large as the script, pulled to the left edge. */
 .dlg-box .turn { gap: 8px; }
-.dlg-box .who { width: 34px; font-size: 13px; text-align: left; padding-top: 0; }
+.dlg-box .who { width: var(--who-w, 40px); font-size: 13px; text-align: left; padding-top: 0; white-space: nowrap; }
+
+/* Rows and questions: nothing squeezed beside something else (owner, 2026-10-13). */
+.row-gloss { display: block; font-size: 10.5px; color: var(--grey); margin-top: 1px; }
+.row-text .row-exl { display: block; margin-top: 2px; }
+.row-text .row-exl .row-ex { display: block; }
+.q-line { font-size: 13px; line-height: 1.5; }
+.q-part { display: block; }

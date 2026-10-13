@@ -54,9 +54,11 @@ function question(text, i, lines = 1, design, items, opts = {}) {
         (opts.answerLines ? '<span class="ans"></span>' : '') + '</div>').join('') + '</div>'
     : '';
   const rules = opts.write ? Math.max(1, lines) : lines;
-  return '<div class="q' + (rules > 1 || opts.write ? ' q-lines' : '') + (parts ? ' q-multi' : '') + '"><div class="q-ask"><span class="n">' + (i + 1) +
+  return '<div class="q' + (rules > 1 || opts.write ? ' q-lines' : '') + (parts || opts.body ? ' q-multi' : '') + '"><div class="q-ask"><span class="n">' + (i + 1) +
     (design === 'v2' ? '' : ')') + '</span>' +
-    (parts ? '<div class="q-body"><div>' + esc(text) + '</div>' + parts + '</div>' : esc(text)) + '</div>' +
+    (opts.body
+      ? '<div class="q-body"><div>' + esc(text) + '</div><div class="q-line" lang="ko">' + esc(opts.body) + '</div>' + parts + '</div>'
+      : parts ? '<div class="q-body"><div>' + esc(text) + '</div>' + parts + '</div>' : esc(text)) + '</div>' +
     '<div class="rule"></div>'.repeat(Math.max(1, rules)) + '</div>';
 }
 
@@ -183,9 +185,15 @@ function grammar(s, L) {
 /* ---- real-life --------------------------------------------------- */
 // A situation, played out. Who says what has to be readable at a
 // glance, so it is a dialogue rather than a paragraph.
+// The speaker-name column is as wide as the longest name, so a name never
+// breaks over two lines (owner, 2026-10-13); Korean and CJK letters are wider.
+function whoWidth(dialogue) {
+  const w = (n) => [...String(n || '')].reduce((a, c) => a + (/[\u1100-\u11ff\u3130-\u318f\uac00-\ud7a3\u3040-\u30ff\u4e00-\u9fff]/.test(c) ? 13.5 : 8), 0);
+  return Math.ceil(Math.max(30, ...list(dialogue).map((t) => w(t.who))) + 4);
+}
 function reallife(s, L) {
   return (s.setting ? '<section><div class="note">' + esc(s.setting) + '</div></section>' : '') +
-    '<section><h2>' + esc(L.dialogue) + '</h2>' + (s.dialogueBox !== false ? '<div class="dlg-box">' : '') +
+    '<section><h2>' + esc(L.dialogue) + '</h2>' + (s.dialogueBox !== false ? '<div class="dlg-box" style="--who-w:' + whoWidth(s.dialogue) + 'px">' : '') +
     list(s.dialogue).map((t) =>
       '<div class="turn"><div class="who">' + esc(t.who) + '</div>' +
       '<div class="said"><div class="ex-kr" lang="ko">' + esc(t.korean) + '</div>' +
@@ -336,11 +344,11 @@ function itemRows(items, sec = {}) {
     '<div class="row">' + (numbered ? '<span class="row-n">' + (i + 1) + '</span>' : '') +
     '<div class="row-term"><b lang="ko">' + esc(it.term) + '</b>' +
       (it.roman ? (sec.romanBelow ? '<span class="row-rom">(' + esc(it.roman) + ')</span>' : ' <span class="row-rom">(' + esc(it.roman) + ')</span>') : '') +
-      (it.gloss && it.gloss !== it.term ? ' <span>(' + esc(it.gloss) + ')</span>' : '') + '</div>' +
+      (it.gloss && it.gloss !== it.term ? '<span class="row-gloss">(' + esc(it.gloss) + ')</span>' : '') + '</div>' +
     '<div class="row-text">' + (sec.define ? '= ' : '') + prose(it.text) +
       (it.example && it.exampleMeaning
         ? '<span class="row-exl"><span lang="ko">' + esc(it.example) + '</span> <span class="row-ex">(' + esc(it.exampleMeaning) + ')</span></span>'
-        : (it.example ? ' <span class="row-ex">예: ' + esc(it.example) + '</span>' : '')) + '</div>' +
+        : (it.example ? '<span class="row-exl"><span class="row-ex">예: ' + esc(it.example) + '</span></span>' : '')) + '</div>' +
     '</div>').join('') + '</div>';
 }
 
@@ -419,7 +427,8 @@ function practice(s, L, how = {}) {
   return '<section><h2>' + esc(L.yourTurn) + '</h2>' + task +
     qs.map((q, i) => {
       const own = typeof q === 'object' ? q : withParts(q);
-      return question(own.ask, i, own.lines || 1, L.design, own.items, { plain: own.plain, write: own.write, answerLines: how.answerLines });
+      const sp = typeof q === 'object' ? { ask: own.ask, items: own.items, plain: own.plain } : splitAsk(own);
+      return question(sp.ask, i, own.lines || 1, L.design, sp.items, { plain: sp.plain, write: own.write, answerLines: how.answerLines, body: sp.body });
     }).join('') +
     '</section>';
 }
@@ -433,6 +442,29 @@ function withParts(text) {
   if (at < 0 || !/②/.test(t.slice(at))) return { ask: t };
   const parts = t.slice(at).split(/\s*[①-⑳]\s*/).map((x) => x.trim()).filter(Boolean);
   return parts.length > 1 ? { ask: t.slice(0, at).trim(), items: parts } : { ask: t };
+}
+
+// An English instruction, then the Korean it is about on the next line,
+// and "(a) … (b) …" choices one to a line (owner, 2026-10-13: nothing
+// squeezed side by side). "Read the notice: [한국어 …] …" → the
+// instruction, a line of Korean. Only when the instruction before the
+// last colon has no Hangul and what follows starts with Korean or a quote.
+function splitAsk(own) {
+  let ask = String(own.ask == null ? '' : own.ask);
+  let items = own.items, plain = own.plain;
+  if (!list(items).length) {
+    const at = ask.search(/\s\(a\)\s/);
+    if (at > 0 && /\(b\)/.test(ask.slice(at))) {
+      const opts = ask.slice(at).split(/\s*\([a-e]\)\s*/).map((x) => x.trim()).filter(Boolean);
+      if (opts.length > 1) { ask = ask.slice(0, at).trim(); items = opts.map((x, j) => '(' + 'abcde'[j] + ') ' + x); plain = true; }
+    }
+  }
+  const colon = ask.lastIndexOf(': ');
+  if (colon > 0) {
+    const head = ask.slice(0, colon + 1), rest = ask.slice(colon + 2).trim();
+    if (!HANGUL.test(head) && rest && /^[\[\uac00-\ud7a3"\u201c\u300c'\u2018(]/.test(rest)) return { ask: head, body: rest, items, plain };
+  }
+  return { ask, items, plain };
 }
 
 export const TEMPLATES = { vocab, reading, grammar, reallife, hangul, etc };
