@@ -11,6 +11,12 @@ on:
       dry_run:
         type: boolean
         default: true
+      category:
+        description: 'Shelf category in the stored text (etc, reading, ...)'
+        default: 'etc'
+      mode:
+        description: 'food = food layout; passage = passage in one big box'
+        default: 'food'
       only:
         description: 'Only these resource ids (comma separated, blank = all etc)'
         default: ''
@@ -19,7 +25,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: food-etc
+  group: food-etc-${{ inputs.category }}
   cancel-in-progress: false
 
 jobs:
@@ -50,6 +56,8 @@ jobs:
           LANGS: ${{ inputs.langs }}
           DRY: ${{ inputs.dry_run }}
           ONLY: ${{ inputs.only }}
+          CAT: ${{ inputs.category }}
+          MODE: ${{ inputs.mode }}
         run: |
           python3 - <<'PY' > ids.txt
           import json, glob, os
@@ -58,22 +66,25 @@ jobs:
               try: d = json.load(open(f))
               except Exception: continue
               i = f.split('/')[-2]
-              if d.get('category') == 'etc' and (not only or i in only): print(i)
+              if d.get('category') == os.environ.get('CAT','etc') and (not only or i in only): print(i)
           PY
           wc -l ids.txt
           : > summary.txt
           while read -r id; do
-            args=(--id="$id" --read=../rework-output/read --out=pdf-out/$id --mode=food --langs="$LANGS")
+            args=(--id="$id" --read=../rework-output/read --out=pdf-out/$id --mode=$MODE --langs="$LANGS")
             if [ "$DRY" = "true" ]; then args+=(--dry-run); fi
             echo "== $id" | tee -a summary.txt
             node scripts/redo-sheet.mjs "${args[@]}" 2>&1 | tee -a summary.txt || echo "FAILED $id" | tee -a summary.txt
           done < ids.txt
       - name: Pictures and summary
         if: always()
+        env:
+          CAT: ${{ inputs.category }}
+          MODE: ${{ inputs.mode }}
         run: |
           python3 - <<'PY'
           import fitz, os, glob, shutil
-          out = '../rework-output/shots/food'
+          out = '../rework-output/shots/' + os.environ.get('CAT','etc') + '-' + os.environ.get('MODE','food')
           shutil.rmtree(out, ignore_errors=True); os.makedirs(out, exist_ok=True)
           for p in glob.glob('pdf-out/*/en.pdf'):
               i = p.split('/')[1]
