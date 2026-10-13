@@ -407,8 +407,9 @@ export const MAKING_OF = new RegExp([
   "\\bI(?:'ve| have)? (?:fixed|corrected|rewrote|revised|addressed)\\b",
   '\\b(?:last|previous|earlier) (?:draft|version|revision)\\b',
   // "the review" alone is ordinary on a sheet about a concert or book review (2026-10-13: RD083, RD086, RD089).
-  '\\bthe reviewer\\b', '\\breviewer\\b', '\\bas requested\\b',
-  '\\bnow reads\\b', '\\bthis (?:revision|draft)\\b', '검수'
+  // Ordinary words in a letter, a notice or a draft on the sheet ("as requested", "now reads", "this draft")
+  // are not notes about making the sheet (2026-10-13: a complaint-letter reading sheet failed on them).
+  '\\bthe reviewer\\b', '\\breviewer\\b', '\\bthis revision\\b', '검수'
 ].join('|'), 'i');
 
 export function problemsWith(sheet, opts = {}) {
