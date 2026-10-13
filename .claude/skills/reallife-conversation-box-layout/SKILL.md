@@ -11,6 +11,8 @@ Reference: resource 6613f43c-90f5-42fc-87f1-666d50df5305 (집안일 나누기), 
 - Title, aim box, the setting note, then "1 THE CONVERSATION".
 - The conversation is **one large rounded box** (`.dlg-box`, flag `dialogueBox: true` on the sheet,
   templates.mjs `reallife`). Inside: speaker name in red, Korean line, grey translation.
+  Speaker names (지원, 민수) are red, bold, left-aligned, about the size of the script (13px), in a narrow 34px column
+  so the whole conversation sits close to the box's left edge (owner, 2026-10-13: the left was too empty).
   **No separator lines and no separate boxes per turn** (owner: "크게 하나만 그려").
 - Box padding and turn spacing are kept small so "2 PHRASES TO KEEP" still fits on page 1.
 - Then the phrases table (phrase / meaning / in use).
