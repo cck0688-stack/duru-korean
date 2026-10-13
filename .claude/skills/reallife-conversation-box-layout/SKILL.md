@@ -21,7 +21,7 @@ Reference: resource 6613f43c-90f5-42fc-87f1-666d50df5305 (집안일 나누기), 
 - Your turn (exercises) and the answers; exactly two A4 pages in every language.
 
 ## How to apply
-- Sheets set `dialogueBox: true` themselves; new Real-life sheets should use it by default.
+- The box is the default for every Real-life sheet (templates.mjs: on unless `dialogueBox: false`) — new sheets and re-renders get it automatically (owner, 2026-10-13: all future work follows this sample).
 - Existing sheet: `redo-sheet.yml` with `mode=dialogue`, `langs=en`, `dry_run=true` first (pictures on
   rework-output/shots/redo-sheet), then `dry_run=false`. The script falls back to the old layout if two
   pages are not reached — check the log line ("예전 모양" means the box did not fit).

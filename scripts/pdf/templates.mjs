@@ -185,12 +185,12 @@ function grammar(s, L) {
 // glance, so it is a dialogue rather than a paragraph.
 function reallife(s, L) {
   return (s.setting ? '<section><div class="note">' + esc(s.setting) + '</div></section>' : '') +
-    '<section><h2>' + esc(L.dialogue) + '</h2>' + (s.dialogueBox ? '<div class="dlg-box">' : '') +
+    '<section><h2>' + esc(L.dialogue) + '</h2>' + (s.dialogueBox !== false ? '<div class="dlg-box">' : '') +
     list(s.dialogue).map((t) =>
       '<div class="turn"><div class="who">' + esc(t.who) + '</div>' +
       '<div class="said"><div class="ex-kr" lang="ko">' + esc(t.korean) + '</div>' +
       (t.meaning ? '<div class="ex-tr">' + esc(t.meaning) + '</div>' : '') + '</div></div>').join('') +
-    (s.dialogueBox ? '</div>' : '') + '</section>' +
+    (s.dialogueBox !== false ? '</div>' : '') + '</section>' +
     (list(s.words).length
       ? '<section><h2>' + esc(L.phrases) + '</h2>' + wordRows(s.words, [L.phrase, L.meaning, L.inUse]) + '</section>'
       : '') +
