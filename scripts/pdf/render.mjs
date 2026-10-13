@@ -134,9 +134,24 @@ const cachedFonts = new Map();
 // The stylesheet Google Fonts serves, with every font file it points at
 // pulled in and inlined. Done once per process; a run that makes fifty
 // sheets fetches nothing after the first.
+// A font request that times out (CI, 2026-10-13: Google unreachable for a
+// moment, 265 requests at once) is asked again, up to five times.
+async function fetchAgain(u, init) {
+  let last;
+  for (let i = 0; i < 5; i++) {
+    try {
+      const r = await fetch(u, init);
+      if (r.ok || r.status < 500) return r;
+      last = new Error('status ' + r.status);
+    } catch (err) { last = err; }
+    await new Promise((ok) => setTimeout(ok, 1500 * (i + 1)));
+  }
+  throw last;
+}
+
 export async function embeddedFonts(url = FONT_CSS) {
   if (cachedFonts.has(url)) return cachedFonts.get(url);
-  const res = await fetch(url, {
+  const res = await fetchAgain(url, {
     headers: { 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120 Safari/537.36' }
   });
   if (!res.ok) throw new Error('could not fetch the font stylesheet: ' + res.status);
@@ -144,7 +159,7 @@ export async function embeddedFonts(url = FONT_CSS) {
 
   const urls = [...new Set([...css.matchAll(/url\((https:\/\/[^)]+)\)/g)].map((m) => m[1]))];
   const files = await Promise.all(urls.map(async (u) => {
-    const r = await fetch(u);
+    const r = await fetchAgain(u);
     if (!r.ok) throw new Error('could not fetch a font file: ' + u);
     const buf = Buffer.from(await r.arrayBuffer());
     const kind = u.endsWith('.woff2') ? 'font/woff2' : 'font/woff';
