@@ -405,8 +405,9 @@ export const MAKING_OF = new RegExp([
   // Not "changed" or "updated": "I changed the appointment" is an example
   // sentence's translation, not a note about the sheet.
   "\\bI(?:'ve| have)? (?:fixed|corrected|rewrote|revised|addressed)\\b",
-  '\\b(?:last|previous|earlier) (?:review|draft|version|revision)\\b',
-  '\\bthe review(?:er)?\\b', '\\breviewer\\b', '\\bas requested\\b',
+  '\\b(?:last|previous|earlier) (?:draft|version|revision)\\b',
+  // "the review" alone is ordinary on a sheet about a concert or book review (2026-10-13: RD083, RD086, RD089).
+  '\\bthe reviewer\\b', '\\breviewer\\b', '\\bas requested\\b',
   '\\bnow reads\\b', '\\bthis (?:revision|draft)\\b', '검수'
 ].join('|'), 'i');
 

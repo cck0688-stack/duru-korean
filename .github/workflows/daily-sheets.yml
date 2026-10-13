@@ -71,6 +71,10 @@ on:
       level4:
         description: 'Level 4 series: ids to make (G4-07,V4-11 …) or all; only those rows are used'
         default: ''
+      reset_tried:
+        description: 'Try items again that failed twelve times'
+        type: boolean
+        default: false
       english_only:
         description: 'Only the English edition (samples for the owner to look at)'
         type: boolean
@@ -194,6 +198,7 @@ jobs:
           DURU_LEVEL4: ${{ inputs.level4 }}
           DURU_LEVEL4_ONLY: ${{ inputs.level4 != '' && '1' || '' }}
           DURU_ENGLISH_ONLY: ${{ inputs.english_only && '1' || '' }}
+          DURU_RESET_TRIED: ${{ inputs.reset_tried && 'all' || '' }}
           SHELF: ${{ matrix.shelf }}
           PUSH_READ: '1'
         run: |

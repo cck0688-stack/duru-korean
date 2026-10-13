@@ -259,7 +259,7 @@ function seriesSubject(shelf, row) {
 export function nextFromSyllabus(shelf, plan, skip = new Set()) {
   if (!CURRICULUM_SHELVES.includes(shelf)) return null;
   const done = new Set([...(ALREADY[shelf] || []), ...((plan && plan.done) || [])]);
-  const tried = (plan && plan.tried) || {};
+  const tried = process.env.DURU_RESET_TRIED === 'all' ? {} : ((plan && plan.tried) || {});
   // A series item gets twelve tries, not three (the owner, 2026-10-09: all
   // 100 must be made; vocab ran out of items at 91 with nine left that
   // had failed review three times each).
