@@ -104,7 +104,7 @@ jobs:
       matrix:
         shelf: [vocab, reading, grammar, reallife, hangul, etc]
     concurrency:
-      group: daily-worksheets-${{ matrix.shelf }}
+      group: daily-worksheets-${{ matrix.shelf }}${{ inputs.level4 != '' && '-level4' || '' }}
       cancel-in-progress: false
     # A sheet is written, reviewed, possibly rewritten, translated and
     # rendered ten times. The limit leaves room for a wait on the
