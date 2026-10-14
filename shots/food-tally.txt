@@ -1,0 +1,18 @@
+run 38516187055 langs= sheets=53 changed_ok=32 left_old=21 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:10.5862249Z   MODE: food
+run 38516184975 langs= sheets=53 changed_ok=29 left_old=24 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:08.3003586Z   MODE: food
+run 38516182848 langs= sheets=53 changed_ok=53 left_old=0 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:13.9629201Z   MODE: food
+run 38516180461 langs= sheets=53 changed_ok=50 left_old=3 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:25.9907378Z   MODE: food
+run 38516178145 langs= sheets=53 changed_ok=51 left_old=2 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:15.6871909Z   MODE: food
+run 38516175794 langs= sheets=53 changed_ok=40 left_old=13 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:03.6805727Z   MODE: food
+run 38516173458 langs= sheets=53 changed_ok=34 left_old=19 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:01.3692901Z   MODE: food
+run 38516171371 langs= sheets=53 changed_ok=38 left_old=15 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:05.9106506Z   MODE: food
+run 38516169164 langs= sheets=53 changed_ok=48 left_old=5 no_text=0 missing=0 first=MODE: food
+food	Redo every etc sheet	2026-10-14T05:22:04.6769746Z   MODE: food
