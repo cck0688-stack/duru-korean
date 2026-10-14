@@ -1,0 +1,142 @@
+[
+  {
+    "name": "01-desk",
+    "requested": "https://www.durukorean.com/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/blog/post/korean-yes-no-negative-questions?pl=en",
+    "htmlLang": "en",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Browse by topic",
+      "Korea Travel Essentials",
+      "K-Food & Dining Guide",
+      "K-Style & Beauty",
+      "Explore & K-Culture",
+      "Campus & Living Support",
+      "Work & Career",
+      "Korean Language Tips",
+      "ETC",
+      "Why do Koreans answer \"yes\" to negative questions?",
+      "Words & Phrases",
+      "Comments",
+      "Latest posts",
+      "Never miss a post",
+      "Welcome back",
+      "Create your account",
+      "Reset your password"
+    ],
+    "text": "Visits 7,333\nToday 90\nLearn Korean\nBook Resources\nFree Downloads\nBlog\nCommunity\nEnglish\nLog in\n글\nBlog\n\nYour guide to Korean language, culture, and everyday life.\n\nAll posts\nPick a language\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nBROWSE BY TOPIC\nKorea Travel Essentials\n\nLanding, getting around and paying for things — the first week sorted.\n\nK-Food & Dining Guide\n\nHow to order, what to eat, and what happens at a Korean table.\n\nK-Style & Beauty\n\nSkincare, clinics, brands, and where to shop without overpaying.\n\nExplore & K-Culture\n\nNeighborhoods, drama locations, day trips and everyday Korean life.\n\nCampus & Living Support\n\nVisas, housing, hospitals and the paperwork of living here.\n\nWork & Career\n\nPart-time permits, job hunting, resumes and internships in Korea.\n\nKorean Language Tips\n\nUseful expressions, common mistakes, and everyday Korean made simple.\n\nETC\n\nCultural nuance, news that affects foreigners, and everything else that matters.\n\n← All posts\n\nKOREAN LANGUAGE TIPS\n\nWhy do Koreans answer \"yes\" to negative questions?\n\n부정 질문에 한국어는 왜 '네'라고 답할까\n\nOctober 14, 2026\n\nPhoto by Ryu Orn · Unsplash\n\nRead in\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nLog in to download\n♡\n0\n\n외국인 학생이 이런 이야기를 해 줬어요.\nAn international student told me this story.\n친구가 \"커피 안 마셔요?\"\nA friend asked, \"Aren't you drinking coffee?\"\n하고 물어서, 안 마시니까 \"아니요\"라고 했대요.\nand since the student wasn't drinking any, they said, \"No.\"\n그런데 친구"
+  },
+  {
+    "name": "01-phone",
+    "requested": "https://www.durukorean.com/blog#first-post",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 400 ()"
+    ],
+    "url": "https://www.durukorean.com/blog/post/korean-yes-no-negative-questions?pl=en",
+    "htmlLang": "en",
+    "selects": [
+      {
+        "id": "blogLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      },
+      {
+        "id": "blogReadLang",
+        "value": "en",
+        "options": [
+          "English",
+          "Tiếng Việt",
+          "Español",
+          "Bahasa Indonesia",
+          "Português (BR)",
+          "한국어",
+          "日本語",
+          "中文",
+          "Français",
+          "Deutsch"
+        ]
+      }
+    ],
+    "headings": [
+      "Blog",
+      "Browse by topic",
+      "Korea Travel Essentials",
+      "K-Food & Dining Guide",
+      "K-Style & Beauty",
+      "Explore & K-Culture",
+      "Campus & Living Support",
+      "Work & Career",
+      "Korean Language Tips",
+      "ETC",
+      "Why do Koreans answer \"yes\" to negative questions?",
+      "Words & Phrases",
+      "Comments",
+      "Latest posts",
+      "Never miss a post",
+      "Welcome back",
+      "Create your account",
+      "Reset your password"
+    ],
+    "text": "Log in\nBlog\n\nYour guide to Korean language, culture, and everyday life.\n\nAll posts\nPick a language\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nBROWSE BY TOPIC\nKorea Travel Essentials\n\nLanding, getting around and paying for things — the first week sorted.\n\nK-Food & Dining Guide\n\nHow to order, what to eat, and what happens at a Korean table.\n\nK-Style & Beauty\n\nSkincare, clinics, brands, and where to shop without overpaying.\n\nExplore & K-Culture\n\nNeighborhoods, drama locations, day trips and everyday Korean life.\n\nCampus & Living Support\n\nVisas, housing, hospitals and the paperwork of living here.\n\nWork & Career\n\nPart-time permits, job hunting, resumes and internships in Korea.\n\nKorean Language Tips\n\nUseful expressions, common mistakes, and everyday Korean made simple.\n\nETC\n\nCultural nuance, news that affects foreigners, and everything else that matters.\n\n← All posts\n\nKOREAN LANGUAGE TIPS\n\nWhy do Koreans answer \"yes\" to negative questions?\n\n부정 질문에 한국어는 왜 '네'라고 답할까\n\nOctober 14, 2026\n\nPhoto by Ryu Orn · Unsplash\n\nRead in\nEnglish\nTiếng Việt\nEspañol\nBahasa Indonesia\nPortuguês (BR)\n한국어\n日本語\n中文\nFrançais\nDeutsch\nLog in to download\n♡\n0\n\n외국인 학생이 이런 이야기를 해 줬어요.\nAn international student told me this story.\n친구가 \"커피 안 마셔요?\"\nA friend asked, \"Aren't you drinking coffee?\"\n하고 물어서, 안 마시니까 \"아니요\"라고 했대요.\nand since the student wasn't drinking any, they said, \"No.\"\n그런데 친구가 커피를 쓱 내밀었다는 거예요.\nBut then the friend just pushed a coffee toward them.\n\n저도 이유를 몰랐어요\nI di"
+  }
+]
