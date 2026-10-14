@@ -96,11 +96,11 @@ jobs:
           import fitz, os, glob, shutil
           out = '../rework-output/shots/' + os.environ.get('CAT','etc') + '-' + os.environ.get('MODE','food') + '-' + (os.environ.get('LANGS') or 'all')
           shutil.rmtree(out, ignore_errors=True); os.makedirs(out, exist_ok=True)
-          for p in glob.glob('pdf-out/*/en.pdf'):
-              i = p.split('/')[1]
+          for p in glob.glob('pdf-out/*/en.pdf') + glob.glob('pdf-out/*/*-fail.pdf'):
+              i = p.split('/')[1] + ('' if p.endswith('/en.pdf') else '-' + os.path.basename(p)[:-4])
               shutil.copy(p, '%s/%s.pdf' % (out, i))
               d = fitz.open(p)
-              for n, pg in enumerate(d): pg.get_pixmap(dpi=45).save('%s/%s-%d.png' % (out, i, n + 1))
+              for n, pg in enumerate(d): pg.get_pixmap(dpi=45 if p.endswith('/en.pdf') else 70).save('%s/%s-%d.png' % (out, i, n + 1))
           shutil.copy('summary.txt', out + '/summary.txt')
           PY
       - name: Keep pictures and read text

@@ -169,7 +169,11 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
       if (done) break;
     }
   }
-  if (r.check.pages !== 2 || !r.check.ok) { log(lang + ' — 2쪽이 안 돼서 이 언어는 그대로 둡니다 (' + r.check.pages + '쪽)'); continue; }
+  if (r.check.pages !== 2 || !r.check.ok) {
+    log(lang + ' — 2쪽이 안 돼서 이 언어는 그대로 둡니다 (' + r.check.pages + '쪽' + (r.check.ok ? '' : ', ' + String(r.check.problems || r.check.why || '').slice(0, 200)) + ')');
+    if (OUT && DRY) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, lang + '-fail.pdf'), r.pdf); }
+    continue;
+  }
   outputs[lang] = r;
   log(lang + ' — ' + r.check.pages + '쪽' + how + (r.check.ok ? '' : ' (검사 실패: ' + (r.check.problems || r.check.why || '') + ')'));
   if (OUT) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, lang + '.pdf'), r.pdf); }
