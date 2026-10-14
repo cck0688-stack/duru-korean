@@ -84,6 +84,9 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   const tries = [
     { ed: mark(structuredClone(base)), opts: {}, how: '' },
     ...(MODE === 'proverb' || MODE === 'food' ? [{ ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' }] : []),
+    // A longer language: the item rows side by side again (two lines a row, not three), still in one box.
+    ...(MODE === 'food' ? [{ ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; }); return e; })(), opts: { compact: true }, how: ' (속담 줄을 나란히)' },
+      { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (나란히, 쪽 나누기 없이)' }] : []),
     { ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' },
     { ed: (() => { const e = mark(structuredClone(base)); if (e.sections) e.sections.forEach((x) => { x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
     { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
