@@ -17,6 +17,10 @@ on:
       mode:
         description: 'food = food layout; passage = passage in one big box'
         default: 'food'
+      shorten:
+        description: 'Shorten a language''s explanations when the new layout runs past two pages'
+        type: boolean
+        default: false
       only:
         description: 'Only these resource ids (comma separated, blank = all etc)'
         default: ''
@@ -41,6 +45,8 @@ jobs:
       - run: npm ci
       - run: pip install --quiet pymupdf fonttools
       - run: npx playwright install --with-deps chromium
+      - if: ${{ inputs.shorten }}
+        run: npm install -g @anthropic-ai/claude-code
       - name: Stored text
         run: |
           git config user.name "duru-korean-bot"
@@ -58,6 +64,8 @@ jobs:
           ONLY: ${{ inputs.only }}
           CAT: ${{ inputs.category }}
           MODE: ${{ inputs.mode }}
+          SHORTEN: ${{ inputs.shorten }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           python3 - <<'PY' > ids.txt
           import json, glob, os
@@ -73,6 +81,7 @@ jobs:
           while read -r id; do
             args=(--id="$id" --read=../rework-output/read --out=pdf-out/$id --mode=$MODE --langs="$LANGS")
             if [ "$DRY" = "true" ]; then args+=(--dry-run); fi
+            if [ "$SHORTEN" = "true" ]; then args+=(--shorten); fi
             echo "== $id" | tee -a summary.txt
             node scripts/redo-sheet.mjs "${args[@]}" 2>&1 | tee -a summary.txt || echo "FAILED $id" | tee -a summary.txt
           done < ids.txt
@@ -81,10 +90,11 @@ jobs:
         env:
           CAT: ${{ inputs.category }}
           MODE: ${{ inputs.mode }}
+          LANGS: ${{ inputs.langs }}
         run: |
           python3 - <<'PY'
           import fitz, os, glob, shutil
-          out = '../rework-output/shots/' + os.environ.get('CAT','etc') + '-' + os.environ.get('MODE','food')
+          out = '../rework-output/shots/' + os.environ.get('CAT','etc') + '-' + os.environ.get('MODE','food') + '-' + (os.environ.get('LANGS') or 'all')
           shutil.rmtree(out, ignore_errors=True); os.makedirs(out, exist_ok=True)
           for p in glob.glob('pdf-out/*/en.pdf'):
               i = p.split('/')[1]
@@ -100,8 +110,8 @@ jobs:
           git add -A shots read
           git diff --cached --quiet && exit 0
           git commit -q -m "Food layout: pictures and read text"
-          for i in 1 2 3 4; do
+          for i in 1 2 3 4 5 6 7 8 9 10; do
             git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
-            sleep $((2 ** i))
+            sleep $(( (RANDOM % 20) + 5 * i ))
           done
           exit 1
