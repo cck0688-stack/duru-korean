@@ -309,3 +309,10 @@ body.theme-v2 {
 .theme-v2 .rd-hero-inner { grid-template-columns: minmax(0, 1fr) 380px; }
 .theme-v2 .rd-hero .rd-download { font-size: 18px; gap: 10px; }
 .theme-v2 .rd-hero .rd-download #resDownloadLabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.theme-v2 .rd-hero .rd-download { padding: 0 18px; font-size: 17px; }
+.theme-v2 .rd-hero .rd-download .rd-download-chev { display: none; }
+.theme-v2 .rd-hero .rd-download .rd-download-icon { margin-left: 0; }
+@media (max-width: 900px) {
+  .theme-v2 .rd-hero-inner { grid-template-columns: minmax(0, 1fr); }
+  .theme-v2 .rd-hero .rd-card { grid-column: 1; grid-row: auto; }
+}
