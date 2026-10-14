@@ -1,0 +1,38 @@
+# DURU KOREAN — counts, per language and shelf, from the logs of the food-etc runs (one-off helper).
+name: Food tally
+on:
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'Runs created after (UTC)'
+        default: '2026-10-14T01:00'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  tally:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: rework-output
+      - name: Count
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SINCE: ${{ inputs.since }}
+        run: |
+          mkdir -p shots; : > shots/food-tally.txt
+          for id in $(gh api "repos/${{ github.repository }}/actions/workflows/food-etc.yml/runs?per_page=40" --jq ".workflow_runs[]|select(.created_at>\"$SINCE\")|.id"); do
+            gh run view $id --repo ${{ github.repository }} --log > /tmp/l.txt 2>/dev/null || continue
+            lang=$(grep -m1 -oE '\-\-langs=[A-Za-z-]+' /tmp/l.txt | cut -d= -f2)
+            n=$(grep -c "^.*== [0-9a-f-]\{36\}" /tmp/l.txt)
+            echo "run $id langs=$lang sheets=$n changed_ok=$(grep -cE ' — [0-9]쪽( |$)' /tmp/l.txt) left_old=$(grep -c '그대로 둡니다' /tmp/l.txt) no_text=$(grep -c '본문 없음' /tmp/l.txt) missing=$(grep -c '자료를 찾지 못했' /tmp/l.txt) first=$(grep -m1 -oE 'pages|MODE: [a-z]+' /tmp/l.txt | head -1)" >> shots/food-tally.txt
+            grep -m1 "MODE:" /tmp/l.txt >> shots/food-tally.txt
+            grep -B1 '그대로 둡니다' /tmp/l.txt | grep -oE '[0-9a-f]{8}-[0-9a-f-]{27}' | sort -u > shots/left-old-$id.txt
+          done
+          cat shots/food-tally.txt
+      - name: Keep
+        run: |
+          git config user.name duru-korean-bot; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A shots; git commit -qm "Food tally" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0; sleep $((2**i)); done; exit 1
