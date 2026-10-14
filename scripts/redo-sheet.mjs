@@ -141,7 +141,9 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
     ...(MODE === 'proverb' || MODE === 'food' ? [{ ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' }] : []),
     // A longer language: the item rows side by side again (two lines a row, not three), still in one box.
     ...(MODE === 'food' ? [{ ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; }); return e; })(), opts: { compact: true }, how: ' (속담 줄을 나란히)' },
-      { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (나란히, 쪽 나누기 없이)' }] : []),
+      { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (나란히, 쪽 나누기 없이)' },
+      { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; }); return e; })(), opts: { compact: true }, how: ' (줄 간격 좁게)' },
+      { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (줄 간격 좁게, 쪽 나누기 없이)' }] : []),
     { ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' },
     { ed: (() => { const e = mark(structuredClone(base)); if (e.sections) e.sections.forEach((x) => { x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
     { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
@@ -161,8 +163,9 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
       if (!next) break;
       cur = next;
       let done = false;
-      for (const opts of [{}, { compact: true }]) {
+      for (const [opts, tight] of [[{}, false], [{ compact: true }, false], [{ compact: true }, true]]) {
         const ed = mark(structuredClone(cur));
+        if (tight) (ed.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; });
         const rr = await renderSheet(ed, { category: ed.category || 'etc', lang, browser, ...opts });
         if (rr.check.pages === 2 && rr.check.ok) { r = rr; how = ' (설명 ' + cut + '% 줄임)'; fs.writeFileSync(f, JSON.stringify(ed)); done = true; break; }
       }

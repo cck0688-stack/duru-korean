@@ -606,3 +606,11 @@ body:has(section.k-next.tight) .q { padding-top: 3px !important; padding-bottom:
 .rows-stack .row-gloss { display: inline; margin: 0 0 0 6px; font-size: 11px; }
 .rows-stack .row-text { grid-column: 2; border-left: 0; padding-left: 0; font-size: 11.5px; }
 .rows-stack .row-text .row-exl { margin-top: 1px; }
+
+/* A longer language (owner, 2026-10-14): the same rows set closer — less space between and
+   inside them, never smaller letters — so a numbered box still fits where the English does. */
+.rows-tight { padding-top: 0; padding-bottom: 0; }
+.rows-tight .row { padding: 1.5px 0; gap: 10px; }
+.rows-tight .row-text, .rows-tight .row-term { line-height: 1.32; }
+.rows-tight .row-gloss { margin-top: 0; }
+.rows-tight .row-text .row-exl { margin-top: 0; }
