@@ -301,3 +301,7 @@ body.theme-v2 {
   .theme-v2 .rd-hero-inner { grid-template-columns: 1fr; }
   .theme-v2 .rd-hero .rd-card { grid-column: 1; grid-row: auto; }
 }
+/* The download corner blends into the blush banner (owner, 2026-10-14): no white card,
+   only a faint tint and a hairline in the banner's own colour. */
+.theme-v2 .rd-hero .rd-card { background: rgba(255, 255, 255, .38); border: 1px solid rgba(122, 78, 102, .12); box-shadow: none; }
+.theme-v2 .rd-hero .rd-file-lang select { background: rgba(255, 255, 255, .7); border-color: rgba(122, 78, 102, .18); }
