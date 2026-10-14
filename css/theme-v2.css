@@ -340,3 +340,10 @@ body.theme-v2 {
 .theme-v2 .blog-dl:disabled, .theme-v2 .blog-print:disabled { opacity: .55; cursor: default; }
 .theme-v2 .blog-dl svg, .theme-v2 .blog-print svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 @media (max-width: 600px) { .theme-v2 .blog-lang-row { max-width: none; margin-left: 0; } }
+/* Wide screens: the Read in / Download / Print panel sits in the empty space to the right of the post,
+   level with the title, and stays in view while reading (owner, 2026-10-14). */
+@media (min-width: 1100px) {
+  .theme-v2 .blog-single:not([hidden]) { display: grid; grid-template-columns: minmax(0, 760px) 320px; column-gap: 40px; max-width: none; align-items: start; }
+  .theme-v2 .blog-single > * { grid-column: 1; }
+  .theme-v2 .blog-single > .blog-lang-row { grid-column: 2; grid-row: 1 / span 4; margin: 40px 0 0; max-width: none; position: sticky; top: 110px; }
+}
