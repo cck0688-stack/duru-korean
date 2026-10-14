@@ -50,11 +50,17 @@
       <span class="rd-eyebrow" id="resEyebrow" data-i18n="resource.eyebrowFree">Free resource</span>
       <h1 id="resTitle">…</h1>
       <p class="rd-subtitle" id="resSubtitle"></p>
+      <div class="rd-about rd-about-top res-body">
+        <span class="rd-eyebrow" data-i18n="resource.aboutEyebrow">About this resource</span>
+        <h2 class="rd-about-title" id="resAboutTitle"></h2>
+        <div id="resBody" class="rd-about-text"></div>
+      </div>
       <ul class="rd-chips" id="resChips">
         <li class="rd-chip"><span class="rd-chip-icon" id="resCatIcon" aria-hidden="true"></span><span id="resCategory"></span></li>
         <li class="rd-chip" id="resLevelChip"><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-6M12 20V9M19 20V4"/></svg><span id="resFactLevel"></span></li>
         <li class="rd-chip" id="resTopicChip" hidden><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg><span id="resTopic"></span></li>
         <li class="rd-chip" id="resFileChip" hidden><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/></svg><span id="resFileMeta"></span></li>
+        <li class="rd-chip rd-chip-langs" id="resLangsChip"><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="rd-chip-langs-label" data-i18n="resource.availableIn">Available in</span><span id="resFactLangs"></span></li>
       </ul>
     </div>
     <div class="rd-hero-art" id="resCover" aria-hidden="true"></div>
@@ -70,20 +76,15 @@
       <a class="btn btn-ghost" href="free-resources.html" data-i18n="resource.backToList">← All downloads</a>
     </div>
 
-    <div class="rd-card" id="resDetail" hidden>
-      <div class="rd-about res-body">
-        <span class="rd-eyebrow" data-i18n="resource.aboutEyebrow">About this resource</span>
-        <h2 class="rd-about-title" id="resAboutTitle"></h2>
-        <div id="resBody" class="rd-about-text"></div>
-        <div class="rd-lang-field rd-available">
-          <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
-          <span class="rd-lang-body">
-            <span class="rd-lang-label" data-i18n="resource.availableIn">Available in</span>
-            <span class="rd-lang-list" id="resFactLangs"></span>
-          </span>
-        </div>
-      </div>
+    <!-- Read it here, not only download it: the sheet's own content, from
+         read/<id>/<lang>.json (a sample on one download so far). -->
+    <section class="rd-read" id="resRead" hidden>
+      <span class="rd-eyebrow" data-i18n="resource.readEyebrow">Read it here</span>
+      <h2 id="resReadTitle"></h2>
+      <div id="resReadBody"></div>
+    </section>
 
+    <div class="rd-card" id="resDetail" hidden>
       <div class="rd-get" id="resPanel">
         <label class="rd-lang-field rd-file-lang" for="resPdfLang">
           <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
@@ -103,14 +104,6 @@
         <p class="res-notice" id="resLangNotice" hidden></p>
       </div>
     </div>
-
-    <!-- Read it here, not only download it: the sheet's own content, from
-         read/<id>/<lang>.json (a sample on one download so far). -->
-    <section class="rd-read" id="resRead" hidden>
-      <span class="rd-eyebrow" data-i18n="resource.readEyebrow">Read it here</span>
-      <h2 id="resReadTitle"></h2>
-      <div id="resReadBody"></div>
-    </section>
 
     <div class="rd-below">
       <div class="res-admin" id="resAdmin" hidden>

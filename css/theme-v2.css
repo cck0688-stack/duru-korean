@@ -258,3 +258,19 @@ body.theme-v2 {
   .level-chip { font-size: 13px; padding: 8px 12px; }
   .dl-search { max-width: none; flex-basis: 100%; }
 }
+
+/* Resource page (owner, 2026-10-14): the About text sits above the chips in the banner,
+   "Available in" is a small chip beside the file size, Read it here comes first, the
+   download card is only the download. */
+.theme-v2 .rd-about-top { padding: 0; border: 0; margin: 0 0 16px; max-width: 760px; }
+.theme-v2 .rd-about-top .rd-about-title { font-size: 18px; margin: 4px 0 8px; }
+.theme-v2 .rd-about-top .rd-about-text p { font-size: 14.5px; line-height: 1.65; margin: 0 0 6px; }
+.theme-v2 .rd-chip-langs { font-size: 12px; padding: 5px 12px; gap: 6px; }
+.theme-v2 .rd-chip-langs .rd-chip-icon { width: 14px; height: 14px; }
+.theme-v2 .rd-chip-langs-label { font-weight: 700; color: #2b2430; }
+.theme-v2 .rd-chip-langs #resFactLangs { color: #5d5260; }
+.theme-v2 .rd-main .rd-read { position: relative; margin-top: -80px; }
+.theme-v2 .rd-main .rd-read[hidden] + .rd-card { margin-top: -80px; }
+.theme-v2 .rd-main .rd-read:not([hidden]) + .rd-card { margin-top: 24px; }
+.theme-v2 .rd-card { grid-template-columns: 1fr; }
+.theme-v2 .rd-card .rd-get { padding-left: 0; max-width: 520px; margin: 0 auto; width: 100%; }
