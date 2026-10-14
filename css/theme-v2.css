@@ -305,3 +305,7 @@ body.theme-v2 {
    only a faint tint and a hairline in the banner's own colour. */
 .theme-v2 .rd-hero .rd-card { background: rgba(255, 255, 255, .38); border: 1px solid rgba(122, 78, 102, .12); box-shadow: none; }
 .theme-v2 .rd-hero .rd-file-lang select { background: rgba(255, 255, 255, .7); border-color: rgba(122, 78, 102, .18); }
+/* The button's words stay on one line in every language. */
+.theme-v2 .rd-hero-inner { grid-template-columns: minmax(0, 1fr) 380px; }
+.theme-v2 .rd-hero .rd-download { font-size: 18px; gap: 10px; }
+.theme-v2 .rd-hero .rd-download #resDownloadLabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
