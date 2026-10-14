@@ -99,7 +99,7 @@ async function shorten(ed, lang, cut) {
     editor.timeoutMs = 300000;
   }
   const spots = longTexts(ed);
-  if (!spots.length) return null;
+  if (!spots.length) { log(lang + ' — 줄일 설명이 없음'); return null; }
   const texts = spots.map(([o, k]) => o[k]);
   const system = [
     'You edit a Korean-learning worksheet whose explanations are written in ' + (LANGUAGE_NAMES[lang] || lang) + '.',
@@ -113,7 +113,7 @@ async function shorten(ed, lang, cut) {
     properties: { texts: { type: 'array', items: { type: 'string' } } } };
   const raw = await editor.provider.chat(editor, system, JSON.stringify({ texts }, null, 1), schema);
   const got = (typeof raw === 'string' ? JSON.parse(raw.replace(/^```(?:json)?\s*|\s*```$/g, '')) : raw).texts;
-  if (!Array.isArray(got) || got.length !== texts.length) return null;
+  if (!Array.isArray(got) || got.length !== texts.length) { log(lang + ' — 줄인 글 개수가 다름 (' + (Array.isArray(got) ? got.length : typeof got) + '/' + texts.length + ')'); return null; }
   const hangul = (s) => (String(s).match(/[가-힣]+/g) || []).join(' ');
   const out = structuredClone(ed);
   const spots2 = longTexts(out);
@@ -123,6 +123,8 @@ async function shorten(ed, lang, cut) {
     // Only a shorter text that keeps its Korean is taken.
     if (n && n.length < o[k].length && hangul(n) === hangul(o[k])) { o[k] = n; changed += 1; }
   });
+  const before = texts.join('').length, after = longTexts(out).map(([o, k]) => o[k]).join('').length;
+  log(lang + ' — 설명 ' + changed + '/' + texts.length + '개 줄임 (' + before + '→' + after + '자)');
   return changed ? out : null;
 }
 
@@ -153,7 +155,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   // Still not on two pages in the new layout: shorten that language's explanations and try again.
   if (SHORTEN && (how === tries[tries.length - 1].how || r.check.pages !== 2 || !r.check.ok)) {
     let cur = base;
-    for (const cut of [15, 25]) {
+    for (const cut of [20, 30, 40]) {
       let next = null;
       try { next = await shorten(cur, lang, cut); } catch (e) { log(lang + ' — 줄이기 실패: ' + e.message); break; }
       if (!next) break;
