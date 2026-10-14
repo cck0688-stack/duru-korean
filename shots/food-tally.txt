@@ -1,0 +1,38 @@
+run 38494858122 langs= sheets=144 changed_ok=109 left_old=33 no_text=2 missing=4 first=MODE: food
+food	Redo every etc sheet	2026-10-14T01:17:52.6381280Z   MODE: food
+run 38494856104 langs= sheets=144 changed_ok=101 left_old=41 no_text=2 missing=4 first=MODE: food
+food	Redo every etc sheet	2026-10-14T01:17:40.5470970Z   MODE: food
+run 38494854048 langs= sheets=144 changed_ok=142 left_old=0 no_text=2 missing=4 first=MODE: food
+food	UNKNOWN STEP	2026-10-14T01:17:45.0472810Z   MODE: food
+run 38494851736 langs= sheets=144 changed_ok=138 left_old=4 no_text=2 missing=4 first=MODE: food
+food	Redo every etc sheet	2026-10-14T01:17:37.4576880Z   MODE: food
+run 38494849745 langs= sheets=144 changed_ok=139 left_old=3 no_text=2 missing=4 first=MODE: food
+food	UNKNOWN STEP	2026-10-14T01:17:39.2579489Z   MODE: food
+run 38494847505 langs= sheets=144 changed_ok=112 left_old=30 no_text=2 missing=4 first=MODE: food
+food	Redo every etc sheet	2026-10-14T01:17:55.4029562Z   MODE: food
+run 38494845509 langs= sheets=144 changed_ok=105 left_old=37 no_text=2 missing=4 first=MODE: food
+food	Redo every etc sheet	2026-10-14T01:17:42.3358706Z   MODE: food
+run 38494843260 langs= sheets=144 changed_ok=112 left_old=30 no_text=2 missing=4 first=MODE: food
+food	Redo every etc sheet	2026-10-14T01:17:34.6959592Z   MODE: food
+run 38494841513 langs= sheets=144 changed_ok=129 left_old=13 no_text=2 missing=4 first=MODE: food
+food	UNKNOWN STEP	2026-10-14T01:17:46.0437009Z   MODE: food
+run 38494839266 langs= sheets=144 changed_ok=133 left_old=11 no_text=0 missing=4 first=MODE: food
+food	Redo every etc sheet	2026-10-14T01:17:42.3611124Z   MODE: food
+run 38494835927 langs= sheets=146 changed_ok=136 left_old=8 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:41.0814718Z   MODE: passage
+run 38494833781 langs= sheets=146 changed_ok=141 left_old=3 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:45.1072039Z   MODE: passage
+run 38494831982 langs= sheets=146 changed_ok=144 left_old=0 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:39.7163583Z   MODE: passage
+run 38494829921 langs= sheets=146 changed_ok=144 left_old=0 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:40.3377522Z   MODE: passage
+run 38494827929 langs= sheets=146 changed_ok=144 left_old=0 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:37.6224769Z   MODE: passage
+run 38494825983 langs= sheets=146 changed_ok=141 left_old=3 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:29.5568623Z   MODE: passage
+run 38494823942 langs= sheets=146 changed_ok=138 left_old=6 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:25.3160270Z   MODE: passage
+run 38494822142 langs= sheets=146 changed_ok=140 left_old=4 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:31.3485407Z   MODE: passage
+run 38494819955 langs= sheets=146 changed_ok=144 left_old=0 no_text=2 missing=4 first=MODE: passage
+food	UNKNOWN STEP	2026-10-14T01:17:29.5697683Z   MODE: passage
