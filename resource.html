@@ -62,25 +62,25 @@
         <li class="rd-chip" id="resFileChip" hidden><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/></svg><span id="resFileMeta"></span></li>
         <li class="rd-chip rd-chip-langs" id="resLangsChip"><svg class="rd-chip-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span class="rd-chip-langs-label" data-i18n="resource.availableIn">Available in</span><span id="resFactLangs"></span></li>
       </ul>
-      <div class="rd-card" id="resDetail" hidden>
-        <div class="rd-get" id="resPanel">
-          <label class="rd-lang-field rd-file-lang" for="resPdfLang">
-            <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
-            <span class="rd-lang-label" data-i18n="resource.pdfLanguage">File language</span>
-            <select id="resPdfLang"></select>
-          </label>
-          <button type="button" class="rd-download" id="resDownloadBtn">
-            <svg class="rd-download-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
-            <span id="resDownloadLabel">Download</span>
-            <svg class="rd-download-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
-          <p class="rd-note" id="resLoginNote" hidden data-i18n="resource.loginNote">Downloads are for signed-in learners — it takes a minute and it is free.</p>
-          <div class="rd-secondary">
-            <button type="button" class="rd-linkbtn" id="resPreviewBtn">Preview</button>
-            <button type="button" class="btn btn-primary res-publish-btn" id="resApproveBtn" hidden data-i18n="admin.publish">Publish</button>
-          </div>
-          <p class="res-notice" id="resLangNotice" hidden></p>
+    </div>
+    <div class="rd-card" id="resDetail" hidden>
+      <div class="rd-get" id="resPanel">
+        <label class="rd-lang-field rd-file-lang" for="resPdfLang">
+          <svg class="rd-globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+          <span class="rd-lang-label" data-i18n="resource.pdfLanguage">File language</span>
+          <select id="resPdfLang"></select>
+        </label>
+        <button type="button" class="rd-download" id="resDownloadBtn">
+          <svg class="rd-download-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+          <span id="resDownloadLabel">Download</span>
+          <svg class="rd-download-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <p class="rd-note" id="resLoginNote" hidden data-i18n="resource.loginNote">Downloads are for signed-in learners — it takes a minute and it is free.</p>
+        <div class="rd-secondary">
+          <button type="button" class="rd-linkbtn" id="resPreviewBtn">Preview</button>
+          <button type="button" class="btn btn-primary res-publish-btn" id="resApproveBtn" hidden data-i18n="admin.publish">Publish</button>
         </div>
+        <p class="res-notice" id="resLangNotice" hidden></p>
       </div>
     </div>
     <div class="rd-hero-art" id="resCover" aria-hidden="true"></div>
