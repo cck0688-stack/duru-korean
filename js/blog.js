@@ -851,15 +851,16 @@
       // Printing prints that same file, so the paper looks like the PDF.
       var pdfHTML = pdfFile
         ? '<span class="blog-pdf-actions">' +
-            '<button type="button" class="btn btn-outline-dark blog-pdf-btn" id="blogPdfBtn">' +
-              '<span aria-hidden="true">⤓</span> ' +
-              escapeHTML(signedIn
+            '<button type="button" class="blog-dl" id="blogPdfBtn">' +
+              '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>' +
+              '<span>' + escapeHTML(signedIn
                 ? t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', 'PDF')
-                : t('resources.loginToDownload', 'Log in to download')) +
+                : t('resources.loginToDownload', 'Log in to download')) + '</span>' +
             '</button>' +
             (signedIn
-              ? '<button type="button" class="btn btn-outline-dark blog-pdf-btn" id="blogPrintBtn">' +
-                  '<span aria-hidden="true">⎙</span> ' + escapeHTML(t('blog.print', 'Print')) +
+              ? '<button type="button" class="blog-print" id="blogPrintBtn">' +
+                  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z"/></svg>' +
+                  '<span>' + escapeHTML(t('blog.print', 'Print')) + '</span>' +
                 '</button>'
               : '') +
           '</span>'

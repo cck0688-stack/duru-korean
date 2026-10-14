@@ -324,3 +324,19 @@ body.theme-v2 {
 .rd-print:disabled { opacity: .55; cursor: default; }
 .rd-print[hidden] { display: none; }
 .rd-print svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }
+/* Blog post: language, Download and Print as on a free resource (owner, 2026-10-14) —
+   one soft panel on the right, the language on top, a big plum Download, an outlined Print. */
+.theme-v2 .blog-lang-row { display: flex; flex-direction: column; align-items: stretch; gap: 12px; width: 100%; max-width: 380px; margin: 16px 0 20px auto;
+  padding: 20px 22px; background: rgba(255, 255, 255, .45); border: 1px solid rgba(122, 78, 102, .12); border-radius: 22px; }
+.theme-v2 .blog-lang-row .dl-lang { display: flex; align-items: center; gap: 10px; font-weight: 700; color: #2b2430; font-size: 14px; }
+.theme-v2 .blog-lang-row .dl-lang select { flex: 1 1 auto; background: rgba(255, 255, 255, .7); border: 1px solid rgba(122, 78, 102, .18); border-radius: 10px; padding: 8px 10px; font: inherit; font-weight: 400; }
+.theme-v2 .blog-pdf-actions { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.theme-v2 .blog-dl { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 60px; padding: 0 18px; border: 0; border-radius: 999px; cursor: pointer;
+  background: linear-gradient(180deg, #8a5a74 0%, #7a4e66 100%); color: #fff; font: inherit; font-size: 17px; font-weight: 500; box-shadow: 0 8px 20px rgba(122, 78, 102, .3); white-space: nowrap; }
+.theme-v2 .blog-dl:hover { box-shadow: 0 10px 24px rgba(122, 78, 102, .38); }
+.theme-v2 .blog-print { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; border: 1.5px solid rgba(122, 78, 102, .45); border-radius: 999px;
+  background: rgba(255, 255, 255, .55); color: #6b3f58; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; }
+.theme-v2 .blog-print:hover { background: rgba(255, 255, 255, .85); }
+.theme-v2 .blog-dl:disabled, .theme-v2 .blog-print:disabled { opacity: .55; cursor: default; }
+.theme-v2 .blog-dl svg, .theme-v2 .blog-print svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+@media (max-width: 600px) { .theme-v2 .blog-lang-row { max-width: none; margin-left: 0; } }
