@@ -274,3 +274,14 @@ body.theme-v2 {
 .theme-v2 .rd-main .rd-read:not([hidden]) + .rd-card { margin-top: 24px; }
 .theme-v2 .rd-card { grid-template-columns: 1fr; }
 .theme-v2 .rd-card .rd-get { padding-left: 0; max-width: 520px; margin: 0 auto; width: 100%; }
+
+/* 2026-10-14 (second note): the line above About this resource goes; the download sits
+   in the banner beside the chips, big. */
+.theme-v2 .rd-subtitle { display: none; }
+.theme-v2 .rd-hero .rd-card { margin: 18px 0 0; padding: 0; background: none; box-shadow: none; border-radius: 0; display: block; }
+.theme-v2 .rd-hero .rd-card .rd-get { max-width: none; margin: 0; padding: 0; width: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.theme-v2 .rd-hero .rd-file-lang { margin: 0; }
+.theme-v2 .rd-hero .rd-download { width: auto; min-width: 280px; padding: 18px 34px; font-size: 20px; }
+.theme-v2 .rd-hero .rd-secondary { margin: 0; }
+.theme-v2 .rd-hero .rd-note, .theme-v2 .rd-hero .res-notice { flex-basis: 100%; margin: 0; }
+.theme-v2 .rd-main .rd-read:not([hidden]) + .rd-below, .theme-v2 .rd-main .rd-below { margin-top: 24px; }
