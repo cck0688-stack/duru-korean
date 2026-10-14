@@ -316,3 +316,11 @@ body.theme-v2 {
   .theme-v2 .rd-hero-inner { grid-template-columns: minmax(0, 1fr); }
   .theme-v2 .rd-hero .rd-card { grid-column: 1; grid-row: auto; }
 }
+/* Print, under the download (owner, 2026-10-14): a quieter outlined pill. */
+.rd-print { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 10px; min-height: 48px;
+  border: 1.5px solid rgba(122, 78, 102, .45); border-radius: 999px; background: rgba(255, 255, 255, .55); color: #6b3f58;
+  font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; transition: background .12s ease; }
+.rd-print:hover { background: rgba(255, 255, 255, .85); }
+.rd-print:disabled { opacity: .55; cursor: default; }
+.rd-print[hidden] { display: none; }
+.rd-print svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linejoin: round; }

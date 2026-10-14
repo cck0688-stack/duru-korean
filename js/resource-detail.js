@@ -386,6 +386,8 @@ function renderReadOnline(resource, lang) {
       var have = !!chosen;
       var fmt = have ? String(chosen.file_type || '').toUpperCase() : 'PDF';
       prev.disabled = !have; dl.disabled = !have;
+      $('resPrintBtn').disabled = !have;
+      $('resPrintBtn').hidden = !!(have && chosen.file_type && String(chosen.file_type).toLowerCase() !== 'pdf');
       var label = $('resDownloadLabel');
       if (!currentUser) {
         label.textContent = t('resources.loginToDownload', 'Log in to download');
@@ -441,6 +443,42 @@ function renderReadOnline(resource, lang) {
           if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
         })
         .then(function () { btn.disabled = false; });
+    });
+
+    // Print: the same file, handed to the browser's own PDF viewer in a
+    // hidden frame (as on the blog); phones open it in a tab to print from.
+    $('resPrintBtn').addEventListener('click', function () {
+      var btn = this;
+      var touch = /iPad|iPhone|iPod|Android/i.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var tab = touch && currentUser ? window.open('', '_blank') : null;
+      btn.disabled = true;
+      fetchLink(false).then(function (url) {
+        return fetch(url).then(function (res) {
+          if (!res.ok) throw new Error('PDF ' + res.status);
+          return res.blob();
+        });
+      }).then(function (blob) {
+        var local = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
+        if (tab) { tab.location.href = local; return; }
+        var old = document.getElementById('resPrintFrame');
+        if (old) old.remove();
+        var frame = document.createElement('iframe');
+        frame.id = 'resPrintFrame';
+        frame.setAttribute('aria-hidden', 'true');
+        frame.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;';
+        frame.onload = function () {
+          setTimeout(function () {
+            try { frame.contentWindow.focus(); frame.contentWindow.print(); }
+            catch (e) { window.open(local, '_blank'); }
+          }, 300);
+        };
+        frame.src = local;
+        document.body.appendChild(frame);
+      }).catch(function (err) {
+        if (tab) tab.close();
+        if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
+      }).then(function () { btn.disabled = false; });
     });
 
     $('resApproveBtn').addEventListener('click', function () {
