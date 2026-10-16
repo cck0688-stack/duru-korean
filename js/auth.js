@@ -363,7 +363,11 @@
     // thing to own than the gap. See README.md ("Social sign-in").
     const OAUTH = [
       { id: 'google',   label: 'Google',      key: 'auth.continueGoogle' },
-      { id: 'facebook', label: 'Facebook',    key: 'auth.continueFacebook' },
+      // Facebook is switched on in Supabase and the Meta app works for its
+      // admins, but Meta's login review needs a verified business, which the
+      // site does not have yet (owner, 2026-10-16). Visitors would only meet an
+      // error, so the button waits: set `hidden: false` once the review passes.
+      { id: 'facebook', label: 'Facebook',    key: 'auth.continueFacebook', hidden: true },
       { id: 'twitter',  label: 'X',           key: 'auth.continueX' },
       { id: 'kakao',    label: 'KakaoTalk',   key: 'auth.continueKakao' },
     ];
@@ -390,7 +394,7 @@
     function renderOAuth() {
       document.querySelectorAll('.auth-oauth').forEach((box) => {
         const panel = box.dataset.panelFor;
-        box.innerHTML = OAUTH.map((entry) => (
+        box.innerHTML = OAUTH.filter((entry) => !entry.hidden).map((entry) => (
           `<button type="button" class="btn auth-oauth-btn auth-oauth-btn--${entry.id}" data-oauth="${entry.id}">` +
           `<span class="auth-oauth-mark" aria-hidden="true">${esc(entry.label.slice(0, 1))}</span>` +
           `<span>${esc(oauthLabel(entry))}</span></button>`
