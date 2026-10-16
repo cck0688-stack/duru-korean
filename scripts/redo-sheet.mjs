@@ -121,7 +121,7 @@ async function shorten(ed, lang, cut) {
   spots2.forEach(([o, k], i) => {
     const n = String(got[i] || '').trim();
     // Only a shorter text that keeps its Korean is taken.
-    if (n && n.length < o[k].length && hangul(n) === hangul(o[k])) { o[k] = n; changed += 1; }
+    if (n && n.length < o[k].length && (lang === 'ko' || hangul(n) === hangul(o[k]))) { o[k] = n; changed += 1; }
   });
   const before = texts.join('').length, after = longTexts(out).map(([o, k]) => o[k]).join('').length;
   log(lang + ' — 설명 ' + changed + '/' + texts.length + '개 줄임 (' + before + '→' + after + '자)');
