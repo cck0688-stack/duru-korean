@@ -144,6 +144,8 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
       { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (나란히, 쪽 나누기 없이)' },
       { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; }); return e; })(), opts: { compact: true }, how: ' (줄 간격 좁게)' },
       { ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (줄 간격 좁게, 쪽 나누기 없이)' }] : []),
+    // Festival layout, longer language: the roomy spacing is dropped and the rows are set closer.
+    ...(!MODE ? [{ ed: (() => { const e = mark(structuredClone(base)); (e.sections || []).forEach((x) => { x.roomy = false; x.tightRows = true; }); return e; })(), opts: { compact: true }, how: ' (줄 간격 좁게)' }] : []),
     { ed: mark(structuredClone(base)), opts: { compact: true }, how: ' (촘촘하게)' },
     { ed: (() => { const e = mark(structuredClone(base)); if (e.sections) e.sections.forEach((x) => { x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
     { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
@@ -165,7 +167,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
       let done = false;
       for (const [opts, tight] of [[{}, false], [{ compact: true }, false], [{ compact: true }, true]]) {
         const ed = mark(structuredClone(cur));
-        if (tight) (ed.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; });
+        if (tight) (ed.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; if (!MODE) x.roomy = false; });
         const rr = await renderSheet(ed, { category: ed.category || 'etc', lang, browser, ...opts });
         if (rr.check.pages === 2 && rr.check.ok) { r = rr; how = ' (설명 ' + cut + '% 줄임)'; fs.writeFileSync(f, JSON.stringify(ed)); done = true; break; }
       }
