@@ -150,10 +150,11 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
     { ed: (() => { const e = mark(structuredClone(base)); if (e.sections) e.sections.forEach((x) => { x.newPage = false; }); return e; })(), opts: { compact: true }, how: ' (읽기 팁 쪽 나누기 없이)' },
     { ed: (() => { const e = structuredClone(base); e.category = e.category || 'etc'; return e; })(), opts: {}, how: ' (예전 모양)' }
   ];
-  let r, how = '';
+  let r, how = '', best = null;
   for (const t of tries) {
     r = await renderSheet(t.ed, { category: t.ed.category || 'etc', lang, browser, ...t.opts });
     how = t.how;
+    if (t.how !== ' (예전 모양)' && (!best || r.check.pages < best.r.check.pages)) best = { r, how: t.how };
     if (r.check.pages === 2 && r.check.ok) { if (t === tries[0]) fs.writeFileSync(f, JSON.stringify(t.ed)); break; }
   }
   // Still not on two pages in the new layout: shorten that language's explanations and try again.
@@ -169,6 +170,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
         const ed = mark(structuredClone(cur));
         if (tight) (ed.sections || []).forEach((x) => { x.stack = false; x.tightRows = true; if (!MODE) x.roomy = false; });
         const rr = await renderSheet(ed, { category: ed.category || 'etc', lang, browser, ...opts });
+        if (!best || rr.check.pages < best.r.check.pages) best = { r: rr, how: ' (줄임)' };
         if (rr.check.pages === 2 && rr.check.ok) { r = rr; how = ' (설명 ' + cut + '% 줄임)'; fs.writeFileSync(f, JSON.stringify(ed)); done = true; break; }
       }
       if (done) break;
@@ -176,7 +178,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   }
   if (r.check.pages !== 2 || !r.check.ok) {
     log(lang + ' — 2쪽이 안 돼서 이 언어는 그대로 둡니다 (' + r.check.pages + '쪽' + (r.check.ok ? '' : ', ' + String(r.check.problems || r.check.why || '').slice(0, 200)) + ')');
-    if (OUT && DRY) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, lang + '-fail.pdf'), r.pdf); }
+    if (OUT && DRY) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, lang + '-fail.pdf'), (best || { r }).r.pdf); log(lang + ' — 가장 적게 나온 시도: ' + (best ? best.r.check.pages + '쪽' + best.how : '없음')); }
     continue;
   }
   outputs[lang] = r;
