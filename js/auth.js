@@ -368,7 +368,9 @@
       // site does not have yet (owner, 2026-10-16). Visitors would only meet an
       // error, so the button waits: set `hidden: false` once the review passes.
       { id: 'facebook', label: 'Facebook',    key: 'auth.continueFacebook', hidden: true },
-      { id: 'twitter',  label: 'X',           key: 'auth.continueX' },
+      // X is not switched on in Supabase (it needs a developer account and may
+      // need a paid plan), so its button waits too (owner, 2026-10-16).
+      { id: 'twitter',  label: 'X',           key: 'auth.continueX', hidden: true },
       { id: 'kakao',    label: 'KakaoTalk',   key: 'auth.continueKakao' },
     ];
 
