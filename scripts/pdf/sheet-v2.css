@@ -614,3 +614,10 @@ body:has(section.k-next.tight) .q { padding-top: 3px !important; padding-bottom:
 .rows-tight .row-text, .rows-tight .row-term { line-height: 1.32; }
 .rows-tight .row-gloss { margin-top: 0; }
 .rows-tight .row-text .row-exl { margin-top: 0; }
+/* Tightest setting for the longest languages (owner, 2026-10-16): still the same letter size. */
+.rows-tight .row { padding: 0.5px 0; }
+.rows-tight .row-text, .rows-tight .row-term { line-height: 1.24; }
+.rows-tight .row-n { width: 21px; height: 21px; font-size: 11px; }
+.rows-tight.rows { padding-left: 12px; padding-right: 12px; }
+.compact .tags { gap: 5px; }
+.compact .tag-body { padding-top: 3px; padding-bottom: 4px; }
