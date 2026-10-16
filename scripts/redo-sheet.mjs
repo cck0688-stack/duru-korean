@@ -18,7 +18,7 @@ const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 const args = process.argv.slice(2);
 const arg = (n) => { const h = args.find((a) => a.startsWith('--' + n + '=')); return h ? h.slice(n.length + 3) : null; };
-const MODE = arg('mode'), LANGS_ONLY = arg('langs') ? arg('langs').split(',') : null;
+const MODE = arg('mode') === 'festival' ? null : arg('mode'), LANGS_ONLY = arg('langs') ? arg('langs').split(',') : null;
 const ID = arg('id'), READ = arg('read'), OUT = arg('out'), DRY = args.includes('--dry-run'), SHORTEN = args.includes('--shorten');
 const log = (...a) => console.log(...a);
 
@@ -157,7 +157,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   // Still not on two pages in the new layout: shorten that language's explanations and try again.
   if (SHORTEN && (how === tries[tries.length - 1].how || r.check.pages !== 2 || !r.check.ok)) {
     let cur = base;
-    for (const cut of [20, 30, 40]) {
+    for (const cut of [20, 30, 40, 55, 70]) {
       let next = null;
       try { next = await shorten(cur, lang, cut); } catch (e) { log(lang + ' — 줄이기 실패: ' + e.message); break; }
       if (!next) break;
