@@ -37,6 +37,9 @@ import { inventPeople, writePost, writeReply, placeless } from './writer.mjs';
 import { balanced, chooseThread, threadOf } from './run.mjs';
 
 const ONLINE = 8;
+// Owner, 2026-10-20: days that went without posts are filled in, dated by that day's plan.
+const BACKFILL = process.env.BACKFILL_DATE || '';
+const plannedAt = (date, minute) => new Date(Date.parse(date + 'T00:00:00+09:00') + (minute * 60 + Math.floor(Math.random() * 60)) * 1000).toISOString();
 const THREAD_DAYS = 10;
 
 
@@ -169,7 +172,7 @@ export async function tick() {
   cfg.timeoutMs = 180000;
   log('작성: ' + cfg.label + ' / ' + cfg.model);
 
-  const now = seoulNow();
+  const now = BACKFILL ? { date: BACKFILL, hour: 23, minute: 59 } : seoulNow();
   log('실제 사이트 예시 글 — ' + now.date + ' ' + now.hour + ':' + String(now.minute).padStart(2, '0') +
       ' (서울)' + (DRY ? ' (연습)' : ''));
 
@@ -199,7 +202,7 @@ export async function tick() {
   log('오늘 계획: ' + plan.length + '명 · 들어오는 시각 ' + plan.map((x) => String(Math.floor(x.minute / 60)).padStart(2, '0') + ':' + String(x.minute % 60).padStart(2, '0')).join(', ') +
       ' · 글자 수 ' + plan.map((x) => x.min + '~' + x.max).join(', ') + ' · 지금까지 ' + joinedToday + '명');
   // Only one new person per run, so a late run does not post them all at once.
-  const due = flag('signups') ?? (arrived > joinedToday ? 1 : 0);
+  const due = flag('signups') ?? (BACKFILL ? Math.max(0, plan.length - joinedToday) : arrived > joinedToday ? 1 : 0);
   if (due > 0) {
     const langs = balanced(personas, due, 'lang', LANGS);
     const topics = balanced(personas, due, 'topic', TOPICS);
@@ -266,12 +269,13 @@ export async function tick() {
     const manner = { effort: { min: slot.min, max: slot.max, say: 'Aim for about ' + slot.centre + ' characters — ' +
       (slot.centre <= 110 ? 'a short post, one or two sentences.' : slot.centre <= 220 ? 'a few sentences.' : 'a fuller post with some detail.') } };
     try {
-      if (!DRY && !flag('signups')) await new Promise((r) => setTimeout(r, between(0, 11 * 60) * 1000));
+      if (!DRY && !BACKFILL && !flag('signups')) await new Promise((r) => setTimeout(r, between(0, 11 * 60) * 1000));
       const body = await writePost(cfg, { ...p, user_id: p.id }, recent, manner);
       if (DRY) { log('  (연습) 글 · ' + p.nickname + ' [' + p.lang + '/' + p.topic + ']: ' + body.slice(0, 60)); continue; }
-      const row = await save(call, bot.userId, p, body, p.topic, null);
+      const at = BACKFILL ? plannedAt(now.date, slot.minute) : null;
+      const row = await save(call, bot.userId, p, body, p.topic, null, at);
       await call('sample_personas?id=eq.' + p.id, {
-        method: 'PATCH', body: JSON.stringify({ posted_at: new Date().toISOString() })
+        method: 'PATCH', body: JSON.stringify({ posted_at: at || new Date().toISOString() })
       });
       stories.push({ ...row, user_id: p.id }); recent.unshift(body); posted += 1;
       log('  글 · ' + p.nickname + ' [' + p.lang + '/' + p.topic + '] ' + [...body].length + '자 (목표 ' + slot.min + '~' + slot.max + ')');
@@ -286,7 +290,7 @@ export async function tick() {
   const online = shuffle(members).slice(0, ONLINE);
   const roots = stories.filter((s) => !s.parent_id);
   // Few people, so few answers, and not every run (irregular, never a rhythm).
-  const replyCount = flag('replies') ?? (Math.random() < 0.07 ? between(1, 2) : 0);
+  const replyCount = flag('replies') ?? (BACKFILL ? between(0, 2) : Math.random() < 0.07 ? between(1, 2) : 0);
   let replied = 0;
   for (let i = 0; i < replyCount && roots.length && online.length; i += 1) {
     const root = chooseThread(roots, stories);
@@ -300,14 +304,15 @@ export async function tick() {
     try {
       const body = await writeReply(cfg, who, thread.map((m) => ({ ...m, lang: m.lang || 'en' })), target, root.category);
       if (DRY) { log('  (연습) 답글 · ' + who.nickname + ' → ' + target.display_name + ': ' + body.slice(0, 60)); continue; }
-      const row = await save(call, bot.userId, who, body, root.category, target.id);
+      const at = BACKFILL ? new Date(Math.min(Date.parse(target.created_at) + between(20, 180) * 60000, Date.parse(now.date + 'T23:30:00+09:00'))).toISOString() : null;
+      const row = await save(call, bot.userId, who, body, root.category, target.id, at);
       stories.push({ ...row, user_id: who.user_id }); replied += 1;
       log('  답글 · ' + who.nickname + ' [' + who.lang + '] → ' + target.display_name + ' (' + root.category + ')');
     } catch (err) { log('  답글 실패 · ' + who.nickname + ' — ' + err.message); }
   }
 
   /* 4. hearts, on sample rows only, one anonymous reader id per writer */
-  const likeCount = flag('likes') ?? (Math.random() < 0.15 ? between(1, 3) : 0);
+  const likeCount = flag('likes') ?? (BACKFILL ? 0 : Math.random() < 0.15 ? between(1, 3) : 0);
   const likeable = stories.slice(-400);
   let liked = 0;
   for (let i = 0; i < likeCount && likeable.length && online.length; i += 1) {
@@ -329,7 +334,7 @@ export async function tick() {
   return { posted, replied, liked, writers: personas.length };
 }
 
-async function save(call, botId, persona, body, category, parentId) {
+async function save(call, botId, persona, body, category, parentId, createdAt) {
   const row = {
     user_id: botId,
     display_name: persona.nickname,
@@ -337,7 +342,8 @@ async function save(call, botId, persona, body, category, parentId) {
     category,
     lang: DETECT.detect(body) || persona.lang,
     is_sample: true,
-    ...(parentId ? { parent_id: parentId } : {})
+    ...(parentId ? { parent_id: parentId } : {}),
+    ...(createdAt ? { created_at: createdAt } : {})
   };
   const [saved] = await call('stories', {
     method: 'POST', headers: { Prefer: 'return=representation' }, body: JSON.stringify([row])

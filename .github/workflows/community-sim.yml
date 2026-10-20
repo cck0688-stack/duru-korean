@@ -47,6 +47,9 @@ on:
         type: choice
         options: [live, verify, both, test-tick, test-verify]
         default: live
+      backfill_dates:
+        description: 'Live task only: fill in days that went without posts (e.g. 2026-10-15,2026-10-16), dated by each day plan'
+        default: ''
 
 concurrency:
   group: community-sim
@@ -159,7 +162,16 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Sample posts on the live Community
-        run: node scripts/sim/live.mjs
+        env:
+          BACKFILL_DATES: ${{ inputs.backfill_dates }}
+        run: |
+          if [ -n "$BACKFILL_DATES" ]; then
+            for d in $(echo "$BACKFILL_DATES" | tr ',' ' '); do
+              BACKFILL_DATE=$d node scripts/sim/live.mjs
+            done
+          else
+            node scripts/sim/live.mjs
+          fi
 
   verify-live:
     if: vars.SIM_ENABLED == 'true' && ((github.event_name == 'schedule' && github.event.schedule == '50 21 * * *') || (github.event_name == 'workflow_dispatch' && (inputs.task == 'verify' || inputs.task == 'both')))
