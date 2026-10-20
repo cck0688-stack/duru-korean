@@ -203,7 +203,13 @@ export async function tick() {
   if (due > 0) {
     const langs = balanced(personas, due, 'lang', LANGS);
     const topics = balanced(personas, due, 'topic', TOPICS);
-    const people = await inventPeople(cfg, langs);
+    // The pool is large now: show the model the names in use and ask again before giving up.
+    const inUse = [...byNick.keys()].sort(() => Math.random() - 0.5).slice(0, 150);
+    let people = await inventPeople(cfg, langs, inUse);
+    for (let again = 0; again < 2 && people.some((w) => !w.nickname || byNick.has(w.nickname)); again += 1) {
+      const redo = await inventPeople(cfg, langs, inUse);
+      people = people.map((w, k) => (!w.nickname || byNick.has(w.nickname)) ? redo[k] : w);
+    }
     let made = 0;
     for (let i = 0; i < due; i += 1) {
       const who = people[i];

@@ -234,7 +234,7 @@ async function screened(cfg, make, min, max, what, lang) {
 
 /* ---------------- people ---------------- */
 
-export async function inventPeople(cfg, langs) {
+export async function inventPeople(cfg, langs, taken = []) {
   const system = [
     'You invent members for an online community of people learning Korean. For each language given,',
     'invent one member who writes in that language.',
@@ -245,7 +245,7 @@ export async function inventPeople(cfg, langs) {
     '  No country, city, region or nationality in it, and no country codes like _kr or _vn.',
     '  Make them feel like real forum handles people pick: a word or two they like, a nickname, maybe a',
     '  number — varied in style, not all in the same pattern.',
-    '  Every nickname must be different.',
+    '  Every nickname must be different' + (taken.length ? ', and none may be one of these already in use: ' + taken.join(', ') : '') + '.',
     '- voice: one English sentence for the writer only — their Korean level, what they are into, how they write',
     '  (e.g. "Beginner, loves K-dramas, writes short excited messages with small typos").',
     '  Do not mention nationality or country.',
