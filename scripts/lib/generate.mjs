@@ -77,6 +77,40 @@ const READER = [
 
 // ── 1. what to write about ─────────────────────────────────────────
 
+// Owner, 2026-10-21: topics were repeating across shelves (the laptop-on-the-
+// café-table post three times, "calling strangers 어머님/사장님/이모" three times,
+// autumn leaves five times in a week) and every title began "한국 사람은 왜".
+// The model now sees the latest posts of ALL shelves with their topics, a
+// candidate too close to any of them is dropped here, a season word is capped
+// at two posts in seven days, and each post is asked for a different title form.
+const SEASON_WORDS = ['단풍', '김장', '추석', '설날', '벚꽃', '장마', '크리스마스', '수능', '송년', '새해', '황사', '폭염', '열대야', '무더위', '한파', '첫눈', '은행나무'];
+const SEASON_CAP = 2;
+export const TITLE_FORMS = [
+  '질문형 — 예: "왜 ~일까요?"로 끝나되 "한국 사람은 왜"로 시작하지 않는다',
+  '사실을 먼저 말하는 형 — 예: "한국 식당의 물은 셀프입니다, 이유가 있어요"',
+  '장면형 — 어떤 상황에서 일어난 일로 시작 (예: "지하철에서 옆 사람이 내 가방을 들어 줬어요")',
+  '말·표현 풀이형 — 한 마디를 따옴표로 들고 그 속뜻을 푼다 (예: "\'다음에 밥 한번 먹자\'는 약속일까요?")',
+  '오해·실수형 — 외국인이 흔히 하는 오해나 실수를 앞에 둔다 (예: "\'네\'라고 했는데 거절이었다고요?")'
+];
+const gram = (t) => {
+  const a = String(t || '').replace(/[^0-9A-Za-z가-힣]/g, '');
+  const out = new Set();
+  for (let i = 0; i + 1 < a.length; i += 1) out.add(a.slice(i, i + 2));
+  return out;
+};
+// Share of the shorter text's two-letter pieces that the other also has.
+export function overlap(a, b) {
+  const x = gram(a), y = gram(b);
+  if (!x.size || !y.size) return 0;
+  let hit = 0;
+  for (const g of x) if (y.has(g)) hit += 1;
+  return hit / Math.min(x.size, y.size);
+}
+export function crowdedSeasonWords(recent) {
+  const week = (recent || []).slice(0, 56);
+  return SEASON_WORDS.filter((w) => week.filter((r) => (r.title + ' ' + (r.topic || '')).includes(w)).length >= SEASON_CAP);
+}
+
 export async function pickTopic(cfg, opts) {
   const system = [
     READER,
@@ -138,6 +172,15 @@ export async function pickTopic(cfg, opts) {
       ? ['이미 쓴 글 (겹치지 마세요):', ...opts.existingTitles.map((t) => `- ${t}`)].join('\n')
       : '이 사이트에는 아직 글이 없습니다.',
     '',
+    (opts.recentAll && opts.recentAll.length)
+      ? ['모든 카테고리의 최근 글 — 제목이 달라도 같은 소재면 겹친 것입니다 (카페에 노트북을 두는 이야기,',
+         '처음 보는 사람을 어머님·사장님·이모로 부르는 이야기처럼). 이 소재들과 다른 것을 고르세요:',
+         ...opts.recentAll.slice(0, 100).map((r) => `- [${r.category}] ${r.topic || r.title}`)].join('\n')
+      : '',
+    crowdedSeasonWords(opts.recentAll).length
+      ? '\n최근 일주일에 이미 두 번 이상 다룬 계절 소재라 이번에는 쓰지 않습니다: ' + crowdedSeasonWords(opts.recentAll).join(', ')
+      : '',
+    '',
     '계절 이야기를 억지로 넣을 필요는 없습니다. 지금 시기에 정말 도움이',
     '되는 주제가 있으면 그것을 먼저 고려하세요.'
   ].join('\n');
@@ -170,8 +213,17 @@ export async function pickTopic(cfg, opts) {
   // The model names its pick; if it names one that is not on its own
   // list, the highest-scoring candidate stands in rather than failing
   // the category for a formatting slip.
-  const chosen = candidates.find((c) => c.topic === out.chosen) ||
+  const named = candidates.find((c) => c.topic === out.chosen) ||
     candidates.slice().sort((a, b) => score(b) - score(a))[0];
+  // The model's pick first, then the others by score; the first that is not a
+  // repeat of anything recent and not a crowded season word stands.
+  const seen = (opts.recentAll || []).slice(0, 100);
+  const banned = crowdedSeasonWords(opts.recentAll);
+  const closeness = (c) => Math.max(0, ...seen.map((r) => Math.max(overlap(c.topic, r.topic || ''), overlap(c.topic, r.title || ''))));
+  const ordered = [named, ...candidates.filter((c) => c !== named).sort((a, b) => score(b) - score(a))];
+  const fresh = ordered.find((c) => closeness(c) < 0.3 && !banned.some((w) => c.topic.includes(w)));
+  const chosen = fresh || ordered.slice().sort((a, b) => closeness(a) - closeness(b))[0];
+  if (chosen !== named) out.chosenReason = '(겹치지 않게 바꿈) ' + (chosen.why || '');
 
   return { candidates, chosen: chosen.topic, reason: out.chosenReason || chosen.why, scores: score.parts(chosen) };
 }
@@ -295,6 +347,11 @@ export async function wrapUp(cfg, opts) {
   const user = [
     `카테고리: ${opts.category}`,
     `주제: ${opts.topic}`,
+    '',
+    opts.titleForm ? `이번 글의 제목은 이 형으로 쓰세요: ${opts.titleForm}\n(다른 형은 후보로만 두세요.) "한국 사람은 왜"로 시작하는 제목은 쓰지 않습니다.` : '',
+    (opts.recentAll && opts.recentAll.length)
+      ? ['최근 제목들 — 이것들과 시작과 끝이 같은 제목은 피하세요:', ...opts.recentAll.slice(0, 14).map((r) => `- ${r.title}`)].join('\n')
+      : '',
     '',
     '본문:',
     opts.content

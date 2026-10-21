@@ -28,7 +28,7 @@
 import { resolveProvider } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
 import { useSubscription, subscriptionAccount, usageReport } from './lib/claude-code.mjs';
-import { writeOne } from './lib/generate.mjs';
+import { writeOne, TITLE_FORMS } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
 import { resolvePhotos, findPhoto, photoKey } from '../api/_photos.js';
@@ -259,8 +259,13 @@ async function main() {
         seasonNotes: season.notes,
         questions: questionsFor(category.id),
         existingTitles: (existing.byCategory[category.id] || []).slice(0, 20),
-        existing: existing
+        existing: existing,
+        recentAll: existing.recentAll,
+        // One of five title forms, walked like the voice, so a morning's eight differ.
+        titleForm: TITLE_FORMS[(dayNumber(today) * 3 + slot) % TITLE_FORMS.length]
       }, (m) => log(`  ${m}`));
+      // Today's own posts count as recent for the shelves written after this one.
+      if (draft && draft.title) existing.recentAll.unshift({ title: draft.title, topic: draft.topic, category: category.id });
 
       if (draft.problems.length) {
         log(`  검수 통과 못 함 — 저장하지 않습니다:`);
@@ -402,7 +407,7 @@ function stageOf(err) {
 
 async function readExisting(call) {
   const rows = await call(
-    'posts?select=title,slug,category,image_url&order=post_date.desc&limit=1000');
+    'posts?select=title,slug,category,topic,image_url&order=post_date.desc,created_at.desc&limit=1000');
   const byCategory = {};
   (rows || []).forEach((r) => {
     (byCategory[r.category] = byCategory[r.category] || []).push(r.title);
@@ -411,6 +416,7 @@ async function readExisting(call) {
     titles: (rows || []).map((r) => r.title),
     slugs: (rows || []).map((r) => r.slug),
     byCategory: byCategory,
+    recentAll: (rows || []).slice(0, 100).map((r) => ({ title: r.title, topic: r.topic, category: r.category })),
     photos: new Set((rows || []).map((r) => photoKey(r.image_url)).filter(Boolean))
   };
 }
