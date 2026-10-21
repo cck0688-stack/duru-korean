@@ -183,7 +183,9 @@ async function main() {
 
   let call = null;
   let userId = null;
-  let existing = { titles: [], slugs: [], byCategory: {}, photos: new Set() };
+  let existing = { titles: [], slugs: [], byCategory: {}, recentAll: [], photos: new Set() };
+  // A trial run reads the public posts so that the repeat check can be seen working.
+  if (DRY) { try { existing = await readExisting(rest(SUPABASE_ANON_KEY)); } catch (err) { log(`  (기존 글을 읽지 못했습니다: ${err.message})`); } }
 
   if (!DRY) {
     const session = await withRetry('로그인', signIn);
