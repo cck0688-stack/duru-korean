@@ -481,6 +481,11 @@
         client.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle()
           .then(({ data }) => {
             if (!data) return;
+            const inbox = document.createElement('a');
+            inbox.href = 'admin';
+            inbox.setAttribute('data-i18n', 'adminInbox.menu');
+            inbox.textContent = t('adminInbox.menu', 'Waiting for approval');
+            dropdown.insertBefore(inbox, dropdown.querySelector('#logoutBtn'));
             const link = document.createElement('a');
             link.href = 'free-resources.html';
             link.setAttribute('data-i18n', 'auth.manageResources');
