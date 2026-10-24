@@ -1,0 +1,53 @@
+{
+  "id": "325c0c11-054d-4af6-b7a5-5fa8ae95f17a",
+  "slug": "hangul-day-gwanghwamun-why-holiday",
+  "oldTitle": "한글날에 왜 다 쉴까? 글자 하나 만든 날을 공휴일로 기념하는 이유",
+  "draft": {
+    "category": "travel",
+    "topic": "한글날 공휴일에 한국 여행자가 알아 둘 것 — 쉬는 날 문 여는 곳과 닫는 곳, 붐비는 곳, 그리고 한글날이 한동안 공휴일에서 빠졌다가 다시 공휴일이 된 이야기",
+    "voice": "before-after",
+    "content": "10월 9일에 은행에 갔다가 문이 닫혀 있어서 당황한 외국인 친구가 있었어요. 달력에서 빨간 날이라는 걸 몰랐던 거예요.\n\n## 쉬는 날이었다가, 아니었다가, 다시\n한글날은 오래전부터 기리던 날이에요. 그런데 1991년에 공휴일에서 빠졌어요. 그때는 쉬는 날이 너무 많아서 일할 시간이 줄어든다는 이야기가 컸거든요. 그래서 기념일은 남고 쉬는 날만 없어졌어요. 그 뒤로 \"글자를 기리는 날인데 다들 일하다니 아쉽다\"는 목소리가 커졌고, 2013년에 다시 공휴일이 되었어요. 지금은 학교도, 많은 회사도 쉬는 날이에요.\n\n## 문 닫는 곳, 문 여는 곳\n은행, 우체국, 구청 같은 관공서는 닫아요. 반대로 편의점, 백화점, 큰 쇼핑몰 안의 식당과 카페는 대부분 열어요. 쉬는 날은 손님이 가장 많은 날이기도 하니까요. 작은 식당은 가게마다 달라요. 박물관과 전시관도 공휴일에 열기도 하고, 다른 날 쉬기도 해요.\n\n## 붐비는 곳과 확인하는 법\n궁궐 주변, 한강공원, 인기 있는 전시장은 가족과 친구들로 붐벼요. 가려는 곳은 네이버지도나 카카오맵의 영업시간을 먼저 보세요. 그곳의 공식 홈페이지 공지도 같이 확인하면 더 안전해요. 한글날 행사는 해마다 달라서, 일정은 행사 주최 쪽 안내를 꼭 보세요.",
+    "titleCandidates": [
+      "10월 9일 은행이 닫혀 있다면? 한글날 공휴일 여행 안내",
+      "한글날에 문 여는 곳과 닫는 곳, 여행자가 알아 둘 것",
+      "한글날은 왜 한동안 공휴일에서 빠졌다가 돌아왔을까",
+      "1991년에 빠졌다 2013년에 돌아온 공휴일, 한글날",
+      "한글날에 은행은 닫고 편의점은 여는 이유와 확인법",
+      "한글날 여행 전에 확인할 3가지: 휴무, 붐비는 곳, 행사"
+    ],
+    "title": "한글날에 문 여는 곳과 닫는 곳, 여행자가 알아 둘 것",
+    "summary": "한글날에 은행과 관공서는 닫고 편의점과 큰 쇼핑몰은 여는 까닭, 붐비는 곳을 알려 드려요. 1991년 공휴일에서 빠졌다가 2013년에 돌아온 사연과 영업시간 확인법도 담았어요.",
+    "tags": [
+      "한글날",
+      "10월 9일",
+      "공휴일",
+      "은행 휴무",
+      "관공서",
+      "편의점",
+      "네이버지도",
+      "카카오맵"
+    ],
+    "slug": "hangul-day-holiday-what-opens-and-closes",
+    "imagePrompt": "Bright autumn morning in Seoul on a public holiday: a closed bank with its shutter down in the foreground, a lit convenience store open across the street, families and friends strolling toward a historic palace gate in the background, warm golden light, ginkgo leaves, soft illustrated editorial style, no text, no letters, no logos, no watermark",
+    "references": [
+      {
+        "domain": "law.go.kr",
+        "url": "",
+        "about": "「관공서의 공휴일에 관한 규정」에서 한글날(10월 9일)이 공휴일로 지정되어 있는지 확인할 수 있어요."
+      },
+      {
+        "domain": "korean.go.kr",
+        "url": "",
+        "about": "국립국어원에서 한글날의 의미와 유래를 확인할 수 있어요."
+      },
+      {
+        "domain": "mois.go.kr",
+        "url": "",
+        "about": "행정안전부 안내에서 공휴일 지정과 변경 이력(1991년 제외, 2013년 재지정)을 확인할 수 있어요."
+      }
+    ],
+    "candidates": [],
+    "scores": {},
+    "problems": []
+  }
+}
