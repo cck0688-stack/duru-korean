@@ -829,5 +829,22 @@
   "resource.readLetters": "Chữ cái",
   "resource.readPattern": "Mẫu câu",
   "resource.readWatchOut": "Lưu ý",
-  "resource.readDialogue": "Hội thoại"
+  "resource.readDialogue": "Hội thoại",
+  "listen.title": "Nghe audio của sách — Duru Korean",
+  "listen.eyebrow": "Audio của sách",
+  "listen.h1": "Nghe audio của sách",
+  "listen.tagline": "Mọi bài audio của sách Duru Korean, nghe miễn phí.",
+  "listen.empty": "Audio đang được thêm dần từng chương. Hãy quay lại sau nhé.",
+  "listen.chapter": "Chương",
+  "listen.track": "Bài",
+  "listen.tracks": "Danh sách bài",
+  "listen.prev": "← Trước",
+  "listen.next": "Tiếp →",
+  "listen.play": "Phát",
+  "listen.pause": "Tạm dừng",
+  "listen.speed": "Tốc độ",
+  "listen.repeat": "Lặp lại bài này",
+  "listen.auto": "Tự động phát bài tiếp theo",
+  "listen.note": "Audio được phát qua YouTube. Hãy giữ trang này mở khi nghe.",
+  "bookAudio.listenCta": "Nghe audio →"
 }

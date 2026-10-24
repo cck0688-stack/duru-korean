@@ -829,5 +829,22 @@
   "resource.readLetters": "Letters",
   "resource.readPattern": "The pattern",
   "resource.readWatchOut": "Watch out",
-  "resource.readDialogue": "The conversation"
+  "resource.readDialogue": "The conversation",
+  "listen.title": "Listen to the book — Duru Korean",
+  "listen.eyebrow": "Book audio",
+  "listen.h1": "Listen to the book",
+  "listen.tagline": "Every track of the Duru Korean book, free to play.",
+  "listen.empty": "The audio is being added chapter by chapter. Please check back soon.",
+  "listen.chapter": "Ch.",
+  "listen.track": "Track",
+  "listen.tracks": "Tracks",
+  "listen.prev": "← Previous",
+  "listen.next": "Next →",
+  "listen.play": "Play",
+  "listen.pause": "Pause",
+  "listen.speed": "Speed",
+  "listen.repeat": "Repeat this track",
+  "listen.auto": "Play the next track automatically",
+  "listen.note": "The audio plays through YouTube. Keep this page open while you listen.",
+  "bookAudio.listenCta": "Listen to the audio →"
 }

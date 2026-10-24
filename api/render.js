@@ -34,7 +34,7 @@ const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.s
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 export const LANGS = ['en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', 'de'];
 const OG_LOCALE = { en: 'en_US', vi: 'vi_VN', es: 'es_ES', id: 'id_ID', 'pt-BR': 'pt_BR', ko: 'ko_KR', ja: 'ja_JP', zh: 'zh_CN', fr: 'fr_FR', de: 'de_DE' };
-const PAGES = new Set(['index.html', 'about.html', 'learning-korean.html', 'book-resources.html', 'free-resources.html',
+const PAGES = new Set(['index.html', 'about.html', 'learning-korean.html', 'book-resources.html', 'listen.html', 'free-resources.html',
   'blog.html', 'stories.html', 'faq.html', 'privacy.html', 'terms.html', 'resource.html', 'search.html']);
 const OG_IMAGE = SITE + '/assets/og-default.png';
 

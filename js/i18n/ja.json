@@ -829,5 +829,22 @@
   "resource.readLetters": "文字",
   "resource.readPattern": "文型",
   "resource.readWatchOut": "注意",
-  "resource.readDialogue": "会話"
+  "resource.readDialogue": "会話",
+  "listen.title": "教材の音声を聞く — Duru Korean",
+  "listen.eyebrow": "教材の音声",
+  "listen.h1": "教材の音声を聞く",
+  "listen.tagline": "Duru Korean の教材の全トラックを無料で再生できます。",
+  "listen.empty": "音声は章ごとに追加しています。しばらくしてからまたご確認ください。",
+  "listen.chapter": "第",
+  "listen.track": "トラック",
+  "listen.tracks": "トラック",
+  "listen.prev": "← 前へ",
+  "listen.next": "次へ →",
+  "listen.play": "再生",
+  "listen.pause": "一時停止",
+  "listen.speed": "速度",
+  "listen.repeat": "このトラックをリピート",
+  "listen.auto": "次のトラックを自動で再生",
+  "listen.note": "音声は YouTube で再生されます。聞いている間はこのページを開いたままにしてください。",
+  "bookAudio.listenCta": "音声を聞く →"
 }

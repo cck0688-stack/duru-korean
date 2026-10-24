@@ -829,5 +829,22 @@
   "resource.readLetters": "글자",
   "resource.readPattern": "문형",
   "resource.readWatchOut": "주의",
-  "resource.readDialogue": "대화"
+  "resource.readDialogue": "대화",
+  "listen.title": "책 오디오 듣기 — 두루 한국어",
+  "listen.eyebrow": "책 오디오",
+  "listen.h1": "책 오디오 듣기",
+  "listen.tagline": "두루 한국어 책의 모든 트랙을 무료로 들을 수 있어요.",
+  "listen.empty": "오디오를 챕터별로 올리고 있어요. 곧 다시 확인해 주세요.",
+  "listen.chapter": "챕터",
+  "listen.track": "트랙",
+  "listen.tracks": "트랙",
+  "listen.prev": "← 이전",
+  "listen.next": "다음 →",
+  "listen.play": "재생",
+  "listen.pause": "일시정지",
+  "listen.speed": "속도",
+  "listen.repeat": "이 트랙 반복",
+  "listen.auto": "다음 트랙 자동 재생",
+  "listen.note": "오디오는 유튜브로 재생돼요. 듣는 동안 이 페이지를 열어 두세요.",
+  "bookAudio.listenCta": "오디오 듣기 →"
 }

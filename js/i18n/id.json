@@ -829,5 +829,22 @@
   "resource.readLetters": "Huruf",
   "resource.readPattern": "Pola",
   "resource.readWatchOut": "Perhatikan",
-  "resource.readDialogue": "Percakapan"
+  "resource.readDialogue": "Percakapan",
+  "listen.title": "Dengarkan buku — Duru Korean",
+  "listen.eyebrow": "Audio buku",
+  "listen.h1": "Dengarkan buku",
+  "listen.tagline": "Semua trek buku Duru Korean, gratis diputar.",
+  "listen.empty": "Audio sedang ditambahkan bab demi bab. Silakan cek lagi nanti.",
+  "listen.chapter": "Bab",
+  "listen.track": "Trek",
+  "listen.tracks": "Trek",
+  "listen.prev": "← Sebelumnya",
+  "listen.next": "Berikutnya →",
+  "listen.play": "Putar",
+  "listen.pause": "Jeda",
+  "listen.speed": "Kecepatan",
+  "listen.repeat": "Ulangi trek ini",
+  "listen.auto": "Putar trek berikutnya otomatis",
+  "listen.note": "Audio diputar lewat YouTube. Biarkan halaman ini terbuka saat mendengarkan.",
+  "bookAudio.listenCta": "Dengarkan audio →"
 }

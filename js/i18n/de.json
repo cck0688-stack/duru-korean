@@ -829,5 +829,22 @@
   "resource.readLetters": "Buchstaben",
   "resource.readPattern": "Das Muster",
   "resource.readWatchOut": "Achtung",
-  "resource.readDialogue": "Das Gespräch"
+  "resource.readDialogue": "Das Gespräch",
+  "listen.title": "Das Buch hören — Duru Korean",
+  "listen.eyebrow": "Audio zum Buch",
+  "listen.h1": "Das Buch hören",
+  "listen.tagline": "Alle Titel des Duru-Korean-Buchs, kostenlos zum Abspielen.",
+  "listen.empty": "Das Audio wird Kapitel für Kapitel hinzugefügt. Schauen Sie bald wieder vorbei.",
+  "listen.chapter": "Kap.",
+  "listen.track": "Titel",
+  "listen.tracks": "Titel",
+  "listen.prev": "← Zurück",
+  "listen.next": "Weiter →",
+  "listen.play": "Abspielen",
+  "listen.pause": "Pause",
+  "listen.speed": "Tempo",
+  "listen.repeat": "Diesen Titel wiederholen",
+  "listen.auto": "Nächsten Titel automatisch abspielen",
+  "listen.note": "Das Audio wird über YouTube abgespielt. Lassen Sie diese Seite beim Hören geöffnet.",
+  "bookAudio.listenCta": "Audio anhören →"
 }

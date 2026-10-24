@@ -829,5 +829,22 @@
   "resource.readLetters": "字母",
   "resource.readPattern": "句型",
   "resource.readWatchOut": "注意",
-  "resource.readDialogue": "对话"
+  "resource.readDialogue": "对话",
+  "listen.title": "收听教材音频 — Duru Korean",
+  "listen.eyebrow": "教材音频",
+  "listen.h1": "收听教材音频",
+  "listen.tagline": "Duru Korean 教材的所有音轨，免费播放。",
+  "listen.empty": "音频正在逐章添加，请稍后再来。",
+  "listen.chapter": "第",
+  "listen.track": "音轨",
+  "listen.tracks": "音轨",
+  "listen.prev": "← 上一个",
+  "listen.next": "下一个 →",
+  "listen.play": "播放",
+  "listen.pause": "暂停",
+  "listen.speed": "速度",
+  "listen.repeat": "重复此音轨",
+  "listen.auto": "自动播放下一个音轨",
+  "listen.note": "音频通过 YouTube 播放。收听时请保持此页面打开。",
+  "bookAudio.listenCta": "收听音频 →"
 }

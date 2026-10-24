@@ -347,3 +347,32 @@ body.theme-v2 {
   .theme-v2 .blog-single > * { grid-column: 1; }
   .theme-v2 .blog-single > .blog-lang-row { grid-column: 2; grid-row: 1 / span 4; margin: 40px 0 0; max-width: none; position: sticky; top: 110px; }
 }
+
+/* Listen page (owner, 2026-10-24): the book's audio, played from YouTube on the site */
+.theme-v2 .listen-empty { padding: 48px 20px; text-align: center; color: var(--muted, #6b5b66); background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 18px; }
+.theme-v2 .listen-app { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 960px) { .theme-v2 .listen-app { grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); align-items: start; } }
+.theme-v2 .listen-chapters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.theme-v2 .listen-chip { border: 1px solid rgba(0,0,0,.12); background: #fff; border-radius: 999px; padding: 6px 14px; font: inherit; font-weight: 600; cursor: pointer; }
+.theme-v2 .listen-chip.is-on { background: var(--plum, #6b3f5c); color: #fff; border-color: transparent; }
+.theme-v2 .listen-video { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; background: #000; border-radius: 18px; overflow: hidden; }
+.theme-v2 .listen-video iframe, .theme-v2 .listen-video > div { position: absolute; inset: 0; width: 100%; height: 100%; }
+.theme-v2 .listen-now { margin: 18px 0 10px; }
+.theme-v2 .listen-now-no { font-size: .85rem; font-weight: 700; letter-spacing: .04em; color: var(--plum, #6b3f5c); }
+.theme-v2 .listen-now-title { font-size: 1.35rem; font-weight: 700; margin-top: 2px; }
+.theme-v2 .listen-now-text { font-size: 1.05rem; margin-top: 6px; line-height: 1.6; }
+.theme-v2 .listen-controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+.theme-v2 .listen-controls .btn[disabled] { opacity: .4; cursor: default; }
+.theme-v2 .listen-options { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; margin: 8px 0 14px; }
+.theme-v2 .listen-options select { margin-left: 8px; padding: 4px 8px; border-radius: 8px; border: 1px solid rgba(0,0,0,.18); font: inherit; }
+.theme-v2 .listen-check { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; }
+.theme-v2 .listen-note { font-size: .85rem; color: var(--muted, #6b5b66); }
+.theme-v2 .listen-tracks { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 18px; padding: 16px; }
+@media (min-width: 960px) { .theme-v2 .listen-tracks { position: sticky; top: 90px; max-height: calc(100vh - 120px); overflow: auto; } }
+.theme-v2 .listen-tracks-h { font-size: 1rem; margin: 0 0 10px; }
+.theme-v2 .listen-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.theme-v2 .listen-track { width: 100%; display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center; text-align: left; border: 0; background: transparent; border-radius: 10px; padding: 9px 10px; font: inherit; cursor: pointer; }
+.theme-v2 .listen-track:hover { background: rgba(0,0,0,.04); }
+.theme-v2 .listen-track.is-on { background: var(--blush, #f9e3ea); font-weight: 700; }
+.theme-v2 .listen-track-no { color: var(--plum, #6b3f5c); font-weight: 700; }
+.theme-v2 .listen-track-len { color: var(--muted, #6b5b66); font-size: .85rem; }

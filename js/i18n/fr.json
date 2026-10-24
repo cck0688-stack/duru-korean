@@ -829,5 +829,22 @@
   "resource.readLetters": "Lettres",
   "resource.readPattern": "Le modèle",
   "resource.readWatchOut": "Attention",
-  "resource.readDialogue": "La conversation"
+  "resource.readDialogue": "La conversation",
+  "listen.title": "Écouter le livre — Duru Korean",
+  "listen.eyebrow": "Audio du livre",
+  "listen.h1": "Écouter le livre",
+  "listen.tagline": "Toutes les pistes du livre Duru Korean, en écoute gratuite.",
+  "listen.empty": "L’audio est ajouté chapitre par chapitre. Revenez bientôt.",
+  "listen.chapter": "Chap.",
+  "listen.track": "Piste",
+  "listen.tracks": "Pistes",
+  "listen.prev": "← Précédent",
+  "listen.next": "Suivant →",
+  "listen.play": "Lire",
+  "listen.pause": "Pause",
+  "listen.speed": "Vitesse",
+  "listen.repeat": "Répéter cette piste",
+  "listen.auto": "Lire automatiquement la piste suivante",
+  "listen.note": "L’audio est lu via YouTube. Gardez cette page ouverte pendant l’écoute.",
+  "bookAudio.listenCta": "Écouter l’audio →"
 }

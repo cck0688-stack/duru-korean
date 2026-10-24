@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Listen to the Book — Duru Korean</title>
+<meta name="description" content="Listen to every track of the Duru Korean book, free, right on this page.">
+<!-- share and search -->
+<link rel="canonical" href="https://www.durukorean.com/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="en" href="https://www.durukorean.com/en/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="vi" href="https://www.durukorean.com/vi/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="es" href="https://www.durukorean.com/es/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="id" href="https://www.durukorean.com/id/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="pt-BR" href="https://www.durukorean.com/pt-BR/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="ko" href="https://www.durukorean.com/ko/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="ja" href="https://www.durukorean.com/ja/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="zh" href="https://www.durukorean.com/zh/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="fr" href="https://www.durukorean.com/fr/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="de" href="https://www.durukorean.com/de/listen.html" data-duru-lang="">
+<link rel="alternate" hreflang="x-default" href="https://www.durukorean.com/listen.html" data-duru-lang="">
+<meta property="og:site_name" content="Duru Korean">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Listen to the Book — Duru Korean">
+<meta property="og:description" content="Every track of the Duru Korean book, free to play.">
+<meta property="og:url" content="https://www.durukorean.com/listen.html">
+<meta property="og:image" content="https://www.durukorean.com/assets/og-default.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Listen to the Book — Duru Korean">
+<meta name="twitter:description" content="Every track of the Duru Korean book, free to play.">
+<meta name="twitter:image" content="https://www.durukorean.com/assets/og-default.png">
+<!-- /share and search -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme-v2.css">
+</head>
+<body class="theme-v2">
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-brand">
+      <a href="index.html" class="logo">
+        <img class="logo-img" src="assets/logo.webp" alt="Duru Korean" width="1617" height="280">
+      </a>
+      <span class="site-visits" hidden>
+        <span><span data-i18n="visits.total" data-visits-total-label>Visits</span> <b data-visits-total>–</b></span>
+        <span><span data-i18n="visits.today" data-visits-today-label>Today</span> <b data-visits-today>–</b></span>
+      </span>
+    </div>
+    <nav class="nav-main">
+      <a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a>
+      <a href="listen.html" data-i18n="nav.bookResources">Book Resources</a>
+      <a href="free-resources.html" data-i18n="nav.freeResources">Free Downloads</a>
+      <a href="blog.html" data-i18n="nav.blog">Blog</a>
+      <a href="stories.html" data-i18n="nav.stories">Community</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher" id="langSwitcher"></div>
+      <button id="authTrigger" class="btn-login" type="button" data-i18n="nav.login">Log in</button>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="listen.eyebrow">Book audio</span>
+    <h1 data-i18n="listen.h1">Listen to the book</h1>
+    <p class="page-hero-tagline" data-i18n="listen.tagline">Every track of the Duru Korean book, free to play.</p>
+  </div>
+</section>
+
+<section class="section listen-section">
+  <div class="wrap">
+    <div id="listenEmpty" class="listen-empty" hidden data-i18n="listen.empty">The audio is being added chapter by chapter. Please check back soon.</div>
+    <div id="listenApp" class="listen-app" hidden>
+      <div class="listen-main">
+        <div class="listen-chapters" id="listenChapters" role="tablist" aria-label="Chapters"></div>
+        <div class="listen-video"><div id="listenPlayer"></div></div>
+        <div class="listen-now">
+          <div class="listen-now-no" id="listenNowNo"></div>
+          <div class="listen-now-title" id="listenNowTitle"></div>
+          <div class="listen-now-text" id="listenNowText"></div>
+        </div>
+        <div class="listen-controls">
+          <button type="button" class="btn btn-outline" id="listenPrev" data-i18n="listen.prev">← Previous</button>
+          <button type="button" class="btn btn-primary" id="listenPlay" data-i18n="listen.play">Play</button>
+          <button type="button" class="btn btn-outline" id="listenNext" data-i18n="listen.next">Next →</button>
+        </div>
+        <div class="listen-options">
+          <label><span data-i18n="listen.speed">Speed</span>
+            <select id="listenSpeed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option></select>
+          </label>
+          <label class="listen-check"><input type="checkbox" id="listenRepeat"> <span data-i18n="listen.repeat">Repeat this track</span></label>
+          <label class="listen-check"><input type="checkbox" id="listenAuto" checked> <span data-i18n="listen.auto">Play the next track automatically</span></label>
+        </div>
+        <p class="listen-note" data-i18n="listen.note">The audio plays through YouTube. Keep this page open while you listen.</p>
+      </div>
+      <aside class="listen-tracks">
+        <h2 class="listen-tracks-h" id="listenTracksH" data-i18n="listen.tracks">Tracks</h2>
+        <ol class="listen-list" id="listenList"></ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo">
+          <img class="logo-img" src="assets/logo.webp" alt="Duru Korean" width="1617" height="280">
+        </a>
+        <p data-i18n="footer.tagline">두루 한국어 — practical, audio-first Korean lessons for learners anywhere in the world.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.learning">Learning</h5>
+        <ul>
+          <li><a href="learning-korean.html" data-i18n="nav.learnKorean">Learn Korean</a></li>
+          <li><a href="book-resources.html" data-i18n="nav.bookResources">Book Resources</a></li>
+          <li><a href="free-resources.html" data-i18n="nav.freeResources">Free Downloads</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.sharing">Sharing</h5>
+        <ul>
+          <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="stories.html" data-i18n="nav.stories">Community</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footer.support">Support</h5>
+        <ul>
+          <li><a href="about.html#contact" data-i18n="footer.contact">Contact</a></li>
+          <li><a href="faq.html" data-i18n="footer.faq">FAQ</a></li>
+          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="terms.html" data-i18n="footer.terms">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> <span data-i18n="footer.rights">Duru Korean. All rights reserved.</span></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/notify-feed.js"></script>
+<script src="js/visitor-tracking.js"></script>
+<script>window.DURU_PAGE_TITLE_KEY = 'listen.title';</script>
+<script src="js/i18n.js"></script>
+<script src="js/langbar.js"></script>
+<script src="js/listen.js"></script>
+</body>
+</html>
