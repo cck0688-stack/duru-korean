@@ -1,10 +1,12 @@
 // DURU KOREAN — the book's audio, played on the site (owner, 2026-10-24).
-// The list is assets/audio/book1.json (scripts/audio-index.mjs writes it from the folder):
-//   { "chapters": [ { "n": 1, "label": "Ch. 1", "title": {"ko": "...", "en": "..."},
-//       "tracks": [ { "n": 1, "title": {"ko": "...", "en": "..."}, "text": "optional Korean line",
+// The list is assets/audio/book1.json:
+//   { "chapters": [ { "key": "01", "n": 1, "label": "Lesson 1", "title": "Read More Korean",
+//       "tracks": [ { "n": 1, "id": "B1-01-01", "title": "New letters, then syllables",
+//                     "groups": "ㅓ ㅗ ㅜ / 거 고 구 / 너 노 누",
 //                     "file": "assets/audio/book1/B1-01-01.mp3", "dur": 42.5 } ] } ] }
-// A track may instead be a stretch of a YouTube video: chapter "video": "<id>" with the
-// track's "start" and "end" in seconds. An address like listen.html?c=1&t=3 opens that track.
+// The book prints https://www.durukorean.com/audio#B1-04-03 : the part after # is the track id
+// and opens that track. (A track may instead be a stretch of a YouTube video: chapter "video"
+// with the track's "start" and "end" in seconds.)
 (function () {
   var DATA_URL = 'assets/audio/book1.json';
   var $ = function (id) { return document.getElementById(id); };
@@ -28,6 +30,7 @@
   function track() { return chapter().tracks[tr]; }
   function length(t) { return t.dur != null ? t.dur : (t.end - t.start); }
   function chapLabel(c) { return c.label || (tx('listen.chapter', 'Ch.') + ' ' + c.n); }
+  function trackId(c, t) { return t.id || ('B1-' + c.key + '-' + (t.n < 10 ? '0' : '') + t.n); }
 
   function paintChapters() {
     var box = $('listenChapters'); box.innerHTML = '';
@@ -36,21 +39,22 @@
       b.type = 'button'; b.setAttribute('role', 'tab');
       b.className = 'listen-chip' + (i === ch ? ' is-on' : '');
       b.setAttribute('aria-selected', i === ch ? 'true' : 'false');
-      b.textContent = chapLabel(c);
-      b.title = pick(c.title);
+      b.textContent = c.short || chapLabel(c).replace('Lesson ', 'L').replace('Checkpoint ', 'CP');
+      b.title = chapLabel(c) + ' · ' + pick(c.title);
       b.addEventListener('click', function () { choose(i, 0, false); });
       box.appendChild(b);
     });
   }
   function paintList() {
     var ol = $('listenList'); ol.innerHTML = '';
-    $('listenTracksH').textContent = tx('listen.tracks', 'Tracks') + ' · ' + pick(chapter().title);
+    $('listenTracksH').textContent = chapLabel(chapter()) + ' · ' + pick(chapter().title);
     chapter().tracks.forEach(function (t, i) {
       var li = document.createElement('li');
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'listen-track' + (i === tr ? ' is-on' : '');
-      var no = document.createElement('span'); no.className = 'listen-track-no'; no.textContent = t.n;
+      var no = document.createElement('span'); no.className = 'listen-track-no'; no.textContent = trackId(chapter(), t);
       var name = document.createElement('span'); name.className = 'listen-track-name'; name.textContent = pick(t.title) || (tx('listen.track', 'Track') + ' ' + t.n);
+      if (t.groups) { var g = document.createElement('span'); g.className = 'listen-track-groups'; g.textContent = t.groups; name.appendChild(g); }
       var len = document.createElement('span'); len.className = 'listen-track-len'; len.textContent = clock(length(t));
       b.appendChild(no); b.appendChild(name); b.appendChild(len);
       b.addEventListener('click', function () { choose(ch, i, true); });
@@ -59,15 +63,15 @@
   }
   function paintNow() {
     var t = track();
-    $('listenNowNo').textContent = chapLabel(chapter()) + ' · ' + tx('listen.track', 'Track') + ' ' + t.n;
+    $('listenNowNo').textContent = trackId(chapter(), t) + ' · ' + chapLabel(chapter());
     $('listenNowTitle').textContent = pick(t.title);
-    $('listenNowText').textContent = t.text || '';
+    $('listenNowText').textContent = t.groups || t.text || '';
     document.querySelectorAll('.listen-track').forEach(function (el, i) { el.classList.toggle('is-on', i === tr); });
     $('listenPrev').disabled = ch === 0 && tr === 0;
     $('listenNext').disabled = ch === data.chapters.length - 1 && tr === chapter().tracks.length - 1;
   }
   function address() {
-    try { history.replaceState(null, '', '?c=' + encodeURIComponent(chapter().n) + '&t=' + track().n); } catch (e) { /* the address stays */ }
+    try { history.replaceState(null, '', location.pathname + '#' + trackId(chapter(), track())); } catch (e) { /* the address stays */ }
   }
   function speed() { return Number($('listenSpeed').value) || 1; }
   function setPlayLabel(on) { $('listenPlay').textContent = on ? tx('listen.pause', 'Pause') : tx('listen.play', 'Play'); }
@@ -152,17 +156,10 @@
       return c.tracks.length;
     });
     if (!data.chapters.length) { $('listenEmpty').hidden = false; return; }
-    var q = new URLSearchParams(location.search), qc = q.get('c'), qt = Number(q.get('t'));
-    var same = function (c) {
-      var a = String(c.n).toLowerCase(), b = String(qc).toLowerCase();
-      return a === b || (/^\d+$/.test(a) && /^\d+$/.test(b) && Number(a) === Number(b));
-    };
-    var ci = data.chapters.findIndex(same);
-    if (ci >= 0) {
-      ch = ci;
-      var ti = data.chapters[ci].tracks.findIndex(function (t) { return t.n === qt; });
-      tr = ti >= 0 ? ti : 0;
-    }
+    var want = decodeURIComponent((location.hash || '').replace(/^#/, '')).toUpperCase();
+    data.chapters.forEach(function (c, i) {
+      c.tracks.forEach(function (t, j) { if (want && trackId(c, t).toUpperCase() === want) { ch = i; tr = j; } });
+    });
     audio = $('listenAudio');
     audio.addEventListener('play', function () { setPlayLabel(true); });
     audio.addEventListener('pause', function () { setPlayLabel(false); });

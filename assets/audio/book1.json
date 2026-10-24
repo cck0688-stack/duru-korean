@@ -1,878 +1,750 @@
 {
-  "book": "book1",
-  "chapters": [
+ "book": "book1",
+ "title": "Hangul on Your Own",
+ "chapters": [
+  {
+   "key": "00",
+   "n": 0,
+   "label": "START",
+   "title": "Hangul on Your Own",
+   "tracks": [
     {
-      "key": "00",
-      "n": 0,
-      "label": "Ch. 0",
-      "title": {
-        "ko": "챕터 0",
-        "en": "Chapter 0"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-00-01.mp3",
-          "dur": 6.4
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-00-02.mp3",
-          "dur": 27.2
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-00-03.mp3",
-          "dur": 12.3
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-00-04.mp3",
-          "dur": 13.5
-        }
-      ]
+     "n": 1,
+     "id": "B1-00-01",
+     "title": "Hear how ㄴ and ㅏ become 나",
+     "groups": "ㄴ ㅏ 나",
+     "file": "assets/audio/book1/B1-00-01.mp3",
+     "dur": 6.4
     },
     {
-      "key": "01",
-      "n": 1,
-      "label": "Ch. 1",
-      "title": {
-        "ko": "챕터 1",
-        "en": "Chapter 1"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-01-01.mp3",
-          "dur": 21
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-01-02.mp3",
-          "dur": 43.6
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-01-03.mp3",
-          "dur": 41.8
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-01-04.mp3",
-          "dur": 10.2
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-01-05.mp3",
-          "dur": 11
-        }
-      ]
+     "n": 2,
+     "id": "B1-00-02",
+     "title": "Vowels, then syllables — slowly",
+     "groups": "ㅏ ㅣ / ㄴ ㅁ ㅇ / 나 마 아 / 니 미 이",
+     "file": "assets/audio/book1/B1-00-02.mp3",
+     "dur": 27.2
     },
     {
-      "key": "02",
-      "n": 2,
-      "label": "Ch. 2",
-      "title": {
-        "ko": "챕터 2",
-        "en": "Chapter 2"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-02-01.mp3",
-          "dur": 29.1
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-02-02.mp3",
-          "dur": 47.5
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-02-03.mp3",
-          "dur": 44.8
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-02-04.mp3",
-          "dur": 11.6
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-02-05.mp3",
-          "dur": 11.5
-        }
-      ]
+     "n": 3,
+     "id": "B1-00-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "나 / 아이 / 나이 / 이마 / 아니",
+     "file": "assets/audio/book1/B1-00-03.mp3",
+     "dur": 12.3
     },
     {
-      "key": "03",
-      "n": 3,
-      "label": "Ch. 3",
-      "title": {
-        "ko": "챕터 3",
-        "en": "Chapter 3"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-03-01.mp3",
-          "dur": 18.5
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-03-02.mp3",
-          "dur": 43.5
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-03-03.mp3",
-          "dur": 11.6
-        }
-      ]
-    },
-    {
-      "key": "04",
-      "n": 4,
-      "label": "Ch. 4",
-      "title": {
-        "ko": "챕터 4",
-        "en": "Chapter 4"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-04-01.mp3",
-          "dur": 27.3
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-04-02.mp3",
-          "dur": 48.1
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-04-03.mp3",
-          "dur": 47
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-04-04.mp3",
-          "dur": 11
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-04-05.mp3",
-          "dur": 11.3
-        }
-      ]
-    },
-    {
-      "key": "05",
-      "n": 5,
-      "label": "Ch. 5",
-      "title": {
-        "ko": "챕터 5",
-        "en": "Chapter 5"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-05-01.mp3",
-          "dur": 15.2
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-05-02.mp3",
-          "dur": 31
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-05-03.mp3",
-          "dur": 46.6
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-05-04.mp3",
-          "dur": 11.2
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-05-05.mp3",
-          "dur": 12.6
-        }
-      ]
-    },
-    {
-      "key": "06",
-      "n": 6,
-      "label": "Ch. 6",
-      "title": {
-        "ko": "챕터 6",
-        "en": "Chapter 6"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-06-01.mp3",
-          "dur": 15.1
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-06-02.mp3",
-          "dur": 39.1
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-06-03.mp3",
-          "dur": 45.1
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-06-04.mp3",
-          "dur": 11
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-06-05.mp3",
-          "dur": 11.1
-        }
-      ]
-    },
-    {
-      "key": "07",
-      "n": 7,
-      "label": "Ch. 7",
-      "title": {
-        "ko": "챕터 7",
-        "en": "Chapter 7"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-07-01.mp3",
-          "dur": 22.8
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-07-02.mp3",
-          "dur": 31.1
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-07-03.mp3",
-          "dur": 39.9
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-07-04.mp3",
-          "dur": 11.5
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-07-05.mp3",
-          "dur": 11.1
-        }
-      ]
-    },
-    {
-      "key": "08",
-      "n": 8,
-      "label": "Ch. 8",
-      "title": {
-        "ko": "챕터 8",
-        "en": "Chapter 8"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-08-01.mp3",
-          "dur": 18.9
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-08-02.mp3",
-          "dur": 17
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-08-03.mp3",
-          "dur": 39
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-08-04.mp3",
-          "dur": 11.6
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-08-05.mp3",
-          "dur": 11.5
-        }
-      ]
-    },
-    {
-      "key": "09",
-      "n": 9,
-      "label": "Ch. 9",
-      "title": {
-        "ko": "챕터 9",
-        "en": "Chapter 9"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-09-01.mp3",
-          "dur": 27.2
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-09-02.mp3",
-          "dur": 59
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-09-03.mp3",
-          "dur": 48.1
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-09-04.mp3",
-          "dur": 7.6
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-09-05.mp3",
-          "dur": 11.5
-        }
-      ]
-    },
-    {
-      "key": "10",
-      "n": 10,
-      "label": "Ch. 10",
-      "title": {
-        "ko": "챕터 10",
-        "en": "Chapter 10"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-10-01.mp3",
-          "dur": 14.7
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-10-02.mp3",
-          "dur": 35.3
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-10-03.mp3",
-          "dur": 38.8
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-10-04.mp3",
-          "dur": 9.1
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-10-05.mp3",
-          "dur": 11.2
-        }
-      ]
-    },
-    {
-      "key": "11",
-      "n": 11,
-      "label": "Ch. 11",
-      "title": {
-        "ko": "챕터 11",
-        "en": "Chapter 11"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-11-01.mp3",
-          "dur": 16.8
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-11-02.mp3",
-          "dur": 19.7
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-11-03.mp3",
-          "dur": 35.1
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-11-04.mp3",
-          "dur": 11.2
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-11-05.mp3",
-          "dur": 11.5
-        }
-      ]
-    },
-    {
-      "key": "12",
-      "n": 12,
-      "label": "Ch. 12",
-      "title": {
-        "ko": "챕터 12",
-        "en": "Chapter 12"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-12-01.mp3",
-          "dur": 7.6
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-12-02.mp3",
-          "dur": 11
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-12-03.mp3",
-          "dur": 11.3
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-12-04.mp3",
-          "dur": 7.2
-        }
-      ]
-    },
-    {
-      "key": "13",
-      "n": 13,
-      "label": "Ch. 13",
-      "title": {
-        "ko": "챕터 13",
-        "en": "Chapter 13"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-13-01.mp3",
-          "dur": 13.9
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-13-02.mp3",
-          "dur": 11.2
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-13-03.mp3",
-          "dur": 7
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-13-04.mp3",
-          "dur": 7.4
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-13-05.mp3",
-          "dur": 31.8
-        },
-        {
-          "n": 6,
-          "title": {
-            "ko": "트랙 6",
-            "en": "Track 6"
-          },
-          "file": "assets/audio/book1/B1-13-06.mp3",
-          "dur": 25.4
-        }
-      ]
-    },
-    {
-      "key": "14",
-      "n": 14,
-      "label": "Ch. 14",
-      "title": {
-        "ko": "챕터 14",
-        "en": "Chapter 14"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-14-01.mp3",
-          "dur": 15.5
-        },
-        {
-          "n": 2,
-          "title": {
-            "ko": "트랙 2",
-            "en": "Track 2"
-          },
-          "file": "assets/audio/book1/B1-14-02.mp3",
-          "dur": 15.3
-        },
-        {
-          "n": 3,
-          "title": {
-            "ko": "트랙 3",
-            "en": "Track 3"
-          },
-          "file": "assets/audio/book1/B1-14-03.mp3",
-          "dur": 14.4
-        },
-        {
-          "n": 4,
-          "title": {
-            "ko": "트랙 4",
-            "en": "Track 4"
-          },
-          "file": "assets/audio/book1/B1-14-04.mp3",
-          "dur": 7.2
-        },
-        {
-          "n": 5,
-          "title": {
-            "ko": "트랙 5",
-            "en": "Track 5"
-          },
-          "file": "assets/audio/book1/B1-14-05.mp3",
-          "dur": 12.1
-        }
-      ]
-    },
-    {
-      "key": "CP1",
-      "n": "CP1",
-      "label": "CP1",
-      "title": {
-        "ko": "CP1",
-        "en": "CP1"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-CP1-01.mp3",
-          "dur": 55.3
-        }
-      ]
-    },
-    {
-      "key": "CP2",
-      "n": "CP2",
-      "label": "CP2",
-      "title": {
-        "ko": "CP2",
-        "en": "CP2"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-CP2-01.mp3",
-          "dur": 32.3
-        }
-      ]
-    },
-    {
-      "key": "CP3",
-      "n": "CP3",
-      "label": "CP3",
-      "title": {
-        "ko": "CP3",
-        "en": "CP3"
-      },
-      "tracks": [
-        {
-          "n": 1,
-          "title": {
-            "ko": "트랙 1",
-            "en": "Track 1"
-          },
-          "file": "assets/audio/book1/B1-CP3-01.mp3",
-          "dur": 35
-        }
-      ]
+     "n": 4,
+     "id": "B1-00-04",
+     "title": "Check yourself",
+     "groups": "나 / 마 / 아 / 이 / 아이 / 나이",
+     "file": "assets/audio/book1/B1-00-04.mp3",
+     "dur": 13.5
     }
-  ]
+   ]
+  },
+  {
+   "key": "01",
+   "n": 1,
+   "label": "Lesson 1",
+   "title": "Read More Korean",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-01-01",
+     "title": "New letters, then syllables",
+     "groups": "ㅓ ㅗ ㅜ / 거 고 구 / 너 노 누",
+     "file": "assets/audio/book1/B1-01-01.mp3",
+     "dur": 21
+    },
+    {
+     "n": 2,
+     "id": "B1-01-02",
+     "title": "Syllables, then 고기 · 나무",
+     "groups": "거 고 구 기 / 너 노 누 니 / 머 모 무 미 / 어 오 우 이 / 고기 / 나무",
+     "file": "assets/audio/book1/B1-01-02.mp3",
+     "dur": 43.6
+    },
+    {
+     "n": 3,
+     "id": "B1-01-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "나무 / 고기 / 아기 / 오이 / 어머니",
+     "file": "assets/audio/book1/B1-01-03.mp3",
+     "dur": 41.8
+    },
+    {
+     "n": 4,
+     "id": "B1-01-04",
+     "title": "Read More words, natural speed",
+     "groups": "모기 / 고모 / 누나 / 구이 / 고구마",
+     "file": "assets/audio/book1/B1-01-04.mp3",
+     "dur": 10.2
+    },
+    {
+     "n": 5,
+     "id": "B1-01-05",
+     "title": "Listen only after you have tried",
+     "groups": "나무 / 고기 / 오이 / 가구 / 고무 / 아마",
+     "file": "assets/audio/book1/B1-01-05.mp3",
+     "dur": 11
+    }
+   ]
+  },
+  {
+   "key": "02",
+   "n": 2,
+   "label": "Lesson 2",
+   "title": "Build More Korean Words",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-02-01",
+     "title": "ㅡ, then 다 더 도 두 드 디",
+     "groups": "ㄷ ㄹ ㅂ ㅅ / ㅡ / 드 두 / 스 수 / 다 더 도 두 드 디",
+     "file": "assets/audio/book1/B1-02-01.mp3",
+     "dur": 29.1
+    },
+    {
+     "n": 2,
+     "id": "B1-02-02",
+     "title": "All four rows — slowly",
+     "groups": "다 더 도 두 드 디 / 라 러 로 루 르 리 / 바 버 보 부 브 비 / 사 서 소 수 스 시",
+     "file": "assets/audio/book1/B1-02-02.mp3",
+     "dur": 47.5
+    },
+    {
+     "n": 3,
+     "id": "B1-02-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "바다 / 버스 / 두부 / 머리 / 우리 / 어디",
+     "file": "assets/audio/book1/B1-02-03.mp3",
+     "dur": 44.8
+    },
+    {
+     "n": 4,
+     "id": "B1-02-04",
+     "title": "Read More words, natural speed",
+     "groups": "나비 / 오리 / 소리 / 미소 / 나라 / 서로",
+     "file": "assets/audio/book1/B1-02-04.mp3",
+     "dur": 11.6
+    },
+    {
+     "n": 5,
+     "id": "B1-02-05",
+     "title": "Listen only after you have tried",
+     "groups": "바다 / 버스 / 우리 / 도로 / 구두 / 다니다",
+     "file": "assets/audio/book1/B1-02-05.mp3",
+     "dur": 11.5
+    }
+   ]
+  },
+  {
+   "key": "03",
+   "n": 3,
+   "label": "Lesson 3",
+   "title": "My First Reading Challenge",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-03-01",
+     "title": "Warm-up syllables — check yourself after reading",
+     "groups": "두 머 소 기 라 / 버 니 도 스 무 / 바 리 어 고 다",
+     "file": "assets/audio/book1/B1-03-01.mp3",
+     "dur": 18.5
+    },
+    {
+     "n": 2,
+     "id": "B1-03-02",
+     "title": "Each word: split once, then natural twice",
+     "groups": "부모 / 모두 / 바로 / 소나무 / 라디오",
+     "file": "assets/audio/book1/B1-03-02.mp3",
+     "dur": 43.5
+    },
+    {
+     "n": 3,
+     "id": "B1-03-03",
+     "title": "Listen only after you have tried",
+     "groups": "가다 / 오다 / 보다 / 다리 / 모르다 / 나무 / 우리",
+     "file": "assets/audio/book1/B1-03-03.mp3",
+     "dur": 11.6
+    }
+   ]
+  },
+  {
+   "key": "04",
+   "n": 4,
+   "label": "Lesson 4",
+   "title": "More Useful Letters",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-04-01",
+     "title": "ㅐ and ㅔ side by side, then 자 저 조 주 즈 지 / 하 허 호 후 흐 히",
+     "groups": "ㅐ ㅔ / 자 저 조 주 즈 지 / 하 허 호 후 흐 히",
+     "file": "assets/audio/book1/B1-04-01.mp3",
+     "dur": 27.3
+    },
+    {
+     "n": 2,
+     "id": "B1-04-02",
+     "title": "All four rows — slowly",
+     "groups": "자 저 조 주 즈 지 / 하 허 호 후 흐 히 / 애 내 대 매 배 새 / 에 네 데 메 베 세",
+     "file": "assets/audio/book1/B1-04-02.mp3",
+     "dur": 48.1
+    },
+    {
+     "n": 3,
+     "id": "B1-04-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "저 / 지도 / 메모 / 하루 / 지우개 / 아버지",
+     "file": "assets/audio/book1/B1-04-03.mp3",
+     "dur": 47
+    },
+    {
+     "n": 4,
+     "id": "B1-04-04",
+     "title": "Read More words, natural speed",
+     "groups": "모자 / 새우 / 세수 / 베개 / 호수 / 호두",
+     "file": "assets/audio/book1/B1-04-04.mp3",
+     "dur": 11
+    },
+    {
+     "n": 5,
+     "id": "B1-04-05",
+     "title": "Listen only after you have tried",
+     "groups": "저 / 지도 / 지우개 / 어제 / 바지 / 자다",
+     "file": "assets/audio/book1/B1-04-05.mp3",
+     "dur": 11.3
+    }
+   ]
+  },
+  {
+   "key": "05",
+   "n": 5,
+   "label": "Lesson 5",
+   "title": "New Vowel Sounds",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-05-01",
+     "title": "ㅏ/ㅑ, ㅓ/ㅕ, ㅗ/ㅛ, ㅜ/ㅠ in pairs",
+     "groups": "ㅏ ㅑ / ㅓ ㅕ / ㅗ ㅛ / ㅜ ㅠ",
+     "file": "assets/audio/book1/B1-05-01.mp3",
+     "dur": 15.2
+    },
+    {
+     "n": 2,
+     "id": "B1-05-02",
+     "title": "All four rows",
+     "groups": "야 여 요 유 / 냐 녀 뇨 뉴 / 먀 며 묘 뮤 / 샤 셔 쇼 슈",
+     "file": "assets/audio/book1/B1-05-02.mp3",
+     "dur": 31
+    },
+    {
+     "n": 3,
+     "id": "B1-05-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "여기 / 여자 / 우유 / 요리 / 교수 / 휴지",
+     "file": "assets/audio/book1/B1-05-03.mp3",
+     "dur": 46.6
+    },
+    {
+     "n": 4,
+     "id": "B1-05-04",
+     "title": "Read More words, natural speed",
+     "groups": "여우 / 유리 / 이유 / 야구 / 여유 / 교재",
+     "file": "assets/audio/book1/B1-05-04.mp3",
+     "dur": 11.2
+    },
+    {
+     "n": 5,
+     "id": "B1-05-05",
+     "title": "Listen only after you have tried",
+     "groups": "여기 / 우유 / 교수 / 요가 / 휴가 / 여기저기",
+     "file": "assets/audio/book1/B1-05-05.mp3",
+     "dur": 12.6
+    }
+   ]
+  },
+  {
+   "key": "06",
+   "n": 6,
+   "label": "Lesson 6",
+   "title": "More Consonants",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-06-01",
+     "title": "Each pair twice — 가/카 · 다/타 · 바/파 · 자/차",
+     "groups": "가 카 / 다 타 / 바 파 / 자 차",
+     "file": "assets/audio/book1/B1-06-01.mp3",
+     "dur": 15.1
+    },
+    {
+     "n": 2,
+     "id": "B1-06-02",
+     "title": "All four rows — slowly",
+     "groups": "카 커 코 쿠 키 / 타 터 토 투 티 / 파 퍼 포 푸 피 / 차 처 초 추 치",
+     "file": "assets/audio/book1/B1-06-02.mp3",
+     "dur": 39.1
+    },
+    {
+     "n": 3,
+     "id": "B1-06-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "카페 / 커피 / 기차 / 포도 / 치마 / 초보",
+     "file": "assets/audio/book1/B1-06-03.mp3",
+     "dur": 45.1
+    },
+    {
+     "n": 4,
+     "id": "B1-06-04",
+     "title": "Read More words, natural speed",
+     "groups": "피자 / 카메라 / 치즈 / 코 / 파도 / 타다",
+     "file": "assets/audio/book1/B1-06-04.mp3",
+     "dur": 11
+    },
+    {
+     "n": 5,
+     "id": "B1-06-05",
+     "title": "Listen only after you have tried",
+     "groups": "기차 / 카페 / 초보 / 주차 / 기차표 / 코피",
+     "file": "assets/audio/book1/B1-06-05.mp3",
+     "dur": 11.1
+    }
+   ]
+  },
+  {
+   "key": "CP1",
+   "n": "CP1",
+   "label": "Checkpoint 1",
+   "title": "I Know the Basic Hangul",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-CP1-01",
+     "title": "Full checkpoint read-through",
+     "groups": "ㅍ ㄴ ㅈ ㄹ ㅌ / ㅁ ㅋ ㅅ ㄱ ㅊ / ㅂ ㅎ ㄷ ㅇ / ㅛ ㅣ ㅓ ㅠ ㅗ / ㅏ ㅕ ㅡ ㅜ ㅑ / 이야기 / 야채 / 자료 / 자유",
+     "file": "assets/audio/book1/B1-CP1-01.mp3",
+     "dur": 55.3
+    }
+   ]
+  },
+  {
+   "key": "07",
+   "n": 7,
+   "label": "Lesson 7",
+   "title": "Vowels That Work Together",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-07-01",
+     "title": "Each pair slowly, then blended — ㅗㅏ → ㅘ",
+     "groups": "ㅗ ㅏ ㅘ / ㅜ ㅓ ㅝ / ㅗ ㅣ ㅚ / ㅜ ㅣ ㅟ",
+     "file": "assets/audio/book1/B1-07-01.mp3",
+     "dur": 22.8
+    },
+    {
+     "n": 2,
+     "id": "B1-07-02",
+     "title": "All four rows — slowly",
+     "groups": "과 와 화 봐 / 뭐 워 줘 둬 / 회 외 되 쇠 / 위 귀 쥐 뒤",
+     "file": "assets/audio/book1/B1-07-02.mp3",
+     "dur": 31.1
+    },
+    {
+     "n": 3,
+     "id": "B1-07-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "과자 / 사과 / 뭐 / 가위 / 회사 / 외우다",
+     "file": "assets/audio/book1/B1-07-03.mp3",
+     "dur": 39.9
+    },
+    {
+     "n": 4,
+     "id": "B1-07-04",
+     "title": "Read More words, natural speed",
+     "groups": "귀 / 위 / 쥐 / 와요 / 쉬다 / 외치다",
+     "file": "assets/audio/book1/B1-07-04.mp3",
+     "dur": 11.5
+    },
+    {
+     "n": 5,
+     "id": "B1-07-05",
+     "title": "Listen only after you have tried",
+     "groups": "과자 / 뭐 / 가위 / 과외 / 해외 / 위치",
+     "file": "assets/audio/book1/B1-07-05.mp3",
+     "dur": 11.1
+    }
+   ]
+  },
+  {
+   "key": "08",
+   "n": 8,
+   "label": "Lesson 8",
+   "title": "More Vowels You Will See",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-08-01",
+     "title": "ㅙ ㅖ ㅢ — combination, then blended, then 희다",
+     "groups": "ㅗ ㅐ ㅙ / ㅕ ㅣ ㅖ / ㅡ ㅣ ㅢ / 희다",
+     "file": "assets/audio/book1/B1-08-01.mp3",
+     "dur": 18.9
+    },
+    {
+     "n": 2,
+     "id": "B1-08-02",
+     "title": "All rows — slowly",
+     "groups": "왜 괘 쇄 / 예 계 혜 폐 / 의 희",
+     "file": "assets/audio/book1/B1-08-02.mp3",
+     "dur": 17
+    },
+    {
+     "n": 3,
+     "id": "B1-08-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "왜 / 예 / 의자 / 의사 / 시계 / 얘기",
+     "file": "assets/audio/book1/B1-08-03.mp3",
+     "dur": 39
+    },
+    {
+     "n": 4,
+     "id": "B1-08-04",
+     "title": "Read More words, natural speed",
+     "groups": "예의 / 회의 / 계좌 / 의미 / 웨이터 / 웨이브",
+     "file": "assets/audio/book1/B1-08-04.mp3",
+     "dur": 11.6
+    },
+    {
+     "n": 5,
+     "id": "B1-08-05",
+     "title": "Listen only after you have tried",
+     "groups": "왜 / 예 / 의자 / 여의도 / 의외 / 예외",
+     "file": "assets/audio/book1/B1-08-05.mp3",
+     "dur": 11.5
+    }
+   ]
+  },
+  {
+   "key": "09",
+   "n": 9,
+   "label": "Lesson 9",
+   "title": "Double Consonants",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-09-01",
+     "title": "Each family three times — 가/까/카 · 다/따/타 · 바/빠/파 · 자/짜/차 · 사/싸",
+     "groups": "가 까 카 / 다 따 타 / 바 빠 파 / 자 짜 차 / 사 싸",
+     "file": "assets/audio/book1/B1-09-01.mp3",
+     "dur": 27.2
+    },
+    {
+     "n": 2,
+     "id": "B1-09-02",
+     "title": "All five rows — slowly",
+     "groups": "가 까 꺼 꼬 꾸 끼 / 다 따 떠 또 뚜 띠 / 바 빠 뻐 뽀 뿌 삐 / 사 싸 써 쏘 쑤 씨 / 자 짜 쩌 쪼 쭈 찌",
+     "file": "assets/audio/book1/B1-09-02.mp3",
+     "dur": 59
+    },
+    {
+     "n": 3,
+     "id": "B1-09-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "아빠 / 또 / 토끼 / 찌개 / 예쁘다 / 바쁘다",
+     "file": "assets/audio/book1/B1-09-03.mp3",
+     "dur": 48.1
+    },
+    {
+     "n": 4,
+     "id": "B1-09-04",
+     "title": "Read More words, natural speed",
+     "groups": "오빠 / 쓰다 / 빠르다 / 까치",
+     "file": "assets/audio/book1/B1-09-04.mp3",
+     "dur": 7.6
+    },
+    {
+     "n": 5,
+     "id": "B1-09-05",
+     "title": "Listen only after you have tried",
+     "groups": "아빠 / 토끼 / 찌개 / 싸다 / 따다 / 짜다",
+     "file": "assets/audio/book1/B1-09-05.mp3",
+     "dur": 11.5
+    }
+   ]
+  },
+  {
+   "key": "CP2",
+   "n": "CP2",
+   "label": "Checkpoint 2",
+   "title": "I Can Read More Hangul",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-CP2-01",
+     "title": "Full checkpoint read-through",
+     "groups": "꽈 뛰 쐬 찌 / 괘 뭐 의 예 / 빼 째 끼 와 / 가짜 / 기회 / 치과 / 피아노",
+     "file": "assets/audio/book1/B1-CP2-01.mp3",
+     "dur": 32.3
+    }
+   ]
+  },
+  {
+   "key": "10",
+   "n": 10,
+   "label": "Lesson 10",
+   "title": "My First Batchim",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-10-01",
+     "title": "무/문 · 바/밤 · 이/일 · 가/강 — pairs, twice each",
+     "groups": "무 문 / 바 밤 / 이 일 / 가 강",
+     "file": "assets/audio/book1/B1-10-01.mp3",
+     "dur": 14.7
+    },
+    {
+     "n": 2,
+     "id": "B1-10-02",
+     "title": "All four rows — slowly",
+     "groups": "안 언 온 운 인 / 알 얼 올 울 일 / 암 엄 옴 움 임 / 앙 엉 옹 웅 잉",
+     "file": "assets/audio/book1/B1-10-02.mp3",
+     "dur": 35.3
+    },
+    {
+     "n": 3,
+     "id": "B1-10-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "문 / 방 / 이름 / 서울 / 교실 / 전공",
+     "file": "assets/audio/book1/B1-10-03.mp3",
+     "dur": 38.8
+    },
+    {
+     "n": 4,
+     "id": "B1-10-04",
+     "title": "Read More words, natural speed",
+     "groups": "사람 / 물 / 선물 / 선생님 / 봄",
+     "file": "assets/audio/book1/B1-10-04.mp3",
+     "dur": 9.1
+    },
+    {
+     "n": 5,
+     "id": "B1-10-05",
+     "title": "Listen only after you have tried",
+     "groups": "문 / 방 / 이름 / 여름 / 구름 / 마음",
+     "file": "assets/audio/book1/B1-10-05.mp3",
+     "dur": 11.2
+    }
+   ]
+  },
+  {
+   "key": "11",
+   "n": 11,
+   "label": "Lesson 11",
+   "title": "More Final Sounds",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-11-01",
+     "title": "책 · 집 · 밥 — correct, then the mistake, then correct again",
+     "groups": "책 / 집 / 밥",
+     "file": "assets/audio/book1/B1-11-01.mp3",
+     "dur": 16.8
+    },
+    {
+     "n": 2,
+     "id": "B1-11-02",
+     "title": "Both rows — slowly",
+     "groups": "악 억 옥 욱 익 / 압 업 옵 웁 입",
+     "file": "assets/audio/book1/B1-11-02.mp3",
+     "dur": 19.7
+    },
+    {
+     "n": 3,
+     "id": "B1-11-03",
+     "title": "Each word: split once, then natural twice",
+     "groups": "한국 / 대학 / 책 / 수업 / 집 / 밥",
+     "file": "assets/audio/book1/B1-11-03.mp3",
+     "dur": 35.1
+    },
+    {
+     "n": 4,
+     "id": "B1-11-04",
+     "title": "Read More words, natural speed",
+     "groups": "입 / 약 / 벽 / 앞 / 밖 / 부엌",
+     "file": "assets/audio/book1/B1-11-04.mp3",
+     "dur": 11.2
+    },
+    {
+     "n": 5,
+     "id": "B1-11-05",
+     "title": "Listen only after you have tried",
+     "groups": "한국 / 책 / 수업 / 수박 / 주먹 / 무릎",
+     "file": "assets/audio/book1/B1-11-05.mp3",
+     "dur": 11.5
+    }
+   ]
+  },
+  {
+   "key": "12",
+   "n": 12,
+   "label": "Lesson 12",
+   "title": "Different Letters, Same Final Sound",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-12-01",
+     "title": "Hearing the same final sound",
+     "groups": "옷 / 꽃 / 끝 / 빛",
+     "file": "assets/audio/book1/B1-12-01.mp3",
+     "dur": 7.6
+    },
+    {
+     "n": 2,
+     "id": "B1-12-02",
+     "title": "Six words — the final sound does not change",
+     "groups": "옷 맛 꽃 낮 끝 빛",
+     "file": "assets/audio/book1/B1-12-02.mp3",
+     "dur": 11
+    },
+    {
+     "n": 3,
+     "id": "B1-12-03",
+     "title": "The seven final sounds",
+     "groups": "한국 / 문 / 옷 / 서울 / 봄 / 밥 / 방",
+     "file": "assets/audio/book1/B1-12-03.mp3",
+     "dur": 11.3
+    },
+    {
+     "n": 4,
+     "id": "B1-12-04",
+     "title": "Listen only after you have tried",
+     "groups": "곳 / 밭 / 빚 / 곧",
+     "file": "assets/audio/book1/B1-12-04.mp3",
+     "dur": 7.2
+    }
+   ]
+  },
+  {
+   "key": "CP3",
+   "n": "CP3",
+   "label": "Checkpoint 3",
+   "title": "I Can Read Batchim",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-CP3-01",
+     "title": "Full checkpoint read-through",
+     "groups": "밥 할 밍 꽉 / 섯 톱 융 낟 / 겉 컹 뿔 씩 / 공부 시험 연필 가방 편지 우산",
+     "file": "assets/audio/book1/B1-CP3-01.mp3",
+     "dur": 35
+    }
+   ]
+  },
+  {
+   "key": "13",
+   "n": 13,
+   "label": "Lesson 13",
+   "title": "Korean Around Me",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-13-01",
+     "title": "Building a long word",
+     "groups": "한 국 대 학 교 / 한국 대학교 / 한국대학교 / 학교 / 학생 / 한국어",
+     "file": "assets/audio/book1/B1-13-01.mp3",
+     "dur": 13.9
+    },
+    {
+     "n": 2,
+     "id": "B1-13-02",
+     "title": "Six signs",
+     "groups": "교실 / 도서관 / 화장실 / 안내 / 기숙사 / 식당",
+     "file": "assets/audio/book1/B1-13-02.mp3",
+     "dur": 11.2
+    },
+    {
+     "n": 3,
+     "id": "B1-13-03",
+     "title": "Reading a menu",
+     "groups": "라면 / 김치찌개 / 고기구이 / 우유",
+     "file": "assets/audio/book1/B1-13-03.mp3",
+     "dur": 7
+    },
+    {
+     "n": 4,
+     "id": "B1-13-04",
+     "title": "Mission answers",
+     "groups": "도서관 / 식당 / 출구 / 입구",
+     "file": "assets/audio/book1/B1-13-04.mp3",
+     "dur": 7.4
+    },
+    {
+     "n": 5,
+     "id": "B1-13-05",
+     "title": "All the words of Lesson 13",
+     "groups": "한국대학교 학교 대학교 학생 한국어 / 교실 도서관 화장실 안내 기숙사 식당 / 라면 김치찌개 고기구이 우유 / 출구 입구 주차",
+     "file": "assets/audio/book1/B1-13-05.mp3",
+     "dur": 31.8
+    },
+    {
+     "n": 6,
+     "id": "B1-13-06",
+     "title": "Written, then as spoken",
+     "groups": "한국어 → 한구거 / 학생 → 학쌩 / 식당 → 식땅 / 기숙사 → 기숙싸 / 학교 → 학꾜 / 입구 → 입꾸",
+     "file": "assets/audio/book1/B1-13-06.mp3",
+     "dur": 25.4
+    }
+   ]
+  },
+  {
+   "key": "14",
+   "n": 14,
+   "label": "Lesson 14",
+   "title": "Now I Can Read Korean",
+   "tracks": [
+    {
+     "n": 1,
+     "id": "B1-14-01",
+     "title": "Step 1 — four words",
+     "groups": "사진 / 친구 / 시간 / 시장",
+     "file": "assets/audio/book1/B1-14-01.mp3",
+     "dur": 15.5
+    },
+    {
+     "n": 2,
+     "id": "B1-14-02",
+     "title": "Step 2 — four words",
+     "groups": "번호 / 병원 / 공항 / 은행",
+     "file": "assets/audio/book1/B1-14-02.mp3",
+     "dur": 15.3
+    },
+    {
+     "n": 3,
+     "id": "B1-14-03",
+     "title": "The last sentence",
+     "groups": "저는 한국어를 읽어요",
+     "file": "assets/audio/book1/B1-14-03.mp3",
+     "dur": 14.4
+    },
+    {
+     "n": 4,
+     "id": "B1-14-04",
+     "title": "Four names",
+     "groups": "안나 / 마이크 / 사라 / 다니엘",
+     "file": "assets/audio/book1/B1-14-04.mp3",
+     "dur": 7.2
+    },
+    {
+     "n": 5,
+     "id": "B1-14-05",
+     "title": "Closing read-through",
+     "groups": "ㄴ ㅏ 나 / 한국대학교 학생 식당 / 저는 한국어를 읽어요",
+     "file": "assets/audio/book1/B1-14-05.mp3",
+     "dur": 12.1
+    }
+   ]
+  }
+ ]
 }

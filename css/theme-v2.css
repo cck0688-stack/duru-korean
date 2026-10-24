@@ -378,3 +378,9 @@ body.theme-v2 {
 .theme-v2 .listen-track-len { color: var(--muted, #6b5b66); font-size: .85rem; }
 .theme-v2 .listen-audiobox { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 18px; padding: 16px; }
 .theme-v2 .listen-audiobox audio { width: 100%; display: block; }
+
+.theme-v2 .listen-track { grid-template-columns: 74px 1fr auto; align-items: start; }
+.theme-v2 .listen-track-no { font-size: .72rem; letter-spacing: .02em; padding-top: 3px; white-space: nowrap; }
+.theme-v2 .listen-track-name { display: block; line-height: 1.35; }
+.theme-v2 .listen-track-groups { display: block; font-weight: 400; font-size: .9rem; color: var(--muted, #6b5b66); margin-top: 3px; line-height: 1.5; font-family: 'Noto Sans KR', 'Pretendard', sans-serif; }
+.theme-v2 .listen-now-text { font-family: 'Noto Sans KR', 'Pretendard', sans-serif; font-size: 1.15rem; }

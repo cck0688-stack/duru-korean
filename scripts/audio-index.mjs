@@ -26,10 +26,13 @@ const chapters = [...byKey.keys()].sort((a, b) => { const x = rank(a), y = rank(
   const numeric = /^\d+$/.test(key);
   const tracks = byKey.get(key).sort((a, b) => a.n - b.n).map((t) => {
     const was = (old.tracks || []).find((x) => x.n === t.n) || {};
-    return { n: t.n, title: was.title || { ko: '트랙 ' + t.n, en: 'Track ' + t.n }, ...(was.text ? { text: was.text } : {}), file: t.file, dur: t.dur };
+    return { n: t.n, id: was.id || ('B1-' + key + '-' + String(t.n).padStart(2, '0')), title: was.title || 'Track ' + t.n, ...(was.groups ? { groups: was.groups } : {}), file: t.file, dur: t.dur };
   });
-  return { key, n: numeric ? Number(key) : key, label: old.label || (numeric ? 'Ch. ' + Number(key) : key),
-    title: old.title || (numeric ? { ko: '챕터 ' + Number(key), en: 'Chapter ' + Number(key) } : { ko: key, en: key }), tracks };
+  return { key, n: numeric ? Number(key) : key, label: old.label || (numeric ? 'Lesson ' + Number(key) : key),
+    title: old.title || '', tracks };
 });
-fs.writeFileSync(out, JSON.stringify({ book: 'book1', chapters }, null, 2) + '\n');
+// Keep the order the book has (START, lessons, checkpoints in between) once it is written.
+const order = (prev.chapters || []).map((c) => String(c.key));
+chapters.sort((a, b) => { const x = order.indexOf(a.key), y = order.indexOf(b.key); return (x < 0 ? 999 : x) - (y < 0 ? 999 : y); });
+fs.writeFileSync(out, JSON.stringify({ book: prev.book || 'book1', ...(prev.title ? { title: prev.title } : {}), chapters }, null, 1) + '\n');
 console.log(chapters.length + '개 챕터, 트랙 ' + chapters.reduce((s, c) => s + c.tracks.length, 0) + '개, 총 ' + Math.round(chapters.reduce((s, c) => s + c.tracks.reduce((a, t) => a + t.dur, 0), 0) / 60) + '분');
