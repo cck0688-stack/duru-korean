@@ -1,0 +1,59 @@
+# DURU KOREAN — put the rewritten blog text into the posts (owner, 2026-10-24).
+# Needs rework-output/blog-rewrite/<id>.json from rewrite-blog.yml. Keeps each post's address,
+# photo and date; replaces title, summary, body, tags, translations, word list.
+name: Apply blog rewrite
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: 'Only these post ids (comma separated, blank = every draft)'
+        default: ''
+      dry_run:
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: apply-blog-rewrite
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Drafts
+        run: |
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+      - name: Apply
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_LIMIT_WAIT_MIN: '300'
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          ONLY: ${{ inputs.only }}
+          DRY: ${{ inputs.dry_run }}
+        run: |
+          args=(--dir=../rework-output/blog-rewrite)
+          [ -n "$ONLY" ] && args+=(--only="$ONLY")
+          [ "$DRY" = "true" ] && args+=(--dry-run)
+          node scripts/apply-blog-rewrite.mjs "${args[@]}"
