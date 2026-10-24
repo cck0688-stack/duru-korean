@@ -1,0 +1,29 @@
+# DURU KOREAN — read-only look at one held resource (why Publish does not work). Changes nothing.
+name: Look at a resource
+on:
+  workflow_dispatch:
+    inputs:
+      like:
+        description: 'Part of the title'
+        default: ''
+      id:
+        description: 'Resource id (optional)'
+        default: ''
+permissions:
+  contents: read
+jobs:
+  look:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - env:
+          LIKE: ${{ inputs.like }}
+          RID: ${{ inputs.id }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/diag-resource.mjs --like="$LIKE" --id="$RID"
