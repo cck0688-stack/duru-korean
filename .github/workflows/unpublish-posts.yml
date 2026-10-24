@@ -1,0 +1,48 @@
+# DURU KOREAN — take duplicate blog posts down (published = false), text kept on
+# rework-output/blog-backup. Nothing is deleted; an admin can publish a post again.
+name: Unpublish blog posts
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: 'Post ids, comma separated'
+        default: ''
+permissions:
+  contents: write
+concurrency:
+  group: unpublish-posts
+  cancel-in-progress: false
+jobs:
+  down:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Take down
+        env:
+          IDS: ${{ inputs.ids }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/unpublish-posts.mjs --ids="$IDS" --backup=blog-backup
+      - name: Keep the text
+        if: always()
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/blog-backup
+          cp blog-backup/*.json ../rework-output/blog-backup/ 2>/dev/null || true
+          cd ../rework-output
+          git add -A blog-backup
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Blog: text of posts taken down"
+          for i in 1 2 3 4 5 6 7 8; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $(( (RANDOM % 20) + 5 * i ))
+          done
+          exit 1
