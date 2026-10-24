@@ -1,0 +1,64 @@
+# DURU KOREAN — rewrite blog posts that repeat one another (owner, 2026-10-24).
+# Writes the new Korean text of each post from a new angle and keeps it on
+# rework-output/blog-rewrite for the owner to read. It changes nothing on the site.
+name: Rewrite blog posts
+
+on:
+  workflow_dispatch:
+    inputs:
+      plan:
+        description: 'JSON list: [{id, angle, reason, siblings:[ids], keep:[...]}]'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rewrite-blog
+  cancel-in-progress: false
+
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Write
+        env:
+          PLAN: ${{ inputs.plan }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_LIMIT_WAIT_MIN: '300'
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          printf '%s' "$PLAN" > plan.json
+          node scripts/rewrite-blog.mjs --plan=plan.json --out=out
+      - name: Keep the new text
+        if: always()
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/blog-rewrite
+          cp out/*.json ../rework-output/blog-rewrite/ 2>/dev/null || true
+          cd ../rework-output
+          git add -A blog-rewrite
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Blog rewrite drafts"
+          for i in 1 2 3 4 5 6 7 8; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $(( (RANDOM % 20) + 5 * i ))
+          done
+          exit 1

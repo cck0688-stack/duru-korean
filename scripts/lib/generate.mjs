@@ -484,7 +484,10 @@ export async function writeOne(cfg, opts, log) {
   const note = log || (() => {});
 
   note('주제 고르는 중');
-  const picked = await pickTopic(cfg, opts);
+  // A rewrite of a post already on the site comes with its new angle fixed.
+  const picked = opts.fixedTopic
+    ? { chosen: opts.fixedTopic, reason: opts.fixedReason || '', candidates: [], scores: {} }
+    : await pickTopic(cfg, opts);
   note(`주제: ${picked.chosen}`);
 
   // Which of the thirty shapes this post is written in — picked by the
