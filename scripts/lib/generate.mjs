@@ -217,7 +217,7 @@ export async function pickTopic(cfg, opts) {
     candidates.slice().sort((a, b) => score(b) - score(a))[0];
   // The model's pick first, then the others by score; the first that is not a
   // repeat of anything recent and not a crowded season word stands.
-  const seen = (opts.recentAll || []).slice(0, 100);
+  const seen = opts.allPosts || (opts.recentAll || []).slice(0, 100);
   const banned = crowdedSeasonWords(opts.recentAll);
   const closeness = (c) => Math.max(0, ...seen.map((r) => Math.max(overlap(c.topic, r.topic || ''), overlap(c.topic, r.title || ''))));
   const ordered = [named, ...candidates.filter((c) => c !== named).sort((a, b) => score(b) - score(a))];

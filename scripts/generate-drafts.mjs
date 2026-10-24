@@ -263,11 +263,13 @@ async function main() {
         existingTitles: (existing.byCategory[category.id] || []).slice(0, 20),
         existing: existing,
         recentAll: existing.recentAll,
+        allPosts: existing.allPosts,
         // One of five title forms, walked like the voice, so a morning's eight differ.
         titleForm: TITLE_FORMS[(dayNumber(today) * 3 + slot) % TITLE_FORMS.length]
       }, (m) => log(`  ${m}`));
       // Today's own posts count as recent for the shelves written after this one.
       if (draft && draft.title) existing.recentAll.unshift({ title: draft.title, topic: draft.topic, category: category.id });
+      if (draft && draft.title && existing.allPosts) existing.allPosts.unshift({ title: draft.title, topic: draft.topic });
 
       if (draft.problems.length) {
         log(`  검수 통과 못 함 — 저장하지 않습니다:`);
@@ -419,6 +421,8 @@ async function readExisting(call) {
     slugs: (rows || []).map((r) => r.slug),
     byCategory: byCategory,
     recentAll: (rows || []).slice(0, 100).map((r) => ({ title: r.title, topic: r.topic, category: r.category })),
+    // Every post on the site, for the repeat check (the prompt only shows the latest hundred).
+    allPosts: (rows || []).map((r) => ({ title: r.title, topic: r.topic })),
     photos: new Set((rows || []).map((r) => photoKey(r.image_url)).filter(Boolean))
   };
 }
