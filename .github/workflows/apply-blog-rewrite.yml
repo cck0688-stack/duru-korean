@@ -14,7 +14,7 @@ on:
         default: true
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: apply-blog-rewrite
@@ -57,3 +57,19 @@ jobs:
           [ -n "$ONLY" ] && args+=(--only="$ONLY")
           [ "$DRY" = "true" ] && args+=(--dry-run)
           node scripts/apply-blog-rewrite.mjs "${args[@]}"
+      - name: Keep the old text
+        if: always() && inputs.dry_run != true
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p ../rework-output/blog-backup
+          cp blog-backup/*.json ../rework-output/blog-backup/ 2>/dev/null || true
+          cd ../rework-output
+          git add -A blog-backup
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Blog: text before the rewrite"
+          for i in 1 2 3 4 5 6 7 8; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $(( (RANDOM % 20) + 5 * i ))
+          done
+          exit 1
