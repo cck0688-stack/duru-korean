@@ -53,7 +53,7 @@ for (const f of files) {
     title_candidates: draft.titleCandidates, mt, study };
   if (DRY) { log('  (연습) 바꾸지 않음'); continue; }
   // The old text is kept before it is replaced (the workflow commits blog-backup/).
-  try {
+  if (!process.argv.includes('--no-backup')) try {
     const old = await (await fetch(SUPABASE_URL + '/rest/v1/posts?id=eq.' + id + '&select=*', { headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token } })).json();
     fs.mkdirSync('blog-backup', { recursive: true });
     fs.writeFileSync(path.join('blog-backup', id + '.json'), JSON.stringify(old[0] || {}, null, 2));

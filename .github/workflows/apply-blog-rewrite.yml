@@ -12,6 +12,10 @@ on:
       dry_run:
         type: boolean
         default: true
+      no_backup:
+        description: 'Second pass over a post already replaced (keeps the first backup)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -52,13 +56,15 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           ONLY: ${{ inputs.only }}
           DRY: ${{ inputs.dry_run }}
+          NOBK: ${{ inputs.no_backup }}
         run: |
           args=(--dir=../rework-output/blog-rewrite)
           [ -n "$ONLY" ] && args+=(--only="$ONLY")
           [ "$DRY" = "true" ] && args+=(--dry-run)
+          [ "$NOBK" = "true" ] && args+=(--no-backup)
           node scripts/apply-blog-rewrite.mjs "${args[@]}"
       - name: Keep the old text
-        if: always() && inputs.dry_run != true
+        if: always() && inputs.dry_run != true && inputs.no_backup != true
         run: |
           git config user.name "duru-korean-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
