@@ -490,6 +490,11 @@ function renderReadOnline(resource, lang) {
       var say = window.DURU_NOTIFY || { success: function () {}, error: function (m) { window.alert(m); } };
       R.publishResource(client, resource.id, t('admin.checkedNote', 'Checked and published from the list by an admin.'))
         .then(function (refused) {
+          if (refused.length && refused.partial) {
+            say.success(t('admin.publishedExcept', 'Published. Not included: {why}').replace('{why}', refused.join(' · ')));
+            chosen = null;
+            return load().then(function () { btn.disabled = false; });
+          }
           if (refused.length) {
             say.error(t('admin.refused', 'Not published: {why}').replace('{why}', refused.join(' · ')));
             btn.disabled = false;

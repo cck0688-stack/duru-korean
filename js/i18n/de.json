@@ -867,5 +867,6 @@
   "bookAudio.ws.print": "Drucken",
   "bookAudio.ws.pages": "Seiten",
   "bookAudio.ws.all": "Das ganze Arbeitsbuch",
-  "listen.ws": "Arbeitsblatt"
+  "listen.ws": "Arbeitsblatt",
+  "admin.publishedExcept": "Veröffentlicht. Nicht enthalten: {why}"
 }

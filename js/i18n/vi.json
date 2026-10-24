@@ -867,5 +867,6 @@
   "bookAudio.ws.print": "In",
   "bookAudio.ws.pages": "trang",
   "bookAudio.ws.all": "Toàn bộ sách bài tập",
-  "listen.ws": "Phiếu bài tập"
+  "listen.ws": "Phiếu bài tập",
+  "admin.publishedExcept": "Đã xuất bản. Chưa gồm: {why}"
 }

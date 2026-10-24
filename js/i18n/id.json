@@ -867,5 +867,6 @@
   "bookAudio.ws.print": "Cetak",
   "bookAudio.ws.pages": "halaman",
   "bookAudio.ws.all": "Seluruh buku latihan",
-  "listen.ws": "Lembar kerja"
+  "listen.ws": "Lembar kerja",
+  "admin.publishedExcept": "Diterbitkan. Tidak termasuk: {why}"
 }

@@ -402,7 +402,20 @@
           });
 
         chain = chain.then(function () { return publishFiles(client, r.id, drafts, refused); });
-        return chain.then(function () { return refused; });
+        // Some languages are refused by the database's checks, but others of this download are already
+        // out: the download itself goes live with those, and the refused ones are named
+        // (owner, 2026-10-24: Publish did nothing for "축제 일정표 읽기" because five languages failed the check).
+        return chain.then(function () {
+          if (!refused.length) return refused;
+          return client.from('resource_files').select('id').eq('resource_id', r.id).eq('published', true).limit(1)
+            .then(function (q) {
+              if (!q.data || !q.data.length) return refused;
+              return client.from('resources')
+                .update({ published: true, status: 'published', updated_at: new Date().toISOString() })
+                .eq('id', id)
+                .then(function (up) { if (up.error) throw up.error; refused.partial = true; return refused; });
+            });
+        });
       });
   }
 

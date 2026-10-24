@@ -867,5 +867,6 @@
   "bookAudio.ws.print": "인쇄",
   "bookAudio.ws.pages": "쪽",
   "bookAudio.ws.all": "워크북 전체",
-  "listen.ws": "워크시트"
+  "listen.ws": "워크시트",
+  "admin.publishedExcept": "공개했습니다. 포함되지 않은 것: {why}"
 }

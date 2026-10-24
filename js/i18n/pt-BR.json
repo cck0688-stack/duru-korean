@@ -867,5 +867,6 @@
   "bookAudio.ws.print": "Imprimir",
   "bookAudio.ws.pages": "páginas",
   "bookAudio.ws.all": "O caderno inteiro",
-  "listen.ws": "Folha de exercícios"
+  "listen.ws": "Folha de exercícios",
+  "admin.publishedExcept": "Publicado. Não incluído: {why}"
 }

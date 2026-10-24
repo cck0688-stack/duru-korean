@@ -867,5 +867,6 @@
   "bookAudio.ws.print": "印刷",
   "bookAudio.ws.pages": "ページ",
   "bookAudio.ws.all": "ワークブック全体",
-  "listen.ws": "ワークシート"
+  "listen.ws": "ワークシート",
+  "admin.publishedExcept": "公開しました。含まれないもの：{why}"
 }

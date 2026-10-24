@@ -867,5 +867,6 @@
   "bookAudio.ws.print": "打印",
   "bookAudio.ws.pages": "页",
   "bookAudio.ws.all": "完整练习册",
-  "listen.ws": "练习表"
+  "listen.ws": "练习表",
+  "admin.publishedExcept": "已发布。未包含：{why}"
 }

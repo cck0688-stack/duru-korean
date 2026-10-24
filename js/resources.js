@@ -757,6 +757,7 @@
         busy(true); say(t('admin.publishing', 'Publishing…'));
         R.publishResource(client, row.id, t('admin.checkedNote', 'Checked and published from the list by an admin.'))
           .then(function (refused) {
+            if (refused.length && refused.partial) { say(t('admin.publishedExcept', 'Published. Not included: {why}').replace('{why}', refused.join(' · ')), 'ok'); setTimeout(function () { load(false); }, 1500); return; }
             if (refused.length) { busy(false); say(t('admin.refused', 'Not published: {why}').replace('{why}', refused.join(' · ')), 'bad'); return; }
             say(t('admin.published', 'Published.'), 'ok');
             setTimeout(function () { load(false); }, 700);
