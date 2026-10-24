@@ -80,7 +80,8 @@
     <div id="listenApp" class="listen-app" hidden>
       <div class="listen-main">
         <div class="listen-chapters" id="listenChapters" role="tablist" aria-label="Chapters"></div>
-        <div class="listen-video"><div id="listenPlayer"></div></div>
+        <div class="listen-video" id="listenVideoBox" hidden><div id="listenPlayer"></div></div>
+        <div class="listen-audiobox" id="listenAudioBox" hidden><audio id="listenAudio" controls preload="none"></audio></div>
         <div class="listen-now">
           <div class="listen-now-no" id="listenNowNo"></div>
           <div class="listen-now-title" id="listenNowTitle"></div>
@@ -98,7 +99,7 @@
           <label class="listen-check"><input type="checkbox" id="listenRepeat"> <span data-i18n="listen.repeat">Repeat this track</span></label>
           <label class="listen-check"><input type="checkbox" id="listenAuto" checked> <span data-i18n="listen.auto">Play the next track automatically</span></label>
         </div>
-        <p class="listen-note" data-i18n="listen.note">The audio plays through YouTube. Keep this page open while you listen.</p>
+        
       </div>
       <aside class="listen-tracks">
         <h2 class="listen-tracks-h" id="listenTracksH" data-i18n="listen.tracks">Tracks</h2>

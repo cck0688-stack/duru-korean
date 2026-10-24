@@ -376,3 +376,5 @@ body.theme-v2 {
 .theme-v2 .listen-track.is-on { background: var(--blush, #f9e3ea); font-weight: 700; }
 .theme-v2 .listen-track-no { color: var(--plum, #6b3f5c); font-weight: 700; }
 .theme-v2 .listen-track-len { color: var(--muted, #6b5b66); font-size: .85rem; }
+.theme-v2 .listen-audiobox { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 18px; padding: 16px; }
+.theme-v2 .listen-audiobox audio { width: 100%; display: block; }

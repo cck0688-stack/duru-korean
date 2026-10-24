@@ -1,1 +1,878 @@
-{ "book": "book1", "chapters": [] }
+{
+  "book": "book1",
+  "chapters": [
+    {
+      "key": "00",
+      "n": 0,
+      "label": "Ch. 0",
+      "title": {
+        "ko": "챕터 0",
+        "en": "Chapter 0"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-00-01.mp3",
+          "dur": 6.4
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-00-02.mp3",
+          "dur": 27.2
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-00-03.mp3",
+          "dur": 12.3
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-00-04.mp3",
+          "dur": 13.5
+        }
+      ]
+    },
+    {
+      "key": "01",
+      "n": 1,
+      "label": "Ch. 1",
+      "title": {
+        "ko": "챕터 1",
+        "en": "Chapter 1"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-01-01.mp3",
+          "dur": 21
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-01-02.mp3",
+          "dur": 43.6
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-01-03.mp3",
+          "dur": 41.8
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-01-04.mp3",
+          "dur": 10.2
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-01-05.mp3",
+          "dur": 11
+        }
+      ]
+    },
+    {
+      "key": "02",
+      "n": 2,
+      "label": "Ch. 2",
+      "title": {
+        "ko": "챕터 2",
+        "en": "Chapter 2"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-02-01.mp3",
+          "dur": 29.1
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-02-02.mp3",
+          "dur": 47.5
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-02-03.mp3",
+          "dur": 44.8
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-02-04.mp3",
+          "dur": 11.6
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-02-05.mp3",
+          "dur": 11.5
+        }
+      ]
+    },
+    {
+      "key": "03",
+      "n": 3,
+      "label": "Ch. 3",
+      "title": {
+        "ko": "챕터 3",
+        "en": "Chapter 3"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-03-01.mp3",
+          "dur": 18.5
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-03-02.mp3",
+          "dur": 43.5
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-03-03.mp3",
+          "dur": 11.6
+        }
+      ]
+    },
+    {
+      "key": "04",
+      "n": 4,
+      "label": "Ch. 4",
+      "title": {
+        "ko": "챕터 4",
+        "en": "Chapter 4"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-04-01.mp3",
+          "dur": 27.3
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-04-02.mp3",
+          "dur": 48.1
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-04-03.mp3",
+          "dur": 47
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-04-04.mp3",
+          "dur": 11
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-04-05.mp3",
+          "dur": 11.3
+        }
+      ]
+    },
+    {
+      "key": "05",
+      "n": 5,
+      "label": "Ch. 5",
+      "title": {
+        "ko": "챕터 5",
+        "en": "Chapter 5"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-05-01.mp3",
+          "dur": 15.2
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-05-02.mp3",
+          "dur": 31
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-05-03.mp3",
+          "dur": 46.6
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-05-04.mp3",
+          "dur": 11.2
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-05-05.mp3",
+          "dur": 12.6
+        }
+      ]
+    },
+    {
+      "key": "06",
+      "n": 6,
+      "label": "Ch. 6",
+      "title": {
+        "ko": "챕터 6",
+        "en": "Chapter 6"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-06-01.mp3",
+          "dur": 15.1
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-06-02.mp3",
+          "dur": 39.1
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-06-03.mp3",
+          "dur": 45.1
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-06-04.mp3",
+          "dur": 11
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-06-05.mp3",
+          "dur": 11.1
+        }
+      ]
+    },
+    {
+      "key": "07",
+      "n": 7,
+      "label": "Ch. 7",
+      "title": {
+        "ko": "챕터 7",
+        "en": "Chapter 7"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-07-01.mp3",
+          "dur": 22.8
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-07-02.mp3",
+          "dur": 31.1
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-07-03.mp3",
+          "dur": 39.9
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-07-04.mp3",
+          "dur": 11.5
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-07-05.mp3",
+          "dur": 11.1
+        }
+      ]
+    },
+    {
+      "key": "08",
+      "n": 8,
+      "label": "Ch. 8",
+      "title": {
+        "ko": "챕터 8",
+        "en": "Chapter 8"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-08-01.mp3",
+          "dur": 18.9
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-08-02.mp3",
+          "dur": 17
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-08-03.mp3",
+          "dur": 39
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-08-04.mp3",
+          "dur": 11.6
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-08-05.mp3",
+          "dur": 11.5
+        }
+      ]
+    },
+    {
+      "key": "09",
+      "n": 9,
+      "label": "Ch. 9",
+      "title": {
+        "ko": "챕터 9",
+        "en": "Chapter 9"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-09-01.mp3",
+          "dur": 27.2
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-09-02.mp3",
+          "dur": 59
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-09-03.mp3",
+          "dur": 48.1
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-09-04.mp3",
+          "dur": 7.6
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-09-05.mp3",
+          "dur": 11.5
+        }
+      ]
+    },
+    {
+      "key": "10",
+      "n": 10,
+      "label": "Ch. 10",
+      "title": {
+        "ko": "챕터 10",
+        "en": "Chapter 10"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-10-01.mp3",
+          "dur": 14.7
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-10-02.mp3",
+          "dur": 35.3
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-10-03.mp3",
+          "dur": 38.8
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-10-04.mp3",
+          "dur": 9.1
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-10-05.mp3",
+          "dur": 11.2
+        }
+      ]
+    },
+    {
+      "key": "11",
+      "n": 11,
+      "label": "Ch. 11",
+      "title": {
+        "ko": "챕터 11",
+        "en": "Chapter 11"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-11-01.mp3",
+          "dur": 16.8
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-11-02.mp3",
+          "dur": 19.7
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-11-03.mp3",
+          "dur": 35.1
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-11-04.mp3",
+          "dur": 11.2
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-11-05.mp3",
+          "dur": 11.5
+        }
+      ]
+    },
+    {
+      "key": "12",
+      "n": 12,
+      "label": "Ch. 12",
+      "title": {
+        "ko": "챕터 12",
+        "en": "Chapter 12"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-12-01.mp3",
+          "dur": 7.6
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-12-02.mp3",
+          "dur": 11
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-12-03.mp3",
+          "dur": 11.3
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-12-04.mp3",
+          "dur": 7.2
+        }
+      ]
+    },
+    {
+      "key": "13",
+      "n": 13,
+      "label": "Ch. 13",
+      "title": {
+        "ko": "챕터 13",
+        "en": "Chapter 13"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-13-01.mp3",
+          "dur": 13.9
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-13-02.mp3",
+          "dur": 11.2
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-13-03.mp3",
+          "dur": 7
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-13-04.mp3",
+          "dur": 7.4
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-13-05.mp3",
+          "dur": 31.8
+        },
+        {
+          "n": 6,
+          "title": {
+            "ko": "트랙 6",
+            "en": "Track 6"
+          },
+          "file": "assets/audio/book1/B1-13-06.mp3",
+          "dur": 25.4
+        }
+      ]
+    },
+    {
+      "key": "14",
+      "n": 14,
+      "label": "Ch. 14",
+      "title": {
+        "ko": "챕터 14",
+        "en": "Chapter 14"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-14-01.mp3",
+          "dur": 15.5
+        },
+        {
+          "n": 2,
+          "title": {
+            "ko": "트랙 2",
+            "en": "Track 2"
+          },
+          "file": "assets/audio/book1/B1-14-02.mp3",
+          "dur": 15.3
+        },
+        {
+          "n": 3,
+          "title": {
+            "ko": "트랙 3",
+            "en": "Track 3"
+          },
+          "file": "assets/audio/book1/B1-14-03.mp3",
+          "dur": 14.4
+        },
+        {
+          "n": 4,
+          "title": {
+            "ko": "트랙 4",
+            "en": "Track 4"
+          },
+          "file": "assets/audio/book1/B1-14-04.mp3",
+          "dur": 7.2
+        },
+        {
+          "n": 5,
+          "title": {
+            "ko": "트랙 5",
+            "en": "Track 5"
+          },
+          "file": "assets/audio/book1/B1-14-05.mp3",
+          "dur": 12.1
+        }
+      ]
+    },
+    {
+      "key": "CP1",
+      "n": "CP1",
+      "label": "CP1",
+      "title": {
+        "ko": "CP1",
+        "en": "CP1"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-CP1-01.mp3",
+          "dur": 55.3
+        }
+      ]
+    },
+    {
+      "key": "CP2",
+      "n": "CP2",
+      "label": "CP2",
+      "title": {
+        "ko": "CP2",
+        "en": "CP2"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-CP2-01.mp3",
+          "dur": 32.3
+        }
+      ]
+    },
+    {
+      "key": "CP3",
+      "n": "CP3",
+      "label": "CP3",
+      "title": {
+        "ko": "CP3",
+        "en": "CP3"
+      },
+      "tracks": [
+        {
+          "n": 1,
+          "title": {
+            "ko": "트랙 1",
+            "en": "Track 1"
+          },
+          "file": "assets/audio/book1/B1-CP3-01.mp3",
+          "dur": 35
+        }
+      ]
+    }
+  ]
+}

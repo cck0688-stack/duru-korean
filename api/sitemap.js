@@ -23,7 +23,7 @@ export const LANGS = ['en', 'vi', 'es', 'id', 'pt-BR', 'ko', 'ja', 'zh', 'fr', '
 // The addresses the site's own links use, so each entry is the page's
 // canonical address and not a second spelling of it.
 export const PAGES = [
-  '/', '/learning-korean.html', '/book-resources.html', '/free-resources.html',
+  '/', '/learning-korean.html', '/book-resources.html', '/listen.html', '/free-resources.html',
   '/blog.html', '/stories.html', '/about.html', '/faq.html', '/privacy.html', '/terms.html'
 ];
 
