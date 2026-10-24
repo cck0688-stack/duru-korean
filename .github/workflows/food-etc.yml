@@ -24,6 +24,9 @@ on:
       only:
         description: 'Only these resource ids (comma separated, blank = all etc)'
         default: ''
+      cuts:
+        description: 'Shorten by these percents, one round each (blank = 20,30,40,55,70)'
+        default: ''
 
 permissions:
   contents: write
@@ -65,6 +68,7 @@ jobs:
           CAT: ${{ inputs.category }}
           MODE: ${{ inputs.mode }}
           SHORTEN: ${{ inputs.shorten }}
+          CUTS: ${{ inputs.cuts }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           python3 - <<'PY' > ids.txt

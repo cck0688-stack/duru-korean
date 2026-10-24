@@ -161,7 +161,7 @@ for (const lang of Object.keys(LANGUAGE_NAMES)) {
   // Still not on two pages in the new layout: shorten that language's explanations and try again.
   if (SHORTEN && (how === tries[tries.length - 1].how || r.check.pages !== 2 || !r.check.ok)) {
     let cur = base;
-    for (const cut of [20, 30, 40, 55, 70]) {
+    for (const cut of (process.env.CUTS ? process.env.CUTS.split(",").map(Number) : [20, 30, 40, 55, 70])) {
       let next = null;
       try { next = await shorten(cur, lang, cut); } catch (e) { log(lang + ' — 줄이기 실패: ' + e.message); break; }
       if (!next) break;
