@@ -48,6 +48,13 @@
   function paintList() {
     var ol = $('listenList'); ol.innerHTML = '';
     $('listenTracksH').textContent = chapLabel(chapter()) + ' · ' + pick(chapter().title);
+    var ws = chapter().worksheet, bar = $('listenWs');
+    bar.hidden = !ws;
+    if (ws) {
+      $('listenWsPages').textContent = '· ' + ws.pages + ' ' + tx('bookAudio.ws.pages', 'pages');
+      $('listenWsDl').href = ws.file;
+      $('listenWsPrint').onclick = function () { if (window.duruPrintPdf) window.duruPrintPdf(ws.file); else window.open(ws.file, '_blank'); };
+    }
     chapter().tracks.forEach(function (t, i) {
       var li = document.createElement('li');
       var b = document.createElement('button');

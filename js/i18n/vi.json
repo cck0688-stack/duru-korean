@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "Tìm bài audio",
   "bookAudio.finder.h2": "Đến thẳng bài học bạn cần",
   "bookAudio.finder.p": "Chọn một bài học để nghe các bài audio của bài đó. Không cần tải về, không cần đăng ký.",
-  "bookAudio.finder.all": "Tất cả 75 bài →"
+  "bookAudio.finder.all": "Tất cả 75 bài →",
+  "bookAudio.ws.eyebrow": "Phiếu bài tập in được",
+  "bookAudio.ws.h2": "Mỗi phần một phiếu bài tập",
+  "bookAudio.ws.p": "Tải về hoặc in đúng phần bạn đang học. Miễn phí, không cần đăng ký.",
+  "bookAudio.ws.dl": "Tải về",
+  "bookAudio.ws.print": "In",
+  "bookAudio.ws.pages": "trang",
+  "bookAudio.ws.all": "Toàn bộ sách bài tập",
+  "listen.ws": "Phiếu bài tập"
 }

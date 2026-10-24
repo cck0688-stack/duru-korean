@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "Find a track",
   "bookAudio.finder.h2": "Jump straight to a lesson",
   "bookAudio.finder.p": "Pick a lesson to hear its tracks. Nothing to download, nothing to sign up for.",
-  "bookAudio.finder.all": "All 75 tracks →"
+  "bookAudio.finder.all": "All 75 tracks →",
+  "bookAudio.ws.eyebrow": "Printable worksheets",
+  "bookAudio.ws.h2": "One worksheet for every unit",
+  "bookAudio.ws.p": "Download or print just the unit you are on. Free, no sign-up.",
+  "bookAudio.ws.dl": "Download",
+  "bookAudio.ws.print": "Print",
+  "bookAudio.ws.pages": "pages",
+  "bookAudio.ws.all": "The whole workbook",
+  "listen.ws": "Worksheet"
 }

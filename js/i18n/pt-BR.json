@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "Encontre uma faixa",
   "bookAudio.finder.h2": "Vá direto a uma lição",
   "bookAudio.finder.p": "Escolha uma lição para ouvir as faixas dela. Sem download, sem cadastro.",
-  "bookAudio.finder.all": "Todas as 75 faixas →"
+  "bookAudio.finder.all": "Todas as 75 faixas →",
+  "bookAudio.ws.eyebrow": "Folhas imprimíveis",
+  "bookAudio.ws.h2": "Uma folha de exercícios por unidade",
+  "bookAudio.ws.p": "Baixe ou imprima só a unidade que está estudando. Grátis, sem cadastro.",
+  "bookAudio.ws.dl": "Baixar",
+  "bookAudio.ws.print": "Imprimir",
+  "bookAudio.ws.pages": "páginas",
+  "bookAudio.ws.all": "O caderno inteiro",
+  "listen.ws": "Folha de exercícios"
 }

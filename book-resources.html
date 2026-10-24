@@ -102,7 +102,7 @@
         </ul>
         <div class="bookhero-actions">
           <a href="audio" class="btn btn-primary btn-lg" data-i18n="bookAudio.listenBook">Listen to the book →</a>
-          <a href="#adminResources" class="btn btn-outline" data-i18n="bookAudio.worksheetsBtn">Printable worksheets</a>
+          <a href="#bookWorksheets" class="btn btn-outline" data-i18n="bookAudio.worksheetsBtn">Printable worksheets</a>
         </div>
       </div>
     </div>
@@ -122,8 +122,19 @@
       <h2 data-i18n="bookAudio.finder.h2">Jump straight to a lesson</h2>
       <p data-i18n="bookAudio.finder.p">Pick a lesson to hear its tracks. Nothing to download, nothing to sign up for.</p>
     </div>
-    <div class="finder reveal" id="bookFinder" data-book-json="assets/audio/book1.json"></div>
+    <div class="finder reveal" id="bookFinder" data-mode="finder" data-book-json="assets/audio/book1.json"></div>
     <div class="finder-all reveal"><a href="audio" class="btn btn-primary" data-i18n="bookAudio.finder.all">All 75 tracks →</a></div>
+  </div>
+</section>
+
+<section class="section" id="bookWorksheets">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="bookAudio.ws.eyebrow">Printable worksheets</span>
+      <h2 data-i18n="bookAudio.ws.h2">One worksheet for every unit</h2>
+      <p data-i18n="bookAudio.ws.p">Download or print just the unit you are on. Free, no sign-up.</p>
+    </div>
+    <div class="wslist reveal" id="bookWorkbook" data-mode="worksheets" data-book-json="assets/audio/book1.json"></div>
   </div>
 </section>
 
@@ -245,6 +256,7 @@
 <script src="js/notify-feed.js"></script>
 <script src="js/visitor-tracking.js"></script>
 <script>window.DURU_RESOURCE_LOCATION = 'book-resources';</script>
+<script src="js/pdf-print.js"></script>
 <script src="js/book-finder.js"></script>
 <script src="js/resource-common.js"></script>
 <script src="js/resources.js"></script>

@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "Trouver une piste",
   "bookAudio.finder.h2": "Allez droit à une leçon",
   "bookAudio.finder.p": "Choisissez une leçon pour écouter ses pistes. Ni téléchargement ni inscription.",
-  "bookAudio.finder.all": "Les 75 pistes →"
+  "bookAudio.finder.all": "Les 75 pistes →",
+  "bookAudio.ws.eyebrow": "Fiches imprimables",
+  "bookAudio.ws.h2": "Une fiche d’exercices par unité",
+  "bookAudio.ws.p": "Téléchargez ou imprimez seulement l’unité en cours. Gratuit, sans inscription.",
+  "bookAudio.ws.dl": "Télécharger",
+  "bookAudio.ws.print": "Imprimer",
+  "bookAudio.ws.pages": "pages",
+  "bookAudio.ws.all": "Le cahier complet",
+  "listen.ws": "Fiche d’exercices"
 }

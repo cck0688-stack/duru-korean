@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "Titel finden",
   "bookAudio.finder.h2": "Direkt zu einer Lektion",
   "bookAudio.finder.p": "Wählen Sie eine Lektion, um ihre Titel zu hören. Kein Download, keine Anmeldung.",
-  "bookAudio.finder.all": "Alle 75 Titel →"
+  "bookAudio.finder.all": "Alle 75 Titel →",
+  "bookAudio.ws.eyebrow": "Druckbare Arbeitsblätter",
+  "bookAudio.ws.h2": "Ein Arbeitsblatt für jede Einheit",
+  "bookAudio.ws.p": "Laden Sie nur die Einheit herunter oder drucken Sie sie, die Sie gerade lernen. Kostenlos, ohne Anmeldung.",
+  "bookAudio.ws.dl": "Herunterladen",
+  "bookAudio.ws.print": "Drucken",
+  "bookAudio.ws.pages": "Seiten",
+  "bookAudio.ws.all": "Das ganze Arbeitsbuch",
+  "listen.ws": "Arbeitsblatt"
 }

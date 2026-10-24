@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "查找音轨",
   "bookAudio.finder.h2": "直接跳到某一课",
   "bookAudio.finder.p": "选一课即可收听该课的音轨。无需下载，无需注册。",
-  "bookAudio.finder.all": "全部75个音轨 →"
+  "bookAudio.finder.all": "全部75个音轨 →",
+  "bookAudio.ws.eyebrow": "可打印练习表",
+  "bookAudio.ws.h2": "每个单元一份练习表",
+  "bookAudio.ws.p": "只下载或打印你正在学的单元。免费，无需注册。",
+  "bookAudio.ws.dl": "下载",
+  "bookAudio.ws.print": "打印",
+  "bookAudio.ws.pages": "页",
+  "bookAudio.ws.all": "完整练习册",
+  "listen.ws": "练习表"
 }

@@ -40,7 +40,11 @@
      "file": "assets/audio/book1/B1-00-04.mp3",
      "dur": 13.5
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_S_Worksheet.pdf",
+    "pages": 4
+   }
   },
   {
    "key": "01",
@@ -88,7 +92,11 @@
      "file": "assets/audio/book1/B1-01-05.mp3",
      "dur": 11
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L01_Worksheet.pdf",
+    "pages": 6
+   }
   },
   {
    "key": "02",
@@ -136,7 +144,11 @@
      "file": "assets/audio/book1/B1-02-05.mp3",
      "dur": 11.5
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L02_Worksheet.pdf",
+    "pages": 7
+   }
   },
   {
    "key": "03",
@@ -168,7 +180,11 @@
      "file": "assets/audio/book1/B1-03-03.mp3",
      "dur": 11.6
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L03_Worksheet.pdf",
+    "pages": 5
+   }
   },
   {
    "key": "04",
@@ -216,7 +232,11 @@
      "file": "assets/audio/book1/B1-04-05.mp3",
      "dur": 11.3
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L04_Worksheet.pdf",
+    "pages": 7
+   }
   },
   {
    "key": "05",
@@ -264,7 +284,11 @@
      "file": "assets/audio/book1/B1-05-05.mp3",
      "dur": 12.6
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L05_Worksheet.pdf",
+    "pages": 6
+   }
   },
   {
    "key": "06",
@@ -312,7 +336,11 @@
      "file": "assets/audio/book1/B1-06-05.mp3",
      "dur": 11.1
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L06_Worksheet.pdf",
+    "pages": 6
+   }
   },
   {
    "key": "CP1",
@@ -328,7 +356,11 @@
      "file": "assets/audio/book1/B1-CP1-01.mp3",
      "dur": 55.3
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_CP1_Worksheet.pdf",
+    "pages": 4
+   }
   },
   {
    "key": "07",
@@ -376,7 +408,11 @@
      "file": "assets/audio/book1/B1-07-05.mp3",
      "dur": 11.1
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L07_Worksheet.pdf",
+    "pages": 6
+   }
   },
   {
    "key": "08",
@@ -424,7 +460,11 @@
      "file": "assets/audio/book1/B1-08-05.mp3",
      "dur": 11.5
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L08_Worksheet.pdf",
+    "pages": 6
+   }
   },
   {
    "key": "09",
@@ -472,7 +512,11 @@
      "file": "assets/audio/book1/B1-09-05.mp3",
      "dur": 11.5
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L09_Worksheet.pdf",
+    "pages": 8
+   }
   },
   {
    "key": "CP2",
@@ -488,7 +532,11 @@
      "file": "assets/audio/book1/B1-CP2-01.mp3",
      "dur": 32.3
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_CP2_Worksheet.pdf",
+    "pages": 3
+   }
   },
   {
    "key": "10",
@@ -536,7 +584,11 @@
      "file": "assets/audio/book1/B1-10-05.mp3",
      "dur": 11.2
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L10_Worksheet.pdf",
+    "pages": 8
+   }
   },
   {
    "key": "11",
@@ -584,7 +636,11 @@
      "file": "assets/audio/book1/B1-11-05.mp3",
      "dur": 11.5
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L11_Worksheet.pdf",
+    "pages": 6
+   }
   },
   {
    "key": "12",
@@ -624,7 +680,11 @@
      "file": "assets/audio/book1/B1-12-04.mp3",
      "dur": 7.2
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L12_Worksheet.pdf",
+    "pages": 8
+   }
   },
   {
    "key": "CP3",
@@ -640,7 +700,11 @@
      "file": "assets/audio/book1/B1-CP3-01.mp3",
      "dur": 35
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_CP3_Worksheet.pdf",
+    "pages": 4
+   }
   },
   {
    "key": "13",
@@ -696,7 +760,11 @@
      "file": "assets/audio/book1/B1-13-06.mp3",
      "dur": 25.4
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L13_Worksheet.pdf",
+    "pages": 7
+   }
   },
   {
    "key": "14",
@@ -744,7 +812,15 @@
      "file": "assets/audio/book1/B1-14-05.mp3",
      "dur": 12.1
     }
-   ]
+   ],
+   "worksheet": {
+    "file": "assets/worksheets/book1/DuruKorean1_L14_Worksheet.pdf",
+    "pages": 8
+   }
   }
- ]
+ ],
+ "workbook": {
+  "file": "assets/worksheets/book1/DuruKorean1_Workbook.pdf",
+  "pages": 109
+ }
 }

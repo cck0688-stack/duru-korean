@@ -103,6 +103,11 @@
       </div>
       <aside class="listen-tracks">
         <h2 class="listen-tracks-h" id="listenTracksH" data-i18n="listen.tracks">Tracks</h2>
+        <div class="listen-ws" id="listenWs" hidden>
+          <span class="listen-ws-t"><span data-i18n="listen.ws">Worksheet</span> <span id="listenWsPages"></span></span>
+          <a class="btn btn-outline btn-sm" id="listenWsDl" href="#" download data-i18n="bookAudio.ws.dl">Download</a>
+          <button type="button" class="btn btn-outline btn-sm" id="listenWsPrint" data-i18n="bookAudio.ws.print">Print</button>
+        </div>
         <ol class="listen-list" id="listenList"></ol>
       </aside>
     </div>
@@ -158,6 +163,7 @@
 <script>window.DURU_PAGE_TITLE_KEY = 'listen.title';</script>
 <script src="js/i18n.js"></script>
 <script src="js/langbar.js"></script>
+<script src="js/pdf-print.js"></script>
 <script src="js/audio.js"></script>
 </body>
 </html>

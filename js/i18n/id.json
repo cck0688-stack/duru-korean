@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "Cari trek",
   "bookAudio.finder.h2": "Langsung ke pelajaran",
   "bookAudio.finder.p": "Pilih pelajaran untuk mendengar treknya. Tanpa unduh, tanpa daftar.",
-  "bookAudio.finder.all": "Semua 75 trek →"
+  "bookAudio.finder.all": "Semua 75 trek →",
+  "bookAudio.ws.eyebrow": "Lembar kerja cetak",
+  "bookAudio.ws.h2": "Satu lembar kerja untuk setiap unit",
+  "bookAudio.ws.p": "Unduh atau cetak hanya unit yang sedang kamu pelajari. Gratis, tanpa daftar.",
+  "bookAudio.ws.dl": "Unduh",
+  "bookAudio.ws.print": "Cetak",
+  "bookAudio.ws.pages": "halaman",
+  "bookAudio.ws.all": "Seluruh buku latihan",
+  "listen.ws": "Lembar kerja"
 }

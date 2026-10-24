@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "트랙 찾기",
   "bookAudio.finder.h2": "원하는 레슨으로 바로 가기",
   "bookAudio.finder.p": "레슨을 고르면 그 레슨의 트랙을 들을 수 있어요. 내려받기도, 가입도 필요 없어요.",
-  "bookAudio.finder.all": "75개 트랙 전체 →"
+  "bookAudio.finder.all": "75개 트랙 전체 →",
+  "bookAudio.ws.eyebrow": "인쇄용 워크시트",
+  "bookAudio.ws.h2": "단원마다 워크시트 한 권",
+  "bookAudio.ws.p": "지금 공부하는 단원만 내려받거나 인쇄하세요. 무료, 가입 없이.",
+  "bookAudio.ws.dl": "내려받기",
+  "bookAudio.ws.print": "인쇄",
+  "bookAudio.ws.pages": "쪽",
+  "bookAudio.ws.all": "워크북 전체",
+  "listen.ws": "워크시트"
 }

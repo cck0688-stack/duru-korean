@@ -859,5 +859,13 @@
   "bookAudio.finder.eyebrow": "トラックを探す",
   "bookAudio.finder.h2": "聞きたいレッスンへ直接移動",
   "bookAudio.finder.p": "レッスンを選ぶと、そのトラックが聞けます。ダウンロードも登録も不要です。",
-  "bookAudio.finder.all": "全75トラック →"
+  "bookAudio.finder.all": "全75トラック →",
+  "bookAudio.ws.eyebrow": "印刷用ワークシート",
+  "bookAudio.ws.h2": "ユニットごとにワークシート1冊",
+  "bookAudio.ws.p": "今学んでいるユニットだけダウンロード・印刷できます。無料、登録不要。",
+  "bookAudio.ws.dl": "ダウンロード",
+  "bookAudio.ws.print": "印刷",
+  "bookAudio.ws.pages": "ページ",
+  "bookAudio.ws.all": "ワークブック全体",
+  "listen.ws": "ワークシート"
 }
