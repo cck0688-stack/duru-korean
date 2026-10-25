@@ -52,12 +52,20 @@
           resources = res.data || [];
         });
     }
+    // The live database may not have schema §38 (posts.rejected_at) yet — the blog page copes with that
+    // too (js/blog.js noRejected). Without the column every unpublished post is waiting, and "Reject" is not offered.
+    var noRejected = false;
     function loadPosts() {
-      return client.from('posts')
-        .select('id,slug,title,excerpt,body,category,post_date,created_at,image_url,image_alt,tags,published,rejected_at')
-        .eq('published', false).is('rejected_at', null)
-        .order('post_date', { ascending: false }).limit(300)
-        .then(function (res) { posts = res.error ? [] : (res.data || []); });
+      function ask() {
+        var cols = 'id,slug,title,excerpt,body,category,post_date,created_at,image_url,image_alt,tags,published' + (noRejected ? '' : ',rejected_at');
+        var q = client.from('posts').select(cols).eq('published', false);
+        if (!noRejected) q = q.is('rejected_at', null);
+        return q.order('post_date', { ascending: false }).limit(300);
+      }
+      return ask().then(function (res) {
+        if (res.error && !noRejected && /rejected_at/.test(res.error.message || '')) { noRejected = true; return ask(); }
+        return res;
+      }).then(function (res) { posts = res.error ? [] : (res.data || []); if (res.error) listEl.insertAdjacentHTML('beforebegin', '<p class="review-error">' + esc(res.error.message) + '</p>'); });
     }
     function loadAll() {
       return Promise.all([loadResources(), loadPosts()]).then(function () {
@@ -167,7 +175,7 @@
         '<p class="inbox-says" data-says="' + esc(id) + '"></p>' +
         (isOpen
           ? '<div class="inbox-open"><div class="inbox-open-bar">' +
-              '<button type="button" class="btn btn-ghost inbox-reject" data-id="' + esc(id) + '">' + esc(t('review.reject', 'Reject')) + '</button></div>' +
+              (noRejected ? '' : '<button type="button" class="btn btn-ghost inbox-reject" data-id="' + esc(id) + '">' + esc(t('review.reject', 'Reject')) + '</button>') + '</div>' +
               '<div class="inbox-post">' + (p.image_url ? '<img class="inbox-post-img" src="' + esc(p.image_url) + '" alt="' + esc(p.image_alt || '') + '" loading="lazy">' : '') +
               '<div class="inbox-post-body">' + (window.DURU_MARKDOWN ? window.DURU_MARKDOWN.render(p.body || '') : esc(p.body)) + '</div></div></div>'
           : '') +
