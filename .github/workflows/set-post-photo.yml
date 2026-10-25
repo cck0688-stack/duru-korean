@@ -12,6 +12,9 @@ on:
       must:
         description: 'A word the photo description must contain (e.g. bus)'
         default: ''
+      pick:
+        description: 'Which candidate (0 = first)'
+        default: '0'
       dry_run:
         type: boolean
         default: true
@@ -29,6 +32,7 @@ jobs:
           LIKE: ${{ inputs.like }}
           QUERY: ${{ inputs.query }}
           MUST: ${{ inputs.must }}
+          PICK: ${{ inputs.pick }}
           DRY: ${{ inputs.dry_run }}
           DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
           DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
@@ -38,6 +42,6 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PHOTO_PROVIDER: ${{ vars.PHOTO_PROVIDER }}
         run: |
-          args=(--like="$LIKE" --query="$QUERY" --must="$MUST")
+          args=(--like="$LIKE" --query="$QUERY" --must="$MUST" --pick="$PICK")
           [ "$DRY" = "true" ] && args+=(--dry-run)
           node scripts/set-post-photo.mjs "${args[@]}"

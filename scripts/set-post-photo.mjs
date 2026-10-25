@@ -30,8 +30,9 @@ for (const q of queries) {
   console.log('검색 "' + q + '": ' + list.length + '장');
   const fresh = list.filter((p) => !used.has(photoKey(p.url)));
   const ok = fresh.filter((p) => must.test(p.alt || ''));
-  ok.slice(0, 5).forEach((p) => console.log('   후보: ' + p.alt + ' · ' + p.credit + ' · ' + p.url.slice(0, 80)));
-  if (ok.length) { pick = { ...ok[0], query: q }; break; }
+  ok.slice(0, 8).forEach((p, i) => console.log('   후보 ' + i + ': ' + p.alt + ' · ' + p.credit + ' · ' + (p.thumb || p.url)));
+  const n = Number(arg('pick') || 0);
+  if (ok.length) { pick = { ...(ok[n] || ok[0]), query: q }; break; }
 }
 if (!pick) throw new Error('설명에 "' + (arg('must') || '') + '" 가 들어간 새 사진을 찾지 못했습니다');
 console.log('고른 사진: ' + pick.alt + ' (' + pick.credit + ', ' + pick.source + ')\n' + pick.url);
