@@ -39,6 +39,8 @@
     var openId = Object.create(null);       // cards that are open
     var readLang = Object.create(null);     // chosen language per card
     var said = Object.create(null);         // the last message per card, kept across redraws
+    var postPick = Object.create(null);     // chosen reading language per post
+    function postLang(p) { var c = readableLangs(p); return postPick[p.id] && c.indexOf(postPick[p.id]) !== -1 ? postPick[p.id] : (c.indexOf(p.lang) !== -1 ? p.lang : c[0]); }
 
     /* ---------------- loading ---------------- */
 
@@ -57,7 +59,7 @@
     var noRejected = false;
     function loadPosts() {
       function ask() {
-        var cols = 'id,slug,title,excerpt,body,category,post_date,created_at,image_url,image_alt,tags,published' + (noRejected ? '' : ',rejected_at');
+        var cols = 'id,slug,title,excerpt,body,category,post_date,created_at,image_url,image_alt,image_credit,image_credit_url,image_source,tags,published,lang,i18n,mt,study,audiences' + (noRejected ? '' : ',rejected_at');
         var q = client.from('posts').select(cols).eq('published', false);
         if (!noRejected) q = q.is('rejected_at', null);
         return q.order('post_date', { ascending: false }).limit(300);
@@ -100,6 +102,82 @@
       var files = newestPerLang(row), n = { live: 0, ready: 0, blocked: 0 };
       files.forEach(function (f) { n[langState(row, f).s] += 1; });
       return { files: files, n: n };
+    }
+
+
+    /* ---------------- a post as readers see it (the same pieces js/blog.js uses) ---------------- */
+
+    var MT = window.DURU_MT;
+    var MD_HEAD = /^\s*#{1,4}\s+/;
+    var MD_HEAD_NUMBERED = /^\s*\d{1,3}[.)]\s*#{1,4}\s+/;
+    function postLangs(p) {
+      var have = {}; have[p.lang || 'en'] = true;
+      var tr = p.i18n || {};
+      Object.keys(tr).forEach(function (c) { if (tr[c] && typeof tr[c].body === 'string' && tr[c].body.trim()) have[c] = true; });
+      return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return have[c]; });
+    }
+    function readableLangs(p) {
+      var have = {}; postLangs(p).forEach(function (c) { have[c] = true; });
+      if (MT) R.LANGS.forEach(function (l) { if (!have[l.code] && MT.paired(p, l.code)) have[l.code] = true; });
+      return R.LANGS.map(function (l) { return l.code; }).filter(function (c) { return have[c]; });
+    }
+    function readField(p, name, lang) {
+      var own = (p.i18n && p.i18n[lang] && p.i18n[lang][name]) || '';
+      if (own && String(own).trim()) return own;
+      if (postLangs(p).indexOf(lang) !== -1) return R.localized(p, name, lang);
+      var mt = MT && MT.head(p, lang, name);
+      return mt || R.localized(p, name, lang);
+    }
+    function paragraphs(text) {
+      return window.DURU_MARKDOWN ? window.DURU_MARKDOWN.render(text) : '<p>' + esc(text) + '</p>';
+    }
+    function bilingualHTML(pairs, srcLang, outLang) {
+      return pairs.map(function (para) {
+        return '<p class="mt-para">' + para.map(function (pair) {
+          var head = MD_HEAD.test(pair.src);
+          var src = head ? String(pair.src).replace(MD_HEAD, '') : pair.src;
+          var out = pair.out;
+          if (head) out = String(pair.out == null ? '' : pair.out).replace(MD_HEAD_NUMBERED, '').replace(MD_HEAD, '');
+          return '<span class="mt-line' + (head ? ' mt-line--head' : '') + '">' +
+            '<span class="mt-src" lang="' + esc(srcLang) + '">' + esc(src) + '</span>' +
+            '<span class="mt-out" lang="' + esc(outLang) + '">' + esc(out) + '</span></span>';
+        }).join('') + '</p>';
+      }).join('');
+    }
+    function studyHTML(p, lang) {
+      if (!MT || (p.lang || 'en') !== 'ko' || lang === 'ko') return '';
+      var words = MT.studyFor(p, lang);
+      if (!words) return '';
+      return '<section class="study"><h2 class="study-title"><span class="dia" aria-hidden="true"></span><span class="study-label">' +
+        esc(t('study.heading', 'Words & Phrases')) + '</span><span class="dia" aria-hidden="true"></span></h2>' +
+        '<ol class="study-list">' + words.map(function (w) {
+          var e = w.by[lang];
+          return '<li class="study-word"><div class="study-head"><span class="study-term" lang="ko">' + esc(w.word) + '</span>' +
+            (w.romanization ? '<span class="study-rom">' + esc(w.romanization) + '</span>' : '') +
+            (w.pos ? '<span class="study-pos">' + esc(w.pos) + '</span>' : '') + '</div>' +
+            '<p class="study-meaning" lang="' + esc(lang) + '">' + esc(e.meaning) + '</p>' +
+            (e.explanation ? '<p class="study-note" lang="' + esc(lang) + '">' + esc(e.explanation) + '</p>' : '') +
+            (w.sentence ? '<p class="study-source" lang="ko">' + esc(w.sentence) + '</p>' : '') + '</li>';
+        }).join('') + '</ol></section>';
+    }
+    function postView(p, lang) {
+      var written = postLangs(p);
+      var pairs = written.indexOf(lang) === -1 && MT ? MT.paired(p, lang) : null;
+      var body = pairs ? bilingualHTML(pairs, p.lang || 'en', lang) : paragraphs(R.localized(p, 'body', lang));
+      var title = readField(p, 'title', lang);
+      var srcTitle = R.localized(p, 'title', p.lang || 'en');
+      var own = p.tags || [];
+      var shown = (MT && MT.tagsFor(p, lang)) || own;
+      return '<header class="post-head"><p class="post-head-cat"><span class="dia" aria-hidden="true"></span><span class="blog-meta">' +
+          esc(R.categoryLabel ? p.category : p.category) + '</span><span class="dia" aria-hidden="true"></span></p>' +
+        '<div class="post-head-box"><h1>' + esc(title) + '</h1>' +
+          (pairs && srcTitle !== title ? '<p class="mt-title-src" lang="' + esc(p.lang || 'en') + '">' + esc(srcTitle) + '</p>' : '') + '</div>' +
+        '<div class="post-head-meta"><span class="blog-date">' + esc(p.post_date || day(p.created_at)) + '</span></div></header>' +
+        (p.image_url ? '<figure class="post-photo"><img src="' + esc(p.image_url) + '" alt="' + esc(p.image_alt || '') + '" loading="lazy">' +
+          (p.image_credit ? '<p class="post-photo-credit">' + esc(p.image_credit) + '</p>' : '') + '</figure>' : '') +
+        '<div class="post-body' + (pairs ? ' post-body--mt' : '') + '">' + body + '</div>' +
+        (own.length ? '<div class="post-tags">' + own.map(function (tag, i) { return '<span class="post-tag">#' + esc(shown[i] || tag) + '</span>'; }).join('') + '</div>' : '') +
+        studyHTML(p, lang);
     }
 
     /* ---------------- drawing ---------------- */
@@ -175,9 +253,11 @@
         '<p class="inbox-says" data-says="' + esc(id) + '"></p>' +
         (isOpen
           ? '<div class="inbox-open"><div class="inbox-open-bar">' +
+              '<label>' + esc(t('blog.readIn', 'Read in')) + ' <select class="inbox-post-lang" data-id="' + esc(id) + '">' +
+                readableLangs(p).map(function (c) { return '<option value="' + esc(c) + '"' + (c === postLang(p) ? ' selected' : '') + '>' + esc(R.langLabel(c)) + '</option>'; }).join('') +
+              '</select></label>' +
               (noRejected ? '' : '<button type="button" class="btn btn-ghost inbox-reject" data-id="' + esc(id) + '">' + esc(t('review.reject', 'Reject')) + '</button>') + '</div>' +
-              '<div class="inbox-post">' + (p.image_url ? '<img class="inbox-post-img" src="' + esc(p.image_url) + '" alt="' + esc(p.image_alt || '') + '" loading="lazy">' : '') +
-              '<div class="inbox-post-body">' + (window.DURU_MARKDOWN ? window.DURU_MARKDOWN.render(p.body || '') : esc(p.body)) + '</div></div></div>'
+              '<div class="inbox-post-view blog-single">' + postView(p, postLang(p)) + '</div></div>'
           : '') +
       '</article>';
     }
@@ -376,6 +456,7 @@
       var c = e.target;
       if (c.classList.contains('inbox-check')) { selected[c.dataset.id] = c.checked; updateBar(); }
       if (c.classList.contains('inbox-lang-pick')) { readLang[c.dataset.id] = c.value; fillOpen(c.dataset.id); }
+      if (c.classList.contains('inbox-post-lang')) { postPick[c.dataset.id] = c.value; render(); }
     });
     document.addEventListener('duru:langchange', function () { render(); });
 
