@@ -487,3 +487,5 @@ body.theme-v2 {
 .theme-v2 .inbox-post-img { width: 100%; max-height: 320px; object-fit: cover; border-radius: 12px; }
 .theme-v2 .inbox-post-body { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 18px 22px; line-height: 1.8; font-size: 1.02rem; max-width: 760px; }
 .theme-v2 .inbox-post-body h2 { font-size: 1.2rem; margin: 18px 0 6px; }
+
+.theme-v2 .inbox-bottom { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,.08); }

@@ -40,7 +40,8 @@
     var readLang = Object.create(null);     // chosen language per card
     var said = Object.create(null);         // the last message per card, kept across redraws
     var postPick = Object.create(null);     // chosen reading language per post
-    function postLang(p) { var c = readableLangs(p); return postPick[p.id] && c.indexOf(postPick[p.id]) !== -1 ? postPick[p.id] : (c.indexOf(p.lang) !== -1 ? p.lang : c[0]); }
+    // English is where a post waiting for approval always opens (owner, 2026-10-25); the picker changes it for that card.
+    function postLang(p) { var c = readableLangs(p); return postPick[p.id] && c.indexOf(postPick[p.id]) !== -1 ? postPick[p.id] : (c.indexOf('en') !== -1 ? 'en' : (c.indexOf(p.lang) !== -1 ? p.lang : c[0])); }
 
     /* ---------------- loading ---------------- */
 
@@ -189,6 +190,13 @@
         (row.minutes ? '<span class="inbox-chip inbox-chip--soft">' + esc(row.minutes) + ' ' + esc(t('review.minutes', 'min')) + '</span>' : '');
     }
 
+    // The same Publish at the foot of an opened card, so nobody scrolls back up after reading to the end.
+    function bottomBar(id, can) {
+      return '<div class="inbox-bottom"><button type="button" class="btn btn-primary btn-lg inbox-publish" data-id="' + esc(id) + '"' + (can ? '' : ' disabled') + '>' +
+        esc(t('adminInbox.publish', 'Publish')) + '</button>' +
+        '<button type="button" class="btn btn-outline inbox-toggle" data-id="' + esc(id) + '">' + esc(t('adminInbox.close', 'Close')) + '</button></div>';
+    }
+
     function resCard(row) {
       var sm = summary(row), id = row.id, isOpen = !!openId[id];
       var can = sm.n.ready > 0 || (sm.n.live > 0 && sm.n.blocked === 0 && sm.n.ready === 0);
@@ -230,6 +238,7 @@
                 '<div class="inbox-read" data-read-for="' + esc(id) + '"><p class="review-none">…</p></div>' +
                 '<div class="inbox-pdf" data-pdf-for="' + esc(id) + '"><p class="review-none">…</p></div>' +
               '</div>' +
+              bottomBar(id, can) +
             '</div>'
           : '') +
       '</article>';
@@ -257,7 +266,8 @@
                 readableLangs(p).map(function (c) { return '<option value="' + esc(c) + '"' + (c === postLang(p) ? ' selected' : '') + '>' + esc(R.langLabel(c)) + '</option>'; }).join('') +
               '</select></label>' +
               (noRejected ? '' : '<button type="button" class="btn btn-ghost inbox-reject" data-id="' + esc(id) + '">' + esc(t('review.reject', 'Reject')) + '</button>') + '</div>' +
-              '<div class="inbox-post-view blog-single">' + postView(p, postLang(p)) + '</div></div>'
+              '<div class="inbox-post-view blog-single">' + postView(p, postLang(p)) + '</div>' +
+              bottomBar(id, true) + '</div>'
           : '') +
       '</article>';
     }
