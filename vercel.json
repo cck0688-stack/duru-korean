@@ -78,6 +78,10 @@
       "destination": "/api/render?kind=page&lang=:lang&page=audio.html"
     },
     {
+      "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/admin",
+      "destination": "/admin.html"
+    },
+    {
       "source": "/:lang(en|ko|vi|es|id|pt-BR|ja|zh|fr|de)/blog",
       "destination": "/api/render?kind=page&lang=:lang&page=blog.html"
     },

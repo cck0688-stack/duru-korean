@@ -482,7 +482,7 @@
           .then(({ data }) => {
             if (!data) return;
             const inbox = document.createElement('a');
-            inbox.href = 'admin';
+            inbox.href = 'admin.html';
             inbox.setAttribute('data-i18n', 'adminInbox.menu');
             inbox.textContent = t('adminInbox.menu', 'Waiting for approval');
             dropdown.insertBefore(inbox, dropdown.querySelector('#logoutBtn'));
