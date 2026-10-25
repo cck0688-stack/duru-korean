@@ -1,0 +1,43 @@
+# DURU KOREAN — give one blog post another photograph (the owner picks the subject).
+name: Change a post's photo
+on:
+  workflow_dispatch:
+    inputs:
+      like:
+        description: 'Part of the post title'
+        default: ''
+      query:
+        description: 'Photo searches in English, separated by |'
+        default: ''
+      must:
+        description: 'A word the photo description must contain (e.g. bus)'
+        default: ''
+      dry_run:
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  photo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - env:
+          LIKE: ${{ inputs.like }}
+          QUERY: ${{ inputs.query }}
+          MUST: ${{ inputs.must }}
+          DRY: ${{ inputs.dry_run }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PHOTO_PROVIDER: ${{ vars.PHOTO_PROVIDER }}
+        run: |
+          args=(--like="$LIKE" --query="$QUERY" --must="$MUST")
+          [ "$DRY" = "true" ] && args+=(--dry-run)
+          node scripts/set-post-photo.mjs "${args[@]}"
