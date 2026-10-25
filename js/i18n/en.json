@@ -888,5 +888,6 @@
   "adminInbox.all": "All",
   "adminInbox.confirmMany": "Publish {n} items? Publishing records that you have checked them.",
   "adminInbox.doneMany": "{ok} of {n} published.",
-  "adminInbox.menu": "Waiting for approval"
+  "adminInbox.menu": "Waiting for approval",
+  "adminInbox.sides": "Blog posts on the left, downloads on the right."
 }

@@ -27,13 +27,14 @@
   function $(id) { return document.getElementById(id); }
 
   document.addEventListener('DOMContentLoaded', function () {
-    var listEl = $('inboxList');
-    if (!listEl) return;
+    var lists = { post: $('inboxList-post'), res: $('inboxList-res') };   // blog posts on the left, downloads on the right
+    var listEl = lists.res;
+    if (!listEl || !lists.post) return;
     var client = window.DURU_SUPABASE_CLIENT;
     var R = window.DURU_RES;
     if (!client || !R) return;
 
-    var tab = 'res', filter = 'all';
+    var filter = 'all';
     var resources = [], posts = [];
     var selected = Object.create(null);     // id -> true, for the tab showing
     var openId = Object.create(null);       // cards that are open
@@ -51,7 +52,7 @@
         .neq('status', 'published').neq('status', 'rejected')
         .order('created_at', { ascending: false }).limit(300)
         .then(function (res) {
-          if (res.error) { listEl.innerHTML = '<p class="review-error">' + esc(res.error.message) + '</p>'; return; }
+          if (res.error) { lists.res.innerHTML = '<p class="review-error">' + esc(res.error.message) + '</p>'; return; }
           resources = res.data || [];
         });
     }
@@ -68,7 +69,7 @@
       return ask().then(function (res) {
         if (res.error && !noRejected && /rejected_at/.test(res.error.message || '')) { noRejected = true; return ask(); }
         return res;
-      }).then(function (res) { posts = res.error ? [] : (res.data || []); if (res.error) listEl.insertAdjacentHTML('beforebegin', '<p class="review-error">' + esc(res.error.message) + '</p>'); });
+      }).then(function (res) { posts = res.error ? [] : (res.data || []); if (res.error) lists.post.insertAdjacentHTML('beforebegin', '<p class="review-error">' + esc(res.error.message) + '</p>'); });
     }
     function loadAll() {
       return Promise.all([loadResources(), loadPosts()]).then(function () {
@@ -278,43 +279,38 @@
 
     function render() {
       var fl = $('inboxFilters');
-      if (tab === 'res') {
-        var cats = {}; resources.forEach(function (r) { cats[r.category] = (cats[r.category] || 0) + 1; });
-        fl.hidden = false;
-        fl.innerHTML = ['all'].concat(Object.keys(cats).sort()).map(function (c) {
-          var n = c === 'all' ? resources.length : cats[c];
-          return '<button type="button" class="inbox-filter' + (filter === c ? ' is-on' : '') + '" data-cat="' + esc(c) + '">' +
-            esc(c === 'all' ? t('adminInbox.all', 'All') : R.categoryLabel(c)) + ' <b>' + n + '</b></button>';
-        }).join('');
-        var rows = shownResources();
-        $('inboxEmpty').hidden = rows.length > 0;
-        listEl.innerHTML = rows.map(resCard).join('');
-      } else {
-        fl.hidden = true;
-        $('inboxEmpty').hidden = posts.length > 0;
-        listEl.innerHTML = posts.map(postCard).join('');
-      }
-      document.querySelectorAll('.inbox-tab').forEach(function (b) { b.classList.toggle('is-on', b.dataset.tab === tab); });
+      var cats = {}; resources.forEach(function (r) { cats[r.category] = (cats[r.category] || 0) + 1; });
+      fl.innerHTML = ['all'].concat(Object.keys(cats).sort()).map(function (c) {
+        var n = c === 'all' ? resources.length : cats[c];
+        return '<button type="button" class="inbox-filter' + (filter === c ? ' is-on' : '') + '" data-cat="' + esc(c) + '">' +
+          esc(c === 'all' ? t('adminInbox.all', 'All') : R.categoryLabel(c)) + ' <b>' + n + '</b></button>';
+      }).join('');
+      var rows = shownResources();
+      $('inboxEmpty-res').hidden = rows.length > 0;
+      lists.res.innerHTML = rows.map(resCard).join('');
+      $('inboxEmpty-post').hidden = posts.length > 0;
+      lists.post.innerHTML = posts.map(postCard).join('');
       Object.keys(said).forEach(paintSays);
-      updateBar();
-      if (tab === 'res') Object.keys(openId).forEach(function (id) { if (openId[id]) fillOpen(id); });
+      updateBar('res'); updateBar('post');
+      Object.keys(openId).forEach(function (id) { if (openId[id] && resources.some(function (r) { return r.id === id; })) fillOpen(id); });
     }
 
-    function shownIds() {
-      return (tab === 'res' ? shownResources() : posts).map(function (r) { return r.id; });
+    function shownIds(kind) {
+      return (kind === 'res' ? shownResources() : posts).map(function (r) { return r.id; });
     }
-    function updateBar() {
-      var n = Object.keys(selected).filter(function (k) { return selected[k]; }).length;
-      $('inboxSelN').textContent = n ? '(' + n + ')' : '';
-      $('inboxPublishSel').disabled = !n;
-      $('inboxAll').checked = n > 0 && shownIds().every(function (id) { return selected[id] || !canSelect(id); });
+    function updateBar(kind) {
+      var mine = shownIds(kind);
+      var n = Object.keys(selected).filter(function (k) { return selected[k] && mine.indexOf(k) !== -1; }).length;
+      $('inboxSelN-' + kind).textContent = n ? '(' + n + ')' : '';
+      $('inboxPublishSel-' + kind).disabled = !n;
+      $('inboxAll-' + kind).checked = n > 0 && mine.every(function (id) { return selected[id] || !canSelect(id); });
     }
     function canSelect(id) {
-      var el = listEl.querySelector('.inbox-check[data-id="' + id + '"]');
+      var el = document.querySelector('.inbox-check[data-id="' + id + '"]');
       return !!el && !el.disabled;
     }
     function paintSays(id) {
-      var el = listEl.querySelector('[data-says="' + id + '"]');
+      var el = document.querySelector('[data-says="' + id + '"]');
       var m = said[id];
       if (!el) return;
       el.textContent = m ? m.text : '';
@@ -351,17 +347,17 @@
       var files = newestPerLang(row);
       var lang = readLang[id] || (files[0] && files[0].lang) || 'en';
       var file = files.filter(function (f) { return f.lang === lang; })[0];
-      var why = listEl.querySelector('[data-why-for="' + id + '"]');
+      var why = document.querySelector('[data-why-for="' + id + '"]');
       if (why && file) {
         var st = langState(row, file);
         why.innerHTML = st.s === 'blocked' ? '<p class="inbox-block">' + esc(st.why) + '</p>' : '';
       }
-      var readEl = listEl.querySelector('[data-read-for="' + id + '"]');
+      var readEl = document.querySelector('[data-read-for="' + id + '"]');
       if (readEl) {
         fetch(READ_BASE + id + '/' + lang + '.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
           .then(function (d) { readEl.innerHTML = d ? readHTML(d) : '<p class="review-none">' + esc(t('review.noRead', 'No read-online file yet for this language.')) + '</p>'; });
       }
-      var pdfEl = listEl.querySelector('[data-pdf-for="' + id + '"]');
+      var pdfEl = document.querySelector('[data-pdf-for="' + id + '"]');
       if (pdfEl) {
         if (!file || !file.draft_key) { pdfEl.innerHTML = '<p class="review-none">' + esc(t('review.noPdf', 'There is no PDF on this one.')) + '</p>'; return; }
         client.storage.from(DRAFTS).createSignedUrl(file.draft_key.replace(/^resource-drafts\//, ''), 600).then(function (res) {
@@ -397,76 +393,80 @@
           return true;
         });
     }
-    function publishOne(id) { return (tab === 'res' ? publishResource : publishPost)(id); }
+    function kindOfId(id) { return posts.some(function (p) { return p.id === id; }) ? 'post' : 'res'; }
+    function publishOne(id) { return (kindOfId(id) === 'res' ? publishResource : publishPost)(id); }
 
     function afterPublish() { setTimeout(function () { selected = Object.create(null); loadAll(); }, 900); }
 
     /* ---------------- wiring ---------------- */
 
-    document.querySelectorAll('.inbox-tab').forEach(function (b) {
-      b.addEventListener('click', function () { tab = b.dataset.tab; selected = Object.create(null); render(); });
-    });
     $('inboxRefresh').addEventListener('click', loadAll);
     $('inboxFilters').addEventListener('click', function (e) {
       var b = e.target.closest('.inbox-filter'); if (!b) return;
       filter = b.dataset.cat; selected = Object.create(null); render();
     });
-    $('inboxAll').addEventListener('change', function () {
-      var on = this.checked;
-      shownIds().forEach(function (id) { if (canSelect(id)) selected[id] = on; });
-      render();
-    });
-    $('inboxPublishSel').addEventListener('click', function () {
-      var ids = Object.keys(selected).filter(function (k) { return selected[k]; });
-      if (!ids.length) return;
-      if (!window.confirm(t('adminInbox.confirmMany', 'Publish {n} items? Publishing records that you have checked them.').replace('{n}', ids.length))) return;
-      var msg = $('inboxBarMsg'), done = 0, ok = 0;
-      this.disabled = true;
-      var chain = Promise.resolve();
-      ids.forEach(function (id) {
-        chain = chain.then(function () {
-          msg.textContent = (done + 1) + ' / ' + ids.length + '…';
-          return publishOne(id).then(function (good) { done += 1; if (good) ok += 1; });
+    ['post', 'res'].forEach(function (kind) {
+      $('inboxAll-' + kind).addEventListener('change', function () {
+        var on = this.checked;
+        shownIds(kind).forEach(function (id) { if (canSelect(id)) selected[id] = on; });
+        render();
+      });
+      $('inboxPublishSel-' + kind).addEventListener('click', function () {
+        var mine = shownIds(kind);
+        var ids = Object.keys(selected).filter(function (k) { return selected[k] && mine.indexOf(k) !== -1; });
+        if (!ids.length) return;
+        if (!window.confirm(t('adminInbox.confirmMany', 'Publish {n} items? Publishing records that you have checked them.').replace('{n}', ids.length))) return;
+        var msg = $('inboxBarMsg-' + kind), done = 0, ok = 0;
+        this.disabled = true;
+        var chain = Promise.resolve();
+        ids.forEach(function (id) {
+          chain = chain.then(function () {
+            msg.textContent = (done + 1) + ' / ' + ids.length + '…';
+            return publishOne(id).then(function (good) { done += 1; if (good) ok += 1; });
+          });
+        });
+        chain.then(function () {
+          msg.textContent = t('adminInbox.doneMany', '{ok} of {n} published.').replace('{ok}', ok).replace('{n}', ids.length);
+          afterPublish();
         });
       });
-      chain.then(function () {
-        msg.textContent = t('adminInbox.doneMany', '{ok} of {n} published.').replace('{ok}', ok).replace('{n}', ids.length);
-        afterPublish();
-      });
-    });
 
-    listEl.addEventListener('click', function (e) {
-      var tg = e.target.closest('button'); if (!tg || !tg.dataset.id) return;
-      var id = tg.dataset.id;
-      if (tg.classList.contains('inbox-toggle')) { openId[id] = !openId[id]; render(); return; }
-      if (tg.classList.contains('inbox-publish')) {
-        var title = (tab === 'res' ? resources : posts).filter(function (r) { return r.id === id; })[0];
-        if (!window.confirm(t('admin.confirmPublish', 'Publish “{title}”? Publishing records that you have checked what it says.').replace('{title}', title ? title.title : ''))) return;
-        tg.disabled = true;
-        publishOne(id).then(function (good) { if (good) afterPublish(); else tg.disabled = false; });
-        return;
-      }
-      if (tg.classList.contains('inbox-reject')) {
-        if (!window.confirm(t('review.confirmReject', 'Reject this draft?'))) return;
-        var op = tab === 'res'
-          ? R.rejectResource(client, id, null)
-          : client.from('posts').update({ rejected_at: new Date().toISOString() }).eq('id', id).then(function (r) { if (r.error) throw r.error; });
-        op.then(loadAll).catch(function (err) { say(id, (err && err.message) || String(err), 'bad'); });
-        return;
-      }
-      if (tg.classList.contains('inbox-changes')) {
-        var why = window.prompt(t('review.whatChanges', 'What needs changing?'));
-        if (why === null) return;
-        client.from('resources').update({ status: 'changes', updated_at: new Date().toISOString() }).eq('id', id)
-          .then(function () { return client.from('resource_reviews').insert([{ resource_id: id, action: 'changes', note: why || null }]); })
-          .then(loadAll);
-      }
-    });
-    listEl.addEventListener('change', function (e) {
-      var c = e.target;
-      if (c.classList.contains('inbox-check')) { selected[c.dataset.id] = c.checked; updateBar(); }
-      if (c.classList.contains('inbox-lang-pick')) { readLang[c.dataset.id] = c.value; fillOpen(c.dataset.id); }
-      if (c.classList.contains('inbox-post-lang')) { postPick[c.dataset.id] = c.value; render(); }
+      lists[kind].addEventListener('click', function (e) {
+        var tg = e.target.closest('button'); if (!tg || !tg.dataset.id) return;
+        var id = tg.dataset.id;
+        if (tg.classList.contains('inbox-toggle')) { openId[id] = !openId[id]; render(); return; }
+        if (tg.classList.contains('inbox-publish')) {
+          var title = (kind === 'res' ? resources : posts).filter(function (r) { return r.id === id; })[0];
+          if (!window.confirm(t('admin.confirmPublish', 'Publish “{title}”? Publishing records that you have checked what it says.').replace('{title}', title ? title.title : ''))) return;
+          document.querySelectorAll('.inbox-publish[data-id="' + id + '"]').forEach(function (x) { x.disabled = true; });
+          publishOne(id).then(function (good) {
+            if (good) afterPublish();
+            else document.querySelectorAll('.inbox-publish[data-id="' + id + '"]').forEach(function (x) { x.disabled = false; });
+          });
+          return;
+        }
+        if (tg.classList.contains('inbox-reject')) {
+          if (!window.confirm(t('review.confirmReject', 'Reject this draft?'))) return;
+          var op = kind === 'res'
+            ? R.rejectResource(client, id, null)
+            : client.from('posts').update({ rejected_at: new Date().toISOString() }).eq('id', id).then(function (r) { if (r.error) throw r.error; });
+          op.then(loadAll).catch(function (err) { say(id, (err && err.message) || String(err), 'bad'); });
+          return;
+        }
+        if (tg.classList.contains('inbox-changes')) {
+          var why = window.prompt(t('review.whatChanges', 'What needs changing?'));
+          if (why === null) return;
+          client.from('resources').update({ status: 'changes', updated_at: new Date().toISOString() }).eq('id', id)
+            .then(function () { return client.from('resource_reviews').insert([{ resource_id: id, action: 'changes', note: why || null }]); })
+            .then(loadAll);
+        }
+      });
+      lists[kind].addEventListener('change', function (e) {
+        var c = e.target;
+        if (c.classList.contains('inbox-check')) { selected[c.dataset.id] = c.checked; updateBar(kind); }
+        if (c.classList.contains('inbox-lang-pick')) { readLang[c.dataset.id] = c.value; fillOpen(c.dataset.id); }
+        if (c.classList.contains('inbox-post-lang')) { postPick[c.dataset.id] = c.value; render(); }
+      });
     });
     document.addEventListener('duru:langchange', function () { render(); });
 

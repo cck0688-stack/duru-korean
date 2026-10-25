@@ -489,3 +489,18 @@ body.theme-v2 {
 .theme-v2 .inbox-post-body h2 { font-size: 1.2rem; margin: 18px 0 6px; }
 
 .theme-v2 .inbox-bottom { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,.08); }
+
+/* Two columns: blog posts left, downloads right (owner, 2026-10-25) */
+.theme-v2 .inbox-wide { max-width: 1480px; }
+.theme-v2 .inbox-top { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.theme-v2 .inbox-top-note { margin: 0; color: var(--muted, #6b5b66); }
+.theme-v2 .inbox-cols { display: grid; gap: 28px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 1000px) { .theme-v2 .inbox-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.theme-v2 .inbox-col-h { font-size: 1.35rem; margin: 0 0 12px; }
+.theme-v2 .inbox-col-h b { color: var(--plum, #6b3f5c); margin-left: 6px; }
+.theme-v2 .inbox-bar { top: 70px; }
+.theme-v2 .inbox-cols .inbox-split { grid-template-columns: minmax(0, 1fr); }
+.theme-v2 .inbox-cols .inbox-frame { height: 640px; }
+.theme-v2 .inbox-cols .inbox-row { grid-template-columns: auto minmax(0, 1fr); }
+.theme-v2 .inbox-cols .inbox-actions { grid-column: 1 / -1; }
+.theme-v2 .inbox-cols .inbox-post-body { max-width: none; }
