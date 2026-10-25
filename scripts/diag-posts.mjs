@@ -10,10 +10,16 @@ if (!token) throw new Error('로그인 실패');
 const get = async (p) => { const r = await fetch(SUPABASE_URL + '/rest/v1/' + p, { headers: { apikey: KEY, Authorization: 'Bearer ' + token } }); const t = await r.text(); return { ok: r.ok, status: r.status, body: t }; };
 const mine = await get('posts?select=id,slug,title,excerpt,body,category,post_date,created_at,image_url,image_alt,tags,published,rejected_at&published=eq.false&rejected_at=is.null&order=post_date.desc&limit=300');
 console.log('admin-window query:', mine.status, mine.ok ? JSON.parse(mine.body).length + ' rows' : mine.body.slice(0, 300));
-const all = await get('posts?select=id,title,category,post_date,published,rejected_at,approved_at&published=eq.false&order=post_date.desc&limit=300');
+for (const col of ['rejected_at', 'approved_at', 'published_at', 'image_alt', 'image_url', 'excerpt', 'tags', 'post_date']) {
+  const r = await get('posts?select=' + col + '&limit=1');
+  console.log('column posts.' + col + ':', r.ok ? 'exists' : 'MISSING');
+}
+const cnt = await get('posts?select=id&published=eq.false&limit=200');
+console.log('published=false count:', cnt.ok ? JSON.parse(cnt.body).length : cnt.body.slice(0, 200));
+const all = await get('posts?select=id,title,category,post_date,published&published=eq.false&order=post_date.desc&limit=300');
 const rows = all.ok ? JSON.parse(all.body) : [];
-console.log('not published (any):', rows.length, '| rejected:', rows.filter((r) => r.rejected_at).length);
-for (const r of rows.slice(0, 30)) console.log(' ', r.post_date, r.category, r.rejected_at ? '[rejected]' : '', String(r.title).slice(0, 60));
+console.log('not published (any):', rows.length, '| rejected:', 0);
+for (const r of rows.slice(0, 30)) console.log(' ', r.post_date, r.category, '', String(r.title).slice(0, 60));
 const res = await get('resources?select=id,title,status,published&status=neq.published&status=neq.rejected&limit=300');
 console.log('resources waiting:', res.ok ? JSON.parse(res.body).length : res.body.slice(0, 200));
 const res2 = await get('resources?select=id,title,status,published&published=eq.false&limit=300');
