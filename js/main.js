@@ -101,7 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Active nav link (matches path first, then prefers a link whose hash also matches) */
   const setActiveNavLink = () => {
-    const path = location.pathname.split('/').pop() || 'index.html';
+    let path = location.pathname.split('/').pop() || 'index.html';
+    if (path === 'audio' || path === 'audio.html') path = 'book-resources.html'; // the audio page belongs to Book Resources
     const links = document.querySelectorAll('.nav-main a');
     links.forEach((a) => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
 
