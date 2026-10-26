@@ -890,5 +890,16 @@
   "adminInbox.doneMany": "{n}개 중 {ok}개 공개했습니다.",
   "adminInbox.menu": "승인 대기함",
   "adminInbox.sides": "왼쪽은 블로그 글, 오른쪽은 다운로드 자료입니다.",
-  "adminInbox.tabFree": "무료 다운로드"
+  "adminInbox.tabFree": "무료 다운로드",
+  "adminInbox.waitingView": "승인 대기",
+  "adminInbox.privateView": "비공개 (보강 예정)",
+  "adminInbox.private": "비공개",
+  "adminInbox.backToWaiting": "대기로 되돌리기",
+  "adminInbox.delete": "삭제",
+  "adminInbox.confirmDelete": "“{title}”을(를) 영구 삭제합니다. 되돌릴 수 없습니다. 삭제할까요?",
+  "adminInbox.whatToImprove": "“{title}”을(를) 비공개로 두고 나중에 보강합니다. 무엇을 보강할까요? (비워 둬도 됩니다)",
+  "adminInbox.needSql": "글을 비공개로 두려면 데이터베이스에 한 줄을 한 번만 추가해야 합니다. Supabase → SQL Editor에서 아래 줄을 실행해 주세요:",
+  "adminInbox.needSqlShort": "먼저 Supabase에 한 줄이 필요합니다 — 위의 안내를 보세요",
+  "adminInbox.copySql": "이 줄 복사",
+  "adminInbox.copied": "복사했습니다"
 }

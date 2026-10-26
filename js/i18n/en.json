@@ -890,5 +890,16 @@
   "adminInbox.doneMany": "{ok} of {n} published.",
   "adminInbox.menu": "Waiting for approval",
   "adminInbox.sides": "Blog posts on the left, downloads on the right.",
-  "adminInbox.tabFree": "Free downloads"
+  "adminInbox.tabFree": "Free downloads",
+  "adminInbox.waitingView": "Waiting for approval",
+  "adminInbox.privateView": "Private — to improve later",
+  "adminInbox.private": "Private",
+  "adminInbox.backToWaiting": "Back to waiting",
+  "adminInbox.delete": "Delete",
+  "adminInbox.confirmDelete": "“{title}” will be permanently deleted. This can’t be undone. Delete it?",
+  "adminInbox.whatToImprove": "Keep “{title}” private to improve later. What should be improved? (optional)",
+  "adminInbox.needSql": "To keep a post private the database needs one line, once. Open Supabase → SQL Editor and run:",
+  "adminInbox.needSqlShort": "Needs one line in Supabase first — see the note above",
+  "adminInbox.copySql": "Copy the line",
+  "adminInbox.copied": "Copied"
 }

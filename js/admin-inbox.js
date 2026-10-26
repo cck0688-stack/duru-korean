@@ -35,6 +35,7 @@
     if (!client || !R) return;
 
     var filter = 'all';
+    var view = 'wait';                       // 'wait' = waiting for approval, 'private' = kept private to improve later
     var tab = 'post';                        // blog posts first (left), free downloads second (right)
     try { if (localStorage.getItem('duru_inbox_tab') === 'res') tab = 'res'; } catch (e) { /* no storage */ }
     var resources = [], posts = [];
@@ -75,8 +76,8 @@
     }
     function loadAll() {
       return Promise.all([loadResources(), loadPosts()]).then(function () {
-        $('inboxCountRes').textContent = resources.length;
-        $('inboxCountPost').textContent = posts.length;
+        $('inboxCountRes').textContent = resources.filter(function (r) { return !isPriv(r, 'res'); }).length;
+        $('inboxCountPost').textContent = posts.filter(function (x) { return !isPriv(x, 'post'); }).length;
         render();
       });
     }
@@ -194,10 +195,18 @@
     }
 
     // The same Publish at the foot of an opened card, so nobody scrolls back up after reading to the end.
-    function bottomBar(id, can) {
+    function decideButtons(id, kind) {
+      var priv = view === 'private';
+      var blocked = kind === 'post' && noRejected;
+      return (priv
+        ? '<button type="button" class="btn btn-outline inbox-unprivate" data-id="' + esc(id) + '">' + esc(t('adminInbox.backToWaiting', 'Back to waiting')) + '</button>'
+        : '<button type="button" class="btn btn-outline inbox-private" data-id="' + esc(id) + '"' + (blocked ? ' title="' + esc(t('adminInbox.needSqlShort', 'Needs one line in Supabase first — see the note above')) + '"' : '') + '>' + esc(t('adminInbox.private', 'Private')) + '</button>') +
+        '<button type="button" class="btn btn-danger-outline inbox-delete" data-id="' + esc(id) + '">' + esc(t('adminInbox.delete', 'Delete')) + '</button>';
+    }
+    function bottomBar(id, can, kind) {
       return '<div class="inbox-bottom"><button type="button" class="btn btn-primary btn-lg inbox-publish" data-id="' + esc(id) + '"' + (can ? '' : ' disabled') + '>' +
-        esc(t('adminInbox.publish', 'Publish')) + '</button>' +
-        '<button type="button" class="btn btn-outline inbox-toggle" data-id="' + esc(id) + '">' + esc(t('adminInbox.close', 'Close')) + '</button></div>';
+        esc(t('adminInbox.publish', 'Publish')) + '</button>' + decideButtons(id, kind) +
+        '<button type="button" class="btn btn-ghost inbox-toggle" data-id="' + esc(id) + '">' + esc(t('adminInbox.close', 'Close')) + '</button></div>';
     }
 
     function resCard(row) {
@@ -224,6 +233,7 @@
           '<div class="inbox-actions">' +
             '<button type="button" class="btn btn-outline inbox-toggle" data-id="' + esc(id) + '">' + esc(isOpen ? t('adminInbox.close', 'Close') : t('adminInbox.read', 'Read')) + '</button>' +
             '<button type="button" class="btn btn-primary inbox-publish" data-id="' + esc(id) + '"' + (can ? '' : ' disabled') + '>' + esc(t('adminInbox.publish', 'Publish')) + '</button>' +
+            decideButtons(id, 'res') +
           '</div>' +
         '</div>' +
         '<p class="inbox-says" data-says="' + esc(id) + '"></p>' +
@@ -233,15 +243,13 @@
                 '<label>' + esc(t('adminInbox.language', 'Language')) + ' <select class="inbox-lang-pick" data-id="' + esc(id) + '">' +
                   sm.files.map(function (f) { return '<option value="' + esc(f.lang) + '"' + (f.lang === lang ? ' selected' : '') + '>' + esc(LANG_NAMES[f.lang] || f.lang) + '</option>'; }).join('') +
                 '</select></label>' +
-                '<button type="button" class="btn btn-ghost inbox-changes" data-id="' + esc(id) + '">' + esc(t('review.changes', 'Needs changes')) + '</button>' +
-                '<button type="button" class="btn btn-ghost inbox-reject" data-id="' + esc(id) + '">' + esc(t('review.reject', 'Reject')) + '</button>' +
               '</div>' +
               '<div class="inbox-why" data-why-for="' + esc(id) + '"></div>' +
               '<div class="inbox-split">' +
                 '<div class="inbox-read" data-read-for="' + esc(id) + '"><p class="review-none">…</p></div>' +
                 '<div class="inbox-pdf" data-pdf-for="' + esc(id) + '"><p class="review-none">…</p></div>' +
               '</div>' +
-              bottomBar(id, can) +
+              bottomBar(id, can, 'res') +
             '</div>'
           : '') +
       '</article>';
@@ -260,6 +268,7 @@
           '<div class="inbox-actions">' +
             '<button type="button" class="btn btn-outline inbox-toggle" data-id="' + esc(id) + '">' + esc(isOpen ? t('adminInbox.close', 'Close') : t('adminInbox.read', 'Read')) + '</button>' +
             '<button type="button" class="btn btn-primary inbox-publish" data-id="' + esc(id) + '">' + esc(t('adminInbox.publish', 'Publish')) + '</button>' +
+            decideButtons(id, 'post') +
           '</div>' +
         '</div>' +
         '<p class="inbox-says" data-says="' + esc(id) + '"></p>' +
@@ -268,16 +277,21 @@
               '<label>' + esc(t('blog.readIn', 'Read in')) + ' <select class="inbox-post-lang" data-id="' + esc(id) + '">' +
                 readableLangs(p).map(function (c) { return '<option value="' + esc(c) + '"' + (c === postLang(p) ? ' selected' : '') + '>' + esc(R.langLabel(c)) + '</option>'; }).join('') +
               '</select></label>' +
-              (noRejected ? '' : '<button type="button" class="btn btn-ghost inbox-reject" data-id="' + esc(id) + '">' + esc(t('review.reject', 'Reject')) + '</button>') + '</div>' +
+              '</div>' +
               '<div class="inbox-post-view blog-single">' + postView(p, postLang(p)) + '</div>' +
-              bottomBar(id, true) + '</div>'
+              bottomBar(id, true, 'post') + '</div>'
           : '') +
       '</article>';
     }
 
+    // Waiting, or kept private to improve later (owner, 2026-10-26: publish / private / delete).
+    // A download is private when its status is 'changes'; a post when it has rejected_at (schema §38).
+    function isPriv(item, kind) { return kind === 'res' ? item.status === 'changes' : !!item.rejected_at; }
+    function inView(item, kind) { return view === 'private' ? isPriv(item, kind) : !isPriv(item, kind); }
     function shownResources() {
-      return resources.filter(function (r) { return filter === 'all' || r.category === filter; });
+      return resources.filter(function (r) { return inView(r, 'res') && (filter === 'all' || r.category === filter); });
     }
+    function shownPosts() { return posts.filter(function (x) { return inView(x, 'post'); }); }
 
     function render() {
       var fl = $('inboxFilters');
@@ -290,15 +304,23 @@
       var rows = shownResources();
       $('inboxEmpty-res').hidden = rows.length > 0;
       lists.res.innerHTML = rows.map(resCard).join('');
-      $('inboxEmpty-post').hidden = posts.length > 0;
-      lists.post.innerHTML = posts.map(postCard).join('');
+      var sp = shownPosts();
+      $('inboxEmpty-post').hidden = sp.length > 0;
+      lists.post.innerHTML = sp.map(postCard).join('');
+      ['post', 'res'].forEach(function (k) {
+        var all = k === 'res' ? resources : posts;
+        var w = all.filter(function (x) { return !isPriv(x, k); }).length, pv = all.filter(function (x) { return isPriv(x, k); }).length;
+        $('inboxViewWait-' + k).textContent = w; $('inboxViewPriv-' + k).textContent = pv;
+        document.querySelectorAll('.inbox-col[data-kind="' + k + '"] .inbox-view').forEach(function (b) { b.classList.toggle('is-on', b.dataset.view === view); });
+      });
+      var nt = $('inboxNotice-post'); if (nt) nt.hidden = !noRejected;
       Object.keys(said).forEach(paintSays);
       updateBar('res'); updateBar('post');
       Object.keys(openId).forEach(function (id) { if (openId[id] && resources.some(function (r) { return r.id === id; })) fillOpen(id); });
     }
 
     function shownIds(kind) {
-      return (kind === 'res' ? shownResources() : posts).map(function (r) { return r.id; });
+      return (kind === 'res' ? shownResources() : shownPosts()).map(function (r) { return r.id; });
     }
     function updateBar(kind) {
       var mine = shownIds(kind);
@@ -398,6 +420,51 @@
     function kindOfId(id) { return posts.some(function (p) { return p.id === id; }) ? 'post' : 'res'; }
     function publishOne(id) { return (kindOfId(id) === 'res' ? publishResource : publishPost)(id); }
 
+    var SQL = 'alter table public.posts add column if not exists rejected_at timestamptz;';
+    function itemOf(kind, id) { return (kind === 'res' ? resources : posts).filter(function (r) { return r.id === id; })[0]; }
+    function makePrivate(kind, id) {
+      var item = itemOf(kind, id); if (!item) return;
+      if (kind === 'post' && noRejected) { window.alert(t('adminInbox.needSql', 'To keep a post private the database needs one line, once. Open Supabase → SQL Editor and run:') + '\n\n' + SQL); return; }
+      var memo = window.prompt(t('adminInbox.whatToImprove', 'Keep “{title}” private to improve later. What should be improved? (optional)').replace('{title}', item.title), '');
+      if (memo === null) return;
+      var now = new Date().toISOString();
+      var op = kind === 'res'
+        ? client.from('resources').update({ status: 'changes', updated_at: now }).eq('id', id)
+            .then(function (r) { if (r.error) throw r.error; return client.from('resource_reviews').insert([{ resource_id: id, action: 'changes', note: memo || null }]); })
+        : client.from('posts').update({ rejected_at: now }).eq('id', id).then(function (r) { if (r.error) throw r.error; });
+      op.then(loadAll).catch(function (err) { say(id, (err && err.message) || String(err), 'bad'); });
+    }
+    function backToWaiting(kind, id) {
+      var op = kind === 'res'
+        ? client.from('resources').update({ status: 'review', updated_at: new Date().toISOString() }).eq('id', id).then(function (r) { if (r.error) throw r.error; })
+        : client.from('posts').update({ rejected_at: null }).eq('id', id).then(function (r) { if (r.error) throw r.error; });
+      op.then(loadAll).catch(function (err) { say(id, (err && err.message) || String(err), 'bad'); });
+    }
+    function removeItem(kind, id) {
+      var item = itemOf(kind, id); if (!item) return;
+      if (!window.confirm(t('adminInbox.confirmDelete', '“{title}” will be permanently deleted. This can’t be undone. Delete it?').replace('{title}', item.title))) return;
+      var op;
+      if (kind === 'post') {
+        op = client.from('posts').delete().eq('id', id).then(function (r) { if (r.error) throw r.error; });
+      } else {
+        var pub = [], drafts = [];
+        (item.resource_files || []).forEach(function (f) {
+          if (f.storage_key) pub.push(f.storage_key);
+          if (f.draft_key) drafts.push(String(f.draft_key).replace(/^resource-drafts\//, ''));
+        });
+        var cover = item.cover_key;
+        op = client.from('resources').delete().eq('id', id).then(function (r) {
+          if (r.error) throw r.error;
+          var steps = [];
+          if (pub.length) steps.push(client.storage.from(R.BUCKET).remove(pub).catch(function () {}));
+          if (drafts.length) steps.push(client.storage.from(DRAFTS).remove(drafts).catch(function () {}));
+          if (cover) steps.push(client.storage.from(R.COVERS).remove([cover]).catch(function () {}));
+          return Promise.all(steps);
+        });
+      }
+      op.then(function () { delete selected[id]; delete openId[id]; return loadAll(); }).catch(function (err) { say(id, (err && err.message) || String(err), 'bad'); });
+    }
+
     function afterPublish() { setTimeout(function () { selected = Object.create(null); loadAll(); }, 900); }
 
     /* ---------------- wiring ---------------- */
@@ -413,6 +480,15 @@
       });
     });
     showTab();
+    document.querySelectorAll('.inbox-view').forEach(function (b) {
+      b.addEventListener('click', function () { view = b.dataset.view; selected = Object.create(null); render(); });
+    });
+    var copySql = $('inboxCopySql');
+    if (copySql) copySql.addEventListener('click', function () {
+      var done = function () { copySql.textContent = t('adminInbox.copied', 'Copied'); };
+      if (navigator.clipboard) navigator.clipboard.writeText(SQL).then(done, function () { window.prompt('SQL', SQL); });
+      else window.prompt('SQL', SQL);
+    });
     $('inboxRefresh').addEventListener('click', loadAll);
     $('inboxFilters').addEventListener('click', function (e) {
       var b = e.target.closest('.inbox-filter'); if (!b) return;
@@ -458,21 +534,9 @@
           });
           return;
         }
-        if (tg.classList.contains('inbox-reject')) {
-          if (!window.confirm(t('review.confirmReject', 'Reject this draft?'))) return;
-          var op = kind === 'res'
-            ? R.rejectResource(client, id, null)
-            : client.from('posts').update({ rejected_at: new Date().toISOString() }).eq('id', id).then(function (r) { if (r.error) throw r.error; });
-          op.then(loadAll).catch(function (err) { say(id, (err && err.message) || String(err), 'bad'); });
-          return;
-        }
-        if (tg.classList.contains('inbox-changes')) {
-          var why = window.prompt(t('review.whatChanges', 'What needs changing?'));
-          if (why === null) return;
-          client.from('resources').update({ status: 'changes', updated_at: new Date().toISOString() }).eq('id', id)
-            .then(function () { return client.from('resource_reviews').insert([{ resource_id: id, action: 'changes', note: why || null }]); })
-            .then(loadAll);
-        }
+        if (tg.classList.contains('inbox-private')) { makePrivate(kind, id); return; }
+        if (tg.classList.contains('inbox-unprivate')) { backToWaiting(kind, id); return; }
+        if (tg.classList.contains('inbox-delete')) { removeItem(kind, id); return; }
       });
       lists[kind].addEventListener('change', function (e) {
         var c = e.target;
