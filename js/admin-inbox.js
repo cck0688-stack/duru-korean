@@ -35,6 +35,8 @@
     if (!client || !R) return;
 
     var filter = 'all';
+    var tab = 'post';                        // blog posts first (left), free downloads second (right)
+    try { if (localStorage.getItem('duru_inbox_tab') === 'res') tab = 'res'; } catch (e) { /* no storage */ }
     var resources = [], posts = [];
     var selected = Object.create(null);     // id -> true, for the tab showing
     var openId = Object.create(null);       // cards that are open
@@ -400,6 +402,17 @@
 
     /* ---------------- wiring ---------------- */
 
+    function showTab() {
+      document.querySelectorAll('.inbox-tab').forEach(function (b) { b.classList.toggle('is-on', b.dataset.tab === tab); b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false'); });
+      document.querySelectorAll('.inbox-col').forEach(function (c) { c.hidden = c.dataset.kind !== tab; });
+    }
+    document.querySelectorAll('.inbox-tab').forEach(function (b) {
+      b.addEventListener('click', function () {
+        tab = b.dataset.tab; showTab();
+        try { localStorage.setItem('duru_inbox_tab', tab); } catch (e) { /* no storage */ }
+      });
+    });
+    showTab();
     $('inboxRefresh').addEventListener('click', loadAll);
     $('inboxFilters').addEventListener('click', function (e) {
       var b = e.target.closest('.inbox-filter'); if (!b) return;

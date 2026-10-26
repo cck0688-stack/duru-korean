@@ -60,13 +60,13 @@
 
   <section class="section section-after-hero">
     <div class="wrap inbox-wide">
-      <div class="inbox-top">
-        <p class="inbox-top-note" data-i18n="adminInbox.sides">Blog posts on the left, downloads on the right.</p>
+      <div class="inbox-tabs" role="tablist">
+        <button type="button" class="inbox-tab is-on" data-tab="post" role="tab"><span data-i18n="adminInbox.tabBlog">Blog posts</span> <b id="inboxCountPost">–</b></button>
+        <button type="button" class="inbox-tab" data-tab="res" role="tab"><span data-i18n="adminInbox.tabFree">Free downloads</span> <b id="inboxCountRes">–</b></button>
         <button type="button" class="btn btn-ghost inbox-refresh" id="inboxRefresh" data-i18n="review.refresh">Refresh</button>
       </div>
       <div class="inbox-cols">
         <section class="inbox-col" data-kind="post">
-          <h2 class="inbox-col-h"><span data-i18n="adminInbox.tabBlog">Blog posts</span> <b id="inboxCountPost">–</b></h2>
           <div class="inbox-bar">
             <label class="inbox-all"><input type="checkbox" id="inboxAll-post"> <span data-i18n="adminInbox.selectAll">Select all shown</span></label>
             <button type="button" class="btn btn-primary" id="inboxPublishSel-post" disabled><span data-i18n="adminInbox.publishSelected">Publish selected</span> <span id="inboxSelN-post"></span></button>
@@ -75,8 +75,7 @@
           <div class="review-empty" id="inboxEmpty-post" hidden><p data-i18n="adminInbox.nothing">Nothing is waiting for you.</p></div>
           <div id="inboxList-post"></div>
         </section>
-        <section class="inbox-col" data-kind="res">
-          <h2 class="inbox-col-h"><span data-i18n="adminInbox.tabDownloads">Downloads</span> <b id="inboxCountRes">–</b></h2>
+        <section class="inbox-col" data-kind="res" hidden>
           <div class="inbox-filters" id="inboxFilters"></div>
           <div class="inbox-bar">
             <label class="inbox-all"><input type="checkbox" id="inboxAll-res"> <span data-i18n="adminInbox.selectAll">Select all shown</span></label>

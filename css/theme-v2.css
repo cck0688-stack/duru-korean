@@ -490,17 +490,18 @@ body.theme-v2 {
 
 .theme-v2 .inbox-bottom { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,.08); }
 
-/* Two columns: blog posts left, downloads right (owner, 2026-10-25) */
-.theme-v2 .inbox-wide { max-width: 1480px; }
-.theme-v2 .inbox-top { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-.theme-v2 .inbox-top-note { margin: 0; color: var(--muted, #6b5b66); }
-.theme-v2 .inbox-cols { display: grid; gap: 28px; grid-template-columns: minmax(0, 1fr); align-items: start; }
-@media (min-width: 1000px) { .theme-v2 .inbox-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
-.theme-v2 .inbox-col-h { font-size: 1.35rem; margin: 0 0 12px; }
-.theme-v2 .inbox-col-h b { color: var(--plum, #6b3f5c); margin-left: 6px; }
+/* One list at a time, full width: the Blog tab on the left, Free downloads on the right (owner, 2026-10-26) */
+.theme-v2 .inbox-wide { max-width: 1500px; width: 100%; }
+.theme-v2 .inbox-cols { display: block; }
 .theme-v2 .inbox-bar { top: 70px; }
-.theme-v2 .inbox-cols .inbox-split { grid-template-columns: minmax(0, 1fr); }
-.theme-v2 .inbox-cols .inbox-frame { height: 640px; }
-.theme-v2 .inbox-cols .inbox-row { grid-template-columns: auto minmax(0, 1fr); }
-.theme-v2 .inbox-cols .inbox-actions { grid-column: 1 / -1; }
-.theme-v2 .inbox-cols .inbox-post-body { max-width: none; }
+.theme-v2 .inbox-tabs { gap: 0; background: #f1ece9; border-radius: 999px; padding: 4px; display: inline-flex; flex-wrap: nowrap; margin-bottom: 18px; max-width: 100%; }
+.theme-v2 .inbox-tabs .inbox-tab { border: 0; background: transparent; padding: 10px 28px; }
+.theme-v2 .inbox-tabs .inbox-tab.is-on { background: var(--plum, #6b3f5c); color: #fff; }
+.theme-v2 .inbox-tabs .inbox-refresh { margin-left: 14px; align-self: center; }
+@media (max-width: 560px) { .theme-v2 .inbox-tabs { display: flex; } .theme-v2 .inbox-tabs .inbox-tab { padding: 10px 14px; flex: 1; } .theme-v2 .inbox-tabs .inbox-refresh { display: none; } }
+/* a laptop shows a laptop page: the opened download is text and PDF side by side, the opened post is a wide centred article */
+.theme-v2 .inbox-frame { height: 820px; }
+@media (min-width: 1000px) { .theme-v2 .inbox-read { max-height: 820px; } }
+.theme-v2 .inbox-post-view.blog-single { max-width: 980px; margin: 0 auto; }
+.theme-v2 .inbox-post-view .post-head, .theme-v2 .inbox-post-view .post-body, .theme-v2 .inbox-post-view .post-photo { max-width: 100%; }
+.theme-v2 .inbox-post-body { max-width: none; }

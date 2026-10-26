@@ -889,5 +889,6 @@
   "adminInbox.confirmMany": "{n}개를 공개할까요? 공개는 직접 확인했다는 기록이 됩니다.",
   "adminInbox.doneMany": "{n}개 중 {ok}개 공개했습니다.",
   "adminInbox.menu": "승인 대기함",
-  "adminInbox.sides": "왼쪽은 블로그 글, 오른쪽은 다운로드 자료입니다."
+  "adminInbox.sides": "왼쪽은 블로그 글, 오른쪽은 다운로드 자료입니다.",
+  "adminInbox.tabFree": "무료 다운로드"
 }
