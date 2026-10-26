@@ -411,9 +411,10 @@ body.theme-v2 {
 .theme-v2 .shelfbook-soon { color: var(--muted, #6b5b66); font-size: .95rem; }
 .theme-v2 .finder { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (min-width: 560px) { .theme-v2 .finder { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 900px) { .theme-v2 .finder { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .theme-v2 .finder { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .theme-v2 .finder-chip { position: relative; background: #fff; color: #2a1f27; border-radius: 14px; transition: transform .12s ease, box-shadow .12s ease; }
-.theme-v2 .finder-chip-main { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 12px 14px 44px; color: inherit; text-decoration: none; height: 100%; box-sizing: border-box; }
+.theme-v2 .finder-chip { display: flex; flex-direction: column; }
+.theme-v2 .finder-chip-main { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 12px 14px 8px; color: inherit; text-decoration: none; box-sizing: border-box; flex: 1; align-content: start; }
 .theme-v2 .finder-chip-pdf { position: absolute; left: 14px; bottom: 10px; font-size: .75rem; font-weight: 700; color: var(--plum, #6b3f5c); border: 1px solid rgba(107,63,92,.35); border-radius: 999px; padding: 2px 10px; text-decoration: none; }
 .theme-v2 .finder-chip-pdf:hover { background: var(--blush, #f9e3ea); }
 .theme-v2 .finder-chip:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.18); }
@@ -518,7 +519,7 @@ body.theme-v2 {
 .theme-v2 .inbox-notice p { margin: 0 0 6px; font-weight: 600; color: #6d4a00; }
 .theme-v2 .inbox-notice code { display: block; background: #fff; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; overflow-x: auto; font-size: .85rem; }
 
-.theme-v2 .finder-tabs { position: absolute; left: 14px; bottom: 10px; display: flex; gap: 6px; }
-.theme-v2 .finder-tab { font-size: .75rem; font-weight: 700; color: var(--plum, #6b3f5c); border: 1px solid rgba(107,63,92,.35); border-radius: 999px; padding: 2px 10px; text-decoration: none; }
+.theme-v2 .finder-tabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 12px; }
+.theme-v2 .finder-tab { white-space: nowrap; line-height: 1.5; font-size: .78rem; font-weight: 700; color: var(--plum, #6b3f5c); border: 1px solid rgba(107,63,92,.35); border-radius: 999px; padding: 2px 10px; text-decoration: none; }
 .theme-v2 .finder-tab:hover { background: var(--blush, #f9e3ea); }
 .theme-v2 .bookhero-actions .btn { font-size: 1.08rem; font-weight: 700; padding: 15px 28px; }
