@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "75 audio tracks — free to play, no sign-up",
   "bookAudio.b1.check3": "Printable worksheets for every unit",
   "bookAudio.listenBook": "Listen to the book →",
-  "bookAudio.worksheetsBtn": "Printable worksheets",
+  "bookAudio.worksheetsBtn": "Printable worksheets →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "Coming soon",
   "bookAudio.listenShort": "Listen →",
@@ -901,5 +901,7 @@
   "adminInbox.needSql": "To keep a post private the database needs one line, once. Open Supabase → SQL Editor and run:",
   "adminInbox.needSqlShort": "Needs one line in Supabase first — see the note above",
   "adminInbox.copySql": "Copy the line",
-  "adminInbox.copied": "Copied"
+  "adminInbox.copied": "Copied",
+  "bookAudio.tabAudio": "Audio",
+  "bookAudio.tabWorksheet": "Worksheet"
 }

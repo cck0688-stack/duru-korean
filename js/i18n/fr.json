@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "75 pistes audio — gratuites, sans inscription",
   "bookAudio.b1.check3": "Fiches d’exercices imprimables pour chaque unité",
   "bookAudio.listenBook": "Écouter le livre →",
-  "bookAudio.worksheetsBtn": "Fiches imprimables",
+  "bookAudio.worksheetsBtn": "Fiches imprimables →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "Bientôt",
   "bookAudio.listenShort": "Écouter →",
@@ -868,5 +868,7 @@
   "bookAudio.ws.pages": "pages",
   "bookAudio.ws.all": "Le cahier complet",
   "listen.ws": "Fiche d’exercices",
-  "admin.publishedExcept": "Publié. Non inclus : {why}"
+  "admin.publishedExcept": "Publié. Non inclus : {why}",
+  "bookAudio.tabAudio": "Audio",
+  "bookAudio.tabWorksheet": "Fiche"
 }

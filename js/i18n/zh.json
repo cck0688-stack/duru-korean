@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "75个音频 — 免费播放，无需注册",
   "bookAudio.b1.check3": "每个单元都有可打印练习表",
   "bookAudio.listenBook": "收听教材音频 →",
-  "bookAudio.worksheetsBtn": "可打印练习表",
+  "bookAudio.worksheetsBtn": "可打印练习表 →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "即将推出",
   "bookAudio.listenShort": "收听 →",
@@ -868,5 +868,7 @@
   "bookAudio.ws.pages": "页",
   "bookAudio.ws.all": "完整练习册",
   "listen.ws": "练习表",
-  "admin.publishedExcept": "已发布。未包含：{why}"
+  "admin.publishedExcept": "已发布。未包含：{why}",
+  "bookAudio.tabAudio": "音频",
+  "bookAudio.tabWorksheet": "练习表"
 }

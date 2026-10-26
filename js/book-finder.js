@@ -19,10 +19,13 @@
       main.appendChild(el('span', 'finder-chip-n', c.tracks.length));
       main.appendChild(el('span', 'finder-chip-t', c.title || ''));
       chip.appendChild(main);
+      var tabs = el('div', 'finder-tabs');
+      var au = el('a', 'finder-tab', t('bookAudio.tabAudio', 'Audio')); au.href = main.href; tabs.appendChild(au);
       if (c.worksheet) {
-        var pdf = el('a', 'finder-chip-pdf', 'PDF'); pdf.href = c.worksheet.file; pdf.setAttribute('download', '');
-        pdf.title = t('listen.ws', 'Worksheet'); chip.appendChild(pdf);
+        var ws = el('a', 'finder-tab', t('bookAudio.tabWorksheet', 'Worksheet')); ws.href = c.worksheet.file; ws.setAttribute('download', '');
+        tabs.appendChild(ws);
       }
+      chip.appendChild(tabs);
       box.appendChild(chip);
     });
   }

@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "音声75トラック — 登録なしで無料再生",
   "bookAudio.b1.check3": "全ユニットの印刷用ワークシート",
   "bookAudio.listenBook": "教材の音声を聞く →",
-  "bookAudio.worksheetsBtn": "印刷用ワークシート",
+  "bookAudio.worksheetsBtn": "印刷用ワークシート →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "近日公開",
   "bookAudio.listenShort": "聞く →",
@@ -868,5 +868,7 @@
   "bookAudio.ws.pages": "ページ",
   "bookAudio.ws.all": "ワークブック全体",
   "listen.ws": "ワークシート",
-  "admin.publishedExcept": "公開しました。含まれないもの：{why}"
+  "admin.publishedExcept": "公開しました。含まれないもの：{why}",
+  "bookAudio.tabAudio": "音声",
+  "bookAudio.tabWorksheet": "ワークシート"
 }

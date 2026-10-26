@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "75 Audiotitel — kostenlos, ohne Anmeldung",
   "bookAudio.b1.check3": "Druckbare Arbeitsblätter für jede Einheit",
   "bookAudio.listenBook": "Das Buch hören →",
-  "bookAudio.worksheetsBtn": "Druckbare Arbeitsblätter",
+  "bookAudio.worksheetsBtn": "Druckbare Arbeitsblätter →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "Bald verfügbar",
   "bookAudio.listenShort": "Anhören →",
@@ -868,5 +868,7 @@
   "bookAudio.ws.pages": "Seiten",
   "bookAudio.ws.all": "Das ganze Arbeitsbuch",
   "listen.ws": "Arbeitsblatt",
-  "admin.publishedExcept": "Veröffentlicht. Nicht enthalten: {why}"
+  "admin.publishedExcept": "Veröffentlicht. Nicht enthalten: {why}",
+  "bookAudio.tabAudio": "Audio",
+  "bookAudio.tabWorksheet": "Arbeitsblatt"
 }

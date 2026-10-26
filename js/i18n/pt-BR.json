@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "75 faixas de áudio — grátis, sem cadastro",
   "bookAudio.b1.check3": "Folhas de exercícios imprimíveis para cada unidade",
   "bookAudio.listenBook": "Ouvir o livro →",
-  "bookAudio.worksheetsBtn": "Folhas imprimíveis",
+  "bookAudio.worksheetsBtn": "Folhas imprimíveis →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "Em breve",
   "bookAudio.listenShort": "Ouvir →",
@@ -868,5 +868,7 @@
   "bookAudio.ws.pages": "páginas",
   "bookAudio.ws.all": "O caderno inteiro",
   "listen.ws": "Folha de exercícios",
-  "admin.publishedExcept": "Publicado. Não incluído: {why}"
+  "admin.publishedExcept": "Publicado. Não incluído: {why}",
+  "bookAudio.tabAudio": "Áudio",
+  "bookAudio.tabWorksheet": "Atividade"
 }

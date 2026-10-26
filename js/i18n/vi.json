@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "75 bài audio — nghe miễn phí, không cần đăng ký",
   "bookAudio.b1.check3": "Phiếu bài tập in được cho mọi phần",
   "bookAudio.listenBook": "Nghe audio của sách →",
-  "bookAudio.worksheetsBtn": "Phiếu bài tập in được",
+  "bookAudio.worksheetsBtn": "Phiếu bài tập in được →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "Sắp ra mắt",
   "bookAudio.listenShort": "Nghe →",
@@ -868,5 +868,7 @@
   "bookAudio.ws.pages": "trang",
   "bookAudio.ws.all": "Toàn bộ sách bài tập",
   "listen.ws": "Phiếu bài tập",
-  "admin.publishedExcept": "Đã xuất bản. Chưa gồm: {why}"
+  "admin.publishedExcept": "Đã xuất bản. Chưa gồm: {why}",
+  "bookAudio.tabAudio": "Âm thanh",
+  "bookAudio.tabWorksheet": "Phiếu bài tập"
 }

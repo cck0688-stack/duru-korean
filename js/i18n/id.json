@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "75 trek audio — gratis, tanpa daftar",
   "bookAudio.b1.check3": "Lembar kerja yang bisa dicetak untuk setiap unit",
   "bookAudio.listenBook": "Dengarkan buku →",
-  "bookAudio.worksheetsBtn": "Lembar kerja cetak",
+  "bookAudio.worksheetsBtn": "Lembar kerja cetak →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "Segera hadir",
   "bookAudio.listenShort": "Dengarkan →",
@@ -868,5 +868,7 @@
   "bookAudio.ws.pages": "halaman",
   "bookAudio.ws.all": "Seluruh buku latihan",
   "listen.ws": "Lembar kerja",
-  "admin.publishedExcept": "Diterbitkan. Tidak termasuk: {why}"
+  "admin.publishedExcept": "Diterbitkan. Tidak termasuk: {why}",
+  "bookAudio.tabAudio": "Audio",
+  "bookAudio.tabWorksheet": "Lembar kerja"
 }

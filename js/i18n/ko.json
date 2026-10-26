@@ -852,7 +852,7 @@
   "bookAudio.b1.check2": "오디오 75트랙 — 로그인 없이 무료로 재생",
   "bookAudio.b1.check3": "모든 단원의 인쇄용 워크시트",
   "bookAudio.listenBook": "책 오디오 듣기 →",
-  "bookAudio.worksheetsBtn": "인쇄용 워크시트",
+  "bookAudio.worksheetsBtn": "인쇄용 워크시트 →",
   "bookAudio.bookWord": "Book",
   "bookAudio.soon": "곧 공개",
   "bookAudio.listenShort": "듣기 →",
@@ -901,5 +901,7 @@
   "adminInbox.needSql": "글을 비공개로 두려면 데이터베이스에 한 줄을 한 번만 추가해야 합니다. Supabase → SQL Editor에서 아래 줄을 실행해 주세요:",
   "adminInbox.needSqlShort": "먼저 Supabase에 한 줄이 필요합니다 — 위의 안내를 보세요",
   "adminInbox.copySql": "이 줄 복사",
-  "adminInbox.copied": "복사했습니다"
+  "adminInbox.copied": "복사했습니다",
+  "bookAudio.tabAudio": "오디오",
+  "bookAudio.tabWorksheet": "워크시트"
 }

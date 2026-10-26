@@ -102,7 +102,7 @@
         </ul>
         <div class="bookhero-actions">
           <a href="audio" class="btn btn-primary btn-lg" data-i18n="bookAudio.listenBook">Listen to the book →</a>
-          <a href="#bookWorksheets" class="btn btn-outline" data-i18n="bookAudio.worksheetsBtn">Printable worksheets</a>
+          <a href="#lessons" class="btn btn-outline btn-lg" data-i18n="bookAudio.worksheetsBtn">Printable worksheets →</a>
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@
   </div>
 </section>
 
-<section class="section-dark section" id="audio">
+<section class="section-dark section" id="lessons">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow" data-i18n="bookAudio.finder.eyebrow">Find a track</span>
@@ -124,75 +124,6 @@
     </div>
     <div class="finder reveal" id="bookFinder" data-mode="finder" data-book-json="assets/audio/book1.json"></div>
     <div class="finder-all reveal"><a href="audio" class="btn btn-primary" data-i18n="bookAudio.finder.all">All 75 tracks →</a></div>
-  </div>
-</section>
-
-<section class="section" id="bookWorksheets">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="bookAudio.ws.eyebrow">Printable worksheets</span>
-      <h2 data-i18n="bookAudio.ws.h2">One worksheet for every unit</h2>
-      <p data-i18n="bookAudio.ws.p">Download or print just the unit you are on. Free, no sign-up.</p>
-    </div>
-    <div class="wslist reveal" id="bookWorkbook" data-mode="worksheets" data-book-json="assets/audio/book1.json"></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-i18n="bookAudio.toc.eyebrow">Table of Contents</span>
-      <h2 data-i18n="bookAudio.toc.h2">18 units, start to finish</h2>
-    </div>
-    <div class="grid-3 reveal">
-      <div class="card">
-        <div class="card-icon kr">1</div>
-        <h3 data-i18n="bookAudio.toc.1.title">Part 1 · Basic Hangul</h3>
-        <p data-i18n="bookAudio.toc.1.desc">START, Lessons 1–6 and Checkpoint 1: every basic consonant and vowel, and your first real words.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon kr">2</div>
-        <h3 data-i18n="bookAudio.toc.2.title">Part 2 · Build the System</h3>
-        <p data-i18n="bookAudio.toc.2.desc">Lessons 7–12 and two checkpoints: combined vowels, double consonants and batchim.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon kr">3</div>
-        <h3 data-i18n="bookAudio.toc.3.title">Part 3 · Read Korean in the Real World</h3>
-        <p data-i18n="bookAudio.toc.3.desc">Lessons 13–14: signs, menus and names — and your first full sentence.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="adminResources">
-  <div class="wrap">
-    <div class="section-head-row reveal" style="margin-bottom:28px;">
-      <div class="section-head" style="margin-bottom:0;">
-        <span class="eyebrow" data-i18n="bookAudio.filesEyebrow">Downloadable Files</span>
-        <h2 data-i18n="bookAudio.filesH2">Sample chapters &amp; audio</h2>
-        <p data-i18n="resources.sectionDesc">Files attached directly by our team — download instantly, no email needed.</p>
-      </div>
-    </div>
-    <div class="dl-toolbar reveal">
-      <!-- Built by js/resources.js from window.DURU_RES.CATEGORIES, so
-           this page cannot fall a shelf behind the downloads page. -->
-      <div class="filter-row" id="resourceFilters"></div>
-      <div class="dl-toolbar-row">
-        <label class="dl-lang" for="resourceLang">
-          <span data-i18n="resources.langPick">Pick a language</span>
-          <select id="resourceLang"></select>
-        </label>
-        <button type="button" class="btn btn-ghost" id="newResourceBtn" hidden data-i18n="resources.newBtn">+ New resource</button>
-      </div>
-    </div>
-    <div class="resource-empty" id="resourceListEmpty" hidden>
-      <p id="resourceEmptyText" data-i18n="resources.emptyNote">No files have been attached yet.</p>
-      <div class="res-lang-suggest" id="resourceLangSuggest" hidden></div>
-    </div>
-    <div class="resource-grid" id="resourceList"></div>
-    <div class="list-more" id="resourceMore" hidden>
-      <button type="button" class="btn btn-ghost" id="resourceMoreBtn"></button>
-    </div>
   </div>
 </section>
 
@@ -258,8 +189,7 @@
 <script>window.DURU_RESOURCE_LOCATION = 'book-resources';</script>
 <script src="js/pdf-print.js"></script>
 <script src="js/book-finder.js"></script>
-<script src="js/resource-common.js"></script>
-<script src="js/resources.js"></script>
+<script>if(location.hash&&!document.getElementById(decodeURIComponent(location.hash.slice(1)))){history.replaceState(null,"",location.pathname+location.search);window.scrollTo(0,0);}</script>
 <script>window.DURU_PAGE_TITLE_KEY = 'bookAudio.title';</script>
 <script src="js/i18n.js"></script>
 <script src="js/langbar.js"></script>
