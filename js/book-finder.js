@@ -57,7 +57,12 @@
       }).catch(function () { box.hidden = true; });
     });
   }
-  // The labels of the buttons come from the language file: wait for it.
+  // The labels come from the language file: build again when the language changes.
+  document.addEventListener('duru:langchange', function () {
+    boxes.forEach(function (b) { b.removeAttribute('data-built'); b.textContent = ''; });
+    build();
+  });
+  // Wait for the language file the first time.
   if (window.DURU_I18N && window.DURU_I18N.ready) build();
-  else { document.addEventListener('duru:langchange', build, { once: true }); setTimeout(build, 2500); }
+  else setTimeout(build, 2500);
 })();
