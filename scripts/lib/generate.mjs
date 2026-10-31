@@ -85,6 +85,10 @@ const READER = [
 // at two posts in seven days, and each post is asked for a different title form.
 const SEASON_WORDS = ['단풍', '김장', '추석', '설날', '벚꽃', '장마', '크리스마스', '수능', '송년', '새해', '황사', '폭염', '열대야', '무더위', '한파', '첫눈', '은행나무'];
 const SEASON_CAP = 2;
+// Owner, 2026-10-31: the fitting-room face cover post kept coming back — never again.
+// Add a word here to stop a subject for good; candidates that contain one are dropped.
+export const BANNED_TOPICS = ['탈의실', '피팅룸', '피팅 룸', '페이스 커버', '페이스커버', '얼굴 가리개', '얼굴 커버', '얼굴 덮개', 'face cover', '얼굴 씌'];
+const isBanned = (t) => BANNED_TOPICS.some((w) => String(t || '').toLowerCase().includes(w.toLowerCase()));
 export const TITLE_FORMS = [
   '질문형 — 예: "왜 ~일까요?"로 끝나되 "한국 사람은 왜"로 시작하지 않는다',
   '사실을 먼저 말하는 형 — 예: "한국 식당의 물은 셀프입니다, 이유가 있어요"',
@@ -177,6 +181,7 @@ export async function pickTopic(cfg, opts) {
          '처음 보는 사람을 어머님·사장님·이모로 부르는 이야기처럼). 이 소재들과 다른 것을 고르세요:',
          ...opts.recentAll.slice(0, 100).map((r) => `- [${r.category}] ${r.topic || r.title}`)].join('\n')
       : '',
+    '\n절대 쓰지 않는 소재 (주인이 정했습니다): 옷 가게 탈의실과 얼굴 가리개(페이스 커버) 이야기. 후보에도 넣지 마세요.',
     crowdedSeasonWords(opts.recentAll).length
       ? '\n최근 일주일에 이미 두 번 이상 다룬 계절 소재라 이번에는 쓰지 않습니다: ' + crowdedSeasonWords(opts.recentAll).join(', ')
       : '',
@@ -221,8 +226,10 @@ export async function pickTopic(cfg, opts) {
   const banned = crowdedSeasonWords(opts.recentAll);
   const closeness = (c) => Math.max(0, ...seen.map((r) => Math.max(overlap(c.topic, r.topic || ''), overlap(c.topic, r.title || ''))));
   const ordered = [named, ...candidates.filter((c) => c !== named).sort((a, b) => score(b) - score(a))];
-  const fresh = ordered.find((c) => closeness(c) < 0.3 && !banned.some((w) => c.topic.includes(w)));
-  const chosen = fresh || ordered.slice().sort((a, b) => closeness(a) - closeness(b))[0];
+  const allowed = ordered.filter((c) => !isBanned(c.topic));
+  if (!allowed.length) throw new Error('주제 선정: 후보가 모두 금지된 소재입니다.');
+  const fresh = allowed.find((c) => closeness(c) < 0.3 && !banned.some((w) => c.topic.includes(w)));
+  const chosen = fresh || allowed.slice().sort((a, b) => closeness(a) - closeness(b))[0];
   if (chosen !== named) out.chosenReason = '(겹치지 않게 바꿈) ' + (chosen.why || '');
 
   return { candidates, chosen: chosen.topic, reason: out.chosenReason || chosen.why, scores: score.parts(chosen) };
