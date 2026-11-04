@@ -33,6 +33,7 @@ import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs
 import { pickVoice, dayNumber } from './lib/voices.mjs';
 import { resolvePhotos, findPhoto, photoKey } from '../api/_photos.js';
 import { translateDraft, studyDraft } from './lib/mt.mjs';
+import fs from 'node:fs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY ||
@@ -137,6 +138,14 @@ function rest(token) {
 }
 
 // ── one day's work ─────────────────────────────────────────────────
+
+function plannedTopic(day, shelf) {
+  try {
+    const plan = JSON.parse(fs.readFileSync(new URL('../content/blog-plan/plan.json', import.meta.url), 'utf8'));
+    const hit = (plan.entries || []).find((e) => e.date === day && e.category === shelf);
+    return hit ? { fixedTopic: hit.topic, fixedReason: hit.why || '' } : {};
+  } catch (e) { return {}; } // no plan on the deploy branch: the day picks its own topic
+}
 
 async function main() {
   // Owner, 2026-11-05: the day's drafts must be waiting in the approval inbox by 04:00 KST.
@@ -265,6 +274,9 @@ async function main() {
         month: season.month,
         seasonNotes: season.notes,
         questions: questionsFor(category.id),
+        // Owner, 2026-11-05: when content/blog-plan/plan.json has a topic for this day and shelf, that
+        // topic is written (chosen ahead and checked against every post, see scripts/plan-topics.mjs).
+        ...plannedTopic(today, category.id),
         existingTitles: (existing.byCategory[category.id] || []).slice(0, 20),
         existing: existing,
         recentAll: existing.recentAll,
