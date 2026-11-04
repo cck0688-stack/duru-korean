@@ -29,6 +29,12 @@ on:
     # late start still files under the right day and a double start
     # writes nothing twice.
     - cron: '0 16 * * *'
+    # Owner, 2026-11-05: the drafts must be in the approval inbox by 04:00 KST. GitHub starts
+    # scheduled runs hours late (up to 7), so the real runs are these two evening ones, which
+    # write for the next Seoul day (scripts/generate-drafts.mjs); the second finds the day
+    # claimed and only fills what is missing. The 16:00 one above stays as a last backup.
+    - cron: '0 9 * * *'
+    - cron: '0 12 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

@@ -139,8 +139,13 @@ function rest(token) {
 // ── one day's work ─────────────────────────────────────────────────
 
 async function main() {
-  const today = seoulToday();
-  const when = seoulDate();
+  // Owner, 2026-11-05: the day's drafts must be waiting in the approval inbox by 04:00 KST.
+  // GitHub starts scheduled runs hours late, so the scheduled runs start in the evening and
+  // write for the NEXT Seoul day: now + 8 hours is still that day from 15:00 UTC the evening
+  // before until 16:00 UTC (a late start still lands on it). A manual run writes for today.
+  const ahead = process.env.GITHUB_EVENT_NAME === 'schedule' ? new Date(Date.now() + 8 * 3600 * 1000) : undefined;
+  const today = seoulToday(ahead);
+  const when = seoulDate(ahead);
   const season = seasonFor(when);
 
   let cfg;
