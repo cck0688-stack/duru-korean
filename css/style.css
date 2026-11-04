@@ -4597,3 +4597,25 @@ section { position: relative; }
 .review-read-body { font-size: 14px; line-height: 1.6; max-height: 420px; overflow: auto; }
 .review-read-body h5 { margin: 12px 0 4px; font-size: 13px; color: #7a4a63; }
 .review-read-body ul, .review-read-body ol { margin: 0 0 0 18px; padding: 0; }
+
+/* The highlighter under a heading that wraps (owner, 2026-11-05, phone): a table or inline-block
+   box paints the stroke once, under the last line only. Drawn on an inline box instead, the stroke
+   follows every line (box-decoration-break). The margins move to the neighbours, since an inline
+   box has none. */
+.post-body h2, .post-body h3, .post-body h4 {
+  display: inline;
+  margin: 0;
+  line-height: 1.7;
+  padding: 0 6px;
+  background-image: linear-gradient(transparent 55%, var(--marker) 55%);
+}
+.post-body :is(h2, h3, h4) + * { margin-top: 12px; }
+.post-body > :has(+ :is(h2, h3, h4)) { margin-bottom: 30px; }
+.mt-line--head .mt-src, .mt-line--head .mt-out {
+  display: inline;
+  line-height: 1.7;
+  padding: 0 6px;
+  background-image: linear-gradient(transparent 55%, var(--marker) 55%);
+}
+.mt-line--head .mt-src, .mt-line--head .mt-out { padding: 0; }
+.mt-line--head .mt-src::after { content: "\A"; white-space: pre; }
