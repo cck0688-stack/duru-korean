@@ -17,13 +17,13 @@
 import { check, repairNote, LIMITS } from './quality.mjs';
 import { pickVoice, dayNumber } from './voices.mjs';
 
-const schema = (strict, properties, required) => {
+export const schema = (strict, properties, required) => {
   const root = { type: 'object', properties, required };
   if (strict) root.additionalProperties = false;
   return root;
 };
 
-function parse(text, what) {
+export function parse(text, what) {
   try {
     return JSON.parse(text);
   } catch (e) {
@@ -31,7 +31,7 @@ function parse(text, what) {
   }
 }
 
-const READER = [
+export const READER = [
   '당신은 한국을 여행하거나 한국에서 생활하는 외국인을 위한 콘텐츠 에디터입니다.',
   '',
   '독자는 한국에 다른 나라에서 온 사람들입니다 — 닷새 머무는 여행자,',
@@ -88,7 +88,7 @@ const SEASON_CAP = 2;
 // Owner, 2026-10-31: the fitting-room face cover post kept coming back — never again.
 // Add a word here to stop a subject for good; candidates that contain one are dropped.
 export const BANNED_TOPICS = ['탈의실', '피팅룸', '피팅 룸', '페이스 커버', '페이스커버', '얼굴 가리개', '얼굴 커버', '얼굴 덮개', 'face cover', '얼굴 씌'];
-const isBanned = (t) => BANNED_TOPICS.some((w) => String(t || '').toLowerCase().includes(w.toLowerCase()));
+export const isBanned = (t) => BANNED_TOPICS.some((w) => String(t || '').toLowerCase().includes(w.toLowerCase()));
 export const TITLE_FORMS = [
   '질문형 — 예: "왜 ~일까요?"로 끝나되 "한국 사람은 왜"로 시작하지 않는다',
   '사실을 먼저 말하는 형 — 예: "한국 식당의 물은 셀프입니다, 이유가 있어요"',

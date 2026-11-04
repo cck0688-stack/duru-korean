@@ -1,0 +1,78 @@
+# DURU KOREAN — the blog topic plan (owner, 2026-11-05): one topic per shelf per day, chosen ahead
+# and checked against every post on the site. Kept on rework-output/blog-plan for the owner to read;
+# it changes nothing on the site.
+name: Plan blog topics
+
+on:
+  workflow_dispatch:
+    inputs:
+      from:
+        description: 'First day (YYYY-MM-DD)'
+        type: string
+        default: '2026-11-06'
+      days:
+        description: 'How many days'
+        type: string
+        default: '30'
+      only:
+        description: 'Only these shelves, comma separated (empty = all)'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plan-topics
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Keep the earlier plan
+        run: |
+          git fetch origin rework-output
+          mkdir -p content/blog-plan
+          git show origin/rework-output:blog-plan/plan.json > content/blog-plan/plan.json 2>/dev/null || rm -f content/blog-plan/plan.json
+      - name: Plan
+        env:
+          FROM: ${{ inputs.from }}
+          DAYS: ${{ inputs.days }}
+          ONLY: ${{ inputs.only }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_LIMIT_WAIT_MIN: '300'
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/plan-topics.mjs --from="$FROM" --days="$DAYS" --only="$ONLY"
+      - name: Keep the plan
+        if: always()
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/blog-plan
+          cp content/blog-plan/plan.json content/blog-plan/PLAN.md ../rework-output/blog-plan/ 2>/dev/null || true
+          cd ../rework-output
+          git add -A blog-plan
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Blog topic plan"
+          for i in 1 2 3 4 5 6 7 8; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $(( (RANDOM % 20) + 5 * i ))
+          done
+          exit 1
