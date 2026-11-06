@@ -1,0 +1,44 @@
+# DURU KOREAN — change one approved sentence in one post (owner, 2026-11-06). Nothing else changes.
+name: Edit one sentence in a post
+on:
+  workflow_dispatch:
+    inputs:
+      like:
+        description: 'Part of the post title'
+        type: string
+        default: ''
+      from:
+        description: 'The exact text to change (must occur once)'
+        type: string
+        default: ''
+      to:
+        description: 'The new text'
+        type: string
+        default: ''
+      dry_run:
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Edit
+        env:
+          LIKE: ${{ inputs.like }}
+          FROM: ${{ inputs.from }}
+          TO: ${{ inputs.to }}
+          DRY: ${{ inputs.dry_run }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          args=(--like="$LIKE" --from="$FROM" --to="$TO")
+          if [ "$DRY" = "true" ]; then args+=(--dry-run); fi
+          node scripts/edit-post-body.mjs "${args[@]}"
