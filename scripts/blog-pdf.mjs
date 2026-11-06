@@ -51,15 +51,30 @@ function t(lang, key, fallback) {
   return DICT[lang][key] || (DICT.en && DICT.en[key]) || fallback;
 }
 
+// The eight shards sign in at the same moment, and Supabase's auth gateway sometimes
+// answers 504 to a burst (owner, 2026-11-06). A busy or dropped answer is asked again
+// with a growing wait; a refused password is not.
 async function signIn() {
-  const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY },
-    body: JSON.stringify({ email: process.env.DURU_BOT_EMAIL, password: process.env.DURU_BOT_PASSWORD })
-  });
-  const body = await res.json().catch(() => ({}));
-  if (!res.ok || !body.access_token) throw new Error('로그인 실패 (' + res.status + ').');
-  return body.access_token;
+  let last;
+  for (let i = 0; i < 6; i += 1) {
+    try {
+      const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', apikey: SUPABASE_ANON_KEY },
+        body: JSON.stringify({ email: process.env.DURU_BOT_EMAIL, password: process.env.DURU_BOT_PASSWORD })
+      });
+      const body = await res.json().catch(() => ({}));
+      if (res.ok && body.access_token) return body.access_token;
+      last = new Error('로그인 실패 (' + res.status + ').');
+      if (res.status !== 429 && res.status < 500) break;
+    } catch (err) {
+      last = err;
+    }
+    const wait = 5000 * (i + 1);
+    log(`로그인 다시 시도 (${i + 1}/5), ${wait / 1000}초 뒤`);
+    await new Promise((r) => setTimeout(r, wait));
+  }
+  throw last;
 }
 
 async function rest(token, p, init = {}) {

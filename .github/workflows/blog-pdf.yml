@@ -60,6 +60,9 @@ jobs:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
     steps:
+      # The eight shards do not all sign in at the same second (owner, 2026-11-06).
+      - name: Stagger the shards
+        run: sleep $(( SHARD * 20 ))
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
