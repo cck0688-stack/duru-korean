@@ -368,6 +368,21 @@ async function main() {
   // Only what is missing or out of date, unless told to make them all.
   const force = args.includes('--force') || ONE;
   const todo = force ? posts : posts.filter((p) => !(p.pdf && p.pdf.src === sourceHash(p)));
+  // --status: how many posts have every PDF, and which are missing which (reads only; writes nothing).
+  if (args.includes('--status')) {
+    const all = posts;
+    const current = (p) => p.pdf && p.pdf.src === sourceHash(p);
+    const done = all.filter(current);
+    console.log('글 ' + all.length + '편 · PDF가 최신인 글 ' + done.length + '편 · 아직 없는 글 ' + (all.length - done.length) + '편');
+    for (const lang of LANGS) {
+      const have = done.filter((p) => p.pdf.files && p.pdf.files[lang]).length;
+      console.log('  ' + lang + ': ' + have + '/' + done.length);
+    }
+    const missing = all.filter((p) => !current(p));
+    missing.slice(0, 30).forEach((p) => console.log('  없음: ' + (p.published ? '' : '[초안] ') + p.title + ' (' + (p.post_date || p.created_at || '').slice(0, 10) + ')'));
+    if (missing.length > 30) console.log('  …외 ' + (missing.length - 30) + '편');
+    return;
+  }
   // --count: how many are waiting, and nothing else (the workflow asks
   // first, and skips installing a browser when the answer is none).
   if (args.includes('--count')) { console.log(String(todo.length)); return; }
