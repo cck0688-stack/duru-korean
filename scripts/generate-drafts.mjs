@@ -32,7 +32,7 @@ import { writeOne, TITLE_FORMS } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
 import { resolvePhotos, findPhoto, photoKey } from '../api/_photos.js';
-import { translateDraft, studyDraft } from './lib/mt.mjs';
+import { translateDraft, translateInto, studyDraft, targetsFor } from './lib/mt.mjs';
 import fs from 'node:fs';
 
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co';
@@ -323,21 +323,33 @@ async function main() {
       // afternoon's translating. Like the photograph, it sits in its
       // own try: a translation that fails costs the translation, never
       // the writing. The admin editor can fill it in afterwards.
+      // Owner, 2026-11-06: a translation that fails or comes back short is tried again, at most
+      // twice more for this post, and only the languages still missing are asked for again.
       draft.mt = {};
-      try {
-        draft.mt = await translateDraft(cfg, {
-          lang: 'ko', title: draft.title, excerpt: draft.summary,
-          tags: draft.tags, body: draft.content
-        }, (done, total) => {
-          if (done === 0) log(`  번역 중 (${total}묶음)`);
-        });
-        const got = Object.keys(draft.mt);
-        log(got.length
-          ? `  번역: ${got.join(', ')} (${got.length}개 언어)`
-          : '  번역이 돌아오지 않았습니다 — 한국어로만 저장합니다');
-      } catch (err) {
-        log(`  번역 실패 (글은 그대로 저장합니다): ${err.message}`);
+      const wanted = targetsFor('ko').length;
+      for (let attempt = 1; attempt <= 3; attempt += 1) {
+        try {
+          const source = { lang: 'ko', title: draft.title, excerpt: draft.summary, tags: draft.tags, body: draft.content };
+          const onProgress = (done, total) => { if (done === 0) log(`  번역 중 (${total}묶음)`); };
+          // The first try asks for every language; a second or third asks for the ones still missing.
+          const more = attempt === 1
+            ? await translateDraft(cfg, source, onProgress)
+            : await translateInto(cfg, source, targetsFor('ko').filter((c) => !draft.mt[c]), onProgress);
+          draft.mt = { ...draft.mt, ...more };
+        } catch (err) {
+          log(`  번역 실패 (${attempt}회): ${err.message}`);
+        }
+        if (Object.keys(draft.mt).length >= wanted) break;
+        if (attempt < 3) {
+          const missing = targetsFor('ko').filter((c) => !draft.mt[c]);
+          log(`  번역 빠짐 (${missing.join(', ')}) — 다시 시도합니다 (${attempt + 1}/3)`);
+          await new Promise((r) => setTimeout(r, 20000 * attempt));
+        }
       }
+      const got = Object.keys(draft.mt);
+      log(got.length
+        ? `  번역: ${got.join(', ')} (${got.length}개 언어)`
+        : '  번역이 돌아오지 않았습니다 — 한국어로만 저장합니다');
 
       // The words a learner would be stopped by, shown under the post.
       // Its own try, like the photograph and the translation: a draft
