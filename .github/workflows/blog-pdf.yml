@@ -74,6 +74,7 @@ jobs:
 
       - name: What is waiting
         id: plan
+        continue-on-error: true
         run: |
           if [ -n "$FIND" ]; then
             # One post: the first machine does it, the others rest.
@@ -90,7 +91,12 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Make the PDFs
+        id: make
         if: steps.plan.outputs.todo != '0'
+        # A shard that cannot sign in (or loses its connection) is not an alarm: the next
+        # run, every four hours, makes whatever is still missing. What happened is written
+        # to the run's summary page instead (owner, 2026-11-06).
+        continue-on-error: true
         run: |
           if [ -n "$FIND" ]; then
             set -- --find="$FIND" --out="$RUNNER_TEMP/blog-pdf/$RUN"
@@ -100,6 +106,22 @@ jobs:
           fi
           if [ "$DRY" = "true" ]; then set -- "$@" --dry-run; fi
           node scripts/blog-pdf.mjs "$@"
+
+      - name: Note the outcome
+        if: always()
+        run: |
+          {
+            echo "### 블로그 PDF — 조각 $SHARD/8"
+            if [ "$MAKE" = "failure" ]; then
+              echo "이번 실행에서는 이 조각의 글 PDF를 끝내 만들지 못했습니다. 저장 기록이 없는 글이므로 다음 실행(4시간마다)에서 다시 만듭니다."
+            elif [ "$MAKE" = "success" ]; then
+              echo "완료."
+            else
+              echo "만들 PDF가 없었습니다."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          MAKE: ${{ steps.make.outcome }}
 
       - name: Save a copy for checking
         if: always() && env.FIND != '' && matrix.shard == 0
