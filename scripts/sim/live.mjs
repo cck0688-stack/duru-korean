@@ -289,8 +289,8 @@ export async function tick() {
   const members = personas.filter((p) => p.joined_on === now.date).map((p) => ({ ...p, user_id: p.id }));
   const online = shuffle(members).slice(0, ONLINE);
   const roots = stories.filter((s) => !s.parent_id);
-  // Few people, so few answers, and not every run (irregular, never a rhythm).
-  const replyCount = flag('replies') ?? (BACKFILL ? between(0, 2) : Math.random() < 0.07 ? between(1, 2) : 0);
+  // Owner, 2026-11-08: visitors' posts were getting no answers. Still irregular (not every run, never a rhythm).
+  const replyCount = flag('replies') ?? (BACKFILL ? between(0, 2) : Math.random() < 0.4 ? between(1, 2) : 0);
   let replied = 0;
   for (let i = 0; i < replyCount && roots.length && online.length; i += 1) {
     const root = chooseThread(roots, stories);
@@ -312,7 +312,7 @@ export async function tick() {
   }
 
   /* 4. hearts, on sample rows only, one anonymous reader id per writer */
-  const likeCount = flag('likes') ?? (BACKFILL ? 0 : Math.random() < 0.15 ? between(1, 3) : 0);
+  const likeCount = flag('likes') ?? (BACKFILL ? 0 : Math.random() < 0.4 ? between(1, 3) : 0);
   const likeable = stories.slice(-400);
   let liked = 0;
   for (let i = 0; i < likeCount && likeable.length && online.length; i += 1) {
