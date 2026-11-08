@@ -248,7 +248,7 @@ function pageHTML(post, lang, fonts, withUrl = true, edition = { photo: true, fi
   const auds = (post.audiences || []).filter((a) => ['tourists', 'students', 'expats'].includes(a));
   const photo = edition.photo && post.image_url
     ? '<div class="photo"><img src="' + esc(post.image_url) + '" alt=""></div>' +
-      (post.image_credit ? '<p class="credit">Photo: ' + esc(post.image_credit) + (post.image_source ? ' · ' + esc(post.image_source === 'unsplash' ? 'Unsplash' : post.image_source === 'pexels' ? 'Pexels' : post.image_source) : '') + '</p>' : '')
+      ''
     : '';
   const url = 'www.durukorean.com' + (lang === 'en' ? '' : '/' + lang) + '/blog/post/' + post.slug;
   return '<!doctype html><html lang="' + esc(lang) + '"><head><meta charset="utf-8"><style>' + fonts + '</style><style>' + CSS + '</style></head><body class="' + FIT[edition.fit || 0] + '">' +

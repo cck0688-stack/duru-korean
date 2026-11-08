@@ -225,6 +225,8 @@
     return '';
   }
 
+  // Owner, 2026-11-08: photos carry no source line. Set true to show it again.
+  var SHOW_PHOTO_CREDIT = false;
   function photoHTML(post, big) {
     var url = post && post.image_url;
     if (!url) return '';
@@ -234,7 +236,8 @@
     var sourceName = photoSource(post.image_source);
 
     var line = '';
-    if (big && credit) {
+    // Owner, 2026-11-08: no source line under a photo any more. The credit stays stored.
+    if (SHOW_PHOTO_CREDIT && big && credit) {
       line = '<p class="post-photo-credit">' +
         escapeHTML(t('blog.photoBy', 'Photo by {name}').replace('{name}', '')) +
         (creditUrl
@@ -1582,7 +1585,7 @@
         '<img src="' + escapeHTML(photoNow.url) + '" alt="">' +
         '<div class="post-photo-meta">' +
           '<p class="post-photo-alt">' + escapeHTML(photoNow.alt || '') + '</p>' +
-          (photoNow.credit
+          (SHOW_PHOTO_CREDIT && photoNow.credit
             ? '<p class="post-photo-credit">' +
                 escapeHTML(t('blog.photoBy', 'Photo by {name}').replace('{name}', photoNow.credit)) +
                 (photoSource(photoNow.source) ? ' · ' + escapeHTML(photoSource(photoNow.source)) : '') +

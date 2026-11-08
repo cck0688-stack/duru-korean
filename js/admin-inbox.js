@@ -179,7 +179,7 @@
           (pairs && srcTitle !== title ? '<p class="mt-title-src" lang="' + esc(p.lang || 'en') + '">' + esc(srcTitle) + '</p>' : '') + '</div>' +
         '<div class="post-head-meta"><span class="blog-date">' + esc(p.post_date || day(p.created_at)) + '</span></div></header>' +
         (p.image_url ? '<figure class="post-photo"><img src="' + esc(p.image_url) + '" alt="' + esc(p.image_alt || '') + '" loading="lazy">' +
-          (p.image_credit ? '<p class="post-photo-credit">' + esc(p.image_credit) + '</p>' : '') + '</figure>' : '') +
+          '' + '</figure>' : '') +
         '<div class="post-body' + (pairs ? ' post-body--mt' : '') + '">' + body + '</div>' +
         (own.length ? '<div class="post-tags">' + own.map(function (tag, i) { return '<span class="post-tag">#' + esc(shown[i] || tag) + '</span>'; }).join('') + '</div>' : '') +
         studyHTML(p, lang);
