@@ -78,7 +78,7 @@ export function untilReset(said, now = new Date()) {
 // "You've hit your weekly limit · resets 3am (UTC)" (2026-10-05) was not
 // in this list, so all six shelves and the blog failed at 04:00 instead
 // of waiting the five hours to the reset.
-const LIMIT = /usage limit|session limit|weekly limit|limit reached|hit your (\w+ )?limit|rate limit|out of (extra )?usage/i;
+const LIMIT = /usage limit|session limit|weekly limit|limit reached|hit your ([\w-]+ )?limit|rate limit|out of (extra )?usage/i;
 
 // What each run spent, by step and model, so the log says where the
 // allowance goes (counts only — nothing of what was written).
