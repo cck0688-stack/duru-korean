@@ -114,12 +114,15 @@ async function signIn() {
 }
 
 function rest(token) {
+  // Owner, 2026-11-10: a run that waited hours for the subscription limit came back with an
+  // expired login (401 JWT expired) and lost three finished posts. An expired login is renewed
+  // once and the same request is sent again.
   const headers = {
     apikey: SUPABASE_ANON_KEY,
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json'
   };
-  return async function call(path, init) {
+  return async function call(path, init, renewed) {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
       ...init,
       headers: { ...headers, ...((init && init.headers) || {}) }
@@ -128,6 +131,10 @@ function rest(token) {
     const data = text ? JSON.parse(text) : null;
     if (!res.ok) {
       const message = (data && (data.message || data.hint)) || text || String(res.status);
+      if (!renewed && res.status === 401 && /JWT expired/i.test(String(message)) && process.env.DURU_BOT_EMAIL) {
+        headers.Authorization = `Bearer ${(await signIn()).token}`;
+        return call(path, init, true);
+      }
       const err = new Error(`${res.status} ${message}`);
       err.status = res.status;
       err.code = data && data.code;
