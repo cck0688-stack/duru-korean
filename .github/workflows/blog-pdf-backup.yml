@@ -1,0 +1,34 @@
+# DURU KOREAN — download the blog PDFs before they are removed from storage (owner, 2026-11-11).
+# One artifact per language (a zip you download from this run's page, kept 3 days). Published posts only.
+name: Blog PDF backup
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [en, ko, vi, es, id, pt-BR, ja, zh, fr, de]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Download
+        env:
+          LANG_CODE: ${{ matrix.lang }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/blog-pdf-backup.mjs --lang="$LANG_CODE" --out=backup
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blog-pdf-${{ matrix.lang }}
+          path: backup/${{ matrix.lang }}
+          retention-days: 3
+          compression-level: 1
