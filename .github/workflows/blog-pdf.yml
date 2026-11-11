@@ -15,9 +15,11 @@ name: Blog post PDF
 
 on:
   schedule:
+    # Owner, 2026-11-11: the blog PDFs were removed from storage to stay inside the quota (5.6 GB, and about
+    # 140 MB more every day), so the schedule is off. Run by hand, or put the line below back.
     # Every four hours: new drafts from the 01:00 run, and posts the
     # owner edited or translated since.
-    - cron: '23 */4 * * *'
+    # - cron: '23 */4 * * *'
   workflow_dispatch:
     inputs:
       find:
