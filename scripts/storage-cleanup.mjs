@@ -47,6 +47,15 @@ const hashOf = async (bucket, key) => {
   return crypto.createHash('sha256').update(Buffer.from(await r.arrayBuffer())).digest('hex');
 };
 
+// --check-cleaned: the public copies of the files whose draft was removed are all still there.
+if (process.argv.includes('--check-cleaned')) {
+  const done = await rest('resource_files?select=id,storage_key&published=eq.true&draft_key=is.null&order=id.asc&limit=' + (LIMIT || 1000));
+  let ok = 0, gone = 0;
+  for (const f of done) { if (f.storage_key && (await sizeOf('resources', f.storage_key)) != null) ok += 1; else gone += 1; }
+  console.log('초안을 지운 공개 파일 ' + done.length + '개 중 공개 사본이 있는 것: ' + ok + ' · 없는 것: ' + gone);
+  process.exit(gone ? 1 : 0);
+}
+
 // Every published file that still has a draft.
 const rows = [];
 for (let from = 0; ; from += 1000) {
