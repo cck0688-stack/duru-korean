@@ -1,0 +1,58 @@
+# DURU KOREAN — move the published worksheet files from Supabase storage to Cloudflare R2 (owner, 2026-11-11).
+#   test    a tiny file goes to R2 and back (do this first)
+#   copy    every published file is copied, then the listing is checked against the manifest
+name: Copy worksheets to R2
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'test or copy'
+        type: choice
+        options: [test, copy]
+        default: test
+permissions:
+  contents: read
+concurrency:
+  group: r2-migrate
+  cancel-in-progress: false
+jobs:
+  r2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+      AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      R2_ENDPOINT: https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test the keys
+        if: inputs.mode == 'test'
+        run: |
+          echo "duru r2 test $(date -u +%s)" > t.txt
+          aws s3 cp t.txt "s3://$R2_BUCKET/_test/t.txt" --endpoint-url "$R2_ENDPOINT"
+          aws s3 cp "s3://$R2_BUCKET/_test/t.txt" back.txt --endpoint-url "$R2_ENDPOINT"
+          cmp t.txt back.txt && echo "R2 왕복 성공: 올리고 내려받은 내용이 같습니다"
+          aws s3 rm "s3://$R2_BUCKET/_test/t.txt" --endpoint-url "$R2_ENDPOINT"
+      - name: Download from Supabase
+        if: inputs.mode == 'copy'
+        env:
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/r2-migrate.mjs --out=r2files --manifest=manifest.json
+      - name: Upload to R2
+        if: inputs.mode == 'copy'
+        run: aws s3 sync r2files "s3://$R2_BUCKET/" --endpoint-url "$R2_ENDPOINT" --only-show-errors --no-progress
+      - name: Check R2 against the manifest
+        if: inputs.mode == 'copy'
+        run: |
+          aws s3 ls "s3://$R2_BUCKET/" --recursive --endpoint-url "$R2_ENDPOINT" > listing.txt
+          node scripts/r2-migrate.mjs --verify=listing.txt --manifest=manifest.json
