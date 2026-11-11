@@ -246,13 +246,43 @@
   // The bucket is private: a link is minted when the visitor asks, and
   // only a signed-in session can mint one — the storage policy decides.
   // `download` is true, or the file name to save it as.
-  function signedUrl(client, storageKey, download, bucket) {
+  //
+  // Owner, 2026-11-11: the published files moved to Cloudflare R2 (the free Supabase plan holds 1 GB). A link
+  // to a published file is asked for at /api/file-link first; when that has none (the file is not in R2, or the
+  // call fails) the Supabase storage link is used, as before.
+  function supabaseSignedUrl(client, storageKey, download, bucket) {
     var opts = download ? { download: download === true ? true : String(download) } : undefined;
     return client.storage.from(bucket || BUCKET).createSignedUrl(storageKey, SIGNED_URL_TTL, opts)
       .then(function (res) {
         if (res.error || !res.data) throw new Error(res.error ? res.error.message : 'no url');
         return res.data.signedUrl;
       });
+  }
+
+  function r2Url(client, storageKey, download) {
+    return client.auth.getSession().then(function (s) {
+      var token = s && s.data && s.data.session && s.data.session.access_token;
+      if (!token) throw new Error('no session');
+      return fetch('/api/file-link', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({ key: storageKey, download: download === true ? true : (download ? String(download) : '') })
+      });
+    }).then(function (r) {
+      if (!r.ok) throw new Error('file-link ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      if (!j || !j.url) throw new Error('no url');
+      return j.url;
+    });
+  }
+
+  function signedUrl(client, storageKey, download, bucket) {
+    if (bucket && bucket !== BUCKET) return supabaseSignedUrl(client, storageKey, download, bucket); // the drafts, for an admin
+    if (window.DURU_NO_R2) return supabaseSignedUrl(client, storageKey, download, bucket);
+    return r2Url(client, storageKey, download).catch(function () {
+      return supabaseSignedUrl(client, storageKey, download, bucket);
+    });
   }
 
   // What a download is saved as: a short keyword and the language —

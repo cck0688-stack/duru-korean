@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'test or copy'
+        description: 'test, copy or presign (does a signed link to a copied file work?)'
         type: choice
-        options: [test, copy]
+        options: [test, copy, presign]
         default: test
 permissions:
   contents: read
@@ -40,6 +40,15 @@ jobs:
           aws s3 cp "s3://$R2_BUCKET/_test/t.txt" back.txt --endpoint-url "$R2_ENDPOINT"
           cmp t.txt back.txt && echo "R2 왕복 성공: 올리고 내려받은 내용이 같습니다"
           aws s3 rm "s3://$R2_BUCKET/_test/t.txt" --endpoint-url "$R2_ENDPOINT"
+      - name: Signed link check
+        if: inputs.mode == 'presign'
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/r2-presign-check.mjs
       - name: Download from Supabase
         if: inputs.mode == 'copy'
         env:
