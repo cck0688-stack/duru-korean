@@ -67,7 +67,7 @@ for (let from = 0; ; from += 1000) {
 const todo = LIMIT ? rows.slice(0, LIMIT) : rows;
 console.log('초안이 남은 공개 파일: ' + todo.length + '개');
 
-const verdict = { same: [], contentDiffers: 0, differentSize: 0, publicMissing: 0, draftMissing: 0, noPublicKey: 0 };
+const verdict = { same: [], noPublic: [], contentDiffers: 0, differentSize: 0, publicMissing: 0, draftMissing: 0, noPublicKey: 0 };
 let sameBytes = 0, i = 0;
 async function worker() {
   while (i < todo.length) {
@@ -76,7 +76,7 @@ async function worker() {
     const draftKey = f.draft_key.replace(/^resource-drafts\//, '');
     const [d, p] = await Promise.all([sizeOf('resource-drafts', draftKey), sizeOf('resources', f.storage_key)]);
     if (d == null) verdict.draftMissing += 1;
-    else if (p == null) verdict.publicMissing += 1;
+    else if (p == null) { verdict.publicMissing += 1; verdict.noPublic.push(f); }
     else if (d !== p) verdict.differentSize += 1;
     else {
       if (VERIFY) {
@@ -93,6 +93,18 @@ console.log('공개 사본과 크기가 같은 초안(지워도 되는 것): ' +
 console.log('크기가 달라서 건드리지 않음: ' + verdict.differentSize + (VERIFY ? ' · 내용이 달라서 건드리지 않음: ' + verdict.contentDiffers : ''));
 console.log('공개 사본이 없어서 건드리지 않음: ' + verdict.publicMissing);
 console.log('초안 파일이 이미 없음: ' + verdict.draftMissing + ' · 공개 경로가 없는 행: ' + verdict.noPublicKey);
+
+// Who the files without a public copy belong to, so they can be looked at.
+if (verdict.noPublic.length) {
+  const ids = [...new Set(verdict.noPublic.map((f) => f.resource_id))];
+  const res = await rest('resources?select=id,title,status,created_at&id=in.(' + ids.join(',') + ')');
+  const by = Object.fromEntries(res.map((r) => [r.id, r]));
+  console.log('공개 사본이 없는 파일 ' + verdict.noPublic.length + '개 (자료 ' + ids.length + '개):');
+  for (const f of verdict.noPublic) {
+    const r = by[f.resource_id] || {};
+    console.log('  · ' + (r.title || f.resource_id) + ' [' + (r.status || '?') + ', ' + String(r.created_at || '').slice(0, 10) + '] ' + f.lang + ' → ' + f.storage_key);
+  }
+}
 
 if (!DELETE) { console.log('--delete 가 없어서 아무것도 지우지 않았습니다.'); process.exit(0); }
 
