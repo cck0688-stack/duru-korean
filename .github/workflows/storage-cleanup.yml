@@ -2,6 +2,10 @@
 # Report only unless `delete` is ticked. See scripts/storage-cleanup.mjs.
 name: Storage clean-up
 on:
+  schedule:
+    # Owner, 2026-11-11: once a day, the drafts of worksheet files that are published and identical to
+    # their public copy are removed (each published file would otherwise be stored twice).
+    - cron: '17 22 * * *'
   workflow_dispatch:
     inputs:
       delete:
@@ -35,7 +39,10 @@ jobs:
         with:
           node-version: '22'
       - name: Clean up
+        # A day the clean-up cannot run is not an alarm: the next one does the same work.
+        continue-on-error: true
         env:
+          EVENT: ${{ github.event_name }}
           DEL: ${{ inputs.delete }}
           CHECK: ${{ inputs.check_cleaned }}
           VERIFY: ${{ inputs.verify }}
@@ -46,6 +53,8 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           args=()
+          # The scheduled run always verifies the bytes and deletes; a hand run does what its boxes say.
+          if [ "$EVENT" = "schedule" ]; then DEL=true; VERIFY=true; CHECK=false; fi
           if [ "$DEL" = "true" ]; then args+=(--delete); fi
           if [ "$CHECK" = "true" ]; then args+=(--check-cleaned); fi
           if [ "$VERIFY" = "true" ]; then args+=(--verify); fi
