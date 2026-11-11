@@ -8,6 +8,10 @@ on:
         description: 'Really delete the verified duplicate drafts'
         type: boolean
         default: false
+      verify:
+        description: 'Compare the bytes of both copies before counting a draft as a duplicate'
+        type: boolean
+        default: true
       limit:
         description: 'Look at the first N rows only (empty = all)'
         type: string
@@ -29,6 +33,7 @@ jobs:
       - name: Clean up
         env:
           DEL: ${{ inputs.delete }}
+          VERIFY: ${{ inputs.verify }}
           LIMIT: ${{ inputs.limit }}
           DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
           DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
@@ -37,5 +42,6 @@ jobs:
         run: |
           args=()
           if [ "$DEL" = "true" ]; then args+=(--delete); fi
+          if [ "$VERIFY" = "true" ]; then args+=(--verify); fi
           if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
           node scripts/storage-cleanup.mjs "${args[@]}"

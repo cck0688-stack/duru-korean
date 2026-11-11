@@ -9,11 +9,14 @@
 //   node scripts/storage-cleanup.mjs                 report only (default)
 //   node scripts/storage-cleanup.mjs --delete        remove the verified duplicate drafts
 //   node scripts/storage-cleanup.mjs --limit=200     look at the first N rows only
+//   node scripts/storage-cleanup.mjs --verify        also download both copies and compare the bytes; only identical ones are deleted
 const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co').replace(/\/+$/, '');
 const KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 const arg = (n) => { const h = process.argv.find((a) => a.startsWith('--' + n + '=')); return h ? h.slice(n.length + 3) : null; };
 const DELETE = process.argv.includes('--delete');
 const LIMIT = Number(arg('limit')) || 0;
+const VERIFY = process.argv.includes('--verify');
+import crypto from 'node:crypto';
 
 const login = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
   method: 'POST', headers: { 'Content-Type': 'application/json', apikey: KEY },
@@ -37,6 +40,13 @@ const sizeOf = async (bucket, key) => {
   return Number.isFinite(Number(n)) ? Number(n) : null;
 };
 
+// The SHA-256 of one stored object (downloaded), or null.
+const hashOf = async (bucket, key) => {
+  const r = await fetch(SUPABASE_URL + '/storage/v1/object/authenticated/' + bucket + '/' + key.split('/').map(encodeURIComponent).join('/'), { headers: auth() });
+  if (!r.ok) return null;
+  return crypto.createHash('sha256').update(Buffer.from(await r.arrayBuffer())).digest('hex');
+};
+
 // Every published file that still has a draft.
 const rows = [];
 for (let from = 0; ; from += 1000) {
@@ -48,7 +58,7 @@ for (let from = 0; ; from += 1000) {
 const todo = LIMIT ? rows.slice(0, LIMIT) : rows;
 console.log('초안이 남은 공개 파일: ' + todo.length + '개');
 
-const verdict = { same: [], differentSize: 0, publicMissing: 0, draftMissing: 0, noPublicKey: 0 };
+const verdict = { same: [], contentDiffers: 0, differentSize: 0, publicMissing: 0, draftMissing: 0, noPublicKey: 0 };
 let sameBytes = 0, i = 0;
 async function worker() {
   while (i < todo.length) {
@@ -59,13 +69,19 @@ async function worker() {
     if (d == null) verdict.draftMissing += 1;
     else if (p == null) verdict.publicMissing += 1;
     else if (d !== p) verdict.differentSize += 1;
-    else { verdict.same.push({ id: f.id, draftKey, size: d }); sameBytes += d; }
+    else {
+      if (VERIFY) {
+        const [hd, hp] = await Promise.all([hashOf('resource-drafts', draftKey), hashOf('resources', f.storage_key)]);
+        if (!hd || !hp || hd !== hp) { verdict.contentDiffers += 1; continue; }
+      }
+      verdict.same.push({ id: f.id, draftKey, size: d }); sameBytes += d;
+    }
   }
 }
 await Promise.all(Array.from({ length: 12 }, worker));
 
 console.log('공개 사본과 크기가 같은 초안(지워도 되는 것): ' + verdict.same.length + '개 · ' + (sameBytes / 1048576).toFixed(0) + ' MB');
-console.log('크기가 달라서 건드리지 않음: ' + verdict.differentSize);
+console.log('크기가 달라서 건드리지 않음: ' + verdict.differentSize + (VERIFY ? ' · 내용이 달라서 건드리지 않음: ' + verdict.contentDiffers : ''));
 console.log('공개 사본이 없어서 건드리지 않음: ' + verdict.publicMissing);
 console.log('초안 파일이 이미 없음: ' + verdict.draftMissing + ' · 공개 경로가 없는 행: ' + verdict.noPublicKey);
 
