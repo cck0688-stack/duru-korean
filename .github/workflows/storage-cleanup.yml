@@ -1,0 +1,41 @@
+# DURU KOREAN — storage clean-up (owner, 2026-11-11): the duplicate draft copies of published worksheet files.
+# Report only unless `delete` is ticked. See scripts/storage-cleanup.mjs.
+name: Storage clean-up
+on:
+  workflow_dispatch:
+    inputs:
+      delete:
+        description: 'Really delete the verified duplicate drafts'
+        type: boolean
+        default: false
+      limit:
+        description: 'Look at the first N rows only (empty = all)'
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: storage-cleanup
+  cancel-in-progress: false
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Clean up
+        env:
+          DEL: ${{ inputs.delete }}
+          LIMIT: ${{ inputs.limit }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          args=()
+          if [ "$DEL" = "true" ]; then args+=(--delete); fi
+          if [ -n "$LIMIT" ]; then args+=(--limit="$LIMIT"); fi
+          node scripts/storage-cleanup.mjs "${args[@]}"
