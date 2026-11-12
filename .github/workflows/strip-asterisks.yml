@@ -1,0 +1,31 @@
+# DURU KOREAN — remove the asterisks from the posts already written (owner, 2026-11-12). Report only unless `apply`.
+name: Strip asterisks from posts
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Really write the changes (otherwise only report)'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Strip
+        env:
+          APPLY: ${{ inputs.apply }}
+          DURU_BOT_EMAIL: ${{ secrets.DURU_BOT_EMAIL }}
+          DURU_BOT_PASSWORD: ${{ secrets.DURU_BOT_PASSWORD }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          args=()
+          if [ "$APPLY" = "true" ]; then args+=(--apply); fi
+          node scripts/strip-asterisks.mjs "${args[@]}"

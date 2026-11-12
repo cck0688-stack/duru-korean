@@ -87,6 +87,13 @@ const SEASON_WORDS = ['단풍', '김장', '추석', '설날', '벚꽃', '장마'
 const SEASON_CAP = 2;
 // Owner, 2026-10-31: the fitting-room face cover post kept coming back — never again.
 // Add a word here to stop a subject for good; candidates that contain one are dropped.
+// Owner, 2026-11-12: no asterisks in a post. "- **계량기함 뚜껑**: 닫혀있고" showed its stars on the page;
+// it is written "- 계량기함 뚜껑: 닫혀있고". Bold (**x**) and italic (*x*) marks are removed, the words stay.
+export function plain(text) {
+  return String(text == null ? '' : text)
+    .replace(/\*\*/g, '')
+    .replace(/(^|[\s(\[“"'])\*([^*\n]+?)\*(?=$|[\s)\].,!?:;”"'])/g, '$1$2');
+}
 export const BANNED_TOPICS = ['탈의실', '피팅룸', '피팅 룸', '페이스 커버', '페이스커버', '얼굴 가리개', '얼굴 커버', '얼굴 덮개', 'face cover', '얼굴 씌'];
 export const isBanned = (t) => BANNED_TOPICS.some((w) => String(t || '').toLowerCase().includes(w.toLowerCase()));
 export const TITLE_FORMS = [
@@ -264,6 +271,7 @@ const BODY_RULES = [
   '5. 소제목을 2~3개 넣습니다. 소제목 줄은 "## "로 시작합니다.',
   '6. 첫 문단은 독자가 실제로 겪는 상황이나 궁금증으로 엽니다.',
   '7. "안녕하세요", "오늘은 ~에 대해 알아보겠습니다"로 시작하지 않습니다.',
+  '8a. 별표(*)를 쓰지 않습니다. 굵은 글씨(**…**)도 강조 표시도 없이, 목록은 "- 항목: 설명"처럼 씁니다.',
   '8. 큰따옴표로 남의 말을 인용한 뒤 "하고", "라고"로 이어 쓰지 않습니다. 간접화법으로 씁니다.',
   '   나쁜 예: 그가 "어디 가요?" 하고 물었어요.  좋은 예: 그가 어디 가냐고 물었어요.',
   '8. **왜 그런지를 반드시 설명합니다.** 무엇을 하는지만 나열한 글은',
@@ -304,7 +312,7 @@ export async function writeBody(cfg, opts) {
   const text = await cfg.provider.chat(cfg, system, user,
     schema(cfg.provider.strictSchema !== false,
       { content: { type: 'string' } }, ['content']));
-  return String(parse(text, '본문 작성').content || '').trim();
+  return plain(parse(text, '본문 작성').content || '').trim();
 }
 
 // ── 3. everything that wraps the body ──────────────────────────────
@@ -382,8 +390,8 @@ export async function wrapUp(cfg, opts) {
   const out = parse(text, '제목·요약·태그');
   return {
     titleCandidates: (out.titleCandidates || []).map((x) => String(x || '').trim()).filter(Boolean),
-    title: String(out.title || '').trim(),
-    summary: String(out.summary || '').trim(),
+    title: plain(out.title || '').trim(),
+    summary: plain(out.summary || '').trim(),
     tags: (out.tags || []).map((x) => String(x || '').trim().replace(/^#+/, '')).filter(Boolean),
     slug: slugify(out.slug),
     imagePrompt: String(out.imagePrompt || '').trim(),

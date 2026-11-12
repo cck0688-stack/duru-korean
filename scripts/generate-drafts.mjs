@@ -28,7 +28,7 @@
 import { resolveProvider } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
 import { useSubscription, subscriptionAccount, usageReport } from './lib/claude-code.mjs';
-import { writeOne, TITLE_FORMS } from './lib/generate.mjs';
+import { writeOne, TITLE_FORMS, plain } from './lib/generate.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
 import { resolvePhotos, findPhoto, photoKey } from '../api/_photos.js';
@@ -352,6 +352,13 @@ async function main() {
           log(`  번역 빠짐 (${missing.join(', ')}) — 다시 시도합니다 (${attempt + 1}/3)`);
           await new Promise((r) => setTimeout(r, 20000 * attempt));
         }
+      }
+      // The translations carry no asterisks either.
+      for (const c of Object.keys(draft.mt)) {
+        const m = draft.mt[c] || {};
+        if (Array.isArray(m.sentences)) m.sentences = m.sentences.map(plain);
+        if (m.title) m.title = plain(m.title);
+        if (m.excerpt) m.excerpt = plain(m.excerpt);
       }
       const got = Object.keys(draft.mt);
       log(got.length
