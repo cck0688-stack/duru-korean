@@ -16,6 +16,7 @@
 
 import { check, repairNote, LIMITS } from './quality.mjs';
 import { pickVoice, dayNumber } from './voices.mjs';
+import { findRelated, describe, headings } from './related.mjs';
 
 export const schema = (strict, properties, required) => {
   const root = { type: 'object', properties, required };
@@ -180,14 +181,12 @@ export async function pickTopic(cfg, opts) {
     ...opts.questions.map((q) => `- ${q}`),
     '',
     opts.existingTitles.length
-      ? ['이미 쓴 글 (겹치지 마세요):', ...opts.existingTitles.map((t) => `- ${t}`)].join('\n')
+      ? ['이 카테고리의 최근 글:', ...opts.existingTitles.slice(0, 12).map((t) => `- ${t}`)].join('\n')
       : '이 사이트에는 아직 글이 없습니다.',
     '',
-    (opts.recentAll && opts.recentAll.length)
-      ? ['모든 카테고리의 최근 글 — 제목이 달라도 같은 소재면 겹친 것입니다 (카페에 노트북을 두는 이야기,',
-         '처음 보는 사람을 어머님·사장님·이모로 부르는 이야기처럼). 이 소재들과 다른 것을 고르세요:',
-         ...opts.recentAll.slice(0, 100).map((r) => `- [${r.category}] ${r.topic || r.title}`)].join('\n')
-      : '',
+    // Owner, 2026-11-13: the same subject is fine when the post goes another way; the same direction is not.
+    // The earlier posts on the chosen subject are looked up by the program and handed to the writer.
+    '같은 소재를 다시 다뤄도 됩니다. 단, 이미 쓴 글과 결론·이유·예시가 같으면 안 되니 후보마다 "이 글만의 방향"(angle)을 한 문장으로 적으세요.',
     '\n절대 쓰지 않는 소재 (주인이 정했습니다): 옷 가게 탈의실과 얼굴 가리개(페이스 커버) 이야기. 후보에도 넣지 마세요.',
     crowdedSeasonWords(opts.recentAll).length
       ? '\n최근 일주일에 이미 두 번 이상 다룬 계절 소재라 이번에는 쓰지 않습니다: ' + crowdedSeasonWords(opts.recentAll).join(', ')
@@ -203,6 +202,7 @@ export async function pickTopic(cfg, opts) {
         type: 'array',
         items: schema(cfg.provider.strictSchema !== false, {
           topic: { type: 'string' },
+          angle: { type: 'string' },
           why: { type: 'string' },
           interestScore: { type: 'integer' },
           usefulnessScore: { type: 'integer' },
@@ -211,7 +211,7 @@ export async function pickTopic(cfg, opts) {
           searchIntentScore: { type: 'integer' },
           uniquenessScore: { type: 'integer' },
           surpriseScore: { type: 'integer' }
-        }, ['topic', 'why', 'interestScore', 'usefulnessScore', 'freshnessScore',
+        }, ['topic', 'angle', 'why', 'interestScore', 'usefulnessScore', 'freshnessScore',
             'curiosityScore', 'searchIntentScore', 'uniquenessScore', 'surpriseScore'])
       },
       chosen: { type: 'string' },
@@ -227,19 +227,17 @@ export async function pickTopic(cfg, opts) {
   // the category for a formatting slip.
   const named = candidates.find((c) => c.topic === out.chosen) ||
     candidates.slice().sort((a, b) => score(b) - score(a))[0];
-  // The model's pick first, then the others by score; the first that is not a
-  // repeat of anything recent and not a crowded season word stands.
-  const seen = opts.allPosts || (opts.recentAll || []).slice(0, 100);
+  // The model's pick first, then the others by score; a banned subject or a crowded season word is skipped.
+  // A subject already written about is NOT skipped any more (owner, 2026-11-13): the writer is shown what the
+  // earlier posts said and goes another way (writeOne).
   const banned = crowdedSeasonWords(opts.recentAll);
-  const closeness = (c) => Math.max(0, ...seen.map((r) => Math.max(overlap(c.topic, r.topic || ''), overlap(c.topic, r.title || ''))));
   const ordered = [named, ...candidates.filter((c) => c !== named).sort((a, b) => score(b) - score(a))];
   const allowed = ordered.filter((c) => !isBanned(c.topic));
   if (!allowed.length) throw new Error('주제 선정: 후보가 모두 금지된 소재입니다.');
-  const fresh = allowed.find((c) => closeness(c) < 0.3 && !banned.some((w) => c.topic.includes(w)));
-  const chosen = fresh || allowed.slice().sort((a, b) => closeness(a) - closeness(b))[0];
-  if (chosen !== named) out.chosenReason = '(겹치지 않게 바꿈) ' + (chosen.why || '');
+  const chosen = allowed.find((c) => !banned.some((w) => c.topic.includes(w))) || allowed[0];
+  if (chosen !== named) out.chosenReason = '(금지·계절 소재를 피해 바꿈) ' + (chosen.why || '');
 
-  return { candidates, chosen: chosen.topic, reason: out.chosenReason || chosen.why, scores: score.parts(chosen) };
+  return { candidates, chosen: chosen.topic, angle: String(chosen.angle || '').trim(), reason: out.chosenReason || chosen.why, scores: score.parts(chosen) };
 }
 
 const SCORES = ['interestScore', 'usefulnessScore', 'freshnessScore',
@@ -303,10 +301,16 @@ export async function writeBody(cfg, opts) {
 
   const system = [READER, '', '지금은 본문만 쓰는 단계입니다. 제목은 나중에 붙입니다.',
                   '', BODY_RULES, ...shape].join('\n');
+  const related = opts.related || [];
   const user = [
     `카테고리: ${opts.category} — ${opts.about}`,
     `주제: ${opts.topic}`,
-    opts.reason ? `이 주제를 고른 이유: ${opts.reason}` : ''
+    opts.angle ? `이 글의 방향: ${opts.angle}` : '',
+    opts.reason ? `이 주제를 고른 이유: ${opts.reason}` : '',
+    related.length ? ['', '[같은 소재를 이미 다룬 글]', ...related.map(describe), '',
+      '이 글들과 같은 결론, 같은 이유, 같은 예시, 같은 소제목을 쓰지 마세요. 소재가 같아도 이 글만의 다른 각도로 쓰세요',
+      '(다른 상황, 다른 독자, 다른 원인, 흔한 실수, 반대 경우 등). 이미 한 말을 줄여서 되풀이하는 글은 쓰지 않습니다.'].join('\n') : '',
+    opts.redo ? '\n[다시 쓰는 이유]\n' + opts.redo : ''
   ].filter(Boolean).join('\n');
 
   const text = await cfg.provider.chat(cfg, system, user,
@@ -497,6 +501,20 @@ export async function repair(cfg, draft, problems) {
 
 // ── the whole thing, for one category ──────────────────────────────
 
+// Does the new post go the same way as one of the earlier ones? A small model, asked only when there are earlier
+// posts on the subject, and only for the title, summary and sub-headings.
+async function judgeDirection(cfg, draft, related) {
+  const system = ['당신은 블로그 편집자입니다. 새 글이 이미 있는 글과 같은 방향인지 판단합니다.',
+    '같은 방향 = 같은 결론, 같은 이유 설명, 같은 예시, 같은 순서의 소제목. 소재가 같아도 다른 상황·원인·독자·관점이면 다른 방향입니다.'].join('\n');
+  const user = ['[새 글]', `제목: ${draft.title}`, `요약: ${draft.summary}`, `소제목: ${headings(draft.content).join(' / ')}`,
+    '', '[이미 있는 글]', ...related.map((r, i) => `${i}. ` + describe(r).replace(/^- /, ''))].join('\n');
+  const text = await cfg.provider.chat(cfg, system, user, schema(cfg.provider.strictSchema !== false, {
+    sameDirection: { type: 'boolean' }, which: { type: 'integer' }, why: { type: 'string' }
+  }, ['sameDirection', 'which', 'why']));
+  const out = parse(text, '방향 판단');
+  return { same: !!out.sameDirection, which: Number.isInteger(out.which) ? out.which : 0, why: String(out.why || '') };
+}
+
 export async function writeOne(cfg, opts, log) {
   const note = log || (() => {});
 
@@ -512,13 +530,36 @@ export async function writeOne(cfg, opts, log) {
   const voice = opts.voice || pickVoice(dayNumber(opts.day), opts.slot || 0, opts.slots || 1);
   note(`형식: ${voice.name}`);
 
+  // The earlier posts on this subject (found by the program, no model): the writer is told what they said.
+  const related = (opts.index && !opts.fixedTopic)
+    ? findRelated(opts.index, picked.chosen + ' ' + (picked.angle || '')) : [];
+  if (related.length) note(`같은 소재를 다룬 글 ${related.length}편: ` + related.map((r) => r.title.slice(0, 24)).join(' / '));
+  const angle = picked.angle || '';
+
   note('본문 쓰는 중');
-  const content = await writeBody(cfg, {
-    ...opts, topic: picked.chosen, reason: picked.reason, voice: voice
+  let content = await writeBody(cfg, {
+    ...opts, topic: picked.chosen, angle, related, reason: picked.reason, voice: voice
   });
 
   note('제목·요약·태그 만드는 중');
-  const wrapped = await wrapUp(cfg, { ...opts, topic: picked.chosen, content: content });
+  let wrapped = await wrapUp(cfg, { ...opts, topic: picked.chosen, content: content });
+
+  // Only when there are earlier posts on the subject: a small model says whether this one goes the same way.
+  // If it does, it is written once more, from another side. (A judge that fails never costs the post.)
+  if (related.length && opts.judge !== false) {
+    try {
+      const verdict = await judgeDirection(opts.judge || cfg, { title: wrapped.title, summary: wrapped.summary, content }, related);
+      if (verdict.same) {
+        const twin = related[Math.min(Math.max(verdict.which, 0), related.length - 1)];
+        note(`같은 방향이라 다시 씁니다 (「${twin.title.slice(0, 26)}」와 겹침: ${verdict.why.slice(0, 60)})`);
+        content = await writeBody(cfg, {
+          ...opts, topic: picked.chosen, angle, related, reason: picked.reason, voice: voice,
+          redo: `앞서 쓴 글은 「${twin.title}」와 같은 방향이라 반려되었습니다 (${verdict.why}). 소제목과 결론과 예시를 모두 바꿔서, 완전히 다른 각도로 쓰세요.`
+        });
+        wrapped = await wrapUp(cfg, { ...opts, topic: picked.chosen, content: content });
+      } else note('방향이 달라서 그대로 씁니다');
+    } catch (err) { note('방향 판단을 하지 못했습니다 (글은 그대로 씁니다): ' + err.message); }
+  }
 
   let draft = {
     category: opts.category,

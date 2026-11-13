@@ -29,6 +29,7 @@ import { resolveProvider } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
 import { useSubscription, subscriptionAccount, usageReport } from './lib/claude-code.mjs';
 import { writeOne, TITLE_FORMS, plain } from './lib/generate.mjs';
+import { buildIndex, headings } from './lib/related.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
 import { resolvePhotos, findPhoto, photoKey } from '../api/_photos.js';
@@ -177,6 +178,13 @@ async function main() {
     log('글을 쓸 수 없습니다:', err.message);
     process.exit(1);
   }
+  // The same-direction question goes to a small model (owner, 2026-11-13: few tokens). Unset on an API key.
+  let judgeCfg = null;
+  try {
+    if (useSubscription(process.env, 'BLOG_PROVIDER')) {
+      judgeCfg = withPatience(Object.assign(subscriptionAccount(process.env.BLOG_JUDGE_MODEL || 'haiku'), { timeoutMs: 120000 }), log);
+    }
+  } catch (err) { /* without a judge the posts are still written */ }
   // A photo service is optional. Without a key the posts are written
   // exactly as before, with nothing where the picture would be.
   let photoCfg = null;
@@ -288,12 +296,16 @@ async function main() {
         existing: existing,
         recentAll: existing.recentAll,
         allPosts: existing.allPosts,
+        // The earlier posts on the same subject (no model): rebuilt each time, so today's earlier shelves count too.
+        index: existing.allPosts && existing.allPosts.length ? buildIndex(existing.allPosts) : null,
+        // A small model for the one question "does this go the same way as an earlier post?".
+        judge: judgeCfg,
         // One of five title forms, walked like the voice, so a morning's eight differ.
         titleForm: TITLE_FORMS[(dayNumber(today) * 3 + slot) % TITLE_FORMS.length]
       }, (m) => log(`  ${m}`));
       // Today's own posts count as recent for the shelves written after this one.
       if (draft && draft.title) existing.recentAll.unshift({ title: draft.title, topic: draft.topic, category: category.id });
-      if (draft && draft.title && existing.allPosts) existing.allPosts.unshift({ title: draft.title, topic: draft.topic });
+      if (draft && draft.title && existing.allPosts) existing.allPosts.unshift({ title: draft.title, topic: draft.topic, excerpt: draft.summary, heads: headings(draft.content) });
 
       if (draft.problems.length) {
         log(`  검수 통과 못 함 — 저장하지 않습니다:`);
@@ -454,7 +466,7 @@ function stageOf(err) {
 
 async function readExisting(call) {
   const rows = await call(
-    'posts?select=title,slug,category,topic,image_url&order=post_date.desc,created_at.desc&limit=1000');
+    'posts?select=title,slug,category,topic,image_url,excerpt,body&order=post_date.desc,created_at.desc&limit=1000');
   const byCategory = {};
   (rows || []).forEach((r) => {
     (byCategory[r.category] = byCategory[r.category] || []).push(r.title);
@@ -465,7 +477,7 @@ async function readExisting(call) {
     byCategory: byCategory,
     recentAll: (rows || []).slice(0, 100).map((r) => ({ title: r.title, topic: r.topic, category: r.category })),
     // Every post on the site, for the repeat check (the prompt only shows the latest hundred).
-    allPosts: (rows || []).map((r) => ({ title: r.title, topic: r.topic })),
+    allPosts: (rows || []).map((r) => ({ title: r.title, topic: r.topic, excerpt: r.excerpt, heads: headings(r.body) })),
     photos: new Set((rows || []).map((r) => photoKey(r.image_url)).filter(Boolean))
   };
 }
