@@ -11,10 +11,15 @@
 //                   falls back to Supabase)   503 R2 is not set up
 //
 // Only keys that are a published resource_files.storage_key are linked; anything else is refused.
+//
+// Owner, 2026-11-14: a robot that signs up and then takes the worksheets one by one is stopped by a daily limit
+// per member (FILE_DAILY_LIMIT, 80 by default; admins are exempt). The count is a small object in R2
+// (_limits/<member>/<Seoul day>), so no table is needed. 429 = the day's limit is used up.
 
 import { presign, r2FromEnv } from './_r2.js';
 
 const SUPABASE_URL = (process.env.SUPABASE_URL || 'https://ejiwgvlinlffkyycuyym.supabase.co').replace(/\/+$/, '');
+const DAILY_LIMIT = Number(process.env.FILE_DAILY_LIMIT) || 80;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY || 'sb_publishable__OrrC8MkIV5w5f5uhv622A_6E9OhGl2';
 
 function send(res, status, body) {
@@ -60,6 +65,21 @@ export default async function handler(req, res) {
     if (head.status === 404) return send(res, 404, { error: 'Not in R2.' });
     if (!head.ok) return send(res, 503, { error: 'R2 said ' + head.status });
   } catch (err) { return send(res, 503, { error: 'R2 could not be reached.' }); }
+
+  // The day's count for this member (admins are not counted).
+  try {
+    const adm = await fetch(SUPABASE_URL + '/rest/v1/admin_users?select=user_id&limit=1&user_id=eq.' + encodeURIComponent(user.id),
+      { headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + token } });
+    const isAdmin = adm.ok && (await adm.json()).length > 0;
+    if (!isAdmin) {
+      const day = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);   // Seoul
+      const counter = '_limits/' + user.id + '/' + day;
+      const got = await fetch(presign({ ...r2, key: counter, method: 'GET', expires: 60 }));
+      const used = got.ok ? Number((await got.json().catch(() => ({}))).n) || 0 : 0;
+      if (used >= DAILY_LIMIT) return send(res, 429, { error: 'Daily limit reached.', limit: DAILY_LIMIT });
+      await fetch(presign({ ...r2, key: counter, method: 'PUT', expires: 60 }), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ n: used + 1 }) });
+    }
+  } catch (err) { /* a counter that cannot be kept never stops a visitor */ }
 
   return send(res, 200, { url: presign({ ...r2, key, method: 'GET', expires: 300, download }) });
 }

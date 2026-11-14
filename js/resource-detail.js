@@ -432,7 +432,7 @@ function renderReadOnline(resource, lang) {
       var btn = this; btn.disabled = true;
       fetchLink(false).then(function (url) { window.open(url, '_blank', 'noopener'); })
         .catch(function (err) {
-          if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
+          if (err.dailyLimit && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.dailyLimit', 'You have used today\'s download limit. Please come back tomorrow.')); else if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
         })
         .then(function () { btn.disabled = false; });
     });
@@ -440,7 +440,7 @@ function renderReadOnline(resource, lang) {
       var btn = this; btn.disabled = true;
       fetchLink(true).then(function (url) { window.location.href = url; })
         .catch(function (err) {
-          if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
+          if (err.dailyLimit && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.dailyLimit', 'You have used today\'s download limit. Please come back tomorrow.')); else if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
         })
         .then(function () { btn.disabled = false; });
     });
@@ -477,7 +477,7 @@ function renderReadOnline(resource, lang) {
         document.body.appendChild(frame);
       }).catch(function (err) {
         if (tab) tab.close();
-        if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
+        if (err.dailyLimit && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.dailyLimit', 'You have used today\'s download limit. Please come back tomorrow.')); else if (err.message !== 'login' && err.message !== 'no file' && window.DURU_NOTIFY) window.DURU_NOTIFY.error(t('resources.downloadFailed', 'That download link could not be created. Please try again.'));
       }).then(function () { btn.disabled = false; });
     });
 

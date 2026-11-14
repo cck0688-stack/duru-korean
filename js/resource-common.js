@@ -269,6 +269,7 @@
         body: JSON.stringify({ key: storageKey, download: download === true ? true : (download ? String(download) : '') })
       });
     }).then(function (r) {
+      if (r.status === 429) { var lim = new Error('limit'); lim.dailyLimit = true; throw lim; }
       if (!r.ok) throw new Error('file-link ' + r.status);
       return r.json();
     }).then(function (j) {
@@ -280,7 +281,8 @@
   function signedUrl(client, storageKey, download, bucket) {
     if (bucket && bucket !== BUCKET) return supabaseSignedUrl(client, storageKey, download, bucket); // the drafts, for an admin
     if (window.DURU_NO_R2) return supabaseSignedUrl(client, storageKey, download, bucket);
-    return r2Url(client, storageKey, download).catch(function () {
+    return r2Url(client, storageKey, download).catch(function (err) {
+      if (err && err.dailyLimit) throw err;                      // today's limit is used up: no other route
       return supabaseSignedUrl(client, storageKey, download, bucket);
     });
   }

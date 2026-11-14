@@ -925,5 +925,6 @@
   "auth.errors.nicknameFailed": "닉네임을 저장하지 못했습니다. 다시 시도해 주세요.",
   "auth.nicknameTitle": "닉네임을 정해 주세요",
   "auth.nicknameSub": "닉네임은 글과 댓글에 함께 표시됩니다. 계정을 쓰려면 꼭 필요합니다.",
-  "auth.nicknameSave": "저장"
+  "auth.nicknameSave": "저장",
+  "resources.dailyLimit": "오늘 내려받을 수 있는 횟수를 모두 사용했어요. 내일 다시 이용해 주세요."
 }

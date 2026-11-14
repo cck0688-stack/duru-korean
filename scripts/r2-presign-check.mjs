@@ -19,4 +19,13 @@ for (const f of rows) {
 const miss = await fetch(presign({ ...r2, key: 'auto/does-not-exist/xx.pdf', method: 'HEAD', expires: 60 }), { method: 'HEAD' });
 console.log((miss.status === 404 ? '✔ ' : '✗ ') + '없는 파일은 HEAD ' + miss.status + ' (404 이어야 합니다)');
 if (miss.status !== 404) bad += 1;
+// The daily-limit counter (api/file-link.js) is a small object written and read through signed links.
+const ck = '_limits/_test/' + Date.now();
+const put = await fetch(presign({ ...r2, key: ck, method: 'PUT', expires: 60 }), { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ n: 7 }) });
+const got = await fetch(presign({ ...r2, key: ck, method: 'GET', expires: 60 }));
+const n = got.ok ? (await got.json()).n : null;
+const del = await fetch(presign({ ...r2, key: ck, method: 'DELETE', expires: 60 }), { method: 'DELETE' });
+const okCounter = put.ok && n === 7;
+console.log((okCounter ? '✔ ' : '✗ ') + '일일 횟수 기록: PUT ' + put.status + ' · GET ' + got.status + ' → n=' + n + ' · 지움 ' + del.status);
+if (!okCounter) bad += 1;
 process.exit(bad ? 1 : 0);
