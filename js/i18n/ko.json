@@ -903,5 +903,22 @@
   "adminInbox.copySql": "이 줄 복사",
   "adminInbox.copied": "복사했습니다",
   "bookAudio.tabAudio": "오디오",
-  "bookAudio.tabWorksheet": "워크시트"
+  "bookAudio.tabWorksheet": "워크시트",
+  "adminInbox.tabMembers": "회원",
+  "members.total": "회원",
+  "members.today": "오늘 가입",
+  "members.week": "최근 7일",
+  "members.search": "이메일이나 닉네임으로 찾기",
+  "members.colJoined": "가입일",
+  "members.colNickname": "닉네임",
+  "members.colEmail": "이메일",
+  "members.colMethod": "가입 방식",
+  "members.colLast": "마지막 접속",
+  "members.colMarketing": "마케팅 동의",
+  "members.admin": "관리자",
+  "members.unconfirmed": "이메일 인증 전",
+  "members.empty": "찾는 회원이 없습니다.",
+  "members.more": "더 보기",
+  "members.needSql": "회원 목록을 보려면 데이터베이스에 함수 하나를 한 번만 만들어야 합니다. Supabase → SQL Editor에 아래 내용을 붙여넣고 실행해 주세요:",
+  "members.failed": "회원 목록을 불러오지 못했습니다"
 }

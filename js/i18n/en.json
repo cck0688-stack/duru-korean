@@ -903,5 +903,22 @@
   "adminInbox.copySql": "Copy the line",
   "adminInbox.copied": "Copied",
   "bookAudio.tabAudio": "Audio",
-  "bookAudio.tabWorksheet": "Worksheet"
+  "bookAudio.tabWorksheet": "Worksheet",
+  "adminInbox.tabMembers": "Members",
+  "members.total": "Members",
+  "members.today": "joined today",
+  "members.week": "last 7 days",
+  "members.search": "Search by email or nickname",
+  "members.colJoined": "Joined",
+  "members.colNickname": "Nickname",
+  "members.colEmail": "Email",
+  "members.colMethod": "Sign-in",
+  "members.colLast": "Last seen",
+  "members.colMarketing": "Marketing",
+  "members.admin": "admin",
+  "members.unconfirmed": "Email not confirmed",
+  "members.empty": "No members found.",
+  "members.more": "Show more",
+  "members.needSql": "To list the members the database needs one function, once. Open Supabase → SQL Editor, paste this and run it:",
+  "members.failed": "Could not load the members"
 }

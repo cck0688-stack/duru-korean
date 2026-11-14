@@ -63,6 +63,7 @@
       <div class="inbox-tabs" role="tablist">
         <button type="button" class="inbox-tab is-on" data-tab="post" role="tab"><span data-i18n="adminInbox.tabBlog">Blog posts</span> <b id="inboxCountPost">–</b></button>
         <button type="button" class="inbox-tab" data-tab="res" role="tab"><span data-i18n="adminInbox.tabFree">Free downloads</span> <b id="inboxCountRes">–</b></button>
+        <button type="button" class="inbox-tab" data-tab="members" role="tab"><span data-i18n="adminInbox.tabMembers">Members</span> <b id="membersCount">–</b></button>
         <button type="button" class="btn btn-ghost inbox-refresh" id="inboxRefresh" data-i18n="review.refresh">Refresh</button>
       </div>
       <div class="inbox-cols">
@@ -98,6 +99,28 @@
           <div class="review-empty" id="inboxEmpty-res" hidden><p data-i18n="adminInbox.nothing">Nothing is waiting for you.</p></div>
           <div id="inboxList-res"></div>
         </section>
+        <section class="inbox-col" data-kind="members" id="membersPanel" hidden>
+          <div class="inbox-notice" id="membersNotice" hidden>
+            <p></p>
+            <pre class="members-sql" hidden></pre>
+            <button type="button" class="btn btn-ghost" data-i18n="adminInbox.copySql">Copy the line</button>
+          </div>
+          <div class="members-tools" id="membersTools" hidden>
+            <span class="members-summary" id="membersSummary" role="status"></span>
+            <input type="search" id="membersSearch" class="members-search" data-i18n-placeholder="members.search" placeholder="Search by email or nickname">
+            <button type="button" class="btn btn-ghost" id="membersRefresh" data-i18n="review.refresh">Refresh</button>
+          </div>
+          <div class="members-wrap">
+            <table class="members-table" id="membersTable" hidden>
+              <thead><tr>
+                <th data-i18n="members.colJoined">Joined</th><th data-i18n="members.colNickname">Nickname</th><th data-i18n="members.colEmail">Email</th>
+                <th data-i18n="members.colMethod">Sign-in</th><th data-i18n="members.colLast">Last seen</th><th data-i18n="members.colMarketing">Marketing</th>
+              </tr></thead>
+              <tbody id="membersBody"></tbody>
+            </table>
+          </div>
+          <button type="button" class="btn btn-ghost members-more" id="membersMore" hidden data-i18n="members.more">Show more</button>
+        </section>
       </div>
     </div>
   </section>
@@ -113,6 +136,7 @@
 <script src="js/markdown.js"></script>
 <script src="js/auto-translate.js"></script>
 <script src="js/admin-inbox.js"></script>
+<script src="js/admin-members.js"></script>
 <script>window.DURU_PAGE_TITLE_KEY = 'adminInbox.title';</script>
 <script src="js/i18n.js"></script>
 </body>

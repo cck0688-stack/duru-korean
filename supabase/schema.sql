@@ -2375,3 +2375,47 @@ revoke all on public.resource_sources from anon;
 -- like any download.
 
 alter table public.posts add column if not exists pdf jsonb;
+
+-- ------------------------------------------------------------------
+-- admin list of the members who signed up (owner, 2026-11-14)
+-- ------------------------------------------------------------------
+-- The admin window (admin.html, the "Members" tab) shows the people who have really signed up. auth.users
+-- cannot be read from a browser, so this runs the lookup server-side and refuses anyone who is not an
+-- admin. It returns no birth date and nothing else private: the address, the nickname, the sign-in
+-- method, when they joined and were last seen, and whether they agreed to marketing mail.
+
+create or replace function public.admin_list_members()
+returns table (
+  member_id uuid,
+  member_email text,
+  nickname text,
+  provider text,
+  joined_at timestamptz,
+  last_seen_at timestamptz,
+  email_confirmed boolean,
+  marketing_agreed boolean,
+  is_admin_member boolean
+)
+language plpgsql stable security definer set search_path = public, auth as $$
+begin
+  if not public.is_admin() then
+    raise exception 'not authorized';
+  end if;
+  return query
+  select u.id,
+         u.email::text,
+         p.nickname,
+         coalesce(u.raw_app_meta_data->>'provider', 'email'),
+         u.created_at,
+         u.last_sign_in_at,
+         (u.email_confirmed_at is not null),
+         coalesce(p.marketing_agreed, false),
+         exists (select 1 from public.admin_users a where a.user_id = u.id)
+  from auth.users u
+  left join public.user_profiles p on p.user_id = u.id
+  order by u.created_at desc;
+end;
+$$;
+
+revoke all on function public.admin_list_members() from public, anon;
+grant execute on function public.admin_list_members() to authenticated;
