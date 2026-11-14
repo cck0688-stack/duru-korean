@@ -262,10 +262,12 @@
   function r2Url(client, storageKey, download) {
     return client.auth.getSession().then(function (s) {
       var token = s && s.data && s.data.session && s.data.session.access_token;
-      if (!token) throw new Error('no session');
+      if (!token && !window.DURU_FREE_PASS) throw new Error('no session');   // a visitor on a free open (below)
+      var headers = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = 'Bearer ' + token;
       return fetch('/api/file-link', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        headers: headers,
         body: JSON.stringify({ key: storageKey, download: download === true ? true : (download ? String(download) : '') })
       });
     }).then(function (r) {
@@ -282,7 +284,8 @@
     if (bucket && bucket !== BUCKET) return supabaseSignedUrl(client, storageKey, download, bucket); // the drafts, for an admin
     if (window.DURU_NO_R2) return supabaseSignedUrl(client, storageKey, download, bucket);
     return r2Url(client, storageKey, download).catch(function (err) {
-      if (err && err.dailyLimit) throw err;                      // today's limit is used up: no other route
+      if (err && err.dailyLimit) throw err;
+      if (window.DURU_FREE_PASS) throw err;                      // a visitor has no Supabase route
       return supabaseSignedUrl(client, storageKey, download, bucket);
     });
   }
@@ -509,6 +512,37 @@
       });
   }
 
+  // Owner, 2026-11-14: three worksheets are free to open without an account; the fourth shows the 5-second
+  // sign-up. The browser counts the distinct sheets (the server only keeps a per-address ceiling against robots).
+  var FREE_KEY = 'duru_free_opens', FREE_MAX = 3;
+  function freeOpened() { try { var a = JSON.parse(localStorage.getItem(FREE_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+  function freeLeft(id) { var a = freeOpened(); return a.indexOf(id) >= 0 ? FREE_MAX - a.length : Math.max(0, FREE_MAX - a.length); }
+  function freeUse(id) { try { var a = freeOpened(); if (a.indexOf(id) < 0) { a.push(id); localStorage.setItem(FREE_KEY, JSON.stringify(a)); } } catch (e) { /* no storage: the server ceiling still holds */ } }
+  function canOpenFree(id) { var a = freeOpened(); return a.indexOf(id) >= 0 || a.length < FREE_MAX; }
+
+  function openSignup() {
+    if (window.DURU_OPEN_AUTH) window.DURU_OPEN_AUTH('signup'); else openLogin();
+  }
+  // The gate shown at the fourth sheet.
+  function showSignupGate() {
+    var tt = function (k, d) { return (window.DURU_I18N && window.DURU_I18N.t && window.DURU_I18N.t(k) !== k) ? window.DURU_I18N.t(k) : d; };
+    var old = document.getElementById('freeGate'); if (old) old.remove();
+    var o = document.createElement('div'); o.id = 'freeGate'; o.className = 'free-gate';
+    o.innerHTML = '<div class="free-gate-box" role="dialog" aria-modal="true">' +
+      '<p class="free-gate-kicker">' + escapeHTML(tt('gate.kicker', 'You have used your 3 free worksheets')) + '</p>' +
+      '<h2>' + escapeHTML(tt('gate.title', 'Sign up in 5 seconds — keep every worksheet free')) + '</h2>' +
+      '<p>' + escapeHTML(tt('gate.body', 'One free account opens all the worksheets, in every language. No card, no fuss.')) + '</p>' +
+      '<button type="button" class="btn btn-primary free-gate-go">' + escapeHTML(tt('gate.cta', 'Create my free account')) + '</button>' +
+      '<button type="button" class="free-gate-login">' + escapeHTML(tt('gate.login', 'I already have an account — log in')) + '</button>' +
+      '<button type="button" class="free-gate-close" aria-label="Close">×</button></div>';
+    document.body.appendChild(o);
+    var close = function () { o.remove(); };
+    o.addEventListener('click', function (e) { if (e.target === o) close(); });
+    o.querySelector('.free-gate-close').addEventListener('click', close);
+    o.querySelector('.free-gate-go').addEventListener('click', function () { close(); openSignup(); });
+    o.querySelector('.free-gate-login').addEventListener('click', function () { close(); openLogin(); });
+  }
+
   function openLogin() {
     var trigger = document.getElementById('authTrigger');
     if (trigger) trigger.click();
@@ -526,7 +560,7 @@
     localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
     cleanKeyword: cleanKeyword, keywordFor: keywordFor, downloadName: downloadName,
-    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin,
+    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin, freeLeft: freeLeft, freeUse: freeUse, canOpenFree: canOpenFree, showSignupGate: showSignupGate,
     fillAdminSources: fillAdminSources
   };
 })();

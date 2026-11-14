@@ -229,6 +229,7 @@
       el.addEventListener('click', () => showPanel(el.dataset.tab));
     });
 
+    window.DURU_OPEN_AUTH = openModal;
     const trigger = document.getElementById('authTrigger');
     if (trigger) trigger.addEventListener('click', () => openModal('login'));
 

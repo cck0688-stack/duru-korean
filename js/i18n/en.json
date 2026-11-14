@@ -934,5 +934,13 @@
   "auth.profileTitle": "A little more about you",
   "auth.profileSub": "Please fill this in to use your account. Your nickname is shown with your posts and replies.",
   "members.colNationality": "Nationality",
-  "members.updateSql": "To show the nationality, run this once more in Supabase → SQL Editor (it only reads data):"
+  "members.updateSql": "To show the nationality, run this once more in Supabase → SQL Editor (it only reads data):",
+  "resource.freeLeft": "{n} free worksheets left — then sign up in 5 seconds to keep going.",
+  "resource.signupToDownload": "Sign up in 5 seconds to download",
+  "resource.signupNote": "You have used your 3 free worksheets. Sign up in 5 seconds — it is free.",
+  "gate.kicker": "You have used your 3 free worksheets",
+  "gate.title": "Sign up in 5 seconds — keep every worksheet free",
+  "gate.body": "One free account opens all the worksheets, in every language. No card, no fuss.",
+  "gate.cta": "Create my free account",
+  "gate.login": "I already have an account — log in"
 }

@@ -390,8 +390,18 @@ function renderReadOnline(resource, lang) {
       $('resPrintBtn').hidden = !!(have && chosen.file_type && String(chosen.file_type).toLowerCase() !== 'pdf');
       var label = $('resDownloadLabel');
       if (!currentUser) {
-        label.textContent = t('resources.loginToDownload', 'Log in to download');
-        prev.hidden = true;
+        // Free opens left (owner, 2026-11-14): normal buttons while there are some, the sign-up note when not.
+        var left = resource ? R.freeLeft(resource.id) : 0;
+        if (left > 0) {
+          label.textContent = t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', fmt);
+          prev.textContent = t('resource.previewFile', 'Preview {fmt}').replace('{fmt}', fmt);
+          prev.hidden = !(have && R.PREVIEWABLE[chosen.file_type]);
+          note.textContent = t('resource.freeLeft', '{n} free worksheets left — then sign up in 5 seconds to keep going.').replace('{n}', left);
+        } else {
+          label.textContent = t('resource.signupToDownload', 'Sign up in 5 seconds to download');
+          prev.hidden = true;
+          note.textContent = t('resource.signupNote', 'You have used your 3 free worksheets. Sign up in 5 seconds — it is free.');
+        }
         note.hidden = false;
       } else {
         label.textContent = t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', fmt);
@@ -413,8 +423,15 @@ function renderReadOnline(resource, lang) {
     });
 
     function fetchLink(download) {
-      if (!currentUser) { R.openLogin(); return Promise.reject(new Error('login')); }
       if (!chosen) return Promise.reject(new Error('no file'));
+      // A visitor: three sheets are free (owner, 2026-11-14), the fourth shows the 5-second sign-up.
+      if (!currentUser) {
+        if (!R.canOpenFree(resource.id) || !chosen.storage_key) { R.showSignupGate(); return Promise.reject(new Error('login')); }
+        window.DURU_FREE_PASS = true;
+        var p = R.signedUrl(client, chosen.storage_key, download ? R.downloadName(resource, chosen) : false);
+        return p.then(function (u) { window.DURU_FREE_PASS = false; R.freeUse(resource.id); renderButtons(); return u; },
+          function (e) { window.DURU_FREE_PASS = false; throw e; });
+      }
       // Saved as "bank(en).pdf": a short keyword and the language.
       if (download) download = R.downloadName(resource, chosen);
       if (chosen.storage_key) return R.signedUrl(client, chosen.storage_key, download);

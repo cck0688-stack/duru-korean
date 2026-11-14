@@ -934,5 +934,13 @@
   "auth.profileTitle": "정보를 조금만 더 알려 주세요",
   "auth.profileSub": "계정을 쓰려면 아래를 입력해 주세요. 닉네임은 글과 댓글에 함께 표시됩니다.",
   "members.colNationality": "국적",
-  "members.updateSql": "국적을 보려면 Supabase → SQL Editor에서 아래 내용을 한 번 더 실행해 주세요 (데이터를 읽기만 합니다):"
+  "members.updateSql": "국적을 보려면 Supabase → SQL Editor에서 아래 내용을 한 번 더 실행해 주세요 (데이터를 읽기만 합니다):",
+  "resource.freeLeft": "무료 자료 {n}개 남음 — 이후에는 5초 가입으로 계속 이용하세요.",
+  "resource.signupToDownload": "5초 가입하고 다운로드",
+  "resource.signupNote": "무료 자료 3개를 모두 보셨습니다. 5초면 가입됩니다. 무료예요.",
+  "gate.kicker": "무료로 볼 수 있는 자료 3개를 모두 보셨어요",
+  "gate.title": "5초 가입으로 모든 자료를 계속 무료로",
+  "gate.body": "무료 계정 하나로 모든 자료를 모든 언어로 열 수 있어요. 카드 등록 없이 바로 시작합니다.",
+  "gate.cta": "무료로 가입하기",
+  "gate.login": "이미 계정이 있어요 — 로그인"
 }
