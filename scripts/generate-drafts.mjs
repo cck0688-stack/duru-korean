@@ -29,7 +29,7 @@ import { resolveProvider } from '../api/_providers.js';
 import { withPatience } from './lib/patiently.mjs';
 import { useSubscription, subscriptionAccount, usageReport } from './lib/claude-code.mjs';
 import { writeOne, TITLE_FORMS, plain } from './lib/generate.mjs';
-import { buildIndex, headings } from './lib/related.mjs';
+import { buildIndex, headings, tailOf } from './lib/related.mjs';
 import { seasonFor, questionsFor, seoulToday, seoulDate } from './lib/season.mjs';
 import { pickVoice, dayNumber } from './lib/voices.mjs';
 import { resolvePhotos, findPhoto, photoKey } from '../api/_photos.js';
@@ -305,7 +305,7 @@ async function main() {
       }, (m) => log(`  ${m}`));
       // Today's own posts count as recent for the shelves written after this one.
       if (draft && draft.title) existing.recentAll.unshift({ title: draft.title, topic: draft.topic, category: category.id });
-      if (draft && draft.title && existing.allPosts) existing.allPosts.unshift({ title: draft.title, topic: draft.topic, excerpt: draft.summary, heads: headings(draft.content) });
+      if (draft && draft.title && existing.allPosts) existing.allPosts.unshift({ title: draft.title, topic: draft.topic, excerpt: draft.summary, heads: headings(draft.content), tail: tailOf(draft.content) });
 
       if (draft.problems.length) {
         log(`  검수 통과 못 함 — 저장하지 않습니다:`);
@@ -477,7 +477,7 @@ async function readExisting(call) {
     byCategory: byCategory,
     recentAll: (rows || []).slice(0, 100).map((r) => ({ title: r.title, topic: r.topic, category: r.category })),
     // Every post on the site, for the repeat check (the prompt only shows the latest hundred).
-    allPosts: (rows || []).map((r) => ({ title: r.title, topic: r.topic, excerpt: r.excerpt, heads: headings(r.body) })),
+    allPosts: (rows || []).map((r) => ({ title: r.title, topic: r.topic, excerpt: r.excerpt, heads: headings(r.body), tail: tailOf(r.body) })),
     photos: new Set((rows || []).map((r) => photoKey(r.image_url)).filter(Boolean))
   };
 }

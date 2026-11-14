@@ -60,8 +60,15 @@ export function findRelated(index, text, { k = 3, min = 0.15 } = {}) {
     .map((x) => ({ ...x.post, heads: x.post.heads || headings(x.post.body), score: x.score }));
 }
 
-// What an earlier post already said, in a few lines for a prompt.
-export function describe(p) {
+// What an earlier post already said, in a few lines for a prompt. `withEnd` adds its last paragraph (its conclusion).
+export function describe(p, withEnd = false) {
   const heads = (p.heads || headings(p.body)).slice(0, 5);
-  return `- 「${p.title}」` + (p.excerpt ? ` — ${String(p.excerpt).slice(0, 110)}` : '') + (heads.length ? `\n  소제목: ${heads.join(' / ')}` : '');
+  return `- 「${p.title}」` + (p.excerpt ? ` — ${String(p.excerpt).slice(0, 110)}` : '') + (heads.length ? `\n  소제목: ${heads.join(' / ')}` : '') +
+    (withEnd && p.tail ? `\n  끝 문단: ${String(p.tail).slice(0, 160)}` : '');
+}
+
+// The last paragraph of a body that is not a heading: what the post ends on.
+export function tailOf(body) {
+  const paras = String(body || '').split(/\n{2,}/).map((x) => x.trim()).filter((x) => x && !x.startsWith('#'));
+  return paras.length ? paras[paras.length - 1] : '';
 }
