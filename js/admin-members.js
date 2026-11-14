@@ -6,11 +6,15 @@
   var PAGE = 50;
   // The same SQL as in supabase/schema.sql (that folder is not served by the site).
   var MEMBERS_SQL = [
+    '-- A function whose returned columns change must be dropped first (it is safe: it only reads).',
+    'drop function if exists public.admin_list_members();',
+    '',
     'create or replace function public.admin_list_members()',
     'returns table (',
     '  member_id uuid,',
     '  member_email text,',
     '  nickname text,',
+    '  nationality text,',
     '  provider text,',
     '  joined_at timestamptz,',
     '  last_seen_at timestamptz,',
@@ -27,6 +31,7 @@
     '  select u.id,',
     '         u.email::text,',
     '         p.nickname,',
+    '         u.raw_user_meta_data->>\'nationality\',',
     '         coalesce(u.raw_app_meta_data->>\'provider\', \'email\'),',
     '         u.created_at,',
     '         u.last_sign_in_at,',
@@ -50,6 +55,11 @@
   }
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+  }
+  function country(code) {
+    if (!code) return '–';
+    if (code === 'ZZ') return t('auth.nationalityOther', 'Other');
+    try { return new Intl.DisplayNames([(window.DURU_I18N && window.DURU_I18N.lang) || 'en', 'en'], { type: 'region' }).of(code) || code; } catch (e) { return code; }
   }
   function day(iso) { return iso ? String(iso).slice(0, 10) : '–'; }
 
@@ -83,11 +93,12 @@
         return '<tr>' +
           '<td>' + esc(day(r.joined_at)) + '</td>' +
           '<td>' + esc(r.nickname || '–') + (r.is_admin_member ? ' <span class="members-admin">' + esc(t('members.admin', 'admin')) + '</span>' : '') + '</td>' +
+          '<td>' + esc(country(r.nationality)) + '</td>' +
           '<td class="members-mail">' + esc(r.member_email || '–') + (r.email_confirmed ? '' : ' <span class="members-warn" title="' + esc(t('members.unconfirmed', 'Email not confirmed')) + '">!</span>') + '</td>' +
           '<td>' + esc(r.provider || 'email') + '</td>' +
           '<td>' + esc(day(r.last_seen_at)) + '</td>' +
           '<td>' + (r.marketing_agreed ? '✓' : '') + '</td></tr>';
-      }).join('') || '<tr><td colspan="6" class="members-empty">' + esc(t('members.empty', 'No members found.')) + '</td></tr>';
+      }).join('') || '<tr><td colspan="7" class="members-empty">' + esc(t('members.empty', 'No members found.')) + '</td></tr>';
       more.hidden = list.length <= shown;
     }
 
@@ -113,6 +124,13 @@
         document.getElementById('membersTable').hidden = false;
         document.getElementById('membersTools').hidden = false;
         rows = res.data || [];
+        // A function made before the nationality was added has no such column: say how to update it.
+        if (rows.length && !('nationality' in rows[0])) {
+          notice.hidden = false;
+          notice.querySelector('p').textContent = t('members.updateSql', 'To show the nationality, run this once more in Supabase → SQL Editor (it only reads data):');
+          notice.querySelector('pre').hidden = false; notice.querySelector('button').hidden = false;
+          fillSql().then(function (sql) { notice.querySelector('pre').textContent = sql; });
+        }
         render();
       });
     }

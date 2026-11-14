@@ -60,6 +60,23 @@
        add your project's URL and anon key in <code>js/supabase-config.js</code>
        to turn it on. See <code>README.md</code> for the full setup.`;
 
+  // Owner, 2026-11-14: the sign-up asks for a nationality. The countries are ISO codes; their names come from the
+  // browser's own list in the language the site is shown in (Intl.DisplayNames), so ten languages need no files.
+  const COUNTRY_CODES = 'AF AX AL DZ AS AD AO AI AQ AG AR AM AW AU AT AZ BS BH BD BB BY BE BZ BJ BM BT BO BQ BA BW BV BR IO BN BG BF BI CV KH CM CA KY CF TD CL CN CX CC CO KM CG CD CK CR CI HR CU CW CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FK FO FJ FI FR GF PF TF GA GM GE DE GH GI GR GL GD GP GU GT GG GN GW GY HT HM VA HN HK HU IS IN ID IR IQ IE IM IL IT JM JP JE JO KZ KE KI KP KR KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MQ MR MU YT MX FM MD MC MN ME MS MA MZ MM NA NR NP NL NC NZ NI NE NG NU NF MK MP NO OM PK PW PS PA PG PY PE PH PN PL PT PR QA RE RO RU RW BL SH KN LC MF PM VC WS SM ST SA SN RS SC SL SG SX SK SI SB SO ZA GS SS ES LK SD SR SJ SE CH SY TW TJ TZ TH TL TG TK TO TT TN TR TM TC TV UG UA AE GB US UM UY UZ VU VE VN VG VI WF EH YE ZM ZW'.split(' ');
+  function fillCountries(select) {
+    const keep = select.value;
+    const lang = (window.DURU_I18N && window.DURU_I18N.lang) || document.documentElement.lang || 'en';
+    let names;
+    try { names = new Intl.DisplayNames([lang, 'en'], { type: 'region' }); } catch (e) { names = null; }
+    const label = (c) => { try { return (names && names.of(c)) || c; } catch (e) { return c; } };
+    const list = COUNTRY_CODES.map((c) => ({ c, n: label(c) })).sort((a, b) => a.n.localeCompare(b.n, lang));
+    select.innerHTML = '<option value="" data-i18n="auth.nationalityPlaceholder">Select your nationality</option>' +
+      list.map((x) => '<option value="' + x.c + '">' + String(x.n).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])) + '</option>').join('') +
+      '<option value="ZZ" data-i18n="auth.nationalityOther">Other</option>';
+    select.value = keep || '';
+    if (window.DURU_I18N) window.DURU_I18N.apply(select);
+  }
+
   const modalHTML = `
     <div class="auth-overlay" id="authOverlay" hidden>
       <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
@@ -111,6 +128,10 @@
             <div class="auth-field">
               <label for="signupNickname" data-i18n="auth.nickname">Nickname</label>
               <input type="text" id="signupNickname" maxlength="40" required aria-required="true">
+            </div>
+            <div class="auth-field">
+              <label for="signupNationality" data-i18n="auth.nationality">Nationality</label>
+              <select id="signupNationality" required aria-required="true"></select>
             </div>
             <div class="auth-field">
               <label for="signupBirthDate" data-i18n="auth.birthDate">Birth Date</label>
@@ -167,6 +188,8 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('beforeend', modalHTML);
+    const nationalitySelect = document.getElementById('signupNationality');
+    if (nationalitySelect) fillCountries(nationalitySelect);
 
     const overlay = document.getElementById('authOverlay');
     const closeBtn = document.getElementById('authCloseBtn');
@@ -288,6 +311,8 @@
 
       // Owner, 2026-11-14: a nickname is required to sign up (the field said "required" but the form skips the browser's check).
       if (!nickname) { setMessage('signup', 'error', t('auth.errors.nicknameRequired', 'Please enter a nickname.')); document.getElementById('signupNickname').focus(); return; }
+      const nationality = document.getElementById('signupNationality').value;
+      if (!nationality) { setMessage('signup', 'error', t('auth.errors.nationalityRequired', 'Please select your nationality.')); document.getElementById('signupNationality').focus(); return; }
       if (password !== confirm) { setMessage('signup', 'error', t('auth.errors.passwordMismatch', 'Passwords do not match.')); return; }
       if (password.length < 6) { setMessage('signup', 'error', t('auth.errors.passwordTooShort', 'Password must be at least 6 characters.')); return; }
       if (!tosAgreed) { setMessage('signup', 'error', t('auth.errors.tosRequired', 'You must agree to the Terms of Service.')); return; }
@@ -299,7 +324,7 @@
         email, password,
         options: {
           emailRedirectTo: REDIRECT_URL,
-          data: { nickname: nickname },
+          data: { nickname: nickname, nationality: nationality },
         },
       });
       setLoading(btn, false, 'auth.signupSubmit', 'Create account');
@@ -410,6 +435,7 @@
     }
     renderOAuth();
     document.addEventListener('duru:langchange', renderOAuth);
+    document.addEventListener('duru:langchange', () => { const sel = document.getElementById('signupNationality'); if (sel) fillCountries(sel); });
 
     /* ---------------- Header auth state ---------------- */
 
@@ -434,47 +460,61 @@
       return (user.email || '').split('@')[0] || '?';
     }
 
-    // Owner, 2026-11-14: nobody joins without a nickname. A sign-in through Google, Kakao and the like has none, so
-    // the first time it is asked for in a window that cannot be closed (only for accounts made from now on).
-    const NICKNAME_FROM = Date.parse('2026-11-14T00:00:00Z');
-    function askForNickname(user) {
+    // Owner, 2026-11-14: nobody joins without a nickname and a nationality. A sign-in through Google, Kakao and the
+    // like has neither, so the first time they are asked for in a window that cannot be closed (only for accounts
+    // made from now on).
+    const PROFILE_FROM = Date.parse('2026-11-14T00:00:00Z');
+    function askForProfile(user, needNick, needNation) {
       if (document.getElementById('nicknameOverlay')) return;
-      if (!(Date.parse(user.created_at || '') >= NICKNAME_FROM)) return;
+      if (!(Date.parse(user.created_at || '') >= PROFILE_FROM)) return;
       const box = document.createElement('div');
       box.className = 'auth-overlay';
       box.id = 'nicknameOverlay';
       box.innerHTML = `
         <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="nicknameTitle">
-          <h2 id="nicknameTitle" data-i18n="auth.nicknameTitle">Choose a nickname</h2>
-          <p class="auth-sub" data-i18n="auth.nicknameSub">Your nickname is shown with your posts and replies. You need one to use your account.</p>
+          <h2 id="nicknameTitle" data-i18n="auth.profileTitle">A little more about you</h2>
+          <p class="auth-sub" data-i18n="auth.profileSub">Please fill this in to use your account. Your nickname is shown with your posts and replies.</p>
           <div class="auth-message" id="nicknameMsg" hidden></div>
           <form id="nicknameForm" novalidate>
-            <div class="auth-field">
+            ${needNick ? `<div class="auth-field">
               <label for="nicknameInput" data-i18n="auth.nickname">Nickname</label>
               <input type="text" id="nicknameInput" maxlength="40" required aria-required="true">
-            </div>
+            </div>` : ''}
+            ${needNation ? `<div class="auth-field">
+              <label for="nationalityInput" data-i18n="auth.nationality">Nationality</label>
+              <select id="nationalityInput" required aria-required="true"></select>
+            </div>` : ''}
             <button type="submit" class="btn btn-primary auth-submit" id="nicknameSave" data-i18n="auth.nicknameSave">Save</button>
           </form>
           <p class="auth-switch"><button type="button" class="auth-link-btn" id="nicknameLogout" data-i18n="auth.logout">Log out</button></p>
         </div>`;
       document.body.appendChild(box);
+      const input = box.querySelector('#nicknameInput'), sel = box.querySelector('#nationalityInput'), msg = box.querySelector('#nicknameMsg');
+      if (sel) fillCountries(sel);
       if (window.DURU_I18N) window.DURU_I18N.apply(box);
-      const input = box.querySelector('#nicknameInput'), msg = box.querySelector('#nicknameMsg');
-      setTimeout(() => input.focus(), 50);
+      setTimeout(() => (input || sel).focus(), 50);
       box.querySelector('#nicknameLogout').addEventListener('click', async () => { await client.auth.signOut(); window.location.reload(); });
       box.querySelector('#nicknameForm').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const nick = input.value.trim();
+        const nick = input ? input.value.trim() : '', nation = sel ? sel.value : '';
         msg.hidden = false; msg.className = 'auth-message error';
-        if (!nick) { msg.textContent = t('auth.errors.nicknameRequired', 'Please enter a nickname.'); return; }
+        if (needNick && !nick) { msg.textContent = t('auth.errors.nicknameRequired', 'Please enter a nickname.'); return; }
+        if (needNation && !nation) { msg.textContent = t('auth.errors.nationalityRequired', 'Please select your nationality.'); return; }
         const btn = box.querySelector('#nicknameSave'); btn.disabled = true;
-        const saved = await client.from('user_profiles').upsert({ user_id: user.id, nickname: nick }, { onConflict: 'user_id' });
-        if (saved.error) { btn.disabled = false; msg.textContent = t('auth.errors.nicknameFailed', 'The nickname could not be saved. Please try again.'); return; }
-        try { await client.auth.updateUser({ data: { nickname: nick } }); } catch (err) { /* the profile row is what counts */ }
+        if (needNick) {
+          const saved = await client.from('user_profiles').upsert({ user_id: user.id, nickname: nick }, { onConflict: 'user_id' });
+          if (saved.error) { btn.disabled = false; msg.textContent = t('auth.errors.nicknameFailed', 'The nickname could not be saved. Please try again.'); return; }
+        }
+        const data = {};
+        if (needNick) data.nickname = nick;
+        if (needNation) data.nationality = nation;
+        try { await client.auth.updateUser({ data }); } catch (err) { /* the nickname's profile row is what counts for the name */ }
         box.remove();
-        const nameEl = document.getElementById('accountName'), avatarEl = document.getElementById('accountAvatar');
-        if (nameEl) nameEl.textContent = nick;
-        if (avatarEl) avatarEl.textContent = initials(nick);
+        if (needNick) {
+          const nameEl = document.getElementById('accountName'), avatarEl = document.getElementById('accountAvatar');
+          if (nameEl) nameEl.textContent = nick;
+          if (avatarEl) avatarEl.textContent = initials(nick);
+        }
       });
     }
 
@@ -513,7 +553,9 @@
         client.from('user_profiles').select('nickname').eq('user_id', user.id).maybeSingle()
           .then(({ data }) => {
             const nick = data && data.nickname && data.nickname.trim();
-            if (!nick) { askForNickname(user); return; }
+            const hasNation = !!(user.user_metadata && user.user_metadata.nationality);
+            if (!nick || !hasNation) askForProfile(user, !nick, !hasNation);
+            if (!nick) return;
             const nameEl = wrap.querySelector('#accountName');
             const avatarEl = wrap.querySelector('#accountAvatar');
             if (nameEl) nameEl.textContent = nick;

@@ -2384,11 +2384,15 @@ alter table public.posts add column if not exists pdf jsonb;
 -- admin. It returns no birth date and nothing else private: the address, the nickname, the sign-in
 -- method, when they joined and were last seen, and whether they agreed to marketing mail.
 
+-- A function whose returned columns change must be dropped first (it is safe: it only reads).
+drop function if exists public.admin_list_members();
+
 create or replace function public.admin_list_members()
 returns table (
   member_id uuid,
   member_email text,
   nickname text,
+  nationality text,
   provider text,
   joined_at timestamptz,
   last_seen_at timestamptz,
@@ -2405,6 +2409,7 @@ begin
   select u.id,
          u.email::text,
          p.nickname,
+         u.raw_user_meta_data->>'nationality',
          coalesce(u.raw_app_meta_data->>'provider', 'email'),
          u.created_at,
          u.last_sign_in_at,

@@ -926,5 +926,13 @@
   "auth.nicknameTitle": "Choose a nickname",
   "auth.nicknameSub": "Your nickname is shown with your posts and replies. You need one to use your account.",
   "auth.nicknameSave": "Save",
-  "resources.dailyLimit": "You have used today's download limit. Please come back tomorrow."
+  "resources.dailyLimit": "You have used today's download limit. Please come back tomorrow.",
+  "auth.nationality": "Nationality",
+  "auth.nationalityPlaceholder": "Select your nationality",
+  "auth.nationalityOther": "Other",
+  "auth.errors.nationalityRequired": "Please select your nationality.",
+  "auth.profileTitle": "A little more about you",
+  "auth.profileSub": "Please fill this in to use your account. Your nickname is shown with your posts and replies.",
+  "members.colNationality": "Nationality",
+  "members.updateSql": "To show the nationality, run this once more in Supabase → SQL Editor (it only reads data):"
 }

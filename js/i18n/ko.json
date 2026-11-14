@@ -926,5 +926,13 @@
   "auth.nicknameTitle": "닉네임을 정해 주세요",
   "auth.nicknameSub": "닉네임은 글과 댓글에 함께 표시됩니다. 계정을 쓰려면 꼭 필요합니다.",
   "auth.nicknameSave": "저장",
-  "resources.dailyLimit": "오늘 내려받을 수 있는 횟수를 모두 사용했어요. 내일 다시 이용해 주세요."
+  "resources.dailyLimit": "오늘 내려받을 수 있는 횟수를 모두 사용했어요. 내일 다시 이용해 주세요.",
+  "auth.nationality": "국적",
+  "auth.nationalityPlaceholder": "국적을 선택해 주세요",
+  "auth.nationalityOther": "기타",
+  "auth.errors.nationalityRequired": "국적을 선택해 주세요.",
+  "auth.profileTitle": "정보를 조금만 더 알려 주세요",
+  "auth.profileSub": "계정을 쓰려면 아래를 입력해 주세요. 닉네임은 글과 댓글에 함께 표시됩니다.",
+  "members.colNationality": "국적",
+  "members.updateSql": "국적을 보려면 Supabase → SQL Editor에서 아래 내용을 한 번 더 실행해 주세요 (데이터를 읽기만 합니다):"
 }
