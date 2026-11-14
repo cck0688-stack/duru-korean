@@ -5,5 +5,7 @@ Disallow: /api/
 Disallow: /review.html
 Disallow: /setup-check.html
 Disallow: /admin-roles.html
+# Blog lists filtered by a tag exist in every language: thousands of addresses that say the same thing.
+Disallow: /*?tag=
 
 Sitemap: https://www.durukorean.com/sitemap.xml

@@ -87,7 +87,21 @@
     });
   }
 
+  // Owner, 2026-11-14: from 9 November the count jumped from ~100 a day to 3,000-5,000, nearly every one a different
+  // "visitor", round the clock, on tag-filtered blog lists in every language: robots that run JavaScript. A browser
+  // that says it is automated, or names itself a robot, is not counted (a robot that hides its name still is).
+  var ROBOT = /bot\b|bot\/|crawl|spider|slurp|headless|lighthouse|pagespeed|preview|facebookexternalhit|bingpreview|ahrefs|semrush|mj12|dotbot|petalbot|bytespider|gptbot|claudebot|perplexity|ccbot|python|curl\/|wget|httpclient|okhttp|monitor|uptime|check_http|phantomjs|playwright|puppeteer/i;
+  function isRobot() {
+    try {
+      if (navigator.webdriver) return true;
+      if (ROBOT.test(navigator.userAgent || '')) return true;
+      if (!navigator.languages || !navigator.languages.length) return true;
+    } catch (e) { /* a browser that cannot be asked is counted */ }
+    return false;
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
+    if (isRobot()) { showCounts(); return; }
     if (startsNewVisit()) recordVisit().then(showCounts);
     else showCounts();
   });
