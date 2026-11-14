@@ -920,5 +920,10 @@
   "members.empty": "찾는 회원이 없습니다.",
   "members.more": "더 보기",
   "members.needSql": "회원 목록을 보려면 데이터베이스에 함수 하나를 한 번만 만들어야 합니다. Supabase → SQL Editor에 아래 내용을 붙여넣고 실행해 주세요:",
-  "members.failed": "회원 목록을 불러오지 못했습니다"
+  "members.failed": "회원 목록을 불러오지 못했습니다",
+  "auth.errors.nicknameRequired": "닉네임을 입력해 주세요.",
+  "auth.errors.nicknameFailed": "닉네임을 저장하지 못했습니다. 다시 시도해 주세요.",
+  "auth.nicknameTitle": "닉네임을 정해 주세요",
+  "auth.nicknameSub": "닉네임은 글과 댓글에 함께 표시됩니다. 계정을 쓰려면 꼭 필요합니다.",
+  "auth.nicknameSave": "저장"
 }

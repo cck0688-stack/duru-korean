@@ -920,5 +920,10 @@
   "members.empty": "No members found.",
   "members.more": "Show more",
   "members.needSql": "To list the members the database needs one function, once. Open Supabase → SQL Editor, paste this and run it:",
-  "members.failed": "Could not load the members"
+  "members.failed": "Could not load the members",
+  "auth.errors.nicknameRequired": "Please enter a nickname.",
+  "auth.errors.nicknameFailed": "The nickname could not be saved. Please try again.",
+  "auth.nicknameTitle": "Choose a nickname",
+  "auth.nicknameSub": "Your nickname is shown with your posts and replies. You need one to use your account.",
+  "auth.nicknameSave": "Save"
 }

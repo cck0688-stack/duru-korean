@@ -110,7 +110,7 @@
             </div>
             <div class="auth-field">
               <label for="signupNickname" data-i18n="auth.nickname">Nickname</label>
-              <input type="text" id="signupNickname" maxlength="40" required>
+              <input type="text" id="signupNickname" maxlength="40" required aria-required="true">
             </div>
             <div class="auth-field">
               <label for="signupBirthDate" data-i18n="auth.birthDate">Birth Date</label>
@@ -286,6 +286,8 @@
       const privacyAgreed = document.getElementById('signupPrivacy').checked;
       const marketingAgreed = document.getElementById('signupMarketing').checked;
 
+      // Owner, 2026-11-14: a nickname is required to sign up (the field said "required" but the form skips the browser's check).
+      if (!nickname) { setMessage('signup', 'error', t('auth.errors.nicknameRequired', 'Please enter a nickname.')); document.getElementById('signupNickname').focus(); return; }
       if (password !== confirm) { setMessage('signup', 'error', t('auth.errors.passwordMismatch', 'Passwords do not match.')); return; }
       if (password.length < 6) { setMessage('signup', 'error', t('auth.errors.passwordTooShort', 'Password must be at least 6 characters.')); return; }
       if (!tosAgreed) { setMessage('signup', 'error', t('auth.errors.tosRequired', 'You must agree to the Terms of Service.')); return; }
@@ -432,6 +434,50 @@
       return (user.email || '').split('@')[0] || '?';
     }
 
+    // Owner, 2026-11-14: nobody joins without a nickname. A sign-in through Google, Kakao and the like has none, so
+    // the first time it is asked for in a window that cannot be closed (only for accounts made from now on).
+    const NICKNAME_FROM = Date.parse('2026-11-14T00:00:00Z');
+    function askForNickname(user) {
+      if (document.getElementById('nicknameOverlay')) return;
+      if (!(Date.parse(user.created_at || '') >= NICKNAME_FROM)) return;
+      const box = document.createElement('div');
+      box.className = 'auth-overlay';
+      box.id = 'nicknameOverlay';
+      box.innerHTML = `
+        <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="nicknameTitle">
+          <h2 id="nicknameTitle" data-i18n="auth.nicknameTitle">Choose a nickname</h2>
+          <p class="auth-sub" data-i18n="auth.nicknameSub">Your nickname is shown with your posts and replies. You need one to use your account.</p>
+          <div class="auth-message" id="nicknameMsg" hidden></div>
+          <form id="nicknameForm" novalidate>
+            <div class="auth-field">
+              <label for="nicknameInput" data-i18n="auth.nickname">Nickname</label>
+              <input type="text" id="nicknameInput" maxlength="40" required aria-required="true">
+            </div>
+            <button type="submit" class="btn btn-primary auth-submit" id="nicknameSave" data-i18n="auth.nicknameSave">Save</button>
+          </form>
+          <p class="auth-switch"><button type="button" class="auth-link-btn" id="nicknameLogout" data-i18n="auth.logout">Log out</button></p>
+        </div>`;
+      document.body.appendChild(box);
+      if (window.DURU_I18N) window.DURU_I18N.apply(box);
+      const input = box.querySelector('#nicknameInput'), msg = box.querySelector('#nicknameMsg');
+      setTimeout(() => input.focus(), 50);
+      box.querySelector('#nicknameLogout').addEventListener('click', async () => { await client.auth.signOut(); window.location.reload(); });
+      box.querySelector('#nicknameForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nick = input.value.trim();
+        msg.hidden = false; msg.className = 'auth-message error';
+        if (!nick) { msg.textContent = t('auth.errors.nicknameRequired', 'Please enter a nickname.'); return; }
+        const btn = box.querySelector('#nicknameSave'); btn.disabled = true;
+        const saved = await client.from('user_profiles').upsert({ user_id: user.id, nickname: nick }, { onConflict: 'user_id' });
+        if (saved.error) { btn.disabled = false; msg.textContent = t('auth.errors.nicknameFailed', 'The nickname could not be saved. Please try again.'); return; }
+        try { await client.auth.updateUser({ data: { nickname: nick } }); } catch (err) { /* the profile row is what counts */ }
+        box.remove();
+        const nameEl = document.getElementById('accountName'), avatarEl = document.getElementById('accountAvatar');
+        if (nameEl) nameEl.textContent = nick;
+        if (avatarEl) avatarEl.textContent = initials(nick);
+      });
+    }
+
     function renderSignedIn(user) {
       if (!trigger) return;
       const wrap = document.createElement('div');
@@ -467,7 +513,7 @@
         client.from('user_profiles').select('nickname').eq('user_id', user.id).maybeSingle()
           .then(({ data }) => {
             const nick = data && data.nickname && data.nickname.trim();
-            if (!nick) return;
+            if (!nick) { askForNickname(user); return; }
             const nameEl = wrap.querySelector('#accountName');
             const avatarEl = wrap.querySelector('#accountAvatar');
             if (nameEl) nameEl.textContent = nick;
