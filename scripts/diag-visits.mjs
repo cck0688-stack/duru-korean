@@ -38,3 +38,13 @@ console.log('고유 지문 ' + Object.keys(fp).length + '개 / 오늘 ' + t.leng
 console.log('\n오늘 가장 많은 페이지 상위 12:');
 const pg = t.reduce((m, r) => { const k = (r.page_path || '').slice(0, 70); m[k] = (m[k] || 0) + 1; return m; }, {});
 Object.entries(pg).sort((a, b) => b[1] - a[1]).slice(0, 12).forEach(([k, v]) => console.log('  ' + String(v).padStart(4) + '  ' + k));
+
+// Who the most repeated visitors are: when they come, and what share of the day they are.
+console.log('\n가장 많이 반복된 지문 3개: 언제 왔나 (UTC)');
+Object.entries(fp).sort((a, b) => b[1] - a[1]).slice(0, 3).forEach(([k, v]) => {
+  const mine = t.filter((r) => r.visitor_fingerprint === k);
+  console.log('  ' + k + ' ' + v + '건 · ' + mine[0].created_at.slice(11, 19) + ' ~ ' + mine[mine.length - 1].created_at.slice(11, 19) + ' · 예: ' + mine.slice(0, 3).map((r) => r.page_path).join(' | ').slice(0, 120));
+});
+const repeated = Object.values(fp).filter((n) => n >= 5).reduce((a, b) => a + b, 0);
+const single = Object.values(fp).filter((n) => n === 1).length;
+console.log('오늘 5번 이상 기록한 지문들이 합쳐서 ' + repeated + '건 · 딱 한 번만 온 지문 ' + single + '개 (전체 ' + t.length + '건)');
