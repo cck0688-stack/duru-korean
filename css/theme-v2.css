@@ -557,3 +557,12 @@ body.theme-v2 {
 .free-gate-go{width:100%;margin-top:12px;padding:14px;font-size:1.05rem}
 .free-gate-login{display:block;margin:12px auto 0;background:none;border:0;color:#7a5a85;text-decoration:underline;cursor:pointer;font-size:.9rem}
 .free-gate-close{position:absolute;top:8px;right:12px;background:none;border:0;font-size:1.6rem;line-height:1;cursor:pointer;color:#999}
+
+/* Rewrite-with-AI box in the post editor (owner, 2026-11-20). */
+.post-rewrite{margin:12px 0;padding:10px 14px;border:1px solid #e6d3ea;border-radius:12px;background:#fbf6fc}
+.post-rewrite summary{cursor:pointer;font-weight:600;color:#5b3566}
+.post-rewrite textarea{width:100%;margin:8px 0;box-sizing:border-box}
+.post-rewrite-hint{margin:8px 0 0;font-size:.85rem;color:#6b5a70}
+.post-rewrite-key{display:grid;gap:6px;margin-bottom:8px}
+.post-rewrite-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.post-rewrite-bad{color:#b3261e}

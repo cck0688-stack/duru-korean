@@ -942,5 +942,16 @@
   "gate.title": "Sign up in 5 seconds — keep every worksheet free",
   "gate.body": "One free account opens all the worksheets, in every language. No card, no fuss.",
   "gate.cta": "Create my free account",
-  "gate.login": "I already have an account — log in"
+  "gate.login": "I already have an account — log in",
+  "blog.rewriteBtn": "Rewrite draft",
+  "blog.rewriteSum": "Rewrite this draft with AI",
+  "blog.rewriteHint": "Edit the draft above if you like, write what to change here, then press Generate. The new text replaces the title, summary and body above; press Save to keep it.",
+  "blog.rewriteAsk": "What should change? (e.g. keep the first part, but end on the practical tip instead)",
+  "blog.rewriteKey": "API key (the server has none): kept only in this browser",
+  "blog.rewriteGo": "Generate",
+  "blog.rewriteNoAsk": "Write what to change first.",
+  "blog.rewriting": "Writing… this takes up to a minute.",
+  "blog.rewriteNeedKey": "The server has no AI key. Paste one (Anthropic, OpenAI, Google or any OpenAI-compatible) below and press Generate again.",
+  "blog.rewriteFailed": "Could not write it. Try again.",
+  "blog.rewriteDone": "Done — read it above, then press Save."
 }

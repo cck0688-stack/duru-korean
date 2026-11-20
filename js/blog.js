@@ -899,6 +899,7 @@
               escapeHTML(post.published ? t('blog.unpublish', 'Unpublish') : t('blog.publishNow', 'Publish now')) +
             '</button>' +
             '<button type="button" class="btn btn-ghost" id="blogEditBtn">' + escapeHTML(t('blog.edit', 'Edit')) + '</button>' +
+            '<button type="button" class="btn btn-ghost" id="blogRewriteBtn">' + escapeHTML(t('blog.rewriteBtn', 'Rewrite draft')) + '</button>' +
             '<button type="button" class="btn btn-ghost blog-delete-btn" id="blogDeleteBtn">' + escapeHTML(t('blog.delete', 'Delete')) + '</button>' +
           '</span>' +
           // Another category, after it went out, without the editor.
@@ -1007,6 +1008,12 @@
       if (pubBtn) pubBtn.addEventListener('click', function () { togglePublished(post); });
       var editBtn = singleEl.querySelector('#blogEditBtn');
       if (editBtn) editBtn.addEventListener('click', function () { openEditor(post); });
+      var rwBtn = singleEl.querySelector('#blogRewriteBtn');
+      if (rwBtn) rwBtn.addEventListener('click', function () {
+        openEditor(post);
+        var d = overlay && overlay.querySelector('#postRewrite');
+        if (d) { d.open = true; var a = d.querySelector('#postRewriteAsk'); if (a) a.focus(); }
+      });
       var delBtn = singleEl.querySelector('#blogDeleteBtn');
       if (delBtn) delBtn.addEventListener('click', function () { confirmDelete(post); });
       var moveBtn = singleEl.querySelector('#blogMoveBtn');
@@ -1372,6 +1379,15 @@
                 '<textarea id="postExcerpt" rows="2" maxlength="400"></textarea></div>' +
               '<div class="auth-field"><label for="postBody"></label>' +
                 '<textarea id="postBody" rows="12" required maxlength="40000"></textarea></div>' +
+              '<details class="post-rewrite" id="postRewrite"><summary id="postRewriteSum"></summary>' +
+                '<p class="post-rewrite-hint" id="postRewriteHint"></p>' +
+                '<textarea id="postRewriteAsk" rows="4" maxlength="3000"></textarea>' +
+                '<div class="post-rewrite-key" id="postRewriteKeyBox" hidden><label for="postRewriteKey"></label>' +
+                  '<input type="password" id="postRewriteKey" autocomplete="off" maxlength="300" placeholder="sk-…">' +
+                  '<input type="text" id="postRewriteBase" autocomplete="off" maxlength="200" placeholder="https://… (optional)"></div>' +
+                '<div class="post-rewrite-row"><button type="button" class="btn btn-primary" id="postRewriteGo"></button>' +
+                  '<span id="postRewriteMsg" role="status"></span></div>' +
+              '</details>' +
               // Tags come after the body because they are read off it:
               // there is nothing to suggest until something is written.
               '<div class="auth-field"><label for="postTags"></label>' +
@@ -1498,6 +1514,41 @@
         tagsTouched = summaryTouched = categoryTouched = audienceTouched = false;
         fillOutline(true);
       });
+      // Owner, 2026-11-20: "Rewrite this draft" — the admin says what to change, the server writes it again
+      // (api/rewrite-post.js), the editor's title, summary and body are replaced; Save keeps it.
+      (function () {
+        var go = overlay.querySelector('#postRewriteGo'), msg = overlay.querySelector('#postRewriteMsg');
+        var keyBox = overlay.querySelector('#postRewriteKeyBox'), keyEl = overlay.querySelector('#postRewriteKey'), baseEl = overlay.querySelector('#postRewriteBase');
+        try { keyEl.value = localStorage.getItem('duru_rewrite_key') || ''; baseEl.value = localStorage.getItem('duru_rewrite_base') || ''; if (keyEl.value) keyBox.hidden = false; } catch (e) { /* no storage */ }
+        function say(text, bad) { msg.textContent = text; msg.className = bad ? 'post-rewrite-bad' : ''; }
+        go.addEventListener('click', function () {
+          var ask = overlay.querySelector('#postRewriteAsk').value.trim();
+          var bodyEl = overlay.querySelector('#postBody');
+          if (!ask) { say(t('blog.rewriteNoAsk', 'Write what to change first.'), true); return; }
+          if (!bodyEl.value.trim()) { say(t('blog.errNoBody', 'Please write something in the body.'), true); return; }
+          go.disabled = true; say(t('blog.rewriting', 'Writing… this takes up to a minute.'));
+          client.auth.getSession().then(function (r) {
+            var token = r && r.data && r.data.session && r.data.session.access_token;
+            var payload = { title: overlay.querySelector('#postTitle').value, excerpt: overlay.querySelector('#postExcerpt').value, body: bodyEl.value, instructions: ask };
+            if (!keyBox.hidden && keyEl.value.trim()) { payload.apiKey = keyEl.value.trim(); if (baseEl.value.trim()) payload.baseUrl = baseEl.value.trim(); }
+            return fetch('/api/rewrite-post', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(payload) });
+          }).then(function (res) { return res.json().catch(function () { return {}; }).then(function (j) { return { ok: res.ok, status: res.status, j: j }; }); })
+            .then(function (o) {
+              if (!o.ok) {
+                if (o.j.needKey || o.status === 503) { keyBox.hidden = false; say(t('blog.rewriteNeedKey', 'The server has no AI key. Paste one (Anthropic, OpenAI, Google or any OpenAI-compatible) below and press Generate again.'), true); return; }
+                say((o.j && o.j.error) || t('blog.rewriteFailed', 'Could not write it. Try again.'), true); return;
+              }
+              try { if (keyEl.value.trim()) { localStorage.setItem('duru_rewrite_key', keyEl.value.trim()); localStorage.setItem('duru_rewrite_base', baseEl.value.trim()); } } catch (e) { /* no storage */ }
+              overlay.querySelector('#postTitle').value = o.j.title;
+              overlay.querySelector('#postExcerpt').value = o.j.excerpt || '';
+              bodyEl.value = o.j.body;
+              summaryTouched = true; tagsTouched = false;
+              updatePreview(); markTranslationState();
+              say(t('blog.rewriteDone', 'Done — read it above, then press Save.'));
+            }).catch(function () { say(t('blog.rewriteFailed', 'Could not write it. Try again.'), true); })
+            .then(function () { go.disabled = false; });
+        });
+      })();
       overlay.querySelectorAll('[data-tr-body]').forEach(function (el) {
         el.addEventListener('input', markTranslationState);
       });
@@ -1850,6 +1901,11 @@
       if (!outlineBusy) setTagsHint(t('blog.tagsHint',
         'The summary, the category and these tags fill themselves in from the body when you stop typing. Edit any of them freely.'));
       o.querySelector('label[for="postBody"]').textContent = t('blog.fieldBody', 'Body');
+      o.querySelector('#postRewriteSum').textContent = t('blog.rewriteSum', 'Rewrite this draft with AI');
+      o.querySelector('#postRewriteHint').textContent = t('blog.rewriteHint', 'Edit the draft above if you like, write what to change here, then press Generate. The new text replaces the title, summary and body above; press Save to keep it.');
+      o.querySelector('#postRewriteAsk').placeholder = t('blog.rewriteAsk', 'What should change? (e.g. keep the first part, but end on the practical tip instead)');
+      o.querySelector('label[for="postRewriteKey"]').textContent = t('blog.rewriteKey', 'API key (the server has none): kept only in this browser');
+      o.querySelector('#postRewriteGo').textContent = t('blog.rewriteGo', 'Generate');
       o.querySelector('label[for="postLang"]').textContent = t('blog.fieldLang', 'Written in');
       o.querySelector('#postTranslations > summary').textContent = t('blog.translations', 'Other languages');
       o.querySelector('#postTranslationsHint').textContent =
