@@ -1527,26 +1527,45 @@
           if (!ask) { say(t('blog.rewriteNoAsk', 'Write what to change first.'), true); return; }
           if (!bodyEl.value.trim()) { say(t('blog.errNoBody', 'Please write something in the body.'), true); return; }
           go.disabled = true; say(t('blog.rewriting', 'Writing… this takes up to a minute.'));
+          var authToken = '';
+          function finish(o) {
+            overlay.querySelector('#postTitle').value = o.title;
+            overlay.querySelector('#postExcerpt').value = o.excerpt || '';
+            bodyEl.value = o.body;
+            summaryTouched = true; tagsTouched = false;
+            updatePreview(); markTranslationState();
+            say(t('blog.rewriteDone', 'Done — read it above, then press Save.'));
+          }
+          function fail(m) { say(m || t('blog.rewriteFailed', 'Could not write it. Try again.'), true); go.disabled = false; }
+          // The default writes it on the owner's Claude subscription in the background (a few minutes): ask,
+          // then look for the answer every few seconds. With a typed key the answer comes at once.
+          function poll(job, tries) {
+            if (tries > 120) { fail(t('blog.rewriteLate', 'It is taking too long. Try again in a few minutes.')); return; }
+            setTimeout(function () {
+              fetch('/api/rewrite-post?job=' + job, { headers: { Authorization: 'Bearer ' + authToken } })
+                .then(function (r) { return r.json().catch(function () { return {}; }); })
+                .then(function (j) {
+                  if (j.status === 'done') { finish(j); go.disabled = false; }
+                  else if (j.status === 'failed') fail(t('blog.rewriteFailed', 'Could not write it. Try again.') + (j.error ? ' (' + j.error + ')' : ''));
+                  else poll(job, tries + 1);
+                }).catch(function () { poll(job, tries + 1); });
+            }, 5000);
+          }
           client.auth.getSession().then(function (r) {
-            var token = r && r.data && r.data.session && r.data.session.access_token;
+            authToken = r && r.data && r.data.session && r.data.session.access_token;
             var payload = { title: overlay.querySelector('#postTitle').value, excerpt: overlay.querySelector('#postExcerpt').value, body: bodyEl.value, instructions: ask };
             if (!keyBox.hidden && keyEl.value.trim()) { payload.apiKey = keyEl.value.trim(); if (baseEl.value.trim()) payload.baseUrl = baseEl.value.trim(); }
-            return fetch('/api/rewrite-post', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(payload) });
+            return fetch('/api/rewrite-post', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + authToken }, body: JSON.stringify(payload) });
           }).then(function (res) { return res.json().catch(function () { return {}; }).then(function (j) { return { ok: res.ok, status: res.status, j: j }; }); })
             .then(function (o) {
               if (!o.ok) {
-                if (o.j.needKey || o.status === 503) { keyBox.hidden = false; say(t('blog.rewriteNeedKey', 'The server has no AI key. Paste one (Anthropic, OpenAI, Google or any OpenAI-compatible) below and press Generate again.'), true); return; }
-                say((o.j && o.j.error) || t('blog.rewriteFailed', 'Could not write it. Try again.'), true); return;
+                if (o.j.needKey || o.status === 503) { keyBox.hidden = false; fail(t('blog.rewriteNeedKey', 'The server is not set up for this. Paste an AI key below and press Generate again.')); return; }
+                fail((o.j && o.j.error) || ''); return;
               }
+              if (o.j.job) { say(t('blog.rewriting', 'Writing… this takes a few minutes. You can keep this window open.')); poll(o.j.job, 0); return; }
               try { if (keyEl.value.trim()) { localStorage.setItem('duru_rewrite_key', keyEl.value.trim()); localStorage.setItem('duru_rewrite_base', baseEl.value.trim()); } } catch (e) { /* no storage */ }
-              overlay.querySelector('#postTitle').value = o.j.title;
-              overlay.querySelector('#postExcerpt').value = o.j.excerpt || '';
-              bodyEl.value = o.j.body;
-              summaryTouched = true; tagsTouched = false;
-              updatePreview(); markTranslationState();
-              say(t('blog.rewriteDone', 'Done — read it above, then press Save.'));
-            }).catch(function () { say(t('blog.rewriteFailed', 'Could not write it. Try again.'), true); })
-            .then(function () { go.disabled = false; });
+              finish(o.j); go.disabled = false;
+            }).catch(function () { fail(''); });
         });
       })();
       overlay.querySelectorAll('[data-tr-body]').forEach(function (el) {

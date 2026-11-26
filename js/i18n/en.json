@@ -947,11 +947,12 @@
   "blog.rewriteSum": "Rewrite this draft with AI",
   "blog.rewriteHint": "Edit the draft above if you like, write what to change here, then press Generate. The new text replaces the title, summary and body above; press Save to keep it.",
   "blog.rewriteAsk": "What should change? (e.g. keep the first part, but end on the practical tip instead)",
-  "blog.rewriteKey": "API key (the server has none): kept only in this browser",
+  "blog.rewriteKey": "API key (only if the server is not set up): kept only in this browser",
   "blog.rewriteGo": "Generate",
   "blog.rewriteNoAsk": "Write what to change first.",
-  "blog.rewriting": "Writing… this takes up to a minute.",
-  "blog.rewriteNeedKey": "The server has no AI key. Paste one (Anthropic, OpenAI, Google or any OpenAI-compatible) below and press Generate again.",
+  "blog.rewriting": "Writing… this takes a few minutes. You can keep this window open.",
+  "blog.rewriteNeedKey": "The server is not set up for this. Paste an AI key below and press Generate again.",
   "blog.rewriteFailed": "Could not write it. Try again.",
-  "blog.rewriteDone": "Done — read it above, then press Save."
+  "blog.rewriteDone": "Done — read it above, then press Save.",
+  "blog.rewriteLate": "It is taking too long. Try again in a few minutes."
 }

@@ -1,0 +1,65 @@
+# DURU KOREAN — the editor's "Generate" (owner, 2026-11-26): rewrite one draft from the owner's note on the
+# Claude subscription. Started by api/rewrite-post.js; the result goes to rework-output/rewrite-jobs/<job>.json,
+# which the page reads back. Nothing on the site changes.
+name: Rewrite one draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Job id (hex)'
+        type: string
+        required: true
+      payload:
+        description: 'JSON: {title, excerpt, body, ask}'
+        type: string
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rewrite-draft-${{ inputs.job }}
+  cancel-in-progress: false
+
+jobs:
+  rewrite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Write
+        env:
+          JOB: ${{ inputs.job }}
+          PAYLOAD: ${{ inputs.payload }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_LIMIT_WAIT_MIN: '10'
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/rewrite-draft.mjs
+      - name: Keep the result
+        if: always()
+        run: |
+          git config user.name "duru-korean-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin rework-output
+          git worktree add ../rework-output origin/rework-output -B rework-output
+          mkdir -p ../rework-output/rewrite-jobs
+          cp out/*.json ../rework-output/rewrite-jobs/ 2>/dev/null || true
+          cd ../rework-output
+          git add -A rewrite-jobs
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Rewrite job ${{ inputs.job }}"
+          for i in 1 2 3 4 5 6 7 8; do
+            git pull -q --rebase -X theirs origin rework-output && git push -q origin rework-output && exit 0
+            sleep $(( (RANDOM % 20) + 5 * i ))
+          done
+          exit 1

@@ -5,9 +5,15 @@
 // version of the post — title, summary and body — and returns it; the editor shows it and the owner
 // saves it with the editor's own Save (which also translates it). Nothing is stored here.
 //
-//   POST { title, excerpt, body, instructions, apiKey?, baseUrl?, model? }
+//   POST { title, excerpt, body, instructions }          (owner, 2026-11-26: the default way)
+//   → 202 { job }   the draft is written on the owner's Claude subscription by a GitHub Actions run
+//                   (.github/workflows/rewrite-draft.yml); that run puts the result in rework-output.
+//   GET  ?job=<id>
+//   → 200 { status: 'pending' } | { status:'done', title, excerpt, body } | { status:'failed', error }
+//   Needs GH_DISPATCH_TOKEN on Vercel (a fine-grained GitHub token for this repository: Actions read/write,
+//   Contents read). Without it — or when the admin typed an API key — the old way is used:
+//   POST { …, apiKey?, baseUrl?, model? } → 200 { title, excerpt, body, provider, model } at once, with that key.
 //   Authorization: Bearer <the admin's Supabase access token>
-//   → 200 { title, excerpt, body, provider, model }
 //
 // Who writes: the server's own key (the same one api/translate.js uses: ANTHROPIC_API_KEY, OPENAI_API_KEY,
 // GOOGLE_API_KEY …) or, when the server has none, a key the admin types in the page (kept only in his
@@ -15,6 +21,7 @@
 // the provider is told from the key's look (sk-ant… Anthropic, AIza… Google, otherwise OpenAI-compatible,
 // with baseUrl for another gateway).
 
+import crypto from 'node:crypto';
 import { TranslateError, PROVIDERS, resolveProvider } from './_providers.js';
 
 export const config = { maxDuration: 60 };
@@ -67,10 +74,31 @@ const SCHEMA = {
   properties: { title: { type: 'string' }, excerpt: { type: 'string' }, body: { type: 'string' } }
 };
 
+const REPO = process.env.GH_REPO || 'cck0688-stack/duru-korean';
+const REF = process.env.GH_REF || 'claude/duru-korean-homepage-raysf6';
+const gh = (path, init = {}) => fetch('https://api.github.com/repos/' + REPO + path, {
+  ...init, headers: { Authorization: 'Bearer ' + process.env.GH_DISPATCH_TOKEN, Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'duru-rewrite', ...(init.headers || {}) }
+});
+
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return fail(res, 405, 'Use POST.');
+  if (req.method !== 'POST' && req.method !== 'GET') return fail(res, 405, 'Use POST or GET.');
   const who = await requireAdmin(req);
   if (!who.ok) return fail(res, who.status, who.message);
+
+  if (req.method === 'GET') {
+    const job = String((req.query && req.query.job) || '');
+    if (!/^[0-9a-f]{20,64}$/.test(job)) return fail(res, 400, 'Bad job.');
+    if (!process.env.GH_DISPATCH_TOKEN) return fail(res, 503, 'GitHub is not set up.');
+    try {
+      const r = await gh('/contents/rewrite-jobs/' + job + '.json?ref=rework-output');
+      if (r.status === 404) return res.status(200).json({ status: 'pending' });
+      if (!r.ok) return fail(res, 502, 'GitHub said ' + r.status);
+      const j = await r.json();
+      const o = JSON.parse(Buffer.from(j.content || '', 'base64').toString('utf8'));
+      return res.status(200).json(o);
+    } catch (e) { return fail(res, 502, 'Could not read the result.'); }
+  }
 
   let b = req.body;
   if (typeof b === 'string') { try { b = JSON.parse(b || '{}'); } catch (e) { b = {}; } }
@@ -80,6 +108,17 @@ export default async function handler(req, res) {
   if (!body.trim()) return fail(res, 400, 'The draft is empty.');
   if (body.length > 20000 || instructions.length > 4000) return fail(res, 413, 'Too long.');
   if (!instructions) return fail(res, 400, 'Write what to change first.');
+
+  // The default: the owner's subscription, through GitHub Actions.
+  if (process.env.GH_DISPATCH_TOKEN && !String(b.apiKey || '').trim()) {
+    const job = crypto.randomBytes(12).toString('hex');
+    try {
+      const r = await gh('/actions/workflows/rewrite-draft.yml/dispatches', { method: 'POST',
+        body: JSON.stringify({ ref: REF, inputs: { job, payload: JSON.stringify({ title, excerpt, body, ask: instructions }) } }) });
+      if (r.status !== 204) return fail(res, 502, 'GitHub said ' + r.status + ' when starting it.');
+    } catch (e) { return fail(res, 502, 'Could not start it.'); }
+    return res.status(202).json({ job });
+  }
 
   let cfg;
   try {
