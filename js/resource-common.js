@@ -514,7 +514,8 @@
 
   // Owner, 2026-11-14: three worksheets are free to open without an account; the fourth shows the 5-second
   // sign-up. The browser counts the distinct sheets (the server only keeps a per-address ceiling against robots).
-  var FREE_KEY = 'duru_free_opens', FREE_MAX = 3;
+  // Owner, 2026-11-28: three until 12 December (Seoul), then two — he looks at the sign-ups after two weeks and cuts it to two.
+  var FREE_KEY = 'duru_free_opens', FREE_MAX = Date.now() >= Date.parse('2026-12-12T00:00:00+09:00') ? 2 : 3;
   function freeOpened() { try { var a = JSON.parse(localStorage.getItem(FREE_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
   function freeLeft(id) { var a = freeOpened(); return a.indexOf(id) >= 0 ? FREE_MAX - a.length : Math.max(0, FREE_MAX - a.length); }
   function freeUse(id) { try { var a = freeOpened(); if (a.indexOf(id) < 0) { a.push(id); localStorage.setItem(FREE_KEY, JSON.stringify(a)); } } catch (e) { /* no storage: the server ceiling still holds */ } }
@@ -529,7 +530,7 @@
     var old = document.getElementById('freeGate'); if (old) old.remove();
     var o = document.createElement('div'); o.id = 'freeGate'; o.className = 'free-gate';
     o.innerHTML = '<div class="free-gate-box" role="dialog" aria-modal="true">' +
-      '<p class="free-gate-kicker">' + escapeHTML(tt('gate.kicker', 'You have used your 3 free worksheets')) + '</p>' +
+      '<p class="free-gate-kicker">' + escapeHTML(tt('gate.kicker', 'You have used your {n} free worksheets').replace('{n}', FREE_MAX)) + '</p>' +
       '<h2>' + escapeHTML(tt('gate.title', 'Sign up in 5 seconds — keep every worksheet free')) + '</h2>' +
       '<p>' + escapeHTML(tt('gate.body', 'One free account opens all the worksheets, in every language. No card, no fuss.')) + '</p>' +
       '<button type="button" class="btn btn-primary free-gate-go">' + escapeHTML(tt('gate.cta', 'Create my free account')) + '</button>' +
@@ -568,7 +569,7 @@
     localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
     cleanKeyword: cleanKeyword, keywordFor: keywordFor, downloadName: downloadName,
-    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin, signupBox: signupBox, freeLeft: freeLeft, freeUse: freeUse, canOpenFree: canOpenFree, showSignupGate: showSignupGate,
+    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin, signupBox: signupBox, FREE_MAX: FREE_MAX, freeLeft: freeLeft, freeUse: freeUse, canOpenFree: canOpenFree, showSignupGate: showSignupGate,
     fillAdminSources: fillAdminSources
   };
 })();

@@ -400,7 +400,7 @@ function renderReadOnline(resource, lang) {
         } else {
           label.textContent = t('resource.signupToDownload', 'Sign up in 5 seconds to download');
           prev.hidden = true;
-          note.textContent = t('resource.signupNote', 'You have used your 3 free worksheets. Sign up in 5 seconds — it is free.');
+          note.textContent = t('resource.signupNote', 'You have used your {n} free worksheets. Sign up in 5 seconds — it is free.').replace('{n}', R.FREE_MAX);
         }
         note.hidden = false;
         var box = $('resSignupBox');

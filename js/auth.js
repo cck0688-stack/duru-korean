@@ -126,14 +126,6 @@
               <input type="email" id="signupEmail" autocomplete="email" required>
             </div>
             <div class="auth-field">
-              <label for="signupNickname" data-i18n="auth.nickname">Nickname</label>
-              <input type="text" id="signupNickname" maxlength="40" required aria-required="true">
-            </div>
-            <div class="auth-field">
-              <label for="signupNationality" data-i18n="auth.nationality">Nationality</label>
-              <select id="signupNationality" required aria-required="true"></select>
-            </div>
-            <div class="auth-field">
               <label for="signupBirthDate" data-i18n="auth.birthDate">Birth Date</label>
               <input type="date" id="signupBirthDate" required>
             </div>
@@ -188,8 +180,6 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('beforeend', modalHTML);
-    const nationalitySelect = document.getElementById('signupNationality');
-    if (nationalitySelect) fillCountries(nationalitySelect);
 
     const overlay = document.getElementById('authOverlay');
     const closeBtn = document.getElementById('authCloseBtn');
@@ -317,7 +307,6 @@
       clearMessage('signup');
       if (!requireClient('signup')) return;
       const email = document.getElementById('signupEmail').value.trim();
-      const nickname = document.getElementById('signupNickname').value.trim();
       const birthDate = document.getElementById('signupBirthDate').value;
       const password = document.getElementById('signupPassword').value;
       const confirm = document.getElementById('signupPasswordConfirm').value;
@@ -325,10 +314,7 @@
       const privacyAgreed = document.getElementById('signupPrivacy').checked;
       const marketingAgreed = document.getElementById('signupMarketing').checked;
 
-      // Owner, 2026-11-14: a nickname is required to sign up (the field said "required" but the form skips the browser's check).
-      if (!nickname) { setMessage('signup', 'error', t('auth.errors.nicknameRequired', 'Please enter a nickname.')); document.getElementById('signupNickname').focus(); return; }
-      const nationality = document.getElementById('signupNationality').value;
-      if (!nationality) { setMessage('signup', 'error', t('auth.errors.nationalityRequired', 'Please select your nationality.')); document.getElementById('signupNationality').focus(); return; }
+      // Owner, 2026-11-28: the nickname and the nationality are asked right after sign-up (askForProfile), not on this form.
       if (password !== confirm) { setMessage('signup', 'error', t('auth.errors.passwordMismatch', 'Passwords do not match.')); return; }
       if (password.length < 6) { setMessage('signup', 'error', t('auth.errors.passwordTooShort', 'Password must be at least 6 characters.')); return; }
       if (!tosAgreed) { setMessage('signup', 'error', t('auth.errors.tosRequired', 'You must agree to the Terms of Service.')); return; }
@@ -340,7 +326,7 @@
         email, password,
         options: {
           emailRedirectTo: REDIRECT_URL,
-          data: { nickname: nickname, nationality: nationality },
+          data: {},
         },
       });
       setLoading(btn, false, 'auth.signupSubmit', 'Create account');
@@ -356,7 +342,6 @@
           .from('user_profiles')
           .insert({
             user_id: data.user.id,
-            nickname: nickname,
             birth_date: birthDate,
             tos_agreed: tosAgreed,
             privacy_agreed: privacyAgreed,
