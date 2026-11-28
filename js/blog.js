@@ -950,6 +950,7 @@
           '</button>' +
         '</div>' +
         '<div class="post-body' + (pairs ? ' post-body--mt' : '') + '">' + bodyHTML + '</div>' +
+        (signedIn ? '' : R.signupBox()) +
         renderTags(post, readLang) +
         // Straight under the writing, while the sentences are still in
         // mind. Sharing is what a reader does after, so it comes after.

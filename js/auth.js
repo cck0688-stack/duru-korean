@@ -232,6 +232,21 @@
     window.DURU_OPEN_AUTH = openModal;
     const trigger = document.getElementById('authTrigger');
     if (trigger) trigger.addEventListener('click', () => openModal('login'));
+    // Owner, 2026-11-28: any element with data-open-signup opens the sign-up tab, and a visitor sees a
+    // "Sign up free" button beside "Log in" (taken away once signed in).
+    document.addEventListener('click', (e) => {
+      const b = e.target.closest && e.target.closest('[data-open-signup]');
+      if (b) { e.preventDefault(); openModal('signup'); }
+    });
+    if (trigger && !document.getElementById('signupTrigger')) {
+      const sb = document.createElement('button');
+      sb.id = 'signupTrigger'; sb.type = 'button'; sb.className = 'btn-signup-head';
+      sb.setAttribute('data-open-signup', '');
+      sb.setAttribute('data-i18n', 'nav.signupFree');
+      sb.textContent = 'Sign up free';
+      trigger.parentNode.insertBefore(sb, trigger);
+      if (window.DURU_I18N && window.DURU_I18N.apply) window.DURU_I18N.apply(sb.parentNode);
+    }
 
     function t(key, fallback) {
       // DURU_I18N.t returns the key itself when the dictionary hasn't
@@ -521,6 +536,7 @@
 
     function renderSignedIn(user) {
       if (!trigger) return;
+      const sgn = document.getElementById('signupTrigger'); if (sgn) sgn.remove();
       const wrap = document.createElement('div');
       wrap.className = 'account-menu';
       wrap.innerHTML = `

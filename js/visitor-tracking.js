@@ -81,7 +81,11 @@
     client.rpc('get_visitor_counts').then(function (res) {
       var row = res.data && (Array.isArray(res.data) ? res.data[0] : res.data);
       if (res.error || !row) return;
-      box.querySelector('[data-visits-total]').textContent = Number(row.total_visits || 0).toLocaleString();
+      // Owner, 2026-11-28: the running total (49,382) is mostly robots from 9–26 November; it is not shown until the
+      // false rows are taken out. Today's count stays.
+      var totalEl = box.querySelector('[data-visits-total]');
+      totalEl.textContent = Number(row.total_visits || 0).toLocaleString();
+      if (totalEl.parentNode) totalEl.parentNode.hidden = true;
       box.querySelector('[data-visits-today]').textContent = Number(row.today_visits || 0).toLocaleString();
       box.hidden = false;
     });

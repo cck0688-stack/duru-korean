@@ -403,7 +403,11 @@ function renderReadOnline(resource, lang) {
           note.textContent = t('resource.signupNote', 'You have used your 3 free worksheets. Sign up in 5 seconds — it is free.');
         }
         note.hidden = false;
+        var box = $('resSignupBox');
+        if (!box) { box = document.createElement('div'); box.id = 'resSignupBox'; note.parentNode.insertBefore(box, note.nextSibling); }
+        box.innerHTML = R.signupBox();
       } else {
+        var oldBox = $('resSignupBox'); if (oldBox) oldBox.remove();
         label.textContent = t('resource.downloadFile', 'Download {fmt}').replace('{fmt}', fmt);
         prev.textContent = t('resource.previewFile', 'Preview {fmt}').replace('{fmt}', fmt);
         prev.hidden = !(have && R.PREVIEWABLE[chosen.file_type]);

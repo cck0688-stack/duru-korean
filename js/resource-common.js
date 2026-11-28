@@ -543,6 +543,14 @@
     o.querySelector('.free-gate-login').addEventListener('click', function () { close(); openLogin(); });
   }
 
+  // The sign-up box under a post or a worksheet, for a visitor (owner, 2026-11-28). Opens the sign-up tab.
+  function signupBox() {
+    var tt = function (k, d) { return (window.DURU_I18N && window.DURU_I18N.t && window.DURU_I18N.t(k) !== k) ? window.DURU_I18N.t(k) : d; };
+    return '<aside class="signup-box"><h3>' + escapeHTML(tt('cta.title', 'Like this? Get more, free.')) + '</h3>' +
+      '<p>' + escapeHTML(tt('cta.body', 'One free account — sign up in 5 seconds — opens every worksheet and keeps your place.')) + '</p>' +
+      '<button type="button" class="btn btn-primary" data-open-signup>' + escapeHTML(tt('cta.button', 'Sign up free — 5 seconds')) + '</button></aside>';
+  }
+
   function openLogin() {
     var trigger = document.getElementById('authTrigger');
     if (trigger) trigger.click();
@@ -560,7 +568,7 @@
     localized: localized, availableFiles: availableFiles, guessLang: guessLang,
     coverUrl: coverUrl, coverHTML: coverHTML, signedUrl: signedUrl,
     cleanKeyword: cleanKeyword, keywordFor: keywordFor, downloadName: downloadName,
-    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin, freeLeft: freeLeft, freeUse: freeUse, canOpenFree: canOpenFree, showSignupGate: showSignupGate,
+    pdfPageCount: pdfPageCount, isAdmin: isAdmin, openLogin: openLogin, signupBox: signupBox, freeLeft: freeLeft, freeUse: freeUse, canOpenFree: canOpenFree, showSignupGate: showSignupGate,
     fillAdminSources: fillAdminSources
   };
 })();

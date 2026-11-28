@@ -420,3 +420,12 @@ body.home-v2 {
 @media (max-width: 600px) {
   .home-v2 .site-header.menu-open .nav-main { background: #fff; }
 }
+
+/* Value line and sign-up button under the headline (owner, 2026-11-28). */
+.home-v2 .lp-lead { margin: 0 0 14px; max-width: 34em; font-size: clamp(14px, 1.15vw, 18px); line-height: 1.45; color: #3b3b3b; }
+.home-v2 .lp-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 18px; }
+.home-v2 .lp-cta-main { background: #C62828; color: #fff; border: 0; border-radius: 999px; padding: 12px 24px; font: 700 15px/1 inherit; cursor: pointer; box-shadow: 0 10px 22px -12px rgba(198,40,40,.9); }
+.home-v2 .lp-cta-main:hover { background: #a51f1f; }
+.home-v2 .lp-cta-sub { color: var(--hv-plum, #7a4e66); font-weight: 600; text-decoration: none; font-size: 14px; }
+.home-v2 .lp-cta-sub:hover { text-decoration: underline; }
+@media (max-width: 899px) { .home-v2 .lp-lead { font-size: 14px; } .home-v2 .lp-cta-main { padding: 12px 20px; } }

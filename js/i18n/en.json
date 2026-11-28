@@ -98,7 +98,7 @@
   "auth.resetSuccess": "If an account exists for {email}, a reset link is on its way.",
   "auth.resetTitle": "Reset your password",
   "auth.sdkNotice": "Sign-in couldn't start: the authentication library didn't load. That's usually a blocked CDN or a dropped connection, not your account. Reload the page, and if it keeps happening check whether your network allows <code>cdn.jsdelivr.net</code>.",
-  "auth.signupSub": "Start with a free Duru Korean account.",
+  "auth.signupSub": "Free · 5 seconds · no card needed.",
   "auth.signupSubmit": "Create account",
   "auth.signupSuccess": "We’ve sent a verification link to {email}. Confirm your email, then log in. Didn’t get it? Use \"Forgot password?\" from the log in tab to resend, or check your spam folder.",
   "auth.signupTitle": "Create your account",
@@ -954,5 +954,13 @@
   "blog.rewriteNeedKey": "The server is not set up for this. Paste an AI key below and press Generate again.",
   "blog.rewriteFailed": "Could not write it. Try again.",
   "blog.rewriteDone": "Done — read it above, then press Save.",
-  "blog.rewriteLate": "It is taking too long. Try again in a few minutes."
+  "blog.rewriteLate": "It is taking too long. Try again in a few minutes.",
+  "hero.h1html": "Learn Korean, <em>free</em>.<br>In your language.",
+  "hero.lead": "Printable worksheets, a daily blog and an audio-first book — in 10 languages. Sign up in 5 seconds.",
+  "hero.ctaSignup": "Sign up free — 5 seconds",
+  "hero.ctaBrowse": "Browse free downloads →",
+  "nav.signupFree": "Sign up free",
+  "cta.title": "Like this? Get more, free.",
+  "cta.body": "One free account — sign up in 5 seconds — opens every worksheet and keeps your place.",
+  "cta.button": "Sign up free — 5 seconds"
 }
