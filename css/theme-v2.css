@@ -568,9 +568,6 @@ body.theme-v2 {
 .post-rewrite-bad{color:#b3261e}
 
 /* Sign-up button in the header, and the sign-up box under posts and worksheets (owner, 2026-11-28). */
-.btn-signup-head{margin-right:8px;padding:8px 16px;border-radius:999px;border:1.5px solid #7a4e66;background:#fff;color:#7a4e66;font-weight:700;font-size:14px;cursor:pointer}
-.btn-signup-head:hover{background:#f6ecf1}
-@media (max-width:560px){.btn-signup-head{padding:7px 10px;font-size:12.5px;margin-right:4px}}
 .signup-box{margin:28px 0;padding:22px 20px;border-radius:16px;background:linear-gradient(135deg,#f9eef3,#eef0f9);text-align:center}
 .signup-box h3{margin:0 0 6px;font-size:1.15rem;color:#3d1f47}
 .signup-box p{margin:0 0 14px;color:#555;line-height:1.5}

@@ -4619,3 +4619,8 @@ section { position: relative; }
 }
 .mt-line--head .mt-src, .mt-line--head .mt-out { padding: 0; }
 .mt-line--head .mt-src::after { content: "\A"; white-space: pre; }
+
+/* "Sign up free" beside "Log in" in the header (owner, 2026-11-28); css/style.css is on every page. */
+.btn-signup-head{white-space:nowrap;margin-right:8px;padding:8px 16px;border-radius:999px;border:1.5px solid #7a4e66;background:#fff;color:#7a4e66;font-weight:700;font-size:14px;font-family:inherit;cursor:pointer}
+.btn-signup-head:hover{background:#f6ecf1}
+@media (max-width:640px){.btn-signup-head{display:none}}
